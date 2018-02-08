@@ -6,8 +6,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider>
-        <h1>Top Screen Browsing Component</h1>  
+      <MuiThemeProvider> 
         <div className="content">
           <h1 className="side-bar">SideBar Component</h1>  
           <main className="main-contents">
