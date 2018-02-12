@@ -50,7 +50,7 @@ export default class Categories extends React.Component {
                                     })
                                 }}
                                 style={this.state.one === false ? styles.defualt : styles.active}
-                                to="/one">Starred one</Link>,
+                                to="/one">Category one</Link>,
                             <Link
                                 onClick={() => {
                                     this.setState({
@@ -60,7 +60,7 @@ export default class Categories extends React.Component {
                                     })
                                 }}
                                 style={this.state.two === false ? styles.defualt : styles.active}
-                                to="/two">Starred two</Link>,
+                                to="/two">Category two</Link>,
                             <Link
                                 onClick={() => {
                                     this.setState({
@@ -70,7 +70,7 @@ export default class Categories extends React.Component {
                                     })
                                 }}
                                 style={this.state.three === false ? styles.defualt : styles.active}
-                                to="/three">Starred three</Link>
+                                to="/three">Category three</Link>
                         ]}
                     />
                 </List>
