@@ -1,0 +1,13 @@
+.categories svg{
+    color: #1abcd4  !important;
+}
+.categories a{
+    display: block;
+    text-decoration: none;
+    padding: .3em .3em .3em 2em;
+    margin-bottom: .5em;
+    color: #95999c;
+}
+.categories a:hover{
+    background: #ddd;
+}
