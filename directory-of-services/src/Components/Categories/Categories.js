@@ -12,10 +12,6 @@ const styles = {
         background: 'transparent',
         color: '#95999c'
     },
-    category: {
-        marginLeft: '15px',
-        color: '#95999c'
-    },
     categoryState: {
         color: '#1abcd4',
         marginLeft: '15px',
@@ -36,7 +32,7 @@ export default class Categories extends React.Component {
         return (
             <div>
                 <List className="categories">
-                    <ListItem style={styles.category}
+                    <ListItem className="category"
                         style={this.state.categoryState === false ? styles.categoryState : styles.defualt}
                         primaryText="Categories"
                         initiallyOpen={false}

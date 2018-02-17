@@ -11,3 +11,7 @@
 .categories a:hover{
     background: #ddd;
 }
+.category{
+    margin-left: 15px;
+    color: #1abcd4
+}
