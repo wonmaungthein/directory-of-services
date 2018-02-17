@@ -4,8 +4,6 @@ var path = require('path')
 const morgan = require('morgan');
 var morganDebug = require('morgan-debug');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
 var router = require('./routes/api');
 
 var app = express();
@@ -19,8 +17,6 @@ app.use(morganDebug('backend', 'combined'));
 // static view
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
 app.use('/api', router);
 
 // catch 404 and forward to error handler
