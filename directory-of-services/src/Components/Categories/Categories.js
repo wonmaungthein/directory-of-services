@@ -3,29 +3,10 @@ import { List, ListItem } from 'material-ui/List';
 import { Link } from "react-router-dom";
 import './categories.css'
 
-const styles = {
-    active: {
-        background: '#1abcd4',
-        color: '#000'
-    },
-    defualt: {
-        background: 'transparent',
-        color: '#95999c'
-    },
-    categoryState: {
-        color: '#1abcd4',
-        marginLeft: '15px',
-    }
-}
-
 export default class Categories extends React.Component {
 
     state = {
         open: false,
-        one: true,
-        two: false,
-        three: false,
-        categoryState: false
     };
 
     render() {
@@ -33,40 +14,18 @@ export default class Categories extends React.Component {
             <div>
                 <List className="categories">
                     <ListItem className="category"
-                        style={this.state.categoryState === false ? styles.categoryState : styles.defualt}
                         primaryText="Categories"
                         initiallyOpen={false}
                         nestedItems={[
-                            <Link
-                                onClick={() => {
-                                    this.setState({
-                                        one: true,
-                                        two: false,
-                                        three: false,
-                                    })
-                                }}
-                                style={this.state.one === false ? styles.defualt : styles.active}
-                                to="/debt">Debt</Link>,
-                            <Link
-                                onClick={() => {
-                                    this.setState({
-                                        one: false,
-                                        two: true,
-                                        three: false,
-                                    })
-                                }}
-                                style={this.state.two === false ? styles.defualt : styles.active}
-                                to="/ypfamilies">YP Families</Link>,
-                            <Link
-                                onClick={() => {
-                                    this.setState({
-                                        one: false,
-                                        two: false,
-                                        three: true,
-                                    })
-                                }}
-                                style={this.state.three === false ? styles.defualt : styles.active}
-                                to="/womendv">Women DV</Link>
+                            <Link to="/debt">Debt</Link>,
+                            <Link to="/ypfamilies">YP Families</Link>,
+                            <Link to="/womendv">Women DV</Link>,
+                            <Link to="/trafficking">Trafficking</Link>,
+                            <Link to="/destitution">Destitution</Link>,
+                            <Link to="/lgbtqi">LGBTQI</Link>,
+                            <Link to="/mentalhealthservices">Mental Health Services</Link>,
+                            <Link to="/healthcare">Healthcare</Link>,
+                            <Link to="/womendv">Women DV</Link>
                         ]}
                     />
                 </List>
