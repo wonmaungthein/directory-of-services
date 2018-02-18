@@ -1,18 +1,14 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path')
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path')
 const morgan = require('morgan');
-var morganDebug = require('morgan-debug');
 
-var router = require('./routes/api');
+const router = require('./routes/api');
 
-var app = express();
+const app = express();
 
 // Show requestes with morgan
 app.use(morgan('combined'));
-
-//Morgan debug
-app.use(morganDebug('backend', 'combined'));
 
 // static view
 app.use(express.static(path.join(__dirname, 'public')));
@@ -21,7 +17,7 @@ app.use('/api', router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
