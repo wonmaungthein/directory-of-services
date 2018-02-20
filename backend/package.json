@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "lint": "./node_modules/.bin/eslint ./bin/www"
+    "lint": "./node_modules/.bin/eslint **/*.js"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
