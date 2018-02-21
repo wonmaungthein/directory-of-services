@@ -1,7 +1,6 @@
 module.exports = {
     "extends": ["airbnb", "prettier"],
     "parser": "babel-eslint",
-    "plugins": ["flowtype"],
     "rules": {
         "jsx-a11y/anchor-is-valid": [
             "error",
