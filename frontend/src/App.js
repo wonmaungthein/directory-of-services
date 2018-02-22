@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import SideBar from "./Components/SideBar/SideBar";
+import Home from './Components/Home/Home'
 
 import "./App.css";
 
@@ -12,7 +12,7 @@ const App = () => (
       <div className="content">
         <SideBar />
         <main className="main-contents">
-          <h1>Content Contents</h1>
+          <Home />
         </main>
       </div>
     </MuiThemeProvider>

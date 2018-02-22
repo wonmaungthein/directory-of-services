@@ -1,0 +1,31 @@
+/*=========== Home page =============*/
+.home-page{
+    height: 100%;
+    width: 100%;
+}
+.main-nav{
+    display: flex;
+    margin-top: 2.5em;
+    padding-left: 15px;
+}
+.main-nav .orgonaization-title{
+    width: 48%;
+    display: flex;
+    align-items: center;
+}
+.main-nav .orgonaization-title .add-orgonaization-button{
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 0 .6em 1em;
+    color: #bbb;
+}
+.main-nav .add-orgnaization svg{
+    color: #bbb !important;
+}
+.main-nav .login-section{
+    width: 50%;
+    margin: auto 0;
+    justify-content: flex-end;
+    display: flex;
+    color: #bbb;
+}
