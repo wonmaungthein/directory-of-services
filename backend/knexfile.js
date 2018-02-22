@@ -1,4 +1,5 @@
 module.exports = {
+  
   development: {
     client: 'sqlite3',
     useNullAsDefault: true,
@@ -17,4 +18,5 @@ module.exports = {
       max: 10,
     },
   },
+
 };

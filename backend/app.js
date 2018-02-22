@@ -2,10 +2,24 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path')
 const morgan = require('morgan');
+const knex = require('knex');
+var knex2 = interopRequireDefault(knex);
+var objection = require('objection');
+var knexfile = require('./knexfile');
+
+function interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var knexfile2 = interopRequireDefault(knexfile);
 
 const router = require('./routes/api');
 
 const app = express();
+
+// Initialize knex.
+const _knex = (0, knex2.default)(knexfile2.default.development);
+
+// Bind all Models to a knex instance.
+objection.Model.knex(_knex);
 
 // Show requestes with morgan
 app.use(morgan('combined'));
