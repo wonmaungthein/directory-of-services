@@ -3,13 +3,13 @@ const bodyParser = require('body-parser');
 const path = require('path')
 const morgan = require('morgan');
 const knex = require('knex');
-var knex2 = interopRequireDefault(knex);
-var objection = require('objection');
-var knexfile = require('./knexfile');
+const knex2 = interopRequireDefault(knex);
+const objection = require('objection');
+const knexfile = require('./knexfile');
 
 function interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var knexfile2 = interopRequireDefault(knexfile);
+const knexfile2 = interopRequireDefault(knexfile);
 
 const router = require('./routes/api');
 
