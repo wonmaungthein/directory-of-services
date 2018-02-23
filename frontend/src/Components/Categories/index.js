@@ -9,6 +9,12 @@ class Categories extends Component{
     categoriesList: false
   }
 
+  onClickChange = () => {
+    this.setState({
+      categoriesList: !this.state.categoriesList
+    })
+  }
+
   showListOfcategories = () => {
     if (this.state.categoriesList) {
       return <ul>
@@ -25,11 +31,7 @@ class Categories extends Component{
     }
   }
 
-  onClickChange = () => {
-    this.setState({
-      categoriesList: !this.state.categoriesList
-    })
-  }
+
     
   render() {
     return (

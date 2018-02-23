@@ -1,8 +1,7 @@
 import React from 'react';
-//import ContentAdd from 'material-ui/svg-icons/content/add';
 import { Link } from "react-router-dom";
 import './home.css'
-//<ContentAdd className="button-icon" />
+
 const Home = () =>(
   <div>
     <div className="main-nav">
