@@ -27,11 +27,30 @@
     padding-top: 1em;
 }
 /**************** Edit **********************/
- .customContentStyle{
-        width: 580px !important;
-        Height: 100em !important;
-        max-width:none !important;
-        margin-left: 40vw !important;
+.text-field,
+.text-field-two{
+    width: 45px !important;
+    font-size: .9em !important;
+    top: 1px !important;
+    padding: 0 !important;
+}
+.text-field-two{
+    width: 75px !important;
+    padding-left: .5em !important;
+}
+.text-field input,
+.text-field-two input{
+    font-size: .9em !important;
+    color: #bbb !important
+}
+.health-advice{
+    top: -5px !important;
+}
+ .edit-content{
+  height: 20em !important;
+}
+.select-boroug{
+  min-width: 10em !important;
 }
 .edit-orgonaization-form .input-field{
     width: 45px !important;
@@ -40,14 +59,17 @@
     padding: 0 !important;
 }
 .edit-button{
-    border: none;
+    border: none !important;
     background: transparent;
     position: absolute;
     right: 10px;
     top: 10px;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     color: #1abcd4;
+}
+.edit-button:focus{
+    border: none !important;
 }
 .edit-logo{
     position: absolute;
@@ -57,7 +79,7 @@
     color: #bbb;
 }
 .details-area{
-    margin-top: -40px !important;
+    margin-top: 0px !important;
 }
 .cancel-button{
      position: absolute !important;
