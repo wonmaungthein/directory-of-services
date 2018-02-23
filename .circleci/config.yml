@@ -43,7 +43,10 @@ jobs:
     docker:
       - image: circleci/node:8.9
     steps:
-      - checkout      
+      - checkout
+      - run:
+          name: Install dependencies for lint and test
+          command: cd frontend && yarn
       - run:
           name: Lint project
           command: pwd && ls && cd frontend && yarn lint
