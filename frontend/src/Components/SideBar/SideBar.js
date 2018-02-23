@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Categories from "../Categories/index";
+import Categories from "../Categories";
 import "./side-bar.css";
 
 const SideBar = () => (
