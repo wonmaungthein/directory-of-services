@@ -21,7 +21,7 @@ jobs:
   frontend_build:
     docker:
       - image: circleci/node:8.9
-    working_directory: ~/
+    working_directory: ~/dos
     steps:
       - checkout
       - restore_cache:
