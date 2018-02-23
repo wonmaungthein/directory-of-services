@@ -56,6 +56,6 @@ jobs:
   frontend_deploy:
     docker:
       - image: circleci/node:8.9    
-      steps:
+    steps:
       - run: mkdir -p workspace
       - run: echo "Hello, world!" > workspace/echo-output
