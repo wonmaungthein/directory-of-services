@@ -1,10 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import { BrowserRouter as Router } from "react-router-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import SideBar from "./Components/SideBar/SideBar";
-import OrganisationCard from './Components/Organisation/OrganisationCard'
-import AddOrganisation from './Components/Organisation/AddOrganisation'
+import Home from './Components/Home'
 
 import "./App.css";
 
@@ -14,9 +12,7 @@ const App = () => (
       <div className="content">
         <SideBar />
         <main className="main-contents">
-          <h1>Content Contents</h1>
-          <Route path="/healthcare" component={OrganisationCard} />
-          <Route path="/addorganisation" component={AddOrganisation} />
+          <Home />
         </main>
       </div>
     </MuiThemeProvider>
