@@ -1,8 +1,4 @@
 version: 2
-defaults: &defaults
-  working_directory: /tmp
-  docker:
-    - image: circleci/node:8.9
 workflows:
   version: 2
   frontend:
@@ -25,12 +21,12 @@ jobs:
   frontend_build:
     docker:
       - image: circleci/node:8.9
-    working_directory: ~/frontend
+    working_directory: ~/
     steps:
       - checkout
       - restore_cache:
           keys:
-            - yarn-dependencies-{{ checksum "yarn.lock" }}
+            - yarn-dependencies-{{ checksum "frontend/yarn.lock" }}
       - run:
           name: "Checking Versions"
           command: |
@@ -40,19 +36,19 @@ jobs:
           name: Install project dependencies
           command: cd frontend && yarn --frozen-lockfile
       - save_cache:
-          key: yarn-dependencies-{{ checksum "yarn.lock" }}
+          key: yarn-dependencies-{{ checksum "frontend/yarn.lock" }}
           paths:
-            - "node_modules"
+            -  ./frontend/node_modules
   frontend_test:
     docker:
       - image: circleci/node:8.9
     steps:
       - run:
           name: Lint project
-          command: cd frontend && yarn lint
+          command: pwd && cd frontend && yarn lint
       - run:
           name: Run unit tests
-          command: cd frontend && yarn test
+          command: pwd && cd frontend && yarn test
   frontend_deploy:
     docker:
       - image: circleci/node:8.9    
