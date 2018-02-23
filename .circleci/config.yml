@@ -45,7 +45,7 @@ jobs:
     steps:
       - run:
           name: Lint project
-          command: pwd && cd frontend && yarn lint
+          command: pwd && ls && cd frontend && yarn lint
       - run:
           name: Run unit tests
           command: pwd && cd frontend && yarn test
