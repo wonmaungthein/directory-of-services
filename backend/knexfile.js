@@ -1,5 +1,4 @@
 module.exports = {
-  
   development: {
     client: 'sqlite3',
     useNullAsDefault: true,
@@ -7,7 +6,6 @@ module.exports = {
       filename: '../data/dos.db',
     },
   },
-
   production: {
     client: 'postgresql',
     connection: {
@@ -18,5 +16,4 @@ module.exports = {
       max: 10,
     },
   },
-
 };
