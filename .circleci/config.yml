@@ -23,6 +23,8 @@ workflows:
             - frontend_test
 jobs:
   frontend_build:
+    docker:
+      - image: circleci/node:8.9
     working_directory: ~/frontend
     steps:
       - checkout
@@ -42,6 +44,8 @@ jobs:
           paths:
             - "node_modules"
   frontend_test:
+    docker:
+      - image: circleci/node:8.9    
     steps:
       - run:
           name: Lint project
