@@ -6,7 +6,6 @@ module.exports = {
       filename: '../data/dos.db',
     },
   },
-
   production: {
     client: 'postgresql',
     connection: {
