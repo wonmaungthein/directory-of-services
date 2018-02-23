@@ -2,6 +2,9 @@ branch-defaults:
   default:
     environment: dos-staging
     group_suffix: null
+  devops:
+    environment: dos-staging
+    group_suffix: null
   master:
     environment: dos-staging
 environment-defaults:
