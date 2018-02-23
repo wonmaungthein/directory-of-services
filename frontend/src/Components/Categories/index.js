@@ -9,21 +9,21 @@ class Categories extends Component{
     categoriesList: false
   }
 
-    showListOfcategories = () => {
-      if (this.state.categoriesList) {
-        return <ul>
-          <li><Link to="/debt">Debt</Link></li>
-          <li><Link to="/ypfamilies">YP Families</Link></li>
-          <li><Link to="/womendv">Women DV</Link></li>
-          <li><Link to="/trafficking">Trafficking</Link></li>
-          <li><Link to="/destitution">Destitution</Link></li>
-          <li><Link to="/lgbtqi">LGBTQI</Link></li>
-          <li><Link to="/mentalhealthservices">Mental Health Services</Link></li>
-          <li><Link to="/healthcare">Healthcare</Link></li>
-          <li><Link to="/womendv">Women DV</Link></li>
-        </ul>
-      }
+  showListOfcategories = () => {
+    if (this.state.categoriesList) {
+      return <ul>
+        <li><Link to="/debt">Debt</Link></li>
+        <li><Link to="/ypfamilies">YP Families</Link></li>
+        <li><Link to="/womendv">Women DV</Link></li>
+        <li><Link to="/trafficking">Trafficking</Link></li>
+        <li><Link to="/destitution">Destitution</Link></li>
+        <li><Link to="/lgbtqi">LGBTQI</Link></li>
+        <li><Link to="/mentalhealthservices">Mental Health Services</Link></li>
+        <li><Link to="/healthcare">Healthcare</Link></li>
+        <li><Link to="/womendv">Women DV</Link></li>
+      </ul>
     }
+  }
 
   onClickChange = () => {
     this.setState({
