@@ -1,18 +1,22 @@
-# directory-of-services
+# Directory-of-services
 
-Directory of Services
+---
+
+[![CircleCI](https://circleci.com/gh/CodeYourFuture/directory-of-services/tree/master.svg?style=svg)](https://circleci.com/gh/CodeYourFuture/directory-of-services/tree/master)
+
+This is the Directory of Services project live at [https://dos.codeyourfuture.io](https://dos.codeyourfuture.io)
 
 ## Getting started
 
-Installation:
+Install project dependencies:
 
 ```sh
-yarn # install project dependencies
+yarn
 ```
 
-Run:
+Run project locally:
 
 ```sh
-cd frontend && yarn start # start application on localhost:3000
+cd frontend && yarn start
 cd backend && yarn start
 ```
