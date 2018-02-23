@@ -45,7 +45,7 @@ jobs:
             - "node_modules"
   frontend_test:
     docker:
-      - image: circleci/node:8.9    
+      - image: circleci/node:8.9
     steps:
       - run:
           name: Lint project
@@ -54,6 +54,8 @@ jobs:
           name: Run unit tests
           command: cd frontend && yarn test
   frontend_deploy:
+    docker:
+      - image: circleci/node:8.9    
       steps:
       - run: mkdir -p workspace
       - run: echo "Hello, world!" > workspace/echo-output
