@@ -14,7 +14,8 @@
     "lint": "./node_modules/.bin/eslint src",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "aws s3 cp build/ s3://cyf-dos --acl public-read  --recursive"
   },
   "devDependencies": {
     "eslint": "^4.18.0",
