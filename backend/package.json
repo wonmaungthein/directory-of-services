@@ -1,26 +1,38 @@
 {
-  "name": "backend",
-  "version": "0.0.0",
+  "name": "dos-backend",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
+    "babel-node": "babel-node --presets=latest",
+    "build": "babel src -d dist",
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "lint": "./node_modules/.bin/eslint **/*.js"
+    "lint": "./node_modules/.bin/eslint **/*.js",
+    "fix": "find ./node_modules/* -mtime +10950 -exec touch {} \\;"
   },
   "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
     "body-parser": "~1.18.2",
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "knex": "^0.14.4",
     "morgan": "^1.9.0",
-    "nodemon": "^1.14.12",
     "objection": "^1.0.0",
-    "pg": "^7.4.1",
-    "sqlite3": "^3.1.13"
+    "pg": "^7.4.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-latest": "^6.24.1",
     "eslint": "^4.18.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0"
+    "eslint-plugin-import": "^2.8.0",
+    "nodemon": "^1.15.1"
+  },
+  "babel": {
+    "presets": [
+      "latest"
+    ]
   }
 }
