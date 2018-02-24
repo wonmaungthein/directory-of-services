@@ -58,9 +58,10 @@ jobs:
     docker:
       - image: circleci/node:8.9    
     steps:
+      - checkout      
       - run:
           name: Build project
-          command: cd frontend && yarn build
+          command: cd frontend && yarn && yarn build
       - run:
           name: Deploy to AWS S3
           command: cd frontend && yarn deploy
