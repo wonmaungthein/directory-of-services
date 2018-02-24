@@ -12,14 +12,14 @@ class EditOrganisation extends React.Component {
     open: false,
     area: "North",
     borough: "Haringey",
-    orgonaizationName: "Orgonaization name",
+    orgonaizationName: "Haringey Migrant Service",
     advices: "- Help accessing NHS",
     process: "Call in advance (appt only)",
     day: "Monday",
     telephone: "028 297 4111",
     email: "test@test.co.uk",
     website: "http://www.haringeymsc.org",
-    category: ""
+    category: false
   };
 
   handleClickOpen = () => {
@@ -64,6 +64,12 @@ class EditOrganisation extends React.Component {
     });
   }
 
+  handleCheckbox = e => {
+    this.setState({
+      category: e.target.value
+    })
+  }
+
   render() {
     return (
       <div>
@@ -74,20 +80,20 @@ class EditOrganisation extends React.Component {
           aria-labelledby="responsive-dialog-title"
         >
           <DialogContent className="edit-content">
-            <span className="edit-logo">Editing</span>  
-              <form className="edit-orgonaization-form">
+            <span className="edit-logo">Editing</span>
+            <form className="edit-orgonaization-form">
               <TextField
-                  fullWidth={true}
-                  name="orgonaizationName"
-                  value={this.state.orgonaizationName}
-                  onChange={e => this.handleChange(e)}
-                />
-                <h6 className="details-area">Area: <TextField
-                  className="text-field"
-                  fullWidth={false}
-                  name="area"
-                  value={this.state.area}
-                  onChange={e => this.handleChange(e)}
+                fullWidth={true}
+                name="orgonaizationName"
+                value={this.state.orgonaizationName}
+                onChange={e => this.handleChange(e)}
+              />
+              <h6 className="details-area">Area: <TextField
+                className="text-field"
+                fullWidth={false}
+                name="area"
+                value={this.state.area}
+                onChange={e => this.handleChange(e)}
               /> | Borough:<TextField
                   className="text-field-two"
                   fullWidth={false}
@@ -95,68 +101,80 @@ class EditOrganisation extends React.Component {
                   value={this.state.borough}
                   onChange={e => this.handleChange(e)}
                 />
-                </h6>
-                <div className="health-advice-process">
-                  <p> - Health advice</p>
-                  <TextField
+              </h6>
+              <div className="health-advice-process">
+                <p><strong>- Health advice</strong></p>
+                <TextField
                   className="health-advice"
+                  fullWidth={true}
+                  name="advices"
+                  value={this.state.advices}
+                  onChange={e => this.handleChange(e)}
+                />
+              </div>
+              <div className="process-date">
+                <div className="process">
+                  <h3><strong>Process</strong></h3>
+                  <TextField
+                    className="health-advice"
                     fullWidth={true}
-                    name="advices"
-                    value={this.state.advices}
+                    name="process"
+                    value={this.state.process}
                     onChange={e => this.handleChange(e)}
                   />
                 </div>
-                <div className="process-date">
-                  <div className="process">
-                    <h3><strong>Process</strong></h3>
-                    <TextField
+                <div className="date">
+                  <h3><strong>Day</strong></h3>
+                  <TextField
                     className="health-advice"
-                      fullWidth={true}
-                      name="process"
-                      value={this.state.process}
-                      onChange={e => this.handleChange(e)}
-                    />
-                  </div>
-                  <div className="date">
-                    <h3><strong>Day</strong></h3>
-                    <TextField
-                    className="health-advice"
-                      fullWidth={true}
-                      name="day"
-                      value={this.state.day}
-                      onChange={e => this.handleChange(e)}
-                    />
-                  </div>
+                    fullWidth={true}
+                    name="day"
+                    value={this.state.day}
+                    onChange={e => this.handleChange(e)}
+                  />
                 </div>
-                <div className="telephone-email">
-                  <div className="telephone">
-                    <h3><strong>Telephone</strong></h3>
-                    <TextField
+              </div>
+              <div className="telephone-email">
+                <div className="telephone">
+                  <h3><strong>Telephone</strong></h3>
+                  <TextField
                     className="health-advice"
-                      fullWidth={true}
-                      name="telephone"
-                      value={this.state.telephone}
-                      onChange={e => this.handleChange(e)}
-                    />
-                  </div>
-                  <div className="email">
-                    <h3><strong>Email</strong></h3>
-                    <TextField
-                      className="health-advice"
-                      fullWidth={true}
-                      name="email"
-                      value={this.state.email}
-                      onChange={e => this.handleChange(e)}
-                    />
-                  </div>
+                    fullWidth={true}
+                    name="telephone"
+                    value={this.state.telephone}
+                    onChange={e => this.handleChange(e)}
+                  />
                 </div>
-                <TextField
-                  fullWidth={true}
-                  name="website"
-                  value={this.state.website}
-                  onChange={e => this.handleChange(e)}
-                />
-              </form>
+                <div className="email">
+                  <h3><strong>Email</strong></h3>
+                  <TextField
+                    className="health-advice"
+                    fullWidth={true}
+                    name="email"
+                    value={this.state.email}
+                    onChange={e => this.handleChange(e)}
+                  />
+                </div>
+              </div>
+              <TextField
+                fullWidth={true}
+                name="website"
+                value={this.state.website}
+                onChange={e => this.handleChange(e)}
+              />
+              <span className="categories-checkbox-title"><strong>Categories</strong></span>
+              <div className="categories-chckbox">
+                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="Debt" /><span> Debt</span></div>
+                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="ypfamilies" /><span> YP Families</span></div>
+                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="womendv" /><span> Women DV</span></div>
+                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="Bike" /><span> Trafficking</span></div>
+                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="trafficking" /><span> HealthCare</span></div>
+                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="destitution" /><span> Destitution</span></div>
+                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="lgbtqi" /><span> LGBTQI</span></div>
+                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="mentalhealthservices" /><span> Mental Health Services</span></div>
+                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="healthcare" /><span> Healthcare</span></div>
+              </div>
+            </form>
           </DialogContent>
           <DialogActions>
             <Button className="cancel-button" onClick={this.handleClose} color="primary">
