@@ -1,4 +1,4 @@
-import { Model } from 'objection';
+const { Model } = require('objection');
 
 export default class Organisation extends Model {
   static get tableName() {
@@ -11,7 +11,7 @@ export default class Organisation extends Model {
 
       properties: {
         org_id: { type: 'integer' },
-        ownerId: { type: ['integer', 'null'] },
+        // ownerId: { type: ['integer', 'null'] },
         org_name: { type: 'string', minLength: 1, maxLength: 255 },
         website: { type: 'string', minLength: 1, maxLength: 255 },
         email_address: { type: 'string', minLength: 1, maxLength: 255 },

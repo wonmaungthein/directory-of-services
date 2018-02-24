@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path')
+const path = require('path');
 const morgan = require('morgan');
 
 const router = require('./routes/api');
@@ -12,6 +12,7 @@ app.use(morgan('combined'));
 
 // static view
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json({ limit: '10mb' }));
 
 app.use('/api', router);
 
