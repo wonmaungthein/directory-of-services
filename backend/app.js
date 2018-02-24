@@ -9,7 +9,7 @@ const router = require('./routes/api');
 const app = express();
 
 // Initialize knex.
-const knexConfig = (knexfile.development);
+const knexConfig = knexfile.development;
 
 // Bind all Models to a knex instance.
 Model.knex(knexConfig);
@@ -18,8 +18,7 @@ Model.knex(knexConfig);
 app.use(morgan('combined'));
 
 // static view
-app.use(express.static(path.join(__dirname, 'public')))
-  .use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public'))).use(bodyParser.json());
 
 app.use('/api', router);
 
@@ -38,7 +37,7 @@ app.use((err, req, res) => {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send('error');
 });
 
 module.exports = app;
