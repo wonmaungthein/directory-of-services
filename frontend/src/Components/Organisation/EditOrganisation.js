@@ -167,8 +167,8 @@ class EditOrganisation extends React.Component {
                 <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="Debt" /><span> Debt</span></div>
                 <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="ypfamilies" /><span> YP Families</span></div>
                 <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="womendv" /><span> Women DV</span></div>
-                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="Bike" /><span> Trafficking</span></div>
-                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="trafficking" /><span> HealthCare</span></div>
+                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="trafficking" /><span> Trafficking</span></div>
+                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="healthcare" /><span> HealthCare</span></div>
                 <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="destitution" /><span> Destitution</span></div>
                 <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="lgbtqi" /><span> LGBTQI</span></div>
                 <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="mentalhealthservices" /><span> Mental Health Services</span></div>
