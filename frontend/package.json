@@ -15,7 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "aws s3 sync build/ s3://cyf-dos --delete --acl public-read"
+    "deploy":
+      "AWS_DEFAULT_REGION=eu-west-1 AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY aws s3 sync build/ s3://cyf-dos --delete --acl public-read"
   },
   "devDependencies": {
     "eslint": "^4.18.0",
