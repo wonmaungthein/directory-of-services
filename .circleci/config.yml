@@ -67,4 +67,4 @@ jobs:
           command: cd frontend && yarn && yarn build
       - run:
           name: Deploy to AWS S3
-          command: cd frontend && yarn deploy
+          command: .circleci/deploy.sh
