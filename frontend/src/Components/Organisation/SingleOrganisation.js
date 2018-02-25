@@ -1,70 +1,71 @@
 import React, { Component } from 'react';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import EditOrganisation from './EditOrganisation'
-import './organisation.css'
+import Dialog, {
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from 'material-ui/Dialog';
+import EditOrganisation from './EditOrganisation';
+import './organisation.css';
 
-import ContentAdd from 'material-ui/svg-icons/content/add';
+class SingleOrganisation extends Component {
+  state = {
+    open: false,
+  };
 
-const customContentStyle = {
-    width: '500px',
-    maxWidth: 'none',
-};
+  handleOpen = () => {
+    this.setState({ open: true });
+  };
 
-class SingleOrganisation extends React.Component {
-    state = {
-        open: false,
-    };
-
-    handleOpen = () => {
-        this.setState({ open: true });
-    };
-
-    handleClose = () => {
-        this.setState({ open: false });
-    };
-    render() {
-        return (
-            <div>
-                <button className="orgnaization-detais" onClick={this.handleOpen}><ContentAdd className="button-icon" /><span className="button-title">DETAILS</span></button>
-                <Dialog
-                    title="Haringey Migrant Service"
-                    modal={false}
-                    open={this.state.open}
-                    contentStyle={customContentStyle}
-                    onRequestClose={this.handleClose}
-                >
-                    <EditOrganisation />
-                    <h4 className="details-area">Area: North | Borough: Haringey</h4>
-                    <div className="health-advice-process">
-                        <p> - Health advice</p>
-                        <p> - Help accessing NHS</p>
-                    </div>
-                    <div className="process-date">
-                        <div className="process">
-                            <h3><strong>Process</strong></h3>
-                            <p>Call in advance (appt only)</p>
-                        </div>
-                        <div className="date">
-                            <h3><strong>Day</strong></h3>
-                            <p>Monday</p>
-                        </div>
-                    </div>
-                    <div className="telephone-email">
-                        <div className="telephone">
-                            <h3><strong>Telephone</strong></h3>
-                            <p>028 297 4111</p>
-                        </div>
-                        <div className="email">
-                            <h3><strong>Email</strong></h3>
-                            <p>test@test.com</p>
-                        </div>
-                    </div>
-                    <a className="website-link" target="blank" href="http://www.haringeymsc.org">http://www.haringeymsc.org</a>
-                    <h5 className="detail-footer">Healthcare, trafficking, destituition</h5>
-                </Dialog>
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+  render() {
+    return (
+      <div className="single-oganisation">
+        <button className="orgnaization-detais-button" onClick={this.handleOpen}><span className="button-title">DETAILS</span></button>
+        <Dialog
+          className="single-org-dialog"
+          open={this.state.open}
+          onClose={this.handleClose}
+          onRequestClose={this.handleClose}
+        >
+          <DialogActions>
+            <button onClick={this.handleClose} className="single-oganisation-close-button">Close</button>
+          </DialogActions>
+          <EditOrganisation />
+          <DialogTitle className="single-oganisation-title" id="alert-dialog-title">Haringey Migrant Service</DialogTitle>
+          <DialogContent className="single-oganisation-content">
+            <h4 className="details-area">Area: North | Borough: Haringey</h4>
+            <div className="health-advice-process">
+              <h4> - Health advice</h4>
+              <h4> - Help accessing NHS</h4>
             </div>
-        )
-    }
+            <div className="process-date">
+              <div className="process">
+                <h4>Process</h4>
+                <p>Call in advance (appt only)</p>
+              </div>
+              <div className="date">
+                <h4>Day</h4>
+                <p>Monday</p>
+              </div>
+            </div>
+            <div className="telephone-email">
+              <div className="telephone">
+                <h4>Telephone</h4>
+                <p>028 297 4111</p>
+              </div>
+              <div className="email">
+                <h4>Email</h4>
+                <p>test@test.com</p>
+              </div>
+            </div>
+            <a className="website-link" target="blank" href="http://www.haringeymsc.org">http://www.haringeymsc.org</a>
+            <h5 className="detail-footer">Healthcare, trafficking, destituition</h5>
+          </DialogContent>
+        </Dialog>
+      </div>
+    )
+  }
 }
 export default SingleOrganisation;

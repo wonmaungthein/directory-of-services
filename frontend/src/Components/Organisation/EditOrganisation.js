@@ -43,7 +43,6 @@ class EditOrganisation extends React.Component {
       website: this.state.website,
       category: this.state.category
     }
-    console.log(updateOrgonaization)
     this.setState({
       area: "",
       borough: "",
@@ -83,18 +82,21 @@ class EditOrganisation extends React.Component {
             <span className="edit-logo">Editing</span>
             <form className="edit-orgonaization-form">
               <TextField
-                fullWidth={true}
+                fullWidth
                 name="orgonaizationName"
                 value={this.state.orgonaizationName}
                 onChange={e => this.handleChange(e)}
+                className="edit-orgnasiation-name"
               />
-              <h6 className="details-area">Area: <TextField
-                className="text-field"
-                fullWidth={false}
-                name="area"
-                value={this.state.area}
-                onChange={e => this.handleChange(e)}
-              /> | Borough:<TextField
+              <h6 className="details-area">Area:
+                <TextField
+                  className="text-field"
+                  fullWidth={false}
+                  name="area"
+                  value={this.state.area}
+                  onChange={e => this.handleChange(e)}
+                /> | Borough:
+                <TextField
                   className="text-field-two"
                   fullWidth={false}
                   name="borough"
@@ -103,10 +105,10 @@ class EditOrganisation extends React.Component {
                 />
               </h6>
               <div className="health-advice-process">
-                <p><strong>- Health advice</strong></p>
+                <h4>- Health advice</h4>
                 <TextField
                   className="health-advice"
-                  fullWidth={true}
+                  fullWidth
                   name="advices"
                   value={this.state.advices}
                   onChange={e => this.handleChange(e)}
@@ -114,20 +116,20 @@ class EditOrganisation extends React.Component {
               </div>
               <div className="process-date">
                 <div className="process">
-                  <h3><strong>Process</strong></h3>
+                  <h4>Process</h4>
                   <TextField
                     className="health-advice"
-                    fullWidth={true}
+                    fullWidth
                     name="process"
                     value={this.state.process}
                     onChange={e => this.handleChange(e)}
                   />
                 </div>
                 <div className="date">
-                  <h3><strong>Day</strong></h3>
+                  <h4>Day</h4>
                   <TextField
                     className="health-advice"
-                    fullWidth={true}
+                    fullWidth
                     name="day"
                     value={this.state.day}
                     onChange={e => this.handleChange(e)}
@@ -136,20 +138,20 @@ class EditOrganisation extends React.Component {
               </div>
               <div className="telephone-email">
                 <div className="telephone">
-                  <h3><strong>Telephone</strong></h3>
+                  <h4>Telephone</h4>
                   <TextField
                     className="health-advice"
-                    fullWidth={true}
+                    fullWidth
                     name="telephone"
                     value={this.state.telephone}
                     onChange={e => this.handleChange(e)}
                   />
                 </div>
                 <div className="email">
-                  <h3><strong>Email</strong></h3>
+                  <h4>Email</h4>
                   <TextField
                     className="health-advice"
-                    fullWidth={true}
+                    fullWidth
                     name="email"
                     value={this.state.email}
                     onChange={e => this.handleChange(e)}
@@ -157,22 +159,49 @@ class EditOrganisation extends React.Component {
                 </div>
               </div>
               <TextField
-                fullWidth={true}
+                fullWidth
                 name="website"
                 value={this.state.website}
                 onChange={e => this.handleChange(e)}
               />
-              <span className="categories-checkbox-title"><strong>Categories</strong></span>
+              <h4 className="categories-checkbox-title">Categories</h4>
               <div className="categories-chckbox">
-                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="Debt" /><span> Debt</span></div>
-                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="ypfamilies" /><span> YP Families</span></div>
-                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="womendv" /><span> Women DV</span></div>
-                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="trafficking" /><span> Trafficking</span></div>
-                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="healthcare" /><span> HealthCare</span></div>
-                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="destitution" /><span> Destitution</span></div>
-                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="lgbtqi" /><span> LGBTQI</span></div>
-                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="mentalhealthservices" /><span> Mental Health Services</span></div>
-                <div><input onChange={e => this.handleCheckbox(e)} type="checkbox" name="vehicle" value="healthcare" /><span> Healthcare</span></div>
+                <label htmlFor="category1">
+                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category1" name="category-1" value="Debt" />  
+                  Debt
+                </label>
+                <label htmlFor="category2">
+                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category2" name="category-2" value="ypfamilies" />  
+                  YP Families
+                </label>
+                <label htmlFor="category3">
+                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category3" name="category-3" value="womendv" />  
+                  Women DV
+                </label>
+                <label htmlFor="category4">
+                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category4" name="category-4" value="trafficking" />  
+                  Trafficking
+                </label>
+                <label htmlFor="category5">
+                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category5" name="category-5" value="healthcare" />  
+                  HealthCare
+                </label>
+                <label htmlFor="category6">
+                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category6" name="category-6" value="destitution" />  
+                  Destitution
+                </label>
+                <label htmlFor="category7">
+                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category7" name="category-7" value="lgbtqi" />  
+                  LGBTQI
+                </label>
+                <label htmlFor="category8">
+                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category8" name="category-8" value="mentalhealthservices" />  
+                  Mental Health Services
+                </label>
+                <label htmlFor="category9">
+                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category9" name="category-9" value="healthcare" />  
+                  Healthcare
+                </label>
               </div>
             </form>
           </DialogContent>

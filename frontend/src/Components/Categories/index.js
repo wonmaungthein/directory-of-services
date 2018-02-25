@@ -1,10 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './categories.css'
 
-
-
-class Categories extends Component{
+class Categories extends Component {
   state = {
     categoriesList: false
   }
@@ -12,7 +10,7 @@ class Categories extends Component{
   onClickChange = () => {
     this.setState({
       categoriesList: !this.state.categoriesList
-    })
+    });
   }
 
   showListOfcategories = () => {
@@ -31,16 +29,14 @@ class Categories extends Component{
     }
   }
 
-
-    
   render() {
     return (
       <div className="categories">
         <span className="categories-title" onClick={this.onClickChange}>Categories</span>
         {this.showListOfcategories()}
       </div>
-    )
+    );
   }
 }
-  
+
 export default Categories

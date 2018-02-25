@@ -27,6 +27,10 @@
     padding-top: 1em;
 }
 /**************** Edit **********************/
+.edit-content{
+  min-width: 22em;
+  min-height: 16em;
+}
 .text-field,
 .text-field-two{
     width: 45px !important;
@@ -43,11 +47,11 @@
     font-size: .9em !important;
     color: #bbb !important
 }
+.edit-orgonaization-form .edit-orgnasiation-name input:nth-child(1){
+  font-size: 1.5em !important;
+}
 .health-advice{
     top: -5px !important;
-}
- .edit-content{
-  height: 29em !important;
 }
 .select-boroug{
   min-width: 10em !important;
@@ -62,7 +66,7 @@
     border: none !important;
     background: transparent;
     position: absolute;
-    right: 10px;
+    right: 20px;
     top: 10px;
     font-size: 1em;
     font-weight: bold;
@@ -83,14 +87,12 @@
 }
 .categories-checkbox-title{
   padding: 1.5em 0 .5em 0;
-  display: block;
   color: #000;
 }
 .categories-chckbox{
     display: grid;
     grid-template-columns:repeat(3, 1fr);
-    grid-gap: .5em;
-    border: 2px solid #1abcd4;
+    border: 2px solid #519889;
     padding: .5em;
     height: 4em;
     overflow: auto;
@@ -117,8 +119,21 @@
     padding: 0 2.5em !important;
     margin-top: 1em;
 }
-/**************** Details ***************/
-.orgnaization-detais{
+/**************** Single Organisation ***************/
+.MuiDialog-paperWidthSm-4 {
+    overflow-y: initial !important;
+}
+.single-oganisation-title >h2{
+  color: #1abcd4;
+}
+.single-oganisation-content{
+  min-width: 22em;
+  min-height: 16em;
+}
+.single-oganisation-content .details-area{
+  color: #bbb;
+}
+.orgnaization-detais-button{
     position: absolute;
     right: 0;
     bottom: 0;
@@ -130,6 +145,17 @@
     font-size: 1em;
     color: #ddd;
     background: rgba(0, 0, 0, .6);
+}
+.single-oganisation-close-button{
+    position: absolute;
+    right: -6px;
+    top: -23px;
+    background: transparent;
+    border: navajowhite;
+    color: #bbb;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
 }
 .button-icon{
     color: #ddd !important;
@@ -170,6 +196,7 @@
 }
 .detail-footer{
     padding: 1.5em 0 0 0;
+    color: #bbb;
 }
 /*************** Add ****************/
 .add-orgonaization{
@@ -184,6 +211,7 @@
     justify-content: space-between;
     widows: 100%;
     flex-wrap: wrap;
+    margin-top: 1em;
 }
 .form-first-row .first-field,
 .form-second-row .first-field{
@@ -214,13 +242,61 @@
     height: 5em;
     border: 2px solid #519889;
 }
-.add-category .categories .check-box{
-    width: 19% !important;
+.add-email-website{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+.add-categories-checkbox{
+    display: grid;
+    grid-template-columns:repeat(5, 1fr);
+    grid-gap: 1em;
+    border: 2px solid #519889;
+    padding: 1em;
+    height: 2.5em;
+    overflow: auto;
+}
+input[type=checkbox] + label {
+  cursor: pointer;
+}
+label{
+  position: relative;
+  margin-left: 1.5em;
+  margin-bottom: .8em;
+}
+.add-categories-checkbox label{
+  margin-bottom: 0;
+}
+input[type=checkbox], input[type=checkbox]::before{
+  content: "\2714";
+  border: 0.1em solid gray;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: .8em;
+  height: .8em;
+  padding-left: 0.3em;
+  padding-right: .2em;
+  padding-bottom: 0.4em;
+  vertical-align: bottom;
+  color: transparent;
+  background: gray;
+  transition: .2s;
+  position: absolute;
+  left: -.8em;
+}
+input[type=checkbox]:checked::before {
+  color: #000;
 }
 .add-orgonaization-link{
-    background: #519889 !important;
-    color: #fff !important;
-    padding: 0 1em !important;
-    margin-top: 2em !important;
+    background: #519889;
+    color: #fff;
+    padding: 8px 1em;
+    margin-top: 2em;
     float: right;
+    border: navajowhite;
+    border-radius: .1em;
+    font-size: 1em;
+    box-shadow: 0px 2px 4px 2px #bbb;
 }
