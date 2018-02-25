@@ -4,10 +4,11 @@
  * Module dependencies.
  */
 
-const app = require('../app');
-const http = require('http');
+import http from 'http';
+import app from '../src/app';
+import config from '../config/config';
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(config.port);
 app.set('port', port);
 
 /**
