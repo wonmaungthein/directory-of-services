@@ -1,0 +1,70 @@
+version: 2
+workflows:
+  version: 2
+  frontend:
+    jobs:
+      - frontend_build
+      - frontend_test:
+          filters:
+            tags:
+              ignore: /^ignore-testing-.*/      
+          requires:
+            - frontend_build
+      - frontend_deploy:
+          filters:
+            branches:
+              only:
+                - master
+                - devops
+          requires:
+            - frontend_test
+jobs:
+  frontend_build:
+    docker:
+      - image: circleci/node:8.9
+    working_directory: ~/dos
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - yarn-dependencies-{{ checksum "frontend/yarn.lock" }}
+      - run:
+          name: "Checking Versions"
+          command: |
+            node --version
+            npm --version
+      - run:
+          name: Install project dependencies
+          command: cd frontend && yarn --frozen-lockfile          
+      - save_cache:
+          key: yarn-dependencies-{{ checksum "frontend/yarn.lock" }}
+          paths:
+            -  ./frontend/node_modules            
+  frontend_test:
+    docker:
+      - image: circleci/node:8.9
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies for lint and test
+          command: cd frontend && yarn
+      - run:
+          name: Lint project
+          command: cd frontend && yarn lint
+      - run:
+          name: Run unit tests
+          command: cd frontend && yarn test
+  frontend_deploy:
+    docker:
+      - image: circleci/node:8.9    
+    steps:
+      - checkout
+      - run:
+          name: Install AWS tools
+          command: sudo apt-get -y -qq install awscli
+      - run:
+          name: Build project
+          command: cd frontend && yarn && yarn build
+      - run:
+          name: Deploy to AWS S3
+          command: .circleci/deploy.sh
