@@ -115,7 +115,8 @@ jobs:
       - checkout
       - run:
           name: Install AWS tools
-          command: sudo pip install awsebcli --upgrade --user
+          command: sudo apt-get install python3-setuptools && sudo easy_install3 pip && sudo pip install awsebcli --upgrade --user && eb --version
+
       - run:
           name: Build project
           command: cd backend && yarn && yarn build
