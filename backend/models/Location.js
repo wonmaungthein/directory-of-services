@@ -8,7 +8,7 @@ export default class Location extends Model {
     static get jsonSchema() {
         return {
             type: 'object',
-            required: ['location_id'],
+            required: ['lat', 'lon'],
 
             properties: {
                 location_id: { type: 'integer' },

@@ -8,7 +8,7 @@ export default class Service extends Model {
     static get jsonSchema() {
         return {
             type: 'object',
-            required: ['service_id', 'service_name', 'process'],
+            required: ['service_name', 'process'],
 
             properties: {
                 service_id: { type: 'integer' },
