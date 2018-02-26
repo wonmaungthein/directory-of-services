@@ -14,7 +14,7 @@ exports.up = knex =>
         .unsigned()
         .references('org_id')
         .inTable('Organisation');
-      table.string('borough');
+      table.string('borugh');
     })
     .createTable('Service', (table) => {
       table.increments('service_id').primary();
@@ -23,7 +23,7 @@ exports.up = knex =>
         .unsigned()
         .references('branch_id')
         .inTable('Branch');
-      table.string('borough');
+      table.string('service_Type');
     })
     .createTable('Address', (table) => {
       table.increments('address_id').primary();
@@ -32,17 +32,19 @@ exports.up = knex =>
         .unsigned()
         .references('branch_id')
         .inTable('Branch');
-      table.string('adress_line');
+      table.string('address_line');
       table.string('city');
       table.string('postcode');
     })
     .createTable('Location', (table) => {
       table.increments('location_id').primary();
       table
-        .integer('adress_id')
+        .integer('address_id')
         .unsigned()
-        .references('adress_id')
+        .references('address_id')
         .inTable('Address');
+      table.string('lat');
+      table.string('long');
     });
 
 exports.down = knex =>
