@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import './organisation.css'
 
-class AddOrganisation extends Component {
+export default class OrganisationForm extends Component {
   state = {
       organisationName: "",
       area: "",
@@ -44,7 +44,7 @@ class AddOrganisation extends Component {
     })
   }
 
-  handleChange(event) {
+  updateField = event => {
       this.setState({
           [event.target.name]: event.target.value
       })
@@ -67,7 +67,7 @@ class AddOrganisation extends Component {
                   label="Organisation name"
                   name="organisationName"
                   value={this.state.organisationName}
-                  onChange={event => this.handleChange(event)}
+                  onChange={this.updateField}
                 />
                 <TextField
                   className="second-field"    
@@ -75,14 +75,14 @@ class AddOrganisation extends Component {
                   label="Area"
                   name="area"
                   value={this.state.area}
-                  onChange={event => this.handleChange(event)}
+                  onChange={this.updateField}
                 />
                 <TextField
                   className="third-field"    
                   label="Borough"
                   name="borough"
                   value={this.state.borough}
-                  onChange={event => this.handleChange(event)}
+                  onChange={this.updateField}
                 />
               </div>
               <div className="form-second-row">
@@ -91,21 +91,21 @@ class AddOrganisation extends Component {
                   label="Process"
                   name="process"
                   value={this.state.process}
-                  onChange={event => this.handleChange(event)}
+                  onChange={this.updateField}
                 />
                 <TextField
                   className="second-field"
                   label="Day"
                   name="day"
                   value={this.state.day}
-                  onChange={event => this.handleChange(event)}
+                  onChange={this.updateField}
                 />
                 <TextField
                   className="third-field"
                   label="Telephone"
                   name="telephone"
                   value={this.state.telephone}
-                  onChange={event => this.handleChange(event)}
+                  onChange={this.updateField}
                 />
               </div>
               <div className="add-email-website">
@@ -113,13 +113,13 @@ class AddOrganisation extends Component {
                   label="Email"
                   name="email"
                   value={this.state.email}
-                  onChange={event => this.handleChange(event)}
+                  onChange={this.updateField}
                 />
                 <TextField
                   label="Website"
                   name="website"
                   value={this.state.website}
-                  onChange={event => this.handleChange(event)}
+                  onChange={this.updateField}
                 />
               </div>
               <div className="form-third-row">
@@ -130,46 +130,46 @@ class AddOrganisation extends Component {
                   fullWidth
                   name="service"
                   value={this.state.service}
-                  onChange={event => this.handleChange(event)}
+                  onChange={this.updateField}
                 />
               </div>
               <div className="add-category">
                 <span className="title">Categories</span>
                 <div className="add-categories-checkbox">
                   <label htmlFor="category1">
-                    <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category1" name="category-1" value="Debt" />
+                    <input onChange={this.handleCheckbox} type="checkbox" id="category1" name="category-1" value="Debt" />
                     Debt
                   </label>
                   <label htmlFor="category2">
-                    <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category2" name="category-2" value="ypfamilies" />
+                    <input onChange={this.handleCheckbox} type="checkbox" id="category2" name="category-2" value="ypfamilies" />
                     YP Families
                   </label>
                   <label htmlFor="category3">
-                    <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category3" name="category-3" value="womendv" />
+                    <input onChange={this.handleCheckbox} type="checkbox" id="category3" name="category-3" value="womendv" />
                     Women DV
                   </label>
                   <label htmlFor="category4">
-                    <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category4" name="category-4" value="trafficking" />
+                    <input onChange={this.handleCheckbox} type="checkbox" id="category4" name="category-4" value="trafficking" />
                     Trafficking
                   </label>
                   <label htmlFor="category5">
-                    <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category5" name="category-5" value="healthcare" />
+                    <input onChange={this.handleCheckbox} type="checkbox" id="category5" name="category-5" value="healthcare" />
                     HealthCare
                   </label>
                   <label htmlFor="category6">
-                    <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category6" name="category-6" value="destitution" />
+                    <input onChange={this.handleCheckbox} type="checkbox" id="category6" name="category-6" value="destitution" />
                     Destitution
                   </label>
                   <label htmlFor="category7">
-                    <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category7" name="category-7" value="lgbtqi" />
+                    <input onChange={this.handleCheckbox} type="checkbox" id="category7" name="category-7" value="lgbtqi" />
                     LGBTQI
                   </label>
                   <label htmlFor="category8">
-                    <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category8" name="category-8" value="mentalhealthservices" />
+                    <input onChange={this.handleCheckbox} type="checkbox" id="category8" name="category-8" value="mentalhealthservices" />
                     Mental Health Services
                   </label>
                   <label htmlFor="category9">
-                    <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category9" name="category-9" value="healthcare" />
+                    <input onChange={this.handleCheckbox} type="checkbox" id="category9" name="category-9" value="healthcare" />
                     Healthcare
                   </label>
                 </div>
@@ -180,5 +180,3 @@ class AddOrganisation extends Component {
         )
     }
 }
-
-export default AddOrganisation;

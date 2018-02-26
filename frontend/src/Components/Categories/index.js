@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './categories.css';
 
-export default class Categories extends Component {
+export default class index extends Component {
   state = {
     categoriesList: false,
   };

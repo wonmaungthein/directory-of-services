@@ -7,7 +7,7 @@ import Dialog, {
 import EditOrganisation from './EditOrganisation';
 import './organisation.css';
 
-class SingleOrganisation extends Component {
+export default class SingleOrganisation extends Component {
   state = {
     open: false,
   };
@@ -68,4 +68,3 @@ class SingleOrganisation extends Component {
     )
   }
 }
-export default SingleOrganisation;

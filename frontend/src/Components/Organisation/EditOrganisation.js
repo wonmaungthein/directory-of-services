@@ -7,7 +7,7 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import './organisation.css'
 
-class EditOrganisation extends React.Component {
+export default class EditOrganisation extends React.Component {
   state = {
     open: false,
     area: "North",
@@ -167,39 +167,39 @@ class EditOrganisation extends React.Component {
               <h4 className="categories-checkbox-title">Categories</h4>
               <div className="categories-chckbox">
                 <label htmlFor="category1">
-                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category1" name="category-1" value="Debt" />  
+                  <input onChange={this.handleCheckbox} type="checkbox" id="category1" name="category-1" value="Debt" />  
                   Debt
                 </label>
                 <label htmlFor="category2">
-                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category2" name="category-2" value="ypfamilies" />  
+                  <input onChange={this.handleCheckbox} type="checkbox" id="category2" name="category-2" value="ypfamilies" />  
                   YP Families
                 </label>
                 <label htmlFor="category3">
-                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category3" name="category-3" value="womendv" />  
+                  <input onChange={this.handleCheckbox} type="checkbox" id="category3" name="category-3" value="womendv" />  
                   Women DV
                 </label>
                 <label htmlFor="category4">
-                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category4" name="category-4" value="trafficking" />  
+                  <input onChange={this.handleCheckbox} type="checkbox" id="category4" name="category-4" value="trafficking" />  
                   Trafficking
                 </label>
                 <label htmlFor="category5">
-                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category5" name="category-5" value="healthcare" />  
+                  <input onChange={this.handleCheckbox} type="checkbox" id="category5" name="category-5" value="healthcare" />  
                   HealthCare
                 </label>
                 <label htmlFor="category6">
-                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category6" name="category-6" value="destitution" />  
+                  <input onChange={this.handleCheckbox} type="checkbox" id="category6" name="category-6" value="destitution" />  
                   Destitution
                 </label>
                 <label htmlFor="category7">
-                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category7" name="category-7" value="lgbtqi" />  
+                  <input onChange={this.handleCheckbox} type="checkbox" id="category7" name="category-7" value="lgbtqi" />  
                   LGBTQI
                 </label>
                 <label htmlFor="category8">
-                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category8" name="category-8" value="mentalhealthservices" />  
+                  <input onChange={this.handleCheckbox} type="checkbox" id="category8" name="category-8" value="mentalhealthservices" />  
                   Mental Health Services
                 </label>
                 <label htmlFor="category9">
-                  <input onChange={e => this.handleCheckbox(e)} type="checkbox" id="category9" name="category-9" value="healthcare" />  
+                  <input onChange={this.handleCheckbox} type="checkbox" id="category9" name="category-9" value="healthcare" />  
                   Healthcare
                 </label>
               </div>
@@ -218,5 +218,3 @@ class EditOrganisation extends React.Component {
     );
   }
 }
-
-export default EditOrganisation;
