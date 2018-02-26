@@ -20,6 +20,12 @@ app.use(morgan('combined'));
 // static view
 app.use(express.static(path.join(__dirname, 'public'))).use(bodyParser.json());
 
+// healthcheck
+app.get('/', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
+// add api route
 app.use('/api', router);
 
 // catch 404 and forward to error handler
