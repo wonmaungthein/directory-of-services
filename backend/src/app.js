@@ -1,21 +1,26 @@
 import express from 'express';
+import promiseRouter from 'express-promise-router';
 import methodOverride from 'method-override'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
 import compression from 'compression'
-import router from './routes/api';
+import registerApi from './routes/api';
+import connectKnex from '../config/knexFile';
 
-const app = express();
-app.use(methodOverride())
+connectKnex.migrate.latest().then(() => console.log('Migrated.'));
 
-app.use(bodyParser.urlencoded({ extended: 'true' }))            // parse application/x-www-form-urlencoded
-app.use(bodyParser.json())                                     // parse application/json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })) // parse application/vnd.api+json as json
+const router = promiseRouter();
 
-app.use(morgan('dev'))
-app.use(compression())
+const app = express()
+  .use(methodOverride())
+  .use(bodyParser.urlencoded({ extended: 'true' })) // parse application/x-www-form-urlencoded
+  .use(bodyParser.json()) // parse application/json
+  .use(morgan('dev'))
+  .use(compression())
+  .use(router)
 
-app.use('/api', router);
+registerApi(router);
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');

@@ -1,8 +1,11 @@
 import { Model } from 'objection';
+import connectKnex from '../../config/knexFile';
 
-export default class Organisation extends Model {
+Model.knex(connectKnex);
+
+class Organisation extends Model {
   static get tableName() {
-    return 'organisation';
+    return 'Organisation';
   }
   static get jsonSchema() {
     return {
@@ -11,12 +14,13 @@ export default class Organisation extends Model {
 
       properties: {
         org_id: { type: 'integer' },
-        // ownerId: { type: ['integer', 'null'] },
         org_name: { type: 'string', minLength: 1, maxLength: 255 },
         website: { type: 'string', minLength: 1, maxLength: 255 },
         email_address: { type: 'string', minLength: 1, maxLength: 255 },
-        telephone: { type: 'integer', minLength: 1, maxLength: 16 },
-      },
+        telephone: { type: 'string', minLength: 1, maxLength: 16 }
+      }
     };
   }
 }
+
+module.exports = Organisation;
