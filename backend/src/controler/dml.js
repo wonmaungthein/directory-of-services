@@ -3,14 +3,14 @@ import { transaction } from 'objection';
 import Organisation from '../models/Organisation';
 
 const knex = Organisation.knex();
-const Add = async (data) => {
-  console.log(data)
+
+const Insert = async (query) => {
     let trx
     try {
       trx = await transaction.start(knex);
       const organisation = await Organisation
         .query(trx)
-        .insertGraph(data);
+        .insertGraph(query);
       await trx.commit();
     } catch (err) {
       await trx.rollback();
@@ -18,6 +18,14 @@ const Add = async (data) => {
     }
   }
 
+const Select = async () => {
+  const organisation = await Organisation
+    .query()
+    .eager('branch');
+    return organisation;
+  };
+
 module.exports = {
-    Add
+    Insert,
+    Select
 }

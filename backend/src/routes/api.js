@@ -1,9 +1,12 @@
 
-import { Add }  from '../controler/dml'
+import { Insert, Select }  from '../controler/dml';
 
 module.exports = router => {
-  router.post('/add', (req, res) => {
-    const data = req.body;
-    res.send(Add(data));
+  router.post('/insert', (req, res) => {
+    const query = req.body;
+    res.json(Insert(query));
+  });
+  router.get('/organisation', (req, res) => {
+    Select().then(data => res.json(data));
   });
 }
