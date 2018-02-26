@@ -21,10 +21,18 @@ workflows:
   backend:
     jobs:
       - backend_build
-      - backend_test
+      - backend_test:
+          filters:
+            tags:
+              ignore: /^ignore-testing-.*/      
           requires:
-            - backend_build      
-      - backend_deploy
+            - backend_build
+      - backend_deploy:
+          filters:
+            branches:
+              only:
+                - master
+                - devops
           requires:
             - backend_test
 jobs:
