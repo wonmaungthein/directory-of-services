@@ -31,6 +31,9 @@ Run project locally:
 cd frontend && yarn start
 cd backend && yarn start
 ```
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
