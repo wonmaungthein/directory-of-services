@@ -1,18 +1,6 @@
 {
-  "presets": [
-    "es2015",
-    ["env", {
-      "targets": {
-        "node": "current"
-      }
-    }]
-  ],
-  "plugins": [
-    ["transform-es2015-classes"],
-    ["transform-runtime", 
-    { 
-      "polyfill": false,
-      "regenerator": true
-    }]
-  ]
+    "presets": [
+        "es2015",
+        "stage-2"
+    ]
 }
