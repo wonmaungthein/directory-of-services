@@ -12,7 +12,7 @@ export default class Location extends Model {
 
       properties: {
         location_id: { type: 'integer' },
-        adress_id: { type: ['integer', 'null'] },
+        address_id: { type: ['integer', 'null'] },
         lat: { type: 'string', minLength: 1, maxLength: 255 },
         lon: { type: 'string', minLength: 1, maxLength: 255 }
       }

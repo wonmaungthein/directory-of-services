@@ -14,7 +14,7 @@ export default class Address extends Model {
       properties: {
         address_id: { type: 'integer' },
         branch_id: { type: ['integer', 'null'] },
-        adress_line: { type: 'string', minLength: 1, maxLength: 255 },
+        address_line: { type: 'string', minLength: 1, maxLength: 255 },
         city: { type: 'string', minLength: 1, maxLength: 255 },
         postcode: { type: 'string', minLength: 1, maxLength: 255 }
       }
