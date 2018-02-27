@@ -1,5 +1,4 @@
 import { Model } from 'objection';
-import Branch from './Branch';
 import Service from './Service';
 import Address from './Address';
 
