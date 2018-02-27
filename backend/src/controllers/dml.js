@@ -1,6 +1,6 @@
 
 import { transaction } from 'objection';
-import Organisation from '../models/Organisation';
+import Organisation from '../model/Organisation';
 
 const knex = Organisation.knex();
 
