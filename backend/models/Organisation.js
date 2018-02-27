@@ -15,16 +15,16 @@ export default class Organisation extends Model {
         org_name: { type: 'string', minLength: 1, maxLength: 255 },
         website: { type: 'string', minLength: 1, maxLength: 255 },
         email_address: { type: 'string', minLength: 1, maxLength: 255 },
-        telephone: { type: 'integer', minLength: 1, maxLength: 16 },
-      },
+        telephone: { type: 'integer', minLength: 1, maxLength: 16 }
+      }
     };
-  };
+  }
 
   // This object defines the relations to other models.
   static relationMappings = {
     branch: {
       relation: Model.HasManyRelation,
-      // The related model. 
+      // The related model.
       modelClass: Branch,
       join: {
         from: 'Organisation.org_id',
