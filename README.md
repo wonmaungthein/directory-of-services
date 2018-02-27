@@ -1,13 +1,13 @@
 # Directory of Services 
 
-This App is destined primary for case workers who provide services oriented for refugees, asylum seekers and agencies working with them to identify services that offer advice and support to assist refugees and asylum seekers rebuild, improve their lives and facilitate their insertion inside the society.
+This App is destined primary for case workers who provide services oriented for refugees, asylum seekers and organisations working with them to identify services that offer advice and support to assist refugees and asylum seekers rebuild, improve their lives and facilitate their insertion inside the society.
 
 ## Getting Started
 
 
-This repo is frontend and backend
-It requires NODE
-This app is built with:
+* This repo is frontend and backend
+* It requires NODE
+* This app is built with:
 REACT 
 Material UI
 SQLITE for database...
