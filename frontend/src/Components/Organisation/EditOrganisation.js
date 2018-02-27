@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
+import OrganisationForm from './OrganisationForm'
 import Dialog, {
   DialogActions,
   DialogContent,
 } from 'material-ui/Dialog';
-import './organisation.css'
+import './edit-org.css'
 
 export default class EditOrganisation extends React.Component {
   state = {
@@ -80,7 +80,27 @@ export default class EditOrganisation extends React.Component {
         >
           <DialogContent className="edit-content">
             <span className="edit-logo">Editing</span>
-            <form className="edit-orgonaization-form">
+            <OrganisationForm
+              editOrgonaizationForm="edit-orgonaization-form"
+              editOrgnasiationName="edit-orgnasiation-name"
+              detailsArea="details-area"
+              textField="text-field"
+              textFieldTwo="text-field-two"
+              healthAdviceProcess="health-advice-process"
+              healthAdvice="health-advice"
+              processDate="process-date"
+              processClass="process"
+              dateClass="date"
+              telephoneEmail="telephone-email"
+              telephone="telephone"
+              email="email"
+              categoriesCheckboxTitle="categories-checkbox-title"
+              categoriesCheckbox="categories-chckbox"
+
+              advices="advices"
+              advicesValue={this.state.advices}
+/>
+            {/* <form className="edit-orgonaization-form">
               <TextField
                 fullWidth
                 name="orgonaizationName"
@@ -203,7 +223,7 @@ export default class EditOrganisation extends React.Component {
                   Healthcare
                 </label>
               </div>
-            </form>
+            </form> */}
           </DialogContent>
           <DialogActions>
             <Button className="cancel-button" onClick={this.handleClose} color="primary">
