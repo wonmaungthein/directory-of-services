@@ -1,19 +1,19 @@
 import { Model } from 'objection';
+import Branch from './Branch';
 import Location from './Location';
 
-class Address extends Model {
+export default class Address extends Model {
   static get tableName() {
     return 'Address';
   }
-
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['postcode'],
+      required: ['address_line', 'city', 'postcode'],
 
       properties: {
         address_id: { type: 'integer' },
-        branch_id: { type: 'integer' },
+        branch_id: { type: ['integer', 'null'] },
         address_line: { type: 'string', minLength: 1, maxLength: 255 },
         city: { type: 'string', minLength: 1, maxLength: 255 },
         postcode: { type: 'string', minLength: 1, maxLength: 255 }
@@ -21,26 +21,25 @@ class Address extends Model {
     };
   }
 
-  static get relationMappings() {
-    return {
-      address: {
-        relation: Model.BelongsToOneRelation,
-        modelClass:`${__dirname}/Branch`,
+    // This object defines the relations to other models.
+    static relationMappings = {
+      location: {
+        relation: Model.HasManyRelation,
+        // The related model.
+        modelClass: Location,
         join: {
-          from: 'Address.branch_id',
-          to: 'Branch.branch_id'
+          from: 'Address.address_id',
+          to: 'Location.location_id'
         }
       },
-      location: {
-          relation: Model.HasManyRelation,
-          modelClass: Location,
-          join: {
-              from: 'Address.address_id',
-              to: 'Location.address_id'
-          }
+      branch: {
+        relation: Model.HasManyRelation,
+        // The related model.
+        modelClass: Branch,
+        join: {
+          from: 'Address.address_id',
+          to: 'Branch.branch_id'
+        }
       }
     };
- }
 }
-
-module.exports = Address;

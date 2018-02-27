@@ -1,34 +1,34 @@
 import { Model } from 'objection';
+import Address from './Address';
 
-class Location extends Model {
+export default class Location extends Model {
   static get tableName() {
     return 'Location';
   }
-
   static get jsonSchema() {
     return {
       type: 'object',
+      required: ['lat', 'lon'],
 
       properties: {
-        address_id: { type: 'integer' },
+        location_id: { type: 'integer' },
+        address_id: { type: ['integer', 'null'] },
         lat: { type: 'string', minLength: 1, maxLength: 255 },
-        long: { type: 'string', minLength: 1, maxLength: 255 },
+        lon: { type: 'string', minLength: 1, maxLength: 255 }
       }
     };
   }
 
-  static get relationMappings() {
-    return {
+    // This object defines the relations to other models.
+    static relationMappings = {
       address: {
-        relation: Model.BelongsToOneRelation,
-        modelClass:`${__dirname}/Address`,
+        relation: Model.HasManyRelation,
+        // The related model.
+        modelClass: Address,
         join: {
-          from: 'Location.address_id',
+          from: 'Location.location_id',
           to: 'Address.address_id'
         }
       }
-    }
-  }
+    };
 }
-
-module.exports = Location;
