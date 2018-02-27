@@ -9,6 +9,7 @@
     "fix": "find ./node_modules/* -mtime +10950 -exec touch {} \\;"
   },
   "dependencies": {
+    "babel-eslint": "^8.2.2",
     "body-parser": "~1.18.2",
     "compression": "^1.7.2",
     "debug": "~2.6.9",
