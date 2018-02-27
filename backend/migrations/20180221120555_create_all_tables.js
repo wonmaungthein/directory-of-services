@@ -23,7 +23,13 @@ exports.up = knex =>
         .unsigned()
         .references('branch_id')
         .inTable('Branch');
+<<<<<<< HEAD
       table.string('service_Type');
+=======
+      table.string('service_name');
+      table.string('service_days');
+      table.string('process');
+>>>>>>> 2c358df62a12a32708d62c62196fc337c0c0643e
     })
     .createTable('Address', (table) => {
       table.increments('address_id').primary();
@@ -44,7 +50,11 @@ exports.up = knex =>
         .references('address_id')
         .inTable('Address');
       table.string('lat');
+<<<<<<< HEAD
       table.string('long');
+=======
+      table.string('lng');
+>>>>>>> 2c358df62a12a32708d62c62196fc337c0c0643e
     });
 
 exports.down = knex =>
