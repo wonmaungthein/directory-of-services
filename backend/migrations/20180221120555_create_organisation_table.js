@@ -14,7 +14,7 @@ exports.up = knex =>
         .unsigned()
         .references('org_id')
         .inTable('Organisation');
-      table.string('borugh');
+      table.string('borough');
     })
     .createTable('Service', (table) => {
       table.increments('service_id').primary();

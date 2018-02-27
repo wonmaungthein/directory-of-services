@@ -6,7 +6,7 @@ module.exports = {
     client: 'sqlite3',
     useNullAsDefault: true,
     connection: {
-      filename: '../data/dos3.db'
+      filename: '../data/dos4.db'
     }
   },
   production: {

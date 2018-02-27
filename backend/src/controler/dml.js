@@ -12,6 +12,7 @@ const Insert = async (query) => {
         .query(trx)
         .insertGraph(query);
       await trx.commit();
+      console.log('Data is inserted !')
     } catch (err) {
       await trx.rollback();
       console.log('Something went wrong. Data is not inserted', err);

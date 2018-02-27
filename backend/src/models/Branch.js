@@ -10,12 +10,12 @@ class Branch extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['borugh'],
+      required: ['borough'],
 
       properties: {
         org_id: { type: 'integer' },
         branch_id: { type: 'integer' },
-        borugh: { type: 'string', minLength: 1, maxLength: 255 }
+        borough: { type: 'string', minLength: 1, maxLength: 255 }
       }
     };
   }
@@ -44,8 +44,8 @@ class Branch extends Model {
           relation: Model.HasManyRelation,
           modelClass: Address,
           join: {
-              from: 'Branch.branch_id',
-              to: "Address.branch_id"
+            from: 'Branch.branch_id',
+            to: "Address.branch_id"
           }
       }
     };
