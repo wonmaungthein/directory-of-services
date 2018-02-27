@@ -1,0 +1,21 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb-base",
+    "plugins": [
+      "babel"
+    ],
+    "rules": {
+      "indent": ["error", 2],
+      "comma-dangle": [
+        2,
+        "never"
+      ],
+      "semi": 0,
+      "max-len": 0,
+      "no-multiple-empty-lines": 0,
+      "object-shorthand": 0,
+      "padded-blocks": 0,
+      "arrow-parens": 0,
+      "babel/arrow-parens": 2
+    }
+  }
