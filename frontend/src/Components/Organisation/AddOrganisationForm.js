@@ -65,6 +65,8 @@ export default class AddOrganisationForm extends Component {
               formFirstRow="form-first-row"
               notIncludeInAddOrg="not-include-in-add-org"
 
+              addWebsiteField="add-website-field"
+
               organisationName="organisationName"
               organisationNameValue={this.state.organisationName}
 
@@ -74,8 +76,6 @@ export default class AddOrganisationForm extends Component {
               borough="borough"
               boroughValue={this.state.borough}              
 
-              formSecondRow="form-second-row"
-
               process="process"
               processValue={this.state.process}
 
@@ -84,8 +84,6 @@ export default class AddOrganisationForm extends Component {
 
               telephone="telephone"
               telephoneValue={this.state.telephone}
-
-              addEmailWebsite="add-email-website"
 
               email="email"
               emailValue={this.state.email}

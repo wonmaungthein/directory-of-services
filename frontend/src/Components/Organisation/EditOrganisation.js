@@ -89,13 +89,18 @@ export default class EditOrganisation extends React.Component {
               textFieldTwo="text-field-two"
               healthAdviceTitle="health-advice-title"
               healthAdvice="health-advice"
-              processDate="process-date"
               telephoneLabel="telephone-label"
               websiteLabel="website-label"
-              processDateLabel="process-date-label"
+              emailLabel="email-label"
               notIncludeInEditOrg="not-include-in-editOrg"
               categoriesCheckboxTitle="categories-checkbox-title"
-              categoriesCheckbox="categories-chckbox"  
+              categoriesCheckbox="categories-chckbox" 
+              
+              editfields="edit-field"
+              editProcessfield="edit-process-field"
+              editDateField="edit-day-field"
+              textFieldContainer="text-field-container"
+              textFieldTwoContainer="text-field-two-container"
 
               orgonaizationName="orgonaizationName"
               organisationNameValue={this.state.orgonaizationName}

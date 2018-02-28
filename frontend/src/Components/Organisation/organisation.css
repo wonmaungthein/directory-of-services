@@ -84,17 +84,6 @@
   margin: 1em 0;
   color: #000;
 }
-.process-date{
-  display: flex;
-  justify-content: space-between;
-  color: #000;
-  width: 100%;
-}
-.telephone-email{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
-}
 .website-link{
   display: inline-block;
   text-decoration: none;
@@ -107,13 +96,50 @@
 /*===================================================*/
 /***************** Edit Organisation *****************/
 /*=================================================*/
+.edit-field{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+.edit-orgnasiation-name{
+  grid-column: 1/4
+}
+.text-field-container{
+  grid-column: 1/1;
+  margin-top: -1em;
+}
+.text-field-two-container{
+  grid-column: 2/2;
+  align-items: flex-start;
+  margin-top: -1em;
+}
+.health-advice-title{
+  grid-column: 1/4
+}
+.edit-process-field{
+  grid-column: 1/2
+}
+.edit-day-field{
+  grid-column: 2/4
+}
+.telephone-label{
+  grid-column: 1/2
+}
+.email-label{
+  grid-column: 2/4
+}
+.health-advice{
+  top: -5px !important;
+}
 .edit-orgnasiation-name label:nth-child(1),
 .text-field label:nth-child(1),
 .text-field-two label:nth-child(1),
 .website-label label:nth-child(1){
   display: none;
 }
-.process-date-label label:nth-child(1),
+.edit-day-field label:nth-child(1),
+.edit-process-field label:nth-child(1),
+.email-label label:nth-child(1),
 .telephone-label label:nth-child(1){
   color: #000;
   font-size: 1.5em;
@@ -130,30 +156,22 @@
 }
 .text-field,
 .text-field-two{
-  width: 45px !important;
+  width: 50px !important;
   font-size: .9em !important;
   top: 1px !important;
   padding: 0 !important;
+  padding-left: .5em !important;
 }
 .text-field-two{
   width: 75px !important;
-  padding-left: .5em !important;
 }
 .text-field input,
 .text-field-two input{
   font-size: .9em !important;
   color: #bbb !important
 }
-.health-advice-title{
-  margin-top: 1em;
-}
-.health-advice{
-  top: -5px !important;
-}
-.process-date{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
+.health-advice-title input:nth-child(1){
+  font-weight: initial;
 }
 .edit-button{
   border: none !important;
@@ -260,6 +278,9 @@
   grid-template-columns: 2fr 1fr 2fr;
   grid-gap: 1em;
   margin-top: 1em;
+}
+.add-website-field{
+  grid-column: 2/4;
 }
 .add-category{
   margin-top: 1em;

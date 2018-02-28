@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 
 const OrganisationForm = (props) => (
   <form className={props.editOrgonaizationForm}>
-    <div className={props.formFirstRow}>
+    <div className={props.formFirstRow || props.editfields}>
       <TextField
         className={props.editOrgnasiationName}
         label="Organisation name"
@@ -12,44 +12,47 @@ const OrganisationForm = (props) => (
         onChange={props.onChange}
         fullWidth
       />
-      <h6 className={props.notIncludeInAddOrg || props.detailsArea}>Area:</h6>
-      <TextField
-        className={props.textField}
-        label="Area"
-        name={props.area}
-        value={props.areaValue}
-        onChange={props.onChange}
-        fullWidth
-      />
-      <h6 className={props.notIncludeInAddOrg || props.detailsArea}>| Borough:</h6>
-      <TextField
-        className={props.textFieldTwo}
-        label="Borough"
-        name={props.borough}
-        value={props.boroughValue}
-        onChange={props.onChange}
-        fullWidth
-      />
-    </div>
-    <h4 className={props.notIncludeInAddOrg || props.healthAdviceTitle}>- Health advice</h4>
-    <TextField
-      className={props.notIncludeInAddOrg || props.healthAdvice}
-      fullWidth
-      name={props.advices}
-      value={props.advicesValue}
-      onChange={props.onChange}
-    />
-    <div className={props.formSecondRow || props.processDate}>
+      <span className={props.textFieldContainer}>
+        <h6 className={props.notIncludeInAddOrg || props.detailsArea}>Area:</h6>
+        <TextField
+          className={props.textField}
+          label="Area"
+          name={props.area}
+          value={props.areaValue}
+          onChange={props.onChange}
+          fullWidth
+        />
+      </span>  
+      <span className={props.textFieldTwoContainer}>
+        <h6 className={props.notIncludeInAddOrg || props.detailsArea}>| Borough:</h6>
+        <TextField
+          className={props.textFieldTwo}
+          label="Borough"
+          name={props.borough}
+          value={props.boroughValue}
+          onChange={props.onChange}
+          fullWidth
+        />
+      </span>  
+      <h4 className={props.notIncludeInAddOrg || props.healthAdviceTitle}>- Health advice
+        <TextField
+          className={props.notIncludeInAddOrg || props.healthAdvice}
+          fullWidth
+          name={props.advices}
+          value={props.advicesValue}
+          onChange={props.onChange}
+        />
+      </h4>    
       <TextField
         label="Process"
-        className={props.processDateLabel}
+        className={props.editProcessfield}
         name={props.process}
         value={props.processValue}
         onChange={props.onChange}
         fullWidth
       />
       <TextField
-        className={props.processDateLabel}
+        className={props.editDateField}
         label="Day"
         name={props.day}
         value={props.dayValue}
@@ -64,10 +67,8 @@ const OrganisationForm = (props) => (
         onChange={props.onChange}
         fullWidth
       />
-    </div>
-    <div className={props.addEmailWebsite}>
       <TextField
-        className={props.processDateLabel}
+        className={props.emailLabel}
         label="Email"
         name={props.email}
         value={props.emailValue}
@@ -75,7 +76,7 @@ const OrganisationForm = (props) => (
         fullWidth
       />
       <TextField
-        className={props.websiteLabel}
+        className={props.websiteLabel || props.addWebsiteField}
         label="Website"
         name={props.website}
         value={props.websiteValue}
