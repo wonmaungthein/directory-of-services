@@ -17,7 +17,7 @@ REACT
 Material UI
 SQLITE for database...
 
-## Database Shema
+## Database Schema
 
 ![ER diagram](./docs/ER.png)
 
