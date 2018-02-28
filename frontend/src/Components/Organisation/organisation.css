@@ -1,34 +1,38 @@
-/************* Form card **************/
+/*===================================================*/
+/**************** Organisation Card *****************/
+/*=================================================*/
 .single-orgonaization{
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 1em;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1em;
 }
 .form-card{
-    width: 48%;
-    height: 150px;
-    border-right: 1px solid rgba(0, 0, 0, .2);
-    border-bottom: 1px solid rgba(0, 0, 0, .2);
-    box-shadow: 2px 2px 10px -5px #000;
-    position: relative;
-    overflow: hidden;
-    background: #fff;
+  width: 48%;
+  height: 150px;
+  border-right: 1px solid rgba(0, 0, 0, .2);
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  box-shadow: 2px 2px 10px -5px #000;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
 }
 .single-orgonaization .single-orgonaization-details{
-    padding: 2em;
+  padding: 2em;
 }
 .single-orgonaization-details >h4 {
-    color: #1abcd4;
+  color: #1abcd4;
 }
 .single-orgonaization-details >h6 {
-    color: #bbb;
-    padding-top: 1em;
+  color: #bbb;
+  padding-top: 1em;
 }
-/**************** Single Organisation ***************/
+/*===================================================*/
+/*************** Single Organisation ****************/
+/*=================================================*/
 .MuiDialog-paperWidthSm-4 {
-    overflow-y: initial !important;
+  overflow-y: initial !important;
 }
 .single-oganisation-title >h2{
   color: #1abcd4;
@@ -41,67 +45,287 @@
   color: #bbb;
 }
 .orgnaization-detais-button{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .5em;
-    font-size: 1em;
-    color: #ddd;
-    background: rgba(0, 0, 0, .6);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5em;
+  font-size: 1em;
+  color: #ddd;
+  background: rgba(0, 0, 0, .6);
 }
 .single-oganisation-close-button{
-    position: absolute;
-    right: -6px;
-    top: -23px;
-    background: transparent;
-    border: navajowhite;
-    color: #bbb;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1.1em;
+  position: absolute;
+  right: -6px;
+  top: -23px;
+  background: transparent;
+  border: navajowhite;
+  color: #bbb;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1em;
 }
 .button-icon{
-    color: #ddd !important;
+  color: #ddd !important;
 }
 .health-advice-process{
-    margin: 1em 0;
-    color: #000;
+  margin: 1em 0;
+  color: #000;
 }
 .process-date{
-    display: flex;
-    justify-content: space-between;
-    color: #000;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+  width: 100%;
 }
 .process{
-    width: 63%;
+  width: 63%;
 }
 .date{
-    width: 35%;
+  width: 35%;
 }
 .telephone-email{
-    display: flex;
-    justify-content: space-between;
-    color: #000;
-    margin: 1em 0;
-    width: 100%;
-}
-.telephone{
-    width: 63%;
-}
-.email{
-    width: 35%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
 }
 .website-link{
-    display: inline-block;
-    text-decoration: none;
-    color: #1abcd4;
+  display: inline-block;
+  text-decoration: none;
+  color: #1abcd4;
 }
 .detail-footer{
-    padding: 1.5em 0 0 0;
-    color: #bbb;
+  padding: 1.5em 0 0 0;
+  color: #bbb;
+}
+/*===================================================*/
+/***************** Edit Organisation *****************/
+/*=================================================*/
+.edit-orgnasiation-name label:nth-child(1),
+.text-field label:nth-child(1),
+.text-field-two label:nth-child(1),
+.website-label label:nth-child(1){
+  display: none;
+}
+.process-date-label label:nth-child(1),
+.telephone-label label:nth-child(1){
+  color: #000;
+  font-size: 1.5em;
+}
+.website-label input:nth-child(1){
+  color: #519889 !important;
+}
+.edit-orgonaization-form .edit-orgnasiation-name input:nth-child(1){
+  font-size: 1.5em !important;
+}
+.edit-content{
+  min-width: 22em;
+  min-height: 16em;
+}
+.text-field,
+.text-field-two{
+  width: 45px !important;
+  font-size: .9em !important;
+  top: 1px !important;
+  padding: 0 !important;
+}
+.text-field-two{
+  width: 75px !important;
+  padding-left: .5em !important;
+}
+.text-field input,
+.text-field-two input{
+  font-size: .9em !important;
+  color: #bbb !important
+}
+.health-advice-title{
+  margin-top: 1em;
+}
+.health-advice{
+  top: -5px !important;
+}
+.process-date{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+.edit-button{
+  border: none !important;
+  background: transparent;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #1abcd4;
+}
+.edit-logo{
+  position: absolute;
+  right: 20px;
+  font-size: .9em;
+  font-weight: bold;
+  color: #bbb;
+}
+.details-area{
+  display: inline
+}
+.categories-checkbox-title{
+  padding: 1.5em 0 .5em 0;
+  color: #000;
+}
+.categories-chckbox{
+  display: grid;
+  grid-template-columns:repeat(3, 1fr);
+  border: 2px solid #519889;
+  padding: .5em;
+  height: 4em;
+  overflow: auto;
+  margin-bottom: 1em;
+}
+.cancel-button{
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  background: #6c6c6b !important;
+  color: #fff !important;
+  bottom: 5px !important;
+  left: 20px !important;
+  padding: 0 2em !important;
+}
+.add-categories-checkbox input[type=checkbox] + label,
+.categories-chckbox input[type=checkbox] + label{
+  cursor: pointer;
+}
+.add-categories-checkbox label,
+.categories-chckbox label{
+  position: relative;
+  margin-left: 1.5em;
+  margin-bottom: .8em;
+}
+.add-categories-checkbox label{
+  margin-bottom: 0;
+}
+.categories-chckbox input[type=checkbox], input[type=checkbox]::before{
+  content: "\2714";
+  border: 0.1em solid gray;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: .8em;
+  height: .8em;
+  padding-left: 0.3em;
+  padding-right: .2em;
+  padding-bottom: 0.4em;
+  vertical-align: bottom;
+  color: transparent;
+  background: gray;
+  transition: .2s;
+  position: absolute;
+  left: -.8em;
+}
+.categories-chckbox input[type=checkbox]:checked::before{
+  color: #000;
+}
+.save-button{
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  background: #519889 !important;
+  color: #fff !important;
+  bottom: 5px !important;
+  right: 20px !important;
+  padding: 0 2.5em !important;
+  margin-top: 1em;
+}
+.not-include-in-editOrg{
+  display: none;
+}
+/*===================================================*/
+/***************** Add Organisation *****************/
+/*=================================================*/
+.add-orgonaization{
+  padding: 15px;
+}
+.add-orgnaization >h1{
+  font-size: 1.5em;
+}
+.form-first-row,
+.form-second-row{
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-gap: 1em;
+  margin-top: 1em;
+}
+.add-category{
+  margin-top: 1em;
+}
+.add-org-title{
+  padding-bottom: 1em;
+  display: block;
+  color: #bbb;
+  margin-top: 2em;
+}
+.add-email-website{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+.add-categories-checkbox{
+  display: grid;
+  grid-template-columns:repeat(5, 1fr);
+  grid-gap: 1em;
+  border: 2px solid #519889;
+  padding: 1em;
+  height: 2.5em;
+  overflow: auto;
+}
+.add-categories-checkbox input[type=checkbox] + label{
+  cursor: pointer;
+}
+.add-categories-checkbox label,
+.categories-chckbox label{
+  position: relative;
+  margin-left: 1.5em;
+  margin-bottom: .8em;
+}
+.add-categories-checkbox label{
+  margin-bottom: 0;
+}
+.add-categories-checkbox input[type=checkbox], input[type=checkbox]::before{
+  content: "\2714";
+  border: 0.1em solid gray;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: .8em;
+  height: .8em;
+  padding-left: 0.3em;
+  padding-right: .2em;
+  padding-bottom: 0.4em;
+  vertical-align: bottom;
+  color: transparent;
+  background: gray;
+  transition: .2s;
+  position: absolute;
+  left: -.8em;
+}
+.add-categories-checkbox input[type=checkbox]:checked::before{
+  color: #000;
+}
+.add-orgonaization-link{
+  background: #519889;
+  color: #fff;
+  padding: 8px 1em;
+  margin-top: 2em;
+  float: right;
+  border: navajowhite;
+  border-radius: .1em;
+  font-size: 1em;
+  box-shadow: 0px 2px 4px 2px #bbb;
+}
+.not-include-in-add-org{
+  display: none !important;
 }

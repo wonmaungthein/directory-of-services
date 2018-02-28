@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from 'material-ui/Button';
-import OrganisationForm from './OrganisationForm'
 import Dialog, {
   DialogActions,
   DialogContent,
 } from 'material-ui/Dialog';
-import './edit-org.css'
+import OrganisationForm from './OrganisationForm';
+import './organisation.css';
 
 export default class EditOrganisation extends React.Component {
   state = {
@@ -53,11 +53,12 @@ export default class EditOrganisation extends React.Component {
       telephone: "",
       email: "",
       website: "",
-      category: ""
-    })
+      category: "",
+    });
+    console.log(updateOrgonaization);
   }
 
-  handleChange = e => {
+  updateField = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -86,144 +87,76 @@ export default class EditOrganisation extends React.Component {
               detailsArea="details-area"
               textField="text-field"
               textFieldTwo="text-field-two"
-              healthAdviceProcess="health-advice-process"
+              healthAdviceTitle="health-advice-title"
               healthAdvice="health-advice"
               processDate="process-date"
-              processClass="process"
-              dateClass="date"
-              telephoneEmail="telephone-email"
-              telephone="telephone"
-              email="email"
+              telephoneLabel="telephone-label"
+              websiteLabel="website-label"
+              processDateLabel="process-date-label"
+              notIncludeInEditOrg="not-include-in-editOrg"
               categoriesCheckboxTitle="categories-checkbox-title"
-              categoriesCheckbox="categories-chckbox"
+              categoriesCheckbox="categories-chckbox"  
+
+              orgonaizationName="orgonaizationName"
+              organisationNameValue={this.state.orgonaizationName}
+
+              area="area"
+              areaValue={this.state.area}
+
+              borough="borough"
+              boroughValue={this.state.borough}
 
               advices="advices"
               advicesValue={this.state.advices}
-/>
-            {/* <form className="edit-orgonaization-form">
-              <TextField
-                fullWidth
-                name="orgonaizationName"
-                value={this.state.orgonaizationName}
-                onChange={e => this.handleChange(e)}
-                className="edit-orgnasiation-name"
-              />
-              <h6 className="details-area">Area:
-                <TextField
-                  className="text-field"
-                  fullWidth={false}
-                  name="area"
-                  value={this.state.area}
-                  onChange={e => this.handleChange(e)}
-                /> | Borough:
-                <TextField
-                  className="text-field-two"
-                  fullWidth={false}
-                  name="borough"
-                  value={this.state.borough}
-                  onChange={e => this.handleChange(e)}
-                />
-              </h6>
-              <div className="health-advice-process">
-                <h4>- Health advice</h4>
-                <TextField
-                  className="health-advice"
-                  fullWidth
-                  name="advices"
-                  value={this.state.advices}
-                  onChange={e => this.handleChange(e)}
-                />
-              </div>
-              <div className="process-date">
-                <div className="process">
-                  <h4>Process</h4>
-                  <TextField
-                    className="health-advice"
-                    fullWidth
-                    name="process"
-                    value={this.state.process}
-                    onChange={e => this.handleChange(e)}
-                  />
-                </div>
-                <div className="date">
-                  <h4>Day</h4>
-                  <TextField
-                    className="health-advice"
-                    fullWidth
-                    name="day"
-                    value={this.state.day}
-                    onChange={e => this.handleChange(e)}
-                  />
-                </div>
-              </div>
-              <div className="telephone-email">
-                <div className="telephone">
-                  <h4>Telephone</h4>
-                  <TextField
-                    className="health-advice"
-                    fullWidth
-                    name="telephone"
-                    value={this.state.telephone}
-                    onChange={e => this.handleChange(e)}
-                  />
-                </div>
-                <div className="email">
-                  <h4>Email</h4>
-                  <TextField
-                    className="health-advice"
-                    fullWidth
-                    name="email"
-                    value={this.state.email}
-                    onChange={e => this.handleChange(e)}
-                  />
-                </div>
-              </div>
-              <TextField
-                fullWidth
-                name="website"
-                value={this.state.website}
-                onChange={e => this.handleChange(e)}
-              />
-              <h4 className="categories-checkbox-title">Categories</h4>
-              <div className="categories-chckbox">
-                <label htmlFor="category1">
-                  <input onChange={this.handleCheckbox} type="checkbox" id="category1" name="category-1" value="Debt" />  
-                  Debt
-                </label>
-                <label htmlFor="category2">
-                  <input onChange={this.handleCheckbox} type="checkbox" id="category2" name="category-2" value="ypfamilies" />  
-                  YP Families
-                </label>
-                <label htmlFor="category3">
-                  <input onChange={this.handleCheckbox} type="checkbox" id="category3" name="category-3" value="womendv" />  
-                  Women DV
-                </label>
-                <label htmlFor="category4">
-                  <input onChange={this.handleCheckbox} type="checkbox" id="category4" name="category-4" value="trafficking" />  
-                  Trafficking
-                </label>
-                <label htmlFor="category5">
-                  <input onChange={this.handleCheckbox} type="checkbox" id="category5" name="category-5" value="healthcare" />  
-                  HealthCare
-                </label>
-                <label htmlFor="category6">
-                  <input onChange={this.handleCheckbox} type="checkbox" id="category6" name="category-6" value="destitution" />  
-                  Destitution
-                </label>
-                <label htmlFor="category7">
-                  <input onChange={this.handleCheckbox} type="checkbox" id="category7" name="category-7" value="lgbtqi" />  
-                  LGBTQI
-                </label>
-                <label htmlFor="category8">
-                  <input onChange={this.handleCheckbox} type="checkbox" id="category8" name="category-8" value="mentalhealthservices" />  
-                  Mental Health Services
-                </label>
-                <label htmlFor="category9">
-                  <input onChange={this.handleCheckbox} type="checkbox" id="category9" name="category-9" value="healthcare" />  
-                  Healthcare
-                </label>
-              </div>
-            </form> */}
+
+              process="process"
+              processValue={this.state.process}
+
+              day="day"
+              dayValue={this.state.day}
+
+              telephone="telephone"
+              telephoneValue={this.state.telephone}
+
+              email="email"
+              emailValue={this.state.email}
+
+              website="website"
+              websiteValue={this.state.website}
+
+              category1="category1"
+              category2="category2"
+              category3="category3"
+              category4="category4"
+              category5="category5"
+              category6="category6"
+              category7="category7"
+              category8="category8"
+              category9="category9"
+
+              category1Id="category1"
+              category2Id="category2"
+              category3Id="category3"
+              category4Id="category4"
+              category5Id="category5"
+              category6Id="category6"
+              category7Id="category7"
+              category8Id="category8"
+              category9Id="category9"
+
+              category1Name="category-1"
+              category2Name="category-2"
+              category3Name="category-3"
+              category4Name="category-4"
+              category5Name="category-5"
+              category6Name="category-6"
+              category7Name="category-7"
+              category8Name="category-8"
+              category9Name="category-9"
+
+              onChange={this.updateField}
+              onChangeCheckbox={this.handleCheckbox}
+            />
           </DialogContent>
           <DialogActions>
             <Button className="cancel-button" onClick={this.handleClose} color="primary">

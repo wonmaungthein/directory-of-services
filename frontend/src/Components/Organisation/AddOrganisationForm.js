@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './add-org.css';
+import './organisation.css';
 import OrganisationForm from './OrganisationForm'
 
 export default class AddOrganisationForm extends Component {
@@ -63,9 +63,6 @@ export default class AddOrganisationForm extends Component {
             <h1>Add new orgonaization</h1>
             <OrganisationForm
               formFirstRow="form-first-row"
-              firstField="first-field"
-              secondField="second-field"
-              thirdField="third-field"
               notIncludeInAddOrg="not-include-in-add-org"
 
               organisationName="organisationName"
