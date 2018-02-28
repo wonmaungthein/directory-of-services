@@ -40,22 +40,22 @@ export default class SingleOrganisation extends Component {
               <h4> - Health advice</h4>
               <h4> - Help accessing NHS</h4>
             </div>
-            <div className="process-date">
-              <div className="process">
+            <div className="single-process-date">
+              <div>
                 <h4>Process</h4>
                 <p>Call in advance (appt only)</p>
               </div>
-              <div className="date">
+              <div>
                 <h4>Day</h4>
                 <p>Monday</p>
               </div>
             </div>
-            <div className="telephone-email">
-              <div className="telephone">
+            <div className="single-telephone-email">
+              <div>
                 <h4>Telephone</h4>
                 <p>028 297 4111</p>
               </div>
-              <div className="email">
+              <div>
                 <h4>Email</h4>
                 <p>test@test.com</p>
               </div>
