@@ -15,10 +15,7 @@
 
 
 ## Minimal reproduction of the problem with instructions:
-<!--
-For bug reports please provide the *STEPS TO REPRODUCE* and if possible a *MINIMAL DEMO* of the problem via
-http://plnkr.co/edit/tpl:757r6L
--->
+<!-- Step by step, with exact page/file it happens on --> 
 
 ## Version of affected browser(s),operating system(s), npm, node:
 
