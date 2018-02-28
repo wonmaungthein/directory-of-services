@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './organisation.css';
 import OrganisationForm from './OrganisationForm'
-
 export default class AddOrganisationForm extends Component {
   state = {
       organisationName: "",
@@ -13,7 +12,7 @@ export default class AddOrganisationForm extends Component {
       email: "",
       website: "",
       service: "",
-      category: false
+      category: [],
     };
 
   handleSubmit = (e) => {
@@ -40,7 +39,7 @@ export default class AddOrganisationForm extends Component {
       email: "",
       website: "",
       service: "",
-      category: ""
+      category: []
     })
     console.log(updateOrgonaization)
   }
@@ -52,8 +51,10 @@ export default class AddOrganisationForm extends Component {
   }
 
   handleCheckbox = e => {
+    const listOfCategories = this.state.category;
+    listOfCategories.push(e.target.value);
     this.setState({
-      category: e.target.value
+      category: listOfCategories
     })
   }
 
@@ -62,11 +63,6 @@ export default class AddOrganisationForm extends Component {
           <div className="add-orgonaization">
             <h1>Add new orgonaization</h1>
             <OrganisationForm
-              formFirstRow="form-first-row"
-              notIncludeInAddOrg="not-include-in-add-org"
-
-              addWebsiteField="add-website-field"
-
               organisationName="organisationName"
               organisationNameValue={this.state.organisationName}
 

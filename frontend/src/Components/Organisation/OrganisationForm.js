@@ -1,21 +1,22 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import './organisation.css';
 
 const OrganisationForm = (props) => (
-  <form className={props.editOrgonaizationForm}>
-    <div className={props.formFirstRow || props.editfields}>
+  <form className="org-content">
+    <div className="form-first-row edit-field">
       <TextField
-        className={props.editOrgnasiationName}
+        className="edit-orgnasiation-name"
         label="Organisation name"
         name={props.organisationName}
         value={props.organisationNameValue}
         onChange={props.onChange}
         fullWidth
       />
-      <span className={props.textFieldContainer}>
-        <h6 className={props.notIncludeInAddOrg || props.detailsArea}>Area:</h6>
+      <span className="text-field-container">
+        <h6 className="not-include-in-add-org details-area">Area:</h6>
         <TextField
-          className={props.textField}
+          className="text-field"
           label="Area"
           name={props.area}
           value={props.areaValue}
@@ -23,10 +24,10 @@ const OrganisationForm = (props) => (
           fullWidth
         />
       </span>  
-      <span className={props.textFieldTwoContainer}>
-        <h6 className={props.notIncludeInAddOrg || props.detailsArea}>| Borough:</h6>
+      <span className="text-field-two-container">
+        <h6 className="not-include-in-add-org details-area">| Borough:</h6>
         <TextField
-          className={props.textFieldTwo}
+          className="text-field-two"
           label="Borough"
           name={props.borough}
           value={props.boroughValue}
@@ -34,9 +35,9 @@ const OrganisationForm = (props) => (
           fullWidth
         />
       </span>  
-      <h4 className={props.notIncludeInAddOrg || props.healthAdviceTitle}>- Health advice
+      <h4 className="not-include-in-add-org health-advice-title">- Health advice
         <TextField
-          className={props.notIncludeInAddOrg || props.healthAdvice}
+          className="not-include-in-add-org health-advice"
           fullWidth
           name={props.advices}
           value={props.advicesValue}
@@ -45,14 +46,14 @@ const OrganisationForm = (props) => (
       </h4>    
       <TextField
         label="Process"
-        className={props.editProcessfield}
+        className="edit-process-field"
         name={props.process}
         value={props.processValue}
         onChange={props.onChange}
         fullWidth
       />
       <TextField
-        className={props.editDateField}
+        className="edit-day-field"
         label="Day"
         name={props.day}
         value={props.dayValue}
@@ -60,7 +61,7 @@ const OrganisationForm = (props) => (
         fullWidth
       />
       <TextField
-        className={props.telephoneLabel}
+        className="telephone-label"
         label="Telephone"
         name={props.telephone}
         value={props.telephoneValue}
@@ -68,7 +69,7 @@ const OrganisationForm = (props) => (
         fullWidth
       />
       <TextField
-        className={props.emailLabel}
+        className="email-label"
         label="Email"
         name={props.email}
         value={props.emailValue}
@@ -76,7 +77,7 @@ const OrganisationForm = (props) => (
         fullWidth
       />
       <TextField
-        className={props.websiteLabel || props.addWebsiteField}
+        className="website-label add-website-field"
         label="Website"
         name={props.website}
         value={props.websiteValue}
@@ -84,7 +85,7 @@ const OrganisationForm = (props) => (
         fullWidth
       />
     </div>
-    <div className={props.formThirdRow || props.notIncludeInEditOrg}>
+    <div className="form-third-row not-include-in-edit-org">
       <TextField
         multiline
         rows="4"
@@ -95,8 +96,8 @@ const OrganisationForm = (props) => (
         onChange={props.onChange}
       />
     </div>
-    <h4 className={props.addOrgtitle || props.categoriesCheckboxTitle}>Categories</h4>
-    <div className={props.addCategoriesCheckbox || props.categoriesCheckbox}>
+    <h4 className="add-org-title categories-checkbox-title">Categories</h4>
+    <div className="add-categories-checkbox categories-checkbox">
       <label htmlFor={props.category1}>
         <input onChange={props.onChangeCheckbox} type="checkbox" id={props.category1Id} name={props.category1Name} value="Debt" />
         Debt

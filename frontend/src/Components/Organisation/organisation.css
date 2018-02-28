@@ -31,7 +31,7 @@
 /*===================================================*/
 /*************** Single Organisation ****************/
 /*=================================================*/
-.MuiDialog-paperWidthSm-4 {
+.single-org-dialog >div{
   overflow-y: initial !important;
 }
 .single-oganisation-title >h2{
@@ -96,81 +96,81 @@
 /*===================================================*/
 /***************** Edit Organisation *****************/
 /*=================================================*/
-.edit-field{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
-}
-.edit-orgnasiation-name{
-  grid-column: 1/4
-}
-.text-field-container{
-  grid-column: 1/1;
-  margin-top: -1em;
-}
-.text-field-two-container{
-  grid-column: 2/2;
-  align-items: flex-start;
-  margin-top: -1em;
-}
-.health-advice-title{
-  grid-column: 1/4
-}
-.edit-process-field{
-  grid-column: 1/2
-}
-.edit-day-field{
-  grid-column: 2/4
-}
-.telephone-label{
-  grid-column: 1/2
-}
-.email-label{
-  grid-column: 2/4
-}
-.health-advice{
-  top: -5px !important;
-}
-.edit-orgnasiation-name label:nth-child(1),
-.text-field label:nth-child(1),
-.text-field-two label:nth-child(1),
-.website-label label:nth-child(1){
-  display: none;
-}
-.edit-day-field label:nth-child(1),
-.edit-process-field label:nth-child(1),
-.email-label label:nth-child(1),
-.telephone-label label:nth-child(1){
-  color: #000;
-  font-size: 1.5em;
-}
-.website-label input:nth-child(1){
-  color: #519889 !important;
-}
-.edit-orgonaization-form .edit-orgnasiation-name input:nth-child(1){
-  font-size: 1.5em !important;
-}
 .edit-content{
   min-width: 22em;
   min-height: 16em;
 }
-.text-field,
-.text-field-two{
+.edit-org .edit-field{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+.edit-org .edit-orgnasiation-name{
+  grid-column: 1/4;
+  margin-top: -1em;
+}
+.edit-org .text-field-container{
+  grid-column: 1/1;
+  margin-top: -1.5em;
+}
+.edit-org .text-field-two-container{
+  grid-column: 2/2;
+  margin-top: -1.5em;
+}
+.edit-org .health-advice-title{
+  grid-column: 1/4
+}
+.edit-org .edit-process-field{
+  grid-column: 1/2
+}
+.edit-org .edit-day-field{
+  grid-column: 2/4
+}
+.edit-org .telephone-label{
+  grid-column: 1/2
+}
+.edit-org .email-label{
+  grid-column: 2/4
+}
+.edit-org .health-advice{
+  top: -5px !important;
+}
+.edit-org .edit-orgnasiation-name label:nth-child(1),
+.edit-org .text-field label:nth-child(1),
+.edit-org .text-field-two label:nth-child(1),
+.edit-org .website-label label:nth-child(1){
+  display: none;
+}
+.edit-org .edit-day-field label:nth-child(1),
+.edit-org .edit-process-field label:nth-child(1),
+.edit-org .email-label label:nth-child(1),
+.edit-org .telephone-label label:nth-child(1){
+  color: #000;
+  font-size: 1.5em;
+}
+.edit-org .website-label input:nth-child(1){
+  color: #519889 !important;
+}
+.edit-org .edit-orgnasiation-name input:nth-child(1){
+  font-size: 1.5em !important;
+}
+.edit-org .text-field,
+.edit-org .text-field-two{
   width: 50px !important;
   font-size: .9em !important;
   top: 1px !important;
   padding: 0 !important;
   padding-left: .5em !important;
 }
-.text-field-two{
+.edit-org .text-field-two{
   width: 75px !important;
 }
-.text-field input,
-.text-field-two input{
+.edit-org .text-field input,
+.edit-org .text-field-two input{
   font-size: .9em !important;
   color: #bbb !important
 }
-.health-advice-title input:nth-child(1){
+.edit-org .health-advice-title input:nth-child(1){
   font-weight: initial;
 }
 .edit-button{
@@ -190,19 +190,34 @@
   font-weight: bold;
   color: #bbb;
 }
-.details-area{
+.edit-org-dialog >div{
+  overflow-y: initial !important;
+}
+.edit-org-close-button{
+  position: absolute;
+  right: -6px;
+  top: -23px;
+  background: transparent;
+  border: navajowhite;
+  color: #bbb;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.edit-org .details-area{
   display: inline
 }
-.categories-checkbox-title{
+.edit-org .categories-checkbox-title{
   padding: 1.5em 0 .5em 0;
   color: #000;
 }
-.categories-chckbox{
+.edit-org .categories-checkbox{
   display: grid;
   grid-template-columns:repeat(3, 1fr);
   border: 2px solid #519889;
   padding: .5em;
   height: 4em;
+  grid-gap: 1em;
   overflow: auto;
   margin-bottom: 1em;
 }
@@ -216,20 +231,20 @@
   left: 20px !important;
   padding: 0 2em !important;
 }
-.add-categories-checkbox input[type=checkbox] + label,
-.categories-chckbox input[type=checkbox] + label{
+.edit-org .add-categories-checkbox input[type=checkbox] + label,
+.edit-org .categories-checkbox input[type=checkbox] + label{
   cursor: pointer;
 }
-.add-categories-checkbox label,
-.categories-chckbox label{
+.edit-org .add-categories-checkbox label,
+.edit-org .categories-checkbox label{
   position: relative;
   margin-left: 1.5em;
-  margin-bottom: .8em;
+  margin-bottom: .3em;
 }
-.add-categories-checkbox label{
+.edit-org .add-categories-checkbox label{
   margin-bottom: 0;
 }
-.categories-chckbox input[type=checkbox], input[type=checkbox]::before{
+.edit-org .categories-checkbox input[type=checkbox], input[type=checkbox]::before{
   content: "\2714";
   border: 0.1em solid gray;
   border-radius: 0.2em;
@@ -246,7 +261,7 @@
   position: absolute;
   left: -.8em;
 }
-.categories-chckbox input[type=checkbox]:checked::before{
+.edit-org .categories-checkbox input[type=checkbox]:checked::before{
   color: #000;
 }
 .save-button{
@@ -260,7 +275,7 @@
   padding: 0 2.5em !important;
   margin-top: 1em;
 }
-.not-include-in-editOrg{
+.edit-org .not-include-in-edit-org{
   display: none;
 }
 /*===================================================*/
@@ -269,36 +284,36 @@
 .add-orgonaization{
   padding: 15px;
 }
-.add-orgnaization >h1{
+.org-content.add-orgnaization >h1{
   font-size: 1.5em;
 }
-.form-first-row,
-.form-second-row{
+.org-content .form-first-row,
+.org-content .form-second-row{
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   grid-gap: 1em;
   margin-top: 1em;
 }
-.add-website-field{
+.org-content .add-website-field{
   grid-column: 2/4;
 }
-.add-category{
+.org-content .add-category{
   margin-top: 1em;
 }
-.add-org-title{
+.org-content .add-org-title{
   padding-bottom: 1em;
   display: block;
   color: #bbb;
   margin-top: 2em;
 }
-.add-email-website{
+.org-content .add-email-website{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1em;
   margin-bottom: 1em;
   margin-top: 1em;
 }
-.add-categories-checkbox{
+.org-content .add-categories-checkbox{
   display: grid;
   grid-template-columns:repeat(5, 1fr);
   grid-gap: 1em;
@@ -307,19 +322,19 @@
   height: 2.5em;
   overflow: auto;
 }
-.add-categories-checkbox input[type=checkbox] + label{
+.org-content .add-categories-checkbox input[type=checkbox] + label{
   cursor: pointer;
 }
-.add-categories-checkbox label,
-.categories-chckbox label{
+.org-content .add-categories-checkbox label,
+.org-content .categories-checkbox label{
   position: relative;
   margin-left: 1.5em;
   margin-bottom: .8em;
 }
-.add-categories-checkbox label{
+.org-content .add-categories-checkbox label{
   margin-bottom: 0;
 }
-.add-categories-checkbox input[type=checkbox], input[type=checkbox]::before{
+.org-content .add-categories-checkbox input[type=checkbox], input[type=checkbox]::before{
   content: "\2714";
   border: 0.1em solid gray;
   border-radius: 0.2em;
@@ -336,7 +351,7 @@
   position: absolute;
   left: -.8em;
 }
-.add-categories-checkbox input[type=checkbox]:checked::before{
+.org-content .add-categories-checkbox input[type=checkbox]:checked::before{
   color: #000;
 }
 .add-orgonaization-link{
@@ -350,6 +365,6 @@
   font-size: 1em;
   box-shadow: 0px 2px 4px 2px #bbb;
 }
-.not-include-in-add-org{
+.org-content .not-include-in-add-org{
   display: none !important;
 }

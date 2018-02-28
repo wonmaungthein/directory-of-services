@@ -75,6 +75,7 @@ export default class EditOrganisation extends React.Component {
       <div>
         <button className="edit-button" onClick={this.handleClickOpen}>Edit</button>
         <Dialog
+          className="edit-org-dialog"
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title"
@@ -82,26 +83,6 @@ export default class EditOrganisation extends React.Component {
           <DialogContent className="edit-content">
             <span className="edit-logo">Editing</span>
             <OrganisationForm
-              editOrgonaizationForm="edit-orgonaization-form"
-              editOrgnasiationName="edit-orgnasiation-name"
-              detailsArea="details-area"
-              textField="text-field"
-              textFieldTwo="text-field-two"
-              healthAdviceTitle="health-advice-title"
-              healthAdvice="health-advice"
-              telephoneLabel="telephone-label"
-              websiteLabel="website-label"
-              emailLabel="email-label"
-              notIncludeInEditOrg="not-include-in-editOrg"
-              categoriesCheckboxTitle="categories-checkbox-title"
-              categoriesCheckbox="categories-chckbox" 
-              
-              editfields="edit-field"
-              editProcessfield="edit-process-field"
-              editDateField="edit-day-field"
-              textFieldContainer="text-field-container"
-              textFieldTwoContainer="text-field-two-container"
-
               orgonaizationName="orgonaizationName"
               organisationNameValue={this.state.orgonaizationName}
 
@@ -170,6 +151,7 @@ export default class EditOrganisation extends React.Component {
             <Button className="save-button" onClick={this.handleSubmit} color="primary" autoFocus>
               Save change
             </Button>
+            <button onClick={this.handleClose} className="edit-org-close-button">Close</button>
           </DialogActions>
         </Dialog>
       </div>
