@@ -5,7 +5,7 @@ import './home.css'
 const Home = () =>(
   <div>
     <div className="main-nav">
-      <div className="orgonaization-title">
+      <div>
         <span>HEALTHCARE</span>
         <Link to="/addorganisationForm" className="add-orgnaization"><span className="add-orgonaization-button">Add new</span></Link>
       </div>
