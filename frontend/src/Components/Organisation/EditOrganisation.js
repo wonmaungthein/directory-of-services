@@ -12,7 +12,7 @@ export default class EditOrganisation extends React.Component {
     open: false,
     area: "North",
     borough: "Haringey",
-    orgonaizationName: "Haringey Migrant Service",
+    name: "Haringey Migrant Service",
     advices: "- Help accessing NHS",
     process: "Call in advance (appt only)",
     day: "Monday",
@@ -34,7 +34,7 @@ export default class EditOrganisation extends React.Component {
     const updateOrgonaization = {
       area: this.state.area,
       borough: this.state.borough,
-      orgonaizationName: this.state.orgonaizationName,
+      name: this.state.name,
       advices: this.state.advices,
       process: this.state.process,
       day: this.state.day,
@@ -46,7 +46,7 @@ export default class EditOrganisation extends React.Component {
     this.setState({
       area: "",
       borough: "",
-      orgonaizationName: "",
+      name: "",
       advices: "",
       process: "",
       day: "",
@@ -86,7 +86,7 @@ export default class EditOrganisation extends React.Component {
             <span className="edit-logo">Editing</span>
             <OrganisationForm
               
-              organisationNameValue={this.state.orgonaizationName}
+              organisationNameValue={this.state.name}
               areaValue={this.state.area}
               boroughValue={this.state.borough}
               advicesValue={this.state.advices}

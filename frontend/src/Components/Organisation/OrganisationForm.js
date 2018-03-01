@@ -8,7 +8,7 @@ const OrganisationForm = (props) =>(
       <TextField
         className="edit-orgnasiation-name"
         label="Organisation name"
-        name="orgName"
+        name="name"
         value={props.organisationNameValue}
         onChange={props.onChange}
         fullWidth

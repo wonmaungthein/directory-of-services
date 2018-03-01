@@ -4,7 +4,7 @@ import './organisation.css';
 
 export default class AddOrganisationForm extends Component {
   state = {
-    orgName: "",
+    name: "",
     area: "",
     borough: "Highbury and Islington",
     process: "Email, then call",
@@ -21,7 +21,7 @@ export default class AddOrganisationForm extends Component {
     const updateOrgonaization = {
       area: this.state.area,
       borough: this.state.borough,
-      orgName: this.state.orgName,
+      name: this.state.name,
       process: this.state.process,
       day: this.state.day,
       telephone: this.state.telephone,
@@ -33,7 +33,7 @@ export default class AddOrganisationForm extends Component {
     this.setState({
       area: "",
       borough: "",
-      orgName: "",
+      name: "",
       process: "",
       day: "",
       telephone: "",
@@ -64,7 +64,7 @@ export default class AddOrganisationForm extends Component {
       <div className="add-orgonaization">
         <h1>Add new orgonaization</h1>
         <OrganisationForm
-          organisationNameValue={this.state.orgName}
+          organisationNameValue={this.state.name}
           areaValue={this.state.area}
           boroughValue={this.state.borough}              
           processValue={this.state.process}
