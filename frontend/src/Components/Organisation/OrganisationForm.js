@@ -2,13 +2,13 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import './organisation.css';
 
-const OrganisationForm = (props) => (
-  <form className="org-content">
+const OrganisationForm = (props) =>(
+  <form className={props.addContent || props.editOrg}>
     <div className="form-first-row edit-field">
       <TextField
         className="edit-orgnasiation-name"
         label="Organisation name"
-        name={props.organisationName}
+        name="orgName"
         value={props.organisationNameValue}
         onChange={props.onChange}
         fullWidth
@@ -18,7 +18,7 @@ const OrganisationForm = (props) => (
         <TextField
           className="text-field"
           label="Area"
-          name={props.area}
+          name="area"
           value={props.areaValue}
           onChange={props.onChange}
           fullWidth
@@ -29,7 +29,7 @@ const OrganisationForm = (props) => (
         <TextField
           className="text-field-two"
           label="Borough"
-          name={props.borough}
+          name="borough"
           value={props.boroughValue}
           onChange={props.onChange}
           fullWidth
@@ -39,7 +39,7 @@ const OrganisationForm = (props) => (
         <TextField
           className="not-include-in-add-org health-advice"
           fullWidth
-          name={props.advices}
+          name="advices"
           value={props.advicesValue}
           onChange={props.onChange}
         />
@@ -47,7 +47,7 @@ const OrganisationForm = (props) => (
       <TextField
         label="Process"
         className="edit-process-field"
-        name={props.process}
+        name="process"
         value={props.processValue}
         onChange={props.onChange}
         fullWidth
@@ -55,7 +55,7 @@ const OrganisationForm = (props) => (
       <TextField
         className="edit-day-field"
         label="Day"
-        name={props.day}
+        name="day"
         value={props.dayValue}
         onChange={props.onChange}
         fullWidth
@@ -63,7 +63,7 @@ const OrganisationForm = (props) => (
       <TextField
         className="telephone-label"
         label="Telephone"
-        name={props.telephone}
+        name="telephone"
         value={props.telephoneValue}
         onChange={props.onChange}
         fullWidth
@@ -71,7 +71,7 @@ const OrganisationForm = (props) => (
       <TextField
         className="email-label"
         label="Email"
-        name={props.email}
+        name="email"
         value={props.emailValue}
         onChange={props.onChange}
         fullWidth
@@ -79,7 +79,7 @@ const OrganisationForm = (props) => (
       <TextField
         className="website-label add-website-field"
         label="Website"
-        name={props.website}
+        name="website"
         value={props.websiteValue}
         onChange={props.onChange}
         fullWidth
@@ -91,52 +91,52 @@ const OrganisationForm = (props) => (
         rows="4"
         label="Service"
         fullWidth
-        name={props.service}
+        name="service"
         value={props.serviceValue}
         onChange={props.onChange}
       />
     </div>
     <h4 className="add-org-title categories-checkbox-title">Categories</h4>
     <div className="add-categories-checkbox categories-checkbox">
-      <label htmlFor={props.category1}>
-        <input onChange={props.onChangeCheckbox} type="checkbox" id={props.category1Id} name={props.category1Name} value="Debt" />
+      <label htmlFor="category1Id">
+        <input onChange={props.onChangeCheckbox} type="checkbox" id="category1Id" name="category_1" value="Debt" />
         Debt
       </label>
-      <label htmlFor={props.category2}>
-        <input onChange={props.onChangeCheckbox} type="checkbox" id={props.category2Id} name={props.category2Name} value="ypfamilies" />
+      <label htmlFor="category2Id">
+        <input onChange={props.onChangeCheckbox} type="checkbox" id="category2Id" name="category_2" value="ypfamilies" />
         YP Families
       </label>
-      <label htmlFor={props.category3}>
-        <input onChange={props.onChangeCheckbox} type="checkbox" id={props.category3Id} name={props.category3Name} value="womendv" />
+      <label htmlFor="category3Id">
+        <input onChange={props.onChangeCheckbox} type="checkbox" id="category3Id" name="category_3" value="womendv" />
         Women DV
       </label>
-      <label htmlFor={props.category4}>
-        <input onChange={props.onChangeCheckbox} type="checkbox" id={props.category4Id} name={props.category4Name} value="trafficking" />
+      <label htmlFor="category4Id">
+        <input onChange={props.onChangeCheckbox} type="checkbox" id="category4Id" name="category_4" value="trafficking" />
         Trafficking
       </label>
-      <label htmlFor={props.category5}>
-        <input onChange={props.onChangeCheckbox} type="checkbox" id={props.category5Id} name={props.category5Name} value="healthcare" />
+      <label htmlFor="category5Id">
+        <input onChange={props.onChangeCheckbox} type="checkbox" id="category5Id" name="category_5" value="healthcare" />
         HealthCare
       </label>
-      <label htmlFor={props.category6}>
-        <input onChange={props.onChangeCheckbox} type="checkbox" id={props.category6Id} name={props.category6Name} value="destitution" />
+      <label htmlFor="category6Id">
+        <input onChange={props.onChangeCheckbox} type="checkbox" id="category6Id" name="category_6" value="destitution" />
         Destitution
       </label>
-      <label htmlFor={props.category7}>
-        <input onChange={props.onChangeCheckbox} type="checkbox" id={props.category7Id} name={props.category7Name} value="lgbtqi" />
+      <label htmlFor="category7Id">
+        <input onChange={props.onChangeCheckbox} type="checkbox" id="category7Id" name="category_7" value="lgbtqi" />
         LGBTQI
       </label>
-      <label htmlFor={props.category8}>
-        <input onChange={props.onChangeCheckbox} type="checkbox" id={props.category8Id} name={props.category8Name} value="mentalhealthservices" />
+      <label htmlFor="category8Id">
+        <input onChange={props.onChangeCheckbox} type="checkbox" id="category8Id" name="category_8" value="mentalhealthservices" />
         Mental Health Services
       </label>
-      <label htmlFor={props.category9}>
-        <input onChange={props.onChangeCheckbox} type="checkbox" id={props.category9Id} name={props.category8Name} value="healthcare" />
+      <label htmlFor="category9Id">
+        <input onChange={props.onChangeCheckbox} type="checkbox" id="category9Id" name="category_9" value="healthcare" />
         Healthcare
       </label>
     </div>
-  </form>
-);
+  </form >
+);  
 
 
 export default OrganisationForm;

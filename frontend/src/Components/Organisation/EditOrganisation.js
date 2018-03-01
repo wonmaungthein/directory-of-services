@@ -19,7 +19,7 @@ export default class EditOrganisation extends React.Component {
     telephone: "028 297 4111",
     email: "test@test.co.uk",
     website: "http://www.haringeymsc.org",
-    category: false
+    category: [],
   };
 
   handleClickOpen = () => {
@@ -65,8 +65,10 @@ export default class EditOrganisation extends React.Component {
   }
 
   handleCheckbox = e => {
+    const listOfCategories = this.state.category;
+    listOfCategories.push(e.target.value);
     this.setState({
-      category: e.target.value
+      category: listOfCategories
     })
   }
 
@@ -83,63 +85,18 @@ export default class EditOrganisation extends React.Component {
           <DialogContent className="edit-content">
             <span className="edit-logo">Editing</span>
             <OrganisationForm
-              orgonaizationName="orgonaizationName"
+              
               organisationNameValue={this.state.orgonaizationName}
-
-              area="area"
               areaValue={this.state.area}
-
-              borough="borough"
               boroughValue={this.state.borough}
-
-              advices="advices"
               advicesValue={this.state.advices}
-
-              process="process"
               processValue={this.state.process}
-
-              day="day"
               dayValue={this.state.day}
-
-              telephone="telephone"
               telephoneValue={this.state.telephone}
-
-              email="email"
               emailValue={this.state.email}
-
-              website="website"
               websiteValue={this.state.website}
 
-              category1="category1"
-              category2="category2"
-              category3="category3"
-              category4="category4"
-              category5="category5"
-              category6="category6"
-              category7="category7"
-              category8="category8"
-              category9="category9"
-
-              category1Id="category1"
-              category2Id="category2"
-              category3Id="category3"
-              category4Id="category4"
-              category5Id="category5"
-              category6Id="category6"
-              category7Id="category7"
-              category8Id="category8"
-              category9Id="category9"
-
-              category1Name="category-1"
-              category2Name="category-2"
-              category3Name="category-3"
-              category4Name="category-4"
-              category5Name="category-5"
-              category6Name="category-6"
-              category7Name="category-7"
-              category8Name="category-8"
-              category9Name="category-9"
-
+              editOrg="edit-org"
               onChange={this.updateField}
               onChangeCheckbox={this.handleCheckbox}
             />
