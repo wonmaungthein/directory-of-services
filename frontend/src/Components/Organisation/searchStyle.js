@@ -62,6 +62,7 @@ const styles = theme => ({
     },
     '.Select.has-value.is-clearable.Select--single > .Select-control .Select-value': {
       padding: 0,
+      color:'#000 !important'
     },
     '.Select-noresults': {
       padding: theme.spacing.unit * 2,
