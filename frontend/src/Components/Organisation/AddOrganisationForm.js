@@ -18,18 +18,6 @@ export default class AddOrganisationForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const updateOrgonaization = {
-      area: this.state.area,
-      borough: this.state.borough,
-      name: this.state.name,
-      process: this.state.process,
-      day: this.state.day,
-      telephone: this.state.telephone,
-      email: this.state.email,
-      website: this.state.website,
-      service: this.state.service,
-      category: this.state.category
-    }
     this.setState({
       area: "",
       borough: "",
@@ -42,7 +30,6 @@ export default class AddOrganisationForm extends Component {
       service: "",
       category: []
     })
-    console.log(updateOrgonaization)
   }
 
   updateField = event => {
