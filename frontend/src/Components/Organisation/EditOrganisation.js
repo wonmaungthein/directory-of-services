@@ -31,18 +31,6 @@ export default class EditOrganisation extends React.Component {
   };
 
   handleSubmit = () => {
-    const updateOrgonaization = {
-      area: this.state.area,
-      borough: this.state.borough,
-      name: this.state.name,
-      advices: this.state.advices,
-      process: this.state.process,
-      day: this.state.day,
-      telephone: this.state.telephone,
-      email: this.state.email,
-      website: this.state.website,
-      category: this.state.category
-    }
     this.setState({
       area: "",
       borough: "",
@@ -55,7 +43,6 @@ export default class EditOrganisation extends React.Component {
       website: "",
       category: "",
     });
-    console.log(updateOrgonaization);
   }
 
   updateField = e => {

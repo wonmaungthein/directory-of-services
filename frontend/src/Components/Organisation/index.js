@@ -6,8 +6,8 @@ import orgData from './org_data';
 
 const OrganisationCard = () => (
   <div className="single-organisation">
-    {orgData.map(org => {
-      return (
+    {orgData.map(org => 
+      (
         <div className="form-card" key={org.id}>
           <EditOrganisation />
           <SingleOrganisation />
@@ -20,8 +20,8 @@ const OrganisationCard = () => (
             </div>
           </div>
         </div>
-      );
-    })}  
+      )
+    )}
   </div>
 )
 
