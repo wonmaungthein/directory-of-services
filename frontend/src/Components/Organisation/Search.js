@@ -16,6 +16,7 @@ import ClearIcon from 'material-ui-icons/Clear';
 import Chip from 'material-ui/Chip';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import Option from './Option';
 import searchStyle from './searchStyle';
 
 const organisations = [
@@ -27,12 +28,12 @@ const days = [
   { postCode: 'H2 1TH', address: 'Bermondsey', day: 'Monday' },
   { postCode: 'H2 2TH', address: '2 Bermondsey', day: 'Tuesday' },
   { postCode: 'H2 3TH', address: '3 Bermondsey', day: 'Wednesday' },
-].map(organisation => ({ //=== organisation by day =========
+].map(organisation => ({ // === organisation by day =========
   value: organisation.day,
   label: organisation.day,
 }));
 
-//========== Auto Compelet Search Field
+// ========== Auto Compelet Search Field
 function renderInput(inputProps) {
   const { classes, ref, ...other } = inputProps;
   return (
@@ -56,22 +57,22 @@ function renderSuggestion(organisation, { query, isHighlighted }) {
   return (
     <MenuItem selected={isHighlighted} component="div">
       <div>
-        {parts.map((part, index) => {
-          return part.highlight ? (
+        {parts.map((part, index) => 
+          part.highlight ? (
             <span key={String(index)} style={{ fontWeight: 300 }}>
               {part.text}
             </span>
           ) : (
-              <strong key={String(index)} style={{ fontWeight: 500 }}>
-                {part.text}
-              </strong>
-            );
-        })}
+            <strong key={String(index)} style={{ fontWeight: 500 }}>
+              {part.text}
+            </strong>
+          )
+        )}
       </div>
     </MenuItem>
   );
 }
-//========== Auto Compelet Search Warpper
+// ========== Auto Compelet Search Warpper
 function renderSuggestionsContainer(options) {
   const { containerProps, children } = options;
 
@@ -81,11 +82,11 @@ function renderSuggestionsContainer(options) {
     </Paper>
   );
 }
-//========== Auto Compelet Search Returned Value
+// ========== Auto Compelet Search Returned Value
 function getSuggestionValue(orgainsation) {
   return `${orgainsation.address}, ${orgainsation.postCode}`;
 }
-//========== Auto Compelet Search Filttring the Organisation
+// ========== Auto Compelet Search Filttring the Organisation
 function getSuggestions(value) {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
@@ -104,44 +105,20 @@ function getSuggestions(value) {
       return keep;
     });
 }
-//###################################
-//============ Select Field =========
+// ###################################
+// ============ Select Field =========
 
-//========= Selected List ===========//
-class Option extends React.Component {
-  handleClick = event => {
-    this.props.onSelect(this.props.option, event);
-  };
-
-  render() {
-    const { children, isFocused, isSelected, onFocus } = this.props;
-
-    return (
-      <MenuItem
-        onFocus={onFocus}
-        selected={isFocused}
-        onClick={this.handleClick}
-        component="div"
-        style={{
-          fontWeight: isSelected ? 500 : 400,
-        }}
-      >
-        {children}
-      </MenuItem>
-    );
-  }
-}
-//========== Selected Wrapper ============//
+// ========== Selected Wrapper ============// 
 function SelectWrapped(props) {
   const { classes, ...other } = props;
 
   return (
     <Select
       optionComponent={Option}
-      noResultsText={<Typography>{'No results found'}</Typography>}
-      arrowRenderer={arrowProps => {
-        return arrowProps.isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />;
-      }}
+      noResultsText={<Typography>No results found</Typography>}
+      arrowRenderer={arrowProps => 
+        arrowProps.isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />
+      }
       clearRenderer={() => <ClearIcon />}
       valueComponent={valueProps => {
         const { value, children, onRemove } = valueProps;
@@ -170,8 +147,8 @@ function SelectWrapped(props) {
     />
   );
 }
-//####################################
-//========== Search Component ========
+// ####################################
+// ========== Search Component ========
 class Search extends React.Component {
   state = {
     postCode: '',
