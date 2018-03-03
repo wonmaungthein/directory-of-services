@@ -6,9 +6,9 @@ import Home from './Components/Home'
 import OrganisationCard from './Components/Organisation'
 import AddOrganisationForm from './Components/Organisation/AddOrganisationForm'
 
-import "./App.css";
+import "./routes.css";
 
-const App = () => (
+const Routes = () => (
   <Router>
     <MuiThemeProvider>
       <div className="content">
@@ -23,4 +23,4 @@ const App = () => (
   </Router>
 );
 
-export default App;
+export default Routes;
