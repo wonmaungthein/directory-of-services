@@ -18,9 +18,9 @@ const days = [
   { day: 'Monday' },
   { day: 'Tuesday' },
   { day: 'Wednesday' },
-].map(organisation => ({
-  value: organisation.day,
-  label: organisation.day,
+].map(day => ({
+  value: day.day,
+  label: day.day,
 }));
 
 class Search extends React.Component {
