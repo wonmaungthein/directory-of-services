@@ -22,6 +22,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'linebreak-style': 'off',
     'consistent-return': 'off',
+    'react/prop-types': 'off',
   },
   settings: {
     'import/resolver': {
