@@ -20,3 +20,6 @@ Run project locally:
 cd frontend && yarn start
 cd backend && yarn start
 ```
+# Database Schema
+
+![Alt db-schema](docs/db-schema.jpg)
