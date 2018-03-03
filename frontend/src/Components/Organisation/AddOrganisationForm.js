@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import OrganisationForm from './OrganisationForm';
-import './organisation.css';
+import './add-org.css';
 
 export default class AddOrganisationForm extends Component {
   state = {

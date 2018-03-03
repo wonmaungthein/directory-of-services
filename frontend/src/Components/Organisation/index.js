@@ -2,7 +2,7 @@ import React from 'react';
 import EditOrganisation from './EditOrganisation';
 import SingleOrganisation from './SingleOrganisation';
 import Search from './Search'
-import './organisation.css';
+import './index.css';
 import orgData from './org_data';
 
 const OrganisationCard = () => (

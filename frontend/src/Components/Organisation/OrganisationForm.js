@@ -1,6 +1,5 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import './organisation.css';
 
 const OrganisationForm = (props) =>(
   <form className={props.addContent || props.editOrg}>

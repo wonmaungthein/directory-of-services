@@ -1,23 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
-import match from 'autosuggest-highlight/match';
-import parse from 'autosuggest-highlight/parse';
 import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
-import { MenuItem } from 'material-ui/Menu';
 import { withStyles } from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
 import Input from 'material-ui/Input';
-import ArrowDropDownIcon from 'material-ui-icons/ArrowDropDown';
-import CancelIcon from 'material-ui-icons/Cancel';
-import ArrowDropUpIcon from 'material-ui-icons/ArrowDropUp';
-import ClearIcon from 'material-ui-icons/Clear';
-import Chip from 'material-ui/Chip';
-import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import Option from './Option';
+import helpers from '../../helpers'
 import searchStyle from './searchStyle';
+import './search.css'
 
 const organisations = [
   { postCode: 'H2 1TH', address: 'Bermondsey', day: 'Monday' },
@@ -25,130 +15,14 @@ const organisations = [
   { postCode: 'H2 3TH', address: '3 Bermondsey', day: 'Wednesday' },
 ];
 const days = [
-  { postCode: 'H2 1TH', address: 'Bermondsey', day: 'Monday' },
-  { postCode: 'H2 2TH', address: '2 Bermondsey', day: 'Tuesday' },
-  { postCode: 'H2 3TH', address: '3 Bermondsey', day: 'Wednesday' },
-].map(organisation => ({ // === organisation by day =========
+  { day: 'Monday' },
+  { day: 'Tuesday' },
+  { day: 'Wednesday' },
+].map(organisation => ({
   value: organisation.day,
   label: organisation.day,
 }));
 
-// ========== Auto Compelet Search Field
-function renderInput(inputProps) {
-  const { classes, ref, ...other } = inputProps;
-  return (
-    <TextField
-      fullWidth
-      inputRef={ref}
-      InputProps={{
-        classes: {
-          input: classes.input,
-        },
-        ...other,
-      }}
-    />
-  );
-}
-
-function renderSuggestion(organisation, { query, isHighlighted }) {
-  const matches = match(organisation.postCode, query);
-  const parts = parse(organisation.postCode, matches);
-
-  return (
-    <MenuItem selected={isHighlighted} component="div">
-      <div>
-        {parts.map((part, index) => 
-          part.highlight ? (
-            <span key={String(index)} style={{ fontWeight: 300 }}>
-              {part.text}
-            </span>
-          ) : (
-            <strong key={String(index)} style={{ fontWeight: 500 }}>
-              {part.text}
-            </strong>
-          )
-        )}
-      </div>
-    </MenuItem>
-  );
-}
-// ========== Auto Compelet Search Warpper
-function renderSuggestionsContainer(options) {
-  const { containerProps, children } = options;
-
-  return (
-    <Paper {...containerProps} square>
-      {children}
-    </Paper>
-  );
-}
-// ========== Auto Compelet Search Returned Value
-function getSuggestionValue(orgainsation) {
-  return `${orgainsation.address}, ${orgainsation.postCode}`;
-}
-// ========== Auto Compelet Search Filttring the Organisation
-function getSuggestions(value) {
-  const inputValue = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
-  let count = 0;
-
-  return inputLength === 0
-    ? []
-    : organisations.filter(organisation => {
-      const keep =
-        count < 5 && organisation.postCode.toLowerCase().slice(0, inputLength) === inputValue;
-
-      if (keep) {
-        count += 1;
-      }
-
-      return keep;
-    });
-}
-// ###################################
-// ============ Select Field =========
-
-// ========== Selected Wrapper ============// 
-function SelectWrapped(props) {
-  const { classes, ...other } = props;
-
-  return (
-    <Select
-      optionComponent={Option}
-      noResultsText={<Typography>No results found</Typography>}
-      arrowRenderer={arrowProps => 
-        arrowProps.isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />
-      }
-      clearRenderer={() => <ClearIcon />}
-      valueComponent={valueProps => {
-        const { value, children, onRemove } = valueProps;
-
-        const onDelete = event => {
-          event.preventDefault();
-          event.stopPropagation();
-          onRemove(value);
-        };
-
-        if (onRemove) {
-          return (
-            <Chip
-              tabIndex={-1}
-              label={children}
-              className={classes.chip}
-              deleteIcon={<CancelIcon onTouchEnd={onDelete} />}
-              onDelete={onDelete}
-            />
-          );
-        }
-
-        return <div className="Select-value">{children}</div>;
-      }}
-      {...other}
-    />
-  );
-}
-// ####################################
-// ========== Search Component ========
 class Search extends React.Component {
   state = {
     postCode: '',
@@ -159,7 +33,7 @@ class Search extends React.Component {
 
   handleSuggestionsFetchRequested = ({ value }) => {
     this.setState({
-      suggestions: getSuggestions(value),
+      suggestions: helpers.getSuggestions(value, organisations),
     });
   };
 
@@ -181,7 +55,7 @@ class Search extends React.Component {
     });
   };
 
-  handleChange = e => {
+  handleServiceChange = e => {
     this.setState({
       service: e.target.value
     })
@@ -201,13 +75,13 @@ class Search extends React.Component {
               suggestionsList: classes.suggestionsList,
               suggestion: classes.suggestion,
             }}
-            renderInputComponent={renderInput}
+            renderInputComponent={helpers.renderInput}
             suggestions={this.state.suggestions}
             onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
             onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
-            renderSuggestionsContainer={renderSuggestionsContainer}
-            getSuggestionValue={getSuggestionValue}
-            renderSuggestion={renderSuggestion}
+            renderSuggestionsContainer={helpers.renderSuggestionsContainer}
+            getSuggestionValue={helpers.getSuggestionValue}
+            renderSuggestion={helpers.renderSuggestion}
             inputProps={{
               classes,
               placeholder: 'Search a country',
@@ -222,7 +96,7 @@ class Search extends React.Component {
           <div className={classes.root}>
             <Input
               fullWidth
-              inputComponent={SelectWrapped}
+              inputComponent={helpers.SelectWrapped}
               inputProps={{
                 classes,
                 value: single,
@@ -242,7 +116,7 @@ class Search extends React.Component {
           <TextField
             name='service'
             value={this.state.service}
-            onChange={this.handleChange}
+            onChange={this.handleServiceChange}
           />
         </div>
       </div>
