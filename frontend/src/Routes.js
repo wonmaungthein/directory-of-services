@@ -6,8 +6,6 @@ import Home from './Components/Home'
 import OrganisationCard from './Components/Organisation'
 import AddOrganisationForm from './Components/Organisation/AddOrganisationForm'
 
-import "./routes.css";
-
 const Routes = () => (
   <Router>
     <MuiThemeProvider>
