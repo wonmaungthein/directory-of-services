@@ -7,14 +7,14 @@ import AddOrganisationForm from './Components/Organisation/AddOrganisationForm'
 
 const Routes = () => (
   <Router>
-      <div className="content">
-        <SideBar />
-        <main className="main-contents">
-          <Home />
-          <Route path="/healthcare" component={OrganisationCard} />
-          <Route path="/addorganisationForm" component={AddOrganisationForm} />
-        </main>
-      </div>
+    <div className="content">
+      <SideBar />
+      <main className="main-contents">
+        <Home />
+        <Route path="/healthcare" component={OrganisationCard} />
+        <Route path="/addorganisationForm" component={AddOrganisationForm} />
+      </main>
+    </div>
   </Router>
 );
 
