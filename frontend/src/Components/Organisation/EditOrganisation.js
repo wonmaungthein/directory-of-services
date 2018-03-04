@@ -5,7 +5,7 @@ import Dialog, {
   DialogContent,
 } from 'material-ui/Dialog';
 import OrganisationForm from './OrganisationForm';
-import './organisation.css';
+import './edit-org.css';
 
 export default class EditOrganisation extends React.Component {
   state = {
