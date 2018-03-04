@@ -18,6 +18,10 @@ const days = [
   { day: 'Monday' },
   { day: 'Tuesday' },
   { day: 'Wednesday' },
+  { day: 'Thursday' },
+  { day: 'Friday' },
+  { day: 'Saturday' },
+  { day: 'Sunday' },
 ].map(day => ({
   value: day.day,
   label: day.day,
