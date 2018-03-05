@@ -11,8 +11,8 @@ const Routes = () => (
       <SideBar />
       <main className="main-contents">
         <Home />
-        <Route path="/healthcare" component={OrganisationCard} />
-        <Route path="/addorganisationForm" component={AddOrganisationForm} />
+        <Route path="/services/healthcare" component={OrganisationCard} />
+        <Route path="/organisations/add" component={AddOrganisationForm} />
       </main>
     </div>
   </Router>
