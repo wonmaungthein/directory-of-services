@@ -5,7 +5,7 @@ import Dialog, {
   DialogActions,
 } from 'material-ui/Dialog';
 import EditOrganisation from './EditOrganisation';
-import './organisation.css';
+import './single-org.css';
 
 export default class SingleOrganisation extends Component {
   state = {

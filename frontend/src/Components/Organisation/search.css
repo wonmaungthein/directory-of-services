@@ -1,0 +1,34 @@
+.org-search{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-gap: 1em;
+  height: 3.5em;
+}
+.org-search .post-code{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+.org-search .day{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+.org-search .service{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+.org-search .post-code h4,
+.org-search .day h4,
+.org-search .service h4{
+  justify-self: flex-end;
+  color: #bbb;
+}
+.org-search .post-code>div,
+.org-search .day>div{
+  margin-top: -.8em;
+}
+.org-search .service>div>div{
+  margin-top: -.5em;
+}

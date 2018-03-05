@@ -1,0 +1,63 @@
+.single-org-dialog >div{
+  overflow-y: initial !important;
+}
+.single-oganisation-title >h2{
+  color: #1abcd4;
+}
+.single-oganisation-content{
+  min-width: 22em;
+  min-height: 16em;
+}
+.single-oganisation-content .details-area{
+  color: #bbb;
+}
+.single-process-date,
+.single-telephone-email{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 1em;
+  color: #000;
+  margin-bottom: 1em;
+}
+
+.orgnaization-detais-button{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5em;
+  font-size: 1em;
+  color: #ddd;
+  background: rgba(0, 0, 0, .6);
+}
+.single-oganisation-close-button{
+  position: absolute;
+  right: -6px;
+  top: -23px;
+  background: transparent;
+  border: navajowhite;
+  color: #bbb;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.button-icon{
+  color: #ddd !important;
+}
+.health-advice-process{
+  margin: 1em 0;
+  color: #000;
+}
+.website-link{
+  display: inline-block;
+  text-decoration: none;
+  color: #1abcd4;
+}
+.detail-footer{
+  padding: 1.5em 0 0 0;
+  color: #bbb;
+}
+
