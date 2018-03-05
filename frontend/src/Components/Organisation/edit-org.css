@@ -1,0 +1,182 @@
+.edit-content{
+  min-width: 22em;
+  min-height: 16em;
+}
+.edit-org .edit-field{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+.edit-org .edit-orgnasiation-name{
+  grid-column: 1/4;
+  margin-top: -1em;
+}
+.edit-org .text-field-container{
+  grid-column: 1/1;
+  margin-top: -1.5em;
+}
+.edit-org .text-field-two-container{
+  grid-column: 2/2;
+  margin-top: -1.5em;
+}
+.edit-org .health-advice-title{
+  grid-column: 1/4
+}
+.edit-org .edit-process-field{
+  grid-column: 1/2
+}
+.edit-org .edit-day-field{
+  grid-column: 2/4
+}
+.edit-org .telephone-label{
+  grid-column: 1/2
+}
+.edit-org .email-label{
+  grid-column: 2/4
+}
+.edit-org .health-advice{
+  top: -5px !important;
+}
+.edit-org .edit-orgnasiation-name label:nth-child(1),
+.edit-org .text-field label:nth-child(1),
+.edit-org .text-field-two label:nth-child(1),
+.edit-org .website-label label:nth-child(1){
+  display: none;
+}
+.edit-org .edit-day-field label:nth-child(1),
+.edit-org .edit-process-field label:nth-child(1),
+.edit-org .email-label label:nth-child(1),
+.edit-org .telephone-label label:nth-child(1){
+  color: #000;
+  font-size: 1.5em;
+}
+.edit-org .website-label input:nth-child(1){
+  color: #519889 !important;
+}
+.edit-org .edit-orgnasiation-name input:nth-child(1){
+  font-size: 1.5em !important;
+}
+.edit-org .text-field,
+.edit-org .text-field-two{
+  width: 50px !important;
+  font-size: .9em !important;
+  top: 1px !important;
+  padding: 0 !important;
+  padding-left: .5em !important;
+}
+.edit-org .text-field-two{
+  width: 75px !important;
+}
+.edit-org .text-field input,
+.edit-org .text-field-two input{
+  font-size: .9em !important;
+  color: #bbb !important
+}
+.edit-org .health-advice-title input:nth-child(1){
+  font-weight: initial;
+}
+.edit-button{
+  border: none !important;
+  background: transparent;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #1abcd4;
+}
+.edit-logo{
+  position: absolute;
+  right: 20px;
+  font-size: .9em;
+  font-weight: bold;
+  color: #bbb;
+}
+.edit-org-dialog >div{
+  overflow-y: initial !important;
+}
+.edit-org-close-button{
+  position: absolute;
+  right: -6px;
+  top: -23px;
+  background: transparent;
+  border: navajowhite;
+  color: #bbb;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.edit-org .details-area{
+  display: inline
+}
+.edit-org .categories-checkbox-title{
+  padding: 1.5em 0 .5em 0;
+  color: #000;
+}
+.edit-org .categories-checkbox{
+  display: grid;
+  grid-template-columns:repeat(3, 1fr);
+  border: 2px solid #519889;
+  padding: .5em;
+  height: 4em;
+  grid-gap: 1em;
+  overflow: auto;
+  margin-bottom: 1em;
+}
+.cancel-button{
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  background: #6c6c6b !important;
+  color: #fff !important;
+  bottom: 5px !important;
+  left: 20px !important;
+  padding: 0 2em !important;
+}
+.edit-org .add-categories-checkbox input[type=checkbox] + label,
+.edit-org .categories-checkbox input[type=checkbox] + label{
+  cursor: pointer;
+}
+.edit-org .add-categories-checkbox label,
+.edit-org .categories-checkbox label{
+  position: relative;
+  margin-left: 1.5em;
+  margin-bottom: .3em;
+}
+.edit-org .add-categories-checkbox label{
+  margin-bottom: 0;
+}
+.edit-org .categories-checkbox input[type=checkbox], input[type=checkbox]::before{
+  content: "\2714";
+  border: 0.1em solid gray;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: .8em;
+  height: .8em;
+  padding-left: 0.3em;
+  padding-right: .2em;
+  padding-bottom: 0.4em;
+  vertical-align: bottom;
+  color: transparent;
+  background: gray;
+  transition: .2s;
+  position: absolute;
+  left: -.8em;
+}
+.edit-org .categories-checkbox input[type=checkbox]:checked::before{
+  color: #000;
+}
+.save-button{
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  background: #519889 !important;
+  color: #fff !important;
+  bottom: 5px !important;
+  right: 20px !important;
+  padding: 0 2.5em !important;
+  margin-top: 1em;
+}
+.edit-org .not-include-in-edit-org{
+  display: none;
+}
