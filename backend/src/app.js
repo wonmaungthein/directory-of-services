@@ -4,8 +4,8 @@ import methodOverride from 'method-override'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
 import compression from 'compression'
+import connectKnex from '../knexFile';
 import registerApi from './routes/api';
-import connectKnex from '../config/knexFile';
 
 connectKnex.migrate.latest().then(() => console.log('Migrated.'));
 
