@@ -4,10 +4,10 @@ import methodOverride from 'method-override'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
 import compression from 'compression'
-import connectKnex from '../knexFile';
+// import connectKnex from '../knexFile';
 import registerApi from './routes/api';
 
-connectKnex.migrate.latest().then(() => console.log('Migrated.'));
+//connectKnex.migrate.latest().then(() => console.log('Migrated.'));
 
 const router = promiseRouter();
 

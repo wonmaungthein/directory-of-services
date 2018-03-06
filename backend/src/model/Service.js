@@ -20,8 +20,9 @@ export default class Service extends Model {
     };
   }
 
-    // This object defines the relations to other models.
-    static relationMappings = {
+  // This object defines the relations to other models.
+  static get relationMappings() {
+    return {
       branch: {
         relation: Model.HasManyRelation,
         // The related model.
@@ -32,4 +33,5 @@ export default class Service extends Model {
         }
       }
     }
+  }
 }

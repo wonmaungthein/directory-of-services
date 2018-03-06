@@ -21,8 +21,9 @@ export default class Address extends Model {
     };
   }
 
-    // This object defines the relations to other models.
-    static relationMappings = {
+  // This object defines the relations to other models.
+  static get relationMappings() {
+    return {
       location: {
         relation: Model.HasManyRelation,
         // The related model.
@@ -41,5 +42,6 @@ export default class Address extends Model {
           to: 'Branch.branch_id'
         }
       }
-    };
+    }
+  }
 }
