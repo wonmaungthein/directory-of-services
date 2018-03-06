@@ -20,6 +20,7 @@ const app = express()
   .use(router)
 
 registerApi(router);
+asdfasfd
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
