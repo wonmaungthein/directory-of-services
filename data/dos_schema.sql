@@ -36,7 +36,7 @@ create table service (
 create table adress (
 	adress_id 							varchar primary key,
 	branch_id 							varchar not null,
-	adress_line 							varchar,
+	adress_line 						varchar,
 	city 								varchar,
 	postcode 							varchar,
 	foreign key(branch_id) 					references branch(branch_id)

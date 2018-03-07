@@ -1,0 +1,70 @@
+/*                   > Users list table <                        */
+
+table thead tr th .MuiTableSortLabel-root-82:focus {
+  color: rgb(69, 189, 212);
+}
+
+tbody tr .MuiTableRow-selected-63:hover {
+  background-color: none;
+}
+
+thead .user-title {
+  font-weight: 600;
+  color: #0c0303;
+}
+
+th div .MuiTableSortLabel-active-19 {
+  padding-bottom: .4rem;
+}
+
+table {
+  width: 85%;
+  border-collapse: collapse;
+  margin: 0 1% 0 5%;
+}
+
+table tr td {
+  padding: .2rem;
+  border-bottom: 1px solid;
+}
+
+thead tr>.MuiTableCell-root-1 {
+  border-bottom: 1px solid rgb(69, 189, 212);
+}
+
+tbody tr>.MuiTableCell-root-1 {
+  padding: .2rem .2rem .2rem 0;
+}
+
+thead tr>.MuiTableCell-typeHead-3,
+thead tr>.MuiTableCell-paddingDefault-6:last-child {
+  width: 24%;
+  color: rgb(10, 1, 1);
+  padding: 2.8rem .2rem .2rem 0;
+  font-size: .9rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+thead tr>.MuiTableCell-paddingDefault-6:last-child{
+  padding: 2.8rem 1.9rem 0;
+}
+
+thead tr>.MuiTableCell-paddingDefault-6:nth-child(3),
+tbody tr>.MuiTableCell-root-1:nth-child(3) {
+  padding-left: 3rem;
+} 
+
+td button>.MuiButton-label-33 {
+  color: #1abcd4;
+  font-size: 13px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+ span > .MuiTableSortLabel-icon-20,
+ span > .MuiTableSortLabel-active-19 {
+  display: none;
+}
+
+/*                       End users list table                                       */
