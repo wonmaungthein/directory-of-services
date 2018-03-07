@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import SideBar from "./Components/SideBar/SideBar";
@@ -42,4 +43,15 @@ const App = () => (
 
 
 
+=======
+import "./App.css";
+import Routes from "./Routes";
+
+const App = () => (
+  <div>
+    <Routes />
+  </div>
+);
+
+>>>>>>> fd1d4abe3e3243e8caad773bd570a2fcad1bba60
 export default App;
