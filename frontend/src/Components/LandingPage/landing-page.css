@@ -52,6 +52,9 @@
 
 }
 
+.content>a{
+  text-decoration: none;
+}
 .landing-page .content h3{
 
     margin-bottom: 2em;
