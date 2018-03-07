@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import SideBar from "./Components/SideBar/SideBar";
-import Home from './Components/Home'
-import OrganisationCard from './Components/Organisation'
-import AddOrganisationForm from './Components/Organisation/AddOrganisationForm'
-import LandingPage from './Components/LandingPage'
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import SideBar from './Components/SideBar/SideBar';
+import Home from './Components/Home';
+import OrganisationCard from './Components/Organisation';
+import AddOrganisationForm from './Components/Organisation/AddOrganisationForm';
+import LandingPage from './Components/LandingPage';
 
 const Routes = () => (
   <Router>
