@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { TableCell, TableHead, TableSortLabel } from 'material-ui/Table';
 import Tooltip from 'material-ui/Tooltip';
+import './user.css';
 
 const columnData = [
   {

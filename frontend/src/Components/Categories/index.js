@@ -18,28 +18,28 @@ export default class Categories extends Component {
       return (
         <ul>
           <li>
-            <Link to="/debt">Debt</Link>
+            <Link to="/services/debt">Debt</Link>
           </li>
           <li>
-            <Link to="/ypfamilies">YP Families</Link>
+            <Link to="/services/ypfamilies">YP Families</Link>
           </li>
           <li>
-            <Link to="/womendv">Women DV</Link>
+            <Link to="/services/womendv">Women DV</Link>
           </li>
           <li>
-            <Link to="/trafficking">Trafficking</Link>
+            <Link to="/services/trafficking">Trafficking</Link>
           </li>
           <li>
-            <Link to="/destitution">Destitution</Link>
+            <Link to="/services/destitution">Destitution</Link>
           </li>
           <li>
-            <Link to="/lgbtqi">LGBTQI</Link>
+            <Link to="/services/lgbtqi">LGBTQI</Link>
           </li>
           <li>
-            <Link to="/mentalhealthservices">Mental Health Services</Link>
+            <Link to="/services/mentalhealthservices">Mental Health Services</Link>
           </li>
           <li>
-            <Link to="/healthcare">Healthcare</Link>
+            <Link to="/services/healthcare">Healthcare</Link>
           </li>
           <li>
             <Link to="/womendv">Women DV</Link>

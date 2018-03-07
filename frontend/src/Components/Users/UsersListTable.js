@@ -8,7 +8,7 @@ import {
 } from 'material-ui/Table';
 import Button from 'material-ui/Button';
 import './user.css';
-import UsersTableHead from './UsersTableHead.js';
+import UsersTableHead from './UsersTableHead';
 
 let counter = 0;
 function createData(name, email, role) {
