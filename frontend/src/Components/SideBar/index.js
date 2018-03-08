@@ -76,7 +76,9 @@ class SideBar extends React.Component {
             </IconButton>
           </div>
         </Hidden>
-        <Hidden smDown className={classes.drawerHeader} />
+        <Hidden smDown>
+          <div className={classes.drawerHeader} />
+        </Hidden>
         <div className="logo">
           <Link to="/">LOGO</Link>
         </div>
