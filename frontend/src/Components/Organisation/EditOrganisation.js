@@ -83,7 +83,7 @@ export default class EditOrganisation extends React.Component {
               email={this.state.email}
               website={this.state.website}
 
-              editOrg="edit-org"
+              formType="edit-org"
               onChange={this.updateNameField}
               onChangeCheckbox={this.handleCheckbox}
             />

@@ -48,3 +48,8 @@
   box-shadow: 0px 2px 4px 2px #bbb;
   grid-column: 3/4;
 }
+.add-user .add-user-button:hover{
+  background: #519889;
+  color: #fff;
+  box-shadow: 0px 2px 4px 2px #bbb;
+}

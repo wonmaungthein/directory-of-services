@@ -3,7 +3,7 @@ import OrganisationForm from './OrganisationForm';
 import './add-org.css';
 import TopNav from '../TopNav';
 
-export default class AddOrganisationForm extends Component {
+export default class AddOrganisation extends Component {
   state = {
     name: "",
     area: "",
@@ -64,7 +64,7 @@ export default class AddOrganisationForm extends Component {
             website={this.state.website}
             service={this.state.service}
 
-            addContent="org-content"
+            formType="org-content"
             onChange={this.updateNameField}
             onChangeCheckbox={this.handleCheckbox}
           />

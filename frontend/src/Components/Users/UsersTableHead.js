@@ -78,5 +78,4 @@ UsersTableHead.propTypes = {
   orderBy: PropTypes.string.isRequired,
 };
 
-
 export default UsersTableHead;

@@ -1,8 +1,9 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import PropTypes from 'prop-types';
 
-const OrganisationForm = (props) =>(
-  <form className={props.addContent || props.editOrg}>
+const OrganisationForm = (props) => (
+  <form className={props.formType}>
     <div className="form-first-row edit-field">
       <TextField
         className="edit-orgnasiation-name"
@@ -22,7 +23,7 @@ const OrganisationForm = (props) =>(
           onChange={props.onChange}
           fullWidth
         />
-      </span>  
+      </span>
       <span className="text-field-two-container">
         <h6 className="not-include-in-add-org details-area">| Borough:</h6>
         <TextField
@@ -33,7 +34,7 @@ const OrganisationForm = (props) =>(
           onChange={props.onChange}
           fullWidth
         />
-      </span>  
+      </span>
       <h4 className="not-include-in-add-org health-advice-title">- Health advice
         <TextField
           className="not-include-in-add-org health-advice"
@@ -42,7 +43,7 @@ const OrganisationForm = (props) =>(
           value={props.advices}
           onChange={props.onChange}
         />
-      </h4>    
+      </h4>
       <TextField
         label="Process"
         className="edit-process-field"
@@ -135,7 +136,9 @@ const OrganisationForm = (props) =>(
       </label>
     </div>
   </form >
-);  
+);
 
-
+OrganisationForm.propTypes = {
+  formType: PropTypes.string.isRequired,
+};
 export default OrganisationForm;
