@@ -8,6 +8,8 @@ import Toolbar from 'material-ui/Toolbar';
 import List from 'material-ui/List';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
+import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
+import ChevronRightIcon from 'material-ui-icons/ChevronRight';
 import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
@@ -40,11 +42,22 @@ const styles = theme => ({
     },
     background: '#000',
   },
+  drawerHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: '0 8px',
+    ...theme.mixins.toolbar,
+  }
 });
 
 class SideBar extends React.Component {
   state = {
     mobileOpen: false,
+  };
+
+  handleDrawerClose = () => {
+    this.setState({ mobileOpen: false });
   };
 
   handleDrawerToggle = () => {
@@ -56,7 +69,14 @@ class SideBar extends React.Component {
 
     const drawer = (
       <div>
-        <div className={classes.toolbar} />
+        <Hidden mdUp>
+          <div className={classes.drawerHeader}>
+            <IconButton className="draw-close-button" onClick={this.handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </div>
+        </Hidden>
+        <Hidden smDown>  className={classes.drawerHeader}></Hidden>
         <div className="logo">
           <Link to="/">LOGO</Link>
         </div>

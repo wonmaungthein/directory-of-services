@@ -1,7 +1,6 @@
 .mdc-drawer{
     height: 100vh;
     width: 256px;
-    background: #000 !important;
 }
 
 .logo{
@@ -13,6 +12,6 @@
     text-decoration: navajowhite;
     color: #95999c;
 }
-.drawer-menu{
-
+.draw-close-button{
+  color: #1abcd4 !important;
 }

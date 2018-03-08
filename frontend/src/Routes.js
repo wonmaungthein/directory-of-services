@@ -18,7 +18,13 @@ const styles = theme => ({
     display: 'flex',
     width: '100%',
   },
-  toolbar: theme.mixins.toolbar,
+  drawerHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: '0 8px',
+    ...theme.mixins.toolbar,
+  },
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
@@ -34,7 +40,7 @@ const Routes = props => {
       {showSideBar ? <SideBar /> : null}
       <Route exact path="/" component={LandingPage} />
       <main className={classes.content}>
-        <div className={classes.toolbar} />  
+        <div className={classes.drawerHeader} /> 
         <Route exact path="/services/:service" component={OrganisationCard} />
         <Route exact path="/organisations/add" component={AddOrganisation} />
         <Route exact path="/users" component={Users} />
