@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './home.css';
-import UsersListTable from '../Users/UsersListTable.js';
 
 const Home = () =>(
   <div>
@@ -13,8 +12,7 @@ const Home = () =>(
       <div className="login-section">
         <h4>Loggedin as <strong>Carmela</strong></h4>
       </div>
-    </div>
-    <UsersListTable />    
+    </div>   
   </div>
 );
 
