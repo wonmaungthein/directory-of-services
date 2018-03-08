@@ -22,17 +22,32 @@ export default class SingleOrganisation extends Component {
   render() {
     return (
       <div className="single-oganisation">
-        <button className="orgnaization-detais-button" onClick={this.handleOpen}><span className="button-title">DETAILS</span></button>
+        <button
+          className="orgnaization-detais-button"
+          onClick={this.handleOpen}
+        >
+          <span className="button-title">DETAILS</span>
+        </button>
         <Dialog
           className="single-org-dialog"
           open={this.state.open}
           onClose={this.handleClose}
         >
           <DialogActions>
-            <button onClick={this.handleClose} className="single-oganisation-close-button">Close</button>
+            <button
+              onClick={this.handleClose}
+              className="single-oganisation-close-button"
+            >
+              Close
+            </button>
           </DialogActions>
           <EditOrganisation />
-          <DialogTitle className="single-oganisation-title" id="alert-dialog-title">Haringey Migrant Service</DialogTitle>
+          <DialogTitle
+            className="single-oganisation-title"
+            id="alert-dialog-title"
+          >
+            Haringey Migrant Service
+          </DialogTitle>
           <DialogContent className="single-oganisation-content">
             <h4 className="details-area">Area: North | Borough: Haringey</h4>
             <div className="health-advice-process">
@@ -59,11 +74,19 @@ export default class SingleOrganisation extends Component {
                 <p>test@test.com</p>
               </div>
             </div>
-            <a className="website-link" target="blank" href="http://www.haringeymsc.org">http://www.haringeymsc.org</a>
-            <h5 className="detail-footer">Healthcare, trafficking, destituition</h5>
+            <a
+              className="website-link"
+              target="blank"
+              href="http://www.haringeymsc.org"
+            >
+              http://www.haringeymsc.org
+            </a>
+            <h5 className="detail-footer">
+              Healthcare, trafficking, destituition
+            </h5>
           </DialogContent>
         </Dialog>
       </div>
-    )
+    );
   }
 }
