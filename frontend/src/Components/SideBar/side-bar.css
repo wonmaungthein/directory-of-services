@@ -4,12 +4,15 @@
     background: #000 !important;
 }
 
-.mdc-drawer--permanent.mdc-drawer--permanent .logo{
+.logo{
     padding: .8em 0 .8em .8em;
     font-size: 2.5em;
 }
 
-.mdc-drawer--permanent.mdc-drawer--permanent .logo a{
+.logo a{
     text-decoration: navajowhite;
     color: #95999c;
+}
+.drawer-menu{
+
 }
