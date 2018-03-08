@@ -127,7 +127,9 @@ function SelectWrapped(props) {
 }
 
 function capitaliseAndPrettify(name) {
-  return name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  return name
+    ? name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+    : null;
 }
 
 export default {
