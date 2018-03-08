@@ -16,7 +16,7 @@ function createData(name, email, role) {
   return { id: counter, name, email, role };
 }
 
-class UsersListTable extends Component {
+export default class UsersListTable extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -149,5 +149,3 @@ class UsersListTable extends Component {
     );
   }
 }
-
-export default UsersListTable;

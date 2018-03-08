@@ -15,7 +15,7 @@ const Routes = props => {
       {showSideBar ? <SideBar /> : null}
       <Route exact path="/" component={LandingPage} />
       <main className="main-contents">
-        <Route exact path="/services/healthcare" component={OrganisationCard} />
+        <Route exact path="/services/:service" component={OrganisationCard} />
         <Route exact path="/organisations/add" component={AddOrganisation} />
         <Route exact path="/users" component={Users} />
         <Route exact path="/users/:form" component={Users} />

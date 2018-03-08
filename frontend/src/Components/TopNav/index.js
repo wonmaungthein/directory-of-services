@@ -1,20 +1,25 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import './top-nav.css';
 
-const TopNav = () =>(
+import helpers from '../../helpers';
+
+const TopNav = ({ service }) => (
   <div>
     <div className="main-nav">
       <div>
-        <span>HEALTHCARE</span>
-        <Link to="/organisations/add" className="add-orgnaization"><span className="add-orgonaization-button">Add new</span></Link>
+        <span>{helpers.capitaliseAndPrettify(service)}</span>
+        <Link to="/organisations/add" className="add-orgnaization">
+          <span className="add-orgonaization-button">Add new</span>
+        </Link>
       </div>
       <div className="login-section">
-        <h4>Loggedin as <strong>Carmela</strong></h4>
+        <h4>
+          Loggedin as <strong>Carmela</strong>
+        </h4>
       </div>
-    </div>   
+    </div>
   </div>
 );
-
 
 export default TopNav;

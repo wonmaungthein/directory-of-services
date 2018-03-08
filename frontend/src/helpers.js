@@ -36,16 +36,17 @@ function renderSuggestion(organisation, { query, isHighlighted }) {
   return (
     <MenuItem selected={isHighlighted} component="div">
       <div>
-        {parts.map((part, index) =>
-          part.highlight ? (
-            <span key={String(index)} style={{ fontWeight: 300 }}>
-              {part.text}
-            </span>
-          ) : (
-            <strong key={String(index)} style={{ fontWeight: 500 }}>
-              {part.text}
-            </strong>
-            )
+        {parts.map(
+          (part, index) =>
+            part.highlight ? (
+              <span key={String(index)} style={{ fontWeight: 300 }}>
+                {part.text}
+              </span>
+            ) : (
+              <strong key={String(index)} style={{ fontWeight: 500 }}>
+                {part.text}
+              </strong>
+            ),
         )}
       </div>
     </MenuItem>
@@ -73,15 +74,17 @@ function getSuggestions(value, organisations) {
   return inputLength === 0
     ? []
     : organisations.filter(organisation => {
-      const keep =
-        count < 5 && organisation.postCode.toLowerCase().slice(0, inputLength) === inputValue;
+        const keep =
+          count < 5 &&
+          organisation.postCode.toLowerCase().slice(0, inputLength) ===
+            inputValue;
 
-      if (keep) {
-        count += 1;
-      }
+        if (keep) {
+          count += 1;
+        }
 
-      return keep;
-    });
+        return keep;
+      });
 }
 
 function SelectWrapped(props) {
@@ -123,6 +126,10 @@ function SelectWrapped(props) {
   );
 }
 
+function capitaliseAndPrettify(name) {
+  return name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+}
+
 export default {
   renderInput,
   renderSuggestion,
@@ -130,4 +137,5 @@ export default {
   getSuggestionValue,
   getSuggestions,
   SelectWrapped,
-}
+  capitaliseAndPrettify,
+};

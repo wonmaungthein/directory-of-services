@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import AddUser from './AddUser';
-import UsersListb from './UsersListTable';
+import UsersListTable from './UsersListTable';
 import './users.css';
 
 const UsersPage = props => {
@@ -25,7 +25,7 @@ const UsersPage = props => {
         </div>
       </div>
       {showAddUsersForm ? <AddUser /> : null}
-      <UsersListb />
+      <UsersListTable />
     </div>
   );
 };
