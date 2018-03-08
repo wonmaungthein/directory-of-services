@@ -1,24 +1,22 @@
-
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import SideBar from './Components/SideBar/SideBar';
-import Home from './Components/Home';
+import { Route, withRouter } from 'react-router-dom';
+
+import SideBar from './Components/SideBar';
+
 import OrganisationCard from './Components/Organisation';
-import AddOrganisationForm from './Components/Organisation/AddOrganisationForm';
+import AddOrganisation from './Components/Organisation/AddOrganisation';
 import LandingPage from './Components/LandingPage';
 import Users from './Components/Users';
 import AddUser from './Components/Users/AddUser';
 import UsersListb from './Components/Users/UsersListTable';
 
-const Routes = () => (
-  <Router>
+const Routes = props => {
+  const showSideBar = props.location.pathname !== '/';
+  return (
     <div className="content">
-      <SideBar />
+      {showSideBar ? <SideBar /> : null}
+      <Route exact path="/" component={LandingPage} />
       <main className="main-contents">
-        <Home />
-        <Route path="/" component={LandingPage} />
-        <Route path="/services/healthcare" component={OrganisationCard} />
-        <Route path="/organisations/add" component={AddOrganisationForm} />
         <Route exact path="/services/healthcare" component={OrganisationCard} />
         <Route exact path="/organisations/add" component={AddOrganisation} />
         <Route exact path="/users" component={Users} />
@@ -26,7 +24,7 @@ const Routes = () => (
         <Route exact path="/users/add" component={AddUser} />
       </main>
     </div>
-  </Router>
-);
+  );
+};
 
-export default Routes;
+export default withRouter(props => <Routes {...props} />);
