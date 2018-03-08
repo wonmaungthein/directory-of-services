@@ -1,16 +1,17 @@
-.categories-title{
-    color: #1abcd4;
-    padding: 0 0 1em 2em;
-    display: block;
-    cursor: pointer;
+.categories-title {
+  color: #1abcd4;
+  padding: 0 0 1em 2em;
+  display: block;
+  cursor: pointer;
 }
-.categories a{
-    display: block;
-    text-decoration: none;
-    padding: .1em .2em .1em 2em;
-    margin-bottom: .5em;
-    color: #95999c;
+
+.categories a {
+  display: block;
+  text-decoration: none;
+  padding: 0.1em 0.2em 0.1em 2em;
+  margin-bottom: 0.5em;
+  color: #95999c;
 }
-.categories a:hover{
-    background: #ddd;
+.categories a:hover {
+  background: #ddd;
 }

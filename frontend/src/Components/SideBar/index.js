@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Categories from "../Categories";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Categories from '../Categories';
 import UsersMenu from '../Users/UsersMenu';
-import "./side-bar.css";
+import './side-bar.css';
 
 const SideBar = () => (
   <nav className="mdc-drawer mdc-drawer--permanent mdc-typography">
@@ -10,6 +10,8 @@ const SideBar = () => (
       <Link to="/">LOGO</Link>
     </div>
     <Categories />
+    <br />
+    <br />
     <UsersMenu />
   </nav>
 );
