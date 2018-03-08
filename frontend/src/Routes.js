@@ -7,8 +7,6 @@ import OrganisationCard from './Components/Organisation';
 import AddOrganisation from './Components/Organisation/AddOrganisation';
 import LandingPage from './Components/LandingPage';
 import Users from './Components/Users';
-import AddUser from './Components/Users/AddUser';
-import UsersListb from './Components/Users/UsersListTable';
 
 const Routes = props => {
   const showSideBar = props.location.pathname !== '/';
@@ -20,8 +18,7 @@ const Routes = props => {
         <Route exact path="/services/healthcare" component={OrganisationCard} />
         <Route exact path="/organisations/add" component={AddOrganisation} />
         <Route exact path="/users" component={Users} />
-        <Route exact path="/users" component={UsersListb} />
-        <Route exact path="/users/add" component={AddUser} />
+        <Route exact path="/users/:form" component={Users} />
       </main>
     </div>
   );
