@@ -36,9 +36,7 @@ export default class Categories extends Component {
             <Link to="/services/lgbtqi">LGBTQI</Link>
           </li>
           <li>
-            <Link to="/services/mentalhealthservices">
-              Mental Health Services
-            </Link>
+            <Link to="/services/mentalhealth">Mental Health</Link>
           </li>
           <li>
             <Link to="/services/healthcare">Healthcare</Link>
