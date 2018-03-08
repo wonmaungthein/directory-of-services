@@ -1,15 +1,20 @@
 import React from 'react';
+
 import EditOrganisation from './EditOrganisation';
 import SingleOrganisation from './SingleOrganisation';
 import Search from './Search';
-import './index.css';
 import orgData from './org_data';
 import TopNav from '../TopNav';
+import helpers from '../../helpers';
+
+import './index.css';
 
 const OrganisationCard = props => {
   const { params } = props.match;
-
-  const service = params && params.service ? params.service : null;
+  const service =
+    params && params.service
+      ? helpers.capitaliseAndPrettify(params.service)
+      : null;
 
   return (
     <div>
