@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import './home.css';
+import './top-nav.css';
 
-const Home = () =>(
+const TopNav = () =>(
   <div>
     <div className="main-nav">
       <div>
@@ -17,4 +17,4 @@ const Home = () =>(
 );
 
 
-export default Home;
+export default TopNav;

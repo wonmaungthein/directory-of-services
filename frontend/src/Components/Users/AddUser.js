@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import TextField from 'material-ui/TextField';
 import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
@@ -30,7 +30,7 @@ export default class AddUser extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <Users />
         <form className="add-user">
           <TextField
@@ -72,7 +72,7 @@ export default class AddUser extends Component {
           </span>
           <button className="add-user-button" type="submit" onClick={this.handleSubmit} >SAVE CHANGES</button>
         </form >
-      </div>
+      </Fragment>
     )
   }
 };

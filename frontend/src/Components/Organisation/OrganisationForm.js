@@ -8,7 +8,7 @@ const OrganisationForm = (props) =>(
         className="edit-orgnasiation-name"
         label="Organisation name"
         name="name"
-        value={props.organisationNameValue}
+        value={props.name}
         onChange={props.onChange}
         fullWidth
       />
@@ -18,7 +18,7 @@ const OrganisationForm = (props) =>(
           className="text-field"
           label="Area"
           name="area"
-          value={props.areaValue}
+          value={props.area}
           onChange={props.onChange}
           fullWidth
         />
@@ -29,7 +29,7 @@ const OrganisationForm = (props) =>(
           className="text-field-two"
           label="Borough"
           name="borough"
-          value={props.boroughValue}
+          value={props.borough}
           onChange={props.onChange}
           fullWidth
         />
@@ -39,7 +39,7 @@ const OrganisationForm = (props) =>(
           className="not-include-in-add-org health-advice"
           fullWidth
           name="advices"
-          value={props.advicesValue}
+          value={props.advices}
           onChange={props.onChange}
         />
       </h4>    
@@ -47,7 +47,7 @@ const OrganisationForm = (props) =>(
         label="Process"
         className="edit-process-field"
         name="process"
-        value={props.processValue}
+        value={props.process}
         onChange={props.onChange}
         fullWidth
       />
@@ -55,7 +55,7 @@ const OrganisationForm = (props) =>(
         className="edit-day-field"
         label="Day"
         name="day"
-        value={props.dayValue}
+        value={props.day}
         onChange={props.onChange}
         fullWidth
       />
@@ -63,7 +63,7 @@ const OrganisationForm = (props) =>(
         className="telephone-label"
         label="Telephone"
         name="telephone"
-        value={props.telephoneValue}
+        value={props.telephone}
         onChange={props.onChange}
         fullWidth
       />
@@ -71,7 +71,7 @@ const OrganisationForm = (props) =>(
         className="email-label"
         label="Email"
         name="email"
-        value={props.emailValue}
+        value={props.email}
         onChange={props.onChange}
         fullWidth
       />
@@ -79,7 +79,7 @@ const OrganisationForm = (props) =>(
         className="website-label add-website-field"
         label="Website"
         name="website"
-        value={props.websiteValue}
+        value={props.website}
         onChange={props.onChange}
         fullWidth
       />
@@ -91,7 +91,7 @@ const OrganisationForm = (props) =>(
         label="Service"
         fullWidth
         name="service"
-        value={props.serviceValue}
+        value={props.service}
         onChange={props.onChange}
       />
     </div>

@@ -4,11 +4,11 @@ import SingleOrganisation from './SingleOrganisation';
 import Search from './Search'
 import './index.css';
 import orgData from './org_data';
-import Home from '../Home';
+import TopNav from '../TopNav';
 
 const OrganisationCard = () => (
   <div>
-    <Home />
+    <TopNav />
     <Search />
     <div className="single-organisation">
       {orgData.map(org => 
