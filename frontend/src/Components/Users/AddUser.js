@@ -5,34 +5,31 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Button from 'material-ui/Button';
 import Select from 'material-ui/Select';
-import Users from './index';
 
 export default class AddUser extends Component {
   state = {
-    fullName: "",
-    email: "",
-    role: "editor",
-  }
+    fullName: '',
+    email: '',
+    role: 'editor',
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.setState({
-      fullName: "",
-      email: "",
-      role: "editor",
-    })
-  }
+      fullName: '',
+      email: '',
+      role: 'editor',
+    });
+  };
 
-  handleFieldUpdate = (e) => (
+  handleFieldUpdate = e =>
     this.setState({
       [e.target.name]: e.target.value,
-    })
-  );
+    });
 
   render() {
     return (
       <Fragment>
-        <Users />
         <form className="add-user">
           <TextField
             label="Full name"
@@ -77,10 +74,10 @@ export default class AddUser extends Component {
             className="add-user-button"
             onClick={this.handleSubmit}
           >
-          SAVE CHANGES  
+            SAVE CHANGES
           </Button>
-        </form >
+        </form>
       </Fragment>
-    )
+    );
   }
-};
+}
