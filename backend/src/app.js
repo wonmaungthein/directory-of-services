@@ -4,10 +4,18 @@ import methodOverride from 'method-override'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
 import compression from 'compression'
-// import connectKnex from '../knexFile';
+import Knex from 'knex';
+import { Model } from 'objection';
 import registerApi from './routes/api';
+import knexConfig from '../knexfile';
 
-//connectKnex.migrate.latest().then(() => console.log('Migrated.'));
+// initialize kex
+const knex = Knex(knexConfig.development);
+
+// knex.migrate.latest().then(() => console.log('migrated'));
+
+// build all models to a knex instance
+Model.knex(knex);
 
 const router = promiseRouter();
 
@@ -20,7 +28,6 @@ const app = express()
   .use(router)
 
 registerApi(router);
-asdfasfd
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

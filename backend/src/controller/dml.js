@@ -1,6 +1,6 @@
 
 import { transaction } from 'objection';
-import Organisation from '../models/Organisation';
+import Organisation from '../model/Organisation';
 
 const knex = Organisation.knex();
 
@@ -12,7 +12,7 @@ const Insert = async (query) => {
       .query(trx)
       .insertGraph(query);
     await trx.commit();
-    console.log('Data is inserted !')
+    console.log(organisation, 'Data is inserted !')
   } catch (err) {
     await trx.rollback();
     console.log('Something went wrong. Data is not inserted', err);

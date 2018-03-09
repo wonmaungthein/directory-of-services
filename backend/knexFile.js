@@ -1,28 +1,45 @@
-
-const path = require('path');
+// Update with your config settings.
 
 module.exports = {
+
   development: {
     client: 'sqlite3',
     useNullAsDefault: true,
     connection: {
       filename: '../data/dos.db'
-    },
-    migrations: {
-      directory: path.join(__dirname, 'migrations')
-    },
-    seeds: {
-      directory: path.join(__dirname, 'seeds', 'development')
     }
   },
-  production: {
+
+  staging: {
     client: 'postgresql',
     connection: {
-      database: 'dos'
+      database: 'my_db',
+      user: 'username',
+      password: 'password'
     },
     pool: {
       min: 2,
       max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations'
+    }
+  },
+
+  production: {
+    client: 'postgresql',
+    connection: {
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations'
     }
   }
-}
+
+};
