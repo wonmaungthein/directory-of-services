@@ -63,7 +63,6 @@ export default class AddOrganisation extends Component {
             email={this.state.email}
             website={this.state.website}
             service={this.state.service}
-
             formType="org-content"
             onChange={this.updateNameField}
             onChangeCheckbox={this.handleCheckbox}

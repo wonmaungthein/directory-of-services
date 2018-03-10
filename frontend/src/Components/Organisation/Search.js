@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Grid from 'material-ui/Grid';
 import Autosuggest from 'react-autosuggest';
 import TextField from 'material-ui/TextField';
 import { withStyles } from 'material-ui/styles';
@@ -69,9 +70,9 @@ class Search extends React.Component {
     const { classes } = this.props;
     const { single } = this.state;
     return (
-      <div className="org-search">
-        <div className="post-code">
-          <h4>Search near:</h4>  
+      <Grid container spacing={24} className="org-search">
+        <Grid item md={5} className="post-code">
+          <h4>Search near:</h4>
           <Autosuggest
             theme={{
               container: classes.container,
@@ -94,8 +95,8 @@ class Search extends React.Component {
               onChange: this.handlePostCodeChange,
             }}
           />
-        </div>
-        <div className="day">
+        </Grid>
+        <Grid item sm={4} className="day">
           <h4>Day</h4>
           <div className={classes.root}>
             <Input
@@ -114,16 +115,16 @@ class Search extends React.Component {
               }}
             />
           </div>
-        </div>
-        <div className="service">
+        </Grid>
+        <Grid item md={3} className="service">
           <h4>Service</h4>
           <TextField
             name='service'
             value={this.state.service}
             onChange={this.handleServiceChange}
           />
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 }
