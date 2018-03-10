@@ -2,7 +2,7 @@
   display: flex;
 }
 .add-new-button >a{
-  display: inline-block;
+  display: block;
   margin-right: 1em;
   color: #fff !important;
 }
@@ -14,4 +14,10 @@
 .login-section{
   display: flex;
   justify-content: flex-end;
+}
+
+@media (max-width: 991px){
+  .top-nav-content{
+    margin-left: 1em !important;
+  }
 }

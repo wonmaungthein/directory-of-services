@@ -10,10 +10,10 @@ import ChevronRightIcon from 'material-ui-icons/ChevronRight';
 import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import { Link } from 'react-router-dom';
+import MenuIcon from 'material-ui-icons/Menu';
 import Categories from '../Categories';
 import UsersMenu from '../Users/UsersMenu';
 import './side-bar.css';
-import TopNav from '../TopNav';
 
 const drawerWidth = 240;
 
@@ -25,11 +25,6 @@ const styles = theme => ({
       width: `calc(100% - ${drawerWidth}px)`,
     },
     background: '#1abcd4',
-  },
-  navIconHide: {
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
   },
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
@@ -45,7 +40,17 @@ const styles = theme => ({
     justifyContent: 'flex-end',
     padding: '0 8px',
     ...theme.mixins.toolbar,
-  }
+  },
+  navIconHide: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+    position: 'absolute',
+    zIndex: '10000000000',
+    top: '6px',
+    left: '0',
+    color: '#fff',
+  },
 });
 
 class SideBar extends React.Component {
@@ -92,7 +97,14 @@ class SideBar extends React.Component {
 
     return (
       <Fragment>
-        <TopNav handleDrawerToggle={this.handleDrawerToggle} />
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={this.handleDrawerToggle}
+          className={classes.navIconHide}
+        >
+          <MenuIcon />
+        </IconButton>
         <Hidden mdUp>
           <Drawer
             variant="temporary"

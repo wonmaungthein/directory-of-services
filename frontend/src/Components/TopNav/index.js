@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
 import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
@@ -22,11 +20,6 @@ const styles = theme => ({
     },
     background: '#1abcd4',
   },
-  navIconHide: {
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
 });
 
 const TopNav = (props) => {
@@ -34,15 +27,7 @@ const TopNav = (props) => {
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={props.handleDrawerToggle}
-          className={classes.navIconHide}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Grid container spacing={24}>
+        <Grid container spacing={24} className="top-nav-content">
           <Grid item xs={8}>
             <Typography className="add-new-button" variant="title" color="inherit" noWrap>
               <Link to={`/${titleLink}`}>{helpers.capitaliseAndPrettify(title)}</Link>
@@ -65,4 +50,5 @@ const TopNav = (props) => {
 TopNav.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
 export default withStyles(styles, { withTheme: true })(TopNav);
