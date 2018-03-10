@@ -1,13 +1,22 @@
 
-import { transaction } from 'objection';
+import { Model, transaction } from 'objection';
+import Knex from 'knex';
+import knexConfig from '../../knexfile';
 import Organisation from '../model/Organisation';
 
-const knex = Organisation.knex();
+// initialize kex
+const knex = Knex(knexConfig.development);
+
+// build all models to a knex instance
+
+Model.knex(knex);
+
+const knexs = Organisation.knex();
 
 const Insert = async (query) => {
   let trx
   try {
-    trx = await transaction.start(knex);
+    trx = await transaction.start(knexs);
     const organisation = await Organisation
       .query(trx)
       .insertGraph(query);

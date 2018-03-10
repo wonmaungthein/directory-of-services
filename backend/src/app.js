@@ -7,15 +7,6 @@ import compression from 'compression'
 import Knex from 'knex';
 import { Model } from 'objection';
 import registerApi from './routes/api';
-import knexConfig from '../knexfile';
-
-// initialize kex
-const knex = Knex(knexConfig.development);
-
-// knex.migrate.latest().then(() => console.log('migrated'));
-
-// build all models to a knex instance
-Model.knex(knex);
 
 const router = promiseRouter();
 
