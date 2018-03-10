@@ -1,7 +1,4 @@
 .org-search{
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-gap: 1em;
   height: 3.5em;
 }
 .org-search .post-code{
@@ -31,4 +28,41 @@
 }
 .org-search .service>div>div{
   margin-top: -.5em;
+}
+@media (max-width: 991px){
+  .org-search{
+    height: 10em;
+  }
+  .org-search .post-code{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1em;
+}
+.org-search .day{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1em;
+  height: 1em !important;
+  margin-bottom: 0;
+}
+.org-search .service{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1em;
+}
+.org-search .post-code>div,
+.org-search .day>div{
+  margin-top: -1em;
+  height: 1em !important;
+}
+.org-search .service>div>div{
+  margin-top: -.8em;
+}
+.org-search .post-code h4,
+.org-search .day h4,
+.org-search .service h4{
+  justify-self: flex-start;
+  color: #bbb;
+  height: 1em;
+}
 }
