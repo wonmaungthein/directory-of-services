@@ -7,6 +7,7 @@ import {
   TableRow,
 } from 'material-ui/Table';
 import Button from 'material-ui/Button';
+import Hidden from 'material-ui/Hidden';
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
 
@@ -112,11 +113,13 @@ export default class UsersListTable extends Component {
               <tr key={n.id}>
                 <TableCell className="user-text">{n.name}</TableCell>
                 <TableCell className="user-text">{n.email}</TableCell>
-                <TableCell className="user-text">{n.role}</TableCell>
-                <TableCell className="user-text">
-                  <Button raised>Edit</Button>
-                  <Button raised>Delete</Button>
-                </TableCell>
+                <Hidden xsDown>
+                  <TableCell className="user-text">{n.role}</TableCell>
+                  <TableCell className="user-text">
+                    <Button raised>Edit</Button>
+                    <Button raised>Delete</Button>
+                  </TableCell>
+                </Hidden>
               </tr>
             ))}
           {emptyRows > 0 && (
