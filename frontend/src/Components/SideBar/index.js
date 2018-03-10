@@ -3,20 +3,17 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
 import List from 'material-ui/List';
-import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 import ChevronRightIcon from 'material-ui-icons/ChevronRight';
 import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
-import MenuIcon from 'material-ui-icons/Menu';
 import { Link } from 'react-router-dom';
 import Categories from '../Categories';
 import UsersMenu from '../Users/UsersMenu';
 import './side-bar.css';
+import TopNav from '../TopNav';
 
 const drawerWidth = 240;
 
@@ -95,21 +92,7 @@ class SideBar extends React.Component {
 
     return (
       <Fragment>
-        <AppBar className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.navIconHide}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="title" color="inherit" noWrap>
-              Refugees Info
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <TopNav handleDrawerToggle={this.handleDrawerToggle} />
         <Hidden mdUp>
           <Drawer
             variant="temporary"
