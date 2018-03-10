@@ -2,7 +2,12 @@
 
 table {
   border-collapse: collapse;
-  margin: 0 1% 0 5%;
+  width: 100%;
+}
+
+.user-text button{
+  color: #1abcd4;
+  text-transform: capitalize;
 }
 
 table thead tr > .MuiTableCell-paddingDefault-6,
