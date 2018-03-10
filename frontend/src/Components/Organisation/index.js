@@ -18,7 +18,7 @@ const OrganisationCard = props => {
 
   return (
     <div>
-      <TopNav title={service} addLink="organisations/add" />
+      <TopNav title={service} addLink="organisations/add" titleLink={`services/${service}`} />
       <Search />
       <div className="single-organisation">
         {orgData.map(org => (
