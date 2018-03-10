@@ -31,7 +31,7 @@ const usersData = [
   createData('Nestor Paul', 'nestor@gmail.com', 'Editor'),
   createData('Alice Kolman', 'alice@gmail.com', 'Editor'),
   createData('Hilary Carmel', 'hilary@gmail.com', 'Editor'),
-].sort((a, b) => (a.calories < b.calories ? -1 : 1));
+];
 
 export default class UsersListTable extends Component {
   constructor(props, context) {
@@ -116,8 +116,8 @@ export default class UsersListTable extends Component {
                 <Hidden xsDown>
                   <TableCell className="user-text">{n.role}</TableCell>
                   <TableCell className="user-text">
-                    <Button raised>Edit</Button>
-                    <Button raised>Delete</Button>
+                    <Button raised><i className="material-icons">edit</i></Button>
+                    <Button raised><i className="material-icons">delete</i></Button>
                   </TableCell>
                 </Hidden>
               </tr>
