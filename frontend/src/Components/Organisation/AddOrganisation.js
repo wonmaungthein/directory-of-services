@@ -50,7 +50,7 @@ export default class AddOrganisation extends Component {
   render() {
     return (
       <div>
-        <TopNav />
+        <TopNav addLink="organisations/add" />
         <div className="add-orgonaization">
           <h1>Add new orgonaization</h1>
           <OrganisationForm

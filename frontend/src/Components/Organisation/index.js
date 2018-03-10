@@ -19,7 +19,7 @@ const OrganisationCard = props => {
 
   return (
     <div>
-      <TopNav service={service} />
+      <TopNav title={service} addLink="organisations/add" titleLink={`services/${service}`} />
       <Search />
       <Grid container spacing={24}>
         {orgData.map(org => (
