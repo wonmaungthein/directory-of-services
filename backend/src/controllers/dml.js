@@ -32,7 +32,6 @@ const Select = async () => {
   const organisation = await Organisation
     .query()
     .eager('branch');
-  return organisation;
 };
 
 module.exports = {
