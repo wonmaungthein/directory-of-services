@@ -7,6 +7,7 @@ import {
   TableRow,
 } from 'material-ui/Table';
 import Button from 'material-ui/Button';
+import Hidden from 'material-ui/Hidden';
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
 
@@ -16,6 +17,22 @@ function createData(name, email, role) {
   return { id: counter, name, email, role };
 }
 
+const usersData = [
+  createData('John  Apollo Kahn', 'john@gmail.com', 'Admin'),
+  createData('Bob Latouche', 'bob@gmail.com', 'Admin'),
+  createData('Richard Fox', 'foxn@gmail.com', 'Editor'),
+  createData('Henry Park', 'park@gmail.com', 'Admin'),
+  createData('Ginger Lucy', 'lucy@gmail.com', 'Editor'),
+  createData('Alima Simpson', 'lima@gmail.com', 'Admin'),
+  createData('Boris Bakman', 'boka@gmail.com', 'Editor'),
+  createData('Alan William', 'will@gmail.com', 'Editor'),
+  createData('John Kahn', 'john@gmail.com', 'Admin'),
+  createData('Lamine Sakho', 'sakho@gmail.com', 'Editor'),
+  createData('Nestor Paul', 'nestor@gmail.com', 'Editor'),
+  createData('Alice Kolman', 'alice@gmail.com', 'Editor'),
+  createData('Hilary Carmel', 'hilary@gmail.com', 'Editor'),
+];
+
 export default class UsersListTable extends Component {
   constructor(props, context) {
     super(props, context);
@@ -23,21 +40,7 @@ export default class UsersListTable extends Component {
       order: 'asc',
       orderBy: 'name',
       selected: [],
-      data: [
-        createData('John  Apollo Kahn', 'john@gmail.com', 'Admin'),
-        createData('Bob Latouche', 'bob@gmail.com', 'Admin'),
-        createData('Richard Fox', 'foxn@gmail.com', 'Editor'),
-        createData('Henry Park', 'park@gmail.com', 'Admin'),
-        createData('Ginger Lucy', 'lucy@gmail.com', 'Editor'),
-        createData('Alima Simpson', 'lima@gmail.com', 'Admin'),
-        createData('Boris Bakman', 'boka@gmail.com', 'Editor'),
-        createData('Alan William', 'will@gmail.com', 'Editor'),
-        createData('John Kahn', 'john@gmail.com', 'Admin'),
-        createData('Lamine Sakho', 'sakho@gmail.com', 'Editor'),
-        createData('Nestor Paul', 'nestor@gmail.com', 'Editor'),
-        createData('Alice Kolman', 'alice@gmail.com', 'Editor'),
-        createData('Hilary Carmel', 'hilary@gmail.com', 'Editor'),
-      ].sort((a, b) => (a.calories < b.calories ? -1 : 1)),
+      data: usersData,
       page: 0,
       rowsPerPage: 5,
     };
@@ -94,7 +97,7 @@ export default class UsersListTable extends Component {
       rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
-      <table>
+      <table className="main-table">
         <UsersTableHead
           numSelected={selected.length}
           order={order}
@@ -110,11 +113,13 @@ export default class UsersListTable extends Component {
               <tr key={n.id}>
                 <TableCell className="user-text">{n.name}</TableCell>
                 <TableCell className="user-text">{n.email}</TableCell>
-                <TableCell className="user-text">{n.role}</TableCell>
-                <TableCell className="user-text">
-                  <Button>Edit</Button>
-                  <Button>Delete</Button>
-                </TableCell>
+                <Hidden xsDown>
+                  <TableCell className="user-text">{n.role}</TableCell>
+                  <TableCell className="user-text">
+                    <Button raised><i className="material-icons">edit</i></Button>
+                    <Button raised><i className="material-icons">delete</i></Button>
+                  </TableCell>
+                </Hidden>
               </tr>
             ))}
           {emptyRows > 0 && (

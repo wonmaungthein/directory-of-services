@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TableCell, TableHead, TableSortLabel } from 'material-ui/Table';
+import Hidden from 'material-ui/Hidden';
 import Tooltip from 'material-ui/Tooltip';
 import './user-table.css';
 
@@ -59,7 +60,12 @@ class UsersTableHead extends Component {
                     direction={order}
                     onClick={this.createSortHandler(column.id)}
                   >
-                    {column.label}
+                    <Hidden smUp>
+                      {!column.label.includes('Role') && !column.label.includes('Action') ? column.label : false}
+                    </Hidden>
+                    <Hidden xsDown>
+                      {column.label}
+                    </Hidden>
                   </TableSortLabel>
                 </Tooltip>
               </TableCell>
