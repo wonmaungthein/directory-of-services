@@ -1,8 +1,7 @@
-
-import { Insert, Select }  from '../controllers/dml';
+import { Insert, Select } from '../controllers/dml';
 
 module.exports = router => {
-  router.post('/insert', (req, res) => {
+  router.post('/insert', (req) => {
     const query = req.body;
     Insert(query)
   });
