@@ -36,7 +36,7 @@ exports.up = knex =>
         .references('branch_id')
         .inTable('Branch');
       table.string('address_line');
-      table.string('city');
+      table.string('area');
       table.string('postcode');
     })
     .createTable('Location', (table) => {
