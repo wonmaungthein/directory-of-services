@@ -19,7 +19,25 @@ exports.seed = (knex) =>
                   knex('Branch').insert({
                     org_id: org.org_id,
                     borough: 'Newham'
-                  })))))))
+                  })))
+            .then(() =>
+              knex('Branch').first()
+                .then(branch =>
+                  knex('Service').insert({
+                    branch_id: branch.branch_id,
+                    service_name: 'Benefits',
+                    service_days: 'Monday-Friday',
+                    process: 'Drop-in (arrive by 8:30)'
+                  })))
+            .then(() =>
+              knex('Branch').first()
+                .then(branch =>
+                  knex('Address').insert({
+                    branch_id: branch.branch_id,
+                    address_line: '567',
+                    area: 'West',
+                    postcode: 'E16 4HQ'
+                  })))))));
 
   // knex('Service').del()
   //   .then(() => {
