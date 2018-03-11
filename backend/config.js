@@ -1,5 +1,9 @@
 
+import Knex from 'knex';
+import knexFile from './knexfile';
+
+const environment = process.env.NODE_ENV || 'development';
 module.exports = {
-  port: process.env.PORT || 3002,
-  env: process.env.NODE_ENV || 'Production'
-};
+  knex: Knex(knexFile[environment]),
+  port: process.env.PORT || 3002
+}

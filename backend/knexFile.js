@@ -5,13 +5,13 @@ module.exports = {
     client: 'sqlite3',
     useNullAsDefault: true,
     connection: {
-      filename: '../data/dos.db'
+      filename: '../data/dos_test.db'
     },
     migrations: {
-      directory: `${__dirname}./migrations`
+      directory: `${__dirname}/db/migrations`
     },
     seeds: {
-      directory: `${__dirname}./seeds/test`
+      directory: `${__dirname}/db/seeds/test`
     }
   },
   development: {
@@ -21,10 +21,10 @@ module.exports = {
       filename: '../data/dos.db'
     },
     migrations: {
-      directory: `${__dirname}./migrations`
+      directory: `${__dirname}/db/migrations`
     },
     seeds: {
-      directory: `${__dirname}./seeds/development`
+      directory: `${__dirname}/db/seeds/development`
     }
   },
   production: {
@@ -35,10 +35,10 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: `${__dirname}/migrations`
+      directory: `${__dirname}/db/migrations`
     },
     sseds: {
-      directory: `${__dirname}/seeds/productions`
+      directory: `${__dirname}/db/seeds/productions`
     }
   }
 };
