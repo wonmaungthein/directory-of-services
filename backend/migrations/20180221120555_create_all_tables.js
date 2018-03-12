@@ -23,7 +23,18 @@ exports.up = knex =>
         .unsigned()
         .references('branch_id')
         .inTable('Branch');
-      table.string('service_Type');
+      table.string('service_name');
+      table.string('service_days');
+      table.string('service_process');
+    })
+    .createTable('Categories', (table) => {
+      table.increments('cat_id').primary();
+      table
+        .integer('service_id')
+        .unsigned()
+        .references('service_id')
+        .inTable('Service');
+      table.string('cat_name');
     })
     .createTable('Address', (table) => {
       table.increments('address_id').primary();
@@ -52,5 +63,6 @@ exports.down = knex =>
     .dropTableIfExists('Organisation')
     .dropTableIfExists('Branch')
     .dropTableIfExists('Service')
+    .dropTableIfExists('Categories')
     .dropTableIfExists('Address')
-    .dropTableIfExists('Location');
+    .dropTableIfExists('Location')
