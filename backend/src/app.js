@@ -7,7 +7,7 @@ import compression from 'compression'
 import registerApi from './routes/api';
 import connectKnex from '../config/knexFile';
 
-connectKnex.migrate.latest().then(() => console.log('Migrated.'));
+connectKnex.migrate.latest().then((res) => res.json('Migrated.'));
 
 const router = promiseRouter();
 
