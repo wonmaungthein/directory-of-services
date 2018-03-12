@@ -4,7 +4,7 @@ import './categories.css';
 
 export default class Categories extends Component {
   state = {
-    categoriesList: false,
+    categoriesList: true,
   };
 
   onClickChange = () => {
@@ -36,13 +36,13 @@ export default class Categories extends Component {
             <Link to="/services/lgbtqi">LGBTQI</Link>
           </li>
           <li>
-            <Link to="/services/mentalhealthservices">Mental Health Services</Link>
+            <Link to="/services/mentalhealth">Mental Health</Link>
           </li>
           <li>
             <Link to="/services/healthcare">Healthcare</Link>
           </li>
           <li>
-            <Link to="/womendv">Women DV</Link>
+            <Link to="/services/womendv">Women DV</Link>
           </li>
         </ul>
       );
