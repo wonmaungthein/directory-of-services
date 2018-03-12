@@ -4,8 +4,6 @@ import methodOverride from 'method-override'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
 import compression from 'compression'
-import Knex from 'knex';
-import { Model } from 'objection';
 import registerApi from './routes/api';
 
 const router = promiseRouter();

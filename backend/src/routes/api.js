@@ -1,10 +1,12 @@
 
-import { Insert, Select } from '../controllers/dml';
+import { Insert, Select } from '../controller/dml';
 
 module.exports = router => {
+  router.get('/', (req, res) => {
+    res.send('Blank Route');
+  });
   router.post('/insert', (req, res) => {
     const query = req.body;
-    console.info(query);
     Insert(query)
   });
   router.get('/organisation', (req, res) => {
