@@ -13,7 +13,7 @@ export default class Service extends Model {
       properties: {
         service_id: { type: 'integer' },
         branch_id: { type: ['integer', 'null'] },
-        service_name: { type: 'string', minLength: 1, maxLength: 255 },
+        cat_id: { type: ['integer', 'null'] },
         service_days: { type: 'string', minLength: 1, maxLength: 255 },
         process: { type: 'string', minLength: 1, maxLength: 255 }
       }

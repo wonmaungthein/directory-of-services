@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "./node_modules/.bin/knex migrate:latest --env development && ./node_modules/.bin/knex migrate:latest --env test && ./node_modules/.bin/knex seed:run --env development &&  babel-node ./bin/www --exec babel-node",
-    "dev": "nodemon ./node_modules/.bin/knex migrate:latest --env development && ./node_modules/.bin/knex migrate:latest --env test && ./node_modules/.bin/knex seed:run && --exec babel-node ./bin/www",
+    "dev": "./node_modules/.bin/knex migrate:latest --env development && ./node_modules/.bin/knex migrate:latest --env test && ./node_modules/.bin/knex seed:run && nodemon --exec babel-node ./bin/www",
     "lint": "./node_modules/.bin/eslint **/*.js",
     "fix": "find ./node_modules/* -mtime +10950 -exec touch {} \\;"
   },
