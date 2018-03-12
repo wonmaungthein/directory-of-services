@@ -23,6 +23,41 @@ const branchData = () => {
   return branch;
 }
 
+const serviceData = () => {
+  const service = [];
+  for (let i = 0; i <= 10; i++) {
+    service.push({
+      service_name: faker.name.lastName(),
+      service_days: faker.date.recent(),
+      process: faker.lorem.sentence()
+    })
+  }
+  return service;
+}
+
+const addressData = () => {
+  const address = [];
+  for (let i = 0; i <= 10; i++) {
+    address.push({
+      address_line: faker.address.streetName(),
+      area: faker.address.city(),
+      postcode: faker.address.zipCode()
+    })
+  }
+  return address;
+}
+
+const locationData = () => {
+  const location = [];
+  for (let i = 0; i <= 10; i++) {
+    location.push({
+      lat: faker.address.latitude(),
+      long: faker.address.longitude()
+    })
+  }
+  return location;
+}
+
 const createOrg = (knex, table, data) =>
   knex(table).insert(data);
 
@@ -47,42 +82,31 @@ exports.seed = (knex) =>
                   branchPromises = branchDatas.map((name, i) =>
                     createOrg(knex, 'Branch', { ...name, org_id: org[i].org_id }))
                   return Promise.all(branchPromises);
+                }))
+            .then(() =>
+              knex('Branch').select('branch_id')
+                .then(branch => {
+                  let servicePromises = [];
+                  const serviceDatas = serviceData();
+                  servicePromises = serviceDatas.map((service, i) =>
+                    createOrg(knex, 'Service', { ...service, branch_id: branch[i].branch_id }))
+                  return Promise.all(servicePromises);
+                }))
+            .then(() =>
+              knex('Branch').select('branch_id')
+                .then(branch => {
+                  let addressPromises = [];
+                  const addressDatas = addressData();
+                  addressPromises = addressDatas.map((address, i) =>
+                    createOrg(knex, 'Address', { ...address, branch_id: branch[i].branch_id }))
+                  return Promise.all(addressPromises);
                 })
-      )))))
-            // .then(() =>
-            //   knex('Organisation').first()
-            //     .then(org =>
-            //       knex('Branch').insert({
-            //         org_id: org.org_id,
-            //         borough: faker.lorem.sentence()
-            //       })))
-            // .then(() =>
-            //   knex('Branch').first()
-            //     .then(branch =>
-            //       knex('Service').insert({
-            //         branch_id: branch.branch_id,
-            //         service_name: faker.name.lastName(),
-            //         service_days: faker.date.recent(),
-            //         process: faker.lorem.sentence()
-            //       })))
-            // .then(() =>
-            //   knex('Branch').first()
-            //     .then(branch =>
-            //       knex('Address').insert({
-            //         branch_id: branch.branch_id,
-            //         address_line: faker.address.streetName(),
-            //         area: faker.address.city(),
-            //         postcode: faker.address.zipCode()
-            //       }))
-            //     .then(() =>
-            //       knex('Address').first()
-            //         .then(address =>
-            //           knex('Location').insert({
-            //             address_id: address.address_id,
-            //             lat: faker.address.latitude(),
-            //             long: faker.address.longitude()
-            //           })))))
-                    
-//                     ))))
-// };
-
+                .then(() =>
+                  knex('Address').select('address_id')
+                    .then(address => {
+                      let locationPromises = [];
+                      const locationDatas = locationData();
+                      locationPromises = locationDatas.map((location, i) =>
+                        createOrg(knex, 'Location', { ...location, address_id: address[i].address_id }))
+                      return Promise.all(locationPromises);
+                    })))))))
