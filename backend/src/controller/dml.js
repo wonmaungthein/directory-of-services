@@ -1,13 +1,16 @@
 
-import { transaction } from 'objection';
+import { transaction, Model } from 'objection';
+import { knex } from '../../config';
 import Organisation from '../model/Organisation';
 
-const knex = Organisation.knex();
+Model.knex(knex);
+
+const org = Organisation.knex();
 
 const Insert = async (query) => {
   let trx
   try {
-    trx = await transaction.start(knex);
+    trx = await transaction.start(org);
     const organisation = await Organisation
       .query(trx)
       .insertGraph(query);
@@ -20,10 +23,15 @@ const Insert = async (query) => {
 }
 
 const Select = async () => {
-  const organisation = await Organisation
-    .query()
-    .eager('branch');
-  return organisation;
+  const responce = knex.from('Organisation')
+    .innerJoin('Branch', 'Organisation.org_id', 'Branch.org_id')
+    .innerJoin('Service', 'Branch.branch_id', 'Service.branch_id')
+    .innerJoin('Address', 'Branch.branch_id', 'Address.branch_id')
+    .innerJoin('Location', 'Address.address_id', 'Location.address_id')
+  // const organisation = await Organisation
+  //   .query()
+  //   .eager('branch', 'branch[service]');
+  return responce;
 };
 
 module.exports = {
