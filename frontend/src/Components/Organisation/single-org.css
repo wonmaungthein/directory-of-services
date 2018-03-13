@@ -26,6 +26,7 @@
   bottom: 0;
   z-index: 2;
   color: #ddd !important;
+  border-radius: 0 !important;
   background: rgba(0, 0, 0, .6) !important;
 }
 .single-oganisation-close-button{
