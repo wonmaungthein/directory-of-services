@@ -19,7 +19,7 @@ SQLITE for database...
 
 ## Database Schema
 
-![ER diagram](./docs/ER.png)
+![ER diagram](./docs/ER-Diagram.jpg)
 
 ## Installing
 
