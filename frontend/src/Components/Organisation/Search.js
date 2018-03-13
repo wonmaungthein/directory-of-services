@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import Autosuggest from 'react-autosuggest';
-import TextField from 'material-ui/TextField';
 import { withStyles } from 'material-ui/styles';
 import Input from 'material-ui/Input';
 import 'react-select/dist/react-select.css';
@@ -28,11 +27,21 @@ const days = [
   label: day.day,
 }));
 
+const services = [
+  { service: 'Health' },
+  { service: 'Education' },
+  { service: 'Sports' },
+  { service: 'Communties' },
+].map(service => ({
+  value: service.service,
+  label: service.service,
+}));
+
 class Search extends React.Component {
   state = {
     postCode: '',
-    single: null,
-    service: 'Health',
+    day: null,
+    service: null,
     suggestions: [],
   };
 
@@ -54,25 +63,24 @@ class Search extends React.Component {
     });
   };
 
-  handleChangeSingle = single => {
+  handleSelectedDay = day => {
     this.setState({
-      single,
+      day,
     });
   };
 
-  handleServiceChange = e => {
+  handleServiceChange = service => {
     this.setState({
-      service: e.target.value
+      service,
     })
   }
 
   render() {
     const { classes } = this.props;
-    const { single } = this.state;
     return (
       <Grid container spacing={24} className="org-search">
-        <Grid item md={5} className="post-code">
-          <h4>Search near:</h4>
+        <Grid item md={5} xs={12} className="post-code">
+          <h4><i className="material-icons">search</i></h4>
           <Autosuggest
             theme={{
               container: classes.container,
@@ -80,6 +88,7 @@ class Search extends React.Component {
               suggestionsList: classes.suggestionsList,
               suggestion: classes.suggestion,
             }}
+            className="post-code-suggesition"
             renderInputComponent={helpers.renderInput}
             suggestions={this.state.suggestions}
             onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
@@ -89,39 +98,48 @@ class Search extends React.Component {
             renderSuggestion={helpers.renderSuggestion}
             inputProps={{
               classes,
-              placeholder: 'Search a country',
+              placeholder: 'Search by Borough',
               name: 'postCode',
               value: this.state.postCode,
               onChange: this.handlePostCodeChange,
             }}
           />
         </Grid>
-        <Grid item sm={4} className="day">
-          <h4>Day</h4>
-          <div className={classes.root}>
-            <Input
-              fullWidth
-              inputComponent={helpers.SelectWrapped}
-              inputProps={{
-                classes,
-                value: single,
-                onChange: this.handleChangeSingle,
-                placeholder: 'select-day',
-                instanceId: 'select-day',
-                id: 'select-day',
-                name: 'select-day',
-                simpleValue: true,
-                options: days,
-              }}
-            />
-          </div>
+        <Grid item sm={4} xs={12} className="day">
+          <h4>Today</h4>
+          <Input
+            fullWidth
+            className="select-field-container day-small-screen"
+            inputComponent={helpers.SelectWrapped}
+            inputProps={{
+              value: this.state.day,
+              onChange: this.handleSelectedDay,
+              placeholder: 'Select day',
+              instanceId: 'selectDay',
+              id: 'selectday',
+              name: 'day',
+              simpleValue: true,
+              options: days,
+            }}
+          />
         </Grid>
-        <Grid item md={3} className="service">
+        <Grid item md={3} xs={12} className="service">
           <h4>Service</h4>
-          <TextField
-            name='service'
-            value={this.state.service}
-            onChange={this.handleServiceChange}
+          <Input
+            fullWidth
+            className="select-field-container"
+            inputComponent={helpers.SelectWrapped}
+            inputProps={{
+              classes,
+              value: this.state.service,
+              onChange: this.handleServiceChange,
+              placeholder: 'Select Service',
+              instanceId: 'selectService',
+              id: 'selectService',
+              name: 'service',
+              simpleValue: true,
+              options: services,
+            }}
           />
         </Grid>
       </Grid>

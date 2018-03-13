@@ -21,7 +21,7 @@ const OrganisationCard = props => {
     <div>
       <TopNav title={service} addLink="organisations/add" titleLink={`services/${service}`} />
       <Search />
-      <Grid container spacing={24}>
+      <Grid container className="organisation-page" spacing={24}>
         {orgData.map(org => (
           <Grid item xs={12} sm={6}>
             <Paper className="form-card" key={org.id}>

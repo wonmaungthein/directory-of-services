@@ -95,7 +95,7 @@ export default class EditOrganisation extends React.Component {
             <Button className="save-button" onClick={this.handleSubmit} color="primary" autoFocus>
               Save change
             </Button>
-            <button onClick={this.handleClose} className="edit-org-close-button">Close</button>
+            <button onClick={this.handleClose} className="edit-org-close-button"><i className="material-icons">close</i></button>
           </DialogActions>
         </Dialog>
       </div>
