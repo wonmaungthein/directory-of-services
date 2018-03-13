@@ -76,25 +76,25 @@ export default class UsersListTable extends Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
-  removeUser = (i) => {
+  removeUser = (index) => {
     this.setState(state => ({
-      data: state.data.filter((row, j) => j !== i)
+      data: state.data.filter((row, rowIndex) => rowIndex !== index)
     }))
   }
 
-  startEditing = i => {
-    this.setState({ editIdx: i });
+  startEditing = index => {
+    this.setState({ editIdx: index });
   };
 
   stopEditing = () => {
     this.setState({ editIdx: -1 });
   };
 
-  handleChange = (e, i) => {
+  handleUserDataChange = (e, index) => {
     const { value } = e.target;
     this.setState({
       data: this.state.data.map(
-        (row, j) => (j === i ? { ...row, [e.target.name]: value } : row)
+        (row, rowIndex) => (rowIndex === index ? { ...row, [e.target.name]: value } : row)
       )
     });
   };
@@ -103,7 +103,7 @@ export default class UsersListTable extends Component {
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows =
       rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
-    const {editIdx} = this.state;
+    const { editIdx } = this.state;
 
     return (
       <table className="main-table">
@@ -118,23 +118,23 @@ export default class UsersListTable extends Component {
         <TableBody>
           {data
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map((n, d) => {
-              const currentlyEditing = editIdx === d;
+            .map((row, index) => {
+              const currentlyEditing = editIdx === index;
               return currentlyEditing ? (
-                <tr key={n.id}>
+                <tr key={row.id}>
 
                   <TableCell className="user-text">
                     <TextField
                       name="name"
-                      onChange={e => this.handleChange(e, d)}
-                      value={n.name}
+                      onChange={e => this.handleUserDataChange(e, index)}
+                      value={row.name}
                     />
                   </TableCell>
                   <TableCell className="user-text">
                     <TextField
                       name="email"
-                      onChange={e => this.handleChange(e, d)}
-                      value={n.email}
+                      onChange={e => this.handleUserDataChange(e, index)}
+                      value={row.email}
                     />
                   </TableCell>
                   <Hidden xsDown>
@@ -145,8 +145,8 @@ export default class UsersListTable extends Component {
                         <Select
                           open={this.state.open}
                           onClose={this.handleClose}
-                          value={n.role}
-                          onChange={e => this.handleChange(e, d)}
+                          value={row.role}
+                          onChange={e => this.handleUserDataChange(e, index)}
                           inputProps={{
                             name: 'role',
                             id: 'controlled-open-select',
@@ -155,8 +155,8 @@ export default class UsersListTable extends Component {
                           <MenuItem value="">
                             <em>None</em>
                           </MenuItem>
-                          <MenuItem value={n.role}>{n.role}</MenuItem>
-                          {n.role === "Editor" ? <MenuItem value="Admin">Admin</MenuItem> : <MenuItem value="Editor">Editor</MenuItem>}
+                          <MenuItem value={row.role}>{row.role}</MenuItem>
+                          {row.role === "Editor" ? <MenuItem value="Admin">Admin</MenuItem> : <MenuItem value="Editor">Editor</MenuItem>}
                         </Select>
                       </FormControl>
 
@@ -166,24 +166,22 @@ export default class UsersListTable extends Component {
                         variant="raised"
                         type="submit"
                         className="edit-user-button"
-                        onClick={() => this.stopEditing()}
+                        onClick={this.stopEditing}
                       >
                         SAVE CHANGES
-                      </Button>  
+                      </Button>
                     </TableCell>
                   </Hidden>
                 </tr>
               ) : (
-                <tr key={n.id}>
-                  <TableCell className="user-text">{n.name}</TableCell>
-                  <TableCell className="user-text">{n.email}</TableCell>
+                <tr key={row.id}>
+                  <TableCell className="user-text">{row.name}</TableCell>
+                  <TableCell className="user-text">{row.email}</TableCell>
                   <Hidden xsDown>
-                    <TableCell className="user-text">{n.role}</TableCell>
+                    <TableCell className="user-text">{row.role}</TableCell>
                     <TableCell className="user-text">
-
-                      <Button onClick={() => this.startEditing(d)} raised><i className="material-icons">edit</i></Button>
-
-                      <Button onClick={() => this.removeUser(d)} raised><i className="material-icons">delete</i></Button>
+                      <Button onClick={() => this.startEditing(index)} raised><i className="material-icons">edit</i></Button>
+                      <Button onClick={() => this.removeUser(index)} raised><i className="material-icons">delete</i></Button>
                     </TableCell>
                   </Hidden>
                 </tr>
