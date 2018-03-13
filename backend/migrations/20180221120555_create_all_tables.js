@@ -72,3 +72,4 @@ exports.down = knex =>
     .dropTableIfExists('Categories')
     .dropTableIfExists('Address')
     .dropTableIfExists('Location')
+    .dropTableIfExists('Users')
