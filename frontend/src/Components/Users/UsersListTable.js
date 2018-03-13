@@ -97,7 +97,7 @@ export default class UsersListTable extends Component {
       rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
-      <table className="main-table">
+      <table className="users-table">
         <UsersTableHead
           numSelected={selected.length}
           order={order}
@@ -106,11 +106,11 @@ export default class UsersListTable extends Component {
           onRequestSort={this.handleRequestSort}
           rowCount={data.length}
         />
-        <TableBody>
+        <TableBody className="users-tbody">
           {data
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map(n => (
-              <tr key={n.id}>
+              <TableRow key={n.id}>
                 <TableCell className="user-text">{n.name}</TableCell>
                 <TableCell className="user-text">{n.email}</TableCell>
                 <Hidden xsDown>
@@ -120,7 +120,7 @@ export default class UsersListTable extends Component {
                     <Button raised><i className="material-icons">delete</i></Button>
                   </TableCell>
                 </Hidden>
-              </tr>
+              </TableRow>
             ))}
           {emptyRows > 0 && (
             <TableRow
