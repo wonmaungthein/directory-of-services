@@ -21,7 +21,7 @@ SQLITE for database...
 
 ![ER diagram](./docs/ER.png)
 
-### Installing
+## Installing
 
 Install project dependencies:
 
@@ -35,7 +35,7 @@ Run project locally:
 cd frontend && yarn start
 cd backend && yarn start
 ```
-=======
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE)(LICENSE.md) file for details
