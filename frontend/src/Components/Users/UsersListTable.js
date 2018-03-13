@@ -15,7 +15,7 @@ import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
-import usersData from './usersData'
+import usersData from './usersData.json'
 
 export default class UsersListTable extends Component {
   constructor(props, context) {
