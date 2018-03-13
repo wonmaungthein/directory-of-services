@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {
+import Table, {
   TableBody,
   TableCell,
   TableFooter,
   TablePagination,
-  TableRow,
+  TableRow
 } from 'material-ui/Table';
 import Button from 'material-ui/Button';
 import Hidden from 'material-ui/Hidden';
@@ -97,7 +97,7 @@ export default class UsersListTable extends Component {
       rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
-      <table className="users-table">
+      <Table className="users-table">
         <UsersTableHead
           numSelected={selected.length}
           order={order}
@@ -150,7 +150,7 @@ export default class UsersListTable extends Component {
             />
           </TableRow>
         </TableFooter>
-      </table>
+      </Table>
     );
   }
 }

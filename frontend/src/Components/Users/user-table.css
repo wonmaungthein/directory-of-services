@@ -14,9 +14,9 @@
   font-weight: 600;
 }
 
-.users-thead .MuiTableSortLabel-active-294,
-.users-thead .MuiTableSortLabel-root-293:focus,
-.users-thead .MuiTableSortLabel-root-293:hover{
+.users-thead span,
+.users-thead span:focus,
+.users-thead span:hover{
   color: #fff;
 }
 
@@ -25,12 +25,12 @@
   text-transform: capitalize;
 }
 
-.users-tbody .MuiTableCell-root-276 {
+.users-tbody td{
   text-align: left;
   border-bottom: 1px solid rgba(69, 189, 212, 0.29);
 }
 
-.users-thead .MuiTableSortLabel-active-294 .MuiTableSortLabel-icon-295 {
+.users-thead path{
   opacity: 0;
 }
 

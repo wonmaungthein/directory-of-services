@@ -40,8 +40,8 @@ class UsersTableHead extends Component {
   render() {
     const { order, orderBy } = this.props;
     return (
-      <TableHead>
-        <TableRow className="users-thead">
+      <TableHead className="users-thead">
+        <TableRow>
           {columnData.map(
             column => (
               <TableCell

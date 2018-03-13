@@ -60,6 +60,7 @@
   box-shadow: 0px 2px 4px 2px #bbb;
 }
 
-.add-user .MuiInput-inkbar-234:after{
+.add-user div :after{ 
   background-color: #1abcd4;
 }
+/* .MuiInput-underline-238:before */
