@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TableCell, TableHead, TableSortLabel } from 'material-ui/Table';
+import { TableRow, TableCell, TableHead, TableSortLabel } from 'material-ui/Table';
 import Hidden from 'material-ui/Hidden';
 import Tooltip from 'material-ui/Tooltip';
 import './user-table.css';
@@ -40,8 +40,8 @@ class UsersTableHead extends Component {
   render() {
     const { order, orderBy } = this.props;
     return (
-      <TableHead>
-        <tr>
+      <TableHead className="users-thead">
+        <TableRow>
           {columnData.map(
             column => (
               <TableCell
@@ -72,7 +72,7 @@ class UsersTableHead extends Component {
             ),
             this,
           )}
-        </tr>
+        </TableRow>
       </TableHead>
     );
   }

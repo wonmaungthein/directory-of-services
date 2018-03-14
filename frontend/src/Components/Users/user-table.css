@@ -1,63 +1,46 @@
 /*                   > Users list table <                        */
 
-table {
+.users-table {
   border-collapse: collapse;
   width: 100%;
-  margin-top: 1.5em;
+  margin-top: 2.5em;
 }
 
-.user-text button{
+.users-thead th {
+  width: 25%;
+  color: #fff;
+  font-size: 0.878rem;
+  font-weight: 600;
+}
+
+.users-thead th,
+.users-tbody tr td div div:after {
+  background-color: #1abcd4;
+}
+
+.users-thead path {
+  opacity: 0;
+}
+.users-thead span,
+.users-thead span:focus,
+.users-thead span:hover {
+  color: #fff;
+}
+
+.user-text button {
   color: #1abcd4;
   text-transform: capitalize;
 }
 
-table thead tr > .MuiTableCell-paddingDefault-6,
-table thead tr > .MuiTableCell-paddingDefault-6:last-child {
-  width: 24%;
-  color: rgb(10, 1, 1);
-  font-size: .878rem;
-  font-weight: 600;
+.users-tbody td {
+  text-align: left;
+  border-bottom: 1px solid rgba(69, 189, 212, 0.29);
 }
 
-table thead tr > .MuiTableCell-paddingDefault-6{
-  padding: 2.8rem .2rem .2rem 0;  
+.users-tbody .edit-user-button,
+.users-tbody .edit-user-button:hover {
+  background: #519889;
+  color: #fff;
 }
 
-table thead tr > .MuiTableCell-paddingDefault-6:last-child{
-  padding: 2.8rem 1.9rem 0;
-}
-
-table thead tr >.MuiTableCell-root-1 {
-  border-bottom: 1px solid rgb(69, 189, 212);
-  padding-bottom: .6rem;
-}
-
-table span > .MuiTableSortLabel-icon-20,
-table span > .MuiTableSortLabel-active-19 {
- display: none;
-} 
-
-table tbody tr .MuiTableCell-paddingDefault-6 {
-  padding: .3rem 0;
-}
-
-table tbody tr .MuiTableCell-paddingDefault-6:last-child {
-  padding-right: .8rem;
-}
-
-table tbody tr > .MuiTableCell-paddingDefault-6:nth-child(3),
-table tbody tr > .MuiTableCell-paddingDefault-6:nth-child(3),
-table thead tr  >.MuiTableCell-root-1:nth-child(3) {
-  padding-left: 3rem;
-}
-
-td button>.MuiButton-label-33 {
-  color: #1abcd4;
-  font-size: 13px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-.edit-user-button {
-  background: #519889 !important;
-  color: #fff !important;
-}
+/*                       End users list table                                       */
