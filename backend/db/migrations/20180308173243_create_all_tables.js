@@ -1,3 +1,4 @@
+
 exports.up = knex =>
   knex.schema
     .createTable('Organisation', (table) => {
@@ -23,17 +24,16 @@ exports.up = knex =>
         .unsigned()
         .references('branch_id')
         .inTable('Branch');
-      table.string('service_name');
+      table
+        .integer('cat_id')
+        .unsigned()
+        .references('cat_id')
+        .inTable('Categories');
       table.string('service_days');
-      table.string('service_process');
+      table.string('process');
     })
     .createTable('Categories', (table) => {
       table.increments('cat_id').primary();
-      table
-        .integer('service_id')
-        .unsigned()
-        .references('service_id')
-        .inTable('Service');
       table.string('cat_name');
     })
     .createTable('Address', (table) => {
@@ -44,7 +44,7 @@ exports.up = knex =>
         .references('branch_id')
         .inTable('Branch');
       table.string('address_line');
-      table.string('city');
+      table.string('area');
       table.string('postcode');
     })
     .createTable('Location', (table) => {
@@ -71,5 +71,10 @@ exports.down = knex =>
     .dropTableIfExists('Service')
     .dropTableIfExists('Categories')
     .dropTableIfExists('Address')
+<<<<<<< HEAD:backend/migrations/20180221120555_create_all_tables.js
     .dropTableIfExists('Location')
     .dropTableIfExists('Users')
+=======
+    .dropTableIfExists('Location');
+
+>>>>>>> API-service:backend/db/migrations/20180308173243_create_all_tables.js
