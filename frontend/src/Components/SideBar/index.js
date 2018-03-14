@@ -47,7 +47,7 @@ const styles = theme => ({
     },
     position: 'absolute',
     zIndex: '10000000000',
-    top: '6px',
+    top: '5px',
     left: '0',
     color: '#fff',
   },

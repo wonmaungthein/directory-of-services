@@ -84,6 +84,7 @@
   font-size: 1em;
   font-weight: bold;
   color: #1abcd4;
+  outline: none !important;
 }
 .edit-logo{
   position: absolute;
@@ -97,14 +98,15 @@
 }
 .edit-org-close-button{
   position: absolute;
-  right: -6px;
-  top: -23px;
+  right: -24px;
+  top: -25px;
   background: transparent;
   border: navajowhite;
   color: #bbb;
   cursor: pointer;
   font-weight: bold;
   font-size: 1.1em;
+  outline: none !important;
 }
 .edit-org .details-area{
   display: inline

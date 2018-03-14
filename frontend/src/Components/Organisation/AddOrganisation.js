@@ -52,7 +52,7 @@ export default class AddOrganisation extends Component {
       <div>
         <TopNav addLink="organisations/add" />
         <div className="add-orgonaization">
-          <h1>Add new orgonaization</h1>
+          <h1>Add new organisation</h1>
           <OrganisationForm
             name={this.state.name}
             area={this.state.area}

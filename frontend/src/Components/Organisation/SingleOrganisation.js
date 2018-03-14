@@ -4,6 +4,7 @@ import Dialog, {
   DialogContent,
   DialogActions,
 } from 'material-ui/Dialog';
+import Button from 'material-ui/Button';
 import EditOrganisation from './EditOrganisation';
 import './single-org.css';
 
@@ -22,12 +23,14 @@ export default class SingleOrganisation extends Component {
   render() {
     return (
       <div className="single-oganisation">
-        <button
-          className="orgnaization-detais-button"
+        <Button
           onClick={this.handleOpen}
+          variant="raised"
+          size="small"
+          className="orgnaization-detais-button button-title"
         >
-          <span className="button-title">DETAILS</span>
-        </button>
+          <i className="material-icons">add</i>DETAILS
+        </Button>
         <Dialog
           className="single-org-dialog"
           open={this.state.open}
@@ -38,7 +41,7 @@ export default class SingleOrganisation extends Component {
               onClick={this.handleClose}
               className="single-oganisation-close-button"
             >
-              Close
+              <i className="material-icons">close</i>
             </button>
           </DialogActions>
           <EditOrganisation />
