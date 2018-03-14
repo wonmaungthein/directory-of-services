@@ -19,9 +19,9 @@ SQLITE for database...
 
 ## Database Schema
 
-![ER diagram](./docs/ER.png)
+![ER diagram](./docs/ER-Diagram.jpg)
 
-### Installing
+## Installing
 
 Install project dependencies:
 
@@ -35,6 +35,7 @@ Run project locally:
 cd frontend && yarn start
 cd backend && yarn start
 ```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE)(LICENSE.md) file for details
@@ -42,3 +43,4 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE)(LI
 ## Acknowledgments
 
 * Code Your Future mentors and students
+

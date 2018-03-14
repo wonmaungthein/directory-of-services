@@ -13,7 +13,7 @@ export default class Categories extends Component {
     });
   };
 
-  showListOfcategories = () => {
+showListOfcategories = () => {
     if (this.state.categoriesList) {
       return (
         <ul>

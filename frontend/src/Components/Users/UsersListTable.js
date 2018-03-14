@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {
+import Table, {
   TableBody,
   TableCell,
   TableFooter,
@@ -15,7 +15,7 @@ import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
-import usersData from './usersData.json'
+import usersData from './usersData.json';
 
 export default class UsersListTable extends Component {
   constructor(props, context) {
@@ -76,11 +76,11 @@ export default class UsersListTable extends Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
-  removeUser = (index) => {
+  removeUser = index => {
     this.setState(state => ({
-      data: state.data.filter((row, rowIndex) => rowIndex !== index)
-    }))
-  }
+      data: state.data.filter((row, rowIndex) => rowIndex !== index),
+    }));
+  };
 
   startEditing = index => {
     this.setState({ editIdx: index });
@@ -94,8 +94,9 @@ export default class UsersListTable extends Component {
     const { value } = e.target;
     this.setState({
       data: this.state.data.map(
-        (row, rowIndex) => (rowIndex === index ? { ...row, [e.target.name]: value } : row)
-      )
+        (row, rowIndex) =>
+          rowIndex === index ? { ...row, [e.target.name]: value } : row,
+      ),
     });
   };
 
@@ -106,7 +107,7 @@ export default class UsersListTable extends Component {
     const { editIdx } = this.state;
 
     return (
-      <table className="main-table">
+      <Table className="users-table">
         <UsersTableHead
           numSelected={selected.length}
           order={order}
@@ -115,14 +116,13 @@ export default class UsersListTable extends Component {
           onRequestSort={this.handleRequestSort}
           rowCount={data.length}
         />
-        <TableBody>
+        <TableBody className="users-tbody">
           {data
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((row, index) => {
               const currentlyEditing = editIdx === index;
               return currentlyEditing ? (
                 <tr key={row.id}>
-
                   <TableCell className="user-text">
                     <TextField
                       name="name"
@@ -139,9 +139,10 @@ export default class UsersListTable extends Component {
                   </TableCell>
                   <Hidden xsDown>
                     <TableCell className="user-text">
-
                       <FormControl className="form-control-filed">
-                        <InputLabel htmlFor="controlled-open-select">Role</InputLabel>
+                        <InputLabel htmlFor="controlled-open-select">
+                          Role
+                        </InputLabel>
                         <Select
                           open={this.state.open}
                           onClose={this.handleClose}
@@ -156,10 +157,13 @@ export default class UsersListTable extends Component {
                             <em>None</em>
                           </MenuItem>
                           <MenuItem value={row.role}>{row.role}</MenuItem>
-                          {row.role === "Editor" ? <MenuItem value="Admin">Admin</MenuItem> : <MenuItem value="Editor">Editor</MenuItem>}
+                          {row.role === 'Editor' ? (
+                            <MenuItem value="Admin">Admin</MenuItem>
+                          ) : (
+                            <MenuItem value="Editor">Editor</MenuItem>
+                          )}
                         </Select>
                       </FormControl>
-
                     </TableCell>
                     <TableCell className="user-text">
                       <Button
@@ -180,12 +184,16 @@ export default class UsersListTable extends Component {
                   <Hidden xsDown>
                     <TableCell className="user-text">{row.role}</TableCell>
                     <TableCell className="user-text">
-                      <Button onClick={() => this.startEditing(index)} raised><i className="material-icons">edit</i></Button>
-                      <Button onClick={() => this.removeUser(index)} raised><i className="material-icons">delete</i></Button>
+                      <Button onClick={() => this.startEditing(index)} raised>
+                        <i className="material-icons">edit</i>
+                      </Button>
+                      <Button onClick={() => this.removeUser(index)} raised>
+                        <i className="material-icons">delete</i>
+                      </Button>
                     </TableCell>
                   </Hidden>
                 </tr>
-                )
+              );
             })}
           {emptyRows > 0 && (
             <TableRow
@@ -215,7 +223,7 @@ export default class UsersListTable extends Component {
             />
           </TableRow>
         </TableFooter>
-      </table>
+      </Table>
     );
   }
 }
