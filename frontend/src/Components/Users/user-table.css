@@ -8,43 +8,39 @@
 
 .users-thead th {
   width: 25%;
-  background-color: #1abcd4;
   color: #fff;
-  font-size: .878rem;
+  font-size: 0.878rem;
   font-weight: 600;
 }
 
+.users-thead th,
+.users-tbody tr td div div:after {
+  background-color: #1abcd4;
+}
+
+.users-thead path {
+  opacity: 0;
+}
 .users-thead span,
 .users-thead span:focus,
-.users-thead span:hover{
+.users-thead span:hover {
   color: #fff;
 }
 
-.user-text button{
+.user-text button {
   color: #1abcd4;
   text-transform: capitalize;
 }
 
-.users-tbody td{
+.users-tbody td {
   text-align: left;
   border-bottom: 1px solid rgba(69, 189, 212, 0.29);
 }
 
-.users-thead path{
-  opacity: 0;
+.users-tbody .edit-user-button,
+.users-tbody .edit-user-button:hover {
+  background: #519889;
+  color: #fff;
 }
 
-<<<<<<< HEAD
 /*                       End users list table                                       */
-=======
-td button>.MuiButton-label-33 {
-  color: #1abcd4;
-  font-size: 13px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-.edit-user-button {
-  background: #519889 !important;
-  color: #fff !important;
-}
->>>>>>> 28973ac48314db22180d06ecef66b83647bb3b7e
