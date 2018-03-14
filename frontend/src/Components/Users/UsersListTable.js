@@ -8,30 +8,14 @@ import Table, {
 } from 'material-ui/Table';
 import Button from 'material-ui/Button';
 import Hidden from 'material-ui/Hidden';
+import TextField from 'material-ui/TextField';
+import { InputLabel } from 'material-ui/Input';
+import { MenuItem } from 'material-ui/Menu';
+import { FormControl } from 'material-ui/Form';
+import Select from 'material-ui/Select';
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
-
-let counter = 0;
-function createData(name, email, role) {
-  counter += 1;
-  return { id: counter, name, email, role };
-}
-
-const usersData = [
-  createData('John  Apollo Kahn', 'john@gmail.com', 'Admin'),
-  createData('Bob Latouche', 'bob@gmail.com', 'Admin'),
-  createData('Richard Fox', 'foxn@gmail.com', 'Editor'),
-  createData('Henry Park', 'park@gmail.com', 'Admin'),
-  createData('Ginger Lucy', 'lucy@gmail.com', 'Editor'),
-  createData('Alima Simpson', 'lima@gmail.com', 'Admin'),
-  createData('Boris Bakman', 'boka@gmail.com', 'Editor'),
-  createData('Alan William', 'will@gmail.com', 'Editor'),
-  createData('John Kahn', 'john@gmail.com', 'Admin'),
-  createData('Lamine Sakho', 'sakho@gmail.com', 'Editor'),
-  createData('Nestor Paul', 'nestor@gmail.com', 'Editor'),
-  createData('Alice Kolman', 'alice@gmail.com', 'Editor'),
-  createData('Hilary Carmel', 'hilary@gmail.com', 'Editor'),
-];
+import usersData from './usersData.json'
 
 export default class UsersListTable extends Component {
   constructor(props, context) {
@@ -43,6 +27,7 @@ export default class UsersListTable extends Component {
       data: usersData,
       page: 0,
       rowsPerPage: 5,
+      editIdx: -1,
     };
   }
 
@@ -91,10 +76,34 @@ export default class UsersListTable extends Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
+  removeUser = (index) => {
+    this.setState(state => ({
+      data: state.data.filter((row, rowIndex) => rowIndex !== index)
+    }))
+  }
+
+  startEditing = index => {
+    this.setState({ editIdx: index });
+  };
+
+  stopEditing = () => {
+    this.setState({ editIdx: -1 });
+  };
+
+  handleUserDataChange = (e, index) => {
+    const { value } = e.target;
+    this.setState({
+      data: this.state.data.map(
+        (row, rowIndex) => (rowIndex === index ? { ...row, [e.target.name]: value } : row)
+      )
+    });
+  };
+
   render() {
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows =
       rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
+    const { editIdx } = this.state;
 
     return (
       <Table className="users-table">
@@ -109,19 +118,90 @@ export default class UsersListTable extends Component {
         <TableBody className="users-tbody">
           {data
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+<<<<<<< HEAD
             .map(n => (
               <TableRow key={n.id}>
                 <TableCell className="user-text">{n.name}</TableCell>
                 <TableCell className="user-text">{n.email}</TableCell>
                 <Hidden xsDown>
                   <TableCell className="user-text">{n.role}</TableCell>
+=======
+            .map((row, index) => {
+              const currentlyEditing = editIdx === index;
+              return currentlyEditing ? (
+                <tr key={row.id}>
+
+>>>>>>> 28973ac48314db22180d06ecef66b83647bb3b7e
                   <TableCell className="user-text">
-                    <Button raised><i className="material-icons">edit</i></Button>
-                    <Button raised><i className="material-icons">delete</i></Button>
+                    <TextField
+                      name="name"
+                      onChange={e => this.handleUserDataChange(e, index)}
+                      value={row.name}
+                    />
                   </TableCell>
+<<<<<<< HEAD
                 </Hidden>
               </TableRow>
             ))}
+=======
+                  <TableCell className="user-text">
+                    <TextField
+                      name="email"
+                      onChange={e => this.handleUserDataChange(e, index)}
+                      value={row.email}
+                    />
+                  </TableCell>
+                  <Hidden xsDown>
+                    <TableCell className="user-text">
+
+                      <FormControl className="form-control-filed">
+                        <InputLabel htmlFor="controlled-open-select">Role</InputLabel>
+                        <Select
+                          open={this.state.open}
+                          onClose={this.handleClose}
+                          value={row.role}
+                          onChange={e => this.handleUserDataChange(e, index)}
+                          inputProps={{
+                            name: 'role',
+                            id: 'controlled-open-select',
+                          }}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={row.role}>{row.role}</MenuItem>
+                          {row.role === "Editor" ? <MenuItem value="Admin">Admin</MenuItem> : <MenuItem value="Editor">Editor</MenuItem>}
+                        </Select>
+                      </FormControl>
+
+                    </TableCell>
+                    <TableCell className="user-text">
+                      <Button
+                        variant="raised"
+                        type="submit"
+                        className="edit-user-button"
+                        onClick={this.stopEditing}
+                      >
+                        SAVE CHANGES
+                      </Button>
+                    </TableCell>
+                  </Hidden>
+                </tr>
+              ) : (
+                <tr key={row.id}>
+                  <TableCell className="user-text">{row.name}</TableCell>
+                  <TableCell className="user-text">{row.email}</TableCell>
+                  <Hidden xsDown>
+                    <TableCell className="user-text">{row.role}</TableCell>
+                    <TableCell className="user-text">
+                      <Button onClick={() => this.startEditing(index)} raised><i className="material-icons">edit</i></Button>
+                      <Button onClick={() => this.removeUser(index)} raised><i className="material-icons">delete</i></Button>
+                    </TableCell>
+                  </Hidden>
+                </tr>
+                )
+            })}
+>>>>>>> 28973ac48314db22180d06ecef66b83647bb3b7e
           {emptyRows > 0 && (
             <TableRow
               style={{
