@@ -56,6 +56,12 @@ exports.up = knex =>
         .inTable('Address');
       table.string('lat');
       table.string('long');
+    })
+    .createTable('Users', (table) => {
+      table.increments('user_id').primary();
+      table.string('username');
+      table.string('salt_password');
+      table.date('last_updated');
     });
 
 exports.down = knex =>
@@ -66,3 +72,4 @@ exports.down = knex =>
     .dropTableIfExists('Categories')
     .dropTableIfExists('Address')
     .dropTableIfExists('Location')
+    .dropTableIfExists('Users')
