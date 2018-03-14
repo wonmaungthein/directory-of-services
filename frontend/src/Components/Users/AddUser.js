@@ -45,29 +45,25 @@ export default class AddUser extends Component {
             value={this.state.email}
             onChange={this.handleFieldUpdate}
           />
-          <span>
-            <button className="select-button" onClick={this.handleOpen} />
-            <FormControl className="form-control-filed">
-              <InputLabel htmlFor="controlled-open-select">Role</InputLabel>
-              <Select
-                open={this.state.open}
-                onClose={this.handleClose}
-                onOpen={this.handleOpen}
-                value={this.state.role}
-                onChange={this.handleFieldUpdate}
-                inputProps={{
-                  name: 'role',
-                  id: 'controlled-open-select',
-                }}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value="editor">editor</MenuItem>
-                <MenuItem value="admin">admin</MenuItem>
-              </Select>
-            </FormControl>
-          </span>
+          <FormControl className="form-control-filed">
+            <InputLabel htmlFor="controlled-open-select">Role</InputLabel>
+            <Select
+              open={this.state.open}
+              onClose={this.handleClose}
+              value={this.state.role}
+              onChange={this.handleFieldUpdate}
+              inputProps={{
+                name: 'role',
+                id: 'controlled-open-select',
+              }}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value="editor">editor</MenuItem>
+              <MenuItem value="admin">admin</MenuItem>
+            </Select>
+          </FormControl>
           <Button
             variant="raised"
             type="submit"

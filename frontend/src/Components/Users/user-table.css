@@ -57,4 +57,7 @@ td button>.MuiButton-label-33 {
   font-size: 0.75rem;
   font-weight: 600;
 }
-/*                       End users list table                                       */
+.edit-user-button {
+  background: #519889 !important;
+  color: #fff !important;
+}
