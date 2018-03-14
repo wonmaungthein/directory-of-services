@@ -21,6 +21,7 @@
     "express": "~4.15.5",
     "express-promise-router": "^3.0.1",
     "faker": "^4.1.0",
+    "join-js": "^1.0.0",
     "knex": "^0.14.4",
     "method-override": "^2.3.10",
     "morgan": "^1.9.0",
