@@ -71,10 +71,5 @@ exports.down = knex =>
     .dropTableIfExists('Service')
     .dropTableIfExists('Categories')
     .dropTableIfExists('Address')
-<<<<<<< HEAD:backend/migrations/20180221120555_create_all_tables.js
     .dropTableIfExists('Location')
     .dropTableIfExists('Users')
-=======
-    .dropTableIfExists('Location');
-
->>>>>>> API-service:backend/db/migrations/20180308173243_create_all_tables.js
