@@ -34,17 +34,17 @@
   }
   .org-search .post-code{
     display: grid;
-    grid-template-columns: 1fr 10fr;
+    grid-template-columns: 1fr 8fr;
     grid-gap: 1em;
   }
   .org-search .day{
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 1fr 8fr;
     grid-gap: 1em;
   }
   .org-search .service{
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 1fr 8fr;
     grid-gap: 1em;
   }
   .org-search .post-code,

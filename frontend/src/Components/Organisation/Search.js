@@ -26,12 +26,23 @@ const days = [
   value: day.day,
   label: day.day,
 }));
-
 const services = [
-  { service: 'Health' },
+  { service: 'Destitution' },
+  { service: 'Healthcare' },
+  { service: 'Social and Other' },
   { service: 'Education' },
-  { service: 'Sports' },
-  { service: 'Communties' },
+  { service: 'Housing' },
+  { service: 'Trafficking' },
+  { service: 'Benefits' },
+  { service: 'Families' },
+  { service: 'LGBTQI' },
+  { service: 'Young People and Children' },
+  { service: 'Employment' },
+  { service: 'Immigration' },
+  { service: 'Women' },
+  { service: 'Debt' },
+  { service: 'Gender Based Violence' },
+  { service: 'Mental Health Services' },
 ].map(service => ({
   value: service.service,
   label: service.service,
@@ -98,15 +109,15 @@ class Search extends React.Component {
             renderSuggestion={helpers.renderSuggestion}
             inputProps={{
               classes,
-              placeholder: 'Search by Borough',
+              placeholder: 'Search Borough',
               name: 'postCode',
               value: this.state.postCode,
               onChange: this.handlePostCodeChange,
             }}
           />
         </Grid>
-        <Grid item sm={4} xs={12} className="day">
-          <h4>Today</h4>
+        <Grid item md={4} xs={12} className="day">
+          <h4>Day</h4>
           <Input
             fullWidth
             className="select-field-container day-small-screen"

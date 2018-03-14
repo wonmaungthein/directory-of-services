@@ -32,7 +32,7 @@ const TopNav = (props) => {
             <Typography className="add-new-button" variant="title" color="inherit" noWrap>
               <Link to={`/${titleLink}`}>{helpers.capitaliseAndPrettify(title)}</Link>
               <Link to={`/${addLink}`} className="add-orgnaization">
-                <span className="add-orgonaization-button"><i className="material-icons">add</i>Add</span>
+                <i className="material-icons">add</i><span className="add-orgonaization-button">Add</span>
               </Link>
             </Typography>
           </Grid>

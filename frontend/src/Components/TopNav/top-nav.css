@@ -1,23 +1,11 @@
-.top-nav-content{
-  align-items: center;
-  display: flex;
-}
 .add-new-button {
-  display: grid !important;
-  grid-template-columns: 1fr 5fr;
+  display: flex !important;
 }
 .add-new-button >a{
-  display: block;
- text-decoration: navajowhite;
+  text-decoration: navajowhite;
   color: #fff !important;
-}
-.login-section{
-  display: flex;
-  justify-content: flex-end;
-}
-.add-orgonaization-button{
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 @media (max-width: 991px){
