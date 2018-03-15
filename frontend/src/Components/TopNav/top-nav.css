@@ -1,15 +1,28 @@
 .add-new-button {
   display: flex !important;
+  height: 3em;
 }
-.add-new-button >a{
+.add-orgonaization-button {
+  width: 32px !important;
+  height: 24px !important;
+}
+.login-section {
+  justify-content: flex-end !important;
+  display: flex;
+}
+.logo-button span > i {
+  font-size: 3.5em;
+}
+
+.add-new-button > a {
   text-decoration: navajowhite;
   color: #fff !important;
   align-items: center;
   display: flex;
+  margin-right: 0.5em;
 }
-
-@media (max-width: 991px){
-  .top-nav-content{
+@media (max-width: 991px) {
+  .top-nav-content {
     margin-left: 1em !important;
   }
 }
