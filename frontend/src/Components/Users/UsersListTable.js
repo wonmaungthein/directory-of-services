@@ -168,11 +168,12 @@ export default class UsersListTable extends Component {
                     <TableCell className="user-text">
                       <Button
                         variant="raised"
+                        size="small"
                         type="submit"
                         className="edit-user-button"
                         onClick={this.stopEditing}
                       >
-                        SAVE CHANGES
+                        <i className="material-icons">save</i>
                       </Button>
                     </TableCell>
                   </Hidden>
