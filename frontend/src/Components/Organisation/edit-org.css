@@ -13,11 +13,17 @@
 }
 .edit-org .text-field-container{
   grid-column: 1/1;
-  margin-top: -1.5em;
+  display: Grid;
+  grid-template-columns: 1fr 4fr;
+}
+.edit-org .text-field-container >div >div,
+.edit-org .text-field-two-container >div >div{
+  margin-top: -.5em !important;
 }
 .edit-org .text-field-two-container{
   grid-column: 2/2;
-  margin-top: -1.5em;
+  display: Grid;
+  grid-template-columns: 2fr 4fr;
 }
 .edit-org .health-advice-title{
   grid-column: 1/4
@@ -36,6 +42,13 @@
 }
 .edit-org .health-advice{
   top: -5px !important;
+}
+.edit-field .select-lable{
+  font-size: 1.5em;
+  color: #000;
+}
+.edit-field .add-website{
+  grid-column: 1/4
 }
 .edit-org .edit-orgnasiation-name label:nth-child(1),
 .edit-org .text-field label:nth-child(1),
@@ -120,7 +133,7 @@
   grid-template-columns:repeat(3, 1fr);
   border: 2px solid #519889;
   padding: .5em;
-  height: 4em;
+  min-height: 4em;
   grid-gap: 1em;
   overflow: auto;
   margin-bottom: 1em;

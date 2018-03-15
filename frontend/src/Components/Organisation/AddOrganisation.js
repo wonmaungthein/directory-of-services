@@ -33,7 +33,7 @@ export default class AddOrganisation extends Component {
     })
   }
 
-  updateNameField = event => {
+  handleFieldUpdate = event => {
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -64,7 +64,7 @@ export default class AddOrganisation extends Component {
             website={this.state.website}
             service={this.state.service}
             formType="org-content"
-            onChange={this.updateNameField}
+            onChange={this.handleFieldUpdate}
             onChangeCheckbox={this.handleCheckbox}
           />
           <button className="add-orgonaization-link" onClick={event => this.handleSubmit(event)}>SAVE CHANGES</button>

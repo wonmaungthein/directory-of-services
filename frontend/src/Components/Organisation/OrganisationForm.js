@@ -1,6 +1,40 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import PropTypes from 'prop-types';
+import Select from 'material-ui/Select';
+import { InputLabel } from 'material-ui/Input';
+import { MenuItem } from 'material-ui/Menu';
+import { FormControl } from 'material-ui/Form';
+import orgData from '../../Data/json/Debt.json'
+
+const boroughs = orgData.data;
+
+const areas = [
+  { area: 'North' },
+  { area: 'East' },
+  { area: 'South' },
+  { area: 'West' },
+];
+
+const processData = [
+  { process: 'Drop-in 10.30am Mon- Fri' },
+  { process: 'Call for appointment' },
+  { process: 'Drop-in (arrive at 9am for 9.30 open) at \nMontague Hall, TW3 1LD' },
+  { process: 'Drop in' },
+  { process: 'Drop in/appointment 11-12.30 at Barnet \nCollege' },
+  { process: 'Drop in/apointments 1-3pm at Edgware \nCommunity Hospital' },
+  { process: 'Legal Services' },
+];
+
+const days = [
+  { day: 'Monday' },
+  { day: 'Tuesday' },
+  { day: 'Wednesday' },
+  { day: 'Thursday' },
+  { day: 'Friday' },
+  { day: 'Saturday' },
+  { day: 'Sunday' },
+]
 
 const OrganisationForm = (props) => (
   <form className={props.formType}>
@@ -14,28 +48,52 @@ const OrganisationForm = (props) => (
         fullWidth
       />
       <span className="text-field-container">
-        <h6 className="not-include-in-add-org details-area">Area:</h6>
-        <TextField
-          className="text-field"
-          label="Area"
-          name="area"
-          value={props.area}
-          onChange={props.onChange}
-          fullWidth
-        />
+        <h4 className="not-include-in-add-org details-area">Area:</h4>
+        <FormControl className="form-control-filed add-area">
+          <InputLabel className="not-include-in-edit-org select-lable" htmlFor="controlled-open-select">Area</InputLabel>
+          <Select
+            open={props.openSelect}
+            onClose={props.closeSelect}
+            value={props.area}
+            onChange={props.onChange}
+            inputProps={{
+              name: 'area',
+              id: 'controlled-open-select',
+            }}
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            {areas.map(area => ( 
+              <MenuItem value={area.area}>{area.area}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </span>
       <span className="text-field-two-container">
-        <h6 className="not-include-in-add-org details-area">| Borough:</h6>
-        <TextField
-          className="text-field-two"
-          label="Borough"
-          name="borough"
-          value={props.borough}
-          onChange={props.onChange}
-          fullWidth
-        />
+        <h4 className="not-include-in-add-org details-area">|Borough:</h4>
+        <FormControl className="form-control-filed add-borough">
+          <InputLabel className="not-include-in-edit-org select-lable" htmlFor="controlled-open-select">Borough</InputLabel>
+          <Select
+            open={props.openSelect}
+            onClose={props.closeSelect}
+            value={props.borough}
+            onChange={props.onChange}
+            inputProps={{
+              name: 'borough',
+              id: 'controlled-open-select',
+            }}
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            {boroughs.map(borough =>(
+              <MenuItem value={borough.Borough}>{borough.Borough}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </span>
-      <h4 className="not-include-in-add-org health-advice-title">- Health advice
+      <h4 className="not-include-in-add-org health-advice-title">- Services
         <TextField
           className="not-include-in-add-org health-advice"
           fullWidth
@@ -44,22 +102,46 @@ const OrganisationForm = (props) => (
           onChange={props.onChange}
         />
       </h4>
-      <TextField
-        label="Process"
-        className="edit-process-field"
-        name="process"
-        value={props.process}
-        onChange={props.onChange}
-        fullWidth
-      />
-      <TextField
-        className="edit-day-field"
-        label="Day"
-        name="day"
-        value={props.day}
-        onChange={props.onChange}
-        fullWidth
-      />
+      <FormControl className="form-control-filed">
+        <InputLabel className="select-lable" htmlFor="controlled-open-select">Process</InputLabel>
+        <Select
+          open={props.openSelect}
+          onClose={props.closeSelect}
+          value={props.process}
+          onChange={props.onChange}
+          inputProps={{
+            name: 'process',
+            id: 'controlled-open-select',
+          }}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          {processData.map(process =>(
+            <MenuItem value={process.process}>{process.process}</MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      <FormControl className="form-control-filed">
+        <InputLabel className="select-lable" htmlFor="controlled-open-select">Days</InputLabel>
+        <Select
+          open={props.openSelect}
+          onClose={props.closeSelect}
+          value={props.day}
+          onChange={props.onChange}
+          inputProps={{
+            name: 'day',
+            id: 'controlled-open-select',
+          }}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          {days.map(day =>(
+            <MenuItem value={day.day}>{day.day}</MenuItem>
+          ))}
+        </Select>
+      </FormControl>
       <TextField
         className="telephone-label"
         label="Telephone"
@@ -77,7 +159,7 @@ const OrganisationForm = (props) => (
         fullWidth
       />
       <TextField
-        className="website-label add-website-field"
+        className="email-label add-website"
         label="Website"
         name="website"
         value={props.website}

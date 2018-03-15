@@ -45,7 +45,7 @@ export default class EditOrganisation extends React.Component {
     });
   }
 
-  updateNameField = e => {
+  handleFieldUpdate = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -59,6 +59,7 @@ export default class EditOrganisation extends React.Component {
     })
   }
 
+  
   render() {
     return (
       <div>
@@ -82,9 +83,11 @@ export default class EditOrganisation extends React.Component {
               telephone={this.state.telephone}
               email={this.state.email}
               website={this.state.website}
+              openSelect={this.state.openSelect}
+              closeSelect={this.handleClose}
 
               formType="edit-org"
-              onChange={this.updateNameField}
+              onChange={this.handleFieldUpdate}
               onChangeCheckbox={this.handleCheckbox}
             />
           </DialogContent>

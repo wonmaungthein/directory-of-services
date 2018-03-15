@@ -11,8 +11,19 @@
   grid-gap: 1em;
   margin-top: 1em;
 }
-.org-content .add-website-field{
+.org-content .add-area,
+.org-content .add-borough{
+  width: 100% !important;
+}
+.org-content .add-website{
   grid-column: 2/4;
+}
+.org-content .select-lable{
+  font-size: initial;
+  color: gray;
+}
+.add-website >div{
+  color: #1abcd4 !important;
 }
 .org-content .add-category{
   margin-top: 1em;
@@ -36,7 +47,6 @@
   grid-gap: 1em;
   border: 2px solid #519889;
   padding: 1em;
-  height: 2.5em;
   overflow: auto;
 }
 .org-content .add-categories-checkbox input[type=checkbox] + label{
