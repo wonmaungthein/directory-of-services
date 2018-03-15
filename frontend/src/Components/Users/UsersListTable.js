@@ -137,62 +137,62 @@ export default class UsersListTable extends Component {
                       value={row.email}
                     />
                   </TableCell>
-                  <Hidden xsDown>
-                    <TableCell className="user-text">
-                      <FormControl className="form-control-filed">
-                        <InputLabel htmlFor="controlled-open-select">
-                          Role
-                        </InputLabel>
-                        <Select
-                          open={this.state.open}
-                          onClose={this.handleClose}
-                          value={row.role}
-                          onChange={e => this.handleUserDataChange(e, index)}
-                          inputProps={{
-                            name: 'role',
-                            id: 'controlled-open-select',
-                          }}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={row.role}>{row.role}</MenuItem>
-                          {row.role === 'Editor' ? (
-                            <MenuItem value="Admin">Admin</MenuItem>
-                          ) : (
-                            <MenuItem value="Editor">Editor</MenuItem>
-                          )}
-                        </Select>
-                      </FormControl>
-                    </TableCell>
-                    <TableCell className="user-text">
-                      <Button
-                        variant="raised"
-                        type="submit"
-                        className="edit-user-button"
-                        onClick={this.stopEditing}
+
+                  <TableCell className="user-text">
+                    <FormControl className="form-control-filed">
+                      <InputLabel htmlFor="controlled-open-select">
+                        Role
+                      </InputLabel>
+                      <Select
+                        open={this.state.open}
+                        onClose={this.handleClose}
+                        value={row.role}
+                        onChange={e => this.handleUserDataChange(e, index)}
+                        inputProps={{
+                          name: 'role',
+                          id: 'controlled-open-select',
+                        }}
                       >
-                        SAVE CHANGES
-                      </Button>
-                    </TableCell>
-                  </Hidden>
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={row.role}>{row.role}</MenuItem>
+                        {row.role === 'Editor' ? (
+                          <MenuItem value="Admin">Admin</MenuItem>
+                        ) : (
+                          <MenuItem value="Editor">Editor</MenuItem>
+                        )}
+                      </Select>
+                    </FormControl>
+                  </TableCell>
+
+                  <TableCell className="user-text">
+                    <Button
+                      variant="raised"
+                      type="submit"
+                      className="edit-user-button"
+                      onClick={this.stopEditing}
+                    >
+                      SAVE CHANGES
+                    </Button>
+                  </TableCell>
                 </tr>
               ) : (
-                <tr key={row.id}>
+                <TableRow key={row.id}>
                   <TableCell className="user-text">{row.name}</TableCell>
-                  <TableCell className="user-text">{row.email}</TableCell>
                   <Hidden xsDown>
-                    <TableCell className="user-text">{row.role}</TableCell>
-                    <TableCell className="user-text">
-                      <Button onClick={() => this.startEditing(index)} raised>
-                        <i className="material-icons">edit</i>
-                      </Button>
-                      <Button onClick={() => this.removeUser(index)} raised>
-                        <i className="material-icons">delete</i>
-                      </Button>
-                    </TableCell>
+                    <TableCell className="user-text">{row.email}</TableCell>
                   </Hidden>
-                </tr>
+                  <TableCell className="user-text">{row.role}</TableCell>
+                  <TableCell className="user-text">
+                    <Button onClick={() => this.startEditing(index)} raised>
+                      <i className="material-icons">edit</i>
+                    </Button>
+                    <Button onClick={() => this.removeUser(index)} raised>
+                      <i className="material-icons">delete</i>
+                    </Button>
+                  </TableCell>
+                </TableRow>
               );
             })}
           {emptyRows > 0 && (
@@ -205,7 +205,7 @@ export default class UsersListTable extends Component {
             </TableRow>
           )}
         </TableBody>
-        <TableFooter>
+        <TableFooter className="users-tfoot">
           <TableRow>
             <TablePagination
               colSpan={6}
