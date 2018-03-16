@@ -13,6 +13,7 @@ import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
+import Save from 'material-ui-icons/Save';
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
 import usersData from './usersData.json';
@@ -174,7 +175,7 @@ export default class UsersListTable extends Component {
                         className="edit-user-button"
                         onClick={this.stopEditing}
                       >
-                        <i className="material-icons">save</i>
+                        <Save />save
                       </Button>
                     </TableCell>
                   </Hidden>
