@@ -12,3 +12,14 @@
   color: #bbb;
   padding-top: 1em;
 }
+.edit-button{
+  border: none !important;
+  background: transparent;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #1abcd4;
+  outline: none !important;
+}

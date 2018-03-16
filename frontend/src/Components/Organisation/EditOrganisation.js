@@ -7,15 +7,15 @@ import './edit-org.css';
 export default class EditOrganisation extends React.Component {
   state = {
     open: false,
-    area: 'North',
-    borough: 'Haringey',
-    name: 'Haringey Migrant Service',
-    advices: '- Help accessing NHS',
-    process: 'Call in advance (appt only)',
-    day: 'Monday',
-    telephone: '028 297 4111',
-    email: 'test@test.co.uk',
-    website: 'http://www.haringeymsc.org',
+    area: "North",
+    borough: "Haringey",
+    name: "Haringey Migrant Service",
+    advices: "- Help accessing NHS",
+    process: "Call in advance (appt only)",
+    day: ["Monday"],
+    telephone: "028 297 4111",
+    email: "test@test.co.uk",
+    website: "http://www.haringeymsc.org",
     category: [],
   };
 
@@ -29,20 +29,20 @@ export default class EditOrganisation extends React.Component {
 
   handleSubmit = () => {
     this.setState({
-      area: '',
-      borough: '',
-      name: '',
-      advices: '',
-      process: '',
-      day: '',
-      telephone: '',
-      email: '',
-      website: '',
-      category: '',
+      area: "",
+      borough: "",
+      name: "",
+      advices: "",
+      process: "",
+      day: [],
+      telephone: "",
+      email: "",
+      website: "",
+      category: "",
     });
   };
 
-  updateNameField = e => {
+  handleFieldUpdate = e => {
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -56,6 +56,10 @@ export default class EditOrganisation extends React.Component {
     });
   };
 
+  handleMulitySelectChange = event => {
+    this.setState({ day: event.target.value });
+  };
+  
   render() {
     return (
       <div>
@@ -80,8 +84,11 @@ export default class EditOrganisation extends React.Component {
               telephone={this.state.telephone}
               email={this.state.email}
               website={this.state.website}
+              openSelect={this.state.openSelect}
+              closeSelect={this.handleClose}
+              handleMulitySelectChange={this.handleMulitySelectChange}
               formType="edit-org"
-              onChange={this.updateNameField}
+              onChange={this.handleFieldUpdate}
               onChangeCheckbox={this.handleCheckbox}
             />
           </DialogContent>
