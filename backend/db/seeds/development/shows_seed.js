@@ -71,60 +71,68 @@ const locationData = () => {
 const feedDataInToTables = (knex, table, data) =>
   knex(table).insert(data);
 
+const loadOrganisation = (knex) => {
+  const data = orgData();
+  let orgPromises = [];
+  orgPromises = data.map(org =>
+    feedDataInToTables(knex, 'Organisation', org))
+  return Promise.all(orgPromises);
+}
+const loadBranch = (knex, org) => {
+  let branchPromises = [];
+  const branchDatas = branchData();
+  branchPromises = branchDatas.map((name, i) =>
+    feedDataInToTables(knex, 'Branch', { ...name, org_id: org[i].org_id }))
+  return Promise.all(branchPromises);
+}
+const loadCategories = (knex) => {
+  const data = categoriesData();
+  let catPromises = [];
+  catPromises = data.map(cat =>
+    feedDataInToTables(knex, 'Categories', cat))
+  return Promise.all(catPromises);
+}
+const loadService = (knex, branch) => {
+  let servicePromises = [];
+  const serviceDatas = serviceData();
+  servicePromises = serviceDatas.map((service, i) =>
+    feedDataInToTables(knex, 'Service', { ...service, branch_id: branch[i].branch_id }))
+  return Promise.all(servicePromises);
+}
+const loadAddress = (knex, branch) => {
+  let addressPromises = [];
+  const addressDatas = addressData();
+  addressPromises = addressDatas.map((address, i) =>
+    feedDataInToTables(knex, 'Address', { ...address, branch_id: branch[i].branch_id }))
+  return Promise.all(addressPromises);
+}
+const loadLocation = (knex, address) => {
+  let locationPromises = [];
+  const locationDatas = locationData();
+  locationPromises = locationDatas.map((location, i) =>
+    feedDataInToTables(knex, 'Location', { ...location, address_id: address[i].address_id }))
+  return Promise.all(locationPromises);
+}
 exports.seed = (knex) =>
   knex('Organisation').del()
     .then(() => knex('Branch').del()
       .then(() => knex('Service').del()
         .then(() => knex('Address').del()
           .then(() => knex('Location').del()
-            .then(() => knex('Categories').del()
-              .then(() => {
-                const data = orgData();
-                let orgPromises = [];
-                orgPromises = data.map(org =>
-                  feedDataInToTables(knex, 'Organisation', org))
-                return Promise.all(orgPromises);
-              })
-              .then(() =>
-                knex('Organisation').select('org_id')
-                  .then(org => {
-                    let branchPromises = [];
-                    const branchDatas = branchData();
-                    branchPromises = branchDatas.map((name, i) =>
-                      feedDataInToTables(knex, 'Branch', { ...name, org_id: org[i].org_id }))
-                    return Promise.all(branchPromises);
-                  }))
-              .then(() => {
-                const data = categoriesData();
-                let catPromises = [];
-                catPromises = data.map(cat =>
-                  feedDataInToTables(knex, 'Categories', cat))
-                return Promise.all(catPromises);
-              })
-              .then(() =>
-                knex('Branch').select('branch_id')
-                  .then(branch => {
-                    let servicePromises = [];
-                    const serviceDatas = serviceData();
-                    servicePromises = serviceDatas.map((service, i) =>
-                      feedDataInToTables(knex, 'Service', { ...service, branch_id: branch[i].branch_id }))
-                    return Promise.all(servicePromises);
-                  }))
-              .then(() =>
-                knex('Branch').select('branch_id')
-                  .then(branch => {
-                    let addressPromises = [];
-                    const addressDatas = addressData();
-                    addressPromises = addressDatas.map((address, i) =>
-                      feedDataInToTables(knex, 'Address', { ...address, branch_id: branch[i].branch_id }))
-                    return Promise.all(addressPromises);
-                  })
-                  .then(() =>
-                    knex('Address').select('address_id')
-                      .then(address => {
-                        let locationPromises = [];
-                        const locationDatas = locationData();
-                        locationPromises = locationDatas.map((location, i) =>
-                          feedDataInToTables(knex, 'Location', { ...location, address_id: address[i].address_id }))
-                        return Promise.all(locationPromises);
-                      }))))))))
+            .then(() => knex('Categories').del())))))
+    .then(() =>
+      loadOrganisation(knex))
+    .then(() =>
+      knex('Organisation').select('org_id')
+        .then(org => loadBranch(knex, org)))
+    .then(() => loadCategories(knex))
+    .then(() =>
+      knex('Branch').select('branch_id')
+        .then(branch => loadService(knex, branch)))
+    .then(() =>
+      knex('Branch').select('branch_id')
+        .then(branch => loadAddress(knex, branch)))
+    .then(() =>
+      knex('Address').select('address_id')
+        .then(address => loadLocation(knex, address)))
+    .then(() => knex.destroy())

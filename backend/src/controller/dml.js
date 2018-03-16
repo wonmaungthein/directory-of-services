@@ -23,17 +23,42 @@ const Insert = async (query) => {
   }
 }
 
-const Select = async () => {
+const resultMaps = [
+  {
+    mapId: 'orgMap',
+    idProperty: 'org_id',
+    properties: ['Organisation'],
+    collections: [
+      { name: 'branch', mapId: 'branchMap', columnPrefix: 'branch_' }
+    ]
+  },
+  {
+    mapId: 'branchMap',
+    idProperty: 'branch_id',
+    properties: ['borough']
+  }
+];
+
+const Select = () => {
   // // const responce = knex.from('Organisation')
   // //   .innerJoin('Branch', 'Organisation.org_id', 'Branch.org_id')
   // //   // .innerJoin('Service', 'Branch.branch_id', 'Service.branch_id')
   // //   // .innerJoin('Address', 'Branch.branch_id', 'Address.branch_id')
   // //   // .innerJoin('Location', 'Address.address_id', 'Location.address_id')
-  
-  const organisation = await Organisation
-    .query()
-    .eager('[branch.[service, address.[location]] ]')
-  return organisation;
+
+  return knex
+    .select(
+      'o.org_id as org_org_id',
+      'o.org_name as org_Organisation',
+      'b.branch_id as branch_branch_id',
+      'b.borough as branch_borough'
+    )
+    .from('Organisation as o')
+    .innerJoin('Branch as b', 'b.org_id', 'o.org_id')
+    .then(resultSet => {
+      return joinjs.map(resultSet, resultMaps, 'orgMap', 'org_');
+    });
+
 };
 
 module.exports = {
