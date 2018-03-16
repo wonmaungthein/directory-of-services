@@ -15,7 +15,7 @@ export default class EditOrganisation extends React.Component {
     name: "Haringey Migrant Service",
     advices: "- Help accessing NHS",
     process: "Call in advance (appt only)",
-    day: "Monday",
+    day: ["Monday"],
     telephone: "028 297 4111",
     email: "test@test.co.uk",
     website: "http://www.haringeymsc.org",
@@ -37,7 +37,7 @@ export default class EditOrganisation extends React.Component {
       name: "",
       advices: "",
       process: "",
-      day: "",
+      day: [],
       telephone: "",
       email: "",
       website: "",
@@ -59,6 +59,9 @@ export default class EditOrganisation extends React.Component {
     })
   }
 
+  handleMulitySelectChange = event => {
+    this.setState({ day: event.target.value });
+  };
   
   render() {
     return (
@@ -85,7 +88,7 @@ export default class EditOrganisation extends React.Component {
               website={this.state.website}
               openSelect={this.state.openSelect}
               closeSelect={this.handleClose}
-
+              handleMulitySelectChange={this.handleMulitySelectChange}
               formType="edit-org"
               onChange={this.handleFieldUpdate}
               onChangeCheckbox={this.handleCheckbox}

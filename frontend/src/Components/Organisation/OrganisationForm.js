@@ -2,7 +2,7 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import PropTypes from 'prop-types';
 import Select from 'material-ui/Select';
-import { InputLabel } from 'material-ui/Input';
+import Input, { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import orgData from '../../Data/json/Debt.json'
@@ -10,16 +10,7 @@ import orgData from '../../Data/json/Debt.json'
 const boroughs = orgData.data;
 const areas = orgData.data;
 const processData = orgData.data;
-
-const days = [
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday',
-]
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',]
 
 const OrganisationForm = (props) => (
   <form className={props.formType}>
@@ -49,7 +40,7 @@ const OrganisationForm = (props) => (
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            {areas.map(area => ( 
+            {areas.map(area => (
               <MenuItem value={area.Area}>{area.Area}</MenuItem>
             ))}
           </Select>
@@ -72,7 +63,7 @@ const OrganisationForm = (props) => (
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            {boroughs.map(borough =>(
+            {boroughs.map(borough => (
               <MenuItem value={borough.Borough}>{borough.Borough}</MenuItem>
             ))}
           </Select>
@@ -102,28 +93,26 @@ const OrganisationForm = (props) => (
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {processData.map(process =>(
+          {processData.map(process => (
             <MenuItem value={process.Process}>{process.Process}</MenuItem>
           ))}
         </Select>
       </FormControl>
-      <FormControl className="form-control-filed">
-        <InputLabel className="select-lable" htmlFor="controlled-open-select">Days</InputLabel>
+      <FormControl >
+        <InputLabel className="select-lable" htmlFor="select-multiple">Days</InputLabel>
         <Select
-          open={props.openSelect}
-          onClose={props.closeSelect}
+          multiple
           value={props.day}
-          onChange={props.onChange}
-          inputProps={{
-            name: 'day',
-            id: 'controlled-open-select',
-          }}
+          onChange={props.handleMulitySelectChange}
+          input={<Input id="select-multiple" />}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          {days.map(day =>(
-            <MenuItem value={day}>{day}</MenuItem>
+          {days.map(day => (
+            <MenuItem
+              key={day}
+              value={day}
+            >
+              {day}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>
@@ -205,7 +194,9 @@ const OrganisationForm = (props) => (
   </form >
 );
 
+
 OrganisationForm.propTypes = {
   formType: PropTypes.string.isRequired,
 };
+
 export default OrganisationForm;

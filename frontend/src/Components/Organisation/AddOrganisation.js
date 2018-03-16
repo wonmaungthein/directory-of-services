@@ -9,7 +9,7 @@ export default class AddOrganisation extends Component {
     area: "",
     borough: "Highbury and Islington",
     process: "Email, then call",
-    day: "Monday",
+    day: ["Monday"],
     telephone: "028 297 4111",
     email: "",
     website: "",
@@ -24,7 +24,7 @@ export default class AddOrganisation extends Component {
       borough: "",
       name: "",
       process: "",
-      day: "",
+      day: [],
       telephone: "",
       email: "",
       website: "",
@@ -47,6 +47,10 @@ export default class AddOrganisation extends Component {
     })
   }
 
+  handleMulitySelectChange = event => {
+    this.setState({ day: event.target.value });
+  };
+
   render() {
     return (
       <div>
@@ -64,6 +68,7 @@ export default class AddOrganisation extends Component {
             website={this.state.website}
             service={this.state.service}
             formType="org-content"
+            handleMulitySelectChange={this.handleMulitySelectChange}
             onChange={this.handleFieldUpdate}
             onChangeCheckbox={this.handleCheckbox}
           />
