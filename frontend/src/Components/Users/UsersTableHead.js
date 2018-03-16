@@ -40,8 +40,8 @@ class UsersTableHead extends Component {
   render() {
     const { order, orderBy } = this.props;
     return (
-      <TableHead className="users-thead">
-        <TableRow>
+      <TableHead>
+        <TableRow className="users-thead">
           {columnData.map(
             column => (
               <TableCell
@@ -61,7 +61,7 @@ class UsersTableHead extends Component {
                     onClick={this.createSortHandler(column.id)}
                   >
                     <Hidden smUp>
-                      {!column.label.includes('Role') && !column.label.includes('Action') ? column.label : false}
+                      {!column.label.includes('Email') ? column.label : false}
                     </Hidden>
                     <Hidden xsDown>
                       {column.label}

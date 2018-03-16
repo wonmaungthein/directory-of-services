@@ -1,19 +1,23 @@
 /*                   > Users list table <                        */
 
 .users-table {
-  border-collapse: collapse;
-  width: 100%;
   margin-top: 2.5em;
+  width: 100%;
 }
 
 .users-thead th {
-  width: 25%;
+  /* width: 25%; */
   color: #fff;
   font-size: 0.878rem;
   font-weight: 600;
+  border-bottom: 0;
 }
 
-.users-thead th,
+.users-thead th:last-child div {
+  margin-left: 2.8rem;
+}
+
+.users-thead,
 .users-tbody tr td div div:after {
   background-color: #1abcd4;
 }
@@ -21,6 +25,7 @@
 .users-thead path {
   opacity: 0;
 }
+
 .users-thead span,
 .users-thead span:focus,
 .users-thead span:hover {
@@ -32,9 +37,13 @@
   text-transform: capitalize;
 }
 
+.users-tbody .user-text:last-child {
+  padding-right: 0;
+}
 .users-tbody td {
   text-align: left;
   border-bottom: 1px solid rgba(69, 189, 212, 0.29);
+  padding: 0px 6px 0px 25px;
 }
 
 .users-tbody .edit-user-button,
@@ -43,4 +52,52 @@
   color: #fff;
 }
 
-/*                       End users list table                                       */
+.users-tbody .material-icons {
+  font-size: 1.5rem;
+}
+
+
+/* --------------------->Media queries<------------------------------- */
+
+@media screen and (max-width: 699px) {
+  .user-text button {
+    min-width: auto;
+  }
+
+  .users-tbody .material-icons {
+    font-size: 1.3rem;
+  }
+
+  .users-tbody .edit-user-button {
+    padding: 0 5px;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  thead .users-thead {
+    height: auto;
+  }
+
+  thead .users-thead th:nth-child(2) {
+    display: none;
+  }
+
+  thead .users-thead th,
+  table .users-tbody tr td {
+    padding: 0.3rem 1rem;
+  }
+
+  .users-tbody tr td {
+    padding: 4px 5px 4px 4px;
+  }
+
+  .users-tfoot tr td div {
+    padding-right: 0;
+  }
+
+  #root main {
+    padding: 0.5rem;
+  }                             /*  <=================from the root  */
+}
+
+/*                     >  End users list table  <                                     */
