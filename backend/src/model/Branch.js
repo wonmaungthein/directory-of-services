@@ -19,8 +19,9 @@ export default class Branch extends Model {
     };
   }
 
-    // This object defines the relations to other models.
-    static relationMappings = {
+  // This object defines the relations to other models.
+  static get relationMappings() {
+    return {
       service: {
         relation: Model.HasManyRelation,
         // The related model.
@@ -39,5 +40,6 @@ export default class Branch extends Model {
           to: 'Address.address_id'
         }
       }
-    };
+    }
+  }
 }
