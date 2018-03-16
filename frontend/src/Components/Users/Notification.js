@@ -40,10 +40,10 @@ class Notification extends React.Component {
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              No
+             Cancel
             </Button>
             <Button onClick={this.props.removeUser} color="primary" autoFocus>
-              Yes
+              Discard
             </Button>
           </DialogActions>
         </Dialog>
