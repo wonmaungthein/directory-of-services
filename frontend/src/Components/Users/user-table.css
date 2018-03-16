@@ -56,6 +56,7 @@
   font-size: 1.5rem;
 }
 
+
 /* --------------------->Media queries<------------------------------- */
 
 @media screen and (max-width: 699px) {
@@ -96,7 +97,7 @@
 
   #root main {
     padding: 0.5rem;
-  } /*  <=================from the root  */
+  }                             /*  <=================from the root  */
 }
 
 /*                     >  End users list table  <                                     */

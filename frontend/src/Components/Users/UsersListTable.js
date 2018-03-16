@@ -16,6 +16,7 @@ import Select from 'material-ui/Select';
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
 import usersData from './usersData.json';
+import Notification from './Notification';
 
 export default class UsersListTable extends Component {
   constructor(props, context) {
@@ -188,9 +189,7 @@ export default class UsersListTable extends Component {
                     <Button onClick={() => this.startEditing(index)} raised>
                       <i className="material-icons">edit</i>
                     </Button>
-                    <Button onClick={() => this.removeUser(index)} raised>
-                      <i className="material-icons">delete</i>
-                    </Button>
+                    <Notification removeUser={() => this.removeUser(index)} />      {/*   notification component       */}
                   </TableCell>
                 </TableRow>
               );
