@@ -18,19 +18,4 @@ export default class Location extends Model {
       }
     };
   }
-
-  // This object defines the relations to other models.
-  static get relationMappings() {
-    return {
-      address: {
-        relation: Model.HasManyRelation,
-        // The related model.
-        modelClass: Address,
-        join: {
-          from: 'Location.location_id',
-          to: 'Address.address_id'
-        }
-      }
-    }
-  }
 }

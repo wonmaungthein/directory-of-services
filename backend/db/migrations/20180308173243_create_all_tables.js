@@ -24,16 +24,16 @@ exports.up = knex =>
         .unsigned()
         .references('branch_id')
         .inTable('Branch');
-      table
-        .integer('cat_id')
-        .unsigned()
-        .references('cat_id')
-        .inTable('Categories');
       table.string('service_days');
       table.string('process');
     })
     .createTable('Categories', (table) => {
       table.increments('cat_id').primary();
+      table
+        .integer('service_id')
+        .unsigned()
+        .references('service_id')
+        .inTable('Service');
       table.string('cat_name');
     })
     .createTable('Address', (table) => {

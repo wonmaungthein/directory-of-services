@@ -35,27 +35,83 @@ const resultMaps = [
   {
     mapId: 'branchMap',
     idProperty: 'branch_id',
-    properties: ['borough']
+    properties: ['borough'],
+    collections: [
+      { name: 'address', mapId: 'addressMap', columnPrefix: 'address_' },
+      { name: 'service', mapId: 'serviceMap', columnPrefix: 'service_' }
+    ]
+  },
+  {
+    mapId: 'addressMap',
+    idProperty: 'address_id',
+    properties: [
+      'address_line',
+      'area',
+      'postcode'
+    ],
+    collections: [
+      { name: 'location', mapId: 'locationMap', columnPrefix: 'location_' }
+    ]
+  },
+  {
+    mapId: 'serviceMap',
+    idProperty: 'service_id',
+    properties: [
+      'days',
+      'process'
+    ],
+    collections: [
+      { name: 'categories', mapId: 'categoryMap', columnPrefix: 'categories_' }
+    ]
+  },
+  {
+    mapId: 'locationMap',
+    idProperty: 'location_id',
+    properties: [
+      'latitude',
+      'longitude'
+    ]
+  },
+  {
+    mapId: 'categoryMap',
+    idProperty: 'categories_id',
+    properties: [
+      'categories_name'
+    ]
   }
 ];
 
-const Select = () => {
-  // // const responce = knex.from('Organisation')
-  // //   .innerJoin('Branch', 'Organisation.org_id', 'Branch.org_id')
-  // //   // .innerJoin('Service', 'Branch.branch_id', 'Service.branch_id')
-  // //   // .innerJoin('Address', 'Branch.branch_id', 'Address.branch_id')
-  // //   // .innerJoin('Location', 'Address.address_id', 'Location.address_id')
-
+const Select = async () => {
   return knex
     .select(
-      'o.org_id as org_org_id',
-      'o.org_name as org_Organisation',
-      'b.branch_id as branch_branch_id',
-      'b.borough as branch_borough'
+      'org.org_id as org_org_id',
+      'org.org_name as org_Organisation',
+      'branch.branch_id as branch_branch_id',
+      'branch.borough as branch_borough',
+      'address.branch_id as address_branch_id',
+      'address.address_id as address_address_id',
+      'address.address_line as address_address_line',
+      'address.area as address_area',
+      'location.location_id as location_location_id',
+      'location.lat as location_latitude',
+      'location.long as location_longitude',
+      'address.postcode as address_postcode',
+      'service.branch_id as service_branch_id',
+      'service.service_id as service_service_id',
+      'service.service_days as service_days',
+      'service.process as service_process',
+      'categories.cat_id as categories_categories_id',
+      'categories.cat_name as categories_categories_name',
+      'categories.service_id as categories_service_id'
     )
-    .from('Organisation as o')
-    .innerJoin('Branch as b', 'b.org_id', 'o.org_id')
+    .from('Organisation as org')
+    .leftOuterJoin('Branch as branch', 'branch.org_id', 'org.org_id')
+    .leftOuterJoin('Address as address', 'address.branch_id', 'branch.branch_id')
+    .leftOuterJoin('Location as location', 'location.address_id', 'address.address_id')
+    .leftOuterJoin('Service as service', 'service.branch_id', 'branch.branch_id')
+    .leftOuterJoin('Categories as categories', 'categories.service_id', 'service.service_id')
     .then(resultSet => {
+      console.log(resultSet)
       return joinjs.map(resultSet, resultMaps, 'orgMap', 'org_');
     });
 

@@ -1,5 +1,5 @@
 import { Model } from 'objection';
-import Branch from './Branch';
+import Categories from './Categories';
 
 export default class Service extends Model {
   static get tableName() {
@@ -13,7 +13,6 @@ export default class Service extends Model {
       properties: {
         service_id: { type: 'integer' },
         branch_id: { type: ['integer', 'null'] },
-        cat_id: { type: ['integer', 'null'] },
         service_days: { type: 'string', minLength: 1, maxLength: 255 },
         process: { type: 'string', minLength: 1, maxLength: 255 }
       }
@@ -26,10 +25,10 @@ export default class Service extends Model {
       branch: {
         relation: Model.HasManyRelation,
         // The related model.
-        modelClass: Branch,
+        modelClass: Categories,
         join: {
           from: 'Service.service_id',
-          to: 'Branch.branch_id'
+          to: 'Categories.service_id'
         }
       }
     }

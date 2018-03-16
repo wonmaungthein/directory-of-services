@@ -32,15 +32,6 @@ export default class Address extends Model {
           from: 'Address.address_id',
           to: 'Location.location_id'
         }
-      },
-      branch: {
-        relation: Model.HasManyRelation,
-        // The related model.
-        modelClass: Branch,
-        join: {
-          from: 'Address.address_id',
-          to: 'Branch.branch_id'
-        }
       }
     }
   }
