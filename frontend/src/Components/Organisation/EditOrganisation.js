@@ -1,9 +1,6 @@
 import React from 'react';
 import Button from 'material-ui/Button';
-import Dialog, {
-  DialogActions,
-  DialogContent,
-} from 'material-ui/Dialog';
+import Dialog, { DialogActions, DialogContent } from 'material-ui/Dialog';
 import OrganisationForm from './OrganisationForm';
 import './edit-org.css';
 
@@ -43,21 +40,21 @@ export default class EditOrganisation extends React.Component {
       website: "",
       category: "",
     });
-  }
+  };
 
   handleFieldUpdate = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
-  }
+  };
 
   handleCheckbox = e => {
     const listOfCategories = this.state.category;
     listOfCategories.push(e.target.value);
     this.setState({
-      category: listOfCategories
-    })
-  }
+      category: listOfCategories,
+    });
+  };
 
   handleMulitySelectChange = event => {
     this.setState({ day: event.target.value });
@@ -66,7 +63,9 @@ export default class EditOrganisation extends React.Component {
   render() {
     return (
       <div>
-        <button className="edit-button" onClick={this.handleClickOpen}>Edit</button>
+        <button className="edit-button" onClick={this.handleClickOpen}>
+          Edit
+        </button>
         <Dialog
           className="edit-org-dialog"
           open={this.state.open}
@@ -76,7 +75,6 @@ export default class EditOrganisation extends React.Component {
           <DialogContent className="edit-content">
             <span className="edit-logo">Editing</span>
             <OrganisationForm
-              
               name={this.state.name}
               area={this.state.area}
               borough={this.state.borough}
@@ -95,13 +93,28 @@ export default class EditOrganisation extends React.Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button className="cancel-button" onClick={this.handleClose} color="primary">
+            <Button
+              className="cancel-button"
+              onClick={this.handleClose}
+              color="primary"
+            >
               Cancel
             </Button>
-            <Button className="save-button" onClick={this.handleSubmit} color="primary" autoFocus>
-              Save change
+            <Button
+              className="save-button"
+              onClick={this.handleSubmit}
+              color="primary"
+              size="small"
+              autoFocus
+            >
+              <i className="material-icons">save</i>
             </Button>
-            <button onClick={this.handleClose} className="edit-org-close-button"><i className="material-icons">close</i></button>
+            <button
+              onClick={this.handleClose}
+              className="edit-org-close-button"
+            >
+              <i className="material-icons">close</i>
+            </button>
           </DialogActions>
         </Dialog>
       </div>
