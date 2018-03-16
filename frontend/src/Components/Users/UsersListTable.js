@@ -16,6 +16,7 @@ import Select from 'material-ui/Select';
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
 import usersData from './usersData.json';
+import Notification from './Notification';
 
 export default class UsersListTable extends Component {
   constructor(props, context) {
@@ -177,23 +178,30 @@ export default class UsersListTable extends Component {
                       </Button>
                     </TableCell>
                   </Hidden>
+
+                  <TableCell className="user-text">
+                    <FormControl className="form-control-filed">
+                      <InputLabel htmlFor="controlled-open-select">
+                        Role
+                      </InputLabel>
+                    </FormControl>
+                  </TableCell>
                 </tr>
               ) : (
-                <tr key={row.id}>
+                <TableRow key={row.id}>
                   <TableCell className="user-text">{row.name}</TableCell>
-                  <TableCell className="user-text">{row.email}</TableCell>
                   <Hidden xsDown>
-                    <TableCell className="user-text">{row.role}</TableCell>
-                    <TableCell className="user-text">
-                      <Button onClick={() => this.startEditing(index)} raised>
-                        <i className="material-icons">edit</i>
-                      </Button>
-                      <Button onClick={() => this.removeUser(index)} raised>
-                        <i className="material-icons">delete</i>
-                      </Button>
-                    </TableCell>
+                    <TableCell className="user-text">{row.email}</TableCell>
                   </Hidden>
-                </tr>
+                  <TableCell className="user-text">{row.role}</TableCell>
+                  <TableCell className="user-text">
+                    <Button onClick={() => this.startEditing(index)} raised>
+                      <i className="material-icons">edit</i>
+                    </Button>
+                    <Notification removeUser={() => this.removeUser(index)} />{' '}
+                    {/*   notification component       */}
+                  </TableCell>
+                </TableRow>
               );
             })}
           {emptyRows > 0 && (
@@ -206,7 +214,7 @@ export default class UsersListTable extends Component {
             </TableRow>
           )}
         </TableBody>
-        <TableFooter>
+        <TableFooter className="users-tfoot">
           <TableRow>
             <TablePagination
               colSpan={6}
