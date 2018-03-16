@@ -8,32 +8,17 @@ import { FormControl } from 'material-ui/Form';
 import orgData from '../../Data/json/Debt.json'
 
 const boroughs = orgData.data;
-
-const areas = [
-  { area: 'North' },
-  { area: 'East' },
-  { area: 'South' },
-  { area: 'West' },
-];
-
-const processData = [
-  { process: 'Drop-in 10.30am Mon- Fri' },
-  { process: 'Call for appointment' },
-  { process: 'Drop-in (arrive at 9am for 9.30 open) at \nMontague Hall, TW3 1LD' },
-  { process: 'Drop in' },
-  { process: 'Drop in/appointment 11-12.30 at Barnet \nCollege' },
-  { process: 'Drop in/apointments 1-3pm at Edgware \nCommunity Hospital' },
-  { process: 'Legal Services' },
-];
+const areas = orgData.data;
+const processData = orgData.data;
 
 const days = [
-  { day: 'Monday' },
-  { day: 'Tuesday' },
-  { day: 'Wednesday' },
-  { day: 'Thursday' },
-  { day: 'Friday' },
-  { day: 'Saturday' },
-  { day: 'Sunday' },
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
 ]
 
 const OrganisationForm = (props) => (
@@ -65,7 +50,7 @@ const OrganisationForm = (props) => (
               <em>None</em>
             </MenuItem>
             {areas.map(area => ( 
-              <MenuItem value={area.area}>{area.area}</MenuItem>
+              <MenuItem value={area.Area}>{area.Area}</MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -118,7 +103,7 @@ const OrganisationForm = (props) => (
             <em>None</em>
           </MenuItem>
           {processData.map(process =>(
-            <MenuItem value={process.process}>{process.process}</MenuItem>
+            <MenuItem value={process.Process}>{process.Process}</MenuItem>
           ))}
         </Select>
       </FormControl>
@@ -138,7 +123,7 @@ const OrganisationForm = (props) => (
             <em>None</em>
           </MenuItem>
           {days.map(day =>(
-            <MenuItem value={day.day}>{day.day}</MenuItem>
+            <MenuItem value={day}>{day}</MenuItem>
           ))}
         </Select>
       </FormControl>
