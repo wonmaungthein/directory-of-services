@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
+import Save from 'material-ui-icons/Save';
 import Button from 'material-ui/Button';
 import Select from 'material-ui/Select';
 
@@ -64,13 +65,15 @@ export default class AddUser extends Component {
               <MenuItem value="admin">admin</MenuItem>
             </Select>
           </FormControl>
+
           <Button
             variant="raised"
+            size="small"
             type="submit"
             className="add-user-button"
             onClick={this.handleSubmit}
           >
-            SAVE CHANGES
+            <Save />save
           </Button>
         </form>
       </Fragment>
