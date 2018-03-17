@@ -8,12 +8,29 @@ export default class Categories extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
+      require: ['service_id', 'cat_name'],
 
       properties: {
-        cat_id: { type: 'integer' },
+        id: { type: 'integer' },
         service_id: { type: ['integer', 'null'] },
         cat_name: { type: 'string', minLength: 1, maxLength: 255 }
       }
-    };
+    }
+  }
+  static get relationMappings() {
+    return {
+      service: {
+        relation: Model.BelongsToOneRelation,
+        // The related model.
+        modelClass: Service,
+        join: {
+          from: 'Categories.service_id',
+          to: 'Service.id'
+        }
+      }
+    }
+  }
+  $beforeInsert() {
+    console.log('$beforeInsert', this.constructor.tableName);
   }
 }
