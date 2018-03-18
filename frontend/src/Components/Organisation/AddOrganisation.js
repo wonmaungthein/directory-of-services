@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import NotificationSystem from 'react-notification-system';
 import OrganisationForm from './OrganisationForm';
 import './add-org.css';
 import TopNav from '../TopNav';
 
 export default class AddOrganisation extends Component {
   state = {
+    notificationSystem: null,
     Organisation: "",
     Area: "",
     Borough: "Highbury and Islington",
@@ -17,8 +19,13 @@ export default class AddOrganisation extends Component {
     Category: [],
   };
 
+  componentDidMount() {
+    this.state.notificationSystem = this.refs.savedChanges
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
+    this.savedChangesSuccessfully();
     this.setState({
       Organisation: "",
       Area: "",
@@ -31,6 +38,23 @@ export default class AddOrganisation extends Component {
       Services: "",
       Category: [],
     })
+  }
+
+  savedChangesSuccessfully = () => {
+    this.state.notificationSystem.addNotification({
+      title: 'Success',
+      message: 'Your Changes have been saved successfully',
+      level: 'success',
+    });
+  }
+
+  unSucessSavedChanges = (event) => {
+    event.preventDefault();
+    this.state.notificationSystem.addNotification({
+      title: 'Unsuccess',
+      message: 'Your Changes have not been saved successfully',
+      level: 'error',
+    });
   }
 
   handleFieldUpdate = event => {
@@ -55,6 +79,7 @@ export default class AddOrganisation extends Component {
     return (
       <div>
         <TopNav addLink="organisations/add" />
+        <NotificationSystem ref="savedChanges" />
         <div className="add-orgonaization">
           <h1>Add new organisation</h1>
           <OrganisationForm

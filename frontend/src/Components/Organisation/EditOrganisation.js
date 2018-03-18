@@ -41,8 +41,7 @@ export default class EditOrganisation extends React.Component {
   }
 
   componentDidMount() {
-    this.state.notificationSystem = this.refs.savedChangesSuccessfully
-    this.state.notificationSystem = this.refs.unSucessSavedChanges
+    this.state.notificationSystem = this.refs.savedChanges
   }
 
   savedChangesSuccessfully = () => {
@@ -107,8 +106,7 @@ export default class EditOrganisation extends React.Component {
         <button className="edit-button" onClick={this.props.getData}>
           Edit
         </button>
-        <NotificationSystem ref="savedChangesSuccessfully" className="success-notification" />
-        <NotificationSystem ref="unSucessSavedChanges" />
+        <NotificationSystem ref="savedChanges" />
         <Dialog
           className="edit-org-dialog"
           open={this.state.open}

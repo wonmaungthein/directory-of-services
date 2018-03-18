@@ -17,8 +17,7 @@ export default class AddUser extends Component {
   };
 
   componentDidMount() {
-    this.state.notificationSystem = this.refs.savedChangesSuccessfully
-    this.state.notificationSystem = this.refs.unSucessSavedChanges
+    this.state.notificationSystem = this.refs.savedChanges
   }
 
   handleSubmit = e => {
@@ -102,8 +101,7 @@ export default class AddUser extends Component {
           </Button>
         
         </form>
-        <NotificationSystem ref="savedChangesSuccessfully" />
-        <NotificationSystem ref="unSucessSavedChanges" />
+        <NotificationSystem ref="savedChanges" />
       </Fragment>
     );
   }
