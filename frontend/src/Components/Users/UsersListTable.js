@@ -139,46 +139,44 @@ export default class UsersListTable extends Component {
                       value={row.email}
                     />
                   </TableCell>
-                  <Hidden xsDown>
-                    <TableCell className="user-text">
-                      <FormControl className="form-control-filed">
-                        <InputLabel htmlFor="controlled-open-select">
-                          Role
-                        </InputLabel>
-                        <Select
-                          open={this.state.open}
-                          onClose={this.handleClose}
-                          value={row.role}
-                          onChange={e => this.handleUserDataChange(e, index)}
-                          inputProps={{
-                            name: 'role',
-                            id: 'controlled-open-select',
-                          }}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={row.role}>{row.role}</MenuItem>
-                          {row.role === 'Editor' ? (
-                            <MenuItem value="Admin">Admin</MenuItem>
-                          ) : (
-                            <MenuItem value="Editor">Editor</MenuItem>
-                          )}
-                        </Select>
-                      </FormControl>
-                    </TableCell>
-                    <TableCell className="user-text">
-                      <Button
-                        variant="raised"
-                        size="small"
-                        type="submit"
-                        className="edit-user-button"
-                        onClick={this.stopEditing}
+                  <TableCell className="user-text">
+                    <FormControl className="form-control-filed">
+                      <InputLabel htmlFor="controlled-open-select">
+                        Role
+                      </InputLabel>
+                      <Select
+                        open={this.state.open}
+                        onClose={this.handleClose}
+                        value={row.role}
+                        onChange={e => this.handleUserDataChange(e, index)}
+                        inputProps={{
+                          name: 'role',
+                          id: 'controlled-open-select',
+                        }}
                       >
-                        <Save />save
-                      </Button>
-                    </TableCell>
-                  </Hidden>
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={row.role}>{row.role}</MenuItem>
+                        {row.role === 'Editor' ? (
+                          <MenuItem value="Admin">Admin</MenuItem>
+                        ) : (
+                          <MenuItem value="Editor">Editor</MenuItem>
+                        )}
+                      </Select>
+                    </FormControl>
+                  </TableCell>
+                  <TableCell className="user-text">
+                    <Button
+                      variant="raised"
+                      size="small"
+                      type="submit"
+                      className="edit-user-button"
+                      onClick={this.stopEditing}
+                    >
+                      <Save className="save" /> save
+                    </Button>
+                  </TableCell>
 
                   <TableCell className="user-text">
                     <FormControl className="form-control-filed">
@@ -200,7 +198,6 @@ export default class UsersListTable extends Component {
                       <i className="material-icons">edit</i>
                     </Button>
                     <Notification removeUser={() => this.removeUser(index)} />{' '}
-                    {/*   notification component       */}
                   </TableCell>
                 </TableRow>
               );
