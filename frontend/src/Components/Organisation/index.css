@@ -4,6 +4,7 @@
 .form-card{
   padding: 2em !important;
   position: relative;
+  overflow: auto
 }
 .single-orgonaization-details >h4 {
   color: #1abcd4;

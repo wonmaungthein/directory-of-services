@@ -6,22 +6,47 @@ import { FormControl } from 'material-ui/Form';
 import Save from 'material-ui-icons/Save';
 import Button from 'material-ui/Button';
 import Select from 'material-ui/Select';
+import NotificationSystem from 'react-notification-system';
 
 export default class AddUser extends Component {
   state = {
     fullName: '',
     email: '',
     role: 'editor',
+    notificationSystem: null,
   };
+
+  componentDidMount() {
+    this.state.notificationSystem = this.refs.savedChangesSuccessfully
+    this.state.notificationSystem = this.refs.unSucessSavedChanges
+  }
 
   handleSubmit = e => {
     e.preventDefault();
+    this.savedChangesSuccessfully();
     this.setState({
       fullName: '',
       email: '',
       role: 'editor',
     });
   };
+
+  savedChangesSuccessfully = () => {
+    this.state.notificationSystem.addNotification({
+      title: 'Success',
+      message: 'Your Changes have been saved successfully',
+      level: 'success',
+    });
+  }
+
+  unSucessSavedChanges = (event) => {
+    event.preventDefault();
+    this.state.notificationSystem.addNotification({
+      title: 'Unsuccess',
+      message: 'Your Changes have not been saved successfully',
+      level: 'error',
+    });
+  }
 
   handleFieldUpdate = e =>
     this.setState({
@@ -75,7 +100,10 @@ export default class AddUser extends Component {
           >
             <Save />save
           </Button>
+        
         </form>
+        <NotificationSystem ref="savedChangesSuccessfully" />
+        <NotificationSystem ref="unSucessSavedChanges" />
       </Fragment>
     );
   }

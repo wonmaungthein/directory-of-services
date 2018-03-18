@@ -23,6 +23,8 @@ module.exports = {
     'linebreak-style': 'off',
     'consistent-return': 'off',
     'react/prop-types': 'off',
+    'react/no-string-refs': 'off',
+    'react/jsx-boolean-value': 'off'
   },
   settings: {
     'import/resolver': {

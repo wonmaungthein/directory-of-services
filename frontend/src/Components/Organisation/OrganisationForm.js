@@ -8,9 +8,9 @@ import { FormControl } from 'material-ui/Form';
 import orgData from '../../Data/json/Debt.json'
 
 const boroughs = orgData.data;
-const areas = orgData.data;
 const processData = orgData.data;
-const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',]
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Mon-Fri'];
+const areas = ['South', 'North', 'West', 'East', 'Central', 'All']
 
 const OrganisationForm = (props) => (
   <form className={props.formType}>
@@ -18,7 +18,7 @@ const OrganisationForm = (props) => (
       <TextField
         className="edit-orgnasiation-name"
         label="Organisation name"
-        name="name"
+        name="Organisation"
         value={props.name}
         onChange={props.onChange}
         fullWidth
@@ -33,7 +33,7 @@ const OrganisationForm = (props) => (
             value={props.area}
             onChange={props.onChange}
             inputProps={{
-              name: 'area',
+              name: 'Area',
               id: 'controlled-open-select',
             }}
           >
@@ -41,7 +41,7 @@ const OrganisationForm = (props) => (
               <em>None</em>
             </MenuItem>
             {areas.map(area => (
-              <MenuItem value={area.Area}>{area.Area}</MenuItem>
+              <MenuItem value={area}>{area}</MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -56,7 +56,7 @@ const OrganisationForm = (props) => (
             value={props.borough}
             onChange={props.onChange}
             inputProps={{
-              name: 'borough',
+              name: 'Borough',
               id: 'controlled-open-select',
             }}
           >
@@ -73,8 +73,8 @@ const OrganisationForm = (props) => (
         <TextField
           className="not-include-in-add-org health-advice"
           fullWidth
-          name="advices"
-          value={props.advices}
+          name="Services"
+          value={props.service}
           onChange={props.onChange}
         />
       </h4>
@@ -86,7 +86,7 @@ const OrganisationForm = (props) => (
           value={props.process}
           onChange={props.onChange}
           inputProps={{
-            name: 'process',
+            name: 'Process',
             id: 'controlled-open-select',
           }}
         >
@@ -119,7 +119,7 @@ const OrganisationForm = (props) => (
       <TextField
         className="telephone-label"
         label="Telephone"
-        name="telephone"
+        name="Tel"
         value={props.telephone}
         onChange={props.onChange}
         fullWidth
@@ -127,7 +127,7 @@ const OrganisationForm = (props) => (
       <TextField
         className="email-label"
         label="Email"
-        name="email"
+        name="Email"
         value={props.email}
         onChange={props.onChange}
         fullWidth
@@ -135,7 +135,7 @@ const OrganisationForm = (props) => (
       <TextField
         className="email-label add-website"
         label="Website"
-        name="website"
+        name="Website"
         value={props.website}
         onChange={props.onChange}
         fullWidth
@@ -147,7 +147,7 @@ const OrganisationForm = (props) => (
         rows="4"
         label="Service"
         fullWidth
-        name="service"
+        name="Services"
         value={props.service}
         onChange={props.onChange}
       />

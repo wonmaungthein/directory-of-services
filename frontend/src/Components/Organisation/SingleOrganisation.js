@@ -11,6 +11,21 @@ import './single-org.css';
 export default class SingleOrganisation extends Component {
   state = {
     open: false,
+    editIdx: -1,
+  };
+
+  editSelectedOrganisation = (idex) => (
+    this.setState({
+      editIdx: idex,
+      open: true,
+    })
+  );
+
+  stopEditing = () => {
+    this.setState({
+      editIdx: -1,
+      open: false
+    });
   };
 
   handleOpen = () => {
@@ -21,75 +36,81 @@ export default class SingleOrganisation extends Component {
     this.setState({ open: false });
   };
   render() {
-    return (
-      <div className="single-oganisation">
-        <Button
-          onClick={this.handleOpen}
-          variant="raised"
-          size="small"
-          className="orgnaization-detais-button button-title"
-        >
-          <i className="material-icons">add</i>DETAILS
-        </Button>
-        <Dialog
-          className="single-org-dialog"
-          open={this.state.open}
-          onClose={this.handleClose}
-        >
-          <DialogActions>
-            <button
-              onClick={this.handleClose}
-              className="single-oganisation-close-button"
-            >
-              <i className="material-icons">close</i>
-            </button>
-          </DialogActions>
-          <EditOrganisation />
-          <DialogTitle
-            className="single-oganisation-title"
-            id="alert-dialog-title"
+    const data = this.props.editOrgData;
+    const index = 1;
+    const { editIdx } = this.state;
+    const currentlyEditing = editIdx === index;
+
+    return currentlyEditing ? <EditOrganisation editOrgData={data} stopEditing={this.stopEditing} handleClichOpen={true} /> :
+      (
+        <div className="single-oganisation">
+          <Button
+            onClick={this.editSelectedOrganisation}
+            variant="raised"
+            size="small"
+            className="orgnaization-detais-button button-title"
           >
-            Haringey Migrant Service
-          </DialogTitle>
-          <DialogContent className="single-oganisation-content">
-            <h4 className="details-area">Area: North | Borough: Haringey</h4>
-            <div className="health-advice-process">
-              <h4> - Health advice</h4>
-              <h4> - Help accessing NHS</h4>
-            </div>
-            <div className="single-process-date">
-              <div>
-                <h4>Process</h4>
-                <p>Call in advance (appt only)</p>
-              </div>
-              <div>
-                <h4>Day</h4>
-                <p>Monday</p>
-              </div>
-            </div>
-            <div className="single-telephone-email">
-              <div>
-                <h4>Telephone</h4>
-                <p>028 297 4111</p>
-              </div>
-              <div>
-                <h4>Email</h4>
-                <p>test@test.com</p>
-              </div>
-            </div>
-            <a
-              className="website-link"
-              target="blank"
-              href="http://www.haringeymsc.org"
+            <i className="material-icons">add</i>DETAILS
+          </Button>
+          <Dialog
+            className="single-org-dialog"
+            open={this.state.open}
+            onClose={this.handleClose}
+          >
+            <DialogActions>
+              <button
+                onClick={this.handleClose}
+                className="single-oganisation-close-button"
+              >
+                <i className="material-icons">close</i>
+              </button>
+            </DialogActions>
+            <EditOrganisation getData={() => this.editSelectedOrganisation(index)} />
+            <DialogTitle
+              className="single-oganisation-title"
+              id="alert-dialog-title"
             >
-              http://www.haringeymsc.org
-            </a>
-            <h5 className="detail-footer">
-              Healthcare, trafficking, destituition
-            </h5>
-          </DialogContent>
-        </Dialog>
-      </div>
-    );
+              {data.Organisation}
+            </DialogTitle>
+            <DialogContent className="single-oganisation-content">
+              <h4 className="details-area">Area: {data.Area} | Borough: {data.Borough}</h4>
+              <div className="health-advice-process">
+                <h4> - Services</h4>
+                <h4> - {data.Services}</h4>
+              </div>
+              <div className="single-process-date">
+                <div>
+                  <h4>Process</h4>
+                  <p>{data.Process}</p>
+                </div>
+                <div>
+                  <h4>Days</h4>
+                  <p>{data.Day}</p>
+                </div>
+              </div>
+              <div className="single-telephone-email">
+                <div>
+                  <h4>Telephone</h4>
+                  <p>{data.Tel}</p>
+                </div>
+                <div>
+                  <h4>Email</h4>
+                  <p>{data.Email}</p>
+                </div>
+              </div>
+              <a
+                className="website-link"
+                target="blank"
+                href={`${data.Website}`}
+              >
+                {data.Website}
+              </a>
+              <h5 className="detail-footer">
+                {data.Category}
+              </h5>
+            </DialogContent>
+          </Dialog>
+        </div>
+      );
   }
 }

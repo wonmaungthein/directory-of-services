@@ -5,31 +5,31 @@ import TopNav from '../TopNav';
 
 export default class AddOrganisation extends Component {
   state = {
-    name: "",
-    area: "",
-    borough: "Highbury and Islington",
-    process: "Email, then call",
-    day: ["Monday"],
-    telephone: "028 297 4111",
-    email: "",
-    website: "",
-    service: "",
-    category: [],
+    Organisation: "",
+    Area: "",
+    Borough: "Highbury and Islington",
+    Process: "Email, then call",
+    Day: ["Monday"],
+    Tel: "028 297 4111",
+    Email: "",
+    Website: "",
+    Services: "",
+    Category: [],
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({
-      area: "",
-      borough: "",
-      name: "",
-      process: "",
-      day: [],
-      telephone: "",
-      email: "",
-      website: "",
-      service: "",
-      category: []
+      Organisation: "",
+      Area: "",
+      Borough: "",
+      Process: "",
+      Day: [],
+      Tel: "",
+      Email: "",
+      Website: "",
+      Services: "",
+      Category: [],
     })
   }
 
@@ -40,15 +40,15 @@ export default class AddOrganisation extends Component {
   }
 
   handleCheckbox = e => {
-    const listOfCategories = this.state.category;
+    const listOfCategories = this.state.Category;
     listOfCategories.push(e.target.value);
     this.setState({
-      category: listOfCategories
+      Category: listOfCategories
     })
   }
 
   handleMulitySelectChange = event => {
-    this.setState({ day: event.target.value });
+    this.setState({ Day: event.target.value });
   };
 
   render() {
@@ -58,15 +58,15 @@ export default class AddOrganisation extends Component {
         <div className="add-orgonaization">
           <h1>Add new organisation</h1>
           <OrganisationForm
-            name={this.state.name}
-            area={this.state.area}
-            borough={this.state.borough}
-            process={this.state.process}
-            day={this.state.day}
-            telephone={this.state.telephone}
-            email={this.state.email}
-            website={this.state.website}
-            service={this.state.service}
+            name={this.state.Organisation}
+            area={this.state.Area}
+            borough={this.state.Borough}
+            process={this.state.Process}
+            day={this.state.Day}
+            telephone={this.state.Tel}
+            email={this.state.Email}
+            website={this.state.Website}
+            service={this.state.Services}
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}
             onChange={this.handleFieldUpdate}

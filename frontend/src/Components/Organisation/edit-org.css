@@ -108,6 +108,7 @@
 }
 .edit-org-dialog >div{
   overflow-y: initial !important;
+  z-index: 1000 !important;
 }
 .edit-org-close-button{
   position: absolute;
@@ -191,6 +192,9 @@
   right: 20px !important;
   padding: 0 2.5em !important;
   margin-top: 1em;
+}
+.success-notification{
+  z-index: 22222 !important;
 }
 .edit-org .not-include-in-edit-org{
   display: none;

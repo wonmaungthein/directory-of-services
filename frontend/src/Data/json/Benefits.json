@@ -10,7 +10,7 @@
       "Borough": "Haringey",
       "Process": [],
       "Tel": [],
-      "Day": ["Monday", "Wednesday"],
+      "Day": ["Mon-Fri"],
       "Clients": []
     },
     {
@@ -25,7 +25,7 @@
       "Borough": "Deptford",
       "Process": ["Drop-in 10.30am Mon- Fri"],
       "Tel": ["020 8694 5797"],
-      "Day": ["Mon - Fri"],
+      "Day": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
       "Clients": ["Homeless/Hostel/Risk of eviction"]
     },
     {
@@ -40,7 +40,11 @@
       "Borough": "Deptford",
       "Process": ["Drop-in 10.30am Mon- Fri"],
       "Tel": ["020 8694 5797"],
-      "Day": ["Mon - Fri"],
+      "Day": ["Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"],
       "Clients": ["Homeless/Hostel/Risk of eviction"]
     },
     {
@@ -55,7 +59,7 @@
       "Borough": "Deptford",
       "Process": ["Drop-in 10.30am Mon- Fri"],
       "Tel": ["020 8694 5797"],
-      "Day": ["Mon - Fri"],
+      "Day": ["Mon-Fri"],
       "Clients": ["Homeless/Hostel/Risk of eviction"]
     },
     {
@@ -70,7 +74,7 @@
       "Borough": "Deptford",
       "Process": ["Drop-in 10.30am Mon- Fri"],
       "Tel": ["020 8694 5797"],
-      "Day": ["Mon - Fri"],
+      "Day": ["Mon-Fri"],
       "Clients": ["Homeless/Hostel/Risk of eviction"]
     },
     {
@@ -85,7 +89,7 @@
       "Borough": "Deptford",
       "Process": ["Drop-in 10.30am Mon- Fri"],
       "Tel": ["020 8694 5797"],
-      "Day": ["Mon - Fri"],
+      "Day": ["Mon-Fri"],
       "Clients": ["Homeless/Hostel/Risk of eviction"]
     },
     {
@@ -100,7 +104,7 @@
       "Borough": "Deptford",
       "Process": ["Drop-in 10.30am Mon- Fri"],
       "Tel": ["020 8694 5797"],
-      "Day": ["Mon - Fri"],
+      "Day": ["Mon-Fri"],
       "Clients": ["Homeless/Hostel/Risk of eviction"]
     },
     {
@@ -115,7 +119,11 @@
       "Borough": "Deptford",
       "Process": ["Drop-in 10.30am Mon- Fri"],
       "Tel": ["020 8694 5797"],
-      "Day": ["Mon - Fri"],
+      "Day": ["Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"],
       "Clients": ["Homeless/Hostel/Risk of eviction"]
     },
     {
@@ -271,7 +279,7 @@
       "Borough": "Camden (Holborn)",
       "Process": ["Legal Services"],
       "Tel": ["020 5745 2389"],
-      "Day": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "Day": ["Mon-Fri"],
       "Clients": []
     },
     {
