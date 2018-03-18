@@ -30,7 +30,4 @@ export default class Categories extends Model {
       }
     }
   }
-  $beforeInsert() {
-    console.log('$beforeInsert', this.constructor.tableName);
-  }
 }

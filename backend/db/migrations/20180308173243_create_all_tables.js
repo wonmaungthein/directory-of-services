@@ -5,8 +5,6 @@ exports.up = knex =>
       table.increments('id').primary();
       table.string('org_name');
       table.string('website');
-      table.string('email_address');
-      table.string('telephone');
     })
     .createTable('Branch', (table) => {
       table.increments('id').primary();
@@ -46,6 +44,8 @@ exports.up = knex =>
       table.string('address_line');
       table.string('area');
       table.string('postcode');
+      table.string('email_address');
+      table.string('telephone');
     })
     .createTable('Location', (table) => {
       table.increments('id').primary();

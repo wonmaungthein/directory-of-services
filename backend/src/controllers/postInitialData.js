@@ -1,13 +1,12 @@
-const { Model } = require('objection');
-const { transaction } = require('objection');
-const knex =require('../../../config');
-const Organisation = require('../../../src/model/Organisation');
-const data = require('../../../data.json');
+import { transaction, Model } from 'objection';
+import { knex } from '../../config';
+import Organisation from '../model/Organisation';
+import benefitData from '../../data.json'
 
 Model.knex(knex);
 
 const loadSeedToDb = async () => {
-  const datas = await data.map(row => {
+  const data = await benefitData.map(row => {
     const d = {
       org_name: row.name || 'not provided',
       website: row.branches[0].Website || 'not provided',
@@ -41,9 +40,7 @@ const loadSeedToDb = async () => {
         .insertGraph(d))
     )();
   });
-  return datas;
-}
-exports.seed = () => {
-  loadSeedToDb().then(console.log)
+  return data;
 }
 
+module.exports = { loadSeedToDb }

@@ -31,7 +31,4 @@ export default class Location extends Model {
       }
     }
   }
-  $beforeInsert() {
-    console.log('$beforeInsert', this.constructor.tableName);
-  }
 }

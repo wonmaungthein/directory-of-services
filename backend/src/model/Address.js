@@ -16,7 +16,9 @@ export default class Address extends Model {
         branch_id: { type: ['integer', 'null'] },
         address_line: { type: 'string', minLength: 1, maxLength: 255 },
         area: { type: 'string', minLength: 1, maxLength: 255 },
-        postcode: { type: 'string', minLength: 1, maxLength: 255 }
+        postcode: { type: 'string', minLength: 1, maxLength: 255 },
+        email_address: { type: 'string', minLength: 1, maxLength: 255 },
+        telephone: { type: 'string', minLength: 1, maxLength: 255 }
       }
     };
   }
@@ -43,8 +45,5 @@ export default class Address extends Model {
         }
       }
     }
-  }
-  $beforeInsert() {
-    console.log('$beforeInsert', this.constructor.tableName);
   }
 }

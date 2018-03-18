@@ -43,7 +43,4 @@ export default class Service extends Model {
       }
     }
   }
-  $beforeInsert() {
-    console.log('$beforeInsert', this.constructor.tableName);
-  }
 }
