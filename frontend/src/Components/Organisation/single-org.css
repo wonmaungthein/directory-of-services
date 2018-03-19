@@ -19,7 +19,6 @@
   color: #000;
   margin-bottom: 1em;
 }
-
 .orgnaization-detais-button{
   position: absolute !important;
   right: 0;
@@ -61,4 +60,8 @@
   display: flex;
   align-items: center;
 }
-
+.health-advice-process .service{
+  text-overflow: initial;
+  white-space: initial !important;
+  overflow: visible;
+}

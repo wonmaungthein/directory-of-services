@@ -17,9 +17,8 @@
   margin-bottom: .5em;
 }
 .health-advice-process p{
-  height: 1.2em !important;
-  overflow:hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   overflow: hidden;
 }
 .edit-button{

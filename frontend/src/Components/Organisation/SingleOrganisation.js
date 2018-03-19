@@ -76,12 +76,12 @@ export default class SingleOrganisation extends Component {
               <h4 className="details-area">Area: {data.Area} | Borough: {data.Borough}</h4>
               <div className="health-advice-process">
                 <h4> Services</h4>
-                <p> {data.Services}</p>
+                <p className="service"> {data.Services}</p>
               </div>
               <div className="single-process-date">
                 <div>
                   <h4>Process</h4>
-                  <p>{data.Process}</p>
+                  <p className="service">{data.Process}</p>
                 </div>
                 <div>
                   <h4>Days</h4>
