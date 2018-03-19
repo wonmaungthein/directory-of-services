@@ -9,7 +9,7 @@ export default class AddOrganisation extends Component {
     area: "",
     borough: "Highbury and Islington",
     process: "Email, then call",
-    day: "Monday",
+    day: ["Monday"],
     telephone: "028 297 4111",
     email: "",
     website: "",
@@ -24,7 +24,7 @@ export default class AddOrganisation extends Component {
       borough: "",
       name: "",
       process: "",
-      day: "",
+      day: [],
       telephone: "",
       email: "",
       website: "",
@@ -33,7 +33,7 @@ export default class AddOrganisation extends Component {
     })
   }
 
-  updateNameField = event => {
+  handleFieldUpdate = event => {
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -46,6 +46,10 @@ export default class AddOrganisation extends Component {
       category: listOfCategories
     })
   }
+
+  handleMulitySelectChange = event => {
+    this.setState({ day: event.target.value });
+  };
 
   render() {
     return (
@@ -64,7 +68,8 @@ export default class AddOrganisation extends Component {
             website={this.state.website}
             service={this.state.service}
             formType="org-content"
-            onChange={this.updateNameField}
+            handleMulitySelectChange={this.handleMulitySelectChange}
+            onChange={this.handleFieldUpdate}
             onChangeCheckbox={this.handleCheckbox}
           />
           <button className="add-orgonaization-link" onClick={event => this.handleSubmit(event)}>SAVE CHANGES</button>

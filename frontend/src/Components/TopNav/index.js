@@ -6,6 +6,8 @@ import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
+import Button from 'material-ui/Button';
+import AddIcon from 'material-ui-icons/Add';
 import './top-nav.css';
 import helpers from '../../helpers';
 
@@ -22,29 +24,43 @@ const styles = theme => ({
   },
 });
 
-const TopNav = (props) => {
+const TopNav = props => {
   const { classes, title, addLink, titleLink } = props;
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
         <Grid container spacing={24} className="top-nav-content">
           <Grid item xs={8}>
-            <Typography className="add-new-button" variant="title" color="inherit" noWrap>
-              <Link to={`/${titleLink}`}>{helpers.capitaliseAndPrettify(title)}</Link>
+            <Typography
+              className="add-new-button"
+              variant="title"
+              color="inherit"
+              noWrap
+            >
+              <Link to={`/${titleLink}`}>
+                {helpers.capitaliseAndPrettify(title)}
+              </Link>
               <Link to={`/${addLink}`} className="add-orgnaization">
-                <i className="material-icons">add</i><span className="add-orgonaization-button">Add</span>
+                <Button
+                  className="add-orgonaization-button"
+                  variant="fab"
+                  color="primary"
+                  aria-label="add"
+                >
+                  <AddIcon />
+                </Button>
               </Link>
             </Typography>
           </Grid>
           <Grid className="login-section" item xs={4}>
-            <Typography variant="title" color="inherit" noWrap>
-              Loggedin as <strong>Carmela</strong>
-            </Typography>
+            <Button variant="title" color="primary">
+              <i className="material-icons">person</i>
+            </Button>
           </Grid>
         </Grid>
       </Toolbar>
     </AppBar>
-  )
+  );
 };
 
 TopNav.propTypes = {
