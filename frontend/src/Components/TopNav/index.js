@@ -44,7 +44,6 @@ const TopNav = props => {
                 <Button
                   className="add-orgonaization-button"
                   variant="fab"
-                  color="primary"
                   aria-label="add"
                 >
                   <AddIcon />
@@ -53,7 +52,7 @@ const TopNav = props => {
             </Typography>
           </Grid>
           <Grid className="login-section" item xs={4}>
-            <Button variant="title" color="primary">
+            <Button className="logo-button" variant="title" color="primary">
               <i className="material-icons">person</i>
             </Button>
           </Grid>

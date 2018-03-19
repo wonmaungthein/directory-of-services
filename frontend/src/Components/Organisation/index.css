@@ -4,6 +4,7 @@
 .form-card{
   padding: 2em !important;
   position: relative;
+  overflow: auto
 }
 .single-orgonaization-details >h4 {
   color: #1abcd4;
@@ -11,6 +12,14 @@
 .single-orgonaization-details >h6 {
   color: #bbb;
   padding-top: 1em;
+}
+.health-advice-process >p{
+  margin-bottom: .5em;
+}
+.health-advice-process p{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .edit-button{
   border: none !important;

@@ -11,7 +11,8 @@
   display: flex;
 }
 .logo-button span > i {
-  font-size: 3.5em;
+  font-size: 3.5em !important;
+  color: #e0e0e0;
 }
 
 .add-new-button > a {

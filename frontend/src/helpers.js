@@ -132,6 +132,12 @@ function capitaliseAndPrettify(name) {
     : null;
 }
 
+function linkMaker(name) {
+  return name
+    ? name.replace(" ", '').replace(/\b\w/g, l => l.toUpperCase())
+    : null;
+}
+
 export default {
   renderInput,
   renderSuggestion,
@@ -140,4 +146,5 @@ export default {
   getSuggestions,
   SelectWrapped,
   capitaliseAndPrettify,
+  linkMaker,
 };
