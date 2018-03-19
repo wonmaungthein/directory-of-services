@@ -1,4 +1,5 @@
 import { Model } from 'objection';
+import Categories from './Categories';
 import Branch from './Branch';
 
 export default class Service extends Model {
@@ -8,12 +9,11 @@ export default class Service extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['service_name', 'process'],
+      required: ['service_days', 'process'],
 
       properties: {
-        service_id: { type: 'integer' },
+        id: { type: 'integer' },
         branch_id: { type: ['integer', 'null'] },
-        cat_id: { type: ['integer', 'null'] },
         service_days: { type: 'string', minLength: 1, maxLength: 255 },
         process: { type: 'string', minLength: 1, maxLength: 255 }
       }
@@ -23,13 +23,22 @@ export default class Service extends Model {
   // This object defines the relations to other models.
   static get relationMappings() {
     return {
-      branch: {
+      categories: {
         relation: Model.HasManyRelation,
+        // The related model.
+        modelClass: Categories,
+        join: {
+          from: 'Service.id',
+          to: 'Categories.service_id'
+        }
+      },
+      branch: {
+        relation: Model.BelongsToOneRelation,
         // The related model.
         modelClass: Branch,
         join: {
-          from: 'Service.service_id',
-          to: 'Branch.branch_id'
+          from: 'Service.branch_id',
+          to: 'Branch.id'
         }
       }
     }
