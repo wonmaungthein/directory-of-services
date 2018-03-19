@@ -6,13 +6,33 @@ import SingleOrganisation from './SingleOrganisation';
 import Search from './Search';
 import TopNav from '../TopNav';
 import helpers from '../../helpers';
-import orgData from '../../Data/json/Benefits.json'
+import Benefits from '../../Data/json/Benefits.json'
+import Debt from '../../Data/json/Debt.json'
+import Education from '../../Data/json/Education.json'
+import YPFamilies from '../../Data/json/YoungPeopleChildren.json'
+import WomenDV from '../../Data/json/Women.json'
+import Trafficking from '../../Data/json/Trafficking.json'
+import Destitution from '../../Data/json/Destitution.json'
+import LGBTQI from '../../Data/json/LGBTQI.json'
+import MentalHealth from '../../Data/json/MentalHealthServices.json'
+import Healthcare from '../../Data/json/Healthcare.json'
 import './index.css';
 
 class OrganisationCard extends Component {
 
   state = {
-    organisations: orgData.data,
+    organisations: {
+      Education: Education.data,
+      Debt: Debt.data,
+      Benefits: Benefits.data,
+      YPFamilies: YPFamilies.data,
+      WomenDV: WomenDV.data,
+      Trafficking: Trafficking.data,
+      Destitution: Destitution.data,
+      LGBTQI: LGBTQI.data,
+      MentalHealth: MentalHealth.data,
+      Healthcare: Healthcare.data,
+    },
     editIdx: -1,
   }
 
@@ -35,12 +55,13 @@ class OrganisationCard extends Component {
       params && params.service
         ? helpers.capitaliseAndPrettify(params.service)
         : null;
+    const organisations = this.state.organisations && this.state.organisations[service] ? this.state.organisations[service] : [];
     return (
       <div>
         <TopNav title={service} addLink="organisations/add" titleLink={`services/${service}`} />
         <Search />
         <Grid container className="organisation-page" spacing={24}>
-          {this.state.organisations.map((org, index) => {
+          {organisations.map((org, index) => {
             const currentlyEditing = editIdx === index;
             return currentlyEditing ? (
               <Fragment>

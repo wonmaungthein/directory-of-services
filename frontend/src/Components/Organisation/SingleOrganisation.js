@@ -75,8 +75,8 @@ export default class SingleOrganisation extends Component {
             <DialogContent className="single-oganisation-content">
               <h4 className="details-area">Area: {data.Area} | Borough: {data.Borough}</h4>
               <div className="health-advice-process">
-                <h4> - Services</h4>
-                <h4> - {data.Services}</h4>
+                <h4> Services</h4>
+                <p> {data.Services}</p>
               </div>
               <div className="single-process-date">
                 <div>
@@ -103,7 +103,7 @@ export default class SingleOrganisation extends Component {
                 target="blank"
                 href={`${data.Website}`}
               >
-                {data.Website}
+                Website
               </a>
               <h5 className="detail-footer">
                 {data.Category}

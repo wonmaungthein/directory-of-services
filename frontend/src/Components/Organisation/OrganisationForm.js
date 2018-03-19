@@ -47,7 +47,7 @@ const OrganisationForm = (props) => (
         </FormControl>
       </span>
       <span className="text-field-two-container">
-        <h4 className="not-include-in-add-org details-area">|Borough:</h4>
+        <h4 className="not-include-in-add-org details-area">Borough:</h4>
         <FormControl className="form-control-filed add-borough">
           <InputLabel className="not-include-in-edit-org select-lable" htmlFor="controlled-open-select">Borough</InputLabel>
           <Select
@@ -69,7 +69,7 @@ const OrganisationForm = (props) => (
           </Select>
         </FormControl>
       </span>
-      <h4 className="not-include-in-add-org health-advice-title">- Services
+      <h4 className="not-include-in-add-org health-advice-title">Services
         <TextField
           className="not-include-in-add-org health-advice"
           fullWidth

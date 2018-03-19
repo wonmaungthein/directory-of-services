@@ -90,7 +90,7 @@ class Search extends React.Component {
     const { classes } = this.props;
     return (
       <Grid container spacing={24} className="org-search">
-        <Grid item md={5} xs={12} className="post-code">
+        <Grid item md={4} xs={12} className="post-code">
           <h4><i className="material-icons">search</i></h4>
           <Autosuggest
             theme={{
@@ -134,7 +134,7 @@ class Search extends React.Component {
             }}
           />
         </Grid>
-        <Grid item md={3} xs={12} className="service">
+        <Grid item md={4} xs={12} className="service">
           <h4>Service</h4>
           <Input
             fullWidth

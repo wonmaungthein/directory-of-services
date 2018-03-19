@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import CategoriesData from '../../Data/Categories.json';
+import helpers from '../../helpers';
 import './categories.css';
 
 export default class Categories extends Component {
@@ -17,33 +19,11 @@ showListOfcategories = () => {
     if (this.state.categoriesList) {
       return (
         <ul>
-          <li>
-            <Link to="/services/debt">Debt</Link>
-          </li>
-          <li>
-            <Link to="/services/ypfamilies">YP Families</Link>
-          </li>
-          <li>
-            <Link to="/services/womendv">Women DV</Link>
-          </li>
-          <li>
-            <Link to="/services/trafficking">Trafficking</Link>
-          </li>
-          <li>
-            <Link to="/services/destitution">Destitution</Link>
-          </li>
-          <li>
-            <Link to="/services/lgbtqi">LGBTQI</Link>
-          </li>
-          <li>
-            <Link to="/services/mentalhealth">Mental Health</Link>
-          </li>
-          <li>
-            <Link to="/services/healthcare">Healthcare</Link>
-          </li>
-          <li>
-            <Link to="/services/womendv">Women DV</Link>
-          </li>
+          {CategoriesData.map(category =>
+            <li>
+              <Link to={`/services/${helpers.linkMaker(category)}`}>{category}</Link>
+            </li>
+            )}
         </ul>
       );
     }

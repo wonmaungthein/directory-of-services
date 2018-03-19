@@ -91,13 +91,16 @@
 .edit-button{
   border: none !important;
   background: transparent;
-  position: absolute;
+  position: absolute !important;
   right: 20px;
   top: 10px;
-  font-size: 1em;
   font-weight: bold;
   color: #1abcd4;
   outline: none !important;
+}
+.edit-button{
+  width: 37px !important;
+  height: 30px !important;
 }
 .edit-logo{
   position: absolute;

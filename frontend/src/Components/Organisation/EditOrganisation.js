@@ -103,9 +103,9 @@ export default class EditOrganisation extends React.Component {
   render() {
     return (
       <div>
-        <button className="edit-button" onClick={this.props.getData}>
-          Edit
-        </button>
+        <Button variant="fab" raised aria-label="edit"  className="edit-button" onClick={this.props.getData}>
+          <i className="material-icons">edit</i>
+        </Button>
         <NotificationSystem ref="savedChanges" />
         <Dialog
           className="edit-org-dialog"
