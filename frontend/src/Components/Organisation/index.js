@@ -18,7 +18,7 @@ import Healthcare from '../../Data/json/Healthcare.json';
 import OrganisationCard from './OrganisationCard';
 import './index.css';
 
-class Organisation extends Component {
+class Organisations extends Component {
 
   state = {
     organisations: {
@@ -79,4 +79,4 @@ class Organisation extends Component {
   }
 };
 
-export default Organisation;
+export default Organisations;
