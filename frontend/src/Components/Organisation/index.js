@@ -65,8 +65,8 @@ class OrganisationCard extends Component {
             const currentlyEditing = editIdx === index;
             return currentlyEditing ? (
               <Fragment>
-                <EditOrganisation stopEditing={this.stopEditing} handleClichOpen={true} editOrgData={org} />
-                <SingleOrganisation stopEditing={this.stopEditing} handleShawDetails={true} editOrgData={org} />
+                <EditOrganisation stopEditing={this.stopEditing} show editOrgData={org} />
+                <SingleOrganisation stopEditing={this.stopEditing} handleShawDetails editOrgData={org} />
               </Fragment>) : (
                 <Grid item xs={12} sm={6}>
                   <Paper className="form-card" key={org.id}>

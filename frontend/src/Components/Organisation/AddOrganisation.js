@@ -15,7 +15,7 @@ export default class AddOrganisation extends Component {
     Tel: "028 297 4111",
     Email: "",
     Website: "",
-    Services: "",
+    Services: [],
     Category: [],
   };
 
@@ -35,7 +35,7 @@ export default class AddOrganisation extends Component {
       Tel: "",
       Email: "",
       Website: "",
-      Services: "",
+      Services: [],
       Category: [],
     })
   }

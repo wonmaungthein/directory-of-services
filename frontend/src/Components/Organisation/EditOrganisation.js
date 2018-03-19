@@ -8,11 +8,11 @@ import './edit-org.css';
 export default class EditOrganisation extends React.Component {
   state = {
     notificationSystem: null,
-    open: this.props.handleClichOpen,
+    open: this.props.show,
     Organisation: "",
     Area: "",
     Borough: "",
-    Services: "",
+    Services: [],
     Process: "",
     Day: [],
     Tel: "",
@@ -66,7 +66,7 @@ export default class EditOrganisation extends React.Component {
       Organisation: "",
       Area: "",
       Borough: "",
-      Services: "",
+      Services: [],
       Process: "",
       Day: [""],
       Tel: "",
