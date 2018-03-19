@@ -41,7 +41,7 @@ export default class SingleOrganisation extends Component {
     const { editIdx } = this.state;
     const currentlyEditing = editIdx === index;
 
-    return currentlyEditing ? <EditOrganisation editOrgData={data} stopEditing={this.stopEditing} handleClichOpen={true} /> :
+    return currentlyEditing ? <EditOrganisation editOrgData={data} stopEditing={this.stopEditing} show /> :
       (
         <div className="single-oganisation">
           <Button
