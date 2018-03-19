@@ -15,15 +15,17 @@ export default class Categories extends Component {
     });
   };
 
-showListOfcategories = () => {
+  showListOfcategories = () => {
     if (this.state.categoriesList) {
       return (
         <ul>
           {CategoriesData.map(category =>
-            <li>
-              <Link to={`/services/${helpers.linkMaker(category)}`}>{category}</Link>
-            </li>
-            )}
+            (
+              <li>
+                <Link to={`/services/${helpers.linkMaker(category)}`}>{category}</Link>
+              </li>
+            )
+          )}
         </ul>
       );
     }
