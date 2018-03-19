@@ -38,8 +38,7 @@ export default class AddUser extends Component {
     });
   }
 
-  unSucessSavedChanges = (event) => {
-    event.preventDefault();
+  unSucessSavedChanges = () => {
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
       message: 'Your Changes have not been saved successfully',
