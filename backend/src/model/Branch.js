@@ -1,6 +1,7 @@
 import { Model } from 'objection';
 import Service from './Service';
 import Address from './Address';
+import Organisation from './Organisation';
 
 export default class Branch extends Model {
   static get tableName() {
@@ -12,7 +13,7 @@ export default class Branch extends Model {
       required: ['borough'],
 
       properties: {
-        branch_id: { type: 'integer' },
+        id: { type: 'integer' },
         org_id: { type: ['integer', 'null'] },
         borough: { type: 'string', minLength: 1, maxLength: 255 }
       }
@@ -22,13 +23,21 @@ export default class Branch extends Model {
   // This object defines the relations to other models.
   static get relationMappings() {
     return {
+      organisation: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: Organisation,
+        join: {
+          from: 'Branch.org_id',
+          to: 'Organisation.id'
+        }
+      },
       service: {
         relation: Model.HasManyRelation,
         // The related model.
         modelClass: Service,
         join: {
-          from: 'Branch.branch_id',
-          to: 'Service.service_id'
+          from: 'Branch.id',
+          to: 'Service.branch_id'
         }
       },
       address: {
@@ -36,8 +45,8 @@ export default class Branch extends Model {
         // The related model.
         modelClass: Address,
         join: {
-          from: 'Branch.branch_id',
-          to: 'Address.address_id'
+          from: 'Branch.id',
+          to: 'Address.branch_id'
         }
       }
     }
