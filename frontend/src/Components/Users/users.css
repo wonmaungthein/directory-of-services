@@ -34,6 +34,7 @@
   display: grid;
   grid-template-columns: 3fr 2fr 1fr;
   grid-gap: 1em;
+  margin-top: 1.5em;
 }
 .add-user .select-button {
   display: block !important;
