@@ -42,7 +42,7 @@ export default class EditOrganisation extends React.Component {
 
   componentDidMount() {
     this.setState({
-      notificationSystem = this.refs.savedChanges
+      notificationSystem: this.refs.savedChanges
     })
   }
 
