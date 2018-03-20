@@ -17,7 +17,9 @@ export default class AddUser extends Component {
   };
 
   componentDidMount() {
-    this.state.notificationSystem = this.refs.savedChanges
+    this.setState({
+      notificationSystem: this.refs.savedChanges
+    })
   }
 
   handleSubmit = e => {
@@ -38,8 +40,7 @@ export default class AddUser extends Component {
     });
   }
 
-  unSucessSavedChanges = (event) => {
-    event.preventDefault();
+  unSucessSavedChanges = () => {
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
       message: 'Your Changes have not been saved successfully',

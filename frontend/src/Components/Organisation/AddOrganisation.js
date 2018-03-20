@@ -20,7 +20,9 @@ export default class AddOrganisation extends Component {
   };
 
   componentDidMount() {
-    this.state.notificationSystem = this.refs.savedChanges
+    this.setState({
+      notificationSystem: this.refs.savedChanges
+    })
   }
 
   handleSubmit = (e) => {
