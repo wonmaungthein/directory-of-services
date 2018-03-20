@@ -4,24 +4,22 @@ import EditOrganisation from './EditOrganisation';
 import SingleOrganisation from './SingleOrganisation';
 import './index.css';
 
-const OrganisationCard = (props) => {
-  const { org, index } = props;
-  return (
-    <Paper className="form-card" key={org.id}>
-      <EditOrganisation getData={() => this.editSelectedOrganisation(index)} />
+const OrganisationCard = ({ org, Organisation, Area, Services, Process, getData }) =>
+  (
+    <Paper className="form-card">
+      <EditOrganisation getData={getData} />
       <SingleOrganisation editOrgData={org} />
       <div className="single-orgonaization-details">
-        <h4>{org.Organisation}</h4>
+        <h4>{Organisation}</h4>
         <h6>
-          Area: {org.Area} | Borough: {org.Borough}
+          Area: {Area} | Borough: {org.Borough}
         </h6>
         <div className="health-advice-process">
-          <p> - {org.Services}</p>
-          <p> - {org.Process}</p>
+          <p> - {Services}</p>
+          <p> - {Process}</p>
         </div>
       </div>
     </Paper>
   );
-}
 
 export default OrganisationCard;

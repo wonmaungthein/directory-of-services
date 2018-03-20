@@ -68,8 +68,8 @@ class Organisations extends Component {
                 <EditOrganisation stopEditing={this.stopEditing} show editOrgData={org} />
                 <SingleOrganisation stopEditing={this.stopEditing} handleShawDetails editOrgData={org} />
               </Fragment>) : (
-                <Grid item xs={12} sm={6}>
-                  <OrganisationCard org={org} index={index} />
+                <Grid item xs={12} sm={6} key={org.id}>
+                  <OrganisationCard getData={() => this.editSelectedOrganisation(index)} {...org} org={org} index={index} />
                 </Grid>
               )
           })}
