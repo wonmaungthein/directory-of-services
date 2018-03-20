@@ -41,7 +41,9 @@ export default class EditOrganisation extends React.Component {
   }
 
   componentDidMount() {
-    this.state.notificationSystem = this.refs.savedChanges
+    this.setState({
+      notificationSystem = this.refs.savedChanges
+    })
   }
 
   savedChangesSuccessfully = () => {

@@ -17,7 +17,9 @@ export default class AddUser extends Component {
   };
 
   componentDidMount() {
-    this.state.notificationSystem = this.refs.savedChanges
+    this.setState({
+      notificationSystem: this.refs.savedChanges
+    })
   }
 
   handleSubmit = e => {
