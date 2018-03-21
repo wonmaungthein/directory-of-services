@@ -91,13 +91,16 @@
 .edit-button{
   border: none !important;
   background: transparent;
-  position: absolute;
+  position: absolute !important;
   right: 20px;
   top: 10px;
-  font-size: 1em;
   font-weight: bold;
   color: #1abcd4;
   outline: none !important;
+}
+.edit-button{
+  width: 37px !important;
+  height: 30px !important;
 }
 .edit-logo{
   position: absolute;
@@ -108,6 +111,7 @@
 }
 .edit-org-dialog >div{
   overflow-y: initial !important;
+  z-index: 1000 !important;
 }
 .edit-org-close-button{
   position: absolute;
@@ -191,6 +195,9 @@
   right: 20px !important;
   padding: 0 2.5em !important;
   margin-top: 1em;
+}
+.success-notification{
+  z-index: 22222 !important;
 }
 .edit-org .not-include-in-edit-org{
   display: none;

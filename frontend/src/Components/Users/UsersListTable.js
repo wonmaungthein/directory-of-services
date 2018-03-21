@@ -14,6 +14,7 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import Save from 'material-ui-icons/Save';
+import NotificationSystem from 'react-notification-system';
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
 import usersData from './usersData.json';
@@ -30,7 +31,31 @@ export default class UsersListTable extends Component {
       page: 0,
       rowsPerPage: 5,
       editIdx: -1,
+      notificationSystem: null,
     };
+  }
+
+  componentDidMount() {
+    this.setState({
+      notificationSystem: this.refs.savedChanges
+    })
+  }
+
+  savedChangesSuccessfully = () => {
+    this.state.notificationSystem.addNotification({
+      title: 'Success',
+      message: 'Your Changes have been saved successfully',
+      level: 'success',
+    });
+  }
+
+  unSucessSavedChanges = (event) => {
+    event.preventDefault();
+    this.state.notificationSystem.addNotification({
+      title: 'Unsuccess',
+      message: 'Your Changes have not been saved successfully',
+      level: 'error',
+    });
   }
 
   handleRequestSort = (event, property) => {
@@ -89,7 +114,10 @@ export default class UsersListTable extends Component {
   };
 
   stopEditing = () => {
-    this.setState({ editIdx: -1 });
+    this.setState(
+      { editIdx: -1 },
+      this.savedChangesSuccessfully()
+    );
   };
 
   handleUserDataChange = (e, index) => {
@@ -110,6 +138,7 @@ export default class UsersListTable extends Component {
 
     return (
       <Table className="users-table">
+        <NotificationSystem ref="savedChanges" />  
         <UsersTableHead
           numSelected={selected.length}
           order={order}
@@ -176,14 +205,6 @@ export default class UsersListTable extends Component {
                     >
                       <Save className="save" /> save
                     </Button>
-                  </TableCell>
-
-                  <TableCell className="user-text">
-                    <FormControl className="form-control-filed">
-                      <InputLabel htmlFor="controlled-open-select">
-                        Role
-                      </InputLabel>
-                    </FormControl>
                   </TableCell>
                 </tr>
               ) : (

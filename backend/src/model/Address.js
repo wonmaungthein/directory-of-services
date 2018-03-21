@@ -12,11 +12,13 @@ export default class Address extends Model {
       required: ['address_line', 'area', 'postcode'],
 
       properties: {
-        address_id: { type: 'integer' },
+        id: { type: 'integer' },
         branch_id: { type: ['integer', 'null'] },
         address_line: { type: 'string', minLength: 1, maxLength: 255 },
         area: { type: 'string', minLength: 1, maxLength: 255 },
-        postcode: { type: 'string', minLength: 1, maxLength: 255 }
+        postcode: { type: 'string', minLength: 1, maxLength: 255 },
+        email_address: { type: 'string', minLength: 1, maxLength: 255 },
+        telephone: { type: 'string', minLength: 1, maxLength: 255 }
       }
     };
   }
@@ -29,17 +31,17 @@ export default class Address extends Model {
         // The related model.
         modelClass: Location,
         join: {
-          from: 'Address.address_id',
-          to: 'Location.location_id'
+          from: 'Address.id',
+          to: 'Location.address_id'
         }
       },
       branch: {
-        relation: Model.HasManyRelation,
+        relation: Model.BelongsToOneRelation,
         // The related model.
         modelClass: Branch,
         join: {
-          from: 'Address.address_id',
-          to: 'Branch.branch_id'
+          from: 'Address.branch_id',
+          to: 'Branch.id'
         }
       }
     }

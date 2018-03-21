@@ -1,25 +1,25 @@
 .org-search{
   height: 3.5em;
+  margin-top: 1.5em !important;
 }
 .org-search .post-code{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 8fr;
   grid-gap: 1em;
 }
 .org-search .day{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 6fr;
   grid-gap: 1em;
 }
 .org-search .service{
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 6fr;
   grid-gap: 1em;
 }
 .org-search .post-code h4,
 .org-search .day h4,
 .org-search .service h4{
-  justify-self: flex-end;
   color: #bbb;
   padding-top: .5em;
 }
