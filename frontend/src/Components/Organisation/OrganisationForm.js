@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import Select from 'material-ui/Select';
 import Input, { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
-import { FormControl } from 'material-ui/Form';
+import { FormControl, FormControlLabel } from 'material-ui/Form';
+import Checkbox from 'material-ui/Checkbox';
 import orgData from '../../Data/json/Debt.json'
 
 const boroughs = orgData.data;
@@ -154,7 +155,19 @@ const OrganisationForm = (props) => (
     </div>
     <h4 className="add-org-title categories-checkbox-title">Categories</h4>
     <div className="add-categories-checkbox categories-checkbox">
-      <label htmlFor="category1Id">
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={props.checkedB}
+            onChange={props.handleCheckBox}
+            value='checkedB'
+            color="primary"
+          />
+        }
+        label="Debt"
+        name="checkedB"
+      />
+      {/* <label htmlFor="category1Id">
         <input onChange={props.onChangeCheckbox} type="checkbox" id="category1Id" name="category_1" value="Debt" />
         Debt
       </label>
@@ -189,7 +202,7 @@ const OrganisationForm = (props) => (
       <label htmlFor="category9Id">
         <input onChange={props.onChangeCheckbox} type="checkbox" id="category9Id" name="category_9" value="healthcare" />
         Healthcare
-      </label>
+      </label> */}
     </div>
   </form >
 );

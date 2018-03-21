@@ -7,6 +7,7 @@ import TopNav from '../TopNav';
 export default class AddOrganisation extends Component {
   state = {
     notificationSystem: null,
+    checkedB: true,
     Organisation: "",
     Area: "",
     Borough: "Highbury and Islington",
@@ -16,7 +17,7 @@ export default class AddOrganisation extends Component {
     Email: "",
     Website: "",
     Services: [],
-    Category: [],
+    Categories: [],
   };
 
   componentDidMount() {
@@ -38,7 +39,7 @@ export default class AddOrganisation extends Component {
       Email: "",
       Website: "",
       Services: [],
-      Category: [],
+      Categories: [],
     })
   }
 
@@ -65,13 +66,13 @@ export default class AddOrganisation extends Component {
     })
   }
 
-  handleCheckbox = e => {
-    const listOfCategories = this.state.Category;
-    listOfCategories.push(e.target.value);
+  handleCheckBox = event => {
     this.setState({
-      Category: listOfCategories
-    })
-  }
+      [event.target.name]: event.target.checked,
+      Categories: event.target.value
+    });
+    console.log(event.target.value)
+  };
 
   handleMulitySelectChange = event => {
     this.setState({ Day: event.target.value });
@@ -94,10 +95,11 @@ export default class AddOrganisation extends Component {
             email={this.state.Email}
             website={this.state.Website}
             service={this.state.Services}
+            checkedB={this.state.checkedB}
+            handleCheckBox={this.handleCheckBox}
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}
             onChange={this.handleFieldUpdate}
-            onChangeCheckbox={this.handleCheckbox}
           />
           <button className="add-orgonaization-link" onClick={event => this.handleSubmit(event)}>SAVE CHANGES</button>
         </div>
