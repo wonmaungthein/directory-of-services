@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
+import { Redirect } from 'react-router-dom';
 import TopNav from '../TopNav';
 import AddUser from './AddUser';
 import UsersListTable from './UsersListTable';
@@ -47,6 +48,9 @@ export default class UsersPage extends Component {
       save: !this.state.save,
     });
     console.log('this.state.fullName');
+    if(this.state.save){
+    window.location = '/users/';
+    }
   };
 
   handleFieldUpdate = e =>
@@ -69,7 +73,7 @@ export default class UsersPage extends Component {
     );
 
     if (this.state.save || !showAddUsersForm) {
-      userForm = null;
+      userForm = (<Redirect to='/users' />);
     } else {
        userForm
     }

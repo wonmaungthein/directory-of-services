@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import TextField from 'material-ui/TextField';
-import { Link } from 'react-router-dom';
 import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
@@ -45,17 +44,16 @@ const AddUser = props => (
           <MenuItem value="admin">admin</MenuItem>
         </Select>
       </FormControl>
-      <Link to="/users">
-        <Button
-          variant="raised"
-          size="small"
-          type="submit"
-          className="add-user-button"
-          onClick={props.handleSubmit}
-        >
-          <Save />save
-        </Button>
-      </Link>
+
+      <Button
+        variant="raised"
+        size="small"
+        type="submit"
+        className="add-user-button"
+        onClick={props.handleSubmit}
+      >
+        <Save />save
+      </Button>
     </form>
   </Fragment>
 );
