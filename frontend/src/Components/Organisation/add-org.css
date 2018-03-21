@@ -45,9 +45,10 @@
   display: grid;
   grid-template-columns:repeat(5, 1fr);
   grid-gap: 1em;
-  border: 1px solid #000;
+  border: 1px solid #bbb;
   border-radius: .5em;
   padding: 1em;
+  box-shadow: 1px 1px 9px 3px #bbb;
 }
 .add-categories-checkbox .checkbox{
   text-overflow: ellipsis !important;

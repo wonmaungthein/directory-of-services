@@ -139,13 +139,14 @@
 .edit-org .categories-checkbox{
   display: grid;
   grid-template-columns:repeat(3, 1fr);
-  border: 1px solid #000;
+  border: 1px solid #bbb;
   padding: 1em;
   min-height: 4em;
   grid-gap: 1em;
   overflow: auto;
   margin-bottom: 1em;
   border-radius: .5em;
+  box-shadow: 1px 1px 9px 3px #bbb;
 }
 .cancel-button{
   position: absolute !important;
