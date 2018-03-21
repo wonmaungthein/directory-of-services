@@ -15,6 +15,11 @@ import Destitution from '../../Data/json/Destitution.json';
 import LGBTQI from '../../Data/json/LGBTQI.json';
 import MentalHealth from '../../Data/json/MentalHealthServices.json';
 import Healthcare from '../../Data/json/Healthcare.json';
+import EmploymentTrainingVolunteering from '../../Data/json/Employment.json';
+import GenderBasedViolence from '../../Data/json/GenderBasedViolence.json';
+import Housing from '../../Data/json/Housing.json';
+import Immigration from '../../Data/json/Immigration.json';
+import SocialandOther from '../../Data/json/SocialAndOther.json';
 import OrganisationCard from './OrganisationCard';
 import './index.css';
 
@@ -31,6 +36,18 @@ class Organisations extends Component {
       Destitution: Destitution.data,
       LGBTQI: LGBTQI.data,
       MentalHealth: MentalHealth.data,
+      CommunityCare: Healthcare.data,
+      DestitutionNRPF: Destitution.data,
+      EmploymentTrainingVolunteering: EmploymentTrainingVolunteering.data,
+      Families: YPFamilies.data,
+      GenderBasedViolence: GenderBasedViolence.data,
+      Housing: Housing.data,
+      Immigration: Immigration.data,
+      MentalHealthServices: MentalHealth.data,
+      PregnantWomenNewMothers: WomenDV.data,
+      SocialandOther: SocialandOther.data,
+      Women: WomenDV.data,
+      YoungPeopleChildren: YPFamilies.data,
       Healthcare: Healthcare.data,
     },
     editIdx: -1,
