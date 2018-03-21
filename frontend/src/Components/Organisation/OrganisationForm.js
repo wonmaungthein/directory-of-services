@@ -8,7 +8,6 @@ import { FormControl } from 'material-ui/Form';
 import orgData from '../../Data/json/Debt.json'
 
 const boroughs = orgData.data;
-const processData = orgData.data;
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Mon-Fri'];
 const areas = ['South', 'North', 'West', 'East', 'Central', 'All']
 
@@ -78,27 +77,15 @@ const OrganisationForm = (props) => (
           onChange={props.onChange}
         />
       </h4>
-      <FormControl className="form-control-filed">
-        <InputLabel className="select-lable" htmlFor="controlled-open-select">Process</InputLabel>
-        <Select
-          open={props.openSelect}
-          onClose={props.closeSelect}
-          value={props.process}
-          onChange={props.onChange}
-          inputProps={{
-            name: 'Process',
-            id: 'controlled-open-select',
-          }}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          {processData.map(process => (
-            <MenuItem value={process.Process}>{process.Process}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl >
+      <TextField
+        className="process-lable"
+        label="Process"  
+        fullWidth
+        name="Process"
+        value={props.process}
+        onChange={props.onChange}
+      />
+      <FormControl className="edit-day-field">
         <InputLabel className="select-lable" htmlFor="select-multiple">Days</InputLabel>
         <Select
           multiple
