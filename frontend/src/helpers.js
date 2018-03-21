@@ -134,7 +134,7 @@ function capitaliseAndPrettify(name) {
 
 function linkMaker(name) {
   return name
-    ? name.replace(" ", '').replace(/\b\w/g, l => l.toUpperCase())
+    ? name.replace(" ", '').replace('/', '').replace(" & ", '').replace('/', '').replace(" ", '').replace(" ", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
 }
 
