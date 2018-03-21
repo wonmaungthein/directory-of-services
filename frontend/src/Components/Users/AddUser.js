@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import TextField from 'material-ui/TextField';
+import { Link } from 'react-router-dom';
 import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
+
 import Save from 'material-ui-icons/Save';
 import Button from 'material-ui/Button';
 import Select from 'material-ui/Select';
@@ -16,11 +18,12 @@ export default class AddUser extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.setState({
+    this.setState = {
       fullName: '',
       email: '',
       role: 'editor',
-    });
+    };
+    console.log('this.state.fullName');
   };
 
   handleFieldUpdate = e =>
@@ -65,16 +68,17 @@ export default class AddUser extends Component {
               <MenuItem value="admin">admin</MenuItem>
             </Select>
           </FormControl>
-
-          <Button
-            variant="raised"
-            size="small"
-            type="submit"
-            className="add-user-button"
-            onClick={this.handleSubmit}
-          >
-            <Save />save
-          </Button>
+          <Link to="/users/">
+            <Button
+              variant="raised"
+              size="small"
+              type="submit"
+              className="add-user-button"
+              onSubmit={this.handleSubmit}
+            >
+              <Save />save
+            </Button>
+          </Link>
         </form>
       </Fragment>
     );
