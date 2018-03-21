@@ -7,7 +7,7 @@ import TopNav from '../TopNav';
 export default class AddOrganisation extends Component {
   state = {
     notificationSystem: null,
-    checkedB: true,
+    checked: false,
     Organisation: "",
     Area: "",
     Borough: "Highbury and Islington",
@@ -41,6 +41,7 @@ export default class AddOrganisation extends Component {
       Services: [],
       Categories: [],
     })
+    console.log(this.state.Categories)
   }
 
   savedChangesSuccessfully = () => {
@@ -67,11 +68,11 @@ export default class AddOrganisation extends Component {
   }
 
   handleCheckBox = event => {
+    const categoriesList = categories.push(event.target.value);
     this.setState({
       [event.target.name]: event.target.checked,
-      Categories: event.target.value
+      Categories: categoriesList;
     });
-    console.log(event.target.value)
   };
 
   handleMulitySelectChange = event => {
@@ -95,7 +96,6 @@ export default class AddOrganisation extends Component {
             email={this.state.Email}
             website={this.state.Website}
             service={this.state.Services}
-            checkedB={this.state.checkedB}
             handleCheckBox={this.handleCheckBox}
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}

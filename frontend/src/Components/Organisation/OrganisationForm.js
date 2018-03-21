@@ -6,7 +6,9 @@ import Input, { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl, FormControlLabel } from 'material-ui/Form';
 import Checkbox from 'material-ui/Checkbox';
-import orgData from '../../Data/json/Debt.json'
+import orgData from '../../Data/json/Debt.json';
+import helpers from '../../helpers';
+import categoriesData from '../../Data/Categories.json'
 
 const boroughs = orgData.data;
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Mon-Fri'];
@@ -142,18 +144,19 @@ const OrganisationForm = (props) => (
     </div>
     <h4 className="add-org-title categories-checkbox-title">Categories</h4>
     <div className="add-categories-checkbox categories-checkbox">
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={props.checkedB}
-            onChange={props.handleCheckBox}
-            value='checkedB'
-            color="primary"
-          />
-        }
-        label="Debt"
-        name="checkedB"
-      />
+      {categoriesData.map(category => 
+        <FormControlLabel
+          control={
+            <Checkbox 
+              onClick={props.handleCheckBox}
+              value={helpers.linkMaker(category)}
+              color="primary"
+            />
+          }
+        label={helpers.linkMaker(category)}
+        name={helpers.linkMaker(category)}
+        />
+      )}
       {/* <label htmlFor="category1Id">
         <input onChange={props.onChangeCheckbox} type="checkbox" id="category1Id" name="category_1" value="Debt" />
         Debt
