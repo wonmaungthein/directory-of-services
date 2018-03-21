@@ -7,7 +7,6 @@ import TopNav from '../TopNav';
 export default class AddOrganisation extends Component {
   state = {
     notificationSystem: null,
-    checked: false,
     Organisation: "",
     Area: "",
     Borough: "Highbury and Islington",
@@ -41,7 +40,6 @@ export default class AddOrganisation extends Component {
       Services: [],
       Categories: [],
     })
-    console.log(this.state.Categories)
   }
 
   savedChangesSuccessfully = () => {
@@ -68,10 +66,11 @@ export default class AddOrganisation extends Component {
   }
 
   handleCheckBox = event => {
-    const categoriesList = categories.push(event.target.value);
+    const listOfCategories = this.state.Categories;
+    listOfCategories.push(event.target.value);
     this.setState({
       [event.target.name]: event.target.checked,
-      Categories: categoriesList;
+      Categories: listOfCategories
     });
   };
 
