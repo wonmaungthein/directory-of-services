@@ -18,7 +18,7 @@ export default class EditOrganisation extends React.Component {
     Tel: "",
     Email: "",
     Website: "",
-    Category: [],
+    Categories: [],
   };
 
   componentWillMount() {
@@ -34,7 +34,7 @@ export default class EditOrganisation extends React.Component {
         Tel: data.Tel,
         Email: data.Email,
         Website: data.Website,
-        Category: [data.Category],
+        Categories: [data.Category],
 
       })
     }
@@ -74,7 +74,7 @@ export default class EditOrganisation extends React.Component {
       Tel: "",
       Email: "",
       Website: "",
-      Category: [],
+      Categories: [],
     });
     this.savedChangesSuccessfully()
   };
@@ -85,11 +85,12 @@ export default class EditOrganisation extends React.Component {
     });
   };
 
-  handleCheckbox = e => {
-    const listOfCategories = this.state.Category;
-    listOfCategories.push(e.target.value);
+  handleCheckBox = event => {
+    const listOfCategories = this.state.Categories;
+    listOfCategories.push(event.target.value);
     this.setState({
-      Category: listOfCategories,
+      [event.target.name]: event.target.checked,
+      Categories: listOfCategories
     });
   };
 
@@ -131,7 +132,7 @@ export default class EditOrganisation extends React.Component {
               closeSelect={this.handleClose}
               handleMulitySelectChange={this.handleMulitySelectChange}
               formType="edit-org"
-              onChange={this.handleFieldUpdate}
+              handleCheckBox={this.handleCheckBox}
               onChangeCheckbox={this.handleCheckbox}
             />
           </DialogContent>

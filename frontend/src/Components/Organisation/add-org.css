@@ -45,42 +45,19 @@
   display: grid;
   grid-template-columns:repeat(5, 1fr);
   grid-gap: 1em;
-  border: 2px solid #519889;
+  border: 1px solid #000;
+  border-radius: .5em;
   padding: 1em;
-  overflow: auto;
 }
-.org-content .add-categories-checkbox input[type=checkbox] + label{
-  cursor: pointer;
+.add-categories-checkbox .checkbox{
+  text-overflow: ellipsis !important;
+  white-space: wrap !important;
+  overflow: hidden;
 }
-.org-content .add-categories-checkbox label,
-.org-content .categories-checkbox label{
-  position: relative;
-  margin-left: 1.5em;
-  margin-bottom: .8em;
+.checkbox-color{
+  color: #1abcd4 !important;
 }
-.org-content .add-categories-checkbox label{
-  margin-bottom: 0;
-}
-.org-content .add-categories-checkbox input[type=checkbox], input[type=checkbox]::before{
-  content: "\2714";
-  border: 0.1em solid gray;
-  border-radius: 0.2em;
-  display: inline-block;
-  width: .8em;
-  height: .8em;
-  padding-left: 0.3em;
-  padding-right: .2em;
-  padding-bottom: 0.4em;
-  vertical-align: bottom;
-  color: transparent;
-  background: gray;
-  transition: .2s;
-  position: absolute;
-  left: -.8em;
-}
-.org-content .add-categories-checkbox input[type=checkbox]:checked::before{
-  color: #000;
-}
+
 .add-orgonaization-link{
   background: #519889;
   color: #fff;
