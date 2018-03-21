@@ -28,11 +28,15 @@
 .edit-org .health-advice-title{
   grid-column: 1/4
 }
-.edit-org .edit-process-field{
-  grid-column: 1/2
+.edit-org .process-lable{
+  grid-column: 1/4
+}
+.edit-org .process-lable >label{
+  color: #000 !important;
+  font-size: 1.5em;
 }
 .edit-org .edit-day-field{
-  grid-column: 2/4
+  grid-column: 1/4
 }
 .edit-org .telephone-label{
   grid-column: 1/2
