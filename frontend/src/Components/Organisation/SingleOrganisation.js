@@ -115,7 +115,7 @@ class SingleOrganisation extends Component {
             </DialogContent>
             <DialogActions> 
               <Button variant="fab" className="exit" onClick={this.handleClose} color="primary">
-                <i class="material-icons">exit_to_app</i>
+                <i className="material-icons">exit_to_app</i>
               </Button>
             </DialogActions>
           </Dialog>
