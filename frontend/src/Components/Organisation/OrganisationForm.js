@@ -152,7 +152,7 @@ const OrganisationForm = (props) => (
             <Checkbox 
               onChange={props.handleCheckBox}
               value={helpers.linkMaker(category)}
-               className="checkbox-color"
+              className="checkbox-color"
             />
           }
           label={category}
