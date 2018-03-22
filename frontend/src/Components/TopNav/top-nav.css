@@ -2,16 +2,14 @@
   display: flex !important;
   height: 3em;
 }
-
 a .add-orgonaization-button {
   width: 30px ;
   height: 30px ;
-  color: #53b5c7;
-  background-color: #ffffff;
-  border: 1px solid #ffffff;
-  box-shadow: 0 0 0 0;
+  min-height: 30px !important;
+  color: #000;
+  min-width: 25px !important;
+  font-size: 22px !important;
 }
-
 a .add-orgonaization-button:active {
   box-shadow: 0 0 0 0;
 }
