@@ -133,7 +133,7 @@ export default class UsersListTable extends Component {
   render() {
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows =
-      rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
+      null;
     const { editIdx } = this.state;
 
     return (
@@ -205,14 +205,6 @@ export default class UsersListTable extends Component {
                     >
                       <Save className="save" /> save
                     </Button>
-                  </TableCell>
-
-                  <TableCell className="user-text">
-                    <FormControl className="form-control-filed">
-                      <InputLabel htmlFor="controlled-open-select">
-                        Role
-                      </InputLabel>
-                    </FormControl>
                   </TableCell>
                 </tr>
               ) : (

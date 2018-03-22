@@ -2,9 +2,22 @@
   display: flex !important;
   height: 3em;
 }
-.add-orgonaization-button {
-  width: 32px !important;
-  height: 24px !important;
+
+a .add-orgonaization-button {
+  width: 30px ;
+  height: 30px ;
+  color: #53b5c7;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 0 0;
+}
+
+a .add-orgonaization-button:active {
+  box-shadow: 0 0 0 0;
+}
+
+a .add-orgonaization-button:hover {
+  background-color: #ffffff;
 }
 .login-section {
   justify-content: flex-end !important;
@@ -15,13 +28,15 @@
   color: #e0e0e0;
 }
 
-.add-new-button > a {
+.add-new-button > a  {
   text-decoration: navajowhite;
   color: #fff !important;
   align-items: center;
   display: flex;
   margin-right: 0.5em;
+
 }
+
 @media (max-width: 991px) {
   .top-nav-content {
     margin-left: 1em !important;
