@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import NotificationSystem from 'react-notification-system';
 import TopNav from '../TopNav';
 import AddUser from './AddUser';
@@ -61,16 +61,18 @@ export default class UsersPage extends Component {
     if (this.state.isFormRemove || !showAddUsersForm) {
       userForm = null;
     } else {
-      
       userForm = (
-        <AddUser
-          handleSubmit={this.handleSubmit}
-          handleFieldUpdate={this.handleFieldUpdate}
-          fullName={this.state.fullName}
-          email={this.state.email}
-          role={this.state.role}
-          savedChangesSuccessfully={this.savedChangesSuccessfully}
-        />
+        <Fragment>
+          <h2 className="add-users"> Add User </h2>
+          <AddUser
+            handleSubmit={this.handleSubmit}
+            handleFieldUpdate={this.handleFieldUpdate}
+            fullName={this.state.fullName}
+            email={this.state.email}
+            role={this.state.role}
+            savedChangesSuccessfully={this.savedChangesSuccessfully}
+          />
+        </Fragment>
       );
     }
 

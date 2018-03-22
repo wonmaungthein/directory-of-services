@@ -64,4 +64,10 @@
   background-color: #1abcd4;
 }
 
+.add-users {
+  margin: 1.5rem 0;
+  color: #45bdd4e0;
+  text-transform: uppercase;
+  margin-left: .5rem;
+}
 /* .MuiInput-underline-238:before */
