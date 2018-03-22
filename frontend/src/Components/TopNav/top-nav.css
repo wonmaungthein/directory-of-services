@@ -22,6 +22,11 @@
   display: flex;
   margin-right: 0.5em;
 }
+.add-organisation-title{
+  display: flex;
+  align-self: center;
+  font-size: 1.2em;
+}
 @media (max-width: 991px) {
   .top-nav-content {
     margin-left: 1em !important;

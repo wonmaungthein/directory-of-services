@@ -43,7 +43,7 @@ const Routes = props => {
       <main className={classes.content}>
         <div className={classes.drawerHeader} /> 
         <Route exact path="/services/:service" component={OrganisationCard} />
-        <Route exact path="/organisations/add" component={AddOrganisation} />
+        <Route exact path="/:service/organisations/add" component={AddOrganisation} />
         <Route exact path="/users" component={Users} />
         <Route exact path="/users/:form" component={Users} />
       </main>

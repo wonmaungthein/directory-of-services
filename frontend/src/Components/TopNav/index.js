@@ -25,7 +25,7 @@ const styles = theme => ({
 });
 
 const TopNav = props => {
-  const { classes, title, addLink, titleLink } = props;
+  const { classes, title, addLink, titleLink, addOrg } = props;
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
@@ -40,15 +40,25 @@ const TopNav = props => {
               <Link to={`/${titleLink}`}>
                 {helpers.capitaliseAndPrettify(title)}
               </Link>
-              <Link to={`/${addLink}`} className="add-orgnaization">
-                <Button
-                  className="add-orgonaization-button"
-                  variant="fab"
-                  aria-label="add"
-                >
-                  <AddIcon />
-                </Button>
-              </Link>
+              <Typography 
+                variant="title"
+                color="inherit"
+                className="add-organisation-title"
+                noWrap
+              >
+                {addOrg}
+              </Typography>
+              {addOrg ? false : (
+                <Link to={`/${title}/${addLink}`} className="add-orgnaization">
+                  <Button
+                    className="add-orgonaization-button"
+                    variant="fab"
+                    aria-label="add"
+                  >
+                    <AddIcon />
+                  </Button>
+                </Link>)
+              }
             </Typography>
           </Grid>
           <Grid className="login-section" item xs={4}>

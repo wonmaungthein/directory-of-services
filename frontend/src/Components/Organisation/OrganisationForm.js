@@ -144,12 +144,26 @@ const OrganisationForm = (props) => (
     </div>
     <h4 className="add-org-title categories-checkbox-title">Categories</h4>
     <div className="add-categories-checkbox categories-checkbox">
-      {categoriesData.map(category =>
+      {categoriesData.map(category => helpers.linkMaker(category) === props.checkedCategory ?
       (
         <FormControlLabel
           className="checkbox"
           control={
-            <Checkbox 
+            <Checkbox
+              checked
+              onChange={props.handleCheckBox}
+              value={props.checkedCategory}
+              className="checkbox-color"
+            />
+          }
+          label={props.checkedCategory}
+          name={props.checkedCategory}
+        />
+      ) : (
+        <FormControlLabel
+          className="checkbox"
+          control={
+            <Checkbox
               onChange={props.handleCheckBox}
               value={helpers.linkMaker(category)}
               className="checkbox-color"
@@ -158,7 +172,7 @@ const OrganisationForm = (props) => (
           label={category}
           name={helpers.linkMaker(category)}
         />
-      ))}
+      ) )}
     </div>
   </form >
 );

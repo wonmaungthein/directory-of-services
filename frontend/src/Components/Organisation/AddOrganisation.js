@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
 import OrganisationForm from './OrganisationForm';
+import helpers from '../../helpers';
 import './add-org.css';
 import TopNav from '../TopNav';
 
@@ -79,12 +80,12 @@ export default class AddOrganisation extends Component {
   };
 
   render() {
+    const checkedCategory = helpers.ckeckedCategoryName(this.props.location.pathname);
     return (
       <div>
-        <TopNav addLink="organisations/add" />
+        <TopNav addLink="add" addOrg="Add new organisation" />
         <NotificationSystem ref="savedChanges" />
         <div className="add-orgonaization">
-          <h1>Add new organisation</h1>
           <OrganisationForm
             name={this.state.Organisation}
             area={this.state.Area}
@@ -95,6 +96,7 @@ export default class AddOrganisation extends Component {
             email={this.state.Email}
             website={this.state.Website}
             service={this.state.Services}
+            checkedCategory={`${checkedCategory}`}
             handleCheckBox={this.handleCheckBox}
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}

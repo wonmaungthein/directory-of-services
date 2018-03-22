@@ -138,6 +138,12 @@ function linkMaker(name) {
     : null;
 }
 
+function ckeckedCategoryName(name) {
+  return name
+    ? name.replace('/', '').replace("/organisations/add", '').replace(/\b\w/g, l => l.toUpperCase())
+    : null;
+}
+
 export default {
   renderInput,
   renderSuggestion,
@@ -147,4 +153,5 @@ export default {
   SelectWrapped,
   capitaliseAndPrettify,
   linkMaker,
+  ckeckedCategoryName,
 };
