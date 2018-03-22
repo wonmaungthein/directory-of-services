@@ -49,7 +49,7 @@ const TopNav = props => {
                 {addOrg}
               </Typography>
               {addOrg ? false : (
-                <Link to={`/${title}/${addLink}`} className="add-orgnaization">
+                <Link to={`${addLink}`} className="add-orgnaization">
                   <Button
                     className="add-orgonaization-button"
                     variant="fab"
