@@ -34,7 +34,6 @@
   display: grid;
   grid-template-columns: 3fr 2fr 1fr;
   grid-gap: 1em;
-  margin-top: 1.5em;
 }
 .add-user .select-button {
   display: block !important;
@@ -63,5 +62,12 @@
 
 .add-user div :after{ 
   background-color: #1abcd4;
+}
+
+.add-users {
+  margin: 1.5rem 0;
+  color: #45bdd4e0;
+  text-transform: uppercase;
+  margin-left: .5rem;
 }
 /* .MuiInput-underline-238:before */
