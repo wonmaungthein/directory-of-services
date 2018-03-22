@@ -139,12 +139,13 @@
 .edit-org .categories-checkbox{
   display: grid;
   grid-template-columns:repeat(3, 1fr);
-  border: 2px solid #519889;
+  border: 1px solid #000;
   padding: 1em;
   min-height: 4em;
   grid-gap: 1em;
   overflow: auto;
   margin-bottom: 1em;
+  border-radius: .5em;
 }
 .cancel-button{
   position: absolute !important;
@@ -155,39 +156,6 @@
   bottom: 5px !important;
   left: 20px !important;
   padding: 0 2em !important;
-}
-.edit-org .add-categories-checkbox input[type=checkbox] + label,
-.edit-org .categories-checkbox input[type=checkbox] + label{
-  cursor: pointer;
-}
-.edit-org .add-categories-checkbox label,
-.edit-org .categories-checkbox label{
-  position: relative;
-  margin-left: 1.5em;
-  margin-bottom: .3em;
-}
-.edit-org .add-categories-checkbox label{
-  margin-bottom: 0;
-}
-.edit-org .categories-checkbox input[type=checkbox], input[type=checkbox]::before{
-  content: "\2714";
-  border: 0.1em solid gray;
-  border-radius: 0.2em;
-  display: inline-block;
-  width: .1em;
-  height: .1em;
-  padding-left: 0.1em;
-  padding-right: .1em;
-  padding-bottom: 0.4em;
-  vertical-align: bottom;
-  color: transparent;
-  background: gray;
-  transition: .2s;
-  position: absolute;
-  left: -1.5em;
-}
-.edit-org .categories-checkbox input[type=checkbox]:checked::before{
-  color: #000;
 }
 .save-button{
   position: absolute !important;

@@ -133,7 +133,7 @@ export default class UsersListTable extends Component {
   render() {
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows =
-      rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
+      null;
     const { editIdx } = this.state;
 
     return (

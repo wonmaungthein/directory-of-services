@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
-import { Redirect } from 'react-router-dom';
 import TopNav from '../TopNav';
 import AddUser from './AddUser';
 import UsersListTable from './UsersListTable';
@@ -12,7 +11,7 @@ export default class UsersPage extends Component {
     email: '',
     role: 'editor',
     notificationSystem: null,
-    save: false,
+    isFormRemove: false,
   };
 
   componentDidMount() {
@@ -26,7 +25,9 @@ export default class UsersPage extends Component {
       title: 'Success',
       message: 'Your Changes have been saved successfully',
       level: 'success',
-      save: !this.state.save,
+    });
+    this.setState({
+      isFormRemove: !this.state.isFormRemove,
     });
   };
 
@@ -40,42 +41,37 @@ export default class UsersPage extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.savedChangesSuccessfully();
     this.setState({
       fullName: '',
       email: '',
       role: 'editor',
-      save: !this.state.save,
+      isFormRemove: !this.state.isFormRemove,
     });
-    console.log('this.state.fullName');
-    if(this.state.save){
-    window.location = '/users/';
-    }
+    this.savedChangesSuccessfully();
   };
 
   handleFieldUpdate = e =>
     this.setState({
       [e.target.name]: e.target.value,
     });
-
   render() {
+    let userForm;
     const { params } = this.props.match;
     const showAddUsersForm = params && params.form === 'add';
-    let userForm = (
-      <AddUser
-        handleSubmit={this.handleSubmit}
-        handleFieldUpdate={this.handleFieldUpdate}
-        name={this.state.fullName}
-        email={this.state.email}
-        role={this.state.role}
-        savedChangesSuccessfully={this.savedChangesSuccessfully}
-      />
-    );
-
-    if (this.state.save || !showAddUsersForm) {
-      userForm = (<Redirect to='/users' />);
+    if (this.state.isFormRemove || !showAddUsersForm) {
+      userForm = null;
     } else {
-       userForm
+      
+      userForm = (
+        <AddUser
+          handleSubmit={this.handleSubmit}
+          handleFieldUpdate={this.handleFieldUpdate}
+          fullName={this.state.fullName}
+          email={this.state.email}
+          role={this.state.role}
+          savedChangesSuccessfully={this.savedChangesSuccessfully}
+        />
+      );
     }
 
     return (

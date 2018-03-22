@@ -4,11 +4,12 @@
 }
 
 a .add-orgonaization-button {
-  width: 34px ;
-  height: 34px ;
+  width: 30px ;
+  height: 30px ;
   color: #53b5c7;
-  border: 1px solid #45bdd4;
-  box-shadow: inset -1px 0px 20px 0px rgba(69, 189, 212, 0), 0px 6px 10px 0px rgba(69, 189, 212, 0.37), 0px 1px 18px 0px rgba(69, 189, 212, 0.62)
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 0 0;
 }
 
 a .add-orgonaization-button:active {

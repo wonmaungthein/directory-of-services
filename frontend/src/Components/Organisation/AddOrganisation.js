@@ -16,7 +16,7 @@ export default class AddOrganisation extends Component {
     Email: "",
     Website: "",
     Services: [],
-    Category: [],
+    Categories: [],
   };
 
   componentDidMount() {
@@ -38,7 +38,7 @@ export default class AddOrganisation extends Component {
       Email: "",
       Website: "",
       Services: [],
-      Category: [],
+      Categories: [],
     })
   }
 
@@ -65,13 +65,14 @@ export default class AddOrganisation extends Component {
     })
   }
 
-  handleCheckbox = e => {
-    const listOfCategories = this.state.Category;
-    listOfCategories.push(e.target.value);
+  handleCheckBox = event => {
+    const listOfCategories = this.state.Categories;
+    listOfCategories.push(event.target.value);
     this.setState({
-      Category: listOfCategories
-    })
-  }
+      [event.target.name]: event.target.checked,
+      Categories: listOfCategories
+    });
+  };
 
   handleMulitySelectChange = event => {
     this.setState({ Day: event.target.value });
@@ -94,10 +95,10 @@ export default class AddOrganisation extends Component {
             email={this.state.Email}
             website={this.state.Website}
             service={this.state.Services}
+            handleCheckBox={this.handleCheckBox}
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}
             onChange={this.handleFieldUpdate}
-            onChangeCheckbox={this.handleCheckbox}
           />
           <button className="add-orgonaization-link" onClick={event => this.handleSubmit(event)}>SAVE CHANGES</button>
         </div>

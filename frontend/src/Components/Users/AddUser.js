@@ -15,7 +15,7 @@ const AddUser = props => (
         label="Full name"
         className="full-name"
         name="fullName"
-        value={props.name}
+        value={props.fullName}
         onChange={props.handleFieldUpdate}
       />
       <TextField
