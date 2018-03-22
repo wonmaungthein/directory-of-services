@@ -3,12 +3,14 @@ import Dialog, {
   DialogTitle,
   DialogContent,
   DialogActions,
+  withMobileDialog
 } from 'material-ui/Dialog';
+import PropTypes from 'prop-types';
 import Button from 'material-ui/Button';
 import EditOrganisation from './EditOrganisation';
 import './single-org.css';
 
-export default class SingleOrganisation extends Component {
+class SingleOrganisation extends Component {
   state = {
     open: false,
     editIdx: -1,
@@ -37,6 +39,7 @@ export default class SingleOrganisation extends Component {
   };
   render() {
     const data = this.props.editOrgData;
+     const { fullScreen } = this.props;
     const index = 1;
     const { editIdx } = this.state;
     const currentlyEditing = editIdx === index;
@@ -53,6 +56,7 @@ export default class SingleOrganisation extends Component {
             <i className="material-icons">add</i>DETAILS
           </Button>
           <Dialog
+            fullScreen={fullScreen}
             className="single-org-dialog"
             open={this.state.open}
             onClose={this.handleClose}
@@ -109,8 +113,19 @@ export default class SingleOrganisation extends Component {
                 {data.Category}
               </h5>
             </DialogContent>
+            <DialogActions> 
+              <Button variant="fab" className="exit" onClick={this.handleClose} color="primary">
+                <i className="material-icons">exit_to_app</i>
+              </Button>
+            </DialogActions>
           </Dialog>
         </div>
       );
   }
 }
+
+SingleOrganisation.propTypes = {
+  fullScreen: PropTypes.bool.isRequired,
+};
+
+export default withMobileDialog()(SingleOrganisation);
