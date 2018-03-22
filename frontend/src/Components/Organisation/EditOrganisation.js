@@ -1,11 +1,12 @@
 import React from 'react';
 import Button from 'material-ui/Button';
-import Dialog, { DialogActions, DialogContent } from 'material-ui/Dialog';
+import Dialog, { DialogActions, DialogContent, withMobileDialog } from 'material-ui/Dialog';
+import PropTypes from 'prop-types';
 import NotificationSystem from 'react-notification-system';
 import OrganisationForm from './OrganisationForm';
 import './edit-org.css';
 
-export default class EditOrganisation extends React.Component {
+class EditOrganisation extends React.Component {
   state = {
     notificationSystem: null,
     open: this.props.show,
@@ -104,6 +105,7 @@ export default class EditOrganisation extends React.Component {
   };
 
   render() {
+    const { fullScreen } = this.props;
     return (
       <div>
         <Button variant="fab" raised aria-label="edit"  className="edit-button" onClick={this.props.getData}>
@@ -112,6 +114,7 @@ export default class EditOrganisation extends React.Component {
         <NotificationSystem ref="savedChanges" />
         <Dialog
           className="edit-org-dialog"
+          fullScreen={fullScreen}
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title"
@@ -165,3 +168,9 @@ export default class EditOrganisation extends React.Component {
     );
   }
 }
+
+EditOrganisation.propTypes = {
+  fullScreen: PropTypes.bool.isRequired,
+};
+
+export default withMobileDialog()(EditOrganisation);

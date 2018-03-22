@@ -67,3 +67,13 @@
   overflow: visible;
   line-height: 1.5em;
 }
+.exit{
+  width: 35px !important;
+  height:40px !important;
+  min-width:40px !important;
+  background: #1ebdd5 !important;
+  margin: 0 .5em .5em 0 !important;
+}
+.exit span>i{
+  font-size: 25px !important;
+}
