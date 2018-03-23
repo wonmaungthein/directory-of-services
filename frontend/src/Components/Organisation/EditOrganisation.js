@@ -1,11 +1,12 @@
 import React from 'react';
 import Button from 'material-ui/Button';
-import Dialog, { DialogActions, DialogContent } from 'material-ui/Dialog';
+import Dialog, { DialogActions, DialogContent, withMobileDialog } from 'material-ui/Dialog';
+import PropTypes from 'prop-types';
 import NotificationSystem from 'react-notification-system';
 import OrganisationForm from './OrganisationForm';
 import './edit-org.css';
 
-export default class EditOrganisation extends React.Component {
+class EditOrganisation extends React.Component {
   state = {
     notificationSystem: null,
     open: this.props.show,
@@ -18,7 +19,7 @@ export default class EditOrganisation extends React.Component {
     Tel: "",
     Email: "",
     Website: "",
-    Category: [],
+    Categories: [],
   };
 
   componentWillMount() {
@@ -34,14 +35,16 @@ export default class EditOrganisation extends React.Component {
         Tel: data.Tel,
         Email: data.Email,
         Website: data.Website,
-        Category: [data.Category],
+        Categories: [data.Category],
 
       })
     }
   }
 
   componentDidMount() {
-    this.state.notificationSystem = this.refs.savedChanges
+    this.setState({
+      notificationSystem: this.refs.savedChanges
+    })
   }
 
   savedChangesSuccessfully = () => {
@@ -72,7 +75,7 @@ export default class EditOrganisation extends React.Component {
       Tel: "",
       Email: "",
       Website: "",
-      Category: [],
+      Categories: [],
     });
     this.savedChangesSuccessfully()
   };
@@ -83,11 +86,12 @@ export default class EditOrganisation extends React.Component {
     });
   };
 
-  handleCheckbox = e => {
-    const listOfCategories = this.state.Category;
-    listOfCategories.push(e.target.value);
+  handleCheckBox = event => {
+    const listOfCategories = this.state.Categories;
+    listOfCategories.push(event.target.value);
     this.setState({
-      Category: listOfCategories,
+      [event.target.name]: event.target.checked,
+      Categories: listOfCategories
     });
   };
 
@@ -101,6 +105,7 @@ export default class EditOrganisation extends React.Component {
   };
 
   render() {
+    const { fullScreen } = this.props;
     return (
       <div>
         <Button variant="fab" raised aria-label="edit"  className="edit-button" onClick={this.props.getData}>
@@ -109,6 +114,7 @@ export default class EditOrganisation extends React.Component {
         <NotificationSystem ref="savedChanges" />
         <Dialog
           className="edit-org-dialog"
+          fullScreen={fullScreen}
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title"
@@ -129,8 +135,9 @@ export default class EditOrganisation extends React.Component {
               closeSelect={this.handleClose}
               handleMulitySelectChange={this.handleMulitySelectChange}
               formType="edit-org"
-              onChange={this.handleFieldUpdate}
+              handleCheckBox={this.handleCheckBox}
               onChangeCheckbox={this.handleCheckbox}
+              onChange={this.handleFieldUpdate}
             />
           </DialogContent>
           <DialogActions>
@@ -162,3 +169,9 @@ export default class EditOrganisation extends React.Component {
     );
   }
 }
+
+EditOrganisation.propTypes = {
+  fullScreen: PropTypes.bool.isRequired,
+};
+
+export default withMobileDialog()(EditOrganisation);

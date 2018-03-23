@@ -8,6 +8,7 @@ import Dialog, {
   withMobileDialog,
 } from 'material-ui/Dialog';
 
+
 class Notification extends React.Component {
   state = {
     open: false,
