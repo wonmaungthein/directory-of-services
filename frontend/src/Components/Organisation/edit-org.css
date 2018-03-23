@@ -139,7 +139,7 @@
 .edit-org .categories-checkbox{
   display: grid;
   grid-template-columns:repeat(3, 1fr);
-  border: 1px solid #bbb;
+border: 1px solid #bbb;
   padding: 1em;
   min-height: 4em;
   grid-gap: 1em;
