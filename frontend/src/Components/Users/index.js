@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import { Redirect } from 'react-router';
+
 import NotificationSystem from 'react-notification-system';
 import TopNav from '../TopNav';
 import AddUser from './AddUser';
@@ -11,7 +13,7 @@ export default class UsersPage extends Component {
     email: '',
     role: 'editor',
     notificationSystem: null,
-    isFormRemove: false,
+    hideForm: null,
   };
 
   componentDidMount() {
@@ -26,15 +28,18 @@ export default class UsersPage extends Component {
       message: 'Your Changes have been saved successfully',
       level: 'success',
     });
-    this.setState({
-      isFormRemove: !this.state.isFormRemove,
-    });
+
+    setTimeout(() => {
+      this.setState({
+        hideForm: !this.state.hideForm,
+      });
+    }, 500);
   };
 
-  unSucessSavedChanges = () => {
+  failedSavedChanges = () => {
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
-      message: 'Your Changes have not been saved successfully',
+      message: 'We could not save your changes',
       level: 'error',
     });
   };
@@ -45,7 +50,6 @@ export default class UsersPage extends Component {
       fullName: '',
       email: '',
       role: 'editor',
-      isFormRemove: !this.state.isFormRemove,
     });
     this.savedChangesSuccessfully();
   };
@@ -57,8 +61,9 @@ export default class UsersPage extends Component {
   render() {
     let userForm;
     const { params } = this.props.match;
-    const showAddUsersForm = params && params.form === 'add';
-    if (this.state.isFormRemove || !showAddUsersForm) {
+    const { hideForm } = this.state;
+    const isAddUsersPage = params && params.form === 'add';
+    if (!isAddUsersPage) {
       userForm = null;
     } else {
       userForm = (
@@ -82,6 +87,7 @@ export default class UsersPage extends Component {
         {userForm}
         <NotificationSystem ref="savedChanges" />
         <UsersListTable />
+        {hideForm ? <Redirect to="/users" /> : null}
       </div>
     );
   }
