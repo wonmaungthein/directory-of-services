@@ -137,6 +137,7 @@ class EditOrganisation extends React.Component {
               formType="edit-org"
               handleCheckBox={this.handleCheckBox}
               onChangeCheckbox={this.handleCheckbox}
+              onChange={this.handleFieldUpdate}
             />
           </DialogContent>
           <DialogActions>
