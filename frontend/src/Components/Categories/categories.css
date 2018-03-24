@@ -5,7 +5,12 @@
 .categories::-webkit-scrollbar{
   background-color: #1abcd4;
   width: .6em;
-  border-radius: .2em
+  border-radius: .2em;
+  display: none;
+}
+.categories:hover::-webkit-scrollbar,
+.categories:focus::-webkit-scrollbar{
+  display: block;
 }
 .categories::-webkit-scrollbar-thumb{
   background-color: #bbb;
