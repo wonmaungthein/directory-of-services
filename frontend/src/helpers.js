@@ -140,7 +140,7 @@ function linkMaker(name) {
 
 function ckeckedCategoryName(name) {
   return name
-    ? name.replace('/', '').replace("/add", '').replace(/\b\w/g, l => l.toUpperCase())
+    ? name.replace('/', '').replace("services/", '').replace("/add", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
 }
 
