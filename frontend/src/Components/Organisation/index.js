@@ -65,6 +65,37 @@ class Organisations extends Component {
     });
   };
 
+  deleteOrganisation = (category, orgId) => {
+    const newData = this.state.organisations && this.state.organisations[category] ? this.state.organisations[category].filter(org => org._id !== orgId) : [];
+    this.setState({
+      organisations: {
+        Education: Education.data,
+        Debt: Debt.data,
+        Benefits: Benefits.data,
+        YPFamilies: YPFamilies.data,
+        WomenDV: WomenDV.data,
+        Trafficking: Trafficking.data,
+        Destitution: Destitution.data,
+        LGBTQI: LGBTQI.data,
+        MentalHealth: MentalHealth.data,
+        CommunityCare: Healthcare.data,
+        DestitutionNRPF: Destitution.data,
+        EmploymentTrainingVolunteering: EmploymentTrainingVolunteering.data,
+        Families: YPFamilies.data,
+        GenderBasedViolence: GenderBasedViolence.data,
+        Housing: Housing.data,
+        Immigration: Immigration.data,
+        MentalHealthServices: MentalHealth.data,
+        PregnantWomenNewMothers: WomenDV.data,
+        SocialandOther: SocialandOther.data,
+        Women: WomenDV.data,
+        YoungPeopleChildren: YPFamilies.data,
+        Healthcare: Healthcare.data,
+        [category]: newData,
+      }
+    })
+  }
+
   render() {
     const { editIdx } = this.state;
     const { params } = this.props.match;
@@ -72,6 +103,7 @@ class Organisations extends Component {
       params && params.service
         ? helpers.capitaliseAndPrettify(params.service)
         : null;
+
     const organisations = this.state.organisations && this.state.organisations[service] ? this.state.organisations[service] : [];
     return (
       <div>
@@ -86,7 +118,7 @@ class Organisations extends Component {
                 <SingleOrganisation stopEditing={this.stopEditing} handleShawDetails editOrgData={org} />
               </Fragment>) : (
                 <Grid item xs={12} sm={6} key={org.id}>
-                  <OrganisationCard getData={() => this.editSelectedOrganisation(index)} {...org} org={org} index={index} />
+                  <OrganisationCard deleteOrganisation={() => this.deleteOrganisation(helpers.filterCategoryName(this.props.match.url), org._id)} getData={() => this.editSelectedOrganisation(index)} {...org} org={org} index={index} />
                 </Grid>
               )
           })}

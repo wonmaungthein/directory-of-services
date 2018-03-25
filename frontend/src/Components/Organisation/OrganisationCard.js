@@ -1,13 +1,12 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
-import EditOrganisation from './EditOrganisation';
 import SingleOrganisation from './SingleOrganisation';
+import Notification from '../Users/Notification';
 import './index.css';
 
-const OrganisationCard = ({ org, Organisation, Area, Services, Process, getData }) =>
+const OrganisationCard = ({ org, Organisation, Area, Services, Process, deleteOrganisation }) =>
   (
     <Paper className="form-card">
-      <EditOrganisation getData={getData} />
       <SingleOrganisation editOrgData={org} />
       <div className="single-orgonaization-details">
         <h4>{Organisation}</h4>
@@ -19,6 +18,7 @@ const OrganisationCard = ({ org, Organisation, Area, Services, Process, getData 
           <p> - {Process}</p>
         </div>
       </div>
+      <Notification removeUser={deleteOrganisation} />
     </Paper>
   );
 
