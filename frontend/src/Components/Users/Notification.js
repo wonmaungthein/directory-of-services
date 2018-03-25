@@ -41,7 +41,7 @@ class Notification extends React.Component {
             <DialogTitle>
               {this.props.match.url.includes('/users') ?  
                 "Are you sure want to delete this user":
-                "Are you sure want to delete this Category"
+                "Are you sure want to delete this Organisation"
               }
             </DialogTitle>
             <DialogActions>
