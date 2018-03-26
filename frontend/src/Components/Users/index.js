@@ -11,7 +11,7 @@ export default class UsersPage extends Component {
   state = {
     fullName: '',
     email: '',
-    role: 'editor',
+    role: '',
     notificationSystem: null,
     hideForm: null,
   };
@@ -49,7 +49,7 @@ export default class UsersPage extends Component {
     this.setState({
       fullName: '',
       email: '',
-      role: 'editor',
+      role: '',
     });
     this.savedChangesSuccessfully();
   };

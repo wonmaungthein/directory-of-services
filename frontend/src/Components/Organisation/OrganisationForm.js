@@ -23,6 +23,8 @@ const OrganisationForm = (props) => (
         className="edit-orgnasiation-name"
         label="Organisation name"
         name="Organisation"
+        multiline
+        rowsMax="4"
         value={props.name}
         onChange={props.onChange}
         fullWidth
@@ -77,6 +79,8 @@ const OrganisationForm = (props) => (
         <TextField
           className="not-include-in-add-org health-advice"
           fullWidth
+          multiline
+          rowsMax="4"
           name="Services"
           value={props.service}
           onChange={props.onChange}
@@ -86,6 +90,8 @@ const OrganisationForm = (props) => (
         className="process-lable"
         label="Process"  
         fullWidth
+        multiline
+        rowsMax="4"
         name="Process"
         value={props.process}
         onChange={props.onChange}
@@ -112,6 +118,8 @@ const OrganisationForm = (props) => (
         className="telephone-label"
         label="Telephone"
         name="Tel"
+        multiline
+        rowsMax="4"
         value={props.telephone}
         onChange={props.onChange}
         fullWidth
@@ -120,6 +128,8 @@ const OrganisationForm = (props) => (
         className="email-label"
         label="Email"
         name="Email"
+        multiline
+        rowsMax="4"
         value={props.email}
         onChange={props.onChange}
         fullWidth
@@ -128,6 +138,8 @@ const OrganisationForm = (props) => (
         className="email-label add-website"
         label="Website"
         name="Website"
+        multiline
+        rowsMax="4"
         value={props.website}
         onChange={props.onChange}
         fullWidth
@@ -138,6 +150,7 @@ const OrganisationForm = (props) => (
         multiline
         rows="4"
         label="Service"
+        rowsMax="4"
         fullWidth
         name="Services"
         value={props.service}

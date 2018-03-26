@@ -161,7 +161,7 @@ class EditOrganisation extends React.Component {
               onClick={this.handleClose}
               className="edit-org-close-button"
             >
-              <i className="material-icons">close</i>
+              Close<i className="material-icons">close</i>
             </button>
           </DialogActions>
         </Dialog>
