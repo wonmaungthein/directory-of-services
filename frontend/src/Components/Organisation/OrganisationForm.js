@@ -6,13 +6,15 @@ import Input, { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl, FormControlLabel } from 'material-ui/Form';
 import Checkbox from 'material-ui/Checkbox';
-import orgData from '../../Data/json/Debt.json';
+import BoroughData from '../../Data/Boroughs.json';
 import helpers from '../../helpers';
 import categoriesData from '../../Data/Categories.json'
 
-const boroughs = orgData.data;
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Mon-Fri'];
-const areas = ['South', 'North', 'West', 'East', 'Central', 'All']
+const areas = ['South', 'North', 'West', 'East', 'Central', 'All'];
+const sortedBorough = BoroughData.map(borough => borough.borough).filter((elem, index, self) =>
+  index === self.indexOf(elem)
+).sort();
 
 const OrganisationForm = (props) => (
   <form className={props.formType}>
@@ -67,8 +69,8 @@ const OrganisationForm = (props) => (
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            {boroughs.map(borough => (
-              <MenuItem value={borough.Borough}>{borough.Borough}</MenuItem>
+            {sortedBorough.map(borough => (
+              <MenuItem value={borough}>{borough}</MenuItem>
             ))}
           </Select>
         </FormControl>
