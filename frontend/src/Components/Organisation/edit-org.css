@@ -47,6 +47,9 @@
 .edit-org .health-advice{
   top: -5px !important;
 }
+.edit-org .health-advice textarea{
+  font-weight: initial !important;
+}
 .edit-field .select-lable{
   font-size: 1.5em;
   color: #000;
@@ -70,7 +73,7 @@
 .edit-org .website-label input:nth-child(1){
   color: #519889 !important;
 }
-.edit-org .edit-orgnasiation-name input:nth-child(1){
+.edit-org .edit-orgnasiation-name textarea{
   font-size: 1.5em !important;
 }
 .edit-org .text-field,
@@ -119,8 +122,9 @@
 }
 .edit-org-close-button{
   position: absolute;
-  right: -24px;
-  top: -25px;
+  right: -5px;
+  display: flex;
+  top: -27px;
   background: transparent;
   border: navajowhite;
   color: #bbb;
@@ -139,7 +143,7 @@
 .edit-org .categories-checkbox{
   display: grid;
   grid-template-columns:repeat(3, 1fr);
-  border: 1px solid #bbb;
+border: 1px solid #bbb;
   padding: 1em;
   min-height: 4em;
   grid-gap: 1em;

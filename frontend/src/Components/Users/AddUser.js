@@ -37,11 +37,11 @@ const AddUser = props => (
             id: 'controlled-open-select',
           }}
         >
-          <MenuItem value="">
+          <MenuItem value="None">
             <em>None</em>
           </MenuItem>
-          <MenuItem value="editor">editor</MenuItem>
-          <MenuItem value="admin">admin</MenuItem>
+          <MenuItem value="Editor">Editor</MenuItem>
+          <MenuItem value="Admin">Admin</MenuItem>
         </Select>
       </FormControl>
 
