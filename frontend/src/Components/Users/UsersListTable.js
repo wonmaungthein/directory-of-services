@@ -15,11 +15,12 @@ import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import Save from 'material-ui-icons/Save';
 import NotificationSystem from 'react-notification-system';
-import Modal from '../UI/Modal/Modal';
+import Dialog from '../UI/Dialog/Dialog';
 
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
 import usersData from './usersData.json';
+console.log(usersData)
 
 export default class UsersListTable extends Component {
   constructor(props, context) {
@@ -215,9 +216,10 @@ export default class UsersListTable extends Component {
                     <Button onClick={() => this.startEditing(index)} raised>
                       <i className="material-icons">edit</i>
                     </Button>
-                    <Modal
+                    <Dialog
                       value={row.name}
                       removeUser={() => this.removeUser(index)}
+                      title='USER'
                     />
                   </TableCell>
                 </TableRow>

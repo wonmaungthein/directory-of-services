@@ -8,7 +8,6 @@ import Dialog, {
   withMobileDialog,
 } from 'material-ui/Dialog';
 
-import './Modal.css';
 
 class Notification extends React.Component {
   state = {
@@ -34,8 +33,8 @@ class Notification extends React.Component {
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title"
         >
-        <div className= "modal">
-          <DialogTitle id="responsive-dialog-title" />
+        <div>
+          <DialogTitle id="responsive-dialog-title">{this.props.title}</DialogTitle>
           <DialogContent>
             <DialogContentText className="modal-text">
               <p>Do wish to delete <b> {this.props.value} </b> premanently from the list ?</p>
