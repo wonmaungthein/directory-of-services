@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Button from 'material-ui/Button';
 import { withRouter } from 'react-router-dom';
 import Dialog, {
@@ -22,25 +22,30 @@ class Notification extends React.Component {
     this.setState({ open: false });
   };
 
-  render() {
-    return (
-      <React.Fragment> {this.props.match.url.includes('/users') ?
+  checkComponentLink = () =>
+    (
+      this.props.match.url.includes('/users') ?
         <Button onClick={this.handleClickOpen} raised>
           <i className="material-icons">delete</i>
         </Button> :
         <Button variant="fab" aria-label="edit" className="edit-button" onClick={this.handleClickOpen} raised>
           <i className="material-icons delete-org">delete</i>
         </Button>
-      }
+    )
+
+  render() {
+    return (
+      <Fragment>
+        {this.checkComponentLink()}
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title"
         >
-          <DialogContent className="delete-notification">  
+          <DialogContent className="delete-notification">
             <DialogTitle>
-              {this.props.match.url.includes('/users') ?  
-                "Are you sure want to delete this user":
+              {this.props.match.url.includes('/users') ?
+                "Are you sure want to delete this user" :
                 "Are you sure want to delete this Organisation"
               }
             </DialogTitle>
@@ -48,13 +53,13 @@ class Notification extends React.Component {
               <Button onClick={this.handleClose} variant="raised">
                 Cancel
               </Button>
-              <Button onClick={() => { this.props.removeUser(); this.handleClose() }} variant="raised" color="secondary">
+              <Button onClick={() => { this.props.removeHandler(); this.handleClose() }} variant="raised" color="secondary">
                 Delete
               </Button>
             </DialogActions>
           </DialogContent>
         </Dialog>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

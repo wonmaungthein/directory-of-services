@@ -137,7 +137,7 @@ function linkMaker(name) {
     ? name.replace(" ", '').replace('/', '').replace(" & ", '').replace('/', '').replace(" ", '').replace(" ", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
 }
-function filterCategoryName(name) {
+function reformatCategoryName(name) {
   return name
     ? name.replace("/services/", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
@@ -152,5 +152,5 @@ export default {
   SelectWrapped,
   capitaliseAndPrettify,
   linkMaker,
-  filterCategoryName
+  reformatCategoryName
 };

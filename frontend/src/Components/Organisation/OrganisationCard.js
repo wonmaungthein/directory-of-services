@@ -18,7 +18,7 @@ const OrganisationCard = ({ org, Organisation, Area, Services, Process, deleteOr
           <p> - {Process}</p>
         </div>
       </div>
-      <Notification removeUser={deleteOrganisation} />
+      <Notification removeHandler={deleteOrganisation} />
     </Paper>
   );
 

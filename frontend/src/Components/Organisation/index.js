@@ -118,7 +118,7 @@ class Organisations extends Component {
                 <SingleOrganisation stopEditing={this.stopEditing} handleShawDetails editOrgData={org} />
               </Fragment>) : (
                 <Grid item xs={12} sm={6} key={org.id}>
-                  <OrganisationCard deleteOrganisation={() => this.deleteOrganisation(helpers.filterCategoryName(this.props.match.url), org._id)} getData={() => this.editSelectedOrganisation(index)} {...org} org={org} index={index} />
+                  <OrganisationCard deleteOrganisation={() => this.deleteOrganisation(helpers.reformatCategoryName(this.props.match.url), org._id)} getData={() => this.editSelectedOrganisation(index)} {...org} org={org} index={index} />
                 </Grid>
               )
           })}
