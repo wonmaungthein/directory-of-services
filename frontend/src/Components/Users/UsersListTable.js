@@ -20,7 +20,6 @@ import Dialog from '../UI/Dialog/Dialog';
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
 import usersData from './usersData.json';
-console.log(usersData)
 
 export default class UsersListTable extends Component {
   constructor(props, context) {
