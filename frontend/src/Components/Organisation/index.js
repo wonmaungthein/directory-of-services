@@ -23,6 +23,7 @@ import SocialandOther from '../../Data/json/SocialAndOther.json';
 import OrganisationCard from './OrganisationCard';
 import './index.css';
 
+
 class Organisations extends Component {
 
   state = {
