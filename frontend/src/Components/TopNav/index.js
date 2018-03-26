@@ -28,14 +28,14 @@ const styles = theme => ({
 
 const TopNav = props => {
   const { classes, addLink, titleLink } = props;
-  let {title} = props;
+  let { title } = props;
 
-  Categories.forEach((t, i) => {
-       if(t.replace(/\s+/g, '') === title){
-         title = Categories[i]; 
-       }
-    })
-    
+  Categories.forEach((categorie, index) => {            // This logic help to make title which appear on top-nav look like  the categories's name
+    if (categorie.replace(/\s+/g, '') === title) {      // the user has clicked with sapace between words ie no like one single word 
+      title = Categories[index];
+    }
+  });
+
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
