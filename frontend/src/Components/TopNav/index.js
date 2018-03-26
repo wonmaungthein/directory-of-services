@@ -8,6 +8,8 @@ import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import AddIcon from 'material-ui-icons/Add';
+import Categories from '../../Data/Categories.json';
+
 import './top-nav.css';
 import helpers from '../../helpers';
 
@@ -25,7 +27,15 @@ const styles = theme => ({
 });
 
 const TopNav = props => {
-  const { classes, title, addLink, titleLink } = props;
+  const { classes, addLink, titleLink } = props;
+  let {title} = props;
+
+  Categories.forEach((t, i) => {
+       if(t.replace(/\s+/g, '') === title){
+         title = Categories[i]; 
+       }
+    })
+    
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
