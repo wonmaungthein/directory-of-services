@@ -80,7 +80,7 @@ export default class AddOrganisation extends Component {
   };
 
   render() {
-    const checkedCategory = helpers.ckeckedCategoryName(this.props.location.pathname);
+    const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     return (
       <div>
         <TopNav addLink="add" addOrg="Add new organisation" />

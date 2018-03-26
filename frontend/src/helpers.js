@@ -138,7 +138,7 @@ function linkMaker(name) {
     : null;
 }
 
-function ckeckedCategoryName(name) {
+function categoryNameMaker(name) {
   return name
     ? name.replace('/', '').replace("services/", '').replace("/add", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
@@ -153,5 +153,5 @@ export default {
   SelectWrapped,
   capitaliseAndPrettify,
   linkMaker,
-  ckeckedCategoryName,
+  categoryNameMaker,
 };
