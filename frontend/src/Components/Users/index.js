@@ -5,6 +5,7 @@ import NotificationSystem from 'react-notification-system';
 import TopNav from '../TopNav';
 import AddUser from './AddUser';
 import UsersListTable from './UsersListTable';
+import usersData from './usersData.json';
 import './users.css';
 
 export default class UsersPage extends Component {
@@ -46,12 +47,21 @@ export default class UsersPage extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.addNewUser();
     this.setState({
       fullName: '',
       email: '',
       role: '',
     });
     this.savedChangesSuccessfully();
+  };
+
+  addNewUser = () => {
+    usersData.unshift({
+      name: this.state.fullName,
+      email: this.state.email,
+      role: this.state.role,
+    });
   };
 
   handleFieldUpdate = e =>
