@@ -75,7 +75,7 @@ class Organisations extends Component {
     const organisations = this.state.organisations && this.state.organisations[service] ? this.state.organisations[service] : [];
     return (
       <div>
-        <TopNav title={service} addLink="organisations/add" titleLink={`services/${service}`} />
+        <TopNav title={service} addLink={service} titleLink={`services/${service}`} />
         <Search />
         <Grid container className="organisation-page" spacing={24}>
           {organisations.map((org, index) => {
