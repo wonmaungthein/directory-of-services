@@ -70,4 +70,11 @@
   text-transform: uppercase;
   margin-left: .5rem;
 }
+
+.delete-notification{
+  background: #000;
+}
+.delete-notification div h2{
+  color: yellow;
+}
 /* .MuiInput-underline-238:before */

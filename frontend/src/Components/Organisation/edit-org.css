@@ -99,15 +99,17 @@
   border: none !important;
   background: transparent;
   position: absolute !important;
-  right: 20px;
-  top: 10px;
+  right: 10px !important;
+  top: 10px !important;
   font-weight: bold;
   color: #1abcd4;
   outline: none !important;
-}
-.edit-button{
   width: 37px !important;
   height: 30px !important;
+}
+.edit-button .delete-org{
+  color: #e10050 ;
+  font-size: 20px;
 }
 .edit-logo{
   position: absolute;
