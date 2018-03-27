@@ -143,6 +143,12 @@ function reformatCategoryName(name) {
     : null;
 }
 
+function categoryNameMaker(name) {
+  return name
+    ? name.replace('/', '').replace("services/", '').replace("/add", '').replace(/\b\w/g, l => l.toUpperCase())
+    : null;
+}
+
 export default {
   renderInput,
   renderSuggestion,
@@ -152,5 +158,6 @@ export default {
   SelectWrapped,
   capitaliseAndPrettify,
   linkMaker,
-  reformatCategoryName
+  reformatCategoryName,
+  categoryNameMaker
 };

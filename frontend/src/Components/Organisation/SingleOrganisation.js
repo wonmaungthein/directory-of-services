@@ -70,7 +70,7 @@ class SingleOrganisation extends Component {
               onClick={this.handleClose}
               className="single-oganisation-close-button"
             >
-              <i className="material-icons">close</i>
+              Close<i className="material-icons">close</i>
             </button>
           </DialogActions>
           <EditOrganisation
