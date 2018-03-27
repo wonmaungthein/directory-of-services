@@ -47,7 +47,7 @@ export default class UsersPage extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.addNewUser();
+    this.addNewUserHandler();
     this.setState({
       fullName: '',
       email: '',
@@ -56,7 +56,7 @@ export default class UsersPage extends Component {
     this.savedChangesSuccessfully();
   };
 
-  addNewUser = () => {
+  addNewUserHandler = () => {
     usersData.unshift({
       name: this.state.fullName,
       email: this.state.email,
