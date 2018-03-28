@@ -159,5 +159,6 @@ export default {
   capitaliseAndPrettify,
   linkMaker,
   reformatCategoryName,
-  categoryNameMaker
+  categoryNameMaker,
+  
 };
