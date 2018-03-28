@@ -137,6 +137,7 @@ class EditOrganisation extends React.Component {
               formType="edit-org"
               handleCheckBox={this.handleCheckBox}
               onChangeCheckbox={this.handleCheckbox}
+              onChange={this.handleFieldUpdate}
             />
           </DialogContent>
           <DialogActions>
@@ -160,7 +161,7 @@ class EditOrganisation extends React.Component {
               onClick={this.handleClose}
               className="edit-org-close-button"
             >
-              <i className="material-icons">close</i>
+              Close<i className="material-icons">close</i>
             </button>
           </DialogActions>
         </Dialog>

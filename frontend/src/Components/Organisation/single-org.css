@@ -24,14 +24,12 @@
   right: 0;
   bottom: 0;
   z-index: 2;
-  color: #ddd !important;
-  border-radius: 0 !important;
-  background: rgba(0, 0, 0, .6) !important;
 }
 .single-oganisation-close-button{
   position: absolute;
-  right: -24px;
-  top: -25px;
+  right: -5px;
+  display: flex;
+  top: -27px;
   background: transparent;
   border: navajowhite;
   color: #bbb;

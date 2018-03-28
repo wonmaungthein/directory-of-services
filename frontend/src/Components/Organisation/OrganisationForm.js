@@ -6,13 +6,15 @@ import Input, { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl, FormControlLabel } from 'material-ui/Form';
 import Checkbox from 'material-ui/Checkbox';
-import orgData from '../../Data/json/Debt.json';
+import BoroughData from '../../Data/Boroughs.json';
 import helpers from '../../helpers';
 import categoriesData from '../../Data/Categories.json'
 
-const boroughs = orgData.data;
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Mon-Fri'];
-const areas = ['South', 'North', 'West', 'East', 'Central', 'All']
+const areas = ['South', 'North', 'West', 'East', 'Central', 'All'];
+const sortedBorough = BoroughData.map(borough => borough.borough).filter((elem, index, self) =>
+  index === self.indexOf(elem)
+).sort();
 
 const OrganisationForm = (props) => (
   <form className={props.formType}>
@@ -21,6 +23,8 @@ const OrganisationForm = (props) => (
         className="edit-orgnasiation-name"
         label="Organisation name"
         name="Organisation"
+        multiline
+        rowsMax="4"
         value={props.name}
         onChange={props.onChange}
         fullWidth
@@ -65,8 +69,8 @@ const OrganisationForm = (props) => (
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            {boroughs.map(borough => (
-              <MenuItem value={borough.Borough}>{borough.Borough}</MenuItem>
+            {sortedBorough.map(borough => (
+              <MenuItem value={borough}>{borough}</MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -75,6 +79,8 @@ const OrganisationForm = (props) => (
         <TextField
           className="not-include-in-add-org health-advice"
           fullWidth
+          multiline
+          rowsMax="4"
           name="Services"
           value={props.service}
           onChange={props.onChange}
@@ -84,6 +90,8 @@ const OrganisationForm = (props) => (
         className="process-lable"
         label="Process"  
         fullWidth
+        multiline
+        rowsMax="4"
         name="Process"
         value={props.process}
         onChange={props.onChange}
@@ -110,6 +118,8 @@ const OrganisationForm = (props) => (
         className="telephone-label"
         label="Telephone"
         name="Tel"
+        multiline
+        rowsMax="4"
         value={props.telephone}
         onChange={props.onChange}
         fullWidth
@@ -118,6 +128,8 @@ const OrganisationForm = (props) => (
         className="email-label"
         label="Email"
         name="Email"
+        multiline
+        rowsMax="4"
         value={props.email}
         onChange={props.onChange}
         fullWidth
@@ -126,6 +138,8 @@ const OrganisationForm = (props) => (
         className="email-label add-website"
         label="Website"
         name="Website"
+        multiline
+        rowsMax="4"
         value={props.website}
         onChange={props.onChange}
         fullWidth
@@ -136,6 +150,7 @@ const OrganisationForm = (props) => (
         multiline
         rows="4"
         label="Service"
+        rowsMax="4"
         fullWidth
         name="Services"
         value={props.service}
@@ -144,12 +159,26 @@ const OrganisationForm = (props) => (
     </div>
     <h4 className="add-org-title categories-checkbox-title">Categories</h4>
     <div className="add-categories-checkbox categories-checkbox">
-      {categoriesData.map(category =>
+      {categoriesData.map(category => helpers.linkMaker(category) === props.checkedCategory ?
       (
         <FormControlLabel
           className="checkbox"
           control={
-            <Checkbox 
+            <Checkbox
+              checked
+              onChange={props.handleCheckBox}
+              value={props.checkedCategory}
+              className="checkbox-color"
+            />
+          }
+          label={props.checkedCategory}
+          name={props.checkedCategory}
+        />
+      ) : (
+        <FormControlLabel
+          className="checkbox"
+          control={
+            <Checkbox
               onChange={props.handleCheckBox}
               value={helpers.linkMaker(category)}
               className="checkbox-color"
@@ -158,7 +187,7 @@ const OrganisationForm = (props) => (
           label={category}
           name={helpers.linkMaker(category)}
         />
-      ))}
+      ) )}
     </div>
   </form >
 );

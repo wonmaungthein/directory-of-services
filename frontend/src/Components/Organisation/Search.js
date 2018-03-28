@@ -109,7 +109,7 @@ class Search extends React.Component {
             renderSuggestion={helpers.renderSuggestion}
             inputProps={{
               classes,
-              placeholder: 'Search Borough',
+              placeholder: 'Search Near',
               name: 'postCode',
               value: this.state.postCode,
               onChange: this.handlePostCodeChange,
@@ -125,7 +125,7 @@ class Search extends React.Component {
             inputProps={{
               value: this.state.day,
               onChange: this.handleSelectedDay,
-              placeholder: 'Select day',
+              placeholder: 'Select Day',
               instanceId: 'selectDay',
               id: 'selectday',
               name: 'day',
