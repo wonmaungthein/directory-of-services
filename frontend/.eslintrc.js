@@ -24,7 +24,8 @@ module.exports = {
     'consistent-return': 'off',
     'react/prop-types': 'off',
     'react/no-string-refs': 'off',
-    'react/no-did-mount-set-state': 'off'
+    'react/no-did-mount-set-state': 'off',
+    'no-underscore-dangle': 'off'
   },
   settings: {
     'import/resolver': {

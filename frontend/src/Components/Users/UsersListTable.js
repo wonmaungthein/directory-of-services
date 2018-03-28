@@ -218,7 +218,7 @@ export default class UsersListTable extends Component {
                     <Button onClick={() => this.startEditing(index)} raised>
                       <i className="material-icons">edit</i>
                     </Button>
-                    <Notification removeUser={() => this.removeUser(index)} />{' '}
+                    <Notification removeHandler={() => this.removeUser(index)} />{' '}
                   </TableCell>
                 </TableRow>
               );

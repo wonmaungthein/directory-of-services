@@ -54,7 +54,7 @@ class SingleOrganisation extends Component {
         <Button
           onClick={this.editSelectedOrganisation}
           variant="raised"
-          size="small"
+          size="small" 
           className="orgnaization-detais-button button-title"
         >
           <i className="material-icons">add</i>DETAILS
@@ -70,7 +70,7 @@ class SingleOrganisation extends Component {
               onClick={this.handleClose}
               className="single-oganisation-close-button"
             >
-              <i className="material-icons">close</i>
+              Close<i className="material-icons">close</i>
             </button>
           </DialogActions>
           <EditOrganisation
