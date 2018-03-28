@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
+import { withRouter } from 'react-router-dom';
 import OrganisationForm from './OrganisationForm';
 import helpers from '../../helpers';
 import './add-org.css';
 import TopNav from '../TopNav';
 
-export default class AddOrganisation extends Component {
+class AddOrganisation extends Component {
   state = {
     notificationSystem: null,
     Organisation: "",
@@ -27,6 +28,7 @@ export default class AddOrganisation extends Component {
   }
 
   handleSubmit = (e) => {
+    const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     e.preventDefault();
     this.savedChangesSuccessfully();
     this.setState({
@@ -40,7 +42,8 @@ export default class AddOrganisation extends Component {
       Website: "",
       Services: [],
       Categories: [],
-    })
+    });
+    this.props.history.push(`/services/${checkedCategory}`);
   }
 
   savedChangesSuccessfully = () => {
@@ -108,3 +111,5 @@ export default class AddOrganisation extends Component {
     )
   }
 }
+
+export default withRouter(props => <AddOrganisation {...props} />);
