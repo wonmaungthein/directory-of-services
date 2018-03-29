@@ -134,8 +134,38 @@ function capitaliseAndPrettify(name) {
 
 function linkMaker(name) {
   return name
-    ? name.replace(" ", '').replace('/', '').replace(" & ", '').replace('/', '').replace(" ", '').replace(" ", '').replace(/\b\w/g, l => l.toUpperCase())
+    ? name
+        .replace(' ', '')
+        .replace('/', '')
+        .replace(' & ', '')
+        .replace('/', '')
+        .replace(' ', '')
+        .replace(' ', '')
+        .replace(/\b\w/g, l => l.toUpperCase())
     : null;
+}
+function reformatCategoryName(name) {
+  return name
+    ? name.replace('/services/', '').replace(/\b\w/g, l => l.toUpperCase())
+    : null;
+}
+
+function categoryNameMaker(name) {
+  return name
+    ? name
+        .replace('/', '')
+        .replace('services/', '')
+        .replace('/add', '')
+        .replace(/\b\w/g, l => l.toUpperCase())
+    : null;
+}
+
+function addSpace(cate, cateTitle) {
+  return cate.map((category, index) => {
+    if (linkMaker(category) === cateTitle) {
+      return cateTitle = cate[index].replace('/', ' ').replace('/', ' ')
+    }
+  });
 }
 
 export default {
@@ -147,4 +177,7 @@ export default {
   SelectWrapped,
   capitaliseAndPrettify,
   linkMaker,
+  reformatCategoryName,
+  categoryNameMaker,
+  addSpace
 };

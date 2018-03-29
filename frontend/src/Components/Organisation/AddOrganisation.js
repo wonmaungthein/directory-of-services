@@ -7,40 +7,40 @@ import TopNav from '../TopNav';
 export default class AddOrganisation extends Component {
   state = {
     notificationSystem: null,
-    Organisation: "",
-    Area: "",
-    Borough: "",
-    Process: "",
-    Day: [""],
-    Tel: "",
-    Email: "",
-    Website: "",
+    Organisation: '',
+    Area: '',
+    Borough: '',
+    Process: '',
+    Day: [''],
+    Tel: '',
+    Email: '',
+    Website: '',
     Services: [],
     Categories: [],
   };
 
   componentDidMount() {
     this.setState({
-      notificationSystem: this.refs.savedChanges
-    })
+      notificationSystem: this.refs.savedChanges,
+    });
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.savedChangesSuccessfully();
     this.setState({
-      Organisation: "",
-      Area: "",
-      Borough: "",
-      Process: "",
+      Organisation: '',
+      Area: '',
+      Borough: '',
+      Process: '',
       Day: [],
-      Tel: "",
-      Email: "",
-      Website: "",
+      Tel: '',
+      Email: '',
+      Website: '',
       Services: [],
       Categories: [],
-    })
-  }
+    });
+  };
 
   savedChangesSuccessfully = () => {
     this.state.notificationSystem.addNotification({
@@ -48,29 +48,29 @@ export default class AddOrganisation extends Component {
       message: 'Your Changes have been saved successfully',
       level: 'success',
     });
-  }
+  };
 
-  unSucessSavedChanges = (event) => {
+  unSucessSavedChanges = event => {
     event.preventDefault();
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
       message: 'Your Changes have not been saved successfully',
       level: 'error',
     });
-  }
+  };
 
   handleFieldUpdate = event => {
     this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
+      [event.target.name]: event.target.value,
+    });
+  };
 
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
     listOfCategories.push(event.target.value);
     this.setState({
       [event.target.name]: event.target.checked,
-      Categories: listOfCategories
+      Categories: listOfCategories,
     });
   };
 
@@ -100,9 +100,14 @@ export default class AddOrganisation extends Component {
             handleMulitySelectChange={this.handleMulitySelectChange}
             onChange={this.handleFieldUpdate}
           />
-          <button className="add-orgonaization-link" onClick={event => this.handleSubmit(event)}>SAVE CHANGES</button>
+          <button
+            className="add-orgonaization-link"
+            onClick={event => this.handleSubmit(event)}
+          >
+            SAVE CHANGES
+          </button>
         </div>
       </div>
-    )
+    );
   }
 }

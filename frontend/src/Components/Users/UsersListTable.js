@@ -15,7 +15,7 @@ import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import Save from 'material-ui-icons/Save';
 import NotificationSystem from 'react-notification-system';
-import Dialog from '../UI/Dialog/Dialog';
+import Notification from './Notification';
 
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
@@ -215,9 +215,9 @@ export default class UsersListTable extends Component {
                     <Button onClick={() => this.startEditing(index)} raised>
                       <i className="material-icons">edit</i>
                     </Button>
-                    <Dialog
+                    <Notification
                       value={row.name}
-                      removeUser={() => this.removeUser(index)}
+                      removeHandler={() => this.removeUser(index)}
                       title='USER'
                     />
                   </TableCell>

@@ -68,6 +68,7 @@ export default class UsersPage extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+    
   render() {
     let userForm;
     const { params } = this.props.match;

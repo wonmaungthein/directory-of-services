@@ -27,14 +27,7 @@ const styles = theme => ({
 });
 
 const TopNav = props => {
-  const { classes, addLink, titleLink } = props;
-  let { title } = props;
-
-  Categories.forEach((categorie, index) => {            // This logic help to make title which appear on top-nav look like  the categories's name
-    if (categorie.replace(/\s+/g, '') === title) {      // the user has clicked with sapace between words ie no like one single word 
-      title = Categories[index];
-    }
-  });
+  const { classes, addLink, titleLink, title } = props;
 
   return (
     <AppBar className={classes.appBar}>
@@ -48,7 +41,7 @@ const TopNav = props => {
               noWrap
             >
               <Link to={`/${titleLink}`}>
-                {helpers.capitaliseAndPrettify(title)}
+                {helpers.addSpace(Categories, title)}
               </Link>
               <Link to={`/${addLink}`} className="add-orgnaization">
                 <Button
