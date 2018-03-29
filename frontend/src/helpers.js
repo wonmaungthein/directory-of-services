@@ -149,11 +149,11 @@ function categoryNameMaker(name) {
     : null;
 }
 
-function addSpace(cate, cateTitle) {
- return cate.map(category => {
-      const title = category.replace('/', ' ').replace('/', ' ');
-      if(linkMaker(category) === cateTitle) {
-        return title
+function addSpace(categories, title) {
+ return categories.map(category => {
+      const newTitle = category.replace('/', ' ').replace('/', ' ');
+      if(linkMaker(category) === title) {
+        return newTitle
       }
       return false;
  })
