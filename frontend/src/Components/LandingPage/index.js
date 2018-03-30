@@ -28,14 +28,3 @@ const LandingPage = () => {
 
 export default LandingPage;
 
-
-
-
-
-// function addSpaceBetweenCatName(categories, title) {
-//   categories.forEach((category, index) => {
-//     if (category.replace(/\s+/g, '') === title) {
-//       title = categories[index]
-//     }
-//   });
-// }
