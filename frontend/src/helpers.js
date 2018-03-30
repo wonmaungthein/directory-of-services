@@ -149,6 +149,16 @@ function categoryNameMaker(name) {
     : null;
 }
 
+function addSpace(cat, catTitle) {
+ return cat.map(category => {
+      const title = category.replace('/', ' ').replace('/', ' ');
+      if(linkMaker(category) === catTitle) {
+        return title
+      }
+      return false;
+ })
+}
+
 export default {
   renderInput,
   renderSuggestion,
@@ -160,5 +170,6 @@ export default {
   linkMaker,
   reformatCategoryName,
   categoryNameMaker,
-  
+  addSpace
 };
+

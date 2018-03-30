@@ -15,10 +15,11 @@ import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import Save from 'material-ui-icons/Save';
 import NotificationSystem from 'react-notification-system';
+import Notification from './Notification';
+
 import './user-table.css';
 import UsersTableHead from './UsersTableHead';
 import usersData from './usersData.json';
-import Notification from './Notification';
 
 export default class UsersListTable extends Component {
   constructor(props, context) {
@@ -37,8 +38,8 @@ export default class UsersListTable extends Component {
 
   componentDidMount() {
     this.setState({
-      notificationSystem: this.refs.savedChanges
-    })
+      notificationSystem: this.refs.savedChanges,
+    });
   }
 
   savedChangesSuccessfully = () => {
@@ -47,16 +48,16 @@ export default class UsersListTable extends Component {
       message: 'Your Changes have been saved successfully',
       level: 'success',
     });
-  }
+  };
 
-  unSucessSavedChanges = (event) => {
+  unSucessSavedChanges = event => {
     event.preventDefault();
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
       message: 'Your Changes have not been saved successfully',
       level: 'error',
     });
-  }
+  };
 
   handleRequestSort = (event, property) => {
     const orderBy = property;
@@ -114,10 +115,7 @@ export default class UsersListTable extends Component {
   };
 
   stopEditing = () => {
-    this.setState(
-      { editIdx: -1 },
-      this.savedChangesSuccessfully()
-    );
+    this.setState({ editIdx: -1 }, this.savedChangesSuccessfully());
   };
 
   handleUserDataChange = (e, index) => {
@@ -132,13 +130,12 @@ export default class UsersListTable extends Component {
 
   render() {
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
-    const emptyRows =
-      null;
+    const emptyRows = null;
     const { editIdx } = this.state;
 
     return (
       <Table className="users-table">
-        <NotificationSystem ref="savedChanges" />  
+        <NotificationSystem ref="savedChanges" />
         <UsersTableHead
           numSelected={selected.length}
           order={order}
@@ -218,7 +215,11 @@ export default class UsersListTable extends Component {
                     <Button onClick={() => this.startEditing(index)} raised>
                       <i className="material-icons">edit</i>
                     </Button>
-                    <Notification removeHandler={() => this.removeUser(index)} />{' '}
+                    <Notification
+                      value={row.name}
+                      removeHandler={() => this.removeUser(index)}
+                      title='USER'
+                    />
                   </TableCell>
                 </TableRow>
               );
