@@ -2,29 +2,29 @@ import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
 import { withRouter } from 'react-router-dom';
 import OrganisationForm from './OrganisationForm';
-import helpers from '../../helpers';
 import './add-org.css';
 import TopNav from '../TopNav';
+import helpers from '../../helpers'
 
 class AddOrganisation extends Component {
   state = {
     notificationSystem: null,
-    Organisation: "",
-    Area: "",
-    Borough: "",
-    Process: "",
-    Day: [""],
-    Tel: "",
-    Email: "",
-    Website: "",
+    Organisation: '',
+    Area: '',
+    Borough: '',
+    Process: '',
+    Day: [''],
+    Tel: '',
+    Email: '',
+    Website: '',
     Services: [],
     Categories: [],
   };
 
   componentDidMount() {
     this.setState({
-      notificationSystem: this.refs.savedChanges
-    })
+      notificationSystem: this.refs.savedChanges,
+    });
   }
 
   handleSubmit = (e) => {
@@ -32,14 +32,14 @@ class AddOrganisation extends Component {
     e.preventDefault();
     this.savedChangesSuccessfully();
     this.setState({
-      Organisation: "",
-      Area: "",
-      Borough: "",
-      Process: "",
+      Organisation: '',
+      Area: '',
+      Borough: '',
+      Process: '',
       Day: [],
-      Tel: "",
-      Email: "",
-      Website: "",
+      Tel: '',
+      Email: '',
+      Website: '',
       Services: [],
       Categories: [],
     });
@@ -52,29 +52,29 @@ class AddOrganisation extends Component {
       message: 'Your Changes have been saved successfully',
       level: 'success',
     });
-  }
+  };
 
-  unSucessSavedChanges = (event) => {
+  unSucessSavedChanges = event => {
     event.preventDefault();
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
       message: 'Your Changes have not been saved successfully',
       level: 'error',
     });
-  }
+  };
 
   handleFieldUpdate = event => {
     this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
+      [event.target.name]: event.target.value,
+    });
+  };
 
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
     listOfCategories.push(event.target.value);
     this.setState({
       [event.target.name]: event.target.checked,
-      Categories: listOfCategories
+      Categories: listOfCategories,
     });
   };
 
@@ -83,12 +83,12 @@ class AddOrganisation extends Component {
   };
 
   render() {
-    const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     return (
       <div>
-        <TopNav addLink="add" addOrg="Add new organisation" />
+        <TopNav addLink="organisations/add" />
         <NotificationSystem ref="savedChanges" />
         <div className="add-orgonaization">
+          <h1>Add new organisation</h1>
           <OrganisationForm
             name={this.state.Organisation}
             area={this.state.Area}
@@ -99,16 +99,20 @@ class AddOrganisation extends Component {
             email={this.state.Email}
             website={this.state.Website}
             service={this.state.Services}
-            checkedCategory={`${checkedCategory}`}
             handleCheckBox={this.handleCheckBox}
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}
             onChange={this.handleFieldUpdate}
           />
-          <button className="add-orgonaization-link" onClick={event => this.handleSubmit(event)}>SAVE CHANGES</button>
+          <button
+            className="add-orgonaization-link"
+            onClick={event => this.handleSubmit(event)}
+          >
+            SAVE CHANGES
+          </button>
         </div>
       </div>
-    )
+    );
   }
 }
 

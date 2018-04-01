@@ -8,6 +8,8 @@ import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import AddIcon from 'material-ui-icons/Add';
+import Categories from '../../Data/Categories.json';
+
 import './top-nav.css';
 import helpers from '../../helpers';
 
@@ -25,7 +27,8 @@ const styles = theme => ({
 });
 
 const TopNav = props => {
-  const { classes, title, addLink, titleLink, addOrg } = props;
+  const { classes, addLink, titleLink, title } = props;
+
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
@@ -38,27 +41,17 @@ const TopNav = props => {
               noWrap
             >
               <Link to={`/${titleLink}`}>
-                {helpers.capitaliseAndPrettify(title)}
+                {helpers.addSpace(Categories, title)}
               </Link>
-              <Typography 
-                variant="title"
-                color="inherit"
-                className="add-organisation-title"
-                noWrap
-              >
-                {addOrg}
-              </Typography>
-              {addOrg ? false : (
-                <Link to={`${addLink}/add`} className="add-orgnaization">
-                  <Button
-                    className="add-orgonaization-button"
-                    variant="fab"
-                    aria-label="add"
-                  >
-                    <AddIcon />
-                  </Button>
-                </Link>)
-              }
+              <Link to={`/${addLink}`} className="add-orgnaization">
+                <Button
+                  className="add-orgonaization-button"
+                  variant="fab"
+                  aria-label="add"
+                >
+                  <AddIcon />
+                </Button>
+              </Link>
             </Typography>
           </Grid>
           <Grid className="login-section" item xs={4}>

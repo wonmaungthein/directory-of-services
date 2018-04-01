@@ -54,7 +54,7 @@ class SingleOrganisation extends Component {
         <Button
           onClick={this.editSelectedOrganisation}
           variant="raised"
-          size="small" 
+          size="small"
           className="orgnaization-detais-button button-title"
         >
           <i className="material-icons">add</i>DETAILS

@@ -5,6 +5,7 @@ import NotificationSystem from 'react-notification-system';
 import TopNav from '../TopNav';
 import AddUser from './AddUser';
 import UsersListTable from './UsersListTable';
+import usersData from './usersData.json';
 import './users.css';
 
 export default class UsersPage extends Component {
@@ -46,6 +47,7 @@ export default class UsersPage extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.addNewUserHandler();
     this.setState({
       fullName: '',
       email: '',
@@ -54,10 +56,19 @@ export default class UsersPage extends Component {
     this.savedChangesSuccessfully();
   };
 
+  addNewUserHandler = () => {
+    usersData.unshift({
+      name: this.state.fullName,
+      email: this.state.email,
+      role: this.state.role,
+    });
+  };
+
   handleFieldUpdate = e =>
     this.setState({
       [e.target.name]: e.target.value,
     });
+    
   render() {
     let userForm;
     const { params } = this.props.match;
