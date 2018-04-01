@@ -75,7 +75,6 @@ class Search extends React.Component {
   };
 
   handleSelectedDay = day => {
-    console.log(day)
     this.setState(
       {
         day,

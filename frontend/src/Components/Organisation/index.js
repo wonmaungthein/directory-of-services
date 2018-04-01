@@ -52,6 +52,15 @@ class Organisations extends Component {
     editIdx: -1,
   };
 
+  filterByDay = day => {
+    const filteredOrg = this.state.organisations.Debt;
+    const newOrgData = filteredOrg.filter(org => org.Day.includes(day));
+    const data = day.length < 0 ? this.state.organisations.Debt:newOrgData;
+    this.setState({
+      organisations: { Debt: data },
+    });
+  };
+
   editSelectedOrganisation = idex =>
     this.setState({
       editIdx: idex,
@@ -116,7 +125,7 @@ class Organisations extends Component {
           addLink={service}
           titleLink={`services/${service}`}
         />
-        <Search />
+        <Search filterByDay={this.filterByDay} service={service} />
         <Grid container className="organisation-page" spacing={24}>
           {organisations.map((org, index) => {
             const currentlyEditing = editIdx === index;
