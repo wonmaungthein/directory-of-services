@@ -11,7 +11,7 @@ import helpers from '../../helpers';
 import categoriesData from '../../Data/Categories.json'
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Mon-Fri'];
-const areas = ['South', 'North', 'West', 'East', 'Central', 'All'].sort();
+const areas = ['South', 'North', 'West', 'East', 'Central', 'All'];
 const sortedBorough = BoroughData.map(borough => borough.borough).filter((elem, index, self) =>
   index === self.indexOf(elem)
 ).sort();
