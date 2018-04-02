@@ -136,14 +136,7 @@ class Organisations extends Component {
             ) : (
               <Grid item xs={12} sm={6} key={org.id}>
                 <OrganisationCard
-                  deleteOrganisation={() =>
-                    this.deleteOrganisation(
-                      helpers.reformatCategoryName(this.props.match.url),
-                      org._id,
-                    )
-                  }
                   getData={() => this.editSelectedOrganisation(index)}
-                  {...org}
                   org={org}
                   index={index}
                 />
