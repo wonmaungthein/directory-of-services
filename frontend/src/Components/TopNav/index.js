@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
@@ -12,6 +12,7 @@ import Categories from '../../Data/Categories.json';
 
 import './top-nav.css';
 import helpers from '../../helpers';
+import UserDropDown from '../Users/UserDropDown';
 
 const drawerWidth = 240;
 
@@ -26,43 +27,60 @@ const styles = theme => ({
   },
 });
 
-const TopNav = props => {
-  const { classes, addLink, titleLink, title } = props;
+class TopNav extends Component{
+  
+  state = {
+    userDropDown: false,
+  }
 
-  return (
-    <AppBar className={classes.appBar}>
-      <Toolbar>
-        <Grid container spacing={24} className="top-nav-content">
-          <Grid item xs={8}>
-            <Typography
-              className="add-new-button"
-              variant="title"
-              color="inherit"
-              noWrap
-            >
-              <Link to={`/${titleLink}`}>
-                {helpers.addSpace(Categories, title)}
-              </Link>
-              <Link to={`/${addLink}`} className="add-orgnaization">
-                <Button
-                  className="add-orgonaization-button"
-                  variant="fab"
-                  aria-label="add"
-                >
-                  <AddIcon />
-                </Button>
-              </Link>
-            </Typography>
+  userDropDown = () => (
+    this.state.userDropDown ? <UserDropDown /> : false
+  )
+
+  showUserDropDown = () => {
+    this.setState({
+      userDropDown: !this.state.userDropDown
+    })
+  }
+
+  render(){
+    const { classes, addLink, titleLink, title } = this.props;
+    return (
+      <AppBar className={classes.appBar}>
+        <Toolbar>
+          <Grid container spacing={24} className="top-nav-content">
+            <Grid item xs={8}>
+              <Typography
+                className="add-new-button"
+                variant="title"
+                color="inherit"
+                noWrap
+              >
+                <Link to={`/${titleLink}`}>
+                  {helpers.addSpace(Categories, title)}
+                </Link>
+                <Link to={`/${addLink}`} className="add-orgnaization">
+                  <Button
+                    className="add-orgonaization-button"
+                    variant="fab"
+                    aria-label="add"
+                  >
+                    <AddIcon />
+                  </Button>
+                </Link>
+              </Typography>
+            </Grid>
+            <Grid className="login-section" item xs={4}>
+              <Button onClick={this.showUserDropDown} className="logo-button" variant="title" color="primary">
+                <i className="material-icons">person</i>
+              </Button>
+            </Grid>
           </Grid>
-          <Grid className="login-section" item xs={4}>
-            <Button className="logo-button" variant="title" color="primary">
-              <i className="material-icons">person</i>
-            </Button>
-          </Grid>
-        </Grid>
-      </Toolbar>
-    </AppBar>
-  );
+        </Toolbar>
+        {this.userDropDown()}
+      </AppBar>
+    );
+  }
 };
 
 TopNav.propTypes = {
