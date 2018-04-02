@@ -22,7 +22,7 @@ export default class Categories extends Component {
           {CategoriesData.map(category =>
             (
               <li>
-                <Link to={`/services/${helpers.linkMaker(category)}`}>{category}</Link>
+                <Link to={`/services/${helpers.linkMaker(category)}`}>{helpers.categoryNameMaker(category)}</Link>
               </li>
             )
           )}

@@ -1,21 +1,3 @@
-.categories{
-  max-height: 21em;
-  overflow: auto;
-}
-.categories::-webkit-scrollbar{
-  background-color: #1abcd4;
-  width: .6em;
-  border-radius: .2em;
-  display: none;
-}
-.categories:hover::-webkit-scrollbar,
-.categories:focus::-webkit-scrollbar{
-  display: block;
-}
-.categories::-webkit-scrollbar-thumb{
-  background-color: #bbb;
-  border-radius: .2em
-}
 .categories-title {
   color: #1abcd4;
   padding: 0 2em 1em 2em;

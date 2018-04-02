@@ -84,14 +84,16 @@ class SideBar extends React.Component {
         <div className="logo">
           <Link to="/">LOGO</Link>
         </div>
-        <Divider />
-        <List>
-          <Categories />
-        </List>
-        <Divider />
-        <List>
-          <UsersMenu />
-        </List>
+        <div className="side-bar-scroll">
+          <Divider />
+          <List>
+            <Categories />
+          </List>
+          <Divider />
+          <List>
+            <UsersMenu />
+          </List>
+        </div>
       </div>
     );
 
