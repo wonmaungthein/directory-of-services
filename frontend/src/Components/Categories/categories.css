@@ -16,4 +16,6 @@
 
 .categories a:hover {
   background: #ddd;
+  color: #000;
+  font-weight: bold;
 }
