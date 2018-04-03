@@ -33,15 +33,15 @@ class TopNav extends Component{
     userDropDown: false,
   }
 
-  userDropDown = () => (
-    this.state.userDropDown ? <UserDropDown /> : false
-  )
-
   showUserDropDown = () => {
     this.setState({
       userDropDown: !this.state.userDropDown
     })
   }
+
+  renderUserDropDown = () => (
+    this.state.userDropDown ? <UserDropDown /> : null
+  )
 
   render(){
     const { classes, addLink, titleLink, title } = this.props;
@@ -77,7 +77,7 @@ class TopNav extends Component{
             </Grid>
           </Grid>
         </Toolbar>
-        {this.userDropDown()}
+        {this.renderUserDropDown()}
       </AppBar>
     );
   }
