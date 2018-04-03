@@ -17,7 +17,7 @@
 }
 
 .side-bar-scroll{
-  max-height: 30em;
+  min-height: 30em;
   overflow: auto;
 }
 .side-bar-scroll::-webkit-scrollbar{

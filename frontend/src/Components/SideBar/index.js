@@ -70,7 +70,7 @@ class SideBar extends React.Component {
     const { classes, theme } = this.props;
 
     const drawer = (
-      <div>
+      <div className="side-bar-scroll">
         <Hidden mdUp>
           <div className={classes.drawerHeader}>
             <IconButton className="draw-close-button" onClick={this.handleDrawerClose}>
@@ -84,16 +84,14 @@ class SideBar extends React.Component {
         <div className="logo">
           <Link to="/">LOGO</Link>
         </div>
-        <div className="side-bar-scroll">
-          <Divider />
-          <List>
-            <Categories />
-          </List>
-          <Divider />
-          <List>
-            <UsersMenu />
-          </List>
-        </div>
+        <Divider />
+        <List>
+          <Categories />
+        </List>
+        <Divider />
+        <List>
+          <UsersMenu />
+        </List>
       </div>
     );
 
