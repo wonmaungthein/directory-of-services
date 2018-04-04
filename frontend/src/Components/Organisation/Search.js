@@ -10,9 +10,9 @@ import searchStyle from './searchStyle';
 import './search.css'
 
 const organisations = [
-  { postCode: 'H2 1TH', address: 'Bermondsey', day: 'Monday' },
-  { postCode: 'H2 2TH', address: '2 Bermondsey', day: 'Tuesday' },
-  { postCode: 'H2 3TH', address: '3 Bermondsey', day: 'Wednesday' },
+  { postCode: 'H2 1TH', address: 'Bermondsey'},
+  { postCode: 'H2 2TH', address: '2 Bermondsey'},
+  { postCode: 'H2 3TH', address: '3 Bermondsey'},
 ];
 const days = [
   { day: 'Monday' },
