@@ -75,12 +75,14 @@ class Search extends React.Component {
   };
 
   handleSelectedDay = day => {
-    this.setState(
-      {
-        day,
-      },
-      this.props.filterByDay(day),
-    );
+    if (day) {
+      this.setState(
+        {
+          day,
+        },
+        this.props.filterByDay(day),
+      );
+    }
   };
 
   handleServiceChange = service => {
@@ -128,7 +130,7 @@ class Search extends React.Component {
             className="select-field-container day-small-screen"
             inputComponent={helpers.SelectWrapped}
             inputProps={{
-              value: this.state.day,
+              defaultValue: this.state.day,
               onChange: this.handleSelectedDay,
               placeholder: 'Select Day',
               instanceId: 'selectDay',

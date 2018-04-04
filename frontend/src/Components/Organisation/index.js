@@ -23,42 +23,58 @@ import SocialandOther from '../../Data/json/SocialAndOther.json';
 import OrganisationCard from './OrganisationCard';
 import './index.css';
 
+const originalOrganisations = {
+  Education: Education.data,
+  Debt: Debt.data,
+  Benefits: Benefits.data,
+  YPFamilies: YPFamilies.data,
+  WomenDV: WomenDV.data,
+  Trafficking: Trafficking.data,
+  Destitution: Destitution.data,
+  LGBTQI: LGBTQI.data,
+  MentalHealth: MentalHealth.data,
+  CommunityCare: Healthcare.data,
+  DestitutionNRPF: Destitution.data,
+  EmploymentTrainingVolunteering: EmploymentTrainingVolunteering.data,
+  Families: YPFamilies.data,
+  GenderBasedViolence: GenderBasedViolence.data,
+  Housing: Housing.data,
+  Immigration: Immigration.data,
+  MentalHealthServices: MentalHealth.data,
+  PregnantWomenNewMothers: WomenDV.data,
+  SocialandOther: SocialandOther.data,
+  Women: WomenDV.data,
+  YoungPeopleChildren: YPFamilies.data,
+  Healthcare: Healthcare.data,
+};
+
 class Organisations extends Component {
   state = {
-    organisations: {
-      Education: Education.data,
-      Debt: Debt.data,
-      Benefits: Benefits.data,
-      YPFamilies: YPFamilies.data,
-      WomenDV: WomenDV.data,
-      Trafficking: Trafficking.data,
-      Destitution: Destitution.data,
-      LGBTQI: LGBTQI.data,
-      MentalHealth: MentalHealth.data,
-      CommunityCare: Healthcare.data,
-      DestitutionNRPF: Destitution.data,
-      EmploymentTrainingVolunteering: EmploymentTrainingVolunteering.data,
-      Families: YPFamilies.data,
-      GenderBasedViolence: GenderBasedViolence.data,
-      Housing: Housing.data,
-      Immigration: Immigration.data,
-      MentalHealthServices: MentalHealth.data,
-      PregnantWomenNewMothers: WomenDV.data,
-      SocialandOther: SocialandOther.data,
-      Women: WomenDV.data,
-      YoungPeopleChildren: YPFamilies.data,
-      Healthcare: Healthcare.data,
-    },
+    organisations: originalOrganisations,
     editIdx: -1,
   };
 
   filterByDay = day => {
-    const filteredOrg = this.state.organisations.Debt;
-    const newOrgData = filteredOrg.filter(org => org.Day.includes(day));
-    const data = day.length < 0 ? this.state.organisations.Debt:newOrgData;
-    this.setState({
-      organisations: { Debt: data },
-    });
+    // reset the data
+
+    const { location } = this.props;
+    if (location && location.pathname) {
+      const selectedService = location.pathname.replace('/services/', '');
+      const filteredOrg = this.state.organisations[selectedService];
+      if (filteredOrg && filteredOrg.filter) {
+        this.setState({
+          organisations: {
+            [selectedService]: originalOrganisations[selectedService].filter(
+              org => org.Day.includes(day),
+            ),
+          },
+        });
+        console.info({
+          'current state': this.state.organisations,
+          'original state': originalOrganisations,
+        });
+      }
+    }
   };
 
   editSelectedOrganisation = idex =>
@@ -145,14 +161,7 @@ class Organisations extends Component {
             ) : (
               <Grid item xs={12} sm={6} key={org.id}>
                 <OrganisationCard
-                  deleteOrganisation={() =>
-                    this.deleteOrganisation(
-                      helpers.reformatCategoryName(this.props.match.url),
-                      org._id,
-                    )
-                  }
                   getData={() => this.editSelectedOrganisation(index)}
-                  {...org}
                   org={org}
                   index={index}
                 />
