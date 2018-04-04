@@ -1,0 +1,24 @@
+.user-drop-down{
+  position: absolute;
+  top: 66px;
+  right: 80px;
+}
+.user-drop-down .container{
+  border-radius: 0;
+}
+.user-drop-down a{
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  line-height: 1.8em;
+  color: #1abcd4;
+}
+.user-drop-down a h4{
+  margin-left: 1em;
+  color: #000;
+}
+.user-drop-down .material-icons{
+  font-size: 2em;
+}
