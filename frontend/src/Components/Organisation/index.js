@@ -47,101 +47,79 @@ const originalOrganisations = {
   YoungPeopleChildren: YPFamilies.data,
   Healthcare: Healthcare.data,
 };
-
-class Organisations extends Component {
+function getSelectedCategory(match) {
+  const { params } = match;
+  const service =
+    params && params.service
+      ? helpers.capitaliseAndPrettify(params.service)
+      : null;
+  return service;
+}
+export default class Organisations extends Component {
   state = {
     organisations: originalOrganisations,
     editIdx: -1,
+    category: getSelectedCategory(this.props.match),
   };
-
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      category: getSelectedCategory(newProps.match),
+      organisations: originalOrganisations,
+    });
+  }
   filterByDay = day => {
-    // reset the data
-
-    const { location } = this.props;
-    if (location && location.pathname) {
-      const selectedService = location.pathname.replace('/services/', '');
-      const filteredOrg = this.state.organisations[selectedService];
-      if (filteredOrg && filteredOrg.filter) {
-        this.setState({
-          organisations: {
-            [selectedService]: originalOrganisations[selectedService].filter(
-              org => org.Day.includes(day),
-            ),
-          },
-        });
-        console.info({
-          'current state': this.state.organisations,
-          'original state': originalOrganisations,
-        });
-      }
+    if (!day) {
+      this.setState({
+        organisations: originalOrganisations,
+      });
+      return;
+    }
+    const { category } = this.state;
+    const filteredOrg = originalOrganisations[category];
+    if (filteredOrg && filteredOrg.filter) {
+      this.setState({
+        organisations: {
+          [category]: originalOrganisations[category].filter(org =>
+            org.Day.includes(day),
+          ),
+        },
+      });
     }
   };
-
   editSelectedOrganisation = idex =>
     this.setState({
       editIdx: idex,
     });
-
   stopEditing = () => {
     this.setState({
       editIdx: -1,
     });
   };
-
   deleteOrganisation = (category, orgId) => {
     const newData =
       this.state.organisations && this.state.organisations[category]
         ? this.state.organisations[category].filter(org => org._id !== orgId)
         : [];
     this.setState({
-      organisations: {
-        Education: Education.data,
-        Debt: Debt.data,
-        Benefits: Benefits.data,
-        YPFamilies: YPFamilies.data,
-        WomenDV: WomenDV.data,
-        Trafficking: Trafficking.data,
-        Destitution: Destitution.data,
-        LGBTQI: LGBTQI.data,
-        MentalHealth: MentalHealth.data,
-        CommunityCare: Healthcare.data,
-        DestitutionNRPF: Destitution.data,
-        EmploymentTrainingVolunteering: EmploymentTrainingVolunteering.data,
-        Families: YPFamilies.data,
-        GenderBasedViolence: GenderBasedViolence.data,
-        Housing: Housing.data,
-        Immigration: Immigration.data,
-        MentalHealthServices: MentalHealth.data,
-        PregnantWomenNewMothers: WomenDV.data,
-        SocialandOther: SocialandOther.data,
-        Women: WomenDV.data,
-        YoungPeopleChildren: YPFamilies.data,
-        Healthcare: Healthcare.data,
-        [category]: newData,
-      },
+      organisations: originalOrganisations,
+      [category]: newData,
     });
   };
-
   render() {
     const { editIdx } = this.state;
-    const { params } = this.props.match;
-    const service =
-      params && params.service
-        ? helpers.capitaliseAndPrettify(params.service)
-        : null;
-
+    const { category } = this.state;
     const organisations =
-      this.state.organisations && this.state.organisations[service]
-        ? this.state.organisations[service]
+      this.state.organisations && this.state.organisations[category]
+        ? this.state.organisations[category]
         : [];
     return (
       <div>
         <TopNav
-          title={service}
-          addLink={service}
-          titleLink={`services/${service}`}
+          title={category}
+          addLink={category}
+          titleLink={`services/${category}`}
         />
-        <Search filterByDay={this.filterByDay} service={service} />
+        <Search filterByDay={this.filterByDay} service={category} />
         <Grid container className="organisation-page" spacing={24}>
           {organisations.map((org, index) => {
             const currentlyEditing = editIdx === index;
@@ -173,5 +151,3 @@ class Organisations extends Component {
     );
   }
 }
-
-export default Organisations;
