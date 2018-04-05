@@ -134,7 +134,7 @@ function capitaliseAndPrettify(name) {
 
 function linkMaker(name) {
   return name
-    ? name.replace(" ", '').replace('/', '').replace(" & ", '').replace('/', '').replace(" ", '').replace(" ", '').replace(/\b\w/g, l => l.toUpperCase())
+    ? name.replace(/[" "]/g, '').replace(/[/]/g, '').replace(" & ", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
 }
 function reformatCategoryName(name) {
@@ -145,13 +145,13 @@ function reformatCategoryName(name) {
 
 function categoryNameMaker(name) {
   return name
-    ? name.replace('/', '').replace('/', '').replace("services/", '').replace("/add", '').replace(/\b\w/g, l => l.toUpperCase())
+    ? name.replace(/[/]/g, '').replace("services", '').replace("add", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
 }
 
 function addSpace(cat, catTitle) {
  return cat.map(category => {
-      const title = category.replace('/', ' ').replace('/', ' ');
+   const title = category.replace(/[/]/g, '');
       if(linkMaker(category) === catTitle) {
         return title
       }

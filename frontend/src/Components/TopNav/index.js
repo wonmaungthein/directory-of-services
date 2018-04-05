@@ -44,30 +44,35 @@ class TopNav extends Component{
   )
 
   render(){
-    const { classes, addLink, titleLink, title } = this.props;
+    const { classes, addLink, titleLink, title, addOrg } = this.props;
     return (
       <AppBar className={classes.appBar}>
         <Toolbar>
           <Grid container spacing={24} className="top-nav-content">
             <Grid item xs={8}>
               <Typography
-                className="add-new-button"
+                className="add-new-button add-organisation-title"
                 variant="title"
                 color="inherit"
                 noWrap
               >
+                {addOrg}  
                 <Link to={`/${titleLink}`}>
                   {helpers.addSpace(Categories, title)}
                 </Link>
-                <Link to={`/${addLink}`} className="add-orgnaization">
-                  <Button
-                    className="add-orgonaization-button"
-                    variant="fab"
-                    aria-label="add"
-                  >
-                    <AddIcon />
-                  </Button>
-                </Link>
+                {addOrg ? null :
+                  (
+                    <Link to={`/${addLink}`} className="add-orgnaization">
+                      <Button
+                        className="add-orgonaization-button"
+                        variant="fab"
+                        aria-label="add"
+                      >
+                        <AddIcon />
+                      </Button>
+                    </Link>
+                  )
+                }
               </Typography>
             </Grid>
             <Grid className="login-section" item xs={4}>

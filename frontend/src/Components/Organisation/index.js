@@ -113,7 +113,7 @@ class Organisations extends Component {
       <div>
         <TopNav
           title={service}
-          addLink={service}
+          addLink={`services/${service}/add`}
           titleLink={`services/${service}`}
         />
         <Search />
