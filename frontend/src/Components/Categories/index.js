@@ -19,7 +19,7 @@ export default class Categories extends Component {
     if (this.state.categoriesList) {
       return (
         <ul>
-          {CategoriesData.map(category =>
+          {CategoriesData.sort().map(category =>
             (
               <li>
                 <Link to={`/services/${helpers.linkMaker(category)}`}>{helpers.categoryNameMaker(category)}</Link>
