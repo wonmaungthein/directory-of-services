@@ -1,6 +1,6 @@
 const { Model } = require('objection');
 const { transaction } = require('objection');
-const knex =require('../../../config');
+const knex = require('../../../config');
 const Organisation = require('../../../src/model/Organisation');
 const data = require('../../../data.json');
 
@@ -11,8 +11,8 @@ const loadSeedToDb = async () => {
     const d = {
       org_name: row.name || 'not provided',
       website: row.branches[0].Website || 'not provided',
-      branch: row.branches.map(branch => {
-        return {
+      branch: row.branches.map(branch => (
+        {
           borough: branch.Borough || 'not provided',
           service: [{
             service_days: branch.Day.join() || 'not provided',
@@ -33,17 +33,16 @@ const loadSeedToDb = async () => {
             }]
           }]
         }
-      })
+      ))
     };
-    (async () => transaction(Organisation.knex(), trx => 
+    return async () => transaction(Organisation.knex(), trx =>
       Organisation
         .query(trx)
         .insertGraph(d))
-    )();
   });
   return datas;
 }
 exports.seed = () => {
-  loadSeedToDb().then(console.log)
+  loadSeedToDb();
 }
 
