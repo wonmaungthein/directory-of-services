@@ -49,6 +49,7 @@ const originalOrganisations = {
 };
 function getSelectedCategory(match) {
   const { params } = match;
+  console.log(params);
   const service =
     params && params.service
       ? helpers.capitaliseAndPrettify(params.service)
@@ -60,11 +61,14 @@ export default class Organisations extends Component {
     organisations: originalOrganisations,
     editIdx: -1,
     category: getSelectedCategory(this.props.match),
+    day: null,
   };
   componentWillReceiveProps(newProps) {
+    console.log(this.state.day);
     this.setState({
       category: getSelectedCategory(newProps.match),
       organisations: originalOrganisations,
+      day: null,
     });
   }
   filterByDay = day => {
@@ -86,6 +90,18 @@ export default class Organisations extends Component {
       });
     }
   };
+
+  handleSelectedDay = day => {
+    if (day) {
+      this.setState(
+        {
+          day,
+        },
+        this.filterByDay(day),
+      );
+    }
+  };
+
   editSelectedOrganisation = idex =>
     this.setState({
       editIdx: idex,
@@ -108,6 +124,9 @@ export default class Organisations extends Component {
   render() {
     const { editIdx } = this.state;
     const { category } = this.state;
+    const { day } = this.state;
+    console.info(category);
+    console.info(day);
     const organisations =
       this.state.organisations && this.state.organisations[category]
         ? this.state.organisations[category]
@@ -119,7 +138,12 @@ export default class Organisations extends Component {
           addLink={category}
           titleLink={`services/${category}`}
         />
-        <Search filterByDay={this.filterByDay} service={category} />
+        <Search
+          filterByDay={this.filterByDay}
+          service={category}
+          day={day}
+          handleSelectedDay={this.handleSelectedDay}
+        />
         <Grid container className="organisation-page" spacing={24}>
           {organisations.map((org, index) => {
             const currentlyEditing = editIdx === index;

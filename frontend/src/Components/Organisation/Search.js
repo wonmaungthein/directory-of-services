@@ -9,6 +9,7 @@ import helpers from '../../helpers';
 import searchStyle from './searchStyle';
 import './search.css';
 
+
 const organisations = [
   { postCode: 'H2 1TH', address: 'Bermondsey' },
   { postCode: 'H2 2TH', address: '2 Bermondsey' },
@@ -48,13 +49,14 @@ const services = [
   label: service.service,
 }));
 
+
 class Search extends React.Component {
   state = {
     postCode: '',
-    day: null,
     service: null,
     suggestions: [],
   };
+
 
   handleSuggestionsFetchRequested = ({ value }) => {
     this.setState({
@@ -62,34 +64,26 @@ class Search extends React.Component {
     });
   };
 
+
   handleSuggestionsClearRequested = () => {
     this.setState({
       suggestions: [],
     });
   };
 
+
   handlePostCodeChange = (event, { newValue }) => {
     this.setState({
       postCode: newValue,
     });
   };
-
-  handleSelectedDay = day => {
-    if (day) {
-      this.setState(
-        {
-          day,
-        },
-        this.props.filterByDay(day),
-      );
-    }
-  };
-
+  
   handleServiceChange = service => {
     this.setState({
       service,
     });
   };
+
 
   render() {
     const { classes } = this.props;
@@ -130,8 +124,8 @@ class Search extends React.Component {
             className="select-field-container day-small-screen"
             inputComponent={helpers.SelectWrapped}
             inputProps={{
-              defaultValue: this.state.day,
-              onChange: this.handleSelectedDay,
+              value: this.props.day,
+              onChange: this.props.handleSelectedDay,
               placeholder: 'Select Day',
               instanceId: 'selectDay',
               id: 'selectday',
@@ -165,8 +159,10 @@ class Search extends React.Component {
   }
 }
 
+
 Search.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
 
 export default withStyles(searchStyle.styles)(Search);
