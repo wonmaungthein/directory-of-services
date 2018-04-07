@@ -1,19 +1,27 @@
 import bcrypt from 'bcrypt';
-import { knex } from '../../config';
+import { transaction } from 'objection';
+import Users from '../model/Users';
 
 module.exports = {
 
-  getAllUsers: () => knex('Users'),
+  getAllUsers: () => Users.query(),
 
-  getUsersById: userId => knex('Users').where('id', userId).first(),
+  getUsersById: userId =>
+    Users.query().findById(userId),
 
-  addUser: userData => knex('Users').insert(userData, '*'),
+  updateUser: (userId, userData) =>
+    Users.query().patchAndFetchById(userId, userData),
 
-  updateUser: (userId, userData) => knex('Users').where('id', userId).update(userData),
+  deleteUser: userId =>
+    Users.query().deleteById(userId),
 
-  deleteUser: userId => knex('Users').where('id', userId).del(),
+  getUserByUserName: userName =>
+    Users.query().skipUndefined().where('username', userName),
 
-  getUserByUserName: userName => knex('Users').where({ username: userName }, '*').first(),
+  addUser: userData =>
+    transaction(Users.knex(), trx =>
+      Users.query(trx)
+        .insertGraph(userData)),
 
   comparePassword: (pass, hash, callBack) =>
     bcrypt.compare(pass, hash, (err, isMatch) => {

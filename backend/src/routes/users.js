@@ -61,7 +61,7 @@ module.exports = router => {
     let pass = req.body.salt_password;
     const { username } = req.body;
     getUserByUserName(username).then(user => {
-      if (user) {
+      if (user.length > 0) {
         res.json({ success: false, message: 'User is already found' })
       } else {
         bcrypt.genSalt(10, (err, salt) => {
@@ -83,20 +83,20 @@ module.exports = router => {
   // =============== Login =============
   router.post('/login', (req, res) => {
     const userName = req.body.username;
-    const password = req.body.salt_password;
-    getUserByUserName(userName).then(user => {
-      if (!user) {
+    const passwordHash = req.body.salt_password;
+    getUserByUserName(userName).then(userInfo => {
+      if (userInfo.length <= 0) {
         res.json({ success: false, message: 'User is not registered' })
       } else {
-        comparePassword(password, user.salt_password, (err, isMatch) => {
+        comparePassword(passwordHash, userInfo[0].salt_password, (err, isMatch) => {
           if (err) throw err;
           if (isMatch) {
             const token = jwt.sign({
-              sub: user.id,
+              sub: userInfo[0].id,
               iat: new Date().getTime(),
               exp: new Date().setDate(new Date().getDate() + 1)
             }, secret);
-            res.json({ token, user });
+            res.json({ token, userInfo });
           } else {
             res.json({ success: false, message: 'Password is not match' })
           }

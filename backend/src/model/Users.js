@@ -2,10 +2,7 @@ import { Model } from 'objection';
 
 export default class Users extends Model {
   static get tableName() {
-    return {
-      tableName: 'Users',
-      hasSecurePassword: true
-    }
+    return 'Users';
   }
   static get jsonSchema() {
     return {
