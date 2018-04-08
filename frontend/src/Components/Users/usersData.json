@@ -1,16 +1,16 @@
 [
-  { "id": 1, "name": "John  Apollo Kahn", "email": "john@gmail.com", "role": "Admin" },
-  { "id": 2, "name": "Bob Latouche", "email": "bob@gmail.com", "role": "Admin" },
-  { "id": 3, "name": "Richard Fox", "email": "foxn@gmail.com", "role": "Editor" },
-  { "id": 4, "name": "Henry Park", "email": "park@gmail.com", "role": "Admin" },
-  { "id": 5, "name": "Ginger Lucy", "email": "lucy@gmail.com", "role": "Editor" },
-  { "id": 6, "name": "Alima Simpson", "email": "lima@gmail.com", "role": "Admin" },
-  { "id": 7, "name": "Boris Bakman", "email": "boka@gmail.com", "role": "Editor" },
-  { "id": 8, "name": "Alan William", "email": "will@gmail.com", "role": "Editor" },
-  { "id": 9, "name": "John Kahn", "email": "john@gmail.com", "role": "Admin" },
-  { "id": 11, "name": "Lamine Sakho", "email": "sakho@gmail.com", "role": "Editor" },
-  { "id": 12, "name": "Nestor Paul", "email": "nestor@gmail.com", "role": "Editor" },
-  { "id": 13, "name": "Alice Kolman", "email": "alice@gmail.com", "role": "Editor" },
-  { "id": 14, "name": "Hilary Carmel", "email": "hilary@gmail.com", "role": "Editor" }
+  { "id": 1, "name": "John  Apollo Kahn", "email": "john@gmail.com", "organisation": "April", "role": "Admin" },
+  { "id": 2, "name": "Bob Latouche", "email": "bob@gmail.com", "organisation": "CYF", "role": "Admin" },
+  { "id": 3, "name": "Richard Fox", "email": "foxn@gmail.com", "organisation": "999 Club", "role": "Editor" },
+  { "id": 4, "name": "Henry Park", "email": "park@gmail.com", "organisation": "Alone in London", "role": "Admin" },
+  { "id": 5, "name": "Ginger Lucy", "email": "lucy@gmail.com", "organisation": "Asylum Seekers Drop-in", "role": "Editor" },
+  { "id": 6, "name": "Alima Simpson", "email": "lima@gmail.com", "organisation": "Afghanistan and Central Asian Associationl", "role": "Admin" },
+  { "id": 7, "name": "Boris Bakman", "email": "boka@gmail.com", "organisation": "Breaking Barriers", "role": "Editor" },
+  { "id": 8, "name": "Alan William", "email": "will@gmail.com", "organisation": "Camden Law Center", "role": "Editor" },
+  { "id": 9, "name": "John Kahn", "email": "john@gmail.com", "organisation": "Athena", "role": "Admin" },
+  { "id": 11, "name": "Lamine Sakho", "email": "sakho@gmail.com", "organisation": "Barnet Refugee Service", "role": "Editor" },
+  { "id": 12, "name": "Nestor Paul", "email": "nestor@gmail.com", "organisation": "Carers Trust", "role": "Editor" },
+  { "id": 13, "name": "Alice Kolman", "email": "alice@gmail.com", "organisation": "Angela", "role": "Editor" },
+  { "id": 14, "name": "Hilary Carmel", "email": "hilary@gmail.com", "organisation": "AgeUk Hounslow", "role": "Editor" }
 ]
 
