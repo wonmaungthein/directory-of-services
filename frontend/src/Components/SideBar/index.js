@@ -82,7 +82,7 @@ class SideBar extends React.Component {
           <div className={classes.drawerHeader} />
         </Hidden>
         <div className="logo">
-          <Link to="/">LOGO</Link>
+          <Link to="/home">LOGO</Link>
         </div>
         <Divider />
         <List>
