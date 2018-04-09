@@ -58,7 +58,7 @@ class TopNav extends Component {
                   {helpers.addSpace(Categories, title)}
                 </Link>
                 <Link to={`/${addLink}`} className="add-orgnaization">
-                  {titleLink === undefined || titleLink === 'users/add' ? null : (
+                  {titleLink === undefined || addLink === 'users/add' ? null : (
                     <Button
                       className="add-orgonaization-button"
                       variant="fab"
