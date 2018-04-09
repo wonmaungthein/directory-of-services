@@ -5,12 +5,9 @@ import Organisation from '../model/Organisation';
 Model.knex(knex);
 
 const postOrganisation = async (graph) => {
-  const insertedGraph = await transaction(Organisation.knex(), trx => {
-    return (
-      Organisation.query(trx)
-        .insertGraph(graph)
-    );
-  });
+  const insertedGraph = await transaction(Organisation.knex(), trx =>
+    Organisation.query(trx)
+      .insertGraph(graph));
   return insertedGraph;
 };
 
