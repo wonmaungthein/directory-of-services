@@ -11,7 +11,7 @@ import './users.css';
 export default class UsersPage extends Component {
   state = {
     fullName: '',
-    email: '',
+    organisation: '',
     role: '',
     notificationSystem: null,
     hideForm: null,
@@ -50,7 +50,7 @@ export default class UsersPage extends Component {
     this.addNewUserHandler();
     this.setState({
       fullName: '',
-      email: '',
+      organisation: '',
       role: '',
     });
     this.savedChangesSuccessfully();
@@ -59,7 +59,7 @@ export default class UsersPage extends Component {
   addNewUserHandler = () => {
     usersData.unshift({
       name: this.state.fullName,
-      email: this.state.email,
+      organisation: this.state.organisation,
       role: this.state.role,
     });
   };
@@ -84,7 +84,7 @@ export default class UsersPage extends Component {
             handleSubmit={this.handleSubmit}
             handleFieldUpdate={this.handleFieldUpdate}
             fullName={this.state.fullName}
-            email={this.state.email}
+            organisation={this.state.organisation}
             role={this.state.role}
             savedChangesSuccessfully={this.savedChangesSuccessfully}
           />
