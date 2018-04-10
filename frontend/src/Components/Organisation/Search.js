@@ -5,14 +5,15 @@ import Autosuggest from 'react-autosuggest';
 import { withStyles } from 'material-ui/styles';
 import Input from 'material-ui/Input';
 import 'react-select/dist/react-select.css';
-import helpers from '../../helpers'
+import helpers from '../../helpers';
 import searchStyle from './searchStyle';
-import './search.css'
+import './search.css';
+
 
 const organisations = [
-  { postCode: 'H2 1TH', address: 'Bermondsey'},
-  { postCode: 'H2 2TH', address: '2 Bermondsey'},
-  { postCode: 'H2 3TH', address: '3 Bermondsey'},
+  { postCode: 'H2 1TH', address: 'Bermondsey' },
+  { postCode: 'H2 2TH', address: '2 Bermondsey' },
+  { postCode: 'H2 3TH', address: '3 Bermondsey' },
 ];
 const days = [
   { day: 'Monday' },
@@ -48,13 +49,14 @@ const services = [
   label: service.service,
 }));
 
+
 class Search extends React.Component {
   state = {
     postCode: '',
-    day: null,
     service: null,
     suggestions: [],
   };
+
 
   handleSuggestionsFetchRequested = ({ value }) => {
     this.setState({
@@ -62,36 +64,35 @@ class Search extends React.Component {
     });
   };
 
+
   handleSuggestionsClearRequested = () => {
     this.setState({
       suggestions: [],
     });
   };
 
+
   handlePostCodeChange = (event, { newValue }) => {
     this.setState({
       postCode: newValue,
     });
   };
-
-  handleSelectedDay = day => {
-    this.setState({
-      day,
-    });
-  };
-
+  
   handleServiceChange = service => {
     this.setState({
       service,
-    })
-  }
+    });
+  };
+
 
   render() {
     const { classes } = this.props;
     return (
       <Grid container spacing={24} className="org-search">
-        <Grid item md={4} xs={12} className="post-code">
-          <h4><i className="material-icons">search</i></h4>
+        <Grid item md={5} xs={12} className="post-code">
+          <h4>
+            <i className="material-icons">search</i>
+          </h4>
           <Autosuggest
             theme={{
               container: classes.container,
@@ -123,8 +124,8 @@ class Search extends React.Component {
             className="select-field-container day-small-screen"
             inputComponent={helpers.SelectWrapped}
             inputProps={{
-              value: this.state.day,
-              onChange: this.handleSelectedDay,
+              value: this.props.day,
+              onChange: this.props.handleSelectedDay,
               placeholder: 'Select Day',
               instanceId: 'selectDay',
               id: 'selectday',
@@ -134,7 +135,7 @@ class Search extends React.Component {
             }}
           />
         </Grid>
-        <Grid item md={4} xs={12} className="service">
+        <Grid item md={3} xs={12} className="service">
           <h4>Service</h4>
           <Input
             fullWidth
@@ -158,8 +159,10 @@ class Search extends React.Component {
   }
 }
 
+
 Search.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
 
 export default withStyles(searchStyle.styles)(Search);
