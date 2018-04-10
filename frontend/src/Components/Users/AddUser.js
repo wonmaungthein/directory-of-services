@@ -19,6 +19,13 @@ const AddUser = props => (
         onChange={props.handleFieldUpdate}
       />
       <TextField
+        label="Organisation"
+        className="email"
+        name="organisation"
+        value={props.organisation}
+        onChange={props.handleFieldUpdate}
+      />
+      <TextField
         className="email"
         label="Email"
         name="email"
