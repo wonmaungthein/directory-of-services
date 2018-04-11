@@ -11,12 +11,30 @@ module.exports = {
     return result;
   },
 
-  getListOfCategoriesName: () =>
-    Categories.query().skipUndefined(),
+  getListOfCategories: async () => {
+    const result = await Categories
+      .query()
+      .select('cat_name')
+      .orderBy('cat_name')
+      .distinct('cat_name')
+    return result;
+  },
 
-  getListOfBoroughsNames: () =>
-    Branch.query().skipUndefined(),
+  getListOfBoroughs: async () => {
+    const result = await Branch
+      .query()
+      .select('borough')
+      .orderBy('borough')
+      .distinct('borough')
+    return result;
+  },
 
-  getListOfAreasNames: () =>
-    Address.query().skipUndefined()
+  getListOfAreas: async () => {
+    const result = await Address
+      .query()
+      .select('area')
+      .orderBy('area')
+      .distinct('area')
+    return result;
+  }
 };
