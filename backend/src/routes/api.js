@@ -13,6 +13,7 @@ module.exports = router => {
     const query = req.body;
     postOrganisation(query).then(responce => res.json(responce));
   });
+
   router.get('/service/all', (req, res) => {
     getAllOrgainisation().then((err, services) => {
       if (err) {
@@ -22,6 +23,7 @@ module.exports = router => {
       }
     });
   });
+  
   router.get('/service/migrate', (req, res) => {
     seedData().then((err) => {
       if (err) {
