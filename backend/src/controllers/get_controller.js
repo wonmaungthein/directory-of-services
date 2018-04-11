@@ -11,23 +11,30 @@ module.exports = {
     return result;
   },
 
-  getListOfBranchesFilteredByCategory: categoryName =>
-    Categories.query().skipUndefined()
-      .where('cat_name', categoryName)
-      .map(data => Service.query().findById(data.service_id))
-      .map(data => Branch.query()
-        .eager('[address, address.[location] service, service.[categories]]')
-        .where('id', data.branch_id)),
+  getBranchByCategory: async categoryName => {
+    const result = await Organisation
+      .query()
+      .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
+      .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
+      .where('branch:service:categories.cat_name', 'like', `%${categoryName}%`)
+    return result;
+  },
 
-  getListOfBranchesFilteredByDay: day =>
-    Service.query().skipUndefined()
-      .then(services => services.filter(data => data.service_days.includes(day)))
-      .map(serviceData => Branch.query()
-        .eager('[address, address.[location] service, service.[categories]]')
-        .where('id', serviceData.branch_id)),
+  getBranchByDay: async day => {
+    const result = await Organisation
+      .query()
+      .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
+      .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
+      .where('branch:service.service_days', 'like', `%${day}%`)
+    return result;
+  },
 
-  getListOfBranchesFilteredByBorough: boroughName =>
-    Branch.query().skipUndefined()
-      .eager('[address, address.[location] service, service.[categories]]')
-      .where('borough', boroughName)
+  getBranchByBorough: async boroughName => {
+    const result = await Organisation
+      .query()
+      .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
+      .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
+      .where('branch.borough', 'like', `%${boroughName}%`)
+    return result;
+  }
 };
