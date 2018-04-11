@@ -43,10 +43,10 @@ function renderSuggestion(organisation, { query, isHighlighted }) {
                 {part.text}
               </span>
             ) : (
-              <strong key={String(index)} style={{ fontWeight: 500 }}>
-                {part.text}
-              </strong>
-            ),
+                <strong key={String(index)} style={{ fontWeight: 500 }}>
+                  {part.text}
+                </strong>
+              ),
         )}
       </div>
     </MenuItem>
@@ -74,17 +74,17 @@ function getSuggestions(value, organisations) {
   return inputLength === 0
     ? []
     : organisations.filter(organisation => {
-        const keep =
-          count < 5 &&
-          organisation.postCode.toLowerCase().slice(0, inputLength) ===
-            inputValue;
+      const keep =
+        count < 5 &&
+        organisation.postCode.toLowerCase().slice(0, inputLength) ===
+        inputValue;
 
-        if (keep) {
-          count += 1;
-        }
+      if (keep) {
+        count += 1;
+      }
 
-        return keep;
-      });
+      return keep;
+    });
 }
 
 function SelectWrapped(props) {
@@ -133,6 +133,7 @@ function capitaliseAndPrettify(name) {
 }
 
 function linkMaker(name) {
+  // These [" "] and [/] will replace all of sapce between words or / to none space
   return name
     ? name.replace(/[" "]/g, '').replace(/[/]/g, '').replace(" & ", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
@@ -144,19 +145,21 @@ function reformatCategoryName(name) {
 }
 
 function categoryNameMaker(name) {
+  // This [/] will replace all of / to none space
   return name
     ? name.replace(/[/]/g, '').replace("services", '').replace("add", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
 }
 
 function addSpace(cat, catTitle) {
- return cat.map(category => {
-   const title = category.replace(/[/]/g, '');
-      if(linkMaker(category) === catTitle) {
-        return title
-      }
-      return false;
- })
+  // This [/] will replace all of / to none space
+  return cat.map(category => {
+    const title = category.replace(/[/]/g, '');
+    if (linkMaker(category) === catTitle) {
+      return title
+    }
+    return false;
+  })
 }
 
 export default {
