@@ -2,21 +2,26 @@ import express from 'express';
 import promiseRouter from 'express-promise-router';
 import methodOverride from 'method-override'
 import bodyParser from 'body-parser'
+import passport from 'passport';
 import morgan from 'morgan'
 import compression from 'compression'
 import registerApi from './routes/api';
+import registerUsers from './routes/users';
 
 const router = promiseRouter();
 
 const app = express()
   .use(methodOverride())
-  .use(bodyParser.urlencoded({ extended: 'true' })) // parse application/x-www-form-urlencoded
+  .use(bodyParser.urlencoded({ extended: false })) // parse application/x-www-form-urlencoded
   .use(bodyParser.json()) // parse application/json
   .use(morgan('dev'))
   .use(compression())
   .use(router)
+  .use(passport.initialize())
+  .use(passport.session());
 
 registerApi(router);
+registerUsers(router);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
