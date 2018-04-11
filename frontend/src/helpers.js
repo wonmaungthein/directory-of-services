@@ -144,8 +144,9 @@ function reformatCategoryName(name) {
 }
 
 function categoryNameMaker(name) {
+  // This [/] will replace all of / to empty space
   return name
-    ? name.replace(/[/]/g, ' ').replace("services/", '').replace("/add", '').replace(/\b\w/g, l => l.toUpperCase())
+    ? name.replace(/[/]/g, ' ').replace("services", '').replace("add", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
 }
 
