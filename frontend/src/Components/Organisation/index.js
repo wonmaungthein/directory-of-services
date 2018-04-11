@@ -49,7 +49,6 @@ const originalOrganisations = {
 };
 function getSelectedCategory(match) {
   const { params } = match;
-  console.log(params);
   const service =
     params && params.service
       ? helpers.capitaliseAndPrettify(params.service)
@@ -64,7 +63,6 @@ export default class Organisations extends Component {
     day: null,
   };
   componentWillReceiveProps(newProps) {
-    console.log(this.state.day);
     this.setState({
       category: getSelectedCategory(newProps.match),
       organisations: originalOrganisations,
@@ -125,8 +123,6 @@ export default class Organisations extends Component {
     const { editIdx } = this.state;
     const { category } = this.state;
     const { day } = this.state;
-    console.info(category);
-    console.info(day);
     const organisations =
       this.state.organisations && this.state.organisations[category]
         ? this.state.organisations[category]

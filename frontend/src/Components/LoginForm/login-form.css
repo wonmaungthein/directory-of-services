@@ -1,0 +1,11 @@
+.login-form-content{
+  padding: 2em 1.5em;
+  width: 20em;
+}
+.login-form{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.login-form button{
+  margin-top: 2em;
+}
