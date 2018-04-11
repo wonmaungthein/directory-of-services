@@ -35,40 +35,40 @@ module.exports = router => {
     deleteUser(req.params.userId).then(() => res.json({ message: 'user deleted successfully' })));
 
   router.post('/users', (req, res) => {
-    let pass = req.body.salt_password;
+    let { password } = req.body;
     const { username } = req.body;
     bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(pass, salt, (error, hash) => {
+      bcrypt.hash(password, salt, (error, hash) => {
         if (error) throw error;
-        pass = hash;
-        addUser({ salt_password: pass, username }).then(user => res.json(user))
+        password = hash;
+        addUser({ salt_password: password, username }).then(user => res.json(user))
       })
     })
   });
   router.put('/users/:userId', (req, res) => {
-    let pass = req.body.salt_password;
+    let { password } = req.body;
     const { username } = req.body;
     bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(pass, salt, (error, hash) => {
+      bcrypt.hash(password, salt, (error, hash) => {
         if (error) throw error;
-        pass = hash;
-        updateUser(req.params.userId, { salt_password: pass, username }).then(() => res.json({ message: 'user updated successfully' }))
+        password = hash;
+        updateUser(req.params.userId, { salt_password: password, username }).then(() => res.json({ message: 'user updated successfully' }))
       })
     })
   });
   // =============== Sign Up =============
   router.post('/signup', (req, res) => {
-    let pass = req.body.salt_password;
+    let { password } = req.body;
     const { username } = req.body;
     getUserByUserName(username).then(user => {
       if (user.length > 0) {
         res.json({ success: false, message: 'User is already found' })
       } else {
         bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(pass, salt, (error, hash) => {
+          bcrypt.hash(password, salt, (error, hash) => {
             if (error) throw error;
-            pass = hash;
-            addUser({ salt_password: pass, username }).then(userData => {
+            password = hash;
+            addUser({ salt_password: password, username }).then(userData => {
               if (userData) {
                 res.json({ success: true, message: 'User is registered' })
               } else {
@@ -82,13 +82,12 @@ module.exports = router => {
   })
   // =============== Login =============
   router.post('/login', (req, res) => {
-    const userName = req.body.username;
-    const passwordHash = req.body.salt_password;
-    getUserByUserName(userName).then(userInfo => {
+    const { password, username } = req.body;
+    getUserByUserName(username).then(userInfo => {
       if (userInfo.length <= 0) {
         res.json({ success: false, message: 'User is not registered' })
       } else {
-        comparePassword(passwordHash, userInfo[0].salt_password, (err, isMatch) => {
+        comparePassword(password, userInfo[0].salt_password, (err, isMatch) => {
           if (err) throw err;
           if (isMatch) {
             const token = jwt.sign({
@@ -96,7 +95,7 @@ module.exports = router => {
               iat: new Date().getTime(),
               exp: new Date().setDate(new Date().getDate() + 1)
             }, secret);
-            res.json({ token, userInfo });
+            res.json({ token });
           } else {
             res.json({ success: false, message: 'Password is not match' })
           }

@@ -23,7 +23,7 @@ passport.use(new JwtStrategy(option, (payload, done) =>
 
 // LOCAL STRATEGY
 const userVerification = {
-  salt_password: 'password',
+  password: 'salt_password',
   username: 'username'
 }
 passport.use(new LocalStrategy(userVerification, (username, password, done) =>

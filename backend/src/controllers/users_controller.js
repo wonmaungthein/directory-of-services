@@ -23,8 +23,8 @@ module.exports = {
       Users.query(trx)
         .insertGraph(userData)),
 
-  comparePassword: (pass, hash, callBack) =>
-    bcrypt.compare(pass, hash, (err, isMatch) => {
+  comparePassword: (password, hash, callBack) =>
+    bcrypt.compare(password, hash, (err, isMatch) => {
       if (err) throw err;
       callBack(null, isMatch)
     })
