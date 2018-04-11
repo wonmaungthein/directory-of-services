@@ -7,6 +7,7 @@ import AddOrganisation from './Components/Organisation/AddOrganisation';
 import LandingPage from './Components/LandingPage';
 import SideBar from './Components/SideBar';
 import Users from './Components/Users';
+import HomePage from './Components/HomePage';
 
 const styles = theme => ({
   root: {
@@ -42,6 +43,7 @@ const Routes = props => {
       <Route exact path="/" component={LandingPage} />
       <main className={classes.content}>
         <div className={classes.drawerHeader} /> 
+        <Route path="/home" component={HomePage} />
         <Route exact path="/services/:service" component={OrganisationCard} />
         <Route exact path="/services/:service/add" component={AddOrganisation} />
         <Route exact path="/users" component={Users} />
