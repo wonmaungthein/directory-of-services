@@ -45,4 +45,3 @@ const loadSeedToDb = async () => {
 exports.seed = () => {
   loadSeedToDb();
 }
-
