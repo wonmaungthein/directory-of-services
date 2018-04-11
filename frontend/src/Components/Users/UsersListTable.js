@@ -160,9 +160,9 @@ export default class UsersListTable extends Component {
                   </TableCell>
                   <TableCell className="user-text">
                     <TextField
-                      name="email"
+                      name="organisation"
                       onChange={e => this.handleUserDataChange(e, index)}
-                      value={row.email}
+                      value={row.organisation}
                     />
                   </TableCell>
                   <TableCell className="user-text">
@@ -208,7 +208,7 @@ export default class UsersListTable extends Component {
                 <TableRow key={row.id}>
                   <TableCell className="user-text">{row.name}</TableCell>
                   <Hidden xsDown>
-                    <TableCell className="user-text">{row.email}</TableCell>
+                    <TableCell className="user-text">{row.organisation}</TableCell>
                   </Hidden>
                   <TableCell className="user-text">{row.role}</TableCell>
                   <TableCell className="user-text">
