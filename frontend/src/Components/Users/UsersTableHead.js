@@ -16,7 +16,7 @@ const columnData = [
     id: 'email',
     numeric: false,
     disablePadding: false,
-    label: 'Email',
+    label: 'Organisation',
   },
   {
     id: 'role',
