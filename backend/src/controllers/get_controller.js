@@ -8,7 +8,11 @@ module.exports = {
     const result = await Organisation
       .query()
       .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]');
-    return result;
+    try {
+      return result;
+    } catch (error) {
+      return error;
+    }
   },
 
   getBranchByCategory: async categoryName => {
@@ -17,7 +21,11 @@ module.exports = {
       .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
       .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
       .where('branch:service:categories.cat_name', 'like', `%${categoryName}%`)
-    return result;
+    try {
+      return result;
+    } catch (error) {
+      return error;
+    }
   },
 
   getBranchByDay: async day => {
@@ -26,7 +34,11 @@ module.exports = {
       .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
       .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
       .where('branch:service.service_days', 'like', `%${day}%`)
-    return result;
+    try {
+      return result;
+    } catch (error) {
+      return error;
+    }
   },
 
   getBranchByBorough: async boroughName => {
@@ -35,6 +47,10 @@ module.exports = {
       .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
       .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
       .where('branch.borough', 'like', `%${boroughName}%`)
-    return result;
+    try {
+      return result;
+    } catch (error) {
+      return error;
+    }
   }
 };
