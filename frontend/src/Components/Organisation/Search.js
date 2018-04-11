@@ -9,7 +9,6 @@ import helpers from '../../helpers';
 import searchStyle from './searchStyle';
 import './search.css';
 
-
 const organisations = [
   { postCode: 'H2 1TH', address: 'Bermondsey' },
   { postCode: 'H2 2TH', address: '2 Bermondsey' },
@@ -49,14 +48,11 @@ const services = [
   label: service.service,
 }));
 
-
 class Search extends React.Component {
   state = {
     postCode: '',
-    service: null,
     suggestions: [],
   };
-
 
   handleSuggestionsFetchRequested = ({ value }) => {
     this.setState({
@@ -64,26 +60,17 @@ class Search extends React.Component {
     });
   };
 
-
   handleSuggestionsClearRequested = () => {
     this.setState({
       suggestions: [],
     });
   };
 
-
   handlePostCodeChange = (event, { newValue }) => {
     this.setState({
       postCode: newValue,
     });
   };
-  
-  handleServiceChange = service => {
-    this.setState({
-      service,
-    });
-  };
-
 
   render() {
     const { classes } = this.props;
@@ -143,8 +130,8 @@ class Search extends React.Component {
             inputComponent={helpers.SelectWrapped}
             inputProps={{
               classes,
-              value: this.state.service,
-              onChange: this.handleServiceChange,
+              value: this.props.myService,
+              onChange: this.props.handleServiceChange,
               placeholder: 'Select Service',
               instanceId: 'selectService',
               id: 'selectService',
@@ -159,10 +146,8 @@ class Search extends React.Component {
   }
 }
 
-
 Search.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
 
 export default withStyles(searchStyle.styles)(Search);
