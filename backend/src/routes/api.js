@@ -12,6 +12,6 @@ module.exports = router => {
     getAllOrgainisation().then(data => res.json(data));
   });
   router.get('/service/migrate', (req, res) => {
-    loadSeedToDb().then(data => res.json({ Migration: 'Data migration to database completed successfully !' }));
+    loadSeedToDb().then(() => res.json({ Migration: 'Data migration to database completed successfully !' }));
   })
 }
