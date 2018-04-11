@@ -27,21 +27,19 @@ const styles = theme => ({
   },
 });
 
-class TopNav extends Component{
-  
+class TopNav extends Component {
   state = {
     userDropDown: false,
-  }
+  };
 
   showUserDropDown = () => {
     this.setState({
-      userDropDown: !this.state.userDropDown
-    })
-  }
+      userDropDown: !this.state.userDropDown,
+    });
+  };
 
-  renderUserDropDown = () => (
-    this.state.userDropDown ? <UserDropDown /> : null
-  )
+  renderUserDropDown = () =>
+    this.state.userDropDown ? <UserDropDown /> : null;
 
   render(){
     const { classes, addLink, titleLink, title, addOrg } = this.props;
@@ -76,7 +74,12 @@ class TopNav extends Component{
               </Typography>
             </Grid>
             <Grid className="login-section" item xs={4}>
-              <Button onClick={this.showUserDropDown} className="logo-button" variant="title" color="primary">
+              <Button
+                onClick={this.showUserDropDown}
+                className="logo-button"
+                variant="title"
+                color="primary"
+              >
                 <i className="material-icons">person</i>
               </Button>
             </Grid>
@@ -86,7 +89,7 @@ class TopNav extends Component{
       </AppBar>
     );
   }
-};
+}
 
 TopNav.propTypes = {
   classes: PropTypes.object.isRequired,
