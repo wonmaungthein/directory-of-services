@@ -17,7 +17,12 @@ module.exports = {
       .select('cat_name')
       .orderBy('cat_name')
       .distinct('cat_name')
-    return result;
+      .map(category => category.cat_name)
+    try {
+      return result;
+    } catch (error) {
+      return error;
+    }
   },
 
   getListOfBoroughs: async () => {
@@ -26,7 +31,12 @@ module.exports = {
       .select('borough')
       .orderBy('borough')
       .distinct('borough')
-    return result;
+      .map(borough => borough.borough)
+    try {
+      return result;
+    } catch (error) {
+      return error;
+    }
   },
 
   getListOfAreas: async () => {
@@ -35,6 +45,11 @@ module.exports = {
       .select('area')
       .orderBy('area')
       .distinct('area')
-    return result;
+      .map(area => area.area)
+    try {
+      return result;
+    } catch (error) {
+      return error;
+    }
   }
 };
