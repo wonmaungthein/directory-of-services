@@ -49,7 +49,6 @@ const originalOrganisations = {
 };
 function getSelectedCategory(match) {
   const { params } = match;
-  console.log(params);
   const service =
     params && params.service
       ? helpers.capitaliseAndPrettify(params.service)
@@ -65,7 +64,6 @@ export default class Organisations extends Component {
     service: null,
   };
   componentWillReceiveProps(newProps) {
-    console.log(this.state.day);
     this.setState({
       category: getSelectedCategory(newProps.match),
       organisations: originalOrganisations,
@@ -82,7 +80,6 @@ export default class Organisations extends Component {
     }
     const { category } = this.state;
     const filteredOrg = originalOrganisations[category];
-    console.log(filteredOrg);
 
     if (filteredOrg && filteredOrg.filter) {
       this.setState({
@@ -93,8 +90,7 @@ export default class Organisations extends Component {
         },
       });
     }
-    console.log(this.state.organisations);
-    };
+  };
 
   handleSelectedDay = day => {
     if (day) {
@@ -134,7 +130,6 @@ export default class Organisations extends Component {
       },
       this.filterByService(service),
     );
-    console.log('helo');
   };
 
   editSelectedOrganisation = idex =>
@@ -158,9 +153,6 @@ export default class Organisations extends Component {
   };
   render() {
     const { editIdx, category, day, service } = this.state;
-    console.info(category);
-    console.info(day);
-    console.info(service);
     const organisations =
       this.state.organisations && this.state.organisations[category]
         ? this.state.organisations[category]
