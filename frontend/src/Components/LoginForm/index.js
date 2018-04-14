@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
-import { login} from '../../actions/loginActions';
+import { login } from '../../actions/loginActions';
 import './login-form.css'
 
 class LoginForm extends Component {

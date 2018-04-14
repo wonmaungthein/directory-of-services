@@ -1,7 +1,8 @@
 import axios from 'axios';
-import setAuthorizationToken from '../utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
+import setAuthorizationToken from '../utils/setAuthorizationToken';
 import { SET_CURRENT_USER } from './types';
+
 const api = 'http://localhost:3002/api';
 
 export function setCurrentUser(user) {
@@ -20,17 +21,15 @@ export function logout() {
 }
 
 export function login(data) {
-  return dispatch => {
-    return axios.post(`${api}/login`, data).then(res => {
+  return dispatch =>
+    axios.post(`${api}/login`, data).then(res => {
       if (res.data.success !== false) {
-        const token = res.data.token;
+        const { token } = res.data;
         localStorage.setItem('jwtToken', token);
         setAuthorizationToken(token);
         dispatch(setCurrentUser(jwtDecode(token)));
         return res
-      } else {
-        return res
       }
+      return res
     });
-  }
 }
