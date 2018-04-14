@@ -1,11 +1,11 @@
 
 import { postOrganisation } from '../controllers/post_controller';
-import { loadSeedToDb } from '../controllers/postInitialData';
+import { seedData } from '../controllers/postInitialData';
 import {
   getAllOrgainisation,
-  getBranchByCategory,
-  getBranchByDay,
-  getBranchByBorough
+  getListOfCategories,
+  getListOfBoroughs,
+  getListOfAreas
 } from '../controllers/get_controller';
 
 module.exports = router => {
@@ -13,25 +13,51 @@ module.exports = router => {
     const query = req.body;
     postOrganisation(query).then(responce => res.json(responce));
   });
+
   router.get('/service/all', (req, res) => {
-    getAllOrgainisation().then(data => res.json(data));
+    getAllOrgainisation().then((err, services) => {
+      if (err) {
+        res.json(err)
+      } else {
+        res.json(services)
+      }
+    });
   });
+  
   router.get('/service/migrate', (req, res) => {
-    loadSeedToDb().then(() => res.json({ Migration: 'Data migration to database completed successfully !' }));
+    seedData().then((err) => {
+      if (err) {
+        res.json(err)
+      } else {
+        res.json({ Migration: 'Data migration to database completed successfully !' })
+      }
+    });
   });
 
-  router.get('/service/category', async (req, res) => {
-    const category = req.query.category;
-    getBranchByCategory(category).then(data => res.json(data))
-  });
+  router.get('/service/categories', (req, res) =>
+    getListOfCategories().then((err, categories) => {
+      if (err) {
+        res.json(err)
+      } else {
+        res.json(categories)
+      }
+    }));
 
-  router.get('/service/days', async (req, res) => {
-    const day = req.query.day;
-    getBranchByDay(req.query.day).then(data => res.json(data))
-  });
+  router.get('/service/boroughs', (req, res) =>
+    getListOfBoroughs().then((err, boroughs) => {
+      if (err) {
+        res.json(err)
+      } else {
+        res.json(boroughs)
+      }
+    }));
 
-  router.get('/service/borough', async (req, res) => {
-    const borough = req.query.boroughName;
-    getBranchByBorough(borough).then(data => res.json(data))
-  });
+  router.get('/service/areas', (req, res) =>
+    getListOfAreas().then((err, areas) => {
+      if (err) {
+        res.json(err)
+      } else {
+        res.json(areas)
+      }
+    }));
 }
