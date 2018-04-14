@@ -50,7 +50,6 @@ const services = [
 
 class Search extends React.Component {
   state = {
-    postCode: '',
     suggestions: [],
   };
 
@@ -63,12 +62,6 @@ class Search extends React.Component {
   handleSuggestionsClearRequested = () => {
     this.setState({
       suggestions: [],
-    });
-  };
-
-  handlePostCodeChange = (event, { newValue }) => {
-    this.setState({
-      postCode: newValue,
     });
   };
 
@@ -99,8 +92,8 @@ class Search extends React.Component {
               classes,
               placeholder: 'Search Near',
               name: 'postCode',
-              value: this.state.postCode,
-              onChange: this.handlePostCodeChange,
+              value: this.props.postCode,
+              onChange: this.props.handlePostCodeChange,
             }}
           />
         </Grid>

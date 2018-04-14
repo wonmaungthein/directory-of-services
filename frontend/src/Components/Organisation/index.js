@@ -62,6 +62,7 @@ export default class Organisations extends Component {
     category: getSelectedCategory(this.props.match),
     day: null,
     service: null,
+    postCode: '',
   };
   componentWillReceiveProps(newProps) {
     this.setState({
@@ -69,6 +70,7 @@ export default class Organisations extends Component {
       organisations: originalOrganisations,
       day: null,
       service: null,
+      postCode: '',
     });
   }
   filterByDay = day => {
@@ -132,6 +134,34 @@ export default class Organisations extends Component {
     );
   };
 
+  filterByPostcode = postCode => {
+    if (!postCode) {
+      this.setState({
+        organisations: originalOrganisations,
+      });
+      return;
+    }
+    const { category } = this.state;
+    const filteredOrg = originalOrganisations[category];
+
+    if (filteredOrg && filteredOrg.filter) {
+      this.setState({
+        organisations: {
+          [category]: originalOrganisations[category].filter(org =>
+            org.Day.includes(postCode),
+          ),
+        },
+      });
+    }
+  };
+
+
+  handlePostCodeChange = (event, { newValue }) => {
+    this.setState({
+      postCode: newValue,
+    });
+  };
+
   editSelectedOrganisation = idex =>
     this.setState({
       editIdx: idex,
@@ -152,7 +182,7 @@ export default class Organisations extends Component {
     });
   };
   render() {
-    const { editIdx, category, day, service } = this.state;
+    const { editIdx, category, day, service, postCode } = this.state;
     const organisations =
       this.state.organisations && this.state.organisations[category]
         ? this.state.organisations[category]
@@ -168,8 +198,10 @@ export default class Organisations extends Component {
           service={category}
           myService={service}
           day={day}
+          postCode={postCode}
           handleSelectedDay={this.handleSelectedDay}
           handleServiceChange={this.handleServiceChange}
+          handlePostCodeChange={this.handlePostCodeChange}
         />
         <Grid container className="organisation-page" spacing={24}>
           {organisations.map((org, index) => {
