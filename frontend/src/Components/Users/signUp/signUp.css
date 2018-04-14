@@ -1,6 +1,6 @@
 .sign-up-page {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
+    /* display: grid;
+    grid-template-columns: 3fr 2fr; */
 }
 
 .form-group {
@@ -12,37 +12,47 @@
     padding: 0 40px 0 .5rem;
 }
 
+.form-group:first-child div{
+    width: 70%;
+}
+
 .form-group:last-child {
     justify-content: center;
     align-items: center;
 }
 
 .form-group:last-child button {
-    width: 50%
+    width: 50%;
+    color: #fff;
 }
 
-.sign-up-page.form-group:first-child div:nth-child(3),
-.sign-up-page.form-group:first-child div:nth-child(4) {
+.form-group h2{
+    font-family: inherit;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.sign-up-page .form-group:first-child div:nth-child(3),
+.sign-up-page .form-group:first-child div:nth-child(4) {
     margin-top: 16px;
     margin-bottom: 8px;
 }
 
-.sign-up-page.form-group:first-child div:last-child::after input,
-.sign-up-page.form-group:first-child div:last-child::before input {
+.sign-up-page .form-group:first-child div:last-child::after input,
+.sign-up-page .form-group:first-child div:last-child::before input {
     background: transparent;
 }
 
-.sign-up-page.form-group div ::after {
-    background: #1abcd4;
+.sign-up-page .form-group:first-child div div::after {
+    background-color: #1abcd4;
 }
 
-.MuiFormLabel-focused-244 {
-    color: #1abcd4 !important;
+form  .input:before,
+form  .input::after{
+    content: none;
 }
 
 input[type="submit"] {
     margin-top: 28px;
-    margin-bottom: 50px;
     width: 180px;
     height: 32px;
     background: #16a085;
@@ -75,3 +85,36 @@ input[type="password"]:after:focus {
     color: #16a085;
     transition: 0.2s ease;
 }
+
+.sign-up-page .Facebook,
+.sign-up-page .Facebook:hover {
+    background: #32508E;
+}
+
+.sign-up-page .Google,
+.sign-up-page .Google:hover {
+    background: #DD4B39;
+}
+
+.form-group button {
+    margin-bottom: 20px;
+    border-radius: 3px;
+  }
+
+  .sep {
+    border: 1px solid #dbdbdb;
+    position: relative;
+    margin: 35px 20px;
+    margin-top: 5.4rem;
+  }
+
+  .or {
+    position: absolute;
+    width: 50px;
+    left: 50%;
+    background: #F0F0F0;
+    text-align: center;
+    margin: -10px 0 0 -25px;
+    line-height: 20px;
+  }
+  

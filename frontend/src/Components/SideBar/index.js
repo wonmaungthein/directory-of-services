@@ -1,5 +1,4 @@
-
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
@@ -68,13 +67,19 @@ class SideBar extends React.Component {
 
   render() {
     const { classes, theme } = this.props;
-
     const drawer = (
-      <div>
+      <div >
         <Hidden mdUp>
           <div className={classes.drawerHeader}>
-            <IconButton className="draw-close-button" onClick={this.handleDrawerClose}>
-              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            <IconButton
+              className="draw-close-button"
+              onClick={this.handleDrawerClose}
+            >
+              {theme.direction === 'rtl' ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
             </IconButton>
           </div>
         </Hidden>
@@ -85,18 +90,16 @@ class SideBar extends React.Component {
           <Link to="/home">LOGO</Link>
         </div>
         <Divider />
-        <List>
-          <Categories />
-        </List>
+        <List>{this.props.sign ? null : <Categories />}</List>
         <Divider />
         <List>
           <UsersMenu />
         </List>
       </div>
     );
-
+    
     return (
-      <Fragment>
+      <div className={this.props.pat? '' : 'hide'}>
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -132,7 +135,7 @@ class SideBar extends React.Component {
             {drawer}
           </Drawer>
         </Hidden>
-      </Fragment>
+      </div>
     );
   }
 }

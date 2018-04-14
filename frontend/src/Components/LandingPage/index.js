@@ -16,7 +16,7 @@ const LandingPage = () => {
             </div>
             <div className="google-title">
               <h5>
-                <Link to="/home">Sign in</Link>
+                <Link to="/signup">Sign in</Link>
               </h5>
             </div>
           </div>

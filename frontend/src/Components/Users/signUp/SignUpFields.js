@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import Input from 'material-ui/Input';
 
 const SignUpFields = props => {
-
   const { classes } = props;
-  
+
   return (
     <form className="form-group">
+      <h2> Create an account </h2>
       <TextField
         id="name"
         placeholder="Full Name"
@@ -36,7 +37,7 @@ const SignUpFields = props => {
         type="password"
         value={props.password}
         onChange={props.handleChange('password')}
-        margin="normal"        
+        margin="normal"
       />
 
       <TextField
@@ -46,9 +47,13 @@ const SignUpFields = props => {
         type="password"
         value={props.retypePassword}
         onChange={props.handleChange('retypePassword')}
-        margin="normal"        
+        margin="normal"
       />
-      <Input className={classes} type="submit" value="SIGN ME UP" />
+      
+      <h5>
+        <Link to="/home">SIGN ME UP</Link>
+      </h5>
+      <Input className="input" type="submit" value="SIGN ME UP" />
     </form>
   );
 };
