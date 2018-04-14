@@ -21,8 +21,9 @@ const app = express()
   .use(passport.initialize())
   .use(passport.session())
   .use(cors());
-  
+
 registerApi(router);
+
 app.use('/api', users);
 
 

@@ -23,7 +23,6 @@ module.exports = router => {
       }
     });
   });
-  
   router.get('/service/migrate', (req, res) => {
     seedData().then((err) => {
       if (err) {

@@ -18,21 +18,17 @@ const router = express.Router();
 
 router.get('/users', (req, res) => {
   try {
-    getAllUsers().then(users => {
-      res.json(users)
-    })
-  }
-  catch (err) {
+    getAllUsers().then(users => res.json(users))
+  } catch (err) {
     res.json(err)
   }
 });
 
-router.get('/users/:id', (req, res, next) =>
+router.get('/users/:id', (req, res) =>
   getUsersById(req.params.id).then(user => {
     try {
       res.json(user)
-    }
-    catch (err) {
+    } catch (err) {
       res.json(err)
     }
   }));
@@ -99,7 +95,7 @@ router.post('/login', (req, res) => {
           const token = jwt.sign({
             sub: userInfo[0].id,
             username: userInfo[0].username,
-            sucess: "true"
+            sucess: 'true'
           }, secret);
           res.json({ token });
         } else {
