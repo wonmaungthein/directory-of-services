@@ -11,12 +11,45 @@ module.exports = {
     return result;
   },
 
-  getListOfCategoriesName: () =>
-    Categories.query().skipUndefined(),
+  getListOfCategories: async () => {
+    const result = await Categories
+      .query()
+      .select('cat_name')
+      .orderBy('cat_name')
+      .distinct('cat_name')
+      .map(category => category.cat_name)
+    try {
+      return result;
+    } catch (error) {
+      return error;
+    }
+  },
 
-  getListOfBoroughsNames: () =>
-    Branch.query().skipUndefined(),
+  getListOfBoroughs: async () => {
+    const result = await Branch
+      .query()
+      .select('borough')
+      .orderBy('borough')
+      .distinct('borough')
+      .map(borough => borough.borough)
+    try {
+      return result;
+    } catch (error) {
+      return error;
+    }
+  },
 
-  getListOfAreasNames: () =>
-    Address.query().skipUndefined()
+  getListOfAreas: async () => {
+    const result = await Address
+      .query()
+      .select('area')
+      .orderBy('area')
+      .distinct('area')
+      .map(area => area.area)
+    try {
+      return result;
+    } catch (error) {
+      return error;
+    }
+  }
 };
