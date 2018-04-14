@@ -43,9 +43,9 @@ function renderSuggestion(organisation, { query, isHighlighted }) {
                 {part.text}
               </span>
             ) : (
-                <strong key={String(index)} style={{ fontWeight: 500 }}>
-                  {part.text}
-                </strong>
+              <strong key={String(index)} style={{ fontWeight: 500 }}>
+                {part.text}
+              </strong>
               ),
         )}
       </div>

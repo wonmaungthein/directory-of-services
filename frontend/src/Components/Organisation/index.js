@@ -49,7 +49,6 @@ const originalOrganisations = {
 };
 function getSelectedCategory(match) {
   const { params } = match;
-  console.log(params);
   const service =
     params && params.service
       ? helpers.linkMaker(params.service)
@@ -64,7 +63,6 @@ export default class Organisations extends Component {
     day: null,
   };
   componentWillReceiveProps(newProps) {
-    console.log(this.state.day);
     this.setState({
       category: getSelectedCategory(newProps.match),
       organisations: originalOrganisations,
