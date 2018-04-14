@@ -1,0 +1,77 @@
+.sign-up-page {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group:first-child {
+    padding: 0 40px 0 .5rem;
+}
+
+.form-group:last-child {
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group:last-child button {
+    width: 50%
+}
+
+.sign-up-page.form-group:first-child div:nth-child(3),
+.sign-up-page.form-group:first-child div:nth-child(4) {
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.sign-up-page.form-group:first-child div:last-child::after input,
+.sign-up-page.form-group:first-child div:last-child::before input {
+    background: transparent;
+}
+
+.sign-up-page.form-group div ::after {
+    background: #1abcd4;
+}
+
+.MuiFormLabel-focused-244 {
+    color: #1abcd4 !important;
+}
+
+input[type="submit"] {
+    margin-top: 28px;
+    margin-bottom: 50px;
+    width: 180px;
+    height: 32px;
+    background: #16a085;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+input[type="password"]:after:focus {
+    background: transparent;
+    border-bottom: 2px solid #16a085;
+    color: #16a085;
+    transition: 0.2s ease;
+}

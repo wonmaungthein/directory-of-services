@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SignUpFields from './SignUpFields';
 
+import './signUp.css';
+
 class SignUpForm extends Component {
   state = {
     fullName: '',

@@ -4,7 +4,9 @@ import TextField from 'material-ui/TextField';
 import Input from 'material-ui/Input';
 
 const SignUpFields = props => {
+
   const { classes } = props;
+  
   return (
     <form className="form-group">
       <TextField
@@ -34,6 +36,7 @@ const SignUpFields = props => {
         type="password"
         value={props.password}
         onChange={props.handleChange('password')}
+        margin="normal"        
       />
 
       <TextField
@@ -43,6 +46,7 @@ const SignUpFields = props => {
         type="password"
         value={props.retypePassword}
         onChange={props.handleChange('retypePassword')}
+        margin="normal"        
       />
       <Input className={classes} type="submit" value="SIGN ME UP" />
     </form>
