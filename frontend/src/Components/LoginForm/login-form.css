@@ -1,5 +1,5 @@
 .login-form-content{
-  padding: 2em 1.5em;
+  padding: 2em 1.8em;
   width: 20em;
 }
 .login-form{
@@ -8,4 +8,8 @@
 }
 .login-form button{
   margin-top: 2em;
+}
+.error{
+  color: #f00 !important;
+  font-size: 1em !important;
 }

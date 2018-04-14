@@ -5,8 +5,9 @@ import bodyParser from 'body-parser'
 import passport from 'passport';
 import morgan from 'morgan'
 import compression from 'compression'
+import cors from 'cors';
 import registerApi from './routes/api';
-import registerUsers from './routes/users';
+import users from './routes/users';
 
 const router = promiseRouter();
 
@@ -18,10 +19,12 @@ const app = express()
   .use(compression())
   .use(router)
   .use(passport.initialize())
-  .use(passport.session());
-
+  .use(passport.session())
+  .use(cors());
+  
 registerApi(router);
-registerUsers(router);
+app.use('/api', users);
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

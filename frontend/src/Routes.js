@@ -8,6 +8,7 @@ import LandingPage from './Components/LandingPage';
 import SideBar from './Components/SideBar';
 import Users from './Components/Users';
 import HomePage from './Components/HomePage';
+import authVerification from './utils/authVerification';
 
 const styles = theme => ({
   root: {
@@ -43,11 +44,11 @@ const Routes = props => {
       <Route exact path="/" component={LandingPage} />
       <main className={classes.content}>
         <div className={classes.drawerHeader} /> 
-        <Route path="/home" component={HomePage} />
-        <Route exact path="/services/:service" component={OrganisationCard} />
-        <Route exact path="/services/:service/add" component={AddOrganisation} />
-        <Route exact path="/users" component={Users} />
-        <Route exact path="/users/:form" component={Users} />
+        <Route path="/:home" component={authVerification(HomePage)} />
+        <Route exact path="/services/:service" component={authVerification(OrganisationCard)} />
+        <Route exact path="/services/:service/add" component={authVerification(AddOrganisation)} />
+        <Route exact path="/users" component={authVerification(Users)} />
+        <Route exact path="/users/:form" component={authVerification(Users)} />
       </main>
     </div>
   );

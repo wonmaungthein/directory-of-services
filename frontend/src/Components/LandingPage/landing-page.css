@@ -10,3 +10,18 @@
   height: 100vh;
   z-index: 4;
 }
+.login-error{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f00;
+  margin-bottom: 1em;
+  background: yellow;
+  padding: 1em;
+  margin-left: -1.8em;
+  border-radius: .5em;
+}
+.login-error .material-icons{
+  color: #000;
+  margin-left: 1em;
+}

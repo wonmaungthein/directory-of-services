@@ -12,13 +12,13 @@ module.exports = {
   },
 
   getListOfCategories: async () => {
-    const result = await Categories
-      .query()
-      .select('cat_name')
-      .orderBy('cat_name')
-      .distinct('cat_name')
-      .map(category => category.cat_name)
     try {
+      const result = await Categories
+        .query()
+        .select('cat_name')
+        .orderBy('cat_name')
+        .distinct('cat_name')
+        .map(category => category.cat_name)
       return result;
     } catch (error) {
       return error;
@@ -26,13 +26,13 @@ module.exports = {
   },
 
   getListOfBoroughs: async () => {
-    const result = await Branch
-      .query()
-      .select('borough')
-      .orderBy('borough')
-      .distinct('borough')
-      .map(borough => borough.borough)
     try {
+      const result = await Branch
+        .query()
+        .select('borough')
+        .orderBy('borough')
+        .distinct('borough')
+        .map(borough => borough.borough)
       return result;
     } catch (error) {
       return error;
@@ -40,13 +40,13 @@ module.exports = {
   },
 
   getListOfAreas: async () => {
-    const result = await Address
-      .query()
-      .select('area')
-      .orderBy('area')
-      .distinct('area')
-      .map(area => area.area)
     try {
+      const result = await Address
+        .query()
+        .select('area')
+        .orderBy('area')
+        .distinct('area')
+        .map(area => area.area)
       return result;
     } catch (error) {
       return error;
