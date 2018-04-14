@@ -49,11 +49,10 @@ const SignUpFields = props => {
         onChange={props.handleChange('retypePassword')}
         margin="normal"
       />
-      
       <h5>
-        <Link to="/home">SIGN ME UP</Link>
+        <Link to="/home"> <Input className="input" type="submit" value="SIGN ME UP" /></Link>
       </h5>
-      <Input className="input" type="submit" value="SIGN ME UP" />
+     
     </form>
   );
 };

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Grid from 'material-ui/Grid';
+import Paper from 'material-ui/Paper';
 import SignUpFields from './SignUpFields';
 import SocialSigning from './SocialSigning';
 
@@ -33,29 +34,31 @@ class SignUpForm extends Component {
   render() {
     return (
       <div className="sign-up-page">
-        <Grid container spacing={24}>
-          <Grid item xs>
-            <SignUpFields
-              fullName={this.state.fullName}
-              email={this.state.email}
-              password={this.state.password}
-              retypePassword={this.state.retypePassword}
-              handleSubmit={this.handleSubmit}
-              handleChange={this.handleChange}
-            />
-          </Grid>
-          <Grid item xs>
-            <div>
-              <div className="sep">
-                <span className="or">OR</span>
+        <Paper className="form-card">
+          <Grid container spacing={24}>
+            <Grid item xs>
+              <SignUpFields
+                fullName={this.state.fullName}
+                email={this.state.email}
+                password={this.state.password}
+                retypePassword={this.state.retypePassword}
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+              />
+            </Grid>
+            <Grid item xs>
+              <div>
+                <div className="sep">
+                  <span className="or">OR</span>
+                </div>
+                <div className="form-group">
+                  <SocialSigning social="Facebook" />
+                  <SocialSigning social="Google+" />
+                </div>
               </div>
-              <div className="form-group">
-                <SocialSigning social="Facebook" />
-                <SocialSigning social="Google+" />
-              </div>
-            </div>
+            </Grid>
           </Grid>
-        </Grid>
+        </Paper>
       </div>
     );
   }

@@ -38,11 +38,12 @@ const styles = theme => ({
 const Routes = props => {
   const { classes } = props;
   const showSideBar = props.location.pathname !==  '/';
+  const hideSideBar = props.location.pathname !==  "/signup";
   return (
     <div className={classes.root}>
-      {showSideBar ? <SideBar pat={props.location.pathname !==  "/signup"} /> : null}      
+      {showSideBar ? <SideBar path={hideSideBar} /> : null}      
       <Route exact path="/" component={LandingPage} />
-      <main className={classes.content}>
+      <main className={hideSideBar? classes.content:'form-sign'}>
         <div className={classes.drawerHeader} />
         <Route exact path="/signup" component={SignUp} />                
         <Route path="/home" component={HomePage} />

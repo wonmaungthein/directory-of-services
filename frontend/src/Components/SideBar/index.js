@@ -97,9 +97,9 @@ class SideBar extends React.Component {
         </List>
       </div>
     );
-    
+
     return (
-      <div className={this.props.pat? '' : 'hide'}>
+      <div className={this.props.path? '' : 'hide'}>
         <IconButton
           color="inherit"
           aria-label="open drawer"
