@@ -116,9 +116,11 @@ class LoginForm extends Component {
   }
 }
 
+LoginForm.propTypes = {
+  login: PropTypes.func.isRequired
+}
 LoginForm.contextTypes = {
   router: PropTypes.object.isRequired,
-  login: PropTypes.func.isRequired
 }
 
 export default connect(null, { login })(LoginForm);

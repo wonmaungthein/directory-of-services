@@ -34,7 +34,7 @@ function mapStateToProps(state) {
   }
 }
 
-LandingPage.contextTypes = {
+LandingPage.propTypes = {
   messages: PropTypes.array.isRequired,
   deleteFlashMessage: PropTypes.func.isRequired
 }
