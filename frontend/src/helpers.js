@@ -53,9 +53,9 @@ function renderSuggestion(organisation, { query, isHighlighted }) {
   );
 }
 
+// suggestion address container
 function renderSuggestionsContainer(options) {
   const { containerProps, children } = options;
-
   return (
     <Paper {...containerProps} square>
       {children}
@@ -63,6 +63,7 @@ function renderSuggestionsContainer(options) {
   );
 }
 
+// Get suggestion address value
 function getSuggestionValue(orgainsation) {
   return `${orgainsation.address}, ${orgainsation.postCode}`;
 }
@@ -126,21 +127,10 @@ function SelectWrapped(props) {
   );
 }
 
-function capitaliseAndPrettify(name) {
-  return name
-    ? name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
-    : null;
-}
-
 function linkMaker(name) {
   // These [" "] and [/] will replace all of sapce between words or / to none space
   return name
     ? name.replace(/[" "]/g, '').replace(/[/]/g, '').replace(" & ", '').replace(/\b\w/g, l => l.toUpperCase())
-    : null;
-}
-function reformatCategoryName(name) {
-  return name
-    ? name.replace("/services/", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
 }
 
@@ -169,9 +159,7 @@ export default {
   getSuggestionValue,
   getSuggestions,
   SelectWrapped,
-  capitaliseAndPrettify,
   linkMaker,
-  reformatCategoryName,
   categoryNameMaker,
   addSpace
 };

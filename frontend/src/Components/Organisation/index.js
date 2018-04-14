@@ -52,7 +52,7 @@ function getSelectedCategory(match) {
   console.log(params);
   const service =
     params && params.service
-      ? helpers.capitaliseAndPrettify(params.service)
+      ? helpers.linkMaker(params.service)
       : null;
   return service;
 }
