@@ -20,7 +20,7 @@ const LandingPage = (props) => {
   return (
     <div className="landing-page">
       <div>
-        {renderMessages() ? <h3 className="login-error">{renderMessages()} <i tabIndex={0} role="button" onClick={deleteMessage} className="material-icons">close</i></h3> : null}
+        {renderMessages() ? <h3 className="login-error">{renderMessages()} <i tabIndex={0} role="button" onClick={deleteMessage} onKeyPress={deleteMessage} className="material-icons">close</i></h3> : null}
         <LoginForm />
       </div>
     </div>

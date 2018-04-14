@@ -3,6 +3,7 @@ import findIndex from 'lodash/findIndex';
 import { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } from '../actions/types';
 
 export default (state = [], action = {}) => {
+  const index = findIndex(state, { id: action.id });
   switch(action.type) {
     case ADD_FLASH_MESSAGE:
       return [
@@ -14,7 +15,6 @@ export default (state = [], action = {}) => {
         }
       ];
     case DELETE_FLASH_MESSAGE:
-      const index = findIndex(state, { id: action.id });
       if (index >= 0) {
         return [
           ...state.slice(0, index),
