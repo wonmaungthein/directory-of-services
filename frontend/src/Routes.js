@@ -8,7 +8,7 @@ import LandingPage from './Components/LandingPage';
 import SideBar from './Components/SideBar';
 import Users from './Components/Users';
 import HomePage from './Components/HomePage';
-import authVerification from './utils/authVerification';
+import AuthEndpoint from './utils/AuthEndpoint';
 
 const styles = theme => ({
   root: {
@@ -44,11 +44,11 @@ const Routes = props => {
       <Route exact path="/" component={LandingPage} />
       <main className={classes.content}>
         <div className={classes.drawerHeader} /> 
-        <Route path="/:home" component={authVerification(HomePage)} />
-        <Route exact path="/services/:service" component={authVerification(OrganisationCard)} />
-        <Route exact path="/services/:service/add" component={authVerification(AddOrganisation)} />
-        <Route exact path="/users" component={authVerification(Users)} />
-        <Route exact path="/users/:form" component={authVerification(Users)} />
+        <Route path="/:home" component={AuthEndpoint(HomePage)} />
+        <Route exact path="/services/:service" component={AuthEndpoint(OrganisationCard)} />
+        <Route exact path="/services/:service/add" component={AuthEndpoint(AddOrganisation)} />
+        <Route exact path="/users" component={AuthEndpoint(Users)} />
+        <Route exact path="/users/:form" component={AuthEndpoint(Users)} />
       </main>
     </div>
   );
@@ -57,6 +57,7 @@ const Routes = props => {
 SideBar.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(withRouter(props => <Routes {...props} />));

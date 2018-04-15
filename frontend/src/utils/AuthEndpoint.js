@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { addFlashMessage } from '../actions/flashMessages';
 
 export default function (ComposedComponent) {
-  class authVerification extends Component {
+  class AuthEndpoint extends Component {
     componentWillMount() {
       if (!this.props.isAuthenticated) {
         this.props.addFlashMessage({
@@ -28,12 +28,12 @@ export default function (ComposedComponent) {
     }
   }
 
-  authVerification.propTypes = {
+  AuthEndpoint.propTypes = {
     isAuthenticated: PropTypes.bool.isRequired,
     addFlashMessage: PropTypes.func.isRequired
   }
 
-  authVerification.contextTypes = {
+  AuthEndpoint.contextTypes = {
     router: PropTypes.object.isRequired
   }
 
@@ -43,5 +43,5 @@ export default function (ComposedComponent) {
     };
   }
 
-  return connect(mapStateToProps, { addFlashMessage })(authVerification);
+  return connect(mapStateToProps, { addFlashMessage })(AuthEndpoint);
 }
