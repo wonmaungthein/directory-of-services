@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
-import Input from 'material-ui/Input';
+import Button from 'material-ui/Button';
 
 const SignUpFields = props => {
   const { classes } = props;
@@ -49,10 +49,15 @@ const SignUpFields = props => {
         onChange={props.handleChange('retypePassword')}
         margin="normal"
       />
-      <h5>
-        <Link to="/home"> <Input className="input" type="submit" value="SIGN ME UP" /></Link>
-      </h5>
-     
+      <Button
+        variant="raised"
+        size="small"
+        type="submit"
+        className="add-user-button"
+        onClick={props.handleSubmit}
+      >
+        Create My account
+      </Button>
     </form>
   );
 };

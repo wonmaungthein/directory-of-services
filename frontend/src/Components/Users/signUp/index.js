@@ -15,14 +15,13 @@ class SignUpForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.addNewUserHandler();
     this.setState({
       fullName: '',
       email: '',
       password: '',
       retypePassword: '',
     });
-    this.savedChangesSuccessfully();
+    this.props.history.push('/home');
   };
 
   handleChange = name => event => {

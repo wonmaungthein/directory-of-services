@@ -68,29 +68,33 @@ form a{
     text-decoration: none;
 }
 
-input[type="submit"] {
+div:first-child .form-group button[type="submit"] {
     margin-top: 28px;
-    width: 180px;
-    height: 32px;
     background: #16a085;
     border: none;
     border-radius: 2px;
     color: #FFF;
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    text-transform: uppercase;
-    transition: 0.1s ease;
-    cursor: pointer;
+    height: 40px;
 }
 
-input[type="submit"]:hover,
-input[type="submit"]:focus {
+.form-group button {
+    margin-bottom: 20px;
+    border-radius: 3px;
+    font-size: .67rem;
+    width: 180px;
+    padding: .1rem .3rem;
+  }
+
+div:first-child .form-group button[type="submit"]:hover,
+div:first-child .form-group button[type="submit"]:focus {
     opacity: 0.8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
+    background: #16a085;    
 }
 
-input[type="submit"]:active {
+div:first-child .form-group button[type="submit"]:active {
     opacity: 1;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
@@ -113,12 +117,7 @@ input[type="password"]:after:focus {
     background: #DD4B39;
 }
 
-.form-group button {
-    margin-bottom: 20px;
-    border-radius: 3px;
-    font-size: .67rem;
-    padding: .1rem .3rem;
-  }
+
 
   .sep {
     border: 1px solid #dbdbdb;
@@ -137,15 +136,6 @@ input[type="password"]:after:focus {
     line-height: 20px;
   }
   
-  /* .form-card{
-    padding: 2em 2.5rem 7rem !important;
-    overflow: auto;
-    position: relative;
-    margin: 5% auto;
-    width: 600px;
-    height: 400px;
-    background: #FFF;
-  } */
 
   @media screen and (max-width:996px){
     .sign-up-page {
@@ -153,14 +143,9 @@ input[type="password"]:after:focus {
     }
   }
 
-  @media screen and (max-width: 670px){
+  /* @media screen and (max-width: 670px){
     .sign-up-page {
         width: 80%;
     }
-  }
-
-  /* @media screen (min-width: 456px) and (max-width: 670px){
-    .sign-up-page {
-        width: 100%;
-    }
   } */
+
