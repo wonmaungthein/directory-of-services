@@ -78,7 +78,6 @@ export default class Organisations extends Component {
       this.setState({
         organisations: originalOrganisations,
       });
-      return;
     }
     const { category } = this.state;
     const filteredOrg = originalOrganisations[category];
@@ -110,7 +109,6 @@ export default class Organisations extends Component {
       this.setState({
         organisations: originalOrganisations,
       });
-      return;
     }
     const { category } = this.state;
     const filteredOrg = originalOrganisations[category];
@@ -139,7 +137,6 @@ export default class Organisations extends Component {
       this.setState({
         organisations: originalOrganisations,
       });
-      return;
     }
     const { category } = this.state;
     const filteredOrg = originalOrganisations[category];
