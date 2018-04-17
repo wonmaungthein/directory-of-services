@@ -97,6 +97,11 @@ class SignUpForm extends Component {
       isError = true;
       errors.passwordError += ' You must include a digit & no space.';
     }
+
+    if (this.state.password !== this.state.confirmPassword) {
+      isError = true;
+      errors.confirmPasswordError += ' You password is not matching.';
+    }
     this.setState({
       ...this.state,
       ...errors,
@@ -109,8 +114,6 @@ class SignUpForm extends Component {
     e.preventDefault();
     const err = this.validateFormHandler();
     this.failedSavedChanges();
-    // console.log(this.state.password)
-    // console.log(schema.validate(this.state.password));
     if (!err) {
       this.setState({
         fullName: '',
