@@ -1,52 +1,53 @@
 import Organisation from '../model/Organisation';
 import Categories from '../model/Categories';
 import Branch from '../model/Branch';
-import Address from '../model/Address';
+import Service from '../model/Service';
 
 module.exports = {
   getAllOrgainisation: async () => {
-    const result = await Organisation
-      .query()
-      .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]');
-    return result;
-  },
-
-  getListOfCategories: async () => {
     try {
-      const result = await Categories
+      const result = await Organisation
         .query()
-        .select('cat_name')
-        .orderBy('cat_name')
-        .distinct('cat_name')
-        .map(category => category.cat_name)
+        .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]');
       return result;
     } catch (error) {
       return error;
     }
   },
 
-  getListOfBoroughs: async () => {
+  getBranchByCategory: async categoryName => {
     try {
-      const result = await Branch
+      const result = await Organisation
         .query()
-        .select('borough')
-        .orderBy('borough')
-        .distinct('borough')
-        .map(borough => borough.borough)
+        .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
+        .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
+        .where('branch:service:categories.cat_name', 'like', `%${categoryName}%`)
       return result;
     } catch (error) {
       return error;
     }
   },
 
-  getListOfAreas: async () => {
+  getBranchByDay: async day => {
     try {
-      const result = await Address
+      const result = await Organisation
         .query()
-        .select('area')
-        .orderBy('area')
-        .distinct('area')
-        .map(area => area.area)
+        .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
+        .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
+        .where('branch:service.service_days', 'like', `%${day}%`)
+      return result;
+    } catch (error) {
+      return error;
+    }
+  },
+
+  getBranchByBorough: async boroughName => {
+    try {
+      const result = await Organisation
+        .query()
+        .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
+        .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
+        .where('branch.borough', 'like', `%${boroughName}%`)
       return result;
     } catch (error) {
       return error;
