@@ -144,7 +144,7 @@ export default class Organisations extends Component {
       this.setState({
         organisations: {
           [category]: filteredOrg.filter(org =>
-            org.Postcode.toLowerCase().includes(postCode),
+            org.Postcode.toLowerCase().includes( postCode.toLowerCase()),
           ),
         },
       });
@@ -157,7 +157,7 @@ export default class Organisations extends Component {
       {
         postCode: newValue,
       },
-      this.filterByPostcode(event.target.value),
+      this.filterByPostcode(newValue),
     );
   };
 
