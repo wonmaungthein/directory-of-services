@@ -85,7 +85,7 @@ export default class Organisations extends Component {
     if (filteredOrg && filteredOrg.filter) {
       this.setState({
         organisations: {
-          [category]: originalOrganisations[category].filter(org =>
+          [category]: filteredOrg.filter(org =>
             org.Day.includes(day),
           ),
         },
@@ -115,7 +115,7 @@ export default class Organisations extends Component {
     if (filteredOrg && filteredOrg.filter) {
       this.setState({
         organisations: {
-          [category]: originalOrganisations[category].filter(org =>
+          [category]: filteredOrg.filter(org =>
             org.Services.includes(service),
           ),
         },
@@ -140,24 +140,27 @@ export default class Organisations extends Component {
     }
     const { category } = this.state;
     const filteredOrg = originalOrganisations[category];
-
     if (filteredOrg && filteredOrg.filter) {
       this.setState({
         organisations: {
-          [category]: originalOrganisations[category].filter(org =>
-            org.Day.includes(postCode),
+          [category]: filteredOrg.filter(org =>
+            org.Postcode.toLowerCase().includes(postCode),
           ),
         },
       });
+
     }
   };
 
-
   handlePostCodeChange = (event, { newValue }) => {
-    this.setState({
-      postCode: newValue,
-    });
+    this.setState(
+      {
+        postCode: newValue,
+      },
+      this.filterByPostcode(event.target.value),
+    );
   };
+
 
   editSelectedOrganisation = idex =>
     this.setState({

@@ -64,7 +64,7 @@ function renderSuggestionsContainer(options) {
 }
 
 function getSuggestionValue(orgainsation) {
-  return `${orgainsation.address}, ${orgainsation.postCode}`;
+  return `${orgainsation.postCode}`;
 }
 function getSuggestions(value, organisations) {
   const inputValue = value.trim().toLowerCase();
