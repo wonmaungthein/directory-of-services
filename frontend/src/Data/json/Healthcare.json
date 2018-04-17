@@ -83,7 +83,7 @@
       "Website":
         "http://www.b-r-s.org.uk/index.php?option=com_content&view=article&id=4&Itemid=3",
       "Postcode": "HA8 0AD",
-      "Services": "Health",
+      "Services": "Healthcare advice",
       "Borough": "Barnet",
       "Process": [
         "Drop in (can call in advance)",
@@ -242,6 +242,7 @@
       "Email": "Ethio@mail",
       "Website": "ethio.org",
       "Postcode": "ET63",
+      "Services": "",
       "Borough": "Camden (Holborn)",
       "Process": ["Drop in"],
       "Tel": ["251858693"],

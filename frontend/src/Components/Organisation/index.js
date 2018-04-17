@@ -61,12 +61,16 @@ export default class Organisations extends Component {
     editIdx: -1,
     category: getSelectedCategory(this.props.match),
     day: null,
+    service: null,
+    postCode: '',
   };
   componentWillReceiveProps(newProps) {
     this.setState({
       category: getSelectedCategory(newProps.match),
       organisations: originalOrganisations,
       day: null,
+      service: null,
+      postCode: '',
     });
   }
   filterByDay = day => {
@@ -74,14 +78,14 @@ export default class Organisations extends Component {
       this.setState({
         organisations: originalOrganisations,
       });
-      return;
     }
     const { category } = this.state;
     const filteredOrg = originalOrganisations[category];
+
     if (filteredOrg && filteredOrg.filter) {
       this.setState({
         organisations: {
-          [category]: originalOrganisations[category].filter(org =>
+          [category]: filteredOrg.filter(org =>
             org.Day.includes(day),
           ),
         },
@@ -99,6 +103,64 @@ export default class Organisations extends Component {
       );
     }
   };
+
+  filterByService = service => {
+    if (!service) {
+      this.setState({
+        organisations: originalOrganisations,
+      });
+    }
+    const { category } = this.state;
+    const filteredOrg = originalOrganisations[category];
+    if (filteredOrg && filteredOrg.filter) {
+      this.setState({
+        organisations: {
+          [category]: filteredOrg.filter(org =>
+            org.Services.includes(service),
+          ),
+        },
+      });
+    }
+  };
+
+  handleServiceChange = service => {
+    this.setState(
+      {
+        service,
+      },
+      this.filterByService(service),
+    );
+  };
+
+  filterByPostcode = postCode => {
+    if (!postCode) {
+      this.setState({
+        organisations: originalOrganisations,
+      });
+    }
+    const { category } = this.state;
+    const filteredOrg = originalOrganisations[category];
+    if (filteredOrg && filteredOrg.filter) {
+      this.setState({
+        organisations: {
+          [category]: filteredOrg.filter(org =>
+            org.Postcode.toLowerCase().includes( postCode.toLowerCase()),
+          ),
+        },
+      });
+
+    }
+  };
+
+  handlePostCodeChange = (event, { newValue }) => {
+    this.setState(
+      {
+        postCode: newValue,
+      },
+      this.filterByPostcode(newValue),
+    );
+  };
+
 
   editSelectedOrganisation = idex =>
     this.setState({
@@ -120,9 +182,7 @@ export default class Organisations extends Component {
     });
   };
   render() {
-    const { editIdx } = this.state;
-    const { category } = this.state;
-    const { day } = this.state;
+    const { editIdx, category, day, service, postCode } = this.state;
     const organisations =
       this.state.organisations && this.state.organisations[category]
         ? this.state.organisations[category]
@@ -135,10 +195,13 @@ export default class Organisations extends Component {
           titleLink={`services/${category}`}
         />
         <Search
-          filterByDay={this.filterByDay}
           service={category}
+          myService={service}
           day={day}
+          postCode={postCode}
           handleSelectedDay={this.handleSelectedDay}
+          handleServiceChange={this.handleServiceChange}
+          handlePostCodeChange={this.handlePostCodeChange}
         />
         <Grid container className="organisation-page" spacing={24}>
           {organisations.map((org, index) => {

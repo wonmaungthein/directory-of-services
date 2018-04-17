@@ -9,11 +9,10 @@ import helpers from '../../helpers';
 import searchStyle from './searchStyle';
 import './search.css';
 
-
 const organisations = [
-  { postCode: 'H2 1TH', address: 'Bermondsey' },
-  { postCode: 'H2 2TH', address: '2 Bermondsey' },
-  { postCode: 'H2 3TH', address: '3 Bermondsey' },
+  { postCode: 'SE8 4PA' },
+  { postCode: 'H2 2TH' },
+  { postCode: 'H2 3TH' },
 ];
 const days = [
   { day: 'Monday' },
@@ -49,14 +48,10 @@ const services = [
   label: service.service,
 }));
 
-
 class Search extends React.Component {
   state = {
-    postCode: '',
-    service: null,
     suggestions: [],
   };
-
 
   handleSuggestionsFetchRequested = ({ value }) => {
     this.setState({
@@ -64,26 +59,11 @@ class Search extends React.Component {
     });
   };
 
-
   handleSuggestionsClearRequested = () => {
     this.setState({
       suggestions: [],
     });
   };
-
-
-  handlePostCodeChange = (event, { newValue }) => {
-    this.setState({
-      postCode: newValue,
-    });
-  };
-  
-  handleServiceChange = service => {
-    this.setState({
-      service,
-    });
-  };
-
 
   render() {
     const { classes } = this.props;
@@ -112,8 +92,8 @@ class Search extends React.Component {
               classes,
               placeholder: 'Search Near',
               name: 'postCode',
-              value: this.state.postCode,
-              onChange: this.handlePostCodeChange,
+              value: this.props.postCode,
+              onChange: this.props.handlePostCodeChange,
             }}
           />
         </Grid>
@@ -143,8 +123,8 @@ class Search extends React.Component {
             inputComponent={helpers.SelectWrapped}
             inputProps={{
               classes,
-              value: this.state.service,
-              onChange: this.handleServiceChange,
+              value: this.props.myService,
+              onChange: this.props.handleServiceChange,
               placeholder: 'Select Service',
               instanceId: 'selectService',
               id: 'selectService',
@@ -159,10 +139,8 @@ class Search extends React.Component {
   }
 }
 
-
 Search.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
 
 export default withStyles(searchStyle.styles)(Search);
