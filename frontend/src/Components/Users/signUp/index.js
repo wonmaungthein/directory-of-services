@@ -10,10 +10,17 @@ import './signUp.css';
 class SignUpForm extends Component {
   state = {
     fullName: '',
+    nameError: '',
+    userName: '',
+    userNameError: '',
     email: '',
+    emailError: '',
     password: '',
+    passwordError: '',
     retypePassword: '',
+    retypePassError: '',
     notificationSystem: null,
+    error: ''
   };
 
   componentDidMount() {
@@ -38,22 +45,61 @@ class SignUpForm extends Component {
     });
   };
 
+  validateFormHandler = () => {
+    let isError = false;
+    const errors = {
+        nameError: '',
+        userNameError: '',
+        emailError: '',
+        passwordError: '',
+        retypePassError: '',
+    };
+
+    if (this.state.userName.length < 5) {
+      isError = true;
+      errors.userNameError = 'Username needs to be at least 5 characters long';
+    }
+
+    if (this.state.email.indexOf('@') === -1) {
+      isError = true;
+      errors.emailError = 'Requires valid email';
+    }
+
+      this.setState({
+        ...this.state,
+        ...errors,
+      });
+    
+    return isError;
+  };
+
   handleSubmit = e => {
-    this.savedChangesSuccessfully();
     e.preventDefault();
-    this.setState({
-      fullName: '',
-      email: '',
-      password: '',
-      retypePassword: '',
-    });
-    this.props.history.push('/home');
+    // this.savedChangesSuccessfully();
+    const err = this.validateFormHandler();
+    if (!err) {
+      this.setState({
+        fullName: '',
+        nameError: '',
+        userName: '',
+        userNameError: '',
+        email: '',
+        emailError: '',
+        password: '',
+        passwordError: '',
+        retypePassword: '',
+        retypePassError: '',
+        notificationSystem: null,
+      });
+    }
+    // this.props.history.push('/home');
   };
 
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
     });
+    // console.log(this.state.fullName.length)
   };
 
   render() {
@@ -61,14 +107,20 @@ class SignUpForm extends Component {
       <div className="sign-up-page">
         <NotificationSystem ref="savedChanges" />
         <Paper className="form-card">
-          <h2> Create an account </h2>
+          <h2> Create account </h2>
           <Grid container spacing={24}>
             <Grid item xs>
               <SignUpFields
                 fullName={this.state.fullName}
+                username={this.state.userName}
                 email={this.state.email}
                 password={this.state.password}
                 retypePassword={this.state.retypePassword}
+                nameError={this.state.nameError}
+                userNameError={this.state.userNameError}
+                emailError={this.state.emailError}
+                passwordError={this.state.passwordError}
+                retypePassError={this.state.retypePassError}
                 handleSubmit={this.handleSubmit}
                 handleChange={this.handleChange}
                 savedChangesSuccessfully={this.savedChangesSuccessfully}

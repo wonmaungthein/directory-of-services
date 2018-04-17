@@ -113,11 +113,16 @@ input[type="password"]:after:focus {
     margin-top: 3.8rem;
 }
 
+.form-group label span,
+.form-group p{
+    color: rgba(255, 0, 0, 0.54);
+}
+
 .or {
     position: absolute;
     width: 50px;
     left: 50%;
-    background: #fafafa;
+    background: #ffffff;
     text-align: center;
     margin: -10px 0 0 -25px;
     line-height: 20px;
