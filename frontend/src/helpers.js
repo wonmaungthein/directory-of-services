@@ -56,7 +56,6 @@ function renderSuggestion(organisation, { query, isHighlighted }) {
 // suggestion address container
 function renderSuggestionsContainer(options) {
   const { containerProps, children } = options;
-
   return (
     <Paper {...containerProps} square>
       {children}

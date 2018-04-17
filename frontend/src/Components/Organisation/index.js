@@ -182,7 +182,6 @@ export default class Organisations extends Component {
     });
   };
   render() {
-
     const { editIdx, category, day, service, postCode } = this.state;
     const organisations =
       this.state.organisations && this.state.organisations[category]
@@ -192,7 +191,7 @@ export default class Organisations extends Component {
       <div>
         <TopNav
           title={category}
-          addLink={category}
+          addLink={`services/${category}/add`}
           titleLink={`services/${category}`}
         />
         <Search
