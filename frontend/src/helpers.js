@@ -46,13 +46,14 @@ function renderSuggestion(organisation, { query, isHighlighted }) {
               <strong key={String(index)} style={{ fontWeight: 500 }}>
                 {part.text}
               </strong>
-            ),
+              ),
         )}
       </div>
     </MenuItem>
   );
 }
 
+// suggestion address container
 function renderSuggestionsContainer(options) {
   const { containerProps, children } = options;
 
@@ -63,6 +64,7 @@ function renderSuggestionsContainer(options) {
   );
 }
 
+// Get suggestion address value
 function getSuggestionValue(orgainsation) {
   return `${orgainsation.postCode}`;
 }
@@ -74,17 +76,17 @@ function getSuggestions(value, organisations) {
   return inputLength === 0
     ? []
     : organisations.filter(organisation => {
-        const keep =
-          count < 5 &&
-          organisation.postCode.toLowerCase().slice(0, inputLength) ===
-            inputValue;
+      const keep =
+        count < 5 &&
+        organisation.postCode.toLowerCase().slice(0, inputLength) ===
+        inputValue;
 
-        if (keep) {
-          count += 1;
-        }
+      if (keep) {
+        count += 1;
+      }
 
-        return keep;
-      });
+      return keep;
+    });
 }
 
 function SelectWrapped(props) {
@@ -126,37 +128,29 @@ function SelectWrapped(props) {
   );
 }
 
-function capitaliseAndPrettify(name) {
-  return name
-    ? name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
-    : null;
-}
-
 function linkMaker(name) {
+  // These [" "] and [/] will replace all of sapce between words or / to none space
   return name
-    ? name.replace(" ", '').replace('/', '').replace(" & ", '').replace('/', '').replace(" ", '').replace(" ", '').replace(/\b\w/g, l => l.toUpperCase())
-    : null;
-}
-function reformatCategoryName(name) {
-  return name
-    ? name.replace("/services/", '').replace(/\b\w/g, l => l.toUpperCase())
+    ? name.replace(/[" "]/g, '').replace(/[/]/g, '').replace(" & ", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
 }
 
 function categoryNameMaker(name) {
+  // This [/] will replace all of / to none space
   return name
-    ? name.replace('/', '').replace('/', '').replace("services/", '').replace("/add", '').replace(/\b\w/g, l => l.toUpperCase())
+    ? name.replace(/[/]/g, '').replace("services", '').replace("add", '').replace(/\b\w/g, l => l.toUpperCase())
     : null;
 }
 
 function addSpace(cat, catTitle) {
- return cat.map(category => {
-      const title = category.replace('/', ' ').replace('/', ' ');
-      if(linkMaker(category) === catTitle) {
-        return title
-      }
-      return false;
- })
+  // This [/] will replace all of / to none space
+  return cat.map(category => {
+    const title = category.replace(/[/]/g, '');
+    if (linkMaker(category) === catTitle) {
+      return title
+    }
+    return false;
+  })
 }
 
 export default {
@@ -166,9 +160,7 @@ export default {
   getSuggestionValue,
   getSuggestions,
   SelectWrapped,
-  capitaliseAndPrettify,
   linkMaker,
-  reformatCategoryName,
   categoryNameMaker,
   addSpace
 };

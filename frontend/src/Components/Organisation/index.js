@@ -51,7 +51,7 @@ function getSelectedCategory(match) {
   const { params } = match;
   const service =
     params && params.service
-      ? helpers.capitaliseAndPrettify(params.service)
+      ? helpers.linkMaker(params.service)
       : null;
   return service;
 }
@@ -182,6 +182,7 @@ export default class Organisations extends Component {
     });
   };
   render() {
+
     const { editIdx, category, day, service, postCode } = this.state;
     const organisations =
       this.state.organisations && this.state.organisations[category]
