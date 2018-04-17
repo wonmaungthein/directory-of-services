@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NotificationSystem from 'react-notification-system';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import SignUpFields from './SignUpFields';
@@ -11,9 +12,34 @@ class SignUpForm extends Component {
     fullName: '',
     email: '',
     password: '',
+    retypePassword: '',
+    notificationSystem: null,
+  };
+
+  componentDidMount() {
+    this.setState({
+      notificationSystem: this.refs.savedChanges,
+    });
+  }
+
+  savedChangesSuccessfully = () => {
+    this.state.notificationSystem.addNotification({
+      title: 'Success',
+      message: 'Your Changes have been saved successfully',
+      level: 'success',
+    });
+  };
+
+  failedSavedChanges = () => {
+    this.state.notificationSystem.addNotification({
+      title: 'Unsuccess',
+      message: 'We could not save your changes',
+      level: 'error',
+    });
   };
 
   handleSubmit = e => {
+    this.savedChangesSuccessfully();
     e.preventDefault();
     this.setState({
       fullName: '',
@@ -33,7 +59,9 @@ class SignUpForm extends Component {
   render() {
     return (
       <div className="sign-up-page">
+        <NotificationSystem ref="savedChanges" />
         <Paper className="form-card">
+          <h2> Create an account </h2>
           <Grid container spacing={24}>
             <Grid item xs>
               <SignUpFields
@@ -43,11 +71,12 @@ class SignUpForm extends Component {
                 retypePassword={this.state.retypePassword}
                 handleSubmit={this.handleSubmit}
                 handleChange={this.handleChange}
+                savedChangesSuccessfully={this.savedChangesSuccessfully}
               />
             </Grid>
             <Grid item xs>
               <div>
-                <div className="sep">
+                <div className="form-option">
                   <span className="or">OR</span>
                 </div>
                 <div className="form-group">

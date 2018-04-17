@@ -1,4 +1,4 @@
-.form-sign{
+.form-sign {
     background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
     background-attachment: fixed;
     background-position: center;
@@ -6,16 +6,10 @@
     position: relative;
     overflow: auto;
     flex-grow: 1;
-    padding: 0 0.5rem;
-    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-.sign-up-page {
-    margin: 0 auto;
-    width: 50%;
-}
-
-
 
 .form-group {
     display: flex;
@@ -26,7 +20,7 @@
     padding: 0 40px 0 .5rem;
 }
 
-.form-group:first-child div{
+.form-group:first-child div {
     width: 100%;
 }
 
@@ -39,15 +33,10 @@
     color: #fff;
 }
 
-.form-group h2{
+.sign-up-page h2 {
     font-family: inherit;
     color: rgba(0, 0, 0, 0.87);
-}
-
-.sign-up-page .form-group:first-child div:nth-child(3),
-.sign-up-page .form-group:first-child div:nth-child(4) {
-    margin-top: 16px;
-    margin-bottom: 8px;
+    padding-bottom: 1rem;
 }
 
 .sign-up-page .form-group:first-child div:last-child::after input,
@@ -59,12 +48,12 @@
     background-color: #1abcd4;
 }
 
-form  .input:before,
-form  .input::after{
+form .input:before,
+form .input::after {
     content: none;
 }
 
-form a{
+form a {
     text-decoration: none;
 }
 
@@ -84,14 +73,14 @@ div:first-child .form-group button[type="submit"] {
     font-size: .67rem;
     width: 180px;
     padding: .1rem .3rem;
-  }
+}
 
 div:first-child .form-group button[type="submit"]:hover,
 div:first-child .form-group button[type="submit"]:focus {
     opacity: 0.8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
-    background: #16a085;    
+    background: #16a085;
 }
 
 div:first-child .form-group button[type="submit"]:active {
@@ -117,16 +106,14 @@ input[type="password"]:after:focus {
     background: #DD4B39;
 }
 
-
-
-  .sep {
+.form-option {
     border: 1px solid #dbdbdb;
     position: relative;
     margin: 35px 20px;
-    margin-top: 5.4rem;
-  }
+    margin-top: 3.8rem;
+}
 
-  .or {
+.or {
     position: absolute;
     width: 50px;
     left: 50%;
@@ -134,18 +121,10 @@ input[type="password"]:after:focus {
     text-align: center;
     margin: -10px 0 0 -25px;
     line-height: 20px;
-  }
-  
+}
 
-  @media screen and (max-width:996px){
+@media screen and (max-width:996px) {
     .sign-up-page {
         width: 70%;
     }
-  }
-
-  /* @media screen and (max-width: 670px){
-    .sign-up-page {
-        width: 80%;
-    }
-  } */
-
+}

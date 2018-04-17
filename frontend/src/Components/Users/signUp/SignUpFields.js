@@ -9,15 +9,15 @@ const SignUpFields = props => {
 
   return (
     <form className="form-group">
-      <h2> Create an account </h2>
       <TextField
         id="name"
         placeholder="Full Name"
         label="Full Name"
         className={classes}
         value={props.fullName}
-        onChange={props.handleChange('name')}
+        onChange={props.handleChange('fullName')}
         margin="normal"
+        required
       />
 
       <TextField
@@ -28,6 +28,8 @@ const SignUpFields = props => {
         value={props.email}
         onChange={props.handleChange('email')}
         margin="normal"
+        required
+        
       />
 
       <TextField
@@ -38,6 +40,7 @@ const SignUpFields = props => {
         value={props.password}
         onChange={props.handleChange('password')}
         margin="normal"
+        required        
       />
 
       <TextField
@@ -48,6 +51,7 @@ const SignUpFields = props => {
         value={props.retypePassword}
         onChange={props.handleChange('retypePassword')}
         margin="normal"
+        required        
       />
       <Button
         variant="raised"
@@ -55,6 +59,7 @@ const SignUpFields = props => {
         type="submit"
         className="add-user-button"
         onClick={props.handleSubmit}
+
       >
         Create My account
       </Button>
