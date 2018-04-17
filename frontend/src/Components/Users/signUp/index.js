@@ -2,10 +2,29 @@ import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
+import PasswordValidator from 'password-validator';
 import SignUpFields from './SignUpFields';
 import SocialSigning from './SocialSigning';
 
 import './signUp.css';
+
+const numbLetters = new PasswordValidator();
+numbLetters
+.is().min(8)                                    // Minimum length 8
+.is().max(100)  
+
+const capiLetters = new PasswordValidator();    // Maximum length 100
+capiLetters
+.has().uppercase()                              // Must have uppercase letters
+.has().lowercase() 
+
+const digits= new PasswordValidator();
+digits                                          // Must have lowercase letters
+.has().digits()                                 // Must have digits
+.has().not().spaces()                           // Should not have spaces
+.is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values
+
+
 
 class SignUpForm extends Component {
   state = {
@@ -17,10 +36,9 @@ class SignUpForm extends Component {
     emailError: '',
     password: '',
     passwordError: '',
-    retypePassword: '',
-    retypePassError: '',
+    confirmPassword: '',
+    confirmPasswordError: '',
     notificationSystem: null,
-    error: ''
   };
 
   componentDidMount() {
@@ -40,7 +58,7 @@ class SignUpForm extends Component {
   failedSavedChanges = () => {
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
-      message: 'We could not save your changes',
+      message: 'We could not create your account',
       level: 'error',
     });
   };
@@ -48,16 +66,16 @@ class SignUpForm extends Component {
   validateFormHandler = () => {
     let isError = false;
     const errors = {
-        nameError: '',
-        userNameError: '',
-        emailError: '',
-        passwordError: '',
-        retypePassError: '',
+      nameError: '',
+      userNameError: '',
+      emailError: '',
+      passwordError: '',
+      confirmPasswordError: '',
     };
 
-    if (this.state.userName.length < 5) {
+    if (this.state.userName.length < 6) {
       isError = true;
-      errors.userNameError = 'Username needs to be at least 5 characters long';
+      errors.userNameError = 'Username needs to be at least 6 characters long';
     }
 
     if (this.state.email.indexOf('@') === -1) {
@@ -65,18 +83,34 @@ class SignUpForm extends Component {
       errors.emailError = 'Requires valid email';
     }
 
-      this.setState({
-        ...this.state,
-        ...errors,
-      });
-    
+    if (!numbLetters.validate(this.state.password)) {
+      isError = true;
+      errors.passwordError += 'Your password need at least 8 characters.';
+    }
+
+    if (!capiLetters.validate(this.state.password)) {
+      isError = true;
+      errors.passwordError += ' You must include upper & lower case letters.';
+    }
+
+    if (!digits.validate(this.state.password)) {
+      isError = true;
+      errors.passwordError += ' You must include a digit & no space.';
+    }
+    this.setState({
+      ...this.state,
+      ...errors,
+    });
+
     return isError;
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    // this.savedChangesSuccessfully();
     const err = this.validateFormHandler();
+    this.failedSavedChanges();
+    // console.log(this.state.password)
+    // console.log(schema.validate(this.state.password));
     if (!err) {
       this.setState({
         fullName: '',
@@ -87,19 +121,18 @@ class SignUpForm extends Component {
         emailError: '',
         password: '',
         passwordError: '',
-        retypePassword: '',
-        retypePassError: '',
-        notificationSystem: null,
+        confirmPassword: '',
+        confirmPasswordError: '',
       });
+    this.savedChangesSuccessfully();      
+    this.props.history.push('/home');      
     }
-    // this.props.history.push('/home');
   };
 
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
     });
-    // console.log(this.state.fullName.length)
   };
 
   render() {
@@ -115,12 +148,12 @@ class SignUpForm extends Component {
                 username={this.state.userName}
                 email={this.state.email}
                 password={this.state.password}
-                retypePassword={this.state.retypePassword}
+                confirmPassword={this.state.confirmPassword}
                 nameError={this.state.nameError}
                 userNameError={this.state.userNameError}
                 emailError={this.state.emailError}
                 passwordError={this.state.passwordError}
-                retypePassError={this.state.retypePassError}
+                confirmPasswordError={this.state.confirmPasswordError}
                 handleSubmit={this.handleSubmit}
                 handleChange={this.handleChange}
                 savedChangesSuccessfully={this.savedChangesSuccessfully}

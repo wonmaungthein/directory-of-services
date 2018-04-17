@@ -5,7 +5,6 @@ import TextField from 'material-ui/TextField';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 
-
 const styles = theme => ({
   container: {
     display: 'flex',
@@ -36,7 +35,7 @@ const SignUpFields = props => {
         required
         helperText={props.nameError}        
       />
-
+      
       <TextField
         id="username"
         placeholder="Email"
@@ -74,15 +73,15 @@ const SignUpFields = props => {
       />
 
       <TextField
-        placeholder="Password"
-        label="Retype-Password"
+        placeholder="Confirm Password"
+        label="Confirm Password"
         className={classes.textField}
         type="password"
-        value={props.retypePassword}
-        onChange={props.handleChange('retypePassword')}
+        value={props.confirmPassword}
+        onChange={props.handleChange('confirmPassword')}
         margin="normal"
         required 
-        helperText={props.retypePassError}               
+        helperText={props.confirmPasswordError}               
       />
       <Button
         variant="raised"

@@ -11,6 +11,10 @@
     align-items: center;
 }
 
+.sign-up-page{
+    max-width: 50%;    
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -35,7 +39,7 @@
 
 .sign-up-page h2 {
     font-family: inherit;
-    color: rgba(0, 0, 0, 0.87);
+    color: #1abcd4;
     padding-bottom: 1rem;
 }
 
