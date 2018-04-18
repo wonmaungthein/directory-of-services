@@ -15,3 +15,22 @@
 .draw-close-button{
   color: #1abcd4 !important;
 }
+
+.side-bar-scroll{
+  min-height: 30em;
+  overflow: auto;
+}
+.side-bar-scroll::-webkit-scrollbar{
+  background-color: #1abcd4;
+  width: .6em;
+  border-radius: .2em;
+  display: none;
+}
+.side-bar-scroll:hover::-webkit-scrollbar,
+.side-bar-scroll:focus::-webkit-scrollbar{
+  display: block;
+}
+.side-bar-scroll::-webkit-scrollbar-thumb{
+  background-color: #bbb;
+  border-radius: .2em
+}

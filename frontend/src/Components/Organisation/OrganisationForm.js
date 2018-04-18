@@ -171,7 +171,7 @@ const OrganisationForm = (props) => (
               className="checkbox-color"
             />
           }
-          label={props.checkedCategory}
+          label={props.checkedCategory} 
           name={props.checkedCategory}
         />
       ) : (
