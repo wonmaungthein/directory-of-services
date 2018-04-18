@@ -10,6 +10,7 @@
   height: 100vh;
   z-index: 4;
 }
+
 .login-error{
   display: flex;
   justify-content: center;
@@ -21,6 +22,7 @@
   margin-left: -1.8em;
   border-radius: .5em;
 }
+
 .login-error .material-icons{
   color: #000;
   margin-left: 1em;

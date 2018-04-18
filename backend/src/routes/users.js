@@ -16,76 +16,82 @@ import {
 
 const router = express.Router();
 
-router.get('/users', (req, res) => {
+router.get('/users', async (req, res) => {
   try {
-    getAllUsers().then(users => res.json(users))
+    await getAllUsers().then(users => res.json(users));
   } catch (err) {
     res.json(err)
   }
 });
 
-router.get('/users/:id', (req, res) =>
-  getUsersById(req.params.id).then(user => {
-    try {
-      res.json(user)
-    } catch (err) {
-      res.json(err)
-    }
-  }));
-
-router.delete('/users/:userId', (req, res) =>
-  deleteUser(req.params.userId).then(() => res.json({ message: 'user deleted successfully' })));
-
-router.post('/users', (req, res) => {
-  let { password } = req.body;
-  const { username } = req.body;
-  bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(password, salt, (error, hash) => {
-      if (error) throw error;
-      password = hash;
-      addUser({ salt_password: password, username }).then(user => res.json(user))
-    })
-  })
+router.get('/users/:id', async (req, res) => {
+  try {
+    await getUsersById(req.params.id).then(user => res.json(user));
+  }
+  catch (err) {
+    res.json(err)
+  }
 });
-router.put('/users/:userId', (req, res) => {
-  let { password } = req.body;
-  const { username } = req.body;
-  bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(password, salt, (error, hash) => {
-      if (error) throw error;
-      password = hash;
-      updateUser(req.params.userId, { salt_password: password, username }).then(() => res.json({ message: 'user updated successfully' }))
-    })
-  })
-});
-// =============== Sign Up =============
-router.post('/signup', (req, res) => {
-  let { password } = req.body;
-  const { username } = req.body;
-  getUserByUserName(username).then(user => {
-    if (user.length > 0) {
-      res.json({ success: false, message: 'User is already found' })
-    } else {
-      bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(password, salt, (error, hash) => {
-          if (error) throw error;
-          password = hash;
-          addUser({ salt_password: password, username }).then(userData => {
-            if (userData) {
-              res.json({ success: true, message: 'User is registered' })
-            } else {
-              res.json({ success: false, message: 'User is not registered' })
-            }
-          });
-        })
+
+router.delete('/users/:userId', async (req, res) => {
+  await deleteUser(req.params.userId)
+    .then(() => res.json({ message: 'user deleted successfully' }));
+}),
+
+  router.post('/users', async (req, res) => {
+    let { password } = req.body;
+    const { username } = req.body;
+    await bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(password, salt, async (error, hash) => {
+        if (error) throw error;
+        password = hash;
+        await addUser({ salt_password: password, username }).then(user => res.json(user))
       })
-    }
+    })
+  });
+router.put('/users/:userId', async (req, res) => {
+  let { password } = req.body;
+  const { username } = req.body;
+  await bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(password, salt, async (error, hash) => {
+      if (error) throw error;
+      password = hash;
+      await updateUser(req.params.userId, { salt_password: password, username }).then(() => res.json({ message: 'user updated successfully' }))
+    })
   })
+});
+
+router.post('/signup', async (req, res) => {
+  let { password } = req.body;
+  const { username } = req.body;
+  if (username.length > 0 && password.length > 0) {
+    await getUserByUserName(username).then(user => {
+      if (user.length > 0) {
+        res.json({ success: false, message: 'User is already found' })
+      } else {
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(password, salt, (error, hash) => {
+            if (error) throw error;
+            password = hash;
+            addUser({ salt_password: password, username }).then(userData => {
+              if (userData) {
+                res.json({ success: true, message: 'User is registered' })
+              } else {
+                res.json({ success: false, message: 'User is not registered' })
+              }
+            });
+          })
+        })
+      }
+    })
+  } else {
+    res.json({ success: false, message: 'You have to add username and password' })
+  }
 })
-// =============== Login =============
-router.post('/login', (req, res) => {
+
+router.post('/login', async (req, res) => {
   const { password, username } = req.body;
-  getUserByUserName(username).then(userInfo => {
+  await getUserByUserName(username).then(userInfo => {
     if (userInfo.length <= 0) {
       res.json({ success: false, message: 'User is not registered' })
     } else {

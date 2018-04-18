@@ -1,7 +1,7 @@
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import jwtDecode from 'jwt-decode';
-import reducerRoot from '../reducerRoot';
+import reducerRoot from '../reducers';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import { setCurrentUser } from '../actions/loginActions';
 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './user-drop-down.css';
 import './users.css';
 
-const UserDropDown = ({ logOutAuth }) => (
+const UserDropDown = ({ handleLogOut }) => (
   <div className="user-drop-down">
     <Paper className="container">
       <Link to="/users">
@@ -14,7 +14,9 @@ const UserDropDown = ({ logOutAuth }) => (
       </Link>
       <Divider />
       <Link to="/">
-        <button onClick={logOutAuth}>
+        <button 
+        onClick={handleLogOut}
+        >
           <i className="material-icons">lock_outline</i>
           <h4 >Logout</h4>
         </button>

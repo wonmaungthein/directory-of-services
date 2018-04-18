@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import loginAuth from './reducers/loginAuth';
-import flashMessages from './reducers/flashMessages';
+import loginAuth from './loginAuth';
+import flashMessages from './flashMessages';
 
 export default combineReducers({
   loginAuth,

@@ -46,7 +46,7 @@ class LoginForm extends Component {
     })
   }
 
-  handleSubmit = (e) => {
+  handleLogin = (e) => {
     e.preventDefault();
     const errors = this.validation();
     if (!errors) {
@@ -107,7 +107,7 @@ class LoginForm extends Component {
             />
             <FormHelperText className="error">{passwordErr}</FormHelperText>
           </Fragment>
-          <Button onClick={this.handleSubmit} variant="raised" color="primary">
+          <Button onClick={this.handleLogin} variant="raised" color="primary">
             Submit
           </Button>
         </form>
