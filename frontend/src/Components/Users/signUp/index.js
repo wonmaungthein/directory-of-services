@@ -120,6 +120,7 @@ class SignUpForm extends Component {
     })
     
     if (!err) {
+    this.savedChangesSuccessfully();            
       this.setState({
         fullName: '',
         nameError: '',
@@ -132,7 +133,6 @@ class SignUpForm extends Component {
         confirmPassword: '',
         confirmPasswordError: '',
       });
-    this.savedChangesSuccessfully();      
     this.props.history.push('/home');      
     }
   };

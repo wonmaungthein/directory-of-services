@@ -23,100 +23,186 @@ import SocialandOther from '../../Data/json/SocialAndOther.json';
 import OrganisationCard from './OrganisationCard';
 import './index.css';
 
-class Organisations extends Component {
+const originalOrganisations = {
+  Education: Education.data,
+  Debt: Debt.data,
+  Benefits: Benefits.data,
+  YPFamilies: YPFamilies.data,
+  WomenDV: WomenDV.data,
+  Trafficking: Trafficking.data,
+  Destitution: Destitution.data,
+  LGBTQI: LGBTQI.data,
+  MentalHealth: MentalHealth.data,
+  CommunityCare: Healthcare.data,
+  DestitutionNRPF: Destitution.data,
+  EmploymentTrainingVolunteering: EmploymentTrainingVolunteering.data,
+  Families: YPFamilies.data,
+  GenderBasedViolence: GenderBasedViolence.data,
+  Housing: Housing.data,
+  Immigration: Immigration.data,
+  MentalHealthServices: MentalHealth.data,
+  PregnantWomenNewMothers: WomenDV.data,
+  SocialandOther: SocialandOther.data,
+  Women: WomenDV.data,
+  YoungPeopleChildren: YPFamilies.data,
+  Healthcare: Healthcare.data,
+};
+function getSelectedCategory(match) {
+  const { params } = match;
+  const service =
+    params && params.service
+      ? helpers.linkMaker(params.service)
+      : null;
+  return service;
+}
+export default class Organisations extends Component {
   state = {
-    organisations: {
-      Education: Education.data,
-      Debt: Debt.data,
-      Benefits: Benefits.data,
-      YPFamilies: YPFamilies.data,
-      WomenDV: WomenDV.data,
-      Trafficking: Trafficking.data,
-      Destitution: Destitution.data,
-      LGBTQI: LGBTQI.data,
-      MentalHealth: MentalHealth.data,
-      CommunityCare: Healthcare.data,
-      DestitutionNRPF: Destitution.data,
-      EmploymentTrainingVolunteering: EmploymentTrainingVolunteering.data,
-      Families: YPFamilies.data,
-      GenderBasedViolence: GenderBasedViolence.data,
-      Housing: Housing.data,
-      Immigration: Immigration.data,
-      MentalHealthServices: MentalHealth.data,
-      PregnantWomenNewMothers: WomenDV.data,
-      SocialandOther: SocialandOther.data,
-      Women: WomenDV.data,
-      YoungPeopleChildren: YPFamilies.data,
-      Healthcare: Healthcare.data,
-    },
+    organisations: originalOrganisations,
     editIdx: -1,
+    category: getSelectedCategory(this.props.match),
+    day: null,
+    service: null,
+    postCode: '',
   };
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      category: getSelectedCategory(newProps.match),
+      organisations: originalOrganisations,
+      day: null,
+      service: null,
+      postCode: '',
+    });
+  }
+  filterByDay = day => {
+    if (!day) {
+      this.setState({
+        organisations: originalOrganisations,
+      });
+    }
+    const { category } = this.state;
+    const filteredOrg = originalOrganisations[category];
+
+    if (filteredOrg && filteredOrg.filter) {
+      this.setState({
+        organisations: {
+          [category]: filteredOrg.filter(org =>
+            org.Day.includes(day),
+          ),
+        },
+      });
+    }
+  };
+
+  handleSelectedDay = day => {
+    if (day) {
+      this.setState(
+        {
+          day,
+        },
+        this.filterByDay(day),
+      );
+    }
+  };
+
+  filterByService = service => {
+    if (!service) {
+      this.setState({
+        organisations: originalOrganisations,
+      });
+    }
+    const { category } = this.state;
+    const filteredOrg = originalOrganisations[category];
+    if (filteredOrg && filteredOrg.filter) {
+      this.setState({
+        organisations: {
+          [category]: filteredOrg.filter(org =>
+            org.Services.includes(service),
+          ),
+        },
+      });
+    }
+  };
+
+  handleServiceChange = service => {
+    this.setState(
+      {
+        service,
+      },
+      this.filterByService(service),
+    );
+  };
+
+  filterByPostcode = postCode => {
+    if (!postCode) {
+      this.setState({
+        organisations: originalOrganisations,
+      });
+    }
+    const { category } = this.state;
+    const filteredOrg = originalOrganisations[category];
+    if (filteredOrg && filteredOrg.filter) {
+      this.setState({
+        organisations: {
+          [category]: filteredOrg.filter(org =>
+            org.Postcode.toLowerCase().includes( postCode.toLowerCase()),
+          ),
+        },
+      });
+
+    }
+  };
+
+  handlePostCodeChange = (event, { newValue }) => {
+    this.setState(
+      {
+        postCode: newValue,
+      },
+      this.filterByPostcode(newValue),
+    );
+  };
+
 
   editSelectedOrganisation = idex =>
     this.setState({
       editIdx: idex,
     });
-
   stopEditing = () => {
     this.setState({
       editIdx: -1,
     });
   };
-
   deleteOrganisation = (category, orgId) => {
     const newData =
       this.state.organisations && this.state.organisations[category]
         ? this.state.organisations[category].filter(org => org._id !== orgId)
         : [];
     this.setState({
-      organisations: {
-        Education: Education.data,
-        Debt: Debt.data,
-        Benefits: Benefits.data,
-        YPFamilies: YPFamilies.data,
-        WomenDV: WomenDV.data,
-        Trafficking: Trafficking.data,
-        Destitution: Destitution.data,
-        LGBTQI: LGBTQI.data,
-        MentalHealth: MentalHealth.data,
-        CommunityCare: Healthcare.data,
-        DestitutionNRPF: Destitution.data,
-        EmploymentTrainingVolunteering: EmploymentTrainingVolunteering.data,
-        Families: YPFamilies.data,
-        GenderBasedViolence: GenderBasedViolence.data,
-        Housing: Housing.data,
-        Immigration: Immigration.data,
-        MentalHealthServices: MentalHealth.data,
-        PregnantWomenNewMothers: WomenDV.data,
-        SocialandOther: SocialandOther.data,
-        Women: WomenDV.data,
-        YoungPeopleChildren: YPFamilies.data,
-        Healthcare: Healthcare.data,
-        [category]: newData,
-      },
+      organisations: originalOrganisations,
+      [category]: newData,
     });
   };
-
   render() {
-    const { editIdx } = this.state;
-    const { params } = this.props.match;
-    const service =
-      params && params.service
-        ? helpers.capitaliseAndPrettify(params.service)
-        : null;
-
+    const { editIdx, category, day, service, postCode } = this.state;
     const organisations =
-      this.state.organisations && this.state.organisations[service]
-        ? this.state.organisations[service]
+      this.state.organisations && this.state.organisations[category]
+        ? this.state.organisations[category]
         : [];
     return (
       <div>
         <TopNav
-          title={service}
-          addLink={service}
-          titleLink={`services/${service}`}
+          title={category}
+          addLink={`services/${category}/add`}
+          titleLink={`services/${category}`}
         />
-        <Search />
+        <Search
+          service={category}
+          myService={service}
+          day={day}
+          postCode={postCode}
+          handleSelectedDay={this.handleSelectedDay}
+          handleServiceChange={this.handleServiceChange}
+          handlePostCodeChange={this.handlePostCodeChange}
+        />
         <Grid container className="organisation-page" spacing={24}>
           {organisations.map((org, index) => {
             const currentlyEditing = editIdx === index;
@@ -148,5 +234,3 @@ class Organisations extends Component {
     );
   }
 }
-
-export default Organisations;
