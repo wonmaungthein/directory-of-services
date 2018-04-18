@@ -34,11 +34,12 @@ module.exports = router => {
   });
 
   router.get('/service/categories', (req, res) =>
-    getListOfCategories().then((err, categories) => {
+    getListOfCategories()
+      .then((err, categories) => {
       if (err) {
         res.json(err)
       } else {
-        res.json(categories)
+        res.json(categories.cat_name)
       }
     }));
 
