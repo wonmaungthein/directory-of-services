@@ -35,7 +35,7 @@ const SignUpFields = props => {
         required
         helperText={props.nameError}        
       />
-      
+
       <TextField
         id="username"
         placeholder="Email"

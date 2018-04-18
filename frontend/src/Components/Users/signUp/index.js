@@ -120,7 +120,8 @@ class SignUpForm extends Component {
     })
     
     if (!err) {
-    this.savedChangesSuccessfully();            
+    this.savedChangesSuccessfully();      
+      
       this.setState({
         fullName: '',
         nameError: '',

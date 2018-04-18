@@ -12,9 +12,10 @@
 }
 
 .sign-up-page{
-    max-width: 50%;    
+    max-width: 540px;    
 }
 
+.sign-up-page .form-card {box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22), 0 25px 55px 0 rgba(0,0,0,0.21);}
 .form-group {
     display: flex;
     flex-direction: column;
