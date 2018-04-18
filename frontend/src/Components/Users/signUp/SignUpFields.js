@@ -33,7 +33,6 @@ const SignUpFields = props => {
         onChange={props.handleChange('fullName')}
         margin="normal"
         required
-        helperText={props.nameError}        
       />
 
       <TextField
@@ -46,6 +45,18 @@ const SignUpFields = props => {
         margin="normal"
         required
         helperText={props.userNameError}        
+      />
+
+      <TextField
+        id="email"
+        placeholder="Your organisation name"
+        label="Organisation name"
+        className={classes.textField}
+        value={props.organisation}
+        onChange={props.handleChange('organisation')}
+        margin="normal"
+        helperText={props.organisationError}
+        required
       />
 
       <TextField
