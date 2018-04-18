@@ -100,7 +100,7 @@ class SignUpForm extends Component {
 
     if (this.state.password !== this.state.confirmPassword) {
       isError = true;
-      errors.confirmPasswordError += ' You password is not matching.';
+      errors.confirmPasswordError = ' Your password is not matching.';
     }
     this.setState({
       ...this.state,
@@ -114,6 +114,11 @@ class SignUpForm extends Component {
     e.preventDefault();
     const err = this.validateFormHandler();
     this.failedSavedChanges();
+    this.setState({
+      password:'',
+      confirmPassword: '',
+    })
+    
     if (!err) {
       this.setState({
         fullName: '',
