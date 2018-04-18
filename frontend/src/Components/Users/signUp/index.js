@@ -12,20 +12,20 @@ const numbLetters = new PasswordValidator();
 numbLetters
   .is()
   .min(7) // Minimum length 7
-  .is()   // Maximum length 100
+  .is()
   .max(100);
 
-const letterTransform = new PasswordValidator(); 
+const letterTransform = new PasswordValidator(); // Maximum length 100
 letterTransform
   .has()
   .uppercase() // Must have uppercase letters
   .has()
-  .lowercase(); // Must have lowercase letters
+  .lowercase();
 
-const hasDigit = new PasswordValidator();
-hasDigit 
+const digits = new PasswordValidator();
+digits // Must have lowercase letters
   .has()
-  .hasDigit() // Must have hasDigit
+  .digits() // Must have digits
   .has()
   .not()
   .spaces() // Should not have spaces
@@ -99,7 +99,7 @@ class SignUpForm extends Component {
       errors.passwordError += ' You must include upper & lower case letters.';
     }
 
-    if (!hasDigit.validate(this.state.password)) {
+    if (!digits.validate(this.state.password)) {
       isError = true;
       errors.passwordError += ' You must include a digit & no space.';
     }
