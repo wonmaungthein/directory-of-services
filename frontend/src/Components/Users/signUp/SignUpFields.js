@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import { withStyles } from 'material-ui/styles';

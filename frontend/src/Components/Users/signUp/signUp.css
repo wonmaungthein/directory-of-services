@@ -12,26 +12,23 @@
 }
 
 .sign-up-page{
-    max-width: 540px;    
+    width: 350px;
 }
 
-.sign-up-page .form-card {box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22), 0 25px 55px 0 rgba(0,0,0,0.21);}
+.sign-up-page .form-card {
+    box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22), 0 25px 55px 0 rgba(0,0,0,0.21);
+}
+
+
+.form-card div {
+   width: 100%;
+   display: block;
+   margin: 5px auto;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
-}
-
-.form-group:first-child {
-    padding: 0 40px 0 .5rem;
-}
-
-.form-group:first-child div {
-    width: 100%;
-}
-
-.form-group:last-child {
-    justify-content: center;
-    align-items: center;
 }
 
 .form-group:last-child button {
@@ -44,12 +41,12 @@
     padding-bottom: 1rem;
 }
 
-.sign-up-page .form-group:first-child div:last-child::after input,
-.sign-up-page .form-group:first-child div:last-child::before input {
+.sign-up-page .form-group div:last-child::after input,
+.sign-up-page .form-group div:last-child::before input {
     background: transparent;
 }
 
-.sign-up-page .form-group:first-child div div::after {
+.sign-up-page .form-group div div::after {
     background-color: #1abcd4;
 }
 
@@ -101,16 +98,6 @@ input[type="password"]:after:focus {
     transition: 0.2s ease;
 }
 
-.sign-up-page .Facebook,
-.sign-up-page .Facebook:hover {
-    background: #32508E;
-}
-
-.sign-up-page .Google,
-.sign-up-page .Google:hover {
-    background: #DD4B39;
-}
-
 .form-option {
     border: 1px solid #dbdbdb;
     position: relative;
@@ -120,28 +107,12 @@ input[type="password"]:after:focus {
 
 .form-group label span,
 .form-group p{
-    color: rgba(255, 0, 0, 0.54);
-}
-
-.or {
-    position: absolute;
-    width: 50px;
-    left: 50%;
-    background: #ffffff;
-    text-align: center;
-    margin: -10px 0 0 -25px;
-    line-height: 20px;
-}
-
-@media screen and (max-width:996px) {
-    .sign-up-page {
-        max-width: 600px;
-    }
+    color: rgb(255, 0, 0);
+    font-weight: 700;
 }
 
 @media screen and (max-width:678px) {
     .sign-up-page {
-        width: 100%;
-        margin: 0 12px 0 0;
+        margin:0 0.9rem 0 0;
     }
 }

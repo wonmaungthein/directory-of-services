@@ -11,21 +11,21 @@ import './signUp.css';
 const numbLetters = new PasswordValidator();
 numbLetters
   .is()
-  .min(8) // Minimum length 8
-  .is()
+  .min(7) // Minimum length 7
+  .is()   // Maximum length 100
   .max(100);
 
-const capiLetters = new PasswordValidator(); // Maximum length 100
-capiLetters
+const letterTransform = new PasswordValidator(); 
+letterTransform
   .has()
   .uppercase() // Must have uppercase letters
   .has()
-  .lowercase();
+  .lowercase(); // Must have lowercase letters
 
-const digits = new PasswordValidator();
-digits // Must have lowercase letters
+const hasDigit = new PasswordValidator();
+hasDigit 
   .has()
-  .digits() // Must have digits
+  .hasDigit() // Must have hasDigit
   .has()
   .not()
   .spaces() // Should not have spaces
@@ -91,15 +91,15 @@ class SignUpForm extends Component {
 
     if (!numbLetters.validate(this.state.password)) {
       isError = true;
-      errors.passwordError += 'Your password need at least 8 characters.';
+      errors.passwordError += 'Your password need at least 7 characters.';
     }
 
-    if (!capiLetters.validate(this.state.password)) {
+    if (!letterTransform.validate(this.state.password)) {
       isError = true;
       errors.passwordError += ' You must include upper & lower case letters.';
     }
 
-    if (!digits.validate(this.state.password)) {
+    if (!hasDigit.validate(this.state.password)) {
       isError = true;
       errors.passwordError += ' You must include a digit & no space.';
     }
