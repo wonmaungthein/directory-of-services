@@ -15,7 +15,7 @@ const UserDropDown = ({ handleLogOut }) => (
       <Divider />
       <Link to="/">
         <button 
-        onClick={handleLogOut}
+          onClick={handleLogOut}
         >
           <i className="material-icons">lock_outline</i>
           <h4 >Logout</h4>

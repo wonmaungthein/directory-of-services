@@ -27,8 +27,7 @@ router.get('/users', async (req, res) => {
 router.get('/users/:id', async (req, res) => {
   try {
     await getUsersById(req.params.id).then(user => res.json(user));
-  }
-  catch (err) {
+  } catch (err) {
     res.json(err)
   }
 });
@@ -36,19 +35,19 @@ router.get('/users/:id', async (req, res) => {
 router.delete('/users/:userId', async (req, res) => {
   await deleteUser(req.params.userId)
     .then(() => res.json({ message: 'user deleted successfully' }));
-}),
+});
 
-  router.post('/users', async (req, res) => {
-    let { password } = req.body;
-    const { username } = req.body;
-    await bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(password, salt, async (error, hash) => {
-        if (error) throw error;
-        password = hash;
-        await addUser({ salt_password: password, username }).then(user => res.json(user))
-      })
+router.post('/users', async (req, res) => {
+  let { password } = req.body;
+  const { username } = req.body;
+  await bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(password, salt, async (error, hash) => {
+      if (error) throw error;
+      password = hash;
+      await addUser({ salt_password: password, username }).then(user => res.json(user))
     })
-  });
+  })
+});
 router.put('/users/:userId', async (req, res) => {
   let { password } = req.body;
   const { username } = req.body;

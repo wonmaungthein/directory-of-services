@@ -36,12 +36,12 @@ module.exports = router => {
   router.get('/service/categories', (req, res) =>
     getListOfCategories()
       .then((err, categories) => {
-      if (err) {
-        res.json(err)
-      } else {
-        res.json(categories.cat_name)
-      }
-    }));
+        if (err) {
+          res.json(err)
+        } else {
+          res.json(categories.cat_name)
+        }
+      }));
 
   router.get('/service/boroughs', (req, res) =>
     getListOfBoroughs().then((err, boroughs) => {

@@ -33,7 +33,7 @@ class TopNav extends Component {
     userDropDown: false,
   };
 
-  logOutAuth = (e) => {
+  handleLogOut = (e) => {
     e.preventDefault();
     this.context.router.history.push('/')
     this.props.logout();
@@ -46,7 +46,7 @@ class TopNav extends Component {
   };
 
   renderUserDropDown = () =>
-    this.state.userDropDown ? <UserDropDown logOutAuth={this.logOutAuth} /> : null;
+    this.state.userDropDown ? <UserDropDown handleLogOut={this.handleLogOut} /> : null;
 
   render() {
     const { classes, addLink, titleLink, title } = this.props;

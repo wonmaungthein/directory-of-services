@@ -1,7 +1,6 @@
 import Organisation from '../model/Organisation';
 import Categories from '../model/Categories';
 import Branch from '../model/Branch';
-import Service from '../model/Service';
 import Address from '../model/Address';
 
 module.exports = {
@@ -22,7 +21,7 @@ module.exports = {
         .select('cat_name')
         .orderBy('cat_name')
         .distinct('cat_name')
-        .map(categories => categories.cat_name);  
+        .map(categories => categories.cat_name)
       return result;
     } catch (err) {
       return err;
