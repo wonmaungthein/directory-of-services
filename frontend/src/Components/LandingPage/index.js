@@ -5,14 +5,14 @@ import LoginForm from '../LoginForm';
 import { deleteFlashMessage } from '../../actions/flashMessages';
 import './landing-page.css';
 
-const LandingPage = ({ messages, deleteFlashMessage }) => {
+const LandingPage = (props) => {
 
   const renderMessages = () => (
-    messages.map(message => message.type === 'loginError' ? message.text : null).join('')
+    props.messages.map(message => message.type === 'loginError' ? message.text : null).join('')
   );
 
   const deleteMessage = () => (
-    messages.map(message => message.type === 'loginError' ? deleteFlashMessage(message.id) : null)
+    props.messages.map(message => message.type === 'loginError' ? props.deleteFlashMessage(message.id) : null)
   );
 
   const showRrrorMessage = () => {
