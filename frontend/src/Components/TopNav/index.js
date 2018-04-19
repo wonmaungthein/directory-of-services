@@ -49,7 +49,7 @@ class TopNav extends Component {
     this.state.userDropDown ? <UserDropDown handleLogOut={this.handleLogOut} /> : null;
 
   render(){
-    const { classes, addLink, titleLink, title, addOrg } = this.props;
+    const { classes, addLink, titleLink, title, addOrg, user } = this.props;
     return (
       <AppBar className={classes.appBar}>
         <Toolbar>
@@ -114,7 +114,7 @@ TopNav.contextTypes = {
 function mapStateToProps(state) {
   return {
     messages: state.flashMessages,
-    user: state.loginAuth.user
+    user: state.loginAuth.user.username
   }
 }
 
