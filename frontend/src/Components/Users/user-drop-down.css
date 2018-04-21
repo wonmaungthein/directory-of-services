@@ -6,19 +6,36 @@
 .user-drop-down .container{
   border-radius: 0;
 }
+.user-drop-down a:nth-child(1){
+  padding: 1em;
+}
 .user-drop-down a{
+  text-decoration: none;
   text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1em;
   line-height: 1.8em;
   color: #1abcd4;
 }
-.user-drop-down a h4{
+.user-drop-down a h4,
+.user-drop-down a button h4{
   margin-left: 1em;
   color: #000;
 }
+.user-drop-down button{
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  font-size: 1em;
+}
 .user-drop-down .material-icons{
   font-size: 2em;
+}
+.user-drop-down button .material-icons{
+  font-size: 2.2em;
+  color: #1abcd4;
 }
