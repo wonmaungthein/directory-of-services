@@ -11,6 +11,8 @@
     align-items: center;
 }
 
+.form-sign div:nth-child(3){display: none;}
+
 .sign-up-page{
     width: 350px;
 }

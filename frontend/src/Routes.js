@@ -38,18 +38,29 @@ const styles = theme => ({
 
 const Routes = props => {
   const { classes } = props;
-  const showSideBar = props.location.pathname !==  '/';
-  const hideSideBar = props.location.pathname !==  "/signup";
+  const showSideBar = props.location.pathname !== '/';
   return (
     <div className={classes.root}>
-      {showSideBar ? <SideBar path={hideSideBar} /> : null}      
+      {showSideBar ? <SideBar /> : null}
       <Route exact path="/" component={LandingPage} />
-      <main className={classes.content}>
-        <div className={classes.drawerHeader} /> 
+      <main
+        className={
+          props.location.pathname === '/signup' ? 'form-sign' : classes.content
+        }
+      >
+        <div className={classes.drawerHeader} />
         <Route exact path="/signup" component={SignUp} />
         <Route path="/:home" component={AuthEndpoint(HomePage)} />
-        <Route exact path="/services/:service" component={AuthEndpoint(OrganisationCard)} />
-        <Route exact path="/services/:service/add" component={AuthEndpoint(AddOrganisation)} />
+        <Route
+          exact
+          path="/services/:service"
+          component={AuthEndpoint(OrganisationCard)}
+        />
+        <Route
+          exact
+          path="/services/:service/add"
+          component={AuthEndpoint(AddOrganisation)}
+        />
         <Route exact path="/users" component={AuthEndpoint(Users)} />
         <Route exact path="/users/:form" component={AuthEndpoint(Users)} />
       </main>
