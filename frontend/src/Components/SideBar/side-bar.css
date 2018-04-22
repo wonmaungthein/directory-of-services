@@ -1,36 +1,48 @@
-.mdc-drawer{
+.mdc-drawer {
     height: 100vh;
     width: 256px;
 }
 
-.logo{
+.logo {
     padding: .8em 0 .8em .8em;
     font-size: 2.5em;
 }
 
-.logo a{
+.logo a {
     text-decoration: navajowhite;
     color: #95999c;
 }
-.draw-close-button{
-  color: #1abcd4 !important;
+
+.draw-close-button {
+    color: #1abcd4 !important;
 }
 
-.side-bar-scroll{
-  min-height: 30em;
-  overflow: auto;
+.hide {
+    display: none;
 }
-.side-bar-scroll::-webkit-scrollbar{
-  background-color: #1abcd4;
-  width: .6em;
-  border-radius: .2em;
-  display: none;
+
+.show {
+    display: block;
 }
+
+.side-bar-scroll {
+    min-height: 30em;
+    overflow: auto;
+}
+
+.side-bar-scroll::-webkit-scrollbar {
+    background-color: #1abcd4;
+    width: .6em;
+    border-radius: .2em;
+    display: none;
+}
+
 .side-bar-scroll:hover::-webkit-scrollbar,
-.side-bar-scroll:focus::-webkit-scrollbar{
-  display: block;
+.side-bar-scroll:focus::-webkit-scrollbar {
+    display: block;
 }
-.side-bar-scroll::-webkit-scrollbar-thumb{
-  background-color: #bbb;
-  border-radius: .2em
+
+.side-bar-scroll::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: .2em
 }

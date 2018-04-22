@@ -9,6 +9,7 @@
     "lodash": "^4.17.5",
     "material-ui": "^1.0.0-beta.34",
     "material-ui-icons": "^1.0.0-beta.35",
+    "password-validator": "^4.0.0",
     "react": "^16.2.0",
     "react-autosuggest": "^9.3.4",
     "react-dom": "^16.2.0",
