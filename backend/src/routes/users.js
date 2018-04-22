@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import passport from 'passport';
+import express from 'express';
 import jwt from 'jsonwebtoken';
 import secret from '../authentication/config'
 import '../authentication/passport';
@@ -13,54 +14,57 @@ import {
   comparePassword
 } from '../controllers/users_controller';
 
-module.exports = router => {
+const router = express.Router();
 
-  router.get('/users', (req, res, next) =>
-    getAllUsers().then(users => {
-      if (users) {
-        res.json(users)
-      }
-      return next()
-    }));
+router.get('/users', async (req, res) => {
+  try {
+    await getAllUsers().then(users => res.json(users));
+  } catch (err) {
+    res.json(err)
+  }
+});
 
-  router.get('/users/:id', (req, res, next) =>
-    getUsersById(req.params.id).then(user => {
-      if (user) {
-        res.json(user)
-      }
-      return next()
-    }));
+router.get('/users/:id', async (req, res) => {
+  try {
+    await getUsersById(req.params.id).then(user => res.json(user));
+  } catch (err) {
+    res.json(err)
+  }
+});
 
-  router.delete('/users/:userId', (req, res) =>
-    deleteUser(req.params.userId).then(() => res.json({ message: 'user deleted successfully' })));
+router.delete('/users/:userId', async (req, res) => {
+  await deleteUser(req.params.userId)
+    .then(() => res.json({ message: 'user deleted successfully' }));
+});
 
-  router.post('/users', (req, res) => {
-    let { password } = req.body;
-    const { username } = req.body;
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(password, salt, (error, hash) => {
-        if (error) throw error;
-        password = hash;
-        addUser({ salt_password: password, username }).then(user => res.json(user))
-      })
+router.post('/users', async (req, res) => {
+  let { password } = req.body;
+  const { username } = req.body;
+  await bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(password, salt, async (error, hash) => {
+      if (error) throw error;
+      password = hash;
+      await addUser({ salt_password: password, username }).then(user => res.json(user))
     })
-  });
-  router.put('/users/:userId', (req, res) => {
-    let { password } = req.body;
-    const { username } = req.body;
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(password, salt, (error, hash) => {
-        if (error) throw error;
-        password = hash;
-        updateUser(req.params.userId, { salt_password: password, username }).then(() => res.json({ message: 'user updated successfully' }))
-      })
+  })
+});
+router.put('/users/:userId', async (req, res) => {
+  let { password } = req.body;
+  const { username } = req.body;
+  await bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(password, salt, async (error, hash) => {
+      if (error) throw error;
+      password = hash;
+      await updateUser(req.params.userId, { salt_password: password, username }).then(() => res.json({ message: 'user updated successfully' }))
     })
-  });
-  // =============== Sign Up =============
-  router.post('/signup', (req, res) => {
-    let { password } = req.body;
-    const { username } = req.body;
-    getUserByUserName(username).then(user => {
+  })
+});
+
+router.post('/signup', async (req, res) => {
+  let { password } = req.body;
+  const { username } = req.body;
+  if (username.length > 0 && password.length > 0) {
+    await getUserByUserName(username).then(user => {
       if (user.length > 0) {
         res.json({ success: false, message: 'User is already found' })
       } else {
@@ -79,32 +83,36 @@ module.exports = router => {
         })
       }
     })
-  })
-  // =============== Login =============
-  router.post('/login', (req, res) => {
-    const { password, username } = req.body;
-    getUserByUserName(username).then(userInfo => {
-      if (userInfo.length <= 0) {
-        res.json({ success: false, message: 'User is not registered' })
-      } else {
-        comparePassword(password, userInfo[0].salt_password, (err, isMatch) => {
-          if (err) throw err;
-          if (isMatch) {
-            const token = jwt.sign({
-              sub: userInfo[0].id,
-              iat: new Date().getTime(),
-              exp: new Date().setDate(new Date().getDate() + 1)
-            }, secret);
-            res.json({ token });
-          } else {
-            res.json({ success: false, message: 'Password is not match' })
-          }
-        })
-      }
-    })
-  })
+  } else {
+    res.json({ success: false, message: 'You have to add username and password' })
+  }
+})
 
-  router.get('/users/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
-    res.json({ success: true })
+router.post('/login', async (req, res) => {
+  const { password, username } = req.body;
+  await getUserByUserName(username).then(userInfo => {
+    if (userInfo.length <= 0) {
+      res.json({ success: false, message: 'User is not registered' })
+    } else {
+      comparePassword(password, userInfo[0].salt_password, (err, isMatch) => {
+        if (err) throw err;
+        if (isMatch) {
+          const token = jwt.sign({
+            sub: userInfo[0].id,
+            username: userInfo[0].username,
+            sucess: 'true'
+          }, secret);
+          res.json({ token });
+        } else {
+          res.json({ success: false, message: 'Password is not match' })
+        }
+      })
+    }
   })
-}
+})
+
+router.get('/users/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json({ success: true })
+})
+
+module.exports = router;
