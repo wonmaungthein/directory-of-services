@@ -36,12 +36,12 @@ module.exports = router => {
 
   router.post('/users', (req, res) => {
     let { password } = req.body;
-    const { username } = req.body;
+    const { username, orgName } = req.body;
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(password, salt, (error, hash) => {
         if (error) throw error;
         password = hash;
-        addUser({ salt_password: password, username }).then(user => res.json(user))
+        addUser({ salt_password: password, username, org_name: orgName }).then(user => res.json(user))
       })
     })
   });
