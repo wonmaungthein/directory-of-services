@@ -26,16 +26,16 @@ class EditOrganisation extends React.Component {
     const data = this.props.editOrgData;
     if (data) {
       this.setState({
-        Organisation: data.Organisation,
-        Area: data.Area,
-        Borough: data.Borough,
-        Services: data.Services,
-        Process: data.Process,
-        Day: data.Day,
-        Tel: data.Tel,
-        Email: data.Email,
-        Website: data.Website,
-        Categories: [data.Category],
+        Organisation: data.org_name,
+        Area: data.area,
+        Borough: data.borough,
+        Services: data.postcode,
+        Process: data.process,
+        Day: [data.service_days],
+        Tel: data.telephone,
+        Email: data.email_address,
+        Website: data.website,
+        Categories: [data.cat_name],
 
       })
     }
@@ -108,7 +108,7 @@ class EditOrganisation extends React.Component {
     const { fullScreen } = this.props;
     return (
       <div>
-        <Button variant="fab" raised aria-label="edit"  className="edit-button" onClick={this.props.getData}>
+        <Button variant="fab" raised aria-label="edit" className="edit-button" onClick={this.props.getData}>
           <i className="material-icons">edit</i>
         </Button>
         <NotificationSystem ref="savedChanges" />
