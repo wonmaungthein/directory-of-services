@@ -37,15 +37,14 @@ class SingleOrganisation extends Component {
     this.setState({ open: false });
   };
   render() {
-    const data = this.props.editOrgData;
-    const { fullScreen } = this.props;
+    const { fullScreen, org } = this.props;
     const index = 1;
     const { editIdx } = this.state;
     const currentlyEditing = editIdx === index;
 
     return currentlyEditing ? (
       <EditOrganisation
-        editOrgData={data}
+        editOrgData={org}
         stopEditing={this.stopEditing}
         show
       />
@@ -80,39 +79,39 @@ class SingleOrganisation extends Component {
             className="single-oganisation-title"
             id="alert-dialog-title"
           >
-            {data.Organisation}
+            {org.org_name}
           </DialogTitle>
           <DialogContent className="single-oganisation-content">
             <h4 className="details-area">
-              Area: {data.Area} | Borough: {data.Borough}
+              Area: {org.area} | Borough: {org.borough}
             </h4>
             <div className="health-advice-process">
               <h4> Services</h4>
-              <p className="service"> {data.Services}</p>
+              <p className="service"> {org.process}</p>
             </div>
             <div className="single-process-date">
               <div>
                 <h4>Process</h4>
-                <p className="service">{data.Process}</p>
+                <p className="service">{org.process}</p>
               </div>
               <div>
                 <h4>Days</h4>
-                <p>{data.Day}</p>
+                <p>{org.service_days}</p>
               </div>
             </div>
             <div className="single-telephone-email">
               <div>
                 <h4>Telephone</h4>
-                <p>{data.Tel}</p>
+                <p>{org.telephone}</p>
               </div>
               <div>
                 <h4>Email</h4>
-                <p>{data.Email}</p>
+                <p>{org.email_address}</p>
               </div>
             </div>
             <h4>Website</h4>
-            <a className="website-link" target="blank" href={`${data.Website}`}>
-              <h5 className="">{data.Website}</h5>
+            <a className="website-link" target="blank" href={`${org.website}`}>
+              <h5 className="">{org.website}</h5>
             </a>
           </DialogContent>
           <DialogActions>
@@ -127,12 +126,13 @@ class SingleOrganisation extends Component {
           </DialogActions>
         </Dialog>
       </div>
-    );
+      );
   }
 }
 
 SingleOrganisation.propTypes = {
   fullScreen: PropTypes.bool.isRequired,
+  org: PropTypes.object.isRequired,
 };
 
 export default withMobileDialog()(SingleOrganisation);

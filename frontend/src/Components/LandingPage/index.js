@@ -1,30 +1,45 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import LoginForm from '../LoginForm';
+import { deleteFlashMessage } from '../../actions/flashMessages';
 import './landing-page.css';
 
-const LandingPage = () => {
-  const showLoggedOut = false;
+const LandingPage = (props) => {
+
+  const renderMessages = () => (
+    props.messages.map(message => message.type === 'loginError' ? message.text : null).join('')
+  );
+
+  const deleteMessage = () => (
+    props.messages.map(message => message.type === 'loginError' ? props.deleteFlashMessage(message.id) : null)
+  );
+
+  const showRrrorMessage = () => {
+    const errorMessage = renderMessages() ? <h3 className="login-error">{renderMessages()} <i tabIndex={0} role="button" onClick={deleteMessage} onKeyPress={deleteMessage} className="material-icons">close</i></h3> : null;
+    return errorMessage;
+  };
+
   return (
     <div className="landing-page">
       <div>
-        <h1>Refugees Info</h1>
-        <div className="content">
-          {showLoggedOut ? <h3>You are logged out</h3> : null}
-          <div className="google-sign">
-            <div className="google-logo">
-              <img src="/google-logo.png" alt="google-logo" />
-            </div>
-            <div className="google-title">
-              <h5>
-                <Link to="/home">Sign in</Link>
-              </h5>
-            </div>
-          </div>
-        </div>
+        {showRrrorMessage()}
+        <LoginForm />
       </div>
     </div>
-  );
-};
+  )
 
-export default LandingPage;
+}
 
+function mapStateToProps(state) {
+  return {
+    messages: state.flashMessages
+  }
+}
+
+LandingPage.propTypes = {
+  messages: PropTypes.array.isRequired,
+  deleteFlashMessage: PropTypes.func.isRequired
+}
+
+export default connect(mapStateToProps, { deleteFlashMessage })(LandingPage);

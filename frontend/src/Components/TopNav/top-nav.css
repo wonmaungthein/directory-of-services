@@ -20,6 +20,7 @@ a .add-orgonaization-button:hover {
 .login-section {
   justify-content: flex-end !important;
   display: flex;
+  align-items: center;
 }
 .logo-button span > i {
   font-size: 3.5em !important;
@@ -35,8 +36,8 @@ a .add-orgonaization-button:hover {
 
 }
 .add-organisation-title{
-  display: flex;
-  align-self: center;
+  display: flex !important;
+  align-items: center;
   font-size: 1.2em;
 }
 

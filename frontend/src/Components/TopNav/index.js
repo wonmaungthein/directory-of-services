@@ -8,8 +8,9 @@ import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import AddIcon from 'material-ui-icons/Add';
+import { connect } from 'react-redux';
+import { logout } from '../../actions/loginActions'
 import Categories from '../../Data/Categories.json';
-
 import './top-nav.css';
 import helpers from '../../helpers';
 import UserDropDown from '../Users/UserDropDown';
@@ -32,6 +33,12 @@ class TopNav extends Component {
     userDropDown: false,
   };
 
+  handleLogOut = (e) => {
+    e.preventDefault();
+    this.context.router.history.push('/')
+    this.props.logout();
+  }
+
   showUserDropDown = () => {
     this.setState({
       userDropDown: !this.state.userDropDown,
@@ -39,38 +46,48 @@ class TopNav extends Component {
   };
 
   renderUserDropDown = () =>
-    this.state.userDropDown ? <UserDropDown /> : null;
+    this.state.userDropDown ? <UserDropDown handleLogOut={this.handleLogOut} /> : null;
 
-  render() {
-    const { classes, addLink, titleLink, title } = this.props;
+  render(){
+    const { classes, addLink, titleLink, title, addOrg, user } = this.props;
     return (
       <AppBar className={classes.appBar}>
         <Toolbar>
           <Grid container spacing={24} className="top-nav-content">
             <Grid item xs={8}>
               <Typography
-                className="add-new-button"
+                className="add-new-button add-organisation-title"
                 variant="title"
                 color="inherit"
                 noWrap
               >
+                {addOrg}  
                 <Link to={`/${titleLink}`}>
                   {helpers.addSpace(Categories, title)}
                 </Link>
-                <Link to={`/${addLink}`} className="add-orgnaization">
-                  {titleLink === undefined || addLink === 'users/add' ? null : (
-                    <Button
-                      className="add-orgonaization-button"
-                      variant="fab"
-                      aria-label="add"
-                    >
-                      <AddIcon />
-                    </Button>
-                  )}
-                </Link>
+                {addOrg ? null :
+                  (
+                    <Link to={`/${addLink}`} className="add-orgnaization">
+                      <Button
+                        className="add-orgonaization-button"
+                        variant="fab"
+                        aria-label="add"
+                      >
+                        <AddIcon />
+                      </Button>
+                    </Link>
+                  )
+                }
               </Typography>
             </Grid>
             <Grid className="login-section" item xs={4}>
+              <Typography
+                variant="title"
+                color="inherit"
+                noWrap
+              >
+                Welcome {user}
+              </Typography>
               <Button
                 onClick={this.showUserDropDown}
                 className="logo-button"
@@ -88,8 +105,17 @@ class TopNav extends Component {
   }
 }
 
-TopNav.propTypes = {
+TopNav.contextTypes = {
+  router: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
 };
+function mapStateToProps(state) {
+  return {
+    messages: state.flashMessages,
+    user: state.loginAuth.user.username
+  }
+}
 
-export default withStyles(styles, { withTheme: true })(TopNav);
+export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, { logout })(TopNav));

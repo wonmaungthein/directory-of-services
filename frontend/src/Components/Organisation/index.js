@@ -1,7 +1,10 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import EditOrganisation from './EditOrganisation';
 import SingleOrganisation from './SingleOrganisation';
+import { getBranchsByCategory } from '../../actions/getApiData';
 import Search from './Search';
 import TopNav from '../TopNav';
 import helpers from '../../helpers';
@@ -47,28 +50,39 @@ const originalOrganisations = {
   YoungPeopleChildren: YPFamilies.data,
   Healthcare: Healthcare.data,
 };
+
 function getSelectedCategory(match) {
   const { params } = match;
-  console.log(params);
   const service =
     params && params.service
-      ? helpers.capitaliseAndPrettify(params.service)
+      ? helpers.linkMaker(params.service)
       : null;
   return service;
 }
-export default class Organisations extends Component {
+
+class Organisations extends Component {
   state = {
     organisations: originalOrganisations,
     editIdx: -1,
     category: getSelectedCategory(this.props.match),
     day: null,
+    service: null,
+    postCode: '',
   };
+
+  componentDidMount() {
+    const categories = this.props.categories.categories ? this.props.categories.categories : [];
+    const category = helpers.addSpaceToCategName(categories, this.props.match.url);
+    this.props.getBranchsByCategory(category);
+  }
+
   componentWillReceiveProps(newProps) {
-    console.log(this.state.day);
     this.setState({
       category: getSelectedCategory(newProps.match),
       organisations: originalOrganisations,
       day: null,
+      service: null,
+      postCode: '',
     });
   }
   filterByDay = day => {
@@ -76,14 +90,14 @@ export default class Organisations extends Component {
       this.setState({
         organisations: originalOrganisations,
       });
-      return;
     }
     const { category } = this.state;
     const filteredOrg = originalOrganisations[category];
+
     if (filteredOrg && filteredOrg.filter) {
       this.setState({
         organisations: {
-          [category]: originalOrganisations[category].filter(org =>
+          [category]: filteredOrg.filter(org =>
             org.Day.includes(day),
           ),
         },
@@ -101,6 +115,64 @@ export default class Organisations extends Component {
       );
     }
   };
+
+  filterByService = service => {
+    if (!service) {
+      this.setState({
+        organisations: originalOrganisations,
+      });
+    }
+    const { category } = this.state;
+    const filteredOrg = originalOrganisations[category];
+    if (filteredOrg && filteredOrg.filter) {
+      this.setState({
+        organisations: {
+          [category]: filteredOrg.filter(org =>
+            org.Services.includes(service),
+          ),
+        },
+      });
+    }
+  };
+
+  handleServiceChange = service => {
+    this.setState(
+      {
+        service,
+      },
+      this.filterByService(service),
+    );
+  };
+
+  filterByPostcode = postCode => {
+    if (!postCode) {
+      this.setState({
+        organisations: originalOrganisations,
+      });
+    }
+    const { category } = this.state;
+    const filteredOrg = originalOrganisations[category];
+    if (filteredOrg && filteredOrg.filter) {
+      this.setState({
+        organisations: {
+          [category]: filteredOrg.filter(org =>
+            org.Postcode.toLowerCase().includes(postCode.toLowerCase()),
+          ),
+        },
+      });
+
+    }
+  };
+
+  handlePostCodeChange = (event, { newValue }) => {
+    this.setState(
+      {
+        postCode: newValue,
+      },
+      this.filterByPostcode(newValue),
+    );
+  };
+
 
   editSelectedOrganisation = idex =>
     this.setState({
@@ -122,42 +194,39 @@ export default class Organisations extends Component {
     });
   };
   render() {
-    const { editIdx } = this.state;
-    const { category } = this.state;
-    const { day } = this.state;
-    console.info(category);
-    console.info(day);
-    const organisations =
-      this.state.organisations && this.state.organisations[category]
-        ? this.state.organisations[category]
-        : [];
+    const oganisationData = this.props.oganisation ? this.props.oganisation : [];
+    const { editIdx, category, day, service, postCode } = this.state;
+
     return (
       <div>
         <TopNav
           title={category}
-          addLink={category}
+          addLink={`services/${category}/add`}
           titleLink={`services/${category}`}
         />
         <Search
-          filterByDay={this.filterByDay}
           service={category}
+          myService={service}
           day={day}
+          postCode={postCode}
           handleSelectedDay={this.handleSelectedDay}
+          handleServiceChange={this.handleServiceChange}
+          handlePostCodeChange={this.handlePostCodeChange}
         />
         <Grid container className="organisation-page" spacing={24}>
-          {organisations.map((org, index) => {
+          {oganisationData.map((org, index) => {
             const currentlyEditing = editIdx === index;
             return currentlyEditing ? (
               <Fragment>
                 <EditOrganisation
                   stopEditing={this.stopEditing}
-                  show
                   editOrgData={org}
+                  show
                 />
                 <SingleOrganisation
                   stopEditing={this.stopEditing}
                   handleShawDetails
-                  editOrgData={org}
+                  org={org}
                 />
               </Fragment>
             ) : (
@@ -168,10 +237,24 @@ export default class Organisations extends Component {
                   index={index}
                 />
               </Grid>
-            );
+              );
           })}
         </Grid>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    oganisation: state.filteredBranchsByCategory.branchs,
+    categories: state.categoriesList
+  }
+}
+
+Organisations.propTypes = {
+  oganisation: PropTypes.array.isRequired,
+  categories: PropTypes.object.isRequired
+}
+
+export default connect(mapStateToProps, { getBranchsByCategory })(Organisations);

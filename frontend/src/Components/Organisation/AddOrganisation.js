@@ -83,12 +83,12 @@ class AddOrganisation extends Component {
   };
 
   render() {
+    const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     return (
       <div>
-        <TopNav addLink="organisations/add" />
+        <TopNav addLink="organisations/add" addOrg="Add new organisation" />
         <NotificationSystem ref="savedChanges" />
         <div className="add-orgonaization">
-          <h1>Add new organisation</h1>
           <OrganisationForm
             name={this.state.Organisation}
             area={this.state.Area}
@@ -99,6 +99,7 @@ class AddOrganisation extends Component {
             email={this.state.Email}
             website={this.state.Website}
             service={this.state.Services}
+            checkedCategory={`${checkedCategory}`}
             handleCheckBox={this.handleCheckBox}
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}

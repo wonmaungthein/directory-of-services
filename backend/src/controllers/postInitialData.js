@@ -5,7 +5,7 @@ import benefitData from '../../data.json'
 
 Model.knex(knex);
 
-const loadSeedToDb = async () => {
+const seedData = async () => {
   const data = await benefitData.map(row => {
     const d = {
       org_name: row.name || 'not provided',
@@ -43,4 +43,4 @@ const loadSeedToDb = async () => {
   return data;
 }
 
-module.exports = { loadSeedToDb }
+module.exports = { seedData }

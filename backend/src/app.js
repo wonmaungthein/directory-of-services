@@ -1,14 +1,12 @@
 import express from 'express';
-import promiseRouter from 'express-promise-router';
 import methodOverride from 'method-override'
 import bodyParser from 'body-parser'
 import passport from 'passport';
 import morgan from 'morgan'
 import compression from 'compression'
-import registerApi from './routes/api';
-import registerUsers from './routes/users';
-
-const router = promiseRouter();
+import cors from 'cors';
+import service from './routes/api';
+import users from './routes/users';
 
 const app = express()
   .use(methodOverride())
@@ -16,12 +14,13 @@ const app = express()
   .use(bodyParser.json()) // parse application/json
   .use(morgan('dev'))
   .use(compression())
-  .use(router)
   .use(passport.initialize())
-  .use(passport.session());
+  .use(passport.session())
+  .use(cors());
 
-registerApi(router);
-registerUsers(router);
+app.use('/api', users)
+  .use('/api/service', service);
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
