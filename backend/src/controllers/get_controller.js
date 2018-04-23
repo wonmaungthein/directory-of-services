@@ -2,6 +2,7 @@ import Organisation from '../model/Organisation';
 import Categories from '../model/Categories';
 import Branch from '../model/Branch';
 import Address from '../model/Address';
+import helpers from '../../library/helpers';
 
 module.exports = {
   getAllOrgainisation: async () => {
@@ -54,39 +55,42 @@ module.exports = {
     }
   },
 
-  getBranchByCategory: async categoryName => {
+  getBranchesByCategory: async categoryName => {
     try {
       const result = await Organisation
         .query()
         .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
         .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
         .where('branch:service:categories.cat_name', 'like', `%${categoryName}%`)
+        .map(data => helpers.fetchNestedObj(data))
       return result;
     } catch (error) {
       return error;
     }
   },
 
-  getBranchByDay: async day => {
+  getBranchesByDay: async day => {
     try {
       const result = await Organisation
         .query()
         .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
         .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
         .where('branch:service.service_days', 'like', `%${day}%`)
+        .map(data => helpers.fetchNestedObj(data))
       return result;
     } catch (error) {
       return error;
     }
   },
 
-  getBranchByBorough: async boroughName => {
+  getBranchByesBorough: async boroughName => {
     try {
       const result = await Organisation
         .query()
         .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
         .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
         .where('branch.borough', 'like', `%${boroughName}%`)
+        .map(data => helpers.fetchNestedObj(data))
       return result;
     } catch (error) {
       return error;
