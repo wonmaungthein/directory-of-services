@@ -1,7 +1,10 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import EditOrganisation from './EditOrganisation';
 import SingleOrganisation from './SingleOrganisation';
+import { getBranchsByCategory } from '../../actions/getApiData';
 import Search from './Search';
 import TopNav from '../TopNav';
 import helpers from '../../helpers';
@@ -47,6 +50,7 @@ const originalOrganisations = {
   YoungPeopleChildren: YPFamilies.data,
   Healthcare: Healthcare.data,
 };
+
 function getSelectedCategory(match) {
   const { params } = match;
   const service =
@@ -55,7 +59,8 @@ function getSelectedCategory(match) {
       : null;
   return service;
 }
-export default class Organisations extends Component {
+
+class Organisations extends Component {
   state = {
     organisations: originalOrganisations,
     editIdx: -1,
@@ -64,6 +69,13 @@ export default class Organisations extends Component {
     service: null,
     postCode: '',
   };
+
+  componentDidMount() {
+    const categories = this.props.categories.categories ? this.props.categories.categories : [];
+    const category = helpers.addSpaceToCategName(categories, this.props.match.url);
+    this.props.getBranchsByCategory(category);
+  }
+
   componentWillReceiveProps(newProps) {
     this.setState({
       category: getSelectedCategory(newProps.match),
@@ -144,7 +156,7 @@ export default class Organisations extends Component {
       this.setState({
         organisations: {
           [category]: filteredOrg.filter(org =>
-            org.Postcode.toLowerCase().includes( postCode.toLowerCase()),
+            org.Postcode.toLowerCase().includes(postCode.toLowerCase()),
           ),
         },
       });
@@ -182,11 +194,9 @@ export default class Organisations extends Component {
     });
   };
   render() {
+    const oganisationData = this.props.oganisation ? this.props.oganisation : [];
     const { editIdx, category, day, service, postCode } = this.state;
-    const organisations =
-      this.state.organisations && this.state.organisations[category]
-        ? this.state.organisations[category]
-        : [];
+
     return (
       <div>
         <TopNav
@@ -204,19 +214,19 @@ export default class Organisations extends Component {
           handlePostCodeChange={this.handlePostCodeChange}
         />
         <Grid container className="organisation-page" spacing={24}>
-          {organisations.map((org, index) => {
+          {oganisationData.map((org, index) => {
             const currentlyEditing = editIdx === index;
             return currentlyEditing ? (
               <Fragment>
                 <EditOrganisation
                   stopEditing={this.stopEditing}
-                  show
                   editOrgData={org}
+                  show
                 />
                 <SingleOrganisation
                   stopEditing={this.stopEditing}
                   handleShawDetails
-                  editOrgData={org}
+                  org={org}
                 />
               </Fragment>
             ) : (
@@ -227,10 +237,24 @@ export default class Organisations extends Component {
                   index={index}
                 />
               </Grid>
-            );
+              );
           })}
         </Grid>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    oganisation: state.filteredBranchsByCategory.branchs,
+    categories: state.categoriesList
+  }
+}
+
+Organisations.propTypes = {
+  oganisation: PropTypes.array.isRequired,
+  categories: PropTypes.object.isRequired
+}
+
+export default connect(mapStateToProps, { getBranchsByCategory })(Organisations);
