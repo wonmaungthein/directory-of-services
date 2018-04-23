@@ -152,6 +152,13 @@ function addSpace(cat, catTitle) {
   })
 }
 
+function addSpaceToCategName(cat, catTitle) {
+  if (catTitle.length > 0) {
+    const title = categoryNameMaker(catTitle);
+    return cat.filter(category => category.replace(/[' ']/g, '').includes(title))
+  }
+}
+
 export default {
   renderInput,
   renderSuggestion,
@@ -161,6 +168,7 @@ export default {
   SelectWrapped,
   linkMaker,
   categoryNameMaker,
-  addSpace
+  addSpace,
+  addSpaceToCategName
 };
 
