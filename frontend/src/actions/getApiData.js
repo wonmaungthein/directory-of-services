@@ -12,7 +12,7 @@ export function setCategoriesList(categories) {
 
 export function getCategories() {
   return dispatch => {
-    axios.get(`${api}/service/categories`)
+    axios.get(`${api}/api/service/categories`)
       .then(categories => dispatch(setCategoriesList(categories.data)))
   }
 }
@@ -26,7 +26,7 @@ export function setBoroughsList(boroughs) {
 
 export function getBoroughs() {
   return dispatch => {
-    axios.get(`${api}/service/boroughs`)
+    axios.get(`${api}/api/service/boroughs`)
       .then(boroughs => dispatch(setBoroughsList(boroughs.data)))
   }
 }
@@ -40,7 +40,7 @@ export function setAreasList(areas) {
 
 export function getAreas() {
   return dispatch => {
-    axios.get(`${api}/service/areas`)
+    axios.get(`${api}/api/service/areas`)
       .then(areas => dispatch(setAreasList(areas.data)))
   }
 }
@@ -54,7 +54,7 @@ export function setGetBranchsByCategory(branchs) {
 
 export function getBranchsByCategory(category) {
   return dispatch => {
-    axios.get(`${api}/service/category/?category=${category}`)
+    axios.get(`${api}/api/service/category/?category=${category}`)
       .then(branchs => dispatch(setGetBranchsByCategory(branchs.data)))
   }
 }
