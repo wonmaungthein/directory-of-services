@@ -32,6 +32,15 @@ export default class Organisation extends Model {
           from: 'Organisation.id',
           to: 'Branch.org_id'
         }
+      },
+      users: {
+        relation: Model.HasManyRelation,
+        // The related model.
+        modelClass: Branch,
+        join: {
+          from: 'Organisation.id',
+          to: 'Users.org_id'
+        }
       }
     };
   }
