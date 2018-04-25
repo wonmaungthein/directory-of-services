@@ -9,19 +9,19 @@ const OrganisationCard = ({
   getData,
 }) => (
   <Paper className="form-card">
-    <EditOrganisation getData={getData} />    
-    <SingleOrganisation editOrgData={org} />
+    <EditOrganisation getData={getData} />
+    <SingleOrganisation org={org} />
     <div className="single-orgonaization-details">
-      <h4>{org.Organisation}</h4>
+      <h4>{org.org_name}</h4>
       <h6>
-        Area: {org.Area} | Borough: {org.Borough}
+        Area: {org.area} | Borough: {org.borough}
       </h6>
       <div className="health-advice-process">
-        <p> - {org.Services}</p>
-        <p> - {org.Process}</p>
+        <p> - {org.process}</p>
+        <p> - {org.email_address}</p>
       </div>
     </div>
   </Paper>
-);
+  );
 
 export default OrganisationCard;

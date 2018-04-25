@@ -13,6 +13,22 @@ const postOrganisation = async (graph) => {
   return insertedGraph;
 };
 
+const editOrganisation = async (graph, orgId) => {
+  if (Array.isArray(graph)) {
+    throw createStatusCodeError(400);
+  }
+  graph.id = parseInt(orgId, 10);
+  const upsertedGraph = await transaction(Organisation.knex(), trx => {
+    return (
+      Organisation.query(trx)
+        .allowUpsert('[branch, branch.[address, address.[location] service, service.[categories]] ]')
+        .upsertGraph(graph)
+    );
+  });
+  return upsertedGraph;
+}
+
 module.exports = {
-  postOrganisation
+  postOrganisation,
+  editOrganisation
 }

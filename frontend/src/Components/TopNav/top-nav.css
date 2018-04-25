@@ -20,6 +20,7 @@ a .add-orgonaization-button:hover {
 .login-section {
   justify-content: flex-end !important;
   display: flex;
+  align-items: center;
 }
 .logo-button span > i {
   font-size: 3.5em !important;
