@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import TopNav from '../TopNav';
 import HomeSearch from './HomeSearch';
+import { getCategories, getBoroughs, getAreas } from '../../actions/getApiData';
 
-const HomePage = () => (
-  <div>
-    <TopNav />
-    <HomeSearch />
-  </div>
-  );
+class HomePage extends Component {
 
-export default HomePage;
+  componentDidMount() {
+    this.props.getCategories();
+    this.props.getBoroughs();
+    this.props.getAreas();
+  }
+
+  render() {
+    return (
+      <div>
+        <TopNav />
+        <HomeSearch />
+      </div>
+    )
+  }
+}
+
+HomePage.propTypes = {
+  getCategories: PropTypes.func.isRequired,
+  getBoroughs: PropTypes.func.isRequired,
+  getAreas: PropTypes.func.isRequired,
+}
+
+export default connect(null, { getCategories, getBoroughs, getAreas })(HomePage);

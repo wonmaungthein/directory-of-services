@@ -1,0 +1,120 @@
+.form-sign {
+    background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: auto;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-sign div:nth-child(3){display: none;}
+
+.sign-up-page{
+    width: 350px;
+}
+
+.sign-up-page .form-card {
+    box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22), 0 25px 55px 0 rgba(0,0,0,0.21);
+}
+
+
+.form-card div {
+   width: 100%;
+   display: block;
+   margin: 5px auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group:last-child button {
+    color: #fff;
+}
+
+.sign-up-page h2 {
+    font-family: inherit;
+    color: #1abcd4;
+    padding-bottom: 1rem;
+}
+
+.sign-up-page .form-group div:last-child::after input,
+.sign-up-page .form-group div:last-child::before input {
+    background: transparent;
+}
+
+.sign-up-page .form-group div div::after {
+    background-color: #1abcd4;
+}
+
+form .input:before,
+form .input::after {
+    content: none;
+}
+
+form a {
+    text-decoration: none;
+}
+
+div:first-child .form-group button[type="submit"] {
+    margin-top: 28px;
+    background: #16a085;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-weight: 500;
+    height: 40px;
+}
+
+.form-group button {
+    margin-bottom: 20px;
+    border-radius: 3px;
+    font-size: .67rem;
+    width: 180px;
+    padding: .1rem .3rem;
+}
+
+div:first-child .form-group button[type="submit"]:hover,
+div:first-child .form-group button[type="submit"]:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+    background: #16a085;
+}
+
+div:first-child .form-group button[type="submit"]:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+input[type="password"]:after:focus {
+    background: transparent;
+    border-bottom: 2px solid #16a085;
+    color: #16a085;
+    transition: 0.2s ease;
+}
+
+.form-option {
+    border: 1px solid #dbdbdb;
+    position: relative;
+    margin: 35px 20px;
+    margin-top: 3.8rem;
+}
+
+.form-group label span,
+.form-group p{
+    color: rgb(255, 0, 0);
+    font-weight: 700;
+}
+
+@media screen and (max-width:678px) {
+    .sign-up-page {
+        margin:0 0.9rem 0 0;
+    }
+}
