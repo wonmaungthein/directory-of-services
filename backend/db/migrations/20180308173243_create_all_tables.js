@@ -58,7 +58,11 @@ exports.up = knex =>
     })
     .createTable('Users', table => {
       table.increments('id').primary();
-      table.string('org_name');
+      table
+        .integer('org_id')
+        .unsigned()
+        .references('id')
+        .inTable('Organisation');
       table.string('username');
       table.string('salt_password');
       table.date('last_updated');
