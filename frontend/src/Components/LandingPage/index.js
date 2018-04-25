@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LoginForm from '../LoginForm';
+import ForgotPassword from '../Users/forgot-password'
 import { deleteFlashMessage } from '../../actions/flashMessages';
 import './landing-page.css';
 
@@ -24,7 +25,8 @@ const LandingPage = (props) => {
     <div className="landing-page">
       <div>
         {showRrrorMessage()}
-        <LoginForm />
+        
+        <ForgotPassword />
       </div>
     </div>
   )
