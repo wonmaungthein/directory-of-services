@@ -8,6 +8,7 @@ import LandingPage from './Components/LandingPage';
 import SideBar from './Components/SideBar';
 import Users from './Components/Users';
 import HomePage from './Components/HomePage';
+import SignUp from './Components/Users/signUp';
 import AuthEndpoint from './utils/AuthEndpoint';
 
 const styles = theme => ({
@@ -39,14 +40,27 @@ const Routes = props => {
   const { classes } = props;
   const showSideBar = props.location.pathname !== '/';
   return (
-    <div className={classes.root} >
+    <div className={classes.root}>
       {showSideBar ? <SideBar /> : null}
       <Route exact path="/" component={LandingPage} />
-      <main className={classes.content}>
-        <div className={classes.drawerHeader} /> 
+      <main
+        className={
+          props.location.pathname === '/signup' ? 'form-sign' : classes.content
+        }
+      >
+        <div className={classes.drawerHeader} />
+        <Route exact path="/signup" component={SignUp} />
         <Route path="/:home" component={AuthEndpoint(HomePage)} />
-        <Route exact path="/services/:service" component={AuthEndpoint(OrganisationCard)} />
-        <Route exact path="/services/:service/add" component={AuthEndpoint(AddOrganisation)} />
+        <Route
+          exact
+          path="/services/:service"
+          component={AuthEndpoint(OrganisationCard)}
+        />
+        <Route
+          exact
+          path="/services/:service/add"
+          component={AuthEndpoint(AddOrganisation)}
+        />
         <Route exact path="/users" component={AuthEndpoint(Users)} />
         <Route exact path="/users/:form" component={AuthEndpoint(Users)} />
       </main>
@@ -60,4 +74,6 @@ SideBar.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(withRouter(props => <Routes {...props} />));
+export default withStyles(styles, { withTheme: true })(
+  withRouter(props => <Routes {...props} />),
+);

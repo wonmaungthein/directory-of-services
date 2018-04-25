@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import CategoriesData from '../../Data/Categories.json';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import helpers from '../../helpers';
 import './categories.css';
 
-export default class Categories extends Component {
+class Categories extends Component {
   state = {
     categoriesList: true,
   };
@@ -15,11 +16,11 @@ export default class Categories extends Component {
     });
   };
 
-  showListOfcategories = () => {
+  showListOfcategories = (data) => {
     if (this.state.categoriesList) {
       return (
         <ul>
-          {CategoriesData.sort().map(category =>
+          {data.sort().map(category =>
             (
               <li>
                 <Link to={`/services/${helpers.linkMaker(category)}`}>{helpers.categoryNameMaker(category)}</Link>
@@ -32,6 +33,7 @@ export default class Categories extends Component {
   };
 
   render() {
+    const categoriesName = this.props.categoriesName.categories ? this.props.categoriesName.categories : [];
     return (
       <div className="categories">
         <span
@@ -43,8 +45,21 @@ export default class Categories extends Component {
         >
           Categories
         </span>
-        {this.showListOfcategories()}
+        {this.showListOfcategories(categoriesName)}
       </div>
     );
   }
 }
+
+
+function mapStateToProps(state) {
+  return {
+    categoriesName: state.categoriesList
+  }
+}
+
+Categories.propTypes = {
+  categoriesName: PropTypes.array.isRequired,
+}
+
+export default connect(mapStateToProps)(Categories);

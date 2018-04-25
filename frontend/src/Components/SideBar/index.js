@@ -68,7 +68,7 @@ class SideBar extends React.Component {
   render() {
     const { classes, theme } = this.props;
     const drawer = (
-      <div className="side-bar-scroll">
+      <div >
         <Hidden mdUp>
           <div className={classes.drawerHeader}>
             <IconButton
