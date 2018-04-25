@@ -68,7 +68,7 @@ class SideBar extends React.Component {
   render() {
     const { classes, theme } = this.props;
     const drawer = (
-      <div >
+      <div className="side-bar-scroll">
         <Hidden mdUp>
           <div className={classes.drawerHeader}>
             <IconButton
@@ -78,7 +78,7 @@ class SideBar extends React.Component {
               {theme.direction === 'rtl' ? (
                 <ChevronRightIcon />
               ) : (
-                  <ChevronLeftIcon />
+                <ChevronLeftIcon />
                 )}
             </IconButton>
           </div>
@@ -99,7 +99,7 @@ class SideBar extends React.Component {
     );
 
     return (
-      <div className="side-bar-scroll">
+      <div>
         <IconButton
           color="inherit"
           aria-label="open drawer"

@@ -13,10 +13,6 @@ class LandingPage extends Component {
     open: false
   }
 
-  renderMessages = () => (
-    this.props.messages.map(message => message.type === 'loginError' ? message.text : null).join('')
-  );
-
   deleteMessage = () => (
     this.props.messages.map(message => message.type === 'loginError' ? this.props.deleteFlashMessage(message.id) : null)
   );
@@ -29,10 +25,13 @@ class LandingPage extends Component {
   showSignUpForm = () => {
     if (this.state.open) {
       return <SignUpForm />
-    } else {
-      return <LoginForm />
     }
+      return <LoginForm />
   }
+
+  renderMessages = () => (
+    this.props.messages.map(message => message.type === 'loginError' ? message.text : null).join('')
+  );
 
   renderSignUpPage = (e) => {
     e.preventDefault()

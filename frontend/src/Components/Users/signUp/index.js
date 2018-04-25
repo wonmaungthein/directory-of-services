@@ -139,7 +139,6 @@ class SignUpForm extends Component {
         confirmPassword: '',
         confirmPasswordError: '',
       });
-      this.props.history.push('/home');
     }
   };
 
