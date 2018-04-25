@@ -15,16 +15,13 @@ const postOrganisation = async (graph) => {
 
 const editOrganisation = async (graph, orgId) => {
   if (Array.isArray(graph)) {
-    throw createStatusCodeError(400);
+    throw Error;
   }
   graph.id = parseInt(orgId, 10);
-  const upsertedGraph = await transaction(Organisation.knex(), trx => {
-    return (
-      Organisation.query(trx)
-        .allowUpsert('[branch, branch.[address, address.[location] service, service.[categories]] ]')
-        .upsertGraph(graph)
-    );
-  });
+  const upsertedGraph = await transaction(Organisation.knex(), trx =>
+    Organisation.query(trx)
+      .allowUpsert('[branch, branch.[address, address.[location] service, service.[categories]] ]')
+      .upsertGraph(graph));
   return upsertedGraph;
 }
 

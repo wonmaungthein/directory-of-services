@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import PasswordValidator from 'password-validator';
 import SignUpFields from './SignUpFields';
-// import SocialSigning from './SocialSigning';
+import { signup } from '../../../actions/loginActions';
 
 import './signUp.css';
 
@@ -35,10 +37,10 @@ digits // Must have lowercase letters
 
 class SignUpForm extends Component {
   state = {
-    fullName: '',
-    userName: '',
+    fullname: '',
+    username: '',
     userNameError: '',
-    org: '',
+    organisation: '',
     email: '',
     emailError: '',
     password: '',
@@ -54,18 +56,18 @@ class SignUpForm extends Component {
     });
   }
 
-  savedChangesSuccessfully = () => {
+  savedChangesSuccessfully = (message) => {
     this.state.notificationSystem.addNotification({
       title: 'Success',
-      message: 'Your Changes have been saved successfully',
+      message,
       level: 'success',
     });
   };
 
-  failedSavedChanges = () => {
+  failedSavedChanges = (message) => {
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
-      message: 'We could not create your account',
+      message,
       level: 'error',
     });
   };
@@ -79,7 +81,7 @@ class SignUpForm extends Component {
       confirmPasswordError: '',
     };
 
-    if (this.state.userName.length < 6) {
+    if (this.state.username.length < 6) {
       isError = true;
       errors.userNameError = 'Username needs to be at least 6 characters long';
     }
@@ -119,26 +121,40 @@ class SignUpForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const err = this.validateFormHandler();
-    this.failedSavedChanges();
-    this.setState({
-      password: '',
-      confirmPassword: '',
-    });
 
+    if (err) {
+      this.failedSavedChanges('You have to fill all fileds');
+    }
+    const data = {
+      fullname: this.state.fullname,
+      username: this.state.username,
+      email: this.state.email,
+      organisation: this.state.organisation,
+      password: this.state.password,
+    }
     if (!err) {
-      this.savedChangesSuccessfully();
-      this.setState({
-        fullName: '',
-        userName: '',
-        userNameError: '',
-        org: '',
-        email: '',
-        emailError: '',
-        password: '',
-        passwordError: '',
-        confirmPassword: '',
-        confirmPasswordError: '',
+      this.props.signup(data).then(user => {
+        if (user.data.success !== false) {
+          this.context.router.history.push('/')
+          this.savedChangesSuccessfully(user.data.message);
+          this.setState({
+            fullname: '',
+            username: '',
+            userNameError: '',
+            organisation: '',
+            email: '',
+            emailError: '',
+            password: '',
+            passwordError: '',
+            confirmPassword: '',
+            confirmPasswordError: '',
+          });
+        } else {
+          this.setState({ userVerification: user.data.message })
+          this.failedSavedChanges(user.data.message);
+        }
       });
+      
     }
   };
 
@@ -156,9 +172,9 @@ class SignUpForm extends Component {
           <h2> Create account </h2>
           <Grid container spacing={24}>
             <SignUpFields
-              fullName={this.state.fullName}
-              username={this.state.userName}
-              org={this.state.org}
+              fullName={this.state.fullname}
+              username={this.state.username}
+              org={this.state.organisation}
               email={this.state.email}
               password={this.state.password}
               confirmPassword={this.state.confirmPassword}
@@ -177,4 +193,11 @@ class SignUpForm extends Component {
   }
 }
 
-export default SignUpForm;
+SignUpForm.propTypes = {
+  signup: PropTypes.func.isRequired
+}
+SignUpForm.contextTypes = {
+  router: PropTypes.object.isRequired,
+}
+
+export default connect(null, { signup })(SignUpForm);
