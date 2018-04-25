@@ -1,7 +1,6 @@
 import express from 'express';
-import { postOrganisation } from '../controllers/post_controller';
+import { postOrganisation, editOrganisation } from '../controllers/post_controller';
 import { seedData } from '../controllers/postInitialData';
-import { editOrganisation } from '../controllers/post_controller';
 import {
   getAllOrgainisation,
   getListOfCategories,
@@ -9,10 +8,12 @@ import {
   getListOfAreas,
   getBranchesByCategory,
   getBranchesByDay,
-  getBranchesByBorough,
+  getBranchesByBorough
+
 } from '../controllers/get_controller';
 
 
+const router = express.Router();
 
 router.post('/service', (req, res) => {
   const query = req.body;
@@ -62,7 +63,7 @@ router.get('/service/areas', async (req, res) => {
     res.json(err)
   }
 });
-}
+
 
 
 router.post('/', (req, res) => {
@@ -206,4 +207,4 @@ router.get('/borough', async (req, res) => {
   }
 });
 
-expoert default router;
+module.exports = router;
