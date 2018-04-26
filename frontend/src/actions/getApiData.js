@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { LIST_OF_CATEGORIES, LIST_OF_BOROUGHS, LIST_OF_AREAS, FILTERED_BRANCHS_BY_CATEGORY } from './types';
 
-const api = 'http://localhost:3002' || process.env.DATABASE_URL;
+const api = 'http://localhost:3002/api' || `${process.env.API_URL}/api`;
 
 export function setCategoriesList(categories) {
   return {
