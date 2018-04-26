@@ -62,7 +62,12 @@ router.put('/users/:userId', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   let { password } = req.body;
-  const { username } = req.body;
+  const {
+    username,
+    fullname,
+    email,
+    organisation
+  } = req.body;
   if (username.length > 0 && password.length > 0) {
     await getUserByUserName(username).then(user => {
       if (user.length > 0) {
@@ -72,7 +77,13 @@ router.post('/signup', async (req, res) => {
           bcrypt.hash(password, salt, (error, hash) => {
             if (error) throw error;
             password = hash;
-            addUser({ salt_password: password, username }).then(userData => {
+            addUser({
+              salt_password: password,
+              username,
+              fullname,
+              email,
+              organisation
+            }).then(userData => {
               if (userData) {
                 res.json({ success: true, message: 'User is registered' })
               } else {
