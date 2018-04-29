@@ -25,7 +25,8 @@ module.exports = {
     'react/prop-types': 'off',
     'react/no-string-refs': 'off',
     'react/no-did-mount-set-state': 'off',
-    'no-underscore-dangle': 'off'
+    'no-underscore-dangle': 'off',
+    'object-shorthand':'off'
   },
   settings: {
     'import/resolver': {
