@@ -3,6 +3,7 @@
   "count": 6,
   "branches": [{
       "Area": "South",
+      "project":"",
       "Organisation": "999 Club",
       "Clients": ["Homeless/Hostel/Risk of eviction"],
       "Category": "Benefits",
@@ -15,6 +16,7 @@
       "Borough": "Deptford",
       "Day": ["Mon - Fri"]
   }, {
+      "project":"",
       "Area": "South East",
       "Organisation": "999 Club",
       "Clients": ["Homeless/Hostel/Risk of eviction", "Homeless/Hostel/Risk of eviction"],
@@ -28,6 +30,7 @@
       "Borough": "Deptford",
       "Day": ["", "Mon - Fri"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "999 Club",
       "Clients": ["Homeless/Hostel/Risk of eviction"],
@@ -41,6 +44,7 @@
       "Borough": "Deptford",
       "Day": ["Mon - Fri"]
   }, {
+      "project":"",
       "Area": "South East",
       "Organisation": "999 Club",
       "Clients": ["Homeless/Hostel/Risk of eviction"],
@@ -54,6 +58,7 @@
       "Borough": "Deptford",
       "Day": ["Mon - Fri"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "999 Club",
       "Clients": ["Homeless/Hostel/Risk of eviction"],
@@ -67,6 +72,7 @@
       "Borough": "Deptford",
       "Day": ["Mon - Fri"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "999 Club",
       "Clients": ["Homeless/Hostel/Risk of eviction"],
@@ -97,6 +103,7 @@
       "Borough": "Lewisham",
       "Day": ["Tuesday", "Friday am"]
   }, {
+      "project":"",
       "Area": "South East",
       "Organisation": "AFRIL",
       "Clients": ["All", "Status"],
@@ -110,6 +117,7 @@
       "Borough": "Lewisham",
       "Day": ["Tuesday", "Monday am"]
   }, {
+      "project":"",
       "Area": "South East",
       "Organisation": "AFRIL",
       "Clients": ["All"],
@@ -123,6 +131,7 @@
       "Borough": "Lewisham",
       "Day": ["Tuesday"]
   }, {
+      "project":"",
       "Area": "South East",
       "Organisation": "AFRIL",
       "Clients": ["All"],
@@ -136,6 +145,7 @@
       "Borough": "Lewisham",
       "Day": ["Tuesday"]
   }, {
+      "project":"",
       "Area": "South East",
       "Organisation": "AFRIL",
       "Clients": ["Status"],
@@ -166,6 +176,7 @@
       "Borough": "All",
       "Day": ["Not specified"]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "AFRUCA Africans Unite Against Child Abuse",
       "Clients": ["Black /African children and their families who have been affected by abuse including trafficking and FGM."],
@@ -179,6 +190,7 @@
       "Borough": "All",
       "Day": ["Not specified"]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "AFRUCA Africans Unite Against Child Abuse",
       "Clients": ["Trafficking and FGM"],
@@ -192,6 +204,7 @@
       "Borough": "All",
       "Day": ["Not specified"]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "AFRUCA Africans Unite Against Child Abuse",
       "Clients": ["Black /African children and their families who have been affected by abuse including trafficking and FGM."],
@@ -375,6 +388,7 @@
       "Borough": "Hounslow",
       "Day": ["Wednesday am"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "AgeUk Hounslow",
       "Clients": ["65+ years old Hounslow residents"],
@@ -388,6 +402,7 @@
       "Borough": "Hounslow",
       "Day": ["Wednesday am"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "AgeUk Hounslow",
       "Clients": ["Older people"],
@@ -401,6 +416,7 @@
       "Borough": "Hounslow",
       "Day": ["Mon to Fri from 9:00-16:30"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "AgeUk Hounslow",
       "Clients": ["65+ years old, Hounslow residents"],
@@ -414,6 +430,7 @@
       "Borough": "Hounslow",
       "Day": ["Wednesday am"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "AgeUk Hounslow",
       "Clients": ["65+ years old, Hounslow Resident"],
@@ -461,6 +478,7 @@
       "Borough": "Camden",
       "Day": ["Drop in Mon-Fri: 9am-12.15pm"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Alone in London",
       "Clients": ["Homeless/ At Risk of Homelessness age 16-25"],
@@ -474,6 +492,7 @@
       "Borough": "Camden",
       "Day": ["Drop in Mon-Fri: 9am-12.15pm"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Alone in London",
       "Clients": ["Homeless/ At Risk of Homelessness age 16-25"],
@@ -521,6 +540,7 @@
       "Borough": "London and Surrey",
       "Day": ["Different times"]
   }, {
+      "project":"",
       "Area": "Kent/London and Surrey/Sussex",
       "Organisation": "Amicus Horizon",
       "Clients": ["All"],
@@ -551,6 +571,7 @@
       "Borough": "All",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Amina (an Eaves project)",
       "Clients": [" Women survivors of sexual violence"],
@@ -632,6 +653,7 @@
       "Borough": "Barnet",
       "Day": ["every Sunday from 2-5pm"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Asylum Seekers Drop-in",
       "Clients": ["Destitute Asylum Seekers"],
@@ -662,6 +684,7 @@
       "Borough": "Lewisham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "Lewisham",
       "Organisation": "Athena",
       "Clients": ["Victims of gender-based violence (please see the column services for more details)"],
@@ -675,6 +698,7 @@
       "Borough": "Lewisham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "Lewisham",
       "Organisation": "Athena",
       "Clients": ["Victims of gender-based violence (please see the column services for more details)"],
@@ -739,6 +763,7 @@
       "Borough": "All",
       "Day": ["", "officehours"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Bakhita House",
       "Clients": ["Trafficking", "Women without children who have been trafficked"],
@@ -752,6 +777,7 @@
       "Borough": "All",
       "Day": ["", "officehours"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Bakhita House",
       "Clients": ["Trafficking"],
@@ -765,6 +791,7 @@
       "Borough": "All",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "Westminster",
       "Organisation": "Bakhita House",
       "Clients": ["Women without children who have been trafficked"],
@@ -778,6 +805,7 @@
       "Borough": "Westminster",
       "Day": ["officehours"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Bakhita House",
       "Clients": ["Trafficking", "Women without children who have been trafficked"],
@@ -859,6 +887,7 @@
       "Borough": "Redbridge",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Barnardo's",
       "Clients": ["Children, Young people,"],
@@ -872,6 +901,7 @@
       "Borough": "Redbridge",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Barnardo's",
       "Clients": ["Children, Young people,"],
@@ -885,6 +915,7 @@
       "Borough": "Redbridge",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Barnardo's",
       "Clients": ["Children, Young people,"],
@@ -898,6 +929,7 @@
       "Borough": "Redbridge",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Barnardo's",
       "Clients": ["Children, Young people,"],
@@ -928,6 +960,7 @@
       "Borough": "Barnet",
       "Day": ["Friday am", "Tuesday and Friday pm"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Barnet Refugee Service",
       "Clients": ["Refugees"],
@@ -941,6 +974,7 @@
       "Borough": "Barnet",
       "Day": ["Various"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Barnet Refugee Service",
       "Clients": ["All", "All"],
@@ -954,6 +988,7 @@
       "Borough": "Barnet",
       "Day": ["Tuesday and Friday pm", "Friday am"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Barnet Refugee Service",
       "Clients": ["All", "All"],
@@ -967,6 +1002,7 @@
       "Borough": "Barnet",
       "Day": ["Friday am", "Tuesday and Friday pm"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Barnet Refugee Service",
       "Clients": ["All", "All"],
@@ -1014,6 +1050,7 @@
       "Borough": "Farringdon/ Battersea",
       "Day": ["drop in centre between 9am and 5pm every Thursday at John Morris House Community Centre SW11 1SW."]
   }, {
+      "project":"",
       "Area": "North/Central",
       "Organisation": "Breaking Barriers",
       "Clients": ["Refugees", "Refugees"],
@@ -1027,6 +1064,7 @@
       "Borough": "Camden",
       "Day": ["Mon - Fri", "Thurs"]
   }, {
+      "project":"",
       "Area": "Central and South",
       "Organisation": "Breaking Barriers",
       "Clients": ["Refugees "],
@@ -1108,6 +1146,7 @@
       "Borough": "Haringey",
       "Day": ["Wednesday"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "CARIS",
       "Clients": ["All"],
@@ -1189,6 +1228,7 @@
       "Borough": "All",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Carers Trust",
       "Clients": ["Carers"],
@@ -1202,6 +1242,7 @@
       "Borough": "All",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Carers Trust",
       "Clients": ["Carers"],
@@ -1215,6 +1256,7 @@
       "Borough": "All",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Carers Trust",
       "Clients": ["Carers"],
@@ -1228,6 +1270,7 @@
       "Borough": "All",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Carers Trust",
       "Clients": ["Carers"],
@@ -1241,6 +1284,7 @@
       "Borough": "All",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Carers Trust",
       "Clients": ["Carers"],
@@ -1254,6 +1298,7 @@
       "Borough": "All",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Carers Trust",
       "Clients": ["Carers"],
@@ -1352,6 +1397,7 @@
       "Borough": "All",
       "Day": ["", "", "", "", "", "", "", "", "", "", "", ""]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Children's Society",
       "Clients": ["Disabled YP", "Trafficking Boys 11-25", "As/Refugees 16-21", "Refugee/Migrant Families Destitute/at risk of destitution", "Refugee/Migrant Families Destitute/at risk of destitution", "Refugee/Migrant Families Destitute/at risk of destitution", "Refugee/Migrant Families Destitute/at risk of destitution", "14-21 yr old migrants, desitute/at risk of homelessness"],
@@ -1365,6 +1411,7 @@
       "Borough": "Tower Hamlets",
       "Day": ["", "", "", "", "", "", "", ""]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Children's Society",
       "Clients": ["As/Refugees 16-21", "Refugee/Migrant Families Destitute/at risk of destitution", "Refugee/Migrant Families Destitute/at risk of destitution", "Refugee/Migrant Families Destitute/at risk of destitution", "Refugee/Migrant Families Destitute/at risk of destitution"],
@@ -1378,6 +1425,7 @@
       "Borough": "Newham",
       "Day": ["", "", "", "", ""]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Children's Society",
       "Clients": ["Disabled YP", "Trafficking Boys 11-25", "As/Refugees 16-21", "Refugee/Migrant Families Destitute/at risk of destitution", "Refugee/Migrant Families Destitute/at risk of destitution", "Refugee/Migrant Families Destitute/at risk of destitution", "Refugee/Migrant Families Destitute/at risk of destitution", "14-21 yr old migrants, desitute/at risk of homelessness"],
@@ -1476,6 +1524,7 @@
       "Borough": "Islington",
       "Day": ["Sundays"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "CodeYourFuture",
       "Clients": ["Refugees, asylum seekers"],
@@ -1540,6 +1589,7 @@
       "Borough": "Newham",
       "Day": ["Tuesdays am", "Mon, Tues, Wed, Thurs am"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Community Link",
       "Clients": ["Status"],
@@ -1553,6 +1603,7 @@
       "Borough": "Newham",
       "Day": ["Mon, Tues, Wed, Thurs am"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Community Link",
       "Clients": ["Status"],
@@ -1566,6 +1617,7 @@
       "Borough": "Newham",
       "Day": ["Wednesdays pm"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Community Link",
       "Clients": ["Status", "Status"],
@@ -1613,6 +1665,7 @@
       "Borough": "Haringey",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Council of Asian People",
       "Clients": ["All"],
@@ -1745,6 +1798,7 @@
       "Borough": "Croydon",
       "Day": ["Tuesday"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Croydon Refugee Day Centre",
       "Clients": ["all"],
@@ -1758,6 +1812,7 @@
       "Borough": "Croydon",
       "Day": ["Tuesday 10-1 drop-in"]
   }, {
+      "project":"",
       "Area": "Croydon",
       "Organisation": "Croydon Refugee Day Centre",
       "Clients": ["AS/Refugees"],
@@ -1771,6 +1826,7 @@
       "Borough": "Croydon",
       "Day": ["Tuesday"]
   }, {
+      "project":"",
       "Area": "Croydon",
       "Organisation": "Croydon Refugee Day Centre",
       "Clients": ["AS/Refugees"],
@@ -1818,6 +1874,7 @@
       "Borough": "Hounslow",
       "Day": ["By appointment only"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Disability network Hounslow",
       "Clients": ["Disabled people"],
@@ -1831,6 +1888,7 @@
       "Borough": "Hounslow",
       "Day": ["By appointment only"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Disability network Hounslow",
       "Clients": ["Disabled people"],
@@ -1878,6 +1936,7 @@
       "Borough": "Enfield",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Diversity Living Services",
       "Clients": ["All"],
@@ -1891,6 +1950,7 @@
       "Borough": "Enfield",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Diversity Living Services",
       "Clients": ["All"],
@@ -1972,6 +2032,7 @@
       "Borough": "Hounslow",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Early Help Hounslow",
       "Clients": ["Families in Hounslow with child age 0-19"],
@@ -2070,6 +2131,7 @@
       "Borough": "Nationwide",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "",
       "Organisation": "Family Information Service",
       "Clients": ["Families"],
@@ -2083,6 +2145,7 @@
       "Borough": "Nationwide",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "",
       "Organisation": "Family Information Service",
       "Clients": ["Families"],
@@ -2249,6 +2312,7 @@
       "Borough": "All",
       "Day": ["Fridays"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Hackney Community Law Centre",
       "Clients": ["All migrants"],
@@ -2296,6 +2360,7 @@
       "Borough": "Hackney",
       "Day": ["Wednesdays"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Hackney Migrant Centre",
       "Clients": ["All"],
@@ -2309,6 +2374,7 @@
       "Borough": "Hackney",
       "Day": ["Wednesdays"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Hackney Migrant Centre",
       "Clients": ["All"],
@@ -2339,6 +2405,7 @@
       "Borough": "Haringey",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Haringey Law Centre",
       "Clients": ["Status"],
@@ -2352,6 +2419,7 @@
       "Borough": "Haringey",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Haringey Law Centre",
       "Clients": ["Status"],
@@ -2365,6 +2433,7 @@
       "Borough": "Haringey",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Haringey Law Centre",
       "Clients": ["Status"],
@@ -2395,6 +2464,7 @@
       "Borough": "Haringey",
       "Day": ["Monday"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Haringey Migrant Service",
       "Clients": ["All"],
@@ -2425,6 +2495,7 @@
       "Borough": "Haringey",
       "Day": ["Mondays"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Haringey Migrant Support Centre",
       "Clients": ["AS/Refugees"],
@@ -2438,6 +2509,7 @@
       "Borough": "Haringey",
       "Day": ["Mondays"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Haringey Migrant Support Centre",
       "Clients": ["AS/Refugees"],
@@ -2451,6 +2523,7 @@
       "Borough": "Haringey",
       "Day": ["Mondays"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Haringey Migrant Support Centre  ",
       "Clients": ["AS/Refugees"],
@@ -2464,6 +2537,7 @@
       "Borough": "Haringey",
       "Day": ["Mondays"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Haringey Migrant Support Centre",
       "Clients": ["All"],
@@ -2477,6 +2551,7 @@
       "Borough": "Haringey",
       "Day": ["Monday"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Haringey Migrant Support Centre  ",
       "Clients": ["AS/Refugees"],
@@ -2490,6 +2565,7 @@
       "Borough": "Haringey",
       "Day": ["Mondays"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Haringey Migrant Support Centre",
       "Clients": ["AS/Refugees"],
@@ -2537,6 +2613,7 @@
       "Borough": "Pan London",
       "Day": ["office hours"]
   }, {
+      "project":"",
       "Area": "Pan London",
       "Organisation": "Hestia",
       "Clients": ["adults and children in crisis "],
@@ -2550,6 +2627,7 @@
       "Borough": "Pan London",
       "Day": ["office hours"]
   }, {
+      "project":"",
       "Area": "Pan London",
       "Organisation": "Hestia",
       "Clients": ["adults and children in crisis "],
@@ -2563,6 +2641,7 @@
       "Borough": "Pan London",
       "Day": ["office hours"]
   }, {
+      "project":"",
       "Area": "Pan London",
       "Organisation": "Hestia",
       "Clients": ["adults and children in crisis "],
@@ -2593,6 +2672,7 @@
       "Borough": "Southwark",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "",
       "Organisation": "Hestia Housing and Support",
       "Clients": ["Victims of trafficking, domestic violence "],
@@ -2606,6 +2686,7 @@
       "Borough": "Southwark ",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "",
       "Organisation": "Hestia Housing and Support",
       "Clients": ["Victims of trafficking, domestic violence "],
@@ -2653,6 +2734,7 @@
       "Borough": "Islington",
       "Day": ["Mon-Wed 9.30-5; Friday 10-4"]
   }, {
+      "project":"",
       "Area": "Holloway",
       "Organisation": "Hibiscus Hub",
       "Clients": ["Women (no mention on any specific services for victims of DV)"],
@@ -2734,6 +2816,7 @@
       "Borough": "Old Street",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Hope Worldwide (Two Step London)",
       "Clients": [""],
@@ -2764,6 +2847,7 @@
       "Borough": "Camden",
       "Day": ["MON/TUE (Welfare Advice): Appointment only. TUE & THU (ESOL): 10am - 12pm. THU: (Domestic Violence support, drop-in): 9.30am - 5pm, THU: Older Women's Social Group:  10am -2pm."]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Hopscotch Asian Women's Centre",
       "Clients": ["Asian women"],
@@ -2811,6 +2895,7 @@
       "Borough": "Hounslow",
       "Day": ["Mon, Wed, Thurs", "Tues, Thurs, Fri", "Wednesday am", "Thursday", "Fridays"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Hounslow Citizens Advice Bureau",
       "Clients": ["Residents of Hounslow", "Residents of Hounslow", "Residents of Hounslow", "Residents of Hounslow", "Residents of Hounslow"],
@@ -2824,6 +2909,7 @@
       "Borough": "Hounslow",
       "Day": ["Mon, Wed, Thurs", "Tues, Thurs, Fri", "Wednesday am", "Thursday", "Fridays"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Hounslow Citizens Advice Bureau",
       "Clients": ["Residents of Hounslow", "Residents of Hounslow", "Residents of Hounslow", "Residents of Hounslow", "Residents of Hounslow"],
@@ -2854,6 +2940,7 @@
       "Borough": "Hounslow",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Hounslow Domestic Violence Outreach Service",
       "Clients": ["DV, Trafficking, FGM, GBV"],
@@ -2884,6 +2971,7 @@
       "Borough": "Hounslow",
       "Day": ["Takes place every Wednesday from 10am - 12am"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Hounslow Domestic violence ONE STOP SHOP",
       "Clients": ["DV, Trafficking, FGM, GBV"],
@@ -2897,6 +2985,7 @@
       "Borough": "Hounslow",
       "Day": ["Wednesdays"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Hounslow Domestic violence ONE STOP SHOP",
       "Clients": ["DV, Trafficking, FGM, GBV"],
@@ -2910,6 +2999,7 @@
       "Borough": "Hounslow",
       "Day": ["Wednesdays"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Hounslow Domestic violence ONE STOP SHOP",
       "Clients": ["All"],
@@ -2974,6 +3064,7 @@
       "Borough": "Lambeth",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Housing for Women",
       "Clients": ["Women, women victims of domestic abuse"],
@@ -2987,6 +3078,7 @@
       "Borough": "All",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "234-244 Stockwell Road",
       "Organisation": "Housing for Women ",
       "Clients": ["Victims of domestic violence, trafficking "],
@@ -3000,6 +3092,7 @@
       "Borough": "Lambeth ",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "234-244 Stockwell Road",
       "Organisation": "Housing for Women ",
       "Clients": ["Victims of domestic violence, trafficking "],
@@ -3149,6 +3242,7 @@
       "Borough": "All",
       "Day": ["Mon, Tues, Thurs"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "JCWI",
       "Clients": ["Undocumented migrants"],
@@ -3179,6 +3273,7 @@
       "Borough": "Tower Hamlets",
       "Day": ["Wednesday Drop-in:  11am-4pm"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Jagonari - Women Ahead Project",
       "Clients": ["Contact with CJS"],
@@ -3226,6 +3321,7 @@
       "Borough": "Newham",
       "Day": ["", ""]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Just Homes",
       "Clients": ["Homeless long-term unemployed men aged 18-60, Women and children with no recourse to public funds"],
@@ -3256,6 +3352,7 @@
       "Borough": "London",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Just for Kids Law",
       "Clients": ["Under 21 (all)"],
@@ -3286,6 +3383,7 @@
       "Borough": "Notting Hill",
       "Day": ["", "Mon-Tue 10-1, Wed-Thurs 10-1 and 2-5, Sun 1-5 (appointment only)"]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Kalayaan",
       "Clients": ["Migrant domestic workers"],
@@ -3299,6 +3397,7 @@
       "Borough": "Kensington and Chelsea",
       "Day": ["Mon-Tue 10-1, Wed-Thurs 10-1 and 2-5, Sun 1-5 (appointment only)"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Kalayaan",
       "Clients": ["Migrant domestic workers", "Migrant domestic workers"],
@@ -3312,6 +3411,7 @@
       "Borough": "Notting Hill",
       "Day": ["Monday-Thurs and Sunday", "Mon-Tue 10-1, Wed-Thurs 10-1 and 2-5, Sun 1-5 (appointment only)"]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Kalayaan",
       "Clients": ["Migrant domestic workers"],
@@ -3376,6 +3476,7 @@
       "Borough": "Kilburn",
       "Day": ["Tuesdays pm", ""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Latin American House",
       "Clients": ["Spanish/Portugese speaking clients"],
@@ -3389,6 +3490,7 @@
       "Borough": "Brent/Camden",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Latin American House",
       "Clients": ["Spanish/Portugese speaking clients"],
@@ -3402,6 +3504,7 @@
       "Borough": "Brent/Camden",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Latin American House",
       "Clients": ["Latin American Cls", "Spanish/Portugese speaking clients"],
@@ -3415,6 +3518,7 @@
       "Borough": "Kilburn",
       "Day": ["Wednesday pm", ""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Latin American House",
       "Clients": ["Spanish/Portugese speaking clients"],
@@ -3428,6 +3532,7 @@
       "Borough": "Brent/Camden",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Latin American House",
       "Clients": ["Latin American Cls", "Latin American Cls"],
@@ -3441,6 +3546,7 @@
       "Borough": "Kilburn",
       "Day": ["Wednesdays", "One Saturday p/m"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Latin American House",
       "Clients": ["Latin American Cls", "Spanish/Portugese speaking clients"],
@@ -3505,6 +3611,7 @@
       "Borough": "Lewisham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Lewisham Refugee & Migrant Network",
       "Clients": ["Lewisham residents"],
@@ -3518,6 +3625,7 @@
       "Borough": "Lewisham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Lewisham Refugee & Migrant Network",
       "Clients": ["People in Lewisham"],
@@ -3531,6 +3639,7 @@
       "Borough": "Lewisham",
       "Day": ["Monday to Friday, 9.30am-5.30pm"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Lewisham Refugee & Migrant Network",
       "Clients": ["Lewisham residents"],
@@ -3544,6 +3653,7 @@
       "Borough": "Lewisham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Lewisham Refugee & Migrant Network",
       "Clients": ["Lewisham residents"],
@@ -3710,6 +3820,7 @@
       "Borough": "Camden (Holborn)",
       "Day": ["All"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Mary Ward Legal Centre",
       "Clients": ["All"],
@@ -3723,6 +3834,7 @@
       "Borough": "Camden (Holborn)",
       "Day": ["All"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Mary Ward Legal Centre",
       "Clients": ["Status"],
@@ -3770,6 +3882,7 @@
       "Borough": "National",
       "Day": ["office hours"]
   }, {
+      "project":"",
       "Area": "National",
       "Organisation": "Medaille Trust",
       "Clients": ["Women without children who have been trafficked"],
@@ -3783,6 +3896,7 @@
       "Borough": "National",
       "Day": ["office hours"]
   }, {
+      "project":"",
       "Area": "National",
       "Organisation": "Medaille Trust",
       "Clients": ["Women without children who have been trafficked"],
@@ -3796,6 +3910,7 @@
       "Borough": "National",
       "Day": ["office hours"]
   }, {
+      "project":"",
       "Area": "National",
       "Organisation": "Medaille Trust",
       "Clients": ["Women without children who have been trafficked"],
@@ -3877,6 +3992,7 @@
       "Borough": "All",
       "Day": ["Mon- Fri"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Migrant Children's Project",
       "Clients": ["Migrant families"],
@@ -3890,6 +4006,7 @@
       "Borough": "All",
       "Day": ["Mon- Fri"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Migrant Children's Project",
       "Clients": ["Migrant families"],
@@ -4073,6 +4190,7 @@
       "Borough": "Hackney",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "NSPCC",
       "Clients": ["Children, Young people , Families"],
@@ -4086,6 +4204,7 @@
       "Borough": "Hackney",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "NSPCC",
       "Clients": ["Children, Young people , Families"],
@@ -4150,6 +4269,7 @@
       "Borough": "Camden",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "Central",
       "Organisation": "New Horizon Youth Centre",
       "Clients": ["Young people - 16-25"],
@@ -4163,6 +4283,7 @@
       "Borough": "Camden",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "Central",
       "Organisation": "New Horizon Youth Centre",
       "Clients": ["Young people - 16-25"],
@@ -4176,6 +4297,7 @@
       "Borough": "Camden",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "Central",
       "Organisation": "New Horizon Youth Centre",
       "Clients": ["Young people - 16-25"],
@@ -4189,6 +4311,7 @@
       "Borough": "Camden",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "Central",
       "Organisation": "New Horizon Youth Centre",
       "Clients": ["Young people - 16-25"],
@@ -4202,6 +4325,7 @@
       "Borough": "Camden",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "Central",
       "Organisation": "New Horizon Youth Centre",
       "Clients": ["Young people - 16-25"],
@@ -4215,6 +4339,7 @@
       "Borough": "Camden",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "Central",
       "Organisation": "New Horizon Youth Centre",
       "Clients": ["Young people - 16-25"],
@@ -4228,6 +4353,7 @@
       "Borough": "Camden",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "Central",
       "Organisation": "New Horizon Youth Centre",
       "Clients": ["Young people - 16-25"],
@@ -4241,6 +4367,7 @@
       "Borough": "Camden",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "Central",
       "Organisation": "New Horizon Youth Centre",
       "Clients": ["Young people - 16-25"],
@@ -4356,6 +4483,7 @@
       "Borough": "Camden",
       "Day": ["Wednesdays pm"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Parish of Old St Pancras (St Michael's Church)",
       "Clients": ["All"],
@@ -4403,6 +4531,7 @@
       "Borough": "Tower Hamlets",
       "Day": ["Thursdays", "Mondays", "All"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Praxis",
       "Clients": ["All"],
@@ -4416,6 +4545,7 @@
       "Borough": "Tower Hamlets",
       "Day": ["All"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Praxis",
       "Clients": ["All"],
@@ -4429,6 +4559,7 @@
       "Borough": "Tower Hamlets",
       "Day": ["Tuesdays"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Praxis",
       "Clients": ["All", "All"],
@@ -4459,6 +4590,7 @@
       "Borough": "All",
       "Day": ["n/a"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Praxis Gender Based Violence Project",
       "Clients": ["destitute London-based migrants who have experienced trafficking and/or gender-basedviolence, including domestic violence and exploitation, sexual violence and rape, female genital mutilation, forcedprostitution, forced marriage, honour-based crimes and other forms of persecution on the basis of their gender and/orsexuality. "],
@@ -4489,6 +4621,7 @@
       "Borough": "Islington (Holloway)",
       "Day": ["Tuesday", "Wednesday", "Wednesday", "Monday", "Mon, Tues, Thurs"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Project 17",
       "Clients": ["NRPF", "NRPF", "NRPF", "NRPF"],
@@ -4502,6 +4635,7 @@
       "Borough": "Islington (Holloway)",
       "Day": ["Tuesday", "Wednesday", "Wednesday", "Monday"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Project 17",
       "Clients": ["NRPF", "NRPF", "NRPF", "NRPF"],
@@ -4515,6 +4649,7 @@
       "Borough": "Haringey",
       "Day": ["Monday", "Tuesday", "Wednesday", "Wednesday"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Project 17",
       "Clients": ["NRPF", "NRPF", "NRPF", "NRPF"],
@@ -4545,6 +4680,7 @@
       "Borough": "Essex/East London",
       "Day": ["All"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "RAMFEL",
       "Clients": ["All"],
@@ -4558,6 +4694,7 @@
       "Borough": "Essex/East London",
       "Day": ["All"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "RAMFEL",
       "Clients": ["All"],
@@ -4571,6 +4708,7 @@
       "Borough": "Essex/East London",
       "Day": ["All"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "RAMFEL",
       "Clients": ["All"],
@@ -4601,6 +4739,7 @@
       "Borough": "Newham",
       "Day": ["Tuesdays (Drop-in), Appointments other days"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "RAMP (Renewal Project)",
       "Clients": ["R/AS with no income"],
@@ -4665,6 +4804,7 @@
       "Borough": "Islington",
       "Day": ["Monday 10am-2pm, Tuesday 10am-1pm & 6-8pm, Wednesday and Thursday 1-5pm, Friday 10-2pm", "", "", "", "", "", ""]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Rape Crisis",
       "Clients": ["Women and girls over 13 who have experienced sexual violence", "", "", "", "", "", ""],
@@ -4797,6 +4937,7 @@
       "Borough": "Hackney",
       "Day": ["Fridays"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Refugee Council",
       "Clients": ["Refugees/AS", "Refugees/AS", "Children", "Children", "Children", "Children", "Children"],
@@ -4810,6 +4951,7 @@
       "Borough": "Newham",
       "Day": ["Monday am", "Thursday am", "Monday am", "Tuesday am", "Wednesday pm", "Thursday am", ""]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Refugee Council",
       "Clients": ["Children", "Children", "Children", "Children", "Children", "Children"],
@@ -4823,6 +4965,7 @@
       "Borough": "Croydon",
       "Day": ["Monday am", "Tuesday am", "Tuesday pm", "Wednesday pm", "Thursday am", "All"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Refugee Council",
       "Clients": ["AS"],
@@ -4836,6 +4979,7 @@
       "Borough": "Newham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Refugee Council",
       "Clients": ["Children", "Children", "Children", "Children", "Children", "Children"],
@@ -4917,6 +5061,7 @@
       "Borough": "Hackney",
       "Day": ["All"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Refugee Women's Association",
       "Clients": ["Status (Women only)"],
@@ -4930,6 +5075,7 @@
       "Borough": "Hackney",
       "Day": ["All"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Refugee Women's Association",
       "Clients": ["Status"],
@@ -4943,6 +5089,7 @@
       "Borough": "Hackney",
       "Day": ["All"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "Refugee Women's Association",
       "Clients": ["Status"],
@@ -4973,6 +5120,7 @@
       "Borough": "Sutton",
       "Day": ["Drop-in centre every Wed10-12 at Trinity Church Hall Hill Road, SuttonSM1 1DZ"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Refugee and Migrant Network Sutton",
       "Clients": ["All"],
@@ -4986,6 +5134,7 @@
       "Borough": "Sutton",
       "Day": ["Drop-in centre every Wednesday from 10.00 to 12.00 at Trinity Church Hall Hill Road, SuttonSM1 1DZ"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Refugee and Migrant Network Sutton",
       "Clients": ["All"],
@@ -4999,6 +5148,7 @@
       "Borough": "Sutton",
       "Day": ["Drop-in centre every Wednesday from 10.00 to 12.00 at Trinity Church Hall Hill Road, Sutton, SM1 1DZ"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Refugee and Migrant Network Sutton",
       "Clients": ["All"],
@@ -5012,6 +5162,7 @@
       "Borough": "Sutton",
       "Day": ["Drop-in centre every Wednesday from 10.00 to 12.00 at Trinity Church Hall Hill Road, SuttonSM1 1DZ"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Refugee and Migrant Network Sutton",
       "Clients": ["All"],
@@ -5025,6 +5176,7 @@
       "Borough": "Sutton",
       "Day": ["Drop-in centre every Wednesday from 10.00 to 12.00 at Trinity Church Hall Hill Road, Sutton, SM1 1DZ"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Refugee and Migrant Network Sutton",
       "Clients": ["All"],
@@ -5089,6 +5241,7 @@
       "Borough": "City of London",
       "Day": ["Mon and Thurs"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Rights of Women",
       "Clients": ["Women"],
@@ -5102,6 +5255,7 @@
       "Borough": "All",
       "Day": ["Mon-Thurs"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Rights of Women",
       "Clients": ["Women"],
@@ -5115,6 +5269,7 @@
       "Borough": "All",
       "Day": ["Mon-Thurs"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Rights of Women",
       "Clients": ["Women"],
@@ -5128,6 +5283,7 @@
       "Borough": "All",
       "Day": ["Mon-Thurs"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Rights of Women",
       "Clients": ["Women"],
@@ -5141,6 +5297,7 @@
       "Borough": "All",
       "Day": ["Mon-Thurs"]
   }, {
+      "project":"",
       "Area": "All",
       "Organisation": "Rights of Women",
       "Clients": ["Women"],
@@ -5290,6 +5447,7 @@
       "Borough": "Newham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Shpresa",
       "Clients": ["Albanian speaking people "],
@@ -5303,6 +5461,7 @@
       "Borough": "Newham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Shpresa",
       "Clients": ["Albanian speaking people "],
@@ -5316,6 +5475,7 @@
       "Borough": "Newham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Shpresa",
       "Clients": ["Albanian speaking people "],
@@ -5329,6 +5489,7 @@
       "Borough": "Newham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Shpresa",
       "Clients": ["Albanian speaking people "],
@@ -5342,6 +5503,7 @@
       "Borough": "Newham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Shpresa",
       "Clients": ["Albanian speaking people "],
@@ -5355,6 +5517,7 @@
       "Borough": "Newham",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Shpresa",
       "Clients": ["Albanian speaking people "],
@@ -5419,6 +5582,7 @@
       "Borough": "Wandsworth",
       "Day": ["Mon-Fri, different times"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Spires",
       "Clients": ["Homeless/At Risk"],
@@ -5517,6 +5681,7 @@
       "Borough": "London",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "Strategic Legal Fund for Young Migrants",
       "Clients": ["Migrants and children of migrants under 25"],
@@ -5683,6 +5848,7 @@
       "Borough": "Wapping",
       "Day": ["Wednesday from 10:30 to 13:00 (arrival at 10:00)"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "The Bike Project-Cycle Training with Refugee Women",
       "Clients": ["Refugee/AS women"],
@@ -5798,6 +5964,7 @@
       "Borough": "Redbridge",
       "Day": ["Drop in Tues &Thurs 10-3,Families Tues-Thurs 10-12, Wed and Fri Homeless Drop-in, Males only after 12.30 on Tues &Thurs"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "The Welcome Project",
       "Clients": ["Socially isolated people (including refugees)", "Homeless"],
@@ -5811,6 +5978,7 @@
       "Borough": "Redbridge",
       "Day": ["Drop in Tues and Thurs 10-3, Families Tues-Thurs 10-12, Wed and Fri Homeless Drop-in, Males only after 12.30 on Tues and Thurs", "Tuesday to Friday 10-3"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "The Welcome Project",
       "Clients": ["Socially isolated people (including refugees)"],
@@ -5824,6 +5992,7 @@
       "Borough": "Redbridge",
       "Day": ["Drop in Tues and Thurs 10-3, Families Tues-Thurs 10-12, Wed d Fri Homeless Drop-in, Males only after 12.30 on Tues & Thurs"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "The Welcome Project",
       "Clients": ["All"],
@@ -5837,6 +6006,7 @@
       "Borough": "Redbridge",
       "Day": ["Drop in Tues and Thurs 10-3, Families Tues-Thurs 10-12, Wed and Fri Homeless Drop-in, Males only after 12.30 on Tues and Thurs"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "The Welcome Project",
       "Clients": ["Socially isolated people", "Homeless"],
@@ -5850,6 +6020,7 @@
       "Borough": "Redbridge",
       "Day": ["Drop in Tues and Thurs 10-3, Families Tues-Thurs 10-12, Wed and Fri Homeless Drop-in, Males only after 12.30 on Tues &Thurs", "Tuesday to Friday 10-3"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "The Welcome Project",
       "Clients": ["Homeless"],
@@ -5863,6 +6034,7 @@
       "Borough": "Redbridge",
       "Day": ["Tuesday to Friday 10-3"]
   }, {
+      "project":"",
       "Area": "East",
       "Organisation": "The Welcome Project",
       "Clients": ["All"],
@@ -5893,6 +6065,7 @@
       "Borough": "Westminster",
       "Day": ["Mon - Thur: 9.30am-1.30pm, Fri: 9.30am-12.30pm"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "The Women's Day Centre",
       "Clients": ["Homeless/ with housing/ support needs"],
@@ -5906,6 +6079,7 @@
       "Borough": "Westminster",
       "Day": ["Mon - Thur: 9.30am-1.30pm, Fri: 9.30am-12.30pm"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "The Women's Day Centre",
       "Clients": ["Homeless/ with housing/ support needs"],
@@ -5987,6 +6161,7 @@
       "Borough": "London",
       "Day": ["Monday-Friday"]
   }, {
+      "project":"",
       "Area": "Central",
       "Organisation": "Toynbee Hall",
       "Clients": ["All"],
@@ -6051,6 +6226,7 @@
       "Borough": "Tower Hamlets",
       "Day": ["Mon - Fri (for specific class/ advice times see website)"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "U-Turn Women's Project",
       "Clients": ["Prostitution, addiction, abuse, homelessness"],
@@ -6081,6 +6257,7 @@
       "Borough": "Southwark",
       "Day": ["Monthly legal meetings, Mon-Fri helpline"]
   }, {
+      "project":"",
       "Area": "",
       "Organisation": "UKLGIG",
       "Clients": ["LGBT asylum seekers"],
@@ -6179,6 +6356,7 @@
       "Borough": "Lambeth",
       "Day": ["Monday am", "Wednesday am", "Friday am"]
   }, {
+      "project":"",
       "Area": "South",
       "Organisation": "Waterloo Action Centre",
       "Clients": ["Status"],
@@ -6226,6 +6404,7 @@
       "Borough": "",
       "Day": ["One Sunday afternoon per month"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "West London Synagogue",
       "Clients": ["Status"],
@@ -6273,6 +6452,7 @@
       "Borough": "Pan London",
       "Day": ["Various see website"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Women and Girls network",
       "Clients": ["Women who have experienced violence"],
@@ -6303,6 +6483,7 @@
       "Borough": "Camden",
       "Day": ["Mon-Fri, 12.30 -3.30pm"]
   }, {
+      "project":"",
       "Area": "Central",
       "Organisation": "Women at the Well",
       "Clients": ["Trafficking, mental health, rough sleeping"],
@@ -6333,6 +6514,7 @@
       "Borough": "Across London",
       "Day": [""]
   }, {
+      "project":"",
       "Area": "London",
       "Organisation": "XLP",
       "Clients": ["Young people - any"],
@@ -6363,6 +6545,7 @@
       "Borough": "Croydon College",
       "Day": ["Tues, Weds", "Thursdays, 2-3pm at Willesden Campus, Tuesdays 1.15-2.45 at Wembley Park Campus"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Young Roots",
       "Clients": ["AS/Refugees", "AS/Refugees", "Students of the college", "Students of the college"],
@@ -6376,6 +6559,7 @@
       "Borough": "Brent",
       "Day": ["Thursdays", "Thursdays", "Tues, Weds", "Thursdays, 2-3pm"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Young Roots",
       "Clients": ["AS/Refugees", "AS/Refugees"],
@@ -6389,6 +6573,7 @@
       "Borough": "Brent",
       "Day": ["Thursdays", "Thursdays"]
   }, {
+      "project":"",
       "Area": "North",
       "Organisation": "Young Roots",
       "Clients": ["AS/Refugees", "AS/Refugees", "Students of the college", "Students of the college"],
@@ -6419,6 +6604,7 @@
       "Borough": "Westminster",
       "Day": ["Monday 2-4pm", "Wednesday 10.30-12.30", "Monday: 10.30-12.30am"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Z2K",
       "Clients": ["Status", "Status", "Status"],
@@ -6432,6 +6618,7 @@
       "Borough": "Westminster",
       "Day": ["Monday", "Wednesday", "Monday"]
   }, {
+      "project":"",
       "Area": "West",
       "Organisation": "Z2K",
       "Clients": ["Status", "Status", "Status"],

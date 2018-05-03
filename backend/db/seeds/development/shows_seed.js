@@ -11,37 +11,43 @@ const loadSeedToDb = async () => {
     const d = {
       org_name: row.name || 'not provided',
       website: row.branches[0].Website || 'not provided',
-      branch: row.branches.map(branch => (
-        {
-          borough: branch.Borough || 'not provided',
-          service: [{
+      branch: row.branches.map(branch => ({
+        borough: branch.Borough || 'not provided',
+        project: 'not provided',
+        service: [
+          {
             service_days: branch.Day.join() || 'not provided',
             process: branch.Process.join() || 'not provided ',
-            categories: [{
-              cat_name: branch.Category || 'not provided'
-            }]
-          }],
-          address: [{
+            categories: [
+              {
+                cat_name: branch.Category || 'not provided'
+              }
+            ]
+          }
+        ],
+        address: [
+          {
             area: branch.Area || 'not provided',
             address_line: 'not provided',
             postcode: branch.Postcode || 'not provided',
             email_address: branch.Email || 'notprovided@cyf.com',
             telephone: branch.Tel.join() || 'not provided',
-            location: [{
-              lat: 'not provided',
-              long: 'not provided'
-            }]
-          }]
-        }
-      ))
+            location: [
+              {
+                lat: 'not provided',
+                long: 'not provided'
+              }
+            ]
+          }
+        ]
+      }))
     };
-    return async () => transaction(Organisation.knex(), trx =>
-      Organisation
-        .query(trx)
-        .insertGraph(d))
+    return (() =>
+      transaction(Organisation.knex()).then(trx =>
+        Organisation.query(trx).insertGraph(d)))();
   });
   return datas;
-}
+};
 exports.seed = () => {
   loadSeedToDb();
-}
+};

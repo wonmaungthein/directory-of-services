@@ -12,7 +12,8 @@ exports.up = knex =>
         .integer('org_id')
         .unsigned()
         .references('id')
-        .inTable('Organisation');
+        .inTable('Organisation')
+        .string('project');
       table.string('borough');
     })
     .createTable('Service', (table) => {
