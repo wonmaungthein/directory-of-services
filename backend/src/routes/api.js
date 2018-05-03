@@ -1,7 +1,6 @@
 import express from 'express';
-import { postOrganisation } from '../controllers/post_controller';
+import { postOrganisation, editOrganisation } from '../controllers/post_controller';
 import { seedData } from '../controllers/postInitialData';
-import { editOrganisation } from '../controllers/post_controller';
 import {
   getAllOrgainisation,
   getListOfCategories,
@@ -9,7 +8,7 @@ import {
   getListOfAreas,
   getBranchesByCategory,
   getBranchesByDay,
-  getBranchesByBorough,
+  getBranchesByBorough
 } from '../controllers/get_controller';
 
 const router = express.Router();
@@ -19,10 +18,56 @@ router.post('/', (req, res) => {
   postOrganisation(query).then(responce => res.json(responce));
 });
 
+router.post('/organisation/add', async (req, res) => {
+  const data = req.body;
+  const graph = {
+    org_name: data.Organisation,
+    website: data.Website,
+    branch: [
+      {
+        borough: data.Borough,
+        address: [
+          {
+            address_line: data.Address,
+            area: data.Area,
+            postcode: data.postcode,
+            email_address: data.Email,
+            telephone: data.Tel,
+            location: [
+              {
+                lat: data.lat,
+                long: data.long
+              }
+            ]
+          }
+        ],
+        service: [
+          {
+            service_days: data.Day,
+            service: data.Services,
+            process: data.Process,
+            categories: [
+              {
+                cat_name: data.Categories
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+
+  try {
+    await postOrganisation(graph)
+      .then(() => res.json({ success: true, message: 'The organisation has been saved successfuly' }))
+  } catch (err) {
+    res.json({ success: false, message: 'The organisation did not save!', err })
+  }
+})
+
 router.patch('/organisation/:orgId/upsert', async (req, res) => {
   const { orgId } = req.params;
   const data = req.body;
-  console.log(data)
   const graph = {
     id: orgId,
     org_name: data.org_name,
@@ -88,6 +133,7 @@ router.get('/all', async (req, res) => {
     res.json(err)
   }
 });
+
 router.get('/migrate', async (req, res) => {
   try {
     await seedData().then(() =>

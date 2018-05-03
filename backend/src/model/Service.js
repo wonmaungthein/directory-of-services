@@ -15,7 +15,8 @@ export default class Service extends Model {
         id: { type: 'integer' },
         branch_id: { type: ['integer', 'null'] },
         service_days: { type: 'string', minLength: 1, maxLength: 255 },
-        process: { type: 'string', minLength: 1, maxLength: 255 }
+        process: { type: 'string', minLength: 1 },
+        service: { type: 'string', minLength: 1 }
       }
     };
   }
