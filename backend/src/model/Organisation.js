@@ -1,5 +1,6 @@
 import { Model } from 'objection';
 import Branch from './Branch';
+import Users from './Users';
 
 
 export default class Organisation extends Model {
@@ -36,7 +37,7 @@ export default class Organisation extends Model {
       users: {
         relation: Model.HasManyRelation,
         // The related model.
-        modelClass: Branch,
+        modelClass: Users,
         join: {
           from: 'Organisation.id',
           to: 'Users.org_id'
