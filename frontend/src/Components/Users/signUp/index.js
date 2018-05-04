@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import PasswordValidator from 'password-validator';
 import SignUpFields from './SignUpFields';
+
 
 import './signUp.css';
 
@@ -45,6 +48,7 @@ class SignUpForm extends Component {
     confirmPassword: '',
     confirmPasswordError: '',
     notificationSystem: null,
+    organisations: [], 
   };
 
   componentDidMount() {
@@ -115,6 +119,8 @@ class SignUpForm extends Component {
     return isError;
   };
 
+ 
+
   handleSubmit = e => {
     e.preventDefault();
     const err = this.validateFormHandler();
@@ -137,6 +143,7 @@ class SignUpForm extends Component {
         passwordError: '',
         confirmPassword: '',
         confirmPasswordError: '',
+        organisations: '',
       });
       this.props.history.push('/home');
     }
@@ -149,6 +156,8 @@ class SignUpForm extends Component {
   };
 
   render() {
+    const organisation = this.props.organisationsList.areas ? this.props.organisationsList.areas.data : [];
+    console.log(organisation)
     return (
       <div className="sign-up-page">
         <NotificationSystem ref="savedChanges" />
@@ -169,6 +178,8 @@ class SignUpForm extends Component {
               handleSubmit={this.handleSubmit}
               handleChange={this.handleChange}
               savedChangesSuccessfully={this.savedChangesSuccessfully}
+              organisations={this.state.organisations}
+              list={organisation}
             />
           </Grid>
         </Paper>
@@ -177,4 +188,18 @@ class SignUpForm extends Component {
   }
 }
 
-export default SignUpForm;
+function mapStateToProps(state) {
+  return {
+    organisationsList: state.organisationsList
+  }
+}
+
+SignUpForm.propTypes = {
+  getOrganisationsList: PropTypes.func.isRequired
+}
+
+SignUpForm.contextTypes = {
+  router: PropTypes.object.isRequired,
+}
+
+export default connect( mapStateToProps )(SignUpForm);
