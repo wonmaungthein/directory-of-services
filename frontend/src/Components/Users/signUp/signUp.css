@@ -118,3 +118,8 @@ input[type="password"]:after:focus {
         margin:0 0.9rem 0 0;
     }
 }
+
+.form-sign div[role='document'] {
+    width: 18%!important;
+    height: 50vh;
+}
