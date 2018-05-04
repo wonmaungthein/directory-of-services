@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
+import MenuItem from 'material-ui/Menu/MenuItem';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 
@@ -33,7 +34,19 @@ const SignUpFields = props => {
         margin="normal"
         required
       />
-
+      <TextField
+        select
+        label="Select Your organisation"
+        className={classes.textFiel}
+        value={props.organisations}
+        onChange={props.handleChange('organisations')}
+      >
+        {props.list.map(option => (
+          <MenuItem key={option.value} value={option.id}>
+            {option.org_name}
+          </MenuItem>
+        ))}
+      </TextField>
       <TextField
         id="username"
         placeholder="Email"
@@ -43,21 +56,8 @@ const SignUpFields = props => {
         onChange={props.handleChange('userName')}
         margin="normal"
         required
-        helperText={props.userNameError}        
+        helperText={props.userNameError}
       />
-
-      <TextField
-        id="email"
-        placeholder="Your organisation name"
-        label="Organisation name"
-        className={classes.textField}
-        value={props.organisation}
-        onChange={props.handleChange('organisation')}
-        margin="normal"
-        helperText={props.organisationError}
-        required
-      />
-
       <TextField
         id="email"
         placeholder="Email"
@@ -78,8 +78,8 @@ const SignUpFields = props => {
         value={props.password}
         onChange={props.handleChange('password')}
         margin="normal"
-        required  
-        helperText={props.passwordError}              
+        required
+        helperText={props.passwordError}
       />
 
       <TextField
@@ -90,8 +90,8 @@ const SignUpFields = props => {
         value={props.confirmPassword}
         onChange={props.handleChange('confirmPassword')}
         margin="normal"
-        required 
-        helperText={props.confirmPasswordError}               
+        required
+        helperText={props.confirmPasswordError}
       />
       <Button
         variant="raised"
