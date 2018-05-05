@@ -7,12 +7,13 @@ Model.knex(knex);
 
 const seedData = async () => {
   const data = await benefitData.map(row => {
-    const d = {
+    const branchData = {
       org_name: row.name || 'not provided',
       website: row.branches[0].Website || 'not provided',
       branch: row.branches.map(branch => ({
         borough: branch.Borough || 'not provided',
-        project: 'not provided',
+        project: branch.project || 'not provided',
+        tag: branch.tag || 'not provided',
         service: [
           {
             service_days: branch.Day.join() || 'not provided',
@@ -41,9 +42,9 @@ const seedData = async () => {
         ]
       }))
     };
-    return (() =>
-      transaction(Organisation.knex()).then(trx =>
-        Organisation.query(trx).insertGraph(d)))();
+    return (async () =>
+      transaction(Organisation.knex(), trx =>
+        Organisation.query(trx).insertGraph(branchData)))();
   });
   return data;
 };
