@@ -13,7 +13,8 @@ const loadSeedToDb = async () => {
       website: row.branches[0].Website || 'not provided',
       branch: row.branches.map(branch => ({
         borough: branch.Borough || 'not provided',
-        project: 'not provided',
+        project: branch.project || 'not provided',
+        tag: branch.tag || 'not provided',
         service: [
           {
             service_days: branch.Day.join() || 'not provided',
