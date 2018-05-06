@@ -1,12 +1,11 @@
-
 exports.up = knex =>
   knex.schema
-    .createTable('Organisation', (table) => {
+    .createTable('Organisation', table => {
       table.increments('id').primary();
       table.string('org_name');
       table.string('website');
     })
-    .createTable('Branch', (table) => {
+    .createTable('Branch', table => {
       table.increments('id').primary();
       table
         .integer('org_id')
@@ -17,7 +16,7 @@ exports.up = knex =>
       table.string('project')
       table.string('tag');
     })
-    .createTable('Service', (table) => {
+    .createTable('Service', table => {
       table.increments('id').primary();
       table
         .integer('branch_id')
@@ -27,7 +26,7 @@ exports.up = knex =>
       table.string('service_days');
       table.string('process');
     })
-    .createTable('Categories', (table) => {
+    .createTable('Categories', table => {
       table.increments('id').primary();
       table
         .integer('service_id')
@@ -36,7 +35,7 @@ exports.up = knex =>
         .inTable('Service');
       table.string('cat_name');
     })
-    .createTable('Address', (table) => {
+    .createTable('Address', table => {
       table.increments('id').primary();
       table
         .integer('branch_id')
@@ -49,7 +48,7 @@ exports.up = knex =>
       table.string('email_address');
       table.string('telephone');
     })
-    .createTable('Location', (table) => {
+    .createTable('Location', table => {
       table.increments('id').primary();
       table
         .integer('address_id')
@@ -59,8 +58,13 @@ exports.up = knex =>
       table.string('lat');
       table.string('long');
     })
-    .createTable('Users', (table) => {
+    .createTable('Users', table => {
       table.increments('id').primary();
+      table
+        .integer('org_id')
+        .unsigned()
+        .references('id')
+        .inTable('Organisation');
       table.string('username');
       table.string('salt_password');
       table.date('last_updated');
@@ -74,4 +78,4 @@ exports.down = knex =>
     .dropTableIfExists('Categories')
     .dropTableIfExists('Address')
     .dropTableIfExists('Location')
-    .dropTableIfExists('Users')
+    .dropTableIfExists('Users');

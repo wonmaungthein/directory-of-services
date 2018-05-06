@@ -1,7 +1,7 @@
 import express from 'express';
-import { postOrganisation } from '../controllers/post_controller';
+import { postOrganisation, editOrganisation } from '../controllers/post_controller';
 import { seedData } from '../controllers/postInitialData';
-import { editOrganisation } from '../controllers/post_controller';
+
 import {
   getAllOrgainisation,
   getListOfCategories,
@@ -9,7 +9,7 @@ import {
   getListOfAreas,
   getBranchesByCategory,
   getBranchesByDay,
-  getBranchesByBorough,
+  getBranchesByBorough
 } from '../controllers/get_controller';
 
 const router = express.Router();
@@ -22,7 +22,6 @@ router.post('/', (req, res) => {
 router.patch('/organisation/:orgId/upsert', async (req, res) => {
   const { orgId } = req.params;
   const data = req.body;
-  console.log(data)
   const graph = {
     id: orgId,
     org_name: data.org_name,
