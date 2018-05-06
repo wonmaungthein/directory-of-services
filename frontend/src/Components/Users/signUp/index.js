@@ -153,7 +153,6 @@ class SignUpForm extends Component {
           this.failedSavedChanges(user.data.message);
         }
       });
-
     }
   };
 
