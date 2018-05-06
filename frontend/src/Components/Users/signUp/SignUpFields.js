@@ -29,27 +29,27 @@ const SignUpFields = props => {
         label="Full Name"
         className={classes.textField}
         value={props.fullName}
-        onChange={props.handleChange('fullName')}
+        onChange={props.handleChange('fullname')}
         margin="normal"
         required
       />
 
       <TextField
         id="username"
-        placeholder="Email"
+        placeholder="Username"
         label="Username"
         className={classes.textField}
         value={props.username}
-        onChange={props.handleChange('userName')}
+        onChange={props.handleChange('username')}
         margin="normal"
         required
-        helperText={props.userNameError}        
+        helperText={props.userNameError}
       />
 
       <TextField
-        id="email"
+        id="Organisation"
         placeholder="Your organisation name"
-        label="Organisation name"
+        label="Organisation"
         className={classes.textField}
         value={props.organisation}
         onChange={props.handleChange('organisation')}
@@ -78,8 +78,8 @@ const SignUpFields = props => {
         value={props.password}
         onChange={props.handleChange('password')}
         margin="normal"
-        required  
-        helperText={props.passwordError}              
+        required
+        helperText={props.passwordError}
       />
 
       <TextField
@@ -90,8 +90,8 @@ const SignUpFields = props => {
         value={props.confirmPassword}
         onChange={props.handleChange('confirmPassword')}
         margin="normal"
-        required 
-        helperText={props.confirmPasswordError}               
+        required
+        helperText={props.confirmPasswordError}
       />
       <Button
         variant="raised"

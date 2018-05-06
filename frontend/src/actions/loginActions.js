@@ -33,3 +33,18 @@ export function login(data) {
       return res
     });
 }
+
+export function insertedUser(user) {
+  return {
+    type: 'SAVED_USER',
+    user
+  };
+}
+
+export function signup(data) {
+  return dispatch =>
+    axios.post(`${api}/signup`, data).then(res => {
+    dispatch(insertedUser(res))  
+    return res
+  });
+}
