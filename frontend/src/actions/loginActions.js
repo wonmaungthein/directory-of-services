@@ -36,6 +36,6 @@ export function login(data) {
 
 export function signup(data) {
   const saveUser = async () =>
-    await axios.post(`${api}/signup`, data).then(res => res);
+    axios.post(`${api}/signup`, data).then(res => res);
   return saveUser
 }
