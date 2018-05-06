@@ -7,7 +7,6 @@ import Paper from 'material-ui/Paper';
 import PasswordValidator from 'password-validator';
 import SignUpFields from './SignUpFields';
 import { signup } from '../../../actions/loginActions';
-
 import './signUp.css';
 
 const numbLetters = new PasswordValidator();

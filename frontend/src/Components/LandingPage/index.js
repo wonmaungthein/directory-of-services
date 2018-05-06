@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from 'material-ui/Button';
 import LoginForm from '../LoginForm';
+// import ForgotPassword from '../Users/forgot-password';  waiting Mohammad change to define route for this component
 import { deleteFlashMessage } from '../../actions/flashMessages';
 import './landing-page.css';
 import SignUpForm from '../Users/signUp';
@@ -58,13 +59,13 @@ class LandingPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    messages: state.flashMessages
-  }
+    messages: state.flashMessages,
+  };
 }
 
 LandingPage.propTypes = {
   messages: PropTypes.array.isRequired,
-  deleteFlashMessage: PropTypes.func.isRequired
-}
+  deleteFlashMessage: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, { deleteFlashMessage })(LandingPage);
