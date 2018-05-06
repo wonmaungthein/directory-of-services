@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = 'http://localhost:3002/api' || `${process.env.API_URL}/api`;
+const api = process.env.REACT_APP_API_URL || process.env.REACT_APP_LOCALHOST_API_URL;
 
 function addOrganisation(data) {
   const saveOrganisation = () =>
@@ -8,6 +8,14 @@ function addOrganisation(data) {
   return saveOrganisation
 }
 
-export default {
-  addOrganisation
+function editOrganisation(data) {
+  const saveOrganisation = () =>
+    axios.patch(`${api}/service/organisation/edit`, data).then(res => res);
+  return saveOrganisation
 }
+
+export default {
+  addOrganisation,
+  editOrganisation
+}
+

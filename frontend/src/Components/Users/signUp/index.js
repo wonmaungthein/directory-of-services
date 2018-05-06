@@ -4,7 +4,6 @@ import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import PasswordValidator from 'password-validator';
 import SignUpFields from './SignUpFields';
-// import SocialSigning from './SocialSigning';
 
 import './signUp.css';
 

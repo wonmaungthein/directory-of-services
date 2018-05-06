@@ -6,6 +6,7 @@ import morgan from 'morgan'
 import compression from 'compression'
 import cors from 'cors';
 import service from './routes/api';
+
 import users from './routes/users';
 
 const app = express()
