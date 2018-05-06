@@ -1,7 +1,6 @@
 import express from 'express';
 import { postOrganisation, editOrganisation } from '../controllers/post_controller';
 import { seedData } from '../controllers/postInitialData';
-
 import {
   getAllOrgainisation,
   getListOfCategories,
@@ -19,31 +18,23 @@ router.post('/', (req, res) => {
   postOrganisation(query).then(responce => res.json(responce));
 });
 
-router.patch('/organisation/:orgId/upsert', async (req, res) => {
-  const { orgId } = req.params;
+router.post('/organisation/add', async (req, res) => {
   const data = req.body;
   const graph = {
-    id: orgId,
-    org_name: data.org_name,
-    website: data.website,
+    org_name: data.Organisation,
+    website: data.Website,
     branch: [
       {
-        id: data.id,
-        org_id: data.org_id,
-        borough: data.borough,
+        borough: data.Borough,
         address: [
           {
-            id: data.id,
-            branch_id: data.branch_id,
-            address_line: data.address_line,
-            area: data.area,
+            address_line: data.Address,
+            area: data.Area,
             postcode: data.postcode,
-            email_address: data.email_address,
-            telephone: data.telephone,
+            email_address: data.Email,
+            telephone: data.Tel,
             location: [
               {
-                id: data.id,
-                address_id: data.address_id,
                 lat: data.lat,
                 long: data.long
               }
@@ -52,15 +43,12 @@ router.patch('/organisation/:orgId/upsert', async (req, res) => {
         ],
         service: [
           {
-            id: data.id,
-            branch_id: data.branch_id,
-            service_days: data.service_days,
-            process: data.process,
+            service_days: data.Day,
+            service: data.Services,
+            process: data.Process,
             categories: [
               {
-                id: data.id,
-                service_id: data.service_id,
-                cat_name: data.cat_name
+                cat_name: data.Categories
               }
             ]
           }
@@ -70,12 +58,71 @@ router.patch('/organisation/:orgId/upsert', async (req, res) => {
   }
 
   try {
-    await editOrganisation(graph, orgId)
+    await postOrganisation(graph)
+      .then(() => res.json({ success: true, message: 'The organisation has been saved successfuly' }))
+  } catch (err) {
+    res.json({ success: false, message: 'The organisation did not save!', err })
+  }
+})
+
+router.patch('/organisation/edit', async (req, res) => {
+  const { branchId } = req.body;
+  const { orgId } = req.body;
+  const data = req.body;
+  const graph = {
+    id: orgId,
+    org_name: data.organisation,
+    website: data.website,
+    branch: [
+      {
+        id: branchId,
+        org_id: orgId,
+        borough: data.borough,
+        address: [
+          {
+            id: branchId,
+            branch_id: branchId,
+            address_line: data.address,
+            area: data.area,
+            postcode: data.postcode,
+            email_address: data.email,
+            telephone: data.Tel,
+            location: [
+              {
+                id: branchId,
+                address_id: branchId,
+                lat: data.lat,
+                long: data.long
+              }
+            ]
+          }
+        ],
+        service: [
+          {
+            id: branchId,
+            branch_id: branchId,
+            service_days: data.days,
+            process: data.process,
+            categories: [
+              {
+                id: branchId,
+                service_id: branchId,
+                cat_name: data.categories
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+
+  try {
+    await editOrganisation(graph, orgId, branchId)
       .then(() => res.json({
-        success: true, message: 'The organisation has been Saved successfully'
+        success: true, message: 'The organisation has been updated successfully'
       }))
   } catch (err) {
-    res.json({ success: false, message: 'The organisation did not Save!', err })
+    res.json({ success: false, message: 'The organisation did not update!', err })
   }
 })
 
@@ -87,6 +134,7 @@ router.get('/all', async (req, res) => {
     res.json(err)
   }
 });
+
 router.get('/migrate', async (req, res) => {
   try {
     await seedData().then(() =>
