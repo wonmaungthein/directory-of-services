@@ -8,7 +8,6 @@ export default class Users extends Model {
     return {
       type: 'object',
       require: ['salt_password', 'username', 'email', 'fullname'],
-
       properties: {
         id: { type: 'integer' },
         organisation: { type: 'string', minLength: 1, maxLength: 255 },

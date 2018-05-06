@@ -43,7 +43,7 @@ const SignUpFields = props => {
         onChange={props.handleChange('username')}
         margin="normal"
         required
-        helperText={props.userNameError}        
+        helperText={props.userNameError}
       />
 
       <TextField
@@ -78,8 +78,8 @@ const SignUpFields = props => {
         value={props.password}
         onChange={props.handleChange('password')}
         margin="normal"
-        required  
-        helperText={props.passwordError}              
+        required
+        helperText={props.passwordError}
       />
 
       <TextField
@@ -90,8 +90,8 @@ const SignUpFields = props => {
         value={props.confirmPassword}
         onChange={props.handleChange('confirmPassword')}
         margin="normal"
-        required 
-        helperText={props.confirmPasswordError}               
+        required
+        helperText={props.confirmPasswordError}
       />
       <Button
         variant="raised"
