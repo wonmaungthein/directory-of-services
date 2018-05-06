@@ -68,7 +68,7 @@ class SideBar extends React.Component {
   render() {
     const { classes, theme } = this.props;
     const drawer = (
-      <div >
+      <div className="side-bar-scroll">
         <Hidden mdUp>
           <div className={classes.drawerHeader}>
             <IconButton
@@ -79,7 +79,7 @@ class SideBar extends React.Component {
                 <ChevronRightIcon />
               ) : (
                 <ChevronLeftIcon />
-              )}
+                )}
             </IconButton>
           </div>
         </Hidden>
@@ -90,7 +90,7 @@ class SideBar extends React.Component {
           <Link to="/home">LOGO</Link>
         </div>
         <Divider />
-        <List>{this.props.sign ? null : <Categories />}</List>
+        <Categories />
         <Divider />
         <List>
           <UsersMenu />
@@ -99,7 +99,7 @@ class SideBar extends React.Component {
     );
 
     return (
-      <div className={this.props.path? '' : 'hide'}>
+      <div>
         <IconButton
           color="inherit"
           aria-label="open drawer"

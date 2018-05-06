@@ -27,3 +27,13 @@
   color: #000;
   margin-left: 1em;
 }
+
+.login-content{
+  position: relative;
+}
+.signup{
+  position: absolute !important;
+  bottom: 5px;
+  right: 28px;
+  z-index: 1000;
+}

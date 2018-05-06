@@ -17,12 +17,11 @@
     color: #1abcd4 !important;
 }
 
-.hide {
+.side-bar-scroll::-webkit-scrollbar {
+    background-color: #1abcd4;
+    width: .6em;
+    border-radius: .2em;
     display: none;
-}
-
-.show {
-    display: block;
 }
 
 .side-bar-scroll {
