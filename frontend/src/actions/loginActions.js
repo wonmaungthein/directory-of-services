@@ -3,7 +3,7 @@ import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import { SET_CURRENT_USER } from './types';
 
-const api = 'http://localhost:3002/api' || `${process.env.API_URL}/api`;
+const api = process.env.REACT_APP_API_URL || process.env.REACT_APP_LOCALHOST_API_URL;
 
 export function setCurrentUser(user) {
   return {
