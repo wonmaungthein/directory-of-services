@@ -39,12 +39,12 @@ router.delete('/users/:userId', async (req, res) => {
 
 router.post('/users', async (req, res) => {
   let { password } = req.body;
-  const { username } = req.body;
+  const { username, orgName } = req.body;
   await bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(password, salt, async (error, hash) => {
       if (error) throw error;
       password = hash;
-      await addUser({ salt_password: password, username }).then(user => res.json(user))
+      await addUser({ salt_password: password, username, org_name: orgName }).then(user => res.json(user))
     })
   })
 });
