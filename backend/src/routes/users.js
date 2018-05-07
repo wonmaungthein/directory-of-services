@@ -39,12 +39,12 @@ router.delete('/users/:userId', async (req, res) => {
 
 router.post('/users', async (req, res) => {
   let { password } = req.body;
-  const { username } = req.body;
+  const { username, orgName } = req.body;
   await bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(password, salt, async (error, hash) => {
       if (error) throw error;
       password = hash;
-      await addUser({ salt_password: password, username }).then(user => res.json(user))
+      await addUser({ salt_password: password, username, org_name: orgName }).then(user => res.json(user))
     })
   })
 });
@@ -62,7 +62,12 @@ router.put('/users/:userId', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   let { password } = req.body;
-  const { username } = req.body;
+  const {
+    username,
+    fullname,
+    email,
+    organisation
+  } = req.body;
   if (username.length > 0 && password.length > 0) {
     await getUserByUserName(username).then(user => {
       if (user.length > 0) {
@@ -72,7 +77,13 @@ router.post('/signup', async (req, res) => {
           bcrypt.hash(password, salt, (error, hash) => {
             if (error) throw error;
             password = hash;
-            addUser({ salt_password: password, username }).then(userData => {
+            addUser({
+              salt_password: password,
+              username,
+              fullname,
+              email,
+              organisation
+            }).then(userData => {
               if (userData) {
                 res.json({ success: true, message: 'User is registered' })
               } else {
