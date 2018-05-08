@@ -30,7 +30,7 @@ const SignUpFields = props => {
         label="Full Name"
         className={classes.textField}
         value={props.fullName}
-        onChange={props.handleChange('fullName')}
+        onChange={props.handleChange('fullname')}
         margin="normal"
         required
       />
@@ -49,15 +49,31 @@ const SignUpFields = props => {
       </TextField>
       <TextField
         id="username"
-        placeholder="Email"
+        placeholder="Username"
         label="Username"
         className={classes.textField}
         value={props.username}
-        onChange={props.handleChange('userName')}
+        onChange={props.handleChange('username')}
         margin="normal"
         required
         helperText={props.userNameError}
       />
+<<<<<<< HEAD
+=======
+
+      <TextField
+        id="Organisation"
+        placeholder="Your organisation name"
+        label="Organisation"
+        className={classes.textField}
+        value={props.organisation}
+        onChange={props.handleChange('organisation')}
+        margin="normal"
+        helperText={props.organisationError}
+        required
+      />
+
+>>>>>>> bd642cd2b77642be82ef9fcee8382ab854eed972
       <TextField
         id="email"
         placeholder="Email"

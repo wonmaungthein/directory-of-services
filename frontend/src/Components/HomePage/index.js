@@ -17,7 +17,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <TopNav />
+        <TopNav homePage />
         <HomeSearch />
       </div>
     )
