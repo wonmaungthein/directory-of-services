@@ -8,7 +8,6 @@ import LandingPage from './Components/LandingPage';
 import SideBar from './Components/SideBar';
 import Users from './Components/Users';
 import HomePage from './Components/HomePage';
-import SignUp from './Components/Users/signUp';
 import AuthEndpoint from './utils/AuthEndpoint';
 
 const styles = theme => ({
@@ -44,13 +43,10 @@ const Routes = props => {
       {showSideBar ? <SideBar /> : null}
       <Route exact path="/" component={LandingPage} />
       <main
-        className={
-          props.location.pathname === '/signup' ? 'form-sign' : classes.content
-        }
+        className={classes.content}
       >
         <div className={classes.drawerHeader} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route path="/:home" component={AuthEndpoint(HomePage)} />
+        <Route exact path="/:home" component={AuthEndpoint(HomePage)} />
         <Route
           exact
           path="/services/:service"

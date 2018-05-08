@@ -49,7 +49,7 @@ class TopNav extends Component {
     this.state.userDropDown ? <UserDropDown handleLogOut={this.handleLogOut} /> : null;
 
   render(){
-    const { classes, addLink, titleLink, title, addOrg, user } = this.props;
+    const { classes, addLink, titleLink, title, addOrg, user, homePage } = this.props;
     return (
       <AppBar className={classes.appBar}>
         <Toolbar>
@@ -65,7 +65,7 @@ class TopNav extends Component {
                 <Link to={`/${titleLink}`}>
                   {helpers.addSpace(Categories, title)}
                 </Link>
-                {addOrg ? null :
+                {addOrg || homePage ? null :
                   (
                     <Link to={`/${addLink}`} className="add-orgnaization">
                       <Button
