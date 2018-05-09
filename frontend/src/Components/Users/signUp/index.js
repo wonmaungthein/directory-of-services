@@ -166,7 +166,6 @@ class SignUpForm extends Component {
   };
 
   render() {
-    const organisation = this.props.organisationsList.areas ? this.props.organisationsList.areas.data : [];
     return (
       <div className="sign-up-page">
         <NotificationSystem ref="savedChanges" />
@@ -188,7 +187,6 @@ class SignUpForm extends Component {
               handleChange={this.handleChange}
               savedChangesSuccessfully={this.savedChangesSuccessfully}
               organisations={this.state.organisations}
-              list={organisation}
             />
           </Grid>
         </Paper>
