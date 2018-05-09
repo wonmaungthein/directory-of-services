@@ -16,12 +16,11 @@ const seedData = async () => {
         tag: branch.tag || 'not provided',
         service: [
           {
-            borough: branch.Borough || 'not provided',
-            service: [{
-              service: branch.Services || 'not provided ',
-              service_days: branch.Day.join() || 'not provided',
-              process: branch.Process.join() || 'not provided ',
-              categories: [{
+            service: branch.Services || 'not provided ',
+            service_days: branch.Day.join() || 'not provided',
+            process: branch.Process.join() || 'not provided ',
+            categories: [
+              {
                 cat_name: branch.Category || 'not provided'
               }
             ]
@@ -44,10 +43,9 @@ const seedData = async () => {
         ]
       }))
     };
-    return (async () => transaction(Organisation.knex(), trx =>
-      Organisation
-        .query(trx)
-        .insertGraph(d)))();
+    return (async () =>
+      transaction(Organisation.knex(), trx =>
+        Organisation.query(trx).insertGraph(branchData)))();
   });
   return data;
 };
