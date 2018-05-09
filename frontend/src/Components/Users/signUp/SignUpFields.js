@@ -58,8 +58,6 @@ const SignUpFields = props => {
         required
         helperText={props.userNameError}
       />
-<<<<<<< HEAD
-=======
 
       <TextField
         id="Organisation"
@@ -73,7 +71,6 @@ const SignUpFields = props => {
         required
       />
 
->>>>>>> bd642cd2b77642be82ef9fcee8382ab854eed972
       <TextField
         id="email"
         placeholder="Email"

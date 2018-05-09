@@ -6,12 +6,7 @@ import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import PasswordValidator from 'password-validator';
 import SignUpFields from './SignUpFields';
-<<<<<<< HEAD
-
-
-=======
 import { signup } from '../../../actions/loginActions';
->>>>>>> bd642cd2b77642be82ef9fcee8382ab854eed972
 import './signUp.css';
 
 const numbLetters = new PasswordValidator();
@@ -140,21 +135,6 @@ class SignUpForm extends Component {
       password: this.state.password,
     }
     if (!err) {
-<<<<<<< HEAD
-      this.savedChangesSuccessfully();
-      this.setState({
-        fullName: '',
-        userName: '',
-        userNameError: '',
-        org: '',
-        email: '',
-        emailError: '',
-        password: '',
-        passwordError: '',
-        confirmPassword: '',
-        confirmPasswordError: '',
-        organisations: '',
-=======
       this.props.signup(data).then(user => {
         if (user.data.success !== false) {
           this.context.router.history.push('/')
@@ -175,7 +155,6 @@ class SignUpForm extends Component {
           this.setState({ userVerification: user.data.message })
           this.failedSavedChanges(user.data.message);
         }
->>>>>>> bd642cd2b77642be82ef9fcee8382ab854eed972
       });
     }
   };
@@ -219,28 +198,11 @@ class SignUpForm extends Component {
   }
 }
 
-<<<<<<< HEAD
-function mapStateToProps(state) {
-  return {
-    organisationsList: state.organisationsList
-  }
-}
-
-SignUpForm.propTypes = {
-  getOrganisationsList: PropTypes.func.isRequired
-}
-
-=======
 SignUpForm.propTypes = {
   signup: PropTypes.func.isRequired
 }
->>>>>>> bd642cd2b77642be82ef9fcee8382ab854eed972
 SignUpForm.contextTypes = {
   router: PropTypes.object.isRequired,
 }
 
-<<<<<<< HEAD
-export default connect( mapStateToProps )(SignUpForm);
-=======
 export default connect(null, { signup })(SignUpForm);
->>>>>>> bd642cd2b77642be82ef9fcee8382ab854eed972
