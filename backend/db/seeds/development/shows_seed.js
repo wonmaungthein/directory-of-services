@@ -15,6 +15,7 @@ const loadSeedToDb = async () => {
         {
           borough: branch.Borough || 'not provided',
           service: [{
+            service: branch.Services || 'not provided ',
             service_days: branch.Day.join() || 'not provided',
             process: branch.Process.join() || 'not provided ',
             categories: [{
