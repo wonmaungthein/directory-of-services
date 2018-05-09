@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import loginAuth from './loginAuth';
 import flashMessages from './flashMessages';
-import { categoriesList, boroughsList, areasList, filteredBranchsByCategory } from './storeApiData';
+import { categoriesList, boroughsList, areasList, filteredBranchsByCategory, organisationsList } from './storeApiData';
 
 export default combineReducers({
   loginAuth,
@@ -10,5 +10,6 @@ export default combineReducers({
   categoriesList,
   boroughsList,
   areasList,
-  filteredBranchsByCategory
+  filteredBranchsByCategory,
+  organisationsList
 });

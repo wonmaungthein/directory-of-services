@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TopNav from '../TopNav';
 import HomeSearch from './HomeSearch';
-import { getBoroughs, getAreas } from '../../actions/getApiData';
+import { getBoroughs, getAreas, getOrganisationsList } from '../../actions/getApiData';
 
 class HomePage extends Component {
 
   componentDidMount() {
     this.props.getBoroughs();
     this.props.getAreas();
+    this.props.getOrganisationsList();
   }
 
   render() {
@@ -25,6 +26,7 @@ class HomePage extends Component {
 HomePage.propTypes = {
   getBoroughs: PropTypes.func.isRequired,
   getAreas: PropTypes.func.isRequired,
+  getOrganisationsList: PropTypes.func.isRequired,
 }
 
-export default connect(null, { getBoroughs, getAreas })(HomePage);
+export default connect(null, { getBoroughs, getAreas, getOrganisationsList })(HomePage);
