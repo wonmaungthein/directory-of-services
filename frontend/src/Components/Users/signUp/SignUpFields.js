@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
+import MenuItem from 'material-ui/Menu/MenuItem';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 
@@ -33,7 +34,19 @@ const SignUpFields = props => {
         margin="normal"
         required
       />
-
+      <TextField
+        select
+        label="Select Your organisation"
+        className={classes.textFiel}
+        value={props.organisations}
+        onChange={props.handleChange('organisations')}
+      >
+        {props.list.map(option => (
+          <MenuItem key={option.value} value={option.id}>
+            {option.org_name}
+          </MenuItem>
+        ))}
+      </TextField>
       <TextField
         id="username"
         placeholder="Username"
