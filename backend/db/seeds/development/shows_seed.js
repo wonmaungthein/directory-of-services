@@ -17,6 +17,7 @@ const loadSeedToDb = async () => {
         tag: branch.tag || 'not provided',
         service: [
           {
+            service: branch.Services || 'not provided ',
             service_days: branch.Day.join() || 'not provided',
             process: branch.Process.join() || 'not provided ',
             categories: [

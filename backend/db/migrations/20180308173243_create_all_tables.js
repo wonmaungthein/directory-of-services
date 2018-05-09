@@ -25,6 +25,7 @@ exports.up = knex =>
         .inTable('Branch');
       table.string('service_days');
       table.string('process');
+      table.string('service');
     })
     .createTable('Categories', table => {
       table.increments('id').primary();
