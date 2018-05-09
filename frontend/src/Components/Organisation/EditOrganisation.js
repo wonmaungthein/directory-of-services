@@ -94,7 +94,7 @@ class EditOrganisation extends React.Component {
     }
     this.props.editOrganisation(orgData)
       .then(user => {
-        if (user.data.success !== false) {
+        if (user.data && user.data.success !== false) {
           this.savedChangesSuccessfully(user.data.message)
           this.context.router.history.push(`${this.props.location.pathname}`)
         } else {

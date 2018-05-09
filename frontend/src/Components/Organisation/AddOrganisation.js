@@ -70,7 +70,7 @@ class AddOrganisation extends Component {
     }
     if (!error) {
       this.props.addOrganisation(data).then(user => {
-        if (user.data.success !== false) {
+        if (user.data && user.data.success !== false) {
           this.savedChangesSuccessfully();
           // this.props.history.push(`/services/${checkedCategory}`);
         } else {

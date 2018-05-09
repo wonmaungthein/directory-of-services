@@ -136,7 +136,7 @@ class SignUpForm extends Component {
     }
     if (!err) {
       this.props.signup(data).then(user => {
-        if (user.data.success !== false) {
+        if (user.data && user.data.success !== false) {
           this.context.router.history.push('/')
           this.savedChangesSuccessfully(user.data.message);
           this.setState({
@@ -167,7 +167,6 @@ class SignUpForm extends Component {
 
   render() {
     const organisation = this.props.organisationsList.areas ? this.props.organisationsList.areas.data : [];
-    console.log(organisation)
     return (
       <div className="sign-up-page">
         <NotificationSystem ref="savedChanges" />
