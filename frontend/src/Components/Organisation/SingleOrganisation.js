@@ -87,7 +87,7 @@ class SingleOrganisation extends Component {
             </h4>
             <div className="health-advice-process">
               <h4> Services</h4>
-              <p className="service"> {org.process}</p>
+              <p className="service"> {org.service}</p>
             </div>
             <div className="single-process-date">
               <div>
@@ -126,7 +126,7 @@ class SingleOrganisation extends Component {
           </DialogActions>
         </Dialog>
       </div>
-      );
+    );
   }
 }
 

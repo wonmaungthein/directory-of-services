@@ -15,6 +15,7 @@ const seedData = async () => {
           {
             borough: branch.Borough || 'not provided',
             service: [{
+              service: branch.Services || 'not provided ',
               service_days: branch.Day.join() || 'not provided',
               process: branch.Process.join() || 'not provided ',
               categories: [{
@@ -35,10 +36,10 @@ const seedData = async () => {
           }
         ))
     };
-    return async () => transaction(Organisation.knex(), trx =>
+    return (async () => transaction(Organisation.knex(), trx =>
       Organisation
         .query(trx)
-        .insertGraph(d));
+        .insertGraph(d)))();
   });
   return data;
 }
