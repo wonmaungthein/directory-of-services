@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NotificationSystem from 'react-notification-system';
 import OrganisationForm from './OrganisationForm';
-import editOrganisation from '../../actions/postData';
+import { editOrganisation } from '../../actions/postData';
+import helpers from '../../helpers';
 import './edit-org.css';
 
 class EditOrganisation extends React.Component {
@@ -93,7 +94,7 @@ class EditOrganisation extends React.Component {
     }
     this.props.editOrganisation(orgData)
       .then(user => {
-        if (user.data.success !== false) { 
+        if (user.data.success !== false) {
           this.savedChangesSuccessfully(user.data.message)
           this.context.router.history.push(`${this.props.location.pathname}`)
         } else {
@@ -128,6 +129,7 @@ class EditOrganisation extends React.Component {
 
   render() {
     const { fullScreen } = this.props;
+    const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     return (
       <div>
         <Button variant="fab" raised aria-label="edit" className="edit-button" onClick={this.props.getData}>
@@ -153,6 +155,7 @@ class EditOrganisation extends React.Component {
               telephone={this.state.Tel}
               email={this.state.Email}
               website={this.state.Website}
+              checkedCategory={checkedCategory}
               openSelect={this.state.openSelect}
               closeSelect={this.handleClose}
               handleMulitySelectChange={this.handleMulitySelectChange}

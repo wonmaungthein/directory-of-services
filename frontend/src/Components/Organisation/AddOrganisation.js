@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import OrganisationForm from './OrganisationForm';
-import addOrganisation from '../../actions/postData';
+import { addOrganisation } from '../../actions/postData';
 import './add-org.css';
 import TopNav from '../TopNav';
 import helpers from '../../helpers'
@@ -25,10 +25,8 @@ class AddOrganisation extends Component {
   };
 
   componentDidMount() {
-    const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     this.setState({
       notificationSystem: this.refs.savedChanges,
-      Categories: [checkedCategory]
     });
   }
 
@@ -150,7 +148,7 @@ class AddOrganisation extends Component {
             email={this.state.Email}
             website={this.state.Website}
             service={this.state.Services}
-            checkedCategory={`${checkedCategory}`}
+            checkedCategory={checkedCategory}
             handleCheckBox={this.handleCheckBox}
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}
