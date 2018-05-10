@@ -76,6 +76,12 @@ class SingleOrganisation extends Component {
             getData={() => this.editSelectedOrganisation(index)}
           />
           <DialogTitle
+            id="alert-dialog-title"
+          >
+            <h4>project: {org.project}</h4>
+          </DialogTitle>
+
+          <DialogTitle
             className="single-oganisation-title"
             id="alert-dialog-title"
           >
@@ -87,7 +93,7 @@ class SingleOrganisation extends Component {
             </h4>
             <div className="health-advice-process">
               <h4> Services</h4>
-              <p className="service"> {org.process}</p>
+              <p className="service"> {org.service}</p>
             </div>
             <div className="single-process-date">
               <div>
@@ -113,6 +119,7 @@ class SingleOrganisation extends Component {
             <a className="website-link" target="blank" href={`${org.website}`}>
               <h5 className="">{org.website}</h5>
             </a>
+            <h5 className="tag">Tag: {org.tag}</h5>
           </DialogContent>
           <DialogActions>
             <Button
@@ -126,7 +133,7 @@ class SingleOrganisation extends Component {
           </DialogActions>
         </Dialog>
       </div>
-      );
+    );
   }
 }
 
