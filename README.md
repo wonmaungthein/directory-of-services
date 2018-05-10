@@ -4,7 +4,6 @@
 
 This is the Directory of Services project live at [https://dos.codeyourfuture.io](https://dos.codeyourfuture.io)
 
-
 This App is destined primary for case workers who provide services oriented for refugees, asylum seekers and organisations working with them to identify services that offer advice and support to assist refugees and asylum seekers rebuild, improve their lives and facilitate their insertion inside the society.
 
 ## Getting Started
