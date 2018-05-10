@@ -6,8 +6,6 @@ import { FormControl } from 'material-ui/Form';
 import Save from 'material-ui-icons/Save';
 import Button from 'material-ui/Button';
 import Select from 'material-ui/Select';
-import ForgotPassword from './forgot-password'
-
 
 const AddUser = props => (
   <Fragment>
@@ -63,7 +61,6 @@ const AddUser = props => (
         <Save />save
       </Button>
     </form>
-    <ForgotPassword />
   </Fragment>
 );
 
