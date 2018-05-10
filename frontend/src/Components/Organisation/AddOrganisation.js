@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import OrganisationForm from './OrganisationForm';
+import { addOrganisation } from '../../actions/postData';
 import './add-org.css';
 import TopNav from '../TopNav';
 import helpers from '../../helpers'
@@ -17,7 +20,7 @@ class AddOrganisation extends Component {
     Tel: '',
     Email: '',
     Website: '',
-    Services: [],
+    Services: '',
     Categories: [],
   };
 
@@ -27,23 +30,69 @@ class AddOrganisation extends Component {
     });
   }
 
+  validate = () => {
+    let isError = false;
+    if (
+      this.state.Organisation.length <= 0 ||
+      this.state.Area.length <= 0 ||
+      this.state.Borough.length <= 0 ||
+      this.state.Process.length <= 0 ||
+      this.state.Day.length <= 0 ||
+      this.state.Tel.length <= 0 ||
+      this.state.Email.length <= 0 ||
+      this.state.Website.length <= 0 ||
+      this.state.Services.length <= 0 ||
+      this.state.Categories.length <= 0
+    ) {
+      isError = true;
+    }
+    return isError;
+  }
+
   handleSubmit = (e) => {
-    const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
+    // const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     e.preventDefault();
-    this.savedChangesSuccessfully();
-    this.setState({
-      Organisation: '',
-      Area: '',
-      Borough: '',
-      Process: '',
-      Day: [],
-      Tel: '',
-      Email: '',
-      Website: '',
-      Services: [],
-      Categories: [],
-    });
-    this.props.history.push(`/services/${checkedCategory}`);
+    const error = this.validate();
+    const Day = this.state.Day.join(",");
+    const Categories = this.state.Categories.join(",");
+
+    const data = {
+      Organisation: this.state.Organisation,
+      Services: this.state.Services,
+      Website: this.state.Website,
+      Borough: this.state.Borough,
+      Process: this.state.Process,
+      Email: this.state.Email,
+      Area: this.state.Area,
+      Tel: this.state.Tel,
+      Categories,
+      Day,
+    }
+    if (!error) {
+      this.props.addOrganisation(data).then(user => {
+        if (user.data && user.data.success !== false) {
+          this.savedChangesSuccessfully();
+          // this.props.history.push(`/services/${checkedCategory}`);
+        } else {
+          this.unSucessSavedChanges(user.data.message);
+        }
+      });
+      this.setState({
+        Organisation: '',
+        Area: '',
+        Borough: '',
+        Process: '',
+        Day: [],
+        Tel: '',
+        Email: '',
+        Website: '',
+        Services: [],
+        Categories: [],
+      });
+    } else {
+      this.unSucessSavedChanges('You have to fill all fields');
+    }
+
   }
 
   savedChangesSuccessfully = () => {
@@ -54,11 +103,10 @@ class AddOrganisation extends Component {
     });
   };
 
-  unSucessSavedChanges = event => {
-    event.preventDefault();
+  unSucessSavedChanges = message => {
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
-      message: 'Your Changes have not been saved successfully',
+      message,
       level: 'error',
     });
   };
@@ -84,6 +132,7 @@ class AddOrganisation extends Component {
 
   render() {
     const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
+
     return (
       <div>
         <TopNav addLink="organisations/add" addOrg="Add new organisation" />
@@ -99,7 +148,7 @@ class AddOrganisation extends Component {
             email={this.state.Email}
             website={this.state.Website}
             service={this.state.Services}
-            checkedCategory={`${checkedCategory}`}
+            checkedCategory={checkedCategory}
             handleCheckBox={this.handleCheckBox}
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}
@@ -117,4 +166,8 @@ class AddOrganisation extends Component {
   }
 }
 
-export default withRouter(props => <AddOrganisation {...props} />);
+AddOrganisation.propTypes = {
+  addOrganisation: PropTypes.func.isRequired
+}
+
+export default connect(null, { addOrganisation })(withRouter(props => <AddOrganisation {...props} />));

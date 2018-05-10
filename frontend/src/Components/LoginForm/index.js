@@ -52,7 +52,7 @@ class LoginForm extends Component {
     if (!errors) {
       this.setState({ errors: {}, isLoading: true });
       this.props.login(this.state).then(user => {
-        if (user.data.success !== false) {
+        if (user.data && user.data.success !== false) {
           this.context.router.history.push('/home')
         } else {
           this.setState({ userVerification: user.data.message, isLoading: false })

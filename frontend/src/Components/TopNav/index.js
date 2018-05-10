@@ -14,6 +14,7 @@ import Categories from '../../Data/Categories.json';
 import './top-nav.css';
 import helpers from '../../helpers';
 import UserDropDown from '../Users/UserDropDown';
+import { getCategories } from '../../actions/getApiData';
 
 const drawerWidth = 240;
 
@@ -33,6 +34,10 @@ class TopNav extends Component {
     userDropDown: false,
   };
 
+  componentDidMount() {
+    this.props.getCategories();
+  }
+
   handleLogOut = (e) => {
     e.preventDefault();
     this.context.router.history.push('/')
@@ -48,8 +53,8 @@ class TopNav extends Component {
   renderUserDropDown = () =>
     this.state.userDropDown ? <UserDropDown handleLogOut={this.handleLogOut} /> : null;
 
-  render(){
-    const { classes, addLink, titleLink, title, addOrg, user } = this.props;
+  render() {
+    const { classes, addLink, titleLink, title, addOrg, user, homePage } = this.props;
     return (
       <AppBar className={classes.appBar}>
         <Toolbar>
@@ -61,11 +66,11 @@ class TopNav extends Component {
                 color="inherit"
                 noWrap
               >
-                {addOrg}  
+                {addOrg}
                 <Link to={`/${titleLink}`}>
                   {helpers.addSpace(Categories, title)}
                 </Link>
-                {addOrg ? null :
+                {addOrg || homePage ? null :
                   (
                     <Link to={`/${addLink}`} className="add-orgnaization">
                       <Button
@@ -110,6 +115,7 @@ TopNav.contextTypes = {
   classes: PropTypes.object.isRequired,
   logout: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
+  getCategories: PropTypes.func.isRequired,
 };
 function mapStateToProps(state) {
   return {
@@ -118,4 +124,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, { logout })(TopNav));
+export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, { logout, getCategories })(TopNav));

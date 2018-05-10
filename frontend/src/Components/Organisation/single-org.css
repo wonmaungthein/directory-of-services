@@ -4,6 +4,13 @@
 .single-oganisation-title >h2{
   color: #1abcd4;
 }
+.single-oganisation-title{
+  padding-top: 0 !important;
+}
+.tag {
+  padding-top: 1.5em;
+  color: #1abcd4;
+}
 .single-oganisation-content{
   min-width: 22em;
   min-height: 16em;

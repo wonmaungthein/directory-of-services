@@ -1,9 +1,13 @@
 import React from 'react';
 import Button from 'material-ui/Button';
 import Dialog, { DialogActions, DialogContent, withMobileDialog } from 'material-ui/Dialog';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import NotificationSystem from 'react-notification-system';
 import OrganisationForm from './OrganisationForm';
+import { editOrganisation } from '../../actions/postData';
+import helpers from '../../helpers';
 import './edit-org.css';
 
 class EditOrganisation extends React.Component {
@@ -20,12 +24,16 @@ class EditOrganisation extends React.Component {
     Email: "",
     Website: "",
     Categories: [],
+    orgId: null,
+    branchId: null,
   };
 
   componentWillMount() {
     const data = this.props.editOrgData;
     if (data) {
       this.setState({
+        branchId: data.branch_id,
+        orgId: data.org_id,
         Organisation: data.org_name,
         Area: data.area,
         Borough: data.borough,
@@ -47,37 +55,52 @@ class EditOrganisation extends React.Component {
     })
   }
 
-  savedChangesSuccessfully = () => {
+  savedChangesSuccessfully = (message) => {
     this.state.notificationSystem.addNotification({
       title: 'Success',
-      message: 'Your Changes have been saved successfully',
+      message,
       level: 'success',
     });
   }
 
-  unSucessSavedChanges = () => {
+  unSucessSavedChanges = (message) => {
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
-      message: 'Your Changes have not been saved successfully',
+      message,
       level: 'error',
     });
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.setState({
-      Organisation: "",
-      Area: "",
-      Borough: "",
-      Services: [],
-      Process: "",
-      Day: [""],
-      Tel: "",
-      Email: "",
-      Website: "",
-      Categories: [],
-    });
-    this.savedChangesSuccessfully()
+    const days = this.state.Day.join(' ');
+    const categories = this.state.Categories.join(' ');
+    const orgData = {
+      branchId: this.state.branchId,
+      orgId: this.state.orgId,
+      organisation: this.state.Organisation,
+      area: this.state.Area,
+      borough: this.state.Borough,
+      postcode: this.state.Services,
+      process: this.state.Process,
+      days: days,
+      tel: this.state.Tel,
+      email: this.state.Email,
+      website: this.state.Website,
+      categories: categories,
+      address: "not provided",
+      lat: "not provided",
+      long: "not provided"
+    }
+    this.props.editOrganisation(orgData)
+      .then(user => {
+        if (user.data && user.data.success !== false) {
+          this.savedChangesSuccessfully(user.data.message)
+          this.context.router.history.push(`${this.props.location.pathname}`)
+        } else {
+          this.unSucessSavedChanges(user.data.message)
+        }
+      });
   };
 
   handleFieldUpdate = e => {
@@ -106,6 +129,7 @@ class EditOrganisation extends React.Component {
 
   render() {
     const { fullScreen } = this.props;
+    const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     return (
       <div>
         <Button variant="fab" raised aria-label="edit" className="edit-button" onClick={this.props.getData}>
@@ -131,6 +155,7 @@ class EditOrganisation extends React.Component {
               telephone={this.state.Tel}
               email={this.state.Email}
               website={this.state.Website}
+              checkedCategory={checkedCategory}
               openSelect={this.state.openSelect}
               closeSelect={this.handleClose}
               handleMulitySelectChange={this.handleMulitySelectChange}
@@ -172,6 +197,11 @@ class EditOrganisation extends React.Component {
 
 EditOrganisation.propTypes = {
   fullScreen: PropTypes.bool.isRequired,
+  editOrganisation: PropTypes.func.isRequired
 };
 
-export default withMobileDialog()(EditOrganisation);
+EditOrganisation.contextTypes = {
+  router: PropTypes.object.isRequired,
+}
+
+export default withMobileDialog()(connect(null, { editOrganisation })(withRouter(props => <EditOrganisation {...props} />)));

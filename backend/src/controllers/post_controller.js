@@ -13,18 +13,22 @@ const postOrganisation = async (graph) => {
   return insertedGraph;
 };
 
-const editOrganisation = async (graph, orgId) => {
+const editOrganisation = async (graph, orgId, branchId) => {
+  const options = {
+    relate: ['branch', 'branch.address', 'branch.address.location', 'branch.service', 'branch.sercice.categories'],
+    noDelete: ['branch']
+  };
+
   if (Array.isArray(graph)) {
-    throw createStatusCodeError(400);
+    throw Error;
   }
   graph.id = parseInt(orgId, 10);
-  const upsertedGraph = await transaction(Organisation.knex(), trx => {
-    return (
-      Organisation.query(trx)
-        .allowUpsert('[branch, branch.[address, address.[location] service, service.[categories]] ]')
-        .upsertGraph(graph)
-    );
-  });
+  const upsertedGraph = await transaction(Organisation.knex(), trx =>
+    Organisation.query(trx)
+      .allowUpsert('[branch, branch.[address, address.[location] service, service.[categories]] ]')
+      .upsertGraph(graph, options)
+      .where('branch.id', 'like', branchId));
+
   return upsertedGraph;
 }
 
