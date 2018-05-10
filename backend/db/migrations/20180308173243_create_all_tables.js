@@ -11,8 +11,10 @@ exports.up = knex =>
         .integer('org_id')
         .unsigned()
         .references('id')
-        .inTable('Organisation');
-      table.string('borough');
+        .inTable('Organisation')
+      table.string('borough')
+      table.string('project')
+      table.string('tag');
     })
     .createTable('Service', table => {
       table.increments('id').primary();
@@ -23,6 +25,7 @@ exports.up = knex =>
         .inTable('Branch');
       table.string('service_days');
       table.string('process');
+      table.string('service');
     })
     .createTable('Categories', table => {
       table.increments('id').primary();
