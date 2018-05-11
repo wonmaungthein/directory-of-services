@@ -13,7 +13,7 @@ export default class Categories extends Model {
       properties: {
         id: { type: 'integer' },
         service_id: { type: ['integer', 'null'] },
-        cat_name: { type: 'string', minLength: 1, maxLength: 255 }
+        cat_name: { type: 'string' }
       }
     }
   }

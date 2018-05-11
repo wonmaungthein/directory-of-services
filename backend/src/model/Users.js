@@ -10,11 +10,11 @@ export default class Users extends Model {
       require: ['salt_password', 'username', 'email', 'fullname'],
       properties: {
         id: { type: 'integer' },
-        organisation: { type: 'string', minLength: 1, maxLength: 255 },
-        fullname: { type: 'string', minLength: 1, maxLength: 255 },
-        username: { type: 'string', minLength: 1, maxLength: 255 },
-        email: { type: 'string', minLength: 1, maxLength: 255 },
-        salt_password: { type: 'string', minLength: 1, maxLength: 255 }
+        organisation: { type: 'string' },
+        fullname: { type: 'string' },
+        username: { type: 'string' },
+        email: { type: 'string' },
+        salt_password: { type: 'string' }
       }
     }
   }

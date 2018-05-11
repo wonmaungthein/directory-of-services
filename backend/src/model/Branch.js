@@ -15,9 +15,9 @@ export default class Branch extends Model {
       properties: {
         id: { type: 'integer' },
         org_id: { type: ['integer', 'null'] },
-        borough: { type: 'string', minLength: 1, maxLength: 255 },
-        project: { type: 'string', minLength: 1, maxLength: 255 },
-        tag: { type: 'string', minLength: 1, maxLength: 255 }
+        borough: { type: 'string' },
+        project: { type: 'string' },
+        tag: { type: 'string' }
       }
     };
   }
@@ -51,6 +51,6 @@ export default class Branch extends Model {
           to: 'Address.branch_id'
         }
       }
-    }
+    };
   }
 }
