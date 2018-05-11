@@ -24,6 +24,7 @@ import Housing from '../../Data/json/Housing.json';
 import Immigration from '../../Data/json/Immigration.json';
 import SocialandOther from '../../Data/json/SocialAndOther.json';
 import OrganisationCard from './OrganisationCard';
+import categoriesData from '../../Data/Categories.json';
 import './index.css';
 
 const originalOrganisations = {
@@ -71,8 +72,7 @@ class Organisations extends Component {
   };
 
   componentDidMount() {
-    const categories = this.props.categories.categories ? this.props.categories.categories : [];
-    const category = helpers.addSpaceToCategName(categories, this.props.match.url);
+    const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url);
     this.props.getBranchsByCategory(category);
   }
 
@@ -248,13 +248,11 @@ class Organisations extends Component {
 function mapStateToProps(state) {
   return {
     oganisation: state.filteredBranchsByCategory.branchs,
-    categories: state.categoriesList
   }
 }
 
 Organisations.propTypes = {
   oganisation: PropTypes.array.isRequired,
-  categories: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps, { getBranchsByCategory })(Organisations);
