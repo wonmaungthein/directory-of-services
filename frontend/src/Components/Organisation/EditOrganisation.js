@@ -93,13 +93,13 @@ class EditOrganisation extends React.Component {
       long: "not provided",
       project: "",
       tag: "",
-      postcode:""
+      postcode: ""
     }
     this.props.editOrganisation(orgData)
       .then(user => {
         if (user.data && user.data.success !== false) {
           this.savedChangesSuccessfully(user.data.message)
-          this.setState({open:false})
+          this.setState({ open: false })
           this.context.router.history.push(`${this.props.location.pathname}`)
         } else {
           this.unSucessSavedChanges(user.data.message)
