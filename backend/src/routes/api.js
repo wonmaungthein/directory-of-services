@@ -76,29 +76,35 @@ router.patch('/organisation/edit', async (req, res) => {
     branch: [
       {
         id: branchId,
-        org_id: orgId,
         borough: data.borough,
+        project: data.project,
+        tag: data.tag,
         address: [
           {
+            id: branchId,
             address_line: data.address,
             area: data.area,
             postcode: data.postcode,
             email_address: data.email,
-            telephone: data.Tel,
+            telephone: data.tel,
             location: [
               {
                 lat: data.lat,
-                long: data.long
+                long: data.long,
+                id: branchId
               }
             ]
           }
         ],
         service: [
           {
+            id: branchId,
             service_days: data.days,
+            service:data.service,
             process: data.process,
             categories: [
               {
+                id: branchId,
                 cat_name: data.categories
               }
             ]
@@ -110,8 +116,9 @@ router.patch('/organisation/edit', async (req, res) => {
 
   try {
     await editOrganisation(graph, orgId, branchId)
-      .then(() => res.json({
-        success: true, message: 'The organisation has been updated successfully'
+      .then( data => res.json({
+        success: true, message: 'The organisation has been updated successfully',
+        data
       }))
   } catch (err) {
     res.json({ success: false, message: 'The organisation did not update!', err })

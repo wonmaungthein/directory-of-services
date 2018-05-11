@@ -37,7 +37,7 @@ class EditOrganisation extends React.Component {
         Organisation: data.org_name,
         Area: data.area,
         Borough: data.borough,
-        Services: data.postcode,
+        Services: data.service,
         Process: data.process,
         Day: [data.service_days],
         Tel: data.telephone,
@@ -81,7 +81,7 @@ class EditOrganisation extends React.Component {
       organisation: this.state.Organisation,
       area: this.state.Area,
       borough: this.state.Borough,
-      postcode: this.state.Services,
+      service: this.state.Services,
       process: this.state.Process,
       days: days,
       tel: this.state.Tel,
@@ -90,14 +90,17 @@ class EditOrganisation extends React.Component {
       categories: categories,
       address: "not provided",
       lat: "not provided",
-      long: "not provided"
+      long: "not provided",
+      project: "",
+      tag: "",
+      postcode:""
     }
     this.props.editOrganisation(orgData)
       .then(user => {
         if (user.data && user.data.success !== false) {
           this.savedChangesSuccessfully(user.data.message)
           this.setState({open:false})
-          // this.context.router.history.push(`${this.props.location.pathname}`)
+          this.context.router.history.push(`${this.props.location.pathname}`)
         } else {
           this.unSucessSavedChanges(user.data.message)
         }
