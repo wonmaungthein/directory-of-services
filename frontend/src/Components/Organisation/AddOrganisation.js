@@ -34,14 +34,6 @@ class AddOrganisation extends Component {
     let isError = false;
     if (
       this.state.Organisation.length <= 0 ||
-      this.state.Area.length <= 0 ||
-      this.state.Borough.length <= 0 ||
-      this.state.Process.length <= 0 ||
-      this.state.Day.length <= 0 ||
-      this.state.Tel.length <= 0 ||
-      this.state.Email.length <= 0 ||
-      this.state.Website.length <= 0 ||
-      this.state.Services.length <= 0 ||
       this.state.Categories.length <= 0
     ) {
       isError = true;
@@ -50,29 +42,29 @@ class AddOrganisation extends Component {
   }
 
   handleSubmit = (e) => {
-    // const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
+    const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     e.preventDefault();
     const error = this.validate();
-    const Day = this.state.Day.join(",");
-    const Categories = this.state.Categories.join(",");
+    const days = this.state.Day.join(",");
+    const categories = this.state.Categories.join(",");
 
     const data = {
-      Organisation: this.state.Organisation,
-      Services: this.state.Services,
-      Website: this.state.Website,
-      Borough: this.state.Borough,
-      Process: this.state.Process,
-      Email: this.state.Email,
-      Area: this.state.Area,
-      Tel: this.state.Tel,
-      Categories,
-      Day,
+      organisation: this.state.Organisation,
+      service: this.state.Services,
+      website: this.state.Website,
+      borough: this.state.Borough,
+      process: this.state.Process,
+      email: this.state.Email,
+      area: this.state.Area,
+      tel: this.state.Tel,
+      categories,
+      days,
     }
     if (!error) {
       this.props.addOrganisation(data).then(user => {
         if (user.data && user.data.success !== false) {
           this.savedChangesSuccessfully();
-          // this.props.history.push(`/services/${checkedCategory}`);
+          this.props.history.push(`/services/${checkedCategory}`);
         } else {
           this.unSucessSavedChanges(user.data.message);
         }
@@ -90,7 +82,7 @@ class AddOrganisation extends Component {
         Categories: [],
       });
     } else {
-      this.unSucessSavedChanges('You have to fill all fields');
+      this.unSucessSavedChanges('You have to fill Organisation name and categories fields');
     }
 
   }
