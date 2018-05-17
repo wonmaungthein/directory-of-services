@@ -26,6 +26,8 @@ class EditOrganisation extends React.Component {
     Categories: [],
     orgId: null,
     branchId: null,
+    serviceId: null,
+    addressId: null
   };
 
   componentWillMount() {
@@ -34,6 +36,8 @@ class EditOrganisation extends React.Component {
       this.setState({
         branchId: data.branch_id,
         orgId: data.org_id,
+        serviceId: data.service_id,
+        addressId: data.address_id,
         Organisation: data.org_name,
         Area: data.area,
         Borough: data.borough,
@@ -77,6 +81,8 @@ class EditOrganisation extends React.Component {
     const categories = this.state.Categories.join(' ');
     const orgData = {
       branchId: this.state.branchId,
+      serviceId: this.state.serviceId,
+      addressId: this.state.addressId,
       orgId: this.state.orgId,
       organisation: this.state.Organisation,
       area: this.state.Area,

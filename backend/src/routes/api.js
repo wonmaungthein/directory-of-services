@@ -81,7 +81,7 @@ router.patch('/organisation/edit', async (req, res) => {
         tag: data.tag,
         address: [
           {
-            id: branchId,
+            id: data.addressId,
             address_line: data.address,
             area: data.area,
             postcode: data.postcode,
@@ -90,21 +90,19 @@ router.patch('/organisation/edit', async (req, res) => {
             location: [
               {
                 lat: data.lat,
-                long: data.long,
-                id: branchId
+                long: data.long
               }
             ]
           }
         ],
         service: [
           {
-            id: branchId,
+            id: data.serviceId,
             service_days: data.days,
             service: data.service,
             process: data.process,
             categories: [
               {
-                id: branchId,
                 cat_name: data.categories
               }
             ]
