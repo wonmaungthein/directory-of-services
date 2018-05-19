@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
+import { InputLabel } from 'material-ui/Input';
+import { MenuItem } from 'material-ui/Menu';
+import { FormControl } from 'material-ui/Form';
+import Select from 'material-ui/Select';
 import Autosuggest from 'react-autosuggest';
 import { withStyles } from 'material-ui/styles';
-import Input from 'material-ui/Input';
 import 'react-select/dist/react-select.css';
 import helpers from '../../helpers';
 import searchStyle from './searchStyle';
@@ -22,31 +25,71 @@ const days = [
   { day: 'Friday' },
   { day: 'Saturday' },
   { day: 'Sunday' },
-].map(day => ({
-  value: day.day,
-  label: day.day,
-}));
-const services = [
-  { service: 'Destitution' },
-  { service: 'Healthcare' },
-  { service: 'Social and Other' },
-  { service: 'Education' },
-  { service: 'Housing' },
-  { service: 'Trafficking' },
-  { service: 'Benefits' },
-  { service: 'Families' },
-  { service: 'LGBTQI' },
-  { service: 'Young People and Children' },
-  { service: 'Employment' },
-  { service: 'Immigration' },
-  { service: 'Women' },
-  { service: 'Debt' },
-  { service: 'Gender Based Violence' },
-  { service: 'Mental Health Services' },
-].map(service => ({
-  value: service.service,
-  label: service.service,
-}));
+]
+
+const boroughs = [
+  { borough: "Across London" },
+  { borough: "All" },
+  { borough: "Barking" },
+  { borough: "Dagenham" },
+  { borough: "Barnet" },
+  { borough: "Bexley" },
+  { borough: "Bow" },
+  { borough: "Brent" },
+  { borough: "Bristol" },
+  { borough: "Bromley" },
+  { borough: "Camden" },
+  { borough: "Camden (Holborn)" },
+  { borough: "Canterbury City Council" },
+  { borough: "Central London" },
+  { borough: "City of London" },
+  { borough: "Croydon" },
+  { borough: "Croydon College" },
+  { borough: "Dartford Borough Council" },
+  { borough: "Deptford" },
+  { borough: "Dulwich" },
+  { borough: "Ealing" },
+  { borough: "Enfield" },
+  { borough: "Essex/East London" },
+  { borough: "Farringdon/ Battersea" },
+  { borough: "Greenwich" },
+  { borough: "Hackney" },
+  { borough: "Haringey" },
+  { borough: "Hounslow" },
+  { borough: "Islington" },
+  { borough: "Islington (Finsbury Park)" },
+  { borough: "Islington (Holloway)" },
+  { borough: "Kensington and Chelsea" },
+  { borough: "Kent/London and Surrey/Sussex" },
+  { borough: "Kilburn" },
+  { borough: "Ladbroke Grove" },
+  { borough: "Lambeth" },
+  { borough: "Lewisham" },
+  { borough: "London" },
+  { borough: "London and Surrey" },
+  { borough: "London/Essex/South East" },
+  { borough: "National" },
+  { borough: "Nationwide" },
+  { borough: "Newham" },
+  { borough: "Notting Hill" },
+  { borough: "Old Street" },
+  { borough: "Pan London" },
+  { borough: "Redbridge" },
+  { borough: "SE London" },
+  { borough: "South East London" },
+  { borough: "South East London boroughs" },
+  { borough: "Southwark" },
+  { borough: "Sutton" },
+  { borough: "Swale Borough Council" },
+  { borough: "Hamlets" },
+  { borough: "Tower" },
+  { borough: "UK" },
+  { borough: "UK wide" },
+  { borough: "Wandsworth" },
+  { borough: "Wapping" },
+  { borough: "Westminster" },
+  { borough: "Wimbledon" }
+].sort();
 
 class Search extends React.Component {
   state = {
@@ -98,41 +141,42 @@ class Search extends React.Component {
           />
         </Grid>
         <Grid item md={4} xs={12} className="day">
-          <h4>Day</h4>
-          <Input
-            fullWidth
-            className="select-field-container day-small-screen"
-            inputComponent={helpers.SelectWrapped}
-            inputProps={{
-              value: this.props.day,
-              onChange: this.props.handleSelectedDay,
-              placeholder: 'Select Day',
-              instanceId: 'selectDay',
-              id: 'selectday',
-              name: 'day',
-              simpleValue: true,
-              options: days,
-            }}
-          />
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="age-simple">Day</InputLabel>
+            <Select
+              className="select-field-container day-small-screen"
+              value={this.props.day}
+              onChange={this.props.handleSelectedDay}
+              inputProps={{
+                name: 'day',
+                id: 'day',
+              }}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              {days.map(day => <MenuItem value={day.day}>{day.day}</MenuItem>)}
+            </Select>
+          </FormControl>
         </Grid>
         <Grid item md={3} xs={12} className="service">
-          <h4>Service</h4>
-          <Input
-            fullWidth
-            className="select-field-container"
-            inputComponent={helpers.SelectWrapped}
-            inputProps={{
-              classes,
-              value: this.props.myService,
-              onChange: this.props.handleServiceChange,
-              placeholder: 'Select Service',
-              instanceId: 'selectService',
-              id: 'selectService',
-              name: 'service',
-              simpleValue: true,
-              options: services,
-            }}
-          />
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="borough">Select Borough</InputLabel>
+            <Select
+              className="select-field-container"
+              value={this.props.borough}
+              onChange={this.props.handleSelectedBorough}
+              inputProps={{
+                name: 'borough',
+                id: 'borough',
+              }}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              {boroughs.map(borough => <MenuItem value={borough.borough}>{borough.borough}</MenuItem>)}
+            </Select>
+          </FormControl>
         </Grid>
       </Grid>
     );
