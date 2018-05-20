@@ -9,6 +9,7 @@ import Autosuggest from 'react-autosuggest';
 import { withStyles } from 'material-ui/styles';
 import 'react-select/dist/react-select.css';
 import helpers from '../../helpers';
+import BoroughData from '../../Data/Boroughs.json';
 import searchStyle from './searchStyle';
 import './search.css';
 
@@ -29,69 +30,9 @@ const days = [
   { day: 'All' },
 ]
 
-const boroughs = [
-  { borough: "Across London" },
-  { borough: "All" },
-  { borough: "Barking" },
-  { borough: "Dagenham" },
-  { borough: "Barnet" },
-  { borough: "Bexley" },
-  { borough: "Bow" },
-  { borough: "Brent" },
-  { borough: "Bristol" },
-  { borough: "Bromley" },
-  { borough: "Camden" },
-  { borough: "Camden (Holborn)" },
-  { borough: "Canterbury City Council" },
-  { borough: "Central London" },
-  { borough: "City of London" },
-  { borough: "Croydon" },
-  { borough: "Croydon College" },
-  { borough: "Dartford Borough Council" },
-  { borough: "Deptford" },
-  { borough: "Dulwich" },
-  { borough: "Ealing" },
-  { borough: "Enfield" },
-  { borough: "Essex/East London" },
-  { borough: "Farringdon/ Battersea" },
-  { borough: "Greenwich" },
-  { borough: "Hackney" },
-  { borough: "Haringey" },
-  { borough: "Hounslow" },
-  { borough: "Islington" },
-  { borough: "Islington (Finsbury Park)" },
-  { borough: "Islington (Holloway)" },
-  { borough: "Kensington and Chelsea" },
-  { borough: "Kent/London and Surrey/Sussex" },
-  { borough: "Kilburn" },
-  { borough: "Ladbroke Grove" },
-  { borough: "Lambeth" },
-  { borough: "Lewisham" },
-  { borough: "London" },
-  { borough: "London and Surrey" },
-  { borough: "London/Essex/South East" },
-  { borough: "National" },
-  { borough: "Nationwide" },
-  { borough: "Newham" },
-  { borough: "Notting Hill" },
-  { borough: "Old Street" },
-  { borough: "Pan London" },
-  { borough: "Redbridge" },
-  { borough: "SE London" },
-  { borough: "South East London" },
-  { borough: "South East London boroughs" },
-  { borough: "Southwark" },
-  { borough: "Sutton" },
-  { borough: "Swale Borough Council" },
-  { borough: "Hamlets" },
-  { borough: "Tower" },
-  { borough: "UK" },
-  { borough: "UK wide" },
-  { borough: "Wandsworth" },
-  { borough: "Wapping" },
-  { borough: "Westminster" },
-  { borough: "Wimbledon" }
-].sort();
+const boroughs = BoroughData.map(borough => borough.borough).filter((elem, index, self) =>
+  index === self.indexOf(elem)
+).sort();
 
 class Search extends React.Component {
   state = {
@@ -176,7 +117,7 @@ class Search extends React.Component {
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              {boroughs.map(borough => <MenuItem value={borough.borough}>{borough.borough}</MenuItem>)}
+              {boroughs.map(borough => <MenuItem value={borough}>{borough}</MenuItem>)}
             </Select>
           </FormControl>
         </Grid>
