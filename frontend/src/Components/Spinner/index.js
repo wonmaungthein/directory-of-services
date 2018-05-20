@@ -19,7 +19,7 @@ function CircularIndeterminate(props) {
         className={classes.progress}
         style={{ color: purple[500] }}
         thickness={6}
-        size={50}
+        size={100}
       />
     </div>
   );

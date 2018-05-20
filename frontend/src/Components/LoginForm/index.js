@@ -10,7 +10,6 @@ import { login } from '../../actions/loginActions';
 import Spinner from '../Spinner';
 import './login-form.css';
 
-
 class LoginForm extends Component {
   state = {
     username: '',
@@ -19,7 +18,6 @@ class LoginForm extends Component {
     errors: {},
     userVerification: '',
   };
-
 
   validation = () => {
     let isError = false;
@@ -42,14 +40,12 @@ class LoginForm extends Component {
     return isError;
   };
 
-
   handleFieldsChange = e => {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
-
 
   handleLogin = e => {
     e.preventDefault();
@@ -58,7 +54,6 @@ class LoginForm extends Component {
       this.setState({ errors: {}, isLoading: true });
       this.props.login(this.state).then(user => {
         if (user.data && user.data.success !== false) {
-          this.setState({ isLoading: true });
           this.context.router.history.push('/home');
           this.setState({ isLoading: false });
         } else {
@@ -78,63 +73,58 @@ class LoginForm extends Component {
     }
   };
 
-
   handleBlur = e => {
     e.preventDefault();
     this.setState({ userVerification: '' });
   };
-
 
   render() {
     const { usernameErr, passwordErr } = this.state.errors;
     if (this.state.isLoading) {
       return <Spinner />;
     }
-      return (
-        <Paper className="login-form-content">
-          <FormHelperText className="error">
-            {this.state.userVerification}
-          </FormHelperText>
-          <Typography color="primary" variant="display3">
-            Login
-          </Typography>
-          <form className="login-form">
-            <Fragment>
-              <TextField
-                id="username"
-                label="Username"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleFieldsChange}
-                onBlur={this.handleBlur}
-                margin="normal"
-              />
-              <FormHelperText className="error">{usernameErr}</FormHelperText>
-            </Fragment>
-            <Fragment>
-              <TextField
-                id="password"
-                label="Password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleFieldsChange}
-                onBlur={this.handleBlur}
-                margin="normal"
-                type="password"
-              />
-              <FormHelperText className="error">{passwordErr}</FormHelperText>
-            </Fragment>
-            <Button onClick={this.handleLogin} variant="raised" color="primary">
-              Submit
-            </Button>
-          </form>
-        </Paper>
-      );
-
-
+    return (
+      <Paper className="login-form-content">
+        <FormHelperText className="error">
+          {this.state.userVerification}
+        </FormHelperText>
+        <Typography color="primary" variant="display3">
+          Login
+        </Typography>
+        <form className="login-form">
+          <Fragment>
+            <TextField
+              id="username"
+              label="Username"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleFieldsChange}
+              onBlur={this.handleBlur}
+              margin="normal"
+            />
+            <FormHelperText className="error">{usernameErr}</FormHelperText>
+          </Fragment>
+          <Fragment>
+            <TextField
+              id="password"
+              label="Password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleFieldsChange}
+              onBlur={this.handleBlur}
+              margin="normal"
+              type="password"
+            />
+            <FormHelperText className="error">{passwordErr}</FormHelperText>
+          </Fragment>
+          <Button onClick={this.handleLogin} variant="raised" color="primary">
+            Submit
+          </Button>
+        </form>
+      </Paper>
+    );
   }
 }
-
 
 LoginForm.propTypes = {
   login: PropTypes.func.isRequired,
@@ -142,6 +132,5 @@ LoginForm.propTypes = {
 LoginForm.contextTypes = {
   router: PropTypes.object.isRequired,
 };
-
 
 export default connect(null, { login })(LoginForm);
