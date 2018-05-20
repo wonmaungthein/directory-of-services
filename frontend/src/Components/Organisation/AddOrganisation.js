@@ -45,7 +45,7 @@ class AddOrganisation extends Component {
       this.state.Services.length <= 0 ||
       this.state.Categories.length <= 0
     ) {
-      isError = false;
+      isError = true;
     }
     return isError;
   }
