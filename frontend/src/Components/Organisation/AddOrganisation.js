@@ -22,6 +22,7 @@ class AddOrganisation extends Component {
     Website: '',
     Services: '',
     Categories: [],
+    isChecked: true,
   };
 
   componentDidMount() {
@@ -44,7 +45,7 @@ class AddOrganisation extends Component {
       this.state.Services.length <= 0 ||
       this.state.Categories.length <= 0
     ) {
-      isError = true;
+      isError = false;
     }
     return isError;
   }
@@ -117,14 +118,37 @@ class AddOrganisation extends Component {
     });
   };
 
+  handleDefaultCheckbox = event => {
+    const listOfCategories = this.state.Categories;
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
+    this.setState({
+      [event.target.name]: event.target.checked,      
+      Categories: listOfCategories,
+      isChecked:!this.state.isChecked,
+    });
+  };
+
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
-    listOfCategories.push(event.target.value);
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
     this.setState({
-      [event.target.name]: event.target.checked,
+      [event.target.name]: event.target.checked,      
       Categories: listOfCategories,
     });
   };
+
 
   handleMulitySelectChange = event => {
     this.setState({ Day: event.target.value });
@@ -153,6 +177,8 @@ class AddOrganisation extends Component {
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}
             onChange={this.handleFieldUpdate}
+            check={this.state.isChecked}
+            handleDefaultCheckbox={this.handleDefaultCheckbox}
           />
           <button
             className="add-orgonaization-link"

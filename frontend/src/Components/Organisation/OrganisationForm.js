@@ -168,8 +168,8 @@ const OrganisationForm = (props) => {
               className="checkbox"
               control={
                 <Checkbox
-                  checked
-                  onChange={props.handleCheckBox}
+                  checked={props.check}
+                  onChange={props.handleDefaultCheckbox}
                   value={checkedCategory}
                   className="checkbox-color"
                 />
