@@ -25,6 +25,8 @@ const days = [
   { day: 'Friday' },
   { day: 'Saturday' },
   { day: 'Sunday' },
+  { day: 'Mon-Fri' },
+  { day: 'All' },
 ]
 
 const boroughs = [
