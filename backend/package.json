@@ -1,24 +1,25 @@
 {
-  "name": "dos-backend",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "migrate": "./node_modules/.bin/knex migrate:latest --env development && ./node_modules/.bin/knex migrate:latest --env test",
+  "name" : "dos-backend",
+  "version" : "0.0.1",
+  "private" : true,
+  "scripts" : {
+    "migrate": "./node_modules/.bin/knex migrate:latest --env development",
     "seed": "./node_modules/.bin/knex seed:run --env development",
     "start": "npm run migrate && babel-node ./bin/www  --exec babel-node ",
     "dev": "npm run migrate && nodemon --exec babel-node ./bin/www",
     "lint": "./node_modules/.bin/eslint **/*.js",
     "fix": "find ./node_modules/* -mtime +10950 -exec touch {} \\;"
   },
-  "engines": {
+  "engines" : {
     "node": ">=8.0.0"
   },
-  "dependencies": {
+  "dependencies" : {
     "bcrypt": "^2.0.1",
     "body-parser": "~1.18.2",
     "compression": "^1.7.2",
     "cors": "^2.8.4",
     "debug": "~2.6.9",
+    "dotenv": "^5.0.1",
     "express": "~4.15.5",
     "express-promise-router": "^3.0.1",
     "faker": "^4.1.0",
@@ -33,7 +34,7 @@
     "passport-local": "^1.0.0",
     "pg": "^7.4.1"
   },
-  "devDependencies": {
+  "devDependencies" : {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-preset-env": "^1.6.1",
