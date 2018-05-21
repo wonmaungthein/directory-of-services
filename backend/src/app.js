@@ -6,7 +6,6 @@ import morgan from 'morgan'
 import compression from 'compression'
 import cors from 'cors';
 import service from './routes/api';
-
 import users from './routes/users';
 
 const app = express()
@@ -21,7 +20,6 @@ const app = express()
 
 app.use('/api', users)
   .use('/api/service', service);
-
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
