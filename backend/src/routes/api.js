@@ -80,8 +80,6 @@ router.patch('/organisation/edit', async (req, res) => {
         borough: data.borough,
         address: [
           {
-            id: branchId,
-            branch_id: branchId,
             address_line: data.address,
             area: data.area,
             postcode: data.postcode,
@@ -89,8 +87,6 @@ router.patch('/organisation/edit', async (req, res) => {
             telephone: data.Tel,
             location: [
               {
-                id: branchId,
-                address_id: branchId,
                 lat: data.lat,
                 long: data.long
               }
@@ -99,14 +95,10 @@ router.patch('/organisation/edit', async (req, res) => {
         ],
         service: [
           {
-            id: branchId,
-            branch_id: branchId,
             service_days: data.days,
             process: data.process,
             categories: [
               {
-                id: branchId,
-                service_id: branchId,
                 cat_name: data.categories
               }
             ]
