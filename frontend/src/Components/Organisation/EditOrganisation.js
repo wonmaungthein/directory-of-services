@@ -97,7 +97,6 @@ class EditOrganisation extends React.Component {
         if (user.data && user.data.success !== false) {
           this.savedChangesSuccessfully(user.data.message)
           this.setState({open:false})
-          // this.context.router.history.push(`${this.props.location.pathname}`)
         } else {
           this.unSucessSavedChanges(user.data.message)
         }
