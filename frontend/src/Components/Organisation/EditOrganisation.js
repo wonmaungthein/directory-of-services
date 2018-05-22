@@ -8,6 +8,7 @@ import NotificationSystem from 'react-notification-system';
 import OrganisationForm from './OrganisationForm';
 import { editOrganisation } from '../../actions/postData';
 import helpers from '../../helpers';
+import Spinner from '../Spinner';
 import './edit-org.css';
 
 class EditOrganisation extends React.Component {
@@ -30,7 +31,8 @@ class EditOrganisation extends React.Component {
     branchId: null,
     serviceId: null,
     addressId: null,
-    isChecked: true
+    isChecked: true,
+    isLoading: false
   };
 
   componentWillMount() {
@@ -105,14 +107,16 @@ class EditOrganisation extends React.Component {
       project: this.state.project,
       tag: this.state.tag
     }
+    this.setState({ isLoading: true });
     this.props.editOrganisation(orgData)
       .then(user => {
         if (user.data && user.data.success !== false) {
           this.savedChangesSuccessfully(user.data.message)
-          this.setState({ open: false })
+          this.setState({ open: false, isLoading: false })
           this.context.router.history.push(`${this.props.location.pathname}`)
         } else {
           this.unSucessSavedChanges(user.data.message)
+          this.setState({isLoading: false })
         }
       });
   };
@@ -166,6 +170,9 @@ class EditOrganisation extends React.Component {
   render() {
     const { fullScreen } = this.props;
     const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
+    if (this.state.isLoading) {
+      return <Spinner color='blue' bgColor='spinnerEdit' />;
+    }
     return (
       <div>
         <Button variant="fab" raised aria-label="edit" className="edit-button" onClick={this.props.getData}>
