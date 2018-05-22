@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import helpers from '../../helpers';
+import categoriesData from '../../Data/Categories.json';
 import './categories.css';
 
 class Categories extends Component {
@@ -33,7 +32,6 @@ class Categories extends Component {
   };
 
   render() {
-    const categoriesName = this.props.categoriesName.categories ? this.props.categoriesName.categories : [];
     return (
       <div className="categories">
         <span
@@ -45,21 +43,10 @@ class Categories extends Component {
         >
           Categories
         </span>
-        {this.showListOfcategories(categoriesName)}
+        {this.showListOfcategories(categoriesData)}
       </div>
     );
   }
 }
 
-
-function mapStateToProps(state) {
-  return {
-    categoriesName: state.categoriesList
-  }
-}
-
-Categories.propTypes = {
-  categoriesName: PropTypes.array.isRequired,
-}
-
-export default connect(mapStateToProps)(Categories);
+export default Categories;

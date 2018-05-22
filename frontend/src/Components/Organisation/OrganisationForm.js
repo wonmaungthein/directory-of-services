@@ -46,9 +46,15 @@ const OrganisationForm = (props) => {
                 id: 'controlled-open-select',
               }}
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
+              {
+                props.edit ?
+                  <MenuItem value={props.selectedArea}>
+                    {props.selectedArea}
+                  </MenuItem> :
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+              }
               {areas.map(area => (
                 <MenuItem value={area}>{area}</MenuItem>
               ))}
@@ -69,9 +75,15 @@ const OrganisationForm = (props) => {
                 id: 'controlled-open-select',
               }}
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
+              {
+                props.edit ?
+                  <MenuItem value={props.selectedBorough}>
+                    {props.selectedBorough}
+                  </MenuItem> :
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+              }
               {sortedBorough.map(borough => (
                 <MenuItem value={borough}>{borough}</MenuItem>
               ))}
@@ -107,6 +119,16 @@ const OrganisationForm = (props) => {
             onChange={props.handleMulitySelectChange}
             input={<Input id="select-multiple" />}
           >
+            {
+              props.edit ?
+                <MenuItem
+                  value={props.day.join(" ")}
+                >
+                  {props.day.join(" ")}
+                </MenuItem>
+                :
+                null
+            }
             {days.map(day => (
               <MenuItem
                 key={day}
@@ -147,6 +169,26 @@ const OrganisationForm = (props) => {
           onChange={props.onChange}
           fullWidth
         />
+        <TextField
+          className="email-label add-project"
+          label="Project"
+          name="project"
+          multiline
+          rowsMax="4"
+          value={props.project}
+          onChange={props.onChange}
+          fullWidth
+        />
+        <TextField
+          className="email-label add-tag"
+          label="Tag"
+          name="tag"
+          multiline
+          rowsMax="4"
+          value={props.tag}
+          onChange={props.onChange}
+          fullWidth
+        />
       </div>
       <div className="form-third-row not-include-in-edit-org">
         <TextField
@@ -168,8 +210,8 @@ const OrganisationForm = (props) => {
               className="checkbox"
               control={
                 <Checkbox
-                  checked
-                  onChange={props.handleCheckBox}
+                  checked={props.check}
+                  onChange={props.handleDefaultCheckbox}
                   value={checkedCategory}
                   className="checkbox-color"
                 />
