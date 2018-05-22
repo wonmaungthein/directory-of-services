@@ -101,8 +101,6 @@ class EditOrganisation extends React.Component {
       address: "not provided",
       lat: "not provided",
       long: "not provided",
-      project: "",
-      tag: "",
       postcode: "",
       project: this.state.project,
       tag: this.state.tag
