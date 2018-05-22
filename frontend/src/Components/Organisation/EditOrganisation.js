@@ -24,6 +24,8 @@ class EditOrganisation extends React.Component {
     Email: "",
     Website: "",
     Categories: [],
+    project: '',
+    tag: '',
     orgId: null,
     branchId: null,
     isChecked: true,
@@ -45,7 +47,8 @@ class EditOrganisation extends React.Component {
         Email: data.email_address,
         Website: data.website,
         Categories: [data.cat_name],
-
+        project: data.project,
+        tag: data.tag
       })
     }
   }
@@ -91,7 +94,9 @@ class EditOrganisation extends React.Component {
       categories: categories,
       address: "not provided",
       lat: "not provided",
-      long: "not provided"
+      long: "not provided",
+      project: this.state.project,
+      tag: this.state.tag
     }
     this.props.editOrganisation(orgData)
       .then(user => {
@@ -178,6 +183,8 @@ class EditOrganisation extends React.Component {
               telephone={this.state.Tel}
               email={this.state.Email}
               website={this.state.Website}
+              project={this.state.project}
+              tag={this.state.tag}
               checkedCategory={checkedCategory}
               openSelect={this.state.openSelect}
               closeSelect={this.handleClose}

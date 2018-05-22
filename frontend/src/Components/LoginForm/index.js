@@ -7,7 +7,8 @@ import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
 import { login } from '../../actions/loginActions';
-import './login-form.css'
+import Spinner from '../Spinner';
+import './login-form.css';
 
 class LoginForm extends Component {
   state = {
@@ -15,47 +16,51 @@ class LoginForm extends Component {
     password: '',
     isLoading: false,
     errors: {},
-    userVerification: ''
-  }
+    userVerification: '',
+  };
 
   validation = () => {
     let isError = false;
     const errors = {
-      usernameErr: "",
-      passwordErr: "",
-    }
+      usernameErr: '',
+      passwordErr: '',
+    };
     if (this.state.username.length <= 0) {
       isError = true;
-      errors.usernameErr = "You have to add your username";
+      errors.usernameErr = 'You have to add your username';
     }
     if (this.state.password.length <= 0) {
       isError = true;
-      errors.passwordErr = "You have to add your password";
+      errors.passwordErr = 'You have to add your password';
     }
     this.setState({
       ...this.setState,
-      errors
-    })
+      errors,
+    });
     return isError;
-  }
+  };
 
-  handleFieldsChange = (e) => {
+  handleFieldsChange = e => {
     e.preventDefault();
     this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  handleLogin = (e) => {
+  handleLogin = e => {
     e.preventDefault();
     const errors = this.validation();
     if (!errors) {
       this.setState({ errors: {}, isLoading: true });
       this.props.login(this.state).then(user => {
         if (user.data && user.data.success !== false) {
-          this.context.router.history.push('/home')
+          this.context.router.history.push('/home');
+          this.setState({ isLoading: false });
         } else {
-          this.setState({ userVerification: user.data.message, isLoading: false })
+          this.setState({
+            userVerification: user.data.message,
+            isLoading: false,
+          });
         }
       });
       this.setState({
@@ -63,21 +68,26 @@ class LoginForm extends Component {
         isLoading: true,
         username: '',
         password: '',
-        userVerification: ''
+        userVerification: '',
       });
     }
-  }
+  };
 
-  handleBlur = (e) => {
+  handleBlur = e => {
     e.preventDefault();
-    this.setState({ userVerification: '' })
-  }
+    this.setState({ userVerification: '' });
+  };
 
   render() {
     const { usernameErr, passwordErr } = this.state.errors;
+    if (this.state.isLoading) {
+      return <Spinner />;
+    }
     return (
       <Paper className="login-form-content">
-        <FormHelperText className="error">{this.state.userVerification}</FormHelperText>
+        <FormHelperText className="error">
+          {this.state.userVerification}
+        </FormHelperText>
         <Typography color="primary" variant="display3">
           Login
         </Typography>
@@ -112,15 +122,15 @@ class LoginForm extends Component {
           </Button>
         </form>
       </Paper>
-    )
+    );
   }
 }
 
 LoginForm.propTypes = {
-  login: PropTypes.func.isRequired
-}
+  login: PropTypes.func.isRequired,
+};
 LoginForm.contextTypes = {
   router: PropTypes.object.isRequired,
-}
+};
 
 export default connect(null, { login })(LoginForm);
