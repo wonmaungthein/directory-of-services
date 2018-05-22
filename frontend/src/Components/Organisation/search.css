@@ -10,20 +10,24 @@
 }
 .org-search .day{
   display: grid;
-  grid-template-columns: 1fr 6fr;
+  grid-template-columns: 1fr;
   grid-gap: 1em;
 }
 .org-search .service{
   display: grid;
-  grid-template-columns: 1fr 6fr;
+  grid-template-columns: 1fr;
   grid-gap: 1em;
 }
-.org-search .post-code h4,
-.org-search .day h4,
-.org-search .service h4{
+.org-search .post-code h4{
   color: #bbb;
   padding-top: .5em;
 }
+
+.org-search .day,
+.org-search .service{
+  margin-top: -1em;
+}
+
 .select-field-container{
   z-index: 10 !important;
 }
@@ -40,12 +44,12 @@
   }
   .org-search .day{
     display: grid;
-    grid-template-columns: 1fr 8fr;
+    grid-template-columns: 1fr;
     grid-gap: 1em;
   }
   .org-search .service{
     display: grid;
-    grid-template-columns: 1fr 8fr;
+    grid-template-columns: 1fr;
     grid-gap: 1em;
   }
   .org-search .post-code,
