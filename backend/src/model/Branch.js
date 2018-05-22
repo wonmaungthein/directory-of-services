@@ -50,6 +50,6 @@ export default class Branch extends Model {
           to: 'Address.branch_id'
         }
       }
-    }
+    };
   }
 }

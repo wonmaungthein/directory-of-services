@@ -8,35 +8,35 @@ Model.knex(knex);
 const seedData = async () => {
   const data = await benefitData.map(row => {
     const branchData = {
-      org_name: row.name || 'not provided',
-      website: row.branches[0].Website || 'not provided',
+      org_name: row.name || '',
+      website: row.branches[0].Website || '',
       branch: row.branches.map(branch => ({
-        borough: branch.Borough || 'not provided',
-        project: branch.project || 'not provided',
-        tag: branch.tag || 'not provided',
+        borough: branch.Borough || '',
+        project: branch.project || '',
+        tag: branch.tag || '',
         service: [
           {
-            service: branch.Services || 'not provided ',
-            service_days: branch.Day.join() || 'not provided',
-            process: branch.Process.join() || 'not provided ',
+            service: branch.Services || '',
+            service_days: branch.Day.join() || '',
+            process: branch.Process.join() || '',
             categories: [
               {
-                cat_name: branch.Category || 'not provided'
+                cat_name: branch.Category || ''
               }
             ]
           }
         ],
         address: [
           {
-            area: branch.Area || 'not provided',
-            address_line: 'not provided',
-            postcode: branch.Postcode || 'not provided',
-            email_address: branch.Email || 'notprovided@cyf.com',
-            telephone: branch.Tel.join() || 'not provided',
+            area: branch.Area || '',
+            address_line: '',
+            postcode: branch.Postcode || '',
+            email_address: branch.Email || '',
+            telephone: branch.Tel.join() || '',
             location: [
               {
-                lat: 'not provided',
-                long: 'not provided'
+                lat: '',
+                long: ''
               }
             ]
           }
