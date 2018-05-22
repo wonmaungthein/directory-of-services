@@ -162,4 +162,9 @@ function mapStateToProps(state) {
   }
 }
 
+Organisations.propTypes = {
+  oganisation: PropTypes.array.isRequired,
+}
+
+
 export default connect(mapStateToProps, { getBranchsByCategory })(Organisations);
