@@ -54,7 +54,9 @@
   font-size: 1.5em;
   color: #000;
 }
-.edit-field .add-website{
+.edit-field .add-website,
+.edit-field .add-project,
+.edit-field .add-tag{
   grid-column: 1/4
 }
 .edit-org .edit-orgnasiation-name label:nth-child(1),
