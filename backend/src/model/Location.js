@@ -12,8 +12,8 @@ export default class Location extends Model {
       properties: {
         id: { type: 'integer' },
         address_id: { type: ['integer', 'null'] },
-        lat: { type: 'string', minLength: 1, maxLength: 255 },
-        long: { type: 'string', minLength: 1, maxLength: 255 }
+        lat: { type: 'string' },
+        long: { type: 'string' }
       }
     };
   }

@@ -9,16 +9,15 @@ export default class Address extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['area'],
 
       properties: {
         id: { type: 'integer' },
         branch_id: { type: ['integer', 'null'] },
-        address_line: { type: 'string', minLength: 1, maxLength: 255 },
-        area: { type: 'string', minLength: 1, maxLength: 255 },
-        postcode: { type: 'string', minLength: 1, maxLength: 255 },
-        email_address: { type: 'string', minLength: 1, maxLength: 255 },
-        telephone: { type: 'string', minLength: 1, maxLength: 255 }
+        address_line: { type: 'string' },
+        area: { type: 'string' },
+        postcode: { type: 'string' },
+        email_address: { type: 'string' },
+        telephone: { type: 'string' }
       }
     };
   }

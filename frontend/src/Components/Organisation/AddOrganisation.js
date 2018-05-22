@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import OrganisationForm from './OrganisationForm';
 import { addOrganisation } from '../../actions/postData';
+import categoriesData from '../../Data/Categories.json';
 import './add-org.css';
 import TopNav from '../TopNav';
 import helpers from '../../helpers'
@@ -22,13 +23,16 @@ class AddOrganisation extends Component {
     Website: '',
     Services: '',
     Categories: [],
+    isChecked: true,
     project: '',
     tag: ''
   };
 
   componentDidMount() {
+    const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url);
     this.setState({
       notificationSystem: this.refs.savedChanges,
+      Categories: category
     });
   }
 
@@ -113,14 +117,37 @@ class AddOrganisation extends Component {
     });
   };
 
+  handleDefaultCheckbox = event => {
+    const listOfCategories = this.state.Categories;
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
+    this.setState({
+      [event.target.name]: event.target.checked,      
+      Categories: listOfCategories,
+      isChecked:!this.state.isChecked,
+    });
+  };
+
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
-    listOfCategories.push(event.target.value);
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
     this.setState({
-      [event.target.name]: event.target.checked,
+      [event.target.name]: event.target.checked,      
       Categories: listOfCategories,
     });
   };
+
 
   handleMulitySelectChange = event => {
     this.setState({ Day: event.target.value });
@@ -151,6 +178,8 @@ class AddOrganisation extends Component {
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}
             onChange={this.handleFieldUpdate}
+            check={this.state.isChecked}
+            handleDefaultCheckbox={this.handleDefaultCheckbox}
           />
           <button
             className="add-orgonaization-link"
