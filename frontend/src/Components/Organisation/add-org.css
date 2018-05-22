@@ -17,7 +17,8 @@
 .org-content .add-borough{
   width: 100% !important;
 }
-.org-content .add-website{
+.org-content .add-website,
+.org-content .add-tag{
   grid-column: 2/4;
 }
 .org-content .select-lable{
