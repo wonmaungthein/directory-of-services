@@ -23,6 +23,9 @@ class AddOrganisation extends Component {
     Website: '',
     Services: '',
     Categories: [],
+    isChecked: true,
+    project: '',
+    tag: ''
   };
 
   componentDidMount() {
@@ -70,6 +73,8 @@ class AddOrganisation extends Component {
       Tel: this.state.Tel,
       Categories,
       Day,
+      project: this.state.project,
+      tag: this.state.tag
     }
     if (!error) {
       this.props.addOrganisation(data).then(user => {
@@ -120,14 +125,37 @@ class AddOrganisation extends Component {
     });
   };
 
+  handleDefaultCheckbox = event => {
+    const listOfCategories = this.state.Categories;
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
+    this.setState({
+      [event.target.name]: event.target.checked,      
+      Categories: listOfCategories,
+      isChecked:!this.state.isChecked,
+    });
+  };
+
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
-    listOfCategories.push(event.target.value);
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
     this.setState({
-      [event.target.name]: event.target.checked,
+      [event.target.name]: event.target.checked,      
       Categories: listOfCategories,
     });
   };
+
 
   handleMulitySelectChange = event => {
     this.setState({ Day: event.target.value });
@@ -150,12 +178,16 @@ class AddOrganisation extends Component {
             telephone={this.state.Tel}
             email={this.state.Email}
             website={this.state.Website}
+            project={this.state.project}
+            tag={this.state.tag}
             service={this.state.Services}
             checkedCategory={checkedCategory}
             handleCheckBox={this.handleCheckBox}
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}
             onChange={this.handleFieldUpdate}
+            check={this.state.isChecked}
+            handleDefaultCheckbox={this.handleDefaultCheckbox}
           />
           <button
             className="add-orgonaization-link"

@@ -10,7 +10,6 @@ import Button from 'material-ui/Button';
 import AddIcon from 'material-ui-icons/Add';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/loginActions'
-import Categories from '../../Data/Categories.json';
 import './top-nav.css';
 import helpers from '../../helpers';
 import UserDropDown from '../Users/UserDropDown';
@@ -55,6 +54,7 @@ class TopNav extends Component {
 
   render() {
     const { classes, addLink, titleLink, title, addOrg, user, homePage } = this.props;
+    const categoriesData = this.props.categories.categories ? this.props.categories.categories : [];
     return (
       <AppBar className={classes.appBar}>
         <Toolbar>
@@ -68,7 +68,7 @@ class TopNav extends Component {
               >
                 {addOrg}
                 <Link to={`/${titleLink}`}>
-                  {helpers.addSpace(Categories, title)}
+                  {helpers.addSpace(categoriesData, title)}
                 </Link>
                 {addOrg || homePage ? null :
                   (
@@ -120,7 +120,8 @@ TopNav.contextTypes = {
 function mapStateToProps(state) {
   return {
     messages: state.flashMessages,
-    user: state.loginAuth.user.username
+    user: state.loginAuth.user.username,
+    categories: state.categoriesList
   }
 }
 
