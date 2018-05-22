@@ -10,14 +10,13 @@ export default class Organisation extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['org_name'],
 
       properties: {
         id: { type: 'integer' },
-        org_name: { type: 'string', minLength: 1, maxLength: 255 },
-        website: { type: 'string', minLength: 1, maxLength: 255 },
-        email_address: { type: 'string', minLength: 1, maxLength: 255 },
-        telephone: { type: 'string', minLength: 1, maxLength: 16 }
+        org_name: { type: 'string' },
+        website: { type: 'string' },
+        email_address: { type: 'string' },
+        telephone: { type: 'string' }
       }
     };
   }
