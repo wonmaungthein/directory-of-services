@@ -9,14 +9,13 @@ export default class Service extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['service_days', 'process'],
 
       properties: {
         id: { type: 'integer' },
         branch_id: { type: ['integer', 'null'] },
-        service_days: { type: 'string', minLength: 1, maxLength: 255 },
-        process: { type: 'string', minLength: 1 },
-        service: { type: 'string', minLength: 1 }
+        service_days: { type: 'string' },
+        process: { type: 'string' },
+        service: { type: 'string' }
       }
     };
   }

@@ -28,7 +28,9 @@ class EditOrganisation extends React.Component {
     tag: '',
     orgId: null,
     branchId: null,
-    isChecked: true,
+    serviceId: null,
+    addressId: null,
+    isChecked: true
   };
 
   componentWillMount() {
@@ -37,10 +39,12 @@ class EditOrganisation extends React.Component {
       this.setState({
         branchId: data.branch_id,
         orgId: data.org_id,
+        serviceId: data.service_id,
+        addressId: data.address_id,
         Organisation: data.org_name,
         Area: data.area,
         Borough: data.borough,
-        Services: data.postcode,
+        Services: data.service,
         Process: data.process,
         Day: [data.service_days],
         Tel: data.telephone,
@@ -81,11 +85,13 @@ class EditOrganisation extends React.Component {
     const categories = this.state.Categories.join(' ');
     const orgData = {
       branchId: this.state.branchId,
+      serviceId: this.state.serviceId,
+      addressId: this.state.addressId,
       orgId: this.state.orgId,
       organisation: this.state.Organisation,
       area: this.state.Area,
       borough: this.state.Borough,
-      postcode: this.state.Services,
+      service: this.state.Services,
       process: this.state.Process,
       days: days,
       tel: this.state.Tel,
@@ -95,6 +101,9 @@ class EditOrganisation extends React.Component {
       address: "not provided",
       lat: "not provided",
       long: "not provided",
+      project: "",
+      tag: "",
+      postcode: "",
       project: this.state.project,
       tag: this.state.tag
     }
@@ -102,7 +111,8 @@ class EditOrganisation extends React.Component {
       .then(user => {
         if (user.data && user.data.success !== false) {
           this.savedChangesSuccessfully(user.data.message)
-          this.setState({open:false})
+          this.setState({ open: false })
+          this.context.router.history.push(`${this.props.location.pathname}`)
         } else {
           this.unSucessSavedChanges(user.data.message)
         }
