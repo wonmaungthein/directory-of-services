@@ -174,10 +174,13 @@ class EditOrganisation extends React.Component {
           <DialogContent className="edit-content">
             <span className="edit-logo">Editing</span>
             <OrganisationForm
+              edit
               name={this.state.Organisation}
               service={this.state.Services}
               area={this.state.Area}
+              selectedArea={this.state.Area}
               borough={this.state.Borough}
+              selectedBorough={this.state.Borough}
               process={this.state.Process}
               day={this.state.Day}
               telephone={this.state.Tel}

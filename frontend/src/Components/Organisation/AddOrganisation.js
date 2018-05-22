@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import OrganisationForm from './OrganisationForm';
 import { addOrganisation } from '../../actions/postData';
+import categoriesData from '../../Data/Categories.json';
 import './add-org.css';
 import TopNav from '../TopNav';
 import helpers from '../../helpers'
@@ -28,8 +29,10 @@ class AddOrganisation extends Component {
   };
 
   componentDidMount() {
+    const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url);
     this.setState({
       notificationSystem: this.refs.savedChanges,
+      Categories: category
     });
   }
 
