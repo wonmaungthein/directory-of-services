@@ -147,6 +147,26 @@ const OrganisationForm = (props) => {
           onChange={props.onChange}
           fullWidth
         />
+        <TextField
+          className="email-label add-project"
+          label="Project"
+          name="project"
+          multiline
+          rowsMax="4"
+          value={props.project}
+          onChange={props.onChange}
+          fullWidth
+        />
+        <TextField
+          className="email-label add-tag"
+          label="Tag"
+          name="tag"
+          multiline
+          rowsMax="4"
+          value={props.tag}
+          onChange={props.onChange}
+          fullWidth
+        />
       </div>
       <div className="form-third-row not-include-in-edit-org">
         <TextField

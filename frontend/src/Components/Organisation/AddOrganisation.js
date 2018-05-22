@@ -22,6 +22,8 @@ class AddOrganisation extends Component {
     Website: '',
     Services: '',
     Categories: [],
+    project: '',
+    tag: ''
   };
 
   componentDidMount() {
@@ -67,6 +69,8 @@ class AddOrganisation extends Component {
       Tel: this.state.Tel,
       Categories,
       Day,
+      project: this.state.project,
+      tag: this.state.tag
     }
     if (!error) {
       this.props.addOrganisation(data).then(user => {
@@ -147,6 +151,8 @@ class AddOrganisation extends Component {
             telephone={this.state.Tel}
             email={this.state.Email}
             website={this.state.Website}
+            project={this.state.project}
+            tag={this.state.tag}
             service={this.state.Services}
             checkedCategory={checkedCategory}
             handleCheckBox={this.handleCheckBox}
