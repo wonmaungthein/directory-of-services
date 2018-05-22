@@ -78,7 +78,7 @@ class SingleOrganisation extends Component {
           <DialogTitle
             id="alert-dialog-title"
           >
-            <h4>project: {org.project}</h4>
+            <h4>Project: {org.project}</h4>
           </DialogTitle>
 
           <DialogTitle
