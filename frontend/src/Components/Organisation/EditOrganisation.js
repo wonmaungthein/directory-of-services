@@ -28,6 +28,7 @@ class EditOrganisation extends React.Component {
     tag: '',
     orgId: null,
     branchId: null,
+    isChecked: true,
   };
 
   componentWillMount() {
@@ -116,10 +117,32 @@ class EditOrganisation extends React.Component {
 
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
-    listOfCategories.push(event.target.value);
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
     this.setState({
       [event.target.name]: event.target.checked,
-      Categories: listOfCategories
+      Categories: listOfCategories,
+    });
+  };
+
+  handleDefaultCheckbox = event => {
+    const listOfCategories = this.state.Categories;
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
+    this.setState({
+      [event.target.name]: event.target.checked,
+      Categories: listOfCategories,
+      isChecked:!this.state.isChecked,
     });
   };
 
@@ -170,6 +193,8 @@ class EditOrganisation extends React.Component {
               handleCheckBox={this.handleCheckBox}
               onChangeCheckbox={this.handleCheckbox}
               onChange={this.handleFieldUpdate}
+              check={this.state.isChecked}
+              handleDefaultCheckbox={this.handleDefaultCheckbox}
             />
           </DialogContent>
           <DialogActions>
