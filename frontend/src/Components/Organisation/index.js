@@ -162,5 +162,4 @@ function mapStateToProps(state) {
   }
 }
 
-
 export default connect(mapStateToProps, { getBranchsByCategory })(Organisations);
