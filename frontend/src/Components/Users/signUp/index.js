@@ -47,7 +47,7 @@ class SignUpForm extends Component {
     confirmPassword: '',
     confirmPasswordError: '',
     notificationSystem: null,
-    organisations: [], 
+    organisations: [],
   };
 
   componentDidMount() {
@@ -118,10 +118,9 @@ class SignUpForm extends Component {
     return isError;
   };
 
- 
 
-  handleSubmit = e => {
-    e.preventDefault();
+
+  handleSubmit = () => {
     const err = this.validateFormHandler();
 
     if (err) {

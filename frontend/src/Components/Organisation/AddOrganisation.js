@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import OrganisationForm from './OrganisationForm';
 import { addOrganisation } from '../../actions/postData';
+import categoriesData from '../../Data/Categories.json';
 import './add-org.css';
 import TopNav from '../TopNav';
 import helpers from '../../helpers'
@@ -22,11 +23,16 @@ class AddOrganisation extends Component {
     Website: '',
     Services: '',
     Categories: [],
+    isChecked: true,
+    project: '',
+    tag: ''
   };
 
   componentDidMount() {
+    const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url);
     this.setState({
       notificationSystem: this.refs.savedChanges,
+      Categories: category
     });
   }
 
@@ -34,14 +40,6 @@ class AddOrganisation extends Component {
     let isError = false;
     if (
       this.state.Organisation.length <= 0 ||
-      this.state.Area.length <= 0 ||
-      this.state.Borough.length <= 0 ||
-      this.state.Process.length <= 0 ||
-      this.state.Day.length <= 0 ||
-      this.state.Tel.length <= 0 ||
-      this.state.Email.length <= 0 ||
-      this.state.Website.length <= 0 ||
-      this.state.Services.length <= 0 ||
       this.state.Categories.length <= 0
     ) {
       isError = true;
@@ -50,29 +48,31 @@ class AddOrganisation extends Component {
   }
 
   handleSubmit = (e) => {
-    // const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
+    const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     e.preventDefault();
     const error = this.validate();
-    const Day = this.state.Day.join(",");
-    const Categories = this.state.Categories.join(",");
+    const days = this.state.Day.join(",");
+    const categories = this.state.Categories.join(",");
 
     const data = {
-      Organisation: this.state.Organisation,
-      Services: this.state.Services,
-      Website: this.state.Website,
-      Borough: this.state.Borough,
-      Process: this.state.Process,
-      Email: this.state.Email,
-      Area: this.state.Area,
-      Tel: this.state.Tel,
-      Categories,
-      Day,
+      organisation: this.state.Organisation,
+      service: this.state.Services,
+      website: this.state.Website,
+      borough: this.state.Borough,
+      process: this.state.Process,
+      email: this.state.Email,
+      area: this.state.Area,
+      tel: this.state.Tel,
+      categories,
+      days,
+      project: this.state.project,
+      tag: this.state.tag
     }
     if (!error) {
       this.props.addOrganisation(data).then(user => {
         if (user.data && user.data.success !== false) {
           this.savedChangesSuccessfully();
-          // this.props.history.push(`/services/${checkedCategory}`);
+          this.props.history.push(`/services/${checkedCategory}`);
         } else {
           this.unSucessSavedChanges(user.data.message);
         }
@@ -90,7 +90,7 @@ class AddOrganisation extends Component {
         Categories: [],
       });
     } else {
-      this.unSucessSavedChanges('You have to fill all fields');
+      this.unSucessSavedChanges('You have to fill Organisation name and categories fields');
     }
 
   }
@@ -117,14 +117,37 @@ class AddOrganisation extends Component {
     });
   };
 
+  handleDefaultCheckbox = event => {
+    const listOfCategories = this.state.Categories;
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
+    this.setState({
+      [event.target.name]: event.target.checked,      
+      Categories: listOfCategories,
+      isChecked:!this.state.isChecked,
+    });
+  };
+
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
-    listOfCategories.push(event.target.value);
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
     this.setState({
-      [event.target.name]: event.target.checked,
+      [event.target.name]: event.target.checked,      
       Categories: listOfCategories,
     });
   };
+
 
   handleMulitySelectChange = event => {
     this.setState({ Day: event.target.value });
@@ -147,12 +170,16 @@ class AddOrganisation extends Component {
             telephone={this.state.Tel}
             email={this.state.Email}
             website={this.state.Website}
+            project={this.state.project}
+            tag={this.state.tag}
             service={this.state.Services}
             checkedCategory={checkedCategory}
             handleCheckBox={this.handleCheckBox}
             formType="org-content"
             handleMulitySelectChange={this.handleMulitySelectChange}
             onChange={this.handleFieldUpdate}
+            check={this.state.isChecked}
+            handleDefaultCheckbox={this.handleDefaultCheckbox}
           />
           <button
             className="add-orgonaization-link"

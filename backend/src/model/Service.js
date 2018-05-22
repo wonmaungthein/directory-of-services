@@ -9,7 +9,6 @@ export default class Service extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['service_days', 'process'],
 
       properties: {
         id: { type: 'integer' },

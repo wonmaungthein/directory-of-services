@@ -10,7 +10,6 @@ export default class Organisation extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['org_name'],
 
       properties: {
         id: { type: 'integer' },

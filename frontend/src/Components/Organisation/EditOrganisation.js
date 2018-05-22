@@ -24,8 +24,13 @@ class EditOrganisation extends React.Component {
     Email: "",
     Website: "",
     Categories: [],
+    project: '',
+    tag: '',
     orgId: null,
     branchId: null,
+    serviceId: null,
+    addressId: null,
+    isChecked: true
   };
 
   componentWillMount() {
@@ -34,17 +39,20 @@ class EditOrganisation extends React.Component {
       this.setState({
         branchId: data.branch_id,
         orgId: data.org_id,
+        serviceId: data.service_id,
+        addressId: data.address_id,
         Organisation: data.org_name,
         Area: data.area,
         Borough: data.borough,
-        Services: data.postcode,
+        Services: data.service,
         Process: data.process,
         Day: [data.service_days],
         Tel: data.telephone,
         Email: data.email_address,
         Website: data.website,
         Categories: [data.cat_name],
-
+        project: data.project,
+        tag: data.tag
       })
     }
   }
@@ -77,11 +85,13 @@ class EditOrganisation extends React.Component {
     const categories = this.state.Categories.join(' ');
     const orgData = {
       branchId: this.state.branchId,
+      serviceId: this.state.serviceId,
+      addressId: this.state.addressId,
       orgId: this.state.orgId,
       organisation: this.state.Organisation,
       area: this.state.Area,
       borough: this.state.Borough,
-      postcode: this.state.Services,
+      service: this.state.Services,
       process: this.state.Process,
       days: days,
       tel: this.state.Tel,
@@ -90,13 +100,19 @@ class EditOrganisation extends React.Component {
       categories: categories,
       address: "not provided",
       lat: "not provided",
-      long: "not provided"
+      long: "not provided",
+      project: "",
+      tag: "",
+      postcode: "",
+      project: this.state.project,
+      tag: this.state.tag
     }
     this.props.editOrganisation(orgData)
       .then(user => {
         if (user.data && user.data.success !== false) {
           this.savedChangesSuccessfully(user.data.message)
-          this.setState({open:false})
+          this.setState({ open: false })
+          this.context.router.history.push(`${this.props.location.pathname}`)
         } else {
           this.unSucessSavedChanges(user.data.message)
         }
@@ -111,10 +127,32 @@ class EditOrganisation extends React.Component {
 
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
-    listOfCategories.push(event.target.value);
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
     this.setState({
       [event.target.name]: event.target.checked,
-      Categories: listOfCategories
+      Categories: listOfCategories,
+    });
+  };
+
+  handleDefaultCheckbox = event => {
+    const listOfCategories = this.state.Categories;
+    let index
+    if (event.target.checked) {
+      listOfCategories.push(event.target.value)
+    } else {
+      index = listOfCategories.indexOf(event.target.value)
+      listOfCategories.splice(index, 1)
+    }
+    this.setState({
+      [event.target.name]: event.target.checked,
+      Categories: listOfCategories,
+      isChecked:!this.state.isChecked,
     });
   };
 
@@ -146,15 +184,20 @@ class EditOrganisation extends React.Component {
           <DialogContent className="edit-content">
             <span className="edit-logo">Editing</span>
             <OrganisationForm
+              edit
               name={this.state.Organisation}
               service={this.state.Services}
               area={this.state.Area}
+              selectedArea={this.state.Area}
               borough={this.state.Borough}
+              selectedBorough={this.state.Borough}
               process={this.state.Process}
               day={this.state.Day}
               telephone={this.state.Tel}
               email={this.state.Email}
               website={this.state.Website}
+              project={this.state.project}
+              tag={this.state.tag}
               checkedCategory={checkedCategory}
               openSelect={this.state.openSelect}
               closeSelect={this.handleClose}
@@ -163,6 +206,8 @@ class EditOrganisation extends React.Component {
               handleCheckBox={this.handleCheckBox}
               onChangeCheckbox={this.handleCheckbox}
               onChange={this.handleFieldUpdate}
+              check={this.state.isChecked}
+              handleDefaultCheckbox={this.handleDefaultCheckbox}
             />
           </DialogContent>
           <DialogActions>

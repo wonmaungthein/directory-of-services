@@ -8,7 +8,6 @@ export default class Categories extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      require: ['service_id', 'cat_name'],
 
       properties: {
         id: { type: 'integer' },

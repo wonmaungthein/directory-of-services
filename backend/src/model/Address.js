@@ -9,7 +9,6 @@ export default class Address extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['area'],
 
       properties: {
         id: { type: 'integer' },

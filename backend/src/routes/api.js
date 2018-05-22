@@ -21,47 +21,54 @@ router.post('/', (req, res) => {
 router.post('/organisation/add', async (req, res) => {
   const data = req.body;
   const graph = {
-    org_name: data.Organisation,
-    website: data.Website,
-    branch: [
-      {
-        borough: data.Borough,
-        address: [
-          {
-            address_line: data.Address,
-            area: data.Area,
-            postcode: data.postcode,
-            email_address: data.Email,
-            telephone: data.Tel,
-            location: [
-              {
-                lat: data.lat,
-                long: data.long
-              }
-            ]
-          }
-        ],
-        service: [
-          {
-            service_days: data.Day,
-            service: data.Services,
-            process: data.Process,
-            categories: [
-              {
-                cat_name: data.Categories
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    org_name: data.organisation,
+    website: data.website || '',
+    branch: {
+      borough: data.borough || '',
+      project: data.project || '',
+      tag: data.tag || '',
+      service: [
+        {
+          service: data.service || '',
+          service_days: data.days || '',
+          process: data.process || '',
+          categories: [
+            {
+              cat_name: data.categories
+            }
+          ]
+        }
+      ],
+      address: [
+        {
+          area: data.area || '',
+          address_line: data.address || '',
+          postcode: data.postcode || '',
+          email_address: data.email || '',
+          telephone: data.tel || '',
+          location: [
+            {
+              lat: data.lat || '',
+              long: data.long || ''
+            }
+          ]
+        }
+      ]
+    }
   }
 
   try {
     await postOrganisation(graph)
-      .then(() => res.json({ success: true, message: 'The organisation has been saved successfuly' }))
+    res.status(200).json({
+      success: true,
+      message: 'The organisation has been saved successfuly'
+    })
   } catch (err) {
-    res.json({ success: false, message: 'The organisation did not save!', err })
+    res.status(502).json({
+      success: false,
+      message: 'The organisation did not save!',
+      err
+    })
   }
 })
 
@@ -76,15 +83,17 @@ router.patch('/organisation/edit', async (req, res) => {
     branch: [
       {
         id: branchId,
-        org_id: orgId,
         borough: data.borough,
+        project: data.project,
+        tag: data.tag,
         address: [
           {
+            id: data.addressId,
             address_line: data.address,
             area: data.area,
             postcode: data.postcode,
             email_address: data.email,
-            telephone: data.Tel,
+            telephone: data.tel,
             location: [
               {
                 lat: data.lat,
@@ -95,7 +104,9 @@ router.patch('/organisation/edit', async (req, res) => {
         ],
         service: [
           {
+            id: data.serviceId,
             service_days: data.days,
+            service: data.service,
             process: data.process,
             categories: [
               {
@@ -110,11 +121,17 @@ router.patch('/organisation/edit', async (req, res) => {
 
   try {
     await editOrganisation(graph, orgId, branchId)
-      .then(() => res.json({
-        success: true, message: 'The organisation has been updated successfully'
-      }))
+    return res.status(200).json({
+      success: true,
+      message: 'The organisation has been updated successfully',
+      data
+    })
   } catch (err) {
-    res.json({ success: false, message: 'The organisation did not update!', err })
+    return res.status(502).json({
+      success: false,
+      message: 'The organisation did not save!',
+      err
+    });
   }
 })
 

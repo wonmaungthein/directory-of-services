@@ -10,7 +10,6 @@ export default class Branch extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['borough'],
 
       properties: {
         id: { type: 'integer' },
