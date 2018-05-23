@@ -1,7 +1,3 @@
-.edit-content{
-  /* min-width: 22em;
-  min-height: 16em; */
-}
 .edit-org .edit-field{
   display: grid;
   grid-template-columns: 1fr 1fr;
