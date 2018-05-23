@@ -6,7 +6,7 @@ import LoginForm from '../LoginForm';
 // import ForgotPassword from '../Users/forgot-password';  waiting Mohammad change to define route for this component
 import { deleteFlashMessage } from '../../actions/flashMessages';
 import './landing-page.css';
-import SignUpForm from '../Users/signUp';
+// import SignUpForm from '../Users/signUp';
 
 class LandingPage extends Component {
 
@@ -25,7 +25,7 @@ class LandingPage extends Component {
 
   showSignUpForm = () => {
     if (this.state.open) {
-      return <SignUpForm />
+      // return <SignUpForm />
     }
       return <LoginForm />
   }
