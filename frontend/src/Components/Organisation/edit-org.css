@@ -1,6 +1,6 @@
 .edit-content{
-  min-width: 22em;
-  min-height: 16em;
+  /* min-width: 22em;
+  min-height: 16em; */
 }
 .edit-org .edit-field{
   display: grid;
@@ -183,4 +183,29 @@ border: 1px solid #bbb;
 }
 .edit-org .not-include-in-edit-org{
   display: none;
+}
+
+button.cancel-btn,
+button.save-btn {
+  padding: .4rem .8rem;
+  color: #fff;
+  min-height: 0px;
+  font-size: 12px;
+  margin-right: .9rem;
+}
+
+button.cancel-btn {
+  background: #d00404;
+}
+
+button.save-btn {
+  background: #45bdd4;
+}
+
+button.cancel-btn:hover {
+  background: #e42828;
+}
+
+button.save-btn:hover{
+  background: #12cdf1;
 }

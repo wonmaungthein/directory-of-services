@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'material-ui/Button';
-import Dialog, { DialogActions, DialogContent, withMobileDialog } from 'material-ui/Dialog';
+import Dialog, { DialogActions, DialogContent, withMobileDialog, DialogTitle} from 'material-ui/Dialog';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -164,7 +164,6 @@ class EditOrganisation extends React.Component {
   };
 
   render() {
-    const { fullScreen } = this.props;
     const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     return (
       <div>
@@ -174,13 +173,18 @@ class EditOrganisation extends React.Component {
         <NotificationSystem ref="savedChanges" />
         <Dialog
           className="edit-org-dialog"
-          fullScreen={fullScreen}
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title"
+          modal
+          autoDetectWindowHeight
+          autoScrollBodyContent
+          contentStyle={{width: 100, maxWidth: "none"}}
         >
+          <DialogTitle id="form-dialog-title" > 
+            Editing 
+          </DialogTitle>
           <DialogContent className="edit-content">
-            <span className="edit-logo">Editing</span>
             <OrganisationForm
               edit
               name={this.state.Organisation}
@@ -210,27 +214,27 @@ class EditOrganisation extends React.Component {
           </DialogContent>
           <DialogActions>
             <Button
-              className="cancel-button"
+              className="cancel-btn"
               onClick={this.handleClose}
               color="primary"
             >
               Cancel
             </Button>
             <Button
-              className="save-button"
+              className="save-btn"
               onClick={this.handleSubmit}
               color="primary"
               size="small"
               autoFocus
             >
-              <i className="material-icons">save</i>
+              save
             </Button>
-            <button
+            {/* <button
               onClick={this.handleClose}
               className="edit-org-close-button"
             >
               Close<i className="material-icons">close</i>
-            </button>
+            </button> */}
           </DialogActions>
         </Dialog>
       </div>
@@ -239,7 +243,6 @@ class EditOrganisation extends React.Component {
 }
 
 EditOrganisation.propTypes = {
-  fullScreen: PropTypes.bool.isRequired,
   editOrganisation: PropTypes.func.isRequired
 };
 
