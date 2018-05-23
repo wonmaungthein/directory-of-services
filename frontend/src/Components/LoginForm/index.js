@@ -110,7 +110,7 @@ class LoginForm extends Component {
     />);
     return (
       <Fragment>
-        <div>
+        <div className="sign-title">
           <Button onClick={()=>this.switchPageHandler('login')}>Login</Button>
           <Button onClick={() => this.switchPageHandler('signup')}>Register</Button>
         </div>

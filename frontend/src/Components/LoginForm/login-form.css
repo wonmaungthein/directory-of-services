@@ -18,3 +18,22 @@
   color: #f00 !important;
   font-size: 1em !important;
 }
+
+.sign-title {
+  margin: 0 auto;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-title button{
+  color: #e8e8e8;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.sign-title button:hover {
+  background: transparent;
+  color: #fff;
+} 
