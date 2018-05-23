@@ -181,8 +181,14 @@ class EditOrganisation extends React.Component {
           autoScrollBodyContent
           contentStyle={{width: 100, maxWidth: "none"}}
         >
-          <DialogTitle id="form-dialog-title" > 
-            Editing 
+          <DialogTitle id="form-dialog-title" className="edit-org-title"> 
+            Editing  
+            <button
+              onClick={this.handleClose}
+              className="edit-org-close"
+            >
+              <i className="material-icons">close</i>
+            </button> 
           </DialogTitle>
           <DialogContent className="edit-content">
             <OrganisationForm
@@ -229,12 +235,6 @@ class EditOrganisation extends React.Component {
             >
               save
             </Button>
-            {/* <button
-              onClick={this.handleClose}
-              className="edit-org-close-button"
-            >
-              Close<i className="material-icons">close</i>
-            </button> */}
           </DialogActions>
         </Dialog>
       </div>
