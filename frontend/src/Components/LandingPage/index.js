@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Button from 'material-ui/Button';
 import LoginForm from '../LoginForm';
-// import ForgotPassword from '../Users/forgot-password';  waiting Mohammad change to define route for this component
 import { deleteFlashMessage } from '../../actions/flashMessages';
 import './landing-page.css';
-// import SignUpForm from '../Users/signUp';
 
 class LandingPage extends Component {
 
@@ -23,12 +20,9 @@ class LandingPage extends Component {
     return errorMessage;
   };
 
-  showSignUpForm = () => {
-    if (this.state.open) {
-      // return <SignUpForm />
-    }
-      return <LoginForm />
-  }
+  showSignUpForm = () => (
+    <LoginForm />
+  )
 
   renderMessages = () => (
     this.props.messages.map(message => message.type === 'loginError' ? message.text : null).join('')
@@ -45,9 +39,6 @@ class LandingPage extends Component {
     return (
       <div className="landing-page">
         <div className="login-content">
-          <Button onClick={this.renderSignUpPage} size="small" className="signup" variant="raised" color="secondary">
-            {this.state.open ? 'Login' : 'SignUp'}
-          </Button>
           {this.showRrrorMessage()}
           {this.showSignUpForm()}
         </div>

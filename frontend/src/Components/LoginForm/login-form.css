@@ -1,8 +1,7 @@
 .login-form-content{
   padding: 2em 1.8em 3em 1.8em;
-  /* width: 20em; */
   margin: 0 auto;
-    width: 30%;
+  width: 300px;
 }
 
 .login-form{
@@ -14,6 +13,10 @@
   margin-top: 1em;
 }
 
+.login-form p {
+  margin-top: .745rem;
+  font-size: .78rem;
+}
 .error{
   color: #f00 !important;
   font-size: 1em !important;
@@ -37,3 +40,9 @@
   background: transparent;
   color: #fff;
 } 
+
+@media screen and (max-width:610px) {
+  .login-form-content {
+    width: 70%;
+  }
+}

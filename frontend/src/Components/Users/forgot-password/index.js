@@ -28,13 +28,15 @@ class ForgotPassword extends Component {
     return (
       <div className="forgot-password">
         <Paper className="form-card">
-          <h4>Forgot Your Forgot Password</h4>
+          <h1>Forgot Your Password</h1>
           <p className="forgot-info">
             Enter your email address we will sent you the password reset link.
           </p>
           <Grid container spacing={24} onSubmit={this.handleSubmit}>
             <form className="forgot-password-form">
               <TextField
+                require
+                type='email'
                 placeholder="Email"
                 id="email"
                 name="email"

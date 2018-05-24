@@ -47,6 +47,7 @@ const SignUpFields = props => {
       />
 
       <TextField
+        require
         id="Organisation"
         placeholder="Your organisation name"
         label="Organisation"
@@ -59,6 +60,7 @@ const SignUpFields = props => {
       />
 
       <TextField
+        type='email'
         id="email"
         placeholder="Email"
         label="Email"

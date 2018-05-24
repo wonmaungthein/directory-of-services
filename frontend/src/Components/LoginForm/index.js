@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
 import { login } from '../../actions/loginActions';
-import Button from 'material-ui/Button';
 import Login from './LoginForm';
 import SignUpForm from '../Users/signUp';
+import ForgotPassword from '../Users/forgot-password';
 import Spinner from '../Spinner';
 import './login-form.css';
 
@@ -17,6 +18,7 @@ class LoginForm extends Component {
     userVerification: '',
     login: true,
     signup: false,
+    reset: false,
   };
 
   validation = () => {
@@ -76,16 +78,24 @@ class LoginForm extends Component {
   switchPageHandler = page => {
     let userLogin;
     let userSignup;
+    let userReset;
     if(page === 'login') {
       userLogin = true;
       userSignup = false
+      userReset = false
+    } else if (page === 'signup'){
+      userLogin = false;
+      userReset = false
+      userSignup = true
     } else {
       userLogin = false;
-      userSignup = true
+      userReset = true
+      userSignup = false
     }
     this.setState({
       login: userLogin,
       signup: userSignup,
+      reset: userReset,
     });
   }
   handleBlur = e => {
@@ -98,7 +108,7 @@ class LoginForm extends Component {
     if (this.state.isLoading) {
       return <Spinner />;
     }
-    const login = (<Login 
+    const logins = (<Login 
       username={this.state.username}
       password={this.state.password}
       userVerification={this.state.userVerification}
@@ -113,9 +123,11 @@ class LoginForm extends Component {
         <div className="sign-title">
           <Button onClick={()=>this.switchPageHandler('login')}>Login</Button>
           <Button onClick={() => this.switchPageHandler('signup')}>Register</Button>
+          <Button onClick={() => this.switchPageHandler('reset')}>Reset</Button>
         </div>
-        {this.state.login ? login: null}
+        {this.state.login ? logins: null}
         {this.state.signup ? <SignUpForm />: null}
+        {this.state.reset ? <ForgotPassword />: null}
       </Fragment>
     );
   }

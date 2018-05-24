@@ -25,11 +25,5 @@
 }
 
 .login-content{
-  position: relative;
-}
-.signup{
-  position: absolute !important;
-  bottom: 5px;
-  right: 28px;
-  z-index: 1000;
+  margin-bottom: 4rem;
 }

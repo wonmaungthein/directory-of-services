@@ -42,6 +42,7 @@ const login = props => (
       <Button onClick={props.handleLogin} variant="raised" color="primary">
         Submit
       </Button>
+      <p> Forget your password? Click reset option on top </p>
     </form>
   </Paper>
 );
