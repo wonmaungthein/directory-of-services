@@ -18,23 +18,27 @@ const router = express.Router();
 
 router.get('/users', async (req, res) => {
   try {
-    await getAllUsers().then(users => res.json(users));
+    await getAllUsers().then(users => res.status(200).json(users));
   } catch (err) {
-    res.json(err)
+    res.status(502).json(err)
   }
 });
 
 router.get('/users/:id', async (req, res) => {
   try {
-    await getUsersById(req.params.id).then(user => res.json(user));
+    await getUsersById(req.params.id).then(user => res.status(200).json(user));
   } catch (err) {
-    res.json(err)
+    res.status(502).json(err)
   }
 });
 
 router.delete('/users/:userId', async (req, res) => {
-  await deleteUser(req.params.userId)
-    .then(() => res.json({ message: 'user deleted successfully' }));
+  try {
+    await deleteUser(req.params.userId)
+      .then(() => res.status(200).json({ message: 'user deleted successfully' }));
+  } catch (err) {
+    res.status(502).json(err)
+  }
 });
 
 router.post('/users', async (req, res) => {

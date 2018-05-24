@@ -120,7 +120,8 @@ class SignUpForm extends Component {
 
 
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
     const err = this.validateFormHandler();
 
     if (err) {
