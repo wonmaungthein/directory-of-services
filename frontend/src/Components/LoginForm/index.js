@@ -133,7 +133,7 @@ class LoginForm extends Component {
           <Button onClick={() => this.switchPageHandler('reset')}>Reset</Button>
         </div>
         {this.state.login ? logins: null}
-        {this.state.signup ? <SignUpForm />: null}
+        {this.state.signup ? <SignUpForm redirectToLogin={this.redirectToLogin} />: null}
         {this.state.reset ? <ForgotPassword />: null}
       </Fragment>
     );
