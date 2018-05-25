@@ -13,8 +13,13 @@
 
 .form-sign div:nth-child(3){display: none;}
 
-.sign-up-page{
-    width: 350px;
+.sign-up-page {
+    margin-bottom: 4rem;
+}
+
+.sign-up-page .form-card{
+    margin: 0 auto;
+    width: 300px;
 }
 
 .sign-up-page .form-card {
@@ -113,8 +118,8 @@ input[type="password"]:after:focus {
     font-weight: 700;
 }
 
-@media screen and (max-width:678px) {
-    .sign-up-page {
-        margin:0 0.9rem 0 0;
+@media screen and (max-width:520px) {
+    .sign-up-page .form-card {
+        width: 70%;
     }
 }

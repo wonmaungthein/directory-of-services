@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import Typography from 'material-ui/Typography';
-import { FormHelperText } from 'material-ui/Form';
-import TextField from 'material-ui/TextField';
 import PropTypes from 'prop-types';
-import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
 import { login } from '../../actions/loginActions';
+import Login from './LoginForm';
+import SignUpForm from '../Users/signUp';
+import ForgotPassword from '../Users/forgot-password';
 import Spinner from '../Spinner';
 import './login-form.css';
 
@@ -17,6 +16,9 @@ class LoginForm extends Component {
     isLoading: false,
     errors: {},
     userVerification: '',
+    login: true,
+    signup: false,
+    reset: false,
   };
 
   validation = () => {
@@ -72,6 +74,29 @@ class LoginForm extends Component {
     }
   };
 
+  switchPageHandler = page => {
+    let userLogin;
+    let userSignup;
+    let userReset;
+    if(page === 'login') {
+      userLogin = true;
+      userSignup = false
+      userReset = false
+    } else if (page === 'signup'){
+      userLogin = false;
+      userReset = false
+      userSignup = true
+    } else {
+      userLogin = false;
+      userReset = true
+      userSignup = false
+    }
+    this.setState({
+      login: userLogin,
+      signup: userSignup,
+      reset: userReset,
+    });
+  }
   handleBlur = e => {
     e.preventDefault();
     this.setState({ userVerification: '' });
@@ -90,45 +115,27 @@ class LoginForm extends Component {
     if (this.state.isLoading) {
       return <Spinner />;
     }
+    const logins = (<Login 
+      username={this.state.username}
+      password={this.state.password}
+      userVerification={this.state.userVerification}
+      handleFieldsChange={this.handleFieldsChange}
+      handleLogin={this.handleLogin}
+      handleBlur={this.handleBlur}
+      usernameErr={usernameErr}
+      passwordErr={passwordErr}
+    />);
     return (
-      <Paper className="login-form-content">
-        <FormHelperText className="error">
-          {this.state.userVerification}
-        </FormHelperText>
-        <Typography color="primary" variant="display3">
-          Login
-        </Typography>
-        <form className="login-form">
-          <Fragment>
-            <TextField
-              id="username"
-              label="Username"
-              name="username"
-              value={this.state.username}
-              onChange={this.handleFieldsChange}
-              onBlur={this.handleBlur}
-              margin="normal"
-            />
-            <FormHelperText className="error">{usernameErr}</FormHelperText>
-          </Fragment>
-          <Fragment>
-            <TextField
-              id="password"
-              label="Password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleFieldsChange}
-              onBlur={this.handleBlur}
-              margin="normal"
-              type="password"
-            />
-            <FormHelperText className="error">{passwordErr}</FormHelperText>
-          </Fragment>
-          <Button onClick={this.handleLogin} variant="raised" color="primary">
-            Submit
-          </Button>
-        </form>
-      </Paper>
+      <Fragment>
+        <div className="sign-title">
+          <Button onClick={()=>this.switchPageHandler('login')}>Login</Button>
+          <Button onClick={() => this.switchPageHandler('signup')}>Register</Button>
+          <Button onClick={() => this.switchPageHandler('reset')}>Reset</Button>
+        </div>
+        {this.state.login ? logins: null}
+        {this.state.signup ? <SignUpForm />: null}
+        {this.state.reset ? <ForgotPassword />: null}
+      </Fragment>
     );
   }
 }
