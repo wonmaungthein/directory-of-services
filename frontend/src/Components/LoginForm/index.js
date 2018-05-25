@@ -59,13 +59,12 @@ class LoginForm extends Component {
         } else {
           this.setState({
             userVerification: user.data.message,
-            isLoading: false,
           });
         }
       });
       this.setState({
         errors: {},
-        isLoading: true,
+        isLoading: false,
         username: '',
         password: '',
         userVerification: '',
@@ -77,6 +76,14 @@ class LoginForm extends Component {
     e.preventDefault();
     this.setState({ userVerification: '' });
   };
+
+  redirectToLogin = () => {
+    this.setState({
+      login: true,
+      signup: false,
+      reset: false
+    })
+  }
 
   render() {
     const { usernameErr, passwordErr } = this.state.errors;
