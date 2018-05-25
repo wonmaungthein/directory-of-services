@@ -14,10 +14,10 @@ module.exports = {
       directory: `${__dirname}/db/migrations`
     },
     seeds: {
-      directory: `${__dirname}/db/seeds/productions`
+      directory: `${__dirname}/db/seeds/production`
     }
   },
-  productions: {
+  production: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     pool: {
@@ -28,7 +28,7 @@ module.exports = {
       directory: `${__dirname}/db/migrations`
     },
     seeds: {
-      directory: `${__dirname}/db/seeds/productions`
+      directory: `${__dirname}/db/seeds/production`
     }
   }
 };

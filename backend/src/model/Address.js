@@ -43,6 +43,6 @@ export default class Address extends Model {
           to: 'Branch.id'
         }
       }
-    }
+    };
   }
 }

@@ -138,45 +138,45 @@ router.patch('/organisation/edit', async (req, res) => {
 router.get('/all', async (req, res) => {
   try {
     await getAllOrgainisation().then(services =>
-      res.json(services));
+      res.status(200).json(services));
   } catch (err) {
-    res.json(err)
+    res.status(502).json(err)
   }
 });
 
 router.get('/migrate', async (req, res) => {
   try {
     await seedData().then(() =>
-      res.json({ Migration: 'Data migration to database completed successfully !' }));
+      res.status(200).json({ Migration: 'Data migration to database completed successfully !' }));
   } catch (err) {
-    res.json(err)
+    res.status(502).json(err)
   }
 });
 
 router.get('/categories', async (req, res) => {
   try {
     await getListOfCategories().then(categories =>
-      res.json(categories));
+      res.status(200).json(categories));
   } catch (err) {
-    res.json(err)
+    res.status(502).json(err)
   }
 });
 
 router.get('/boroughs', async (req, res) => {
   try {
     getListOfBoroughs().then(boroughs =>
-      res.json(boroughs));
+      res.status(200).json(boroughs));
   } catch (err) {
-    res.json(err)
+    res.status(502).json(err)
   }
 });
 
 router.get('/areas', async (req, res) => {
   try {
     await getListOfAreas().then(areas =>
-      res.json(areas));
+      res.status(200).json(areas));
   } catch (err) {
-    res.json(err)
+    res.status(502).json(err)
   }
 });
 
@@ -185,9 +185,9 @@ router.get('/category', async (req, res) => {
     const { category } = req.query;
     await getBranchesByCategory(category)
       .then(categories =>
-        res.json(categories))
+        res.status(200).json(categories))
   } catch (err) {
-    res.json(err)
+    res.status(502).json(err)
   }
 });
 
@@ -195,9 +195,9 @@ router.get('/day', async (req, res) => {
   try {
     const { day } = req.query;
     await getBranchesByDay(day).then(days =>
-      res.json(days));
+      res.status(200).json(days));
   } catch (err) {
-    res.json(err)
+    res.status(502).json(err)
   }
 });
 
@@ -205,9 +205,9 @@ router.get('/borough', async (req, res) => {
   try {
     const { borough } = req.query;
     await getBranchesByBorough(borough).then(boroughs =>
-      res.json(boroughs));
+      res.status(200).json(boroughs));
   } catch (err) {
-    res.json(err)
+    res.status(502).json(err)
   }
 });
 
