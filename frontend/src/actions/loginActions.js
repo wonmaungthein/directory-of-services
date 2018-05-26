@@ -23,7 +23,7 @@ export function login(data) {
     .then(res => {
       if (res.status === 200) {
         const {token} = res.data;
-        localStorage.setItem(jwtDecode, token);
+        localStorage.setItem('jwtToken', token);
         setAuthorizationToken(token);
         if (res.data && res.data.user) {
           dispatch(setCurrentUser(res.data.user[0]));
