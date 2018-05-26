@@ -27,6 +27,8 @@ const SignUpFields = props => {
         id="name"
         placeholder="Full Name"
         label="Full Name"
+        autoComplete="fullName"
+        name='fullName'
         className={classes.textField}
         value={props.fullName}
         onChange={props.handleChange('fullname')}
@@ -35,22 +37,11 @@ const SignUpFields = props => {
       />
 
       <TextField
-        id="username"
-        placeholder="Username"
-        label="Username"
-        className={classes.textField}
-        value={props.username}
-        onChange={props.handleChange('username')}
-        margin="normal"
-        required
-        helperText={props.userNameError}
-      />
-
-      <TextField
-        require
         id="Organisation"
         placeholder="Your organisation name"
         label="Organisation"
+        name="organisation"
+        autoComplete="organisation"
         className={classes.textField}
         value={props.organisation}
         onChange={props.handleChange('organisation')}
@@ -62,6 +53,8 @@ const SignUpFields = props => {
       <TextField
         type='email'
         id="email"
+        name="email"
+        autoComplete="email"
         placeholder="Email"
         label="Email"
         className={classes.textField}
@@ -75,6 +68,8 @@ const SignUpFields = props => {
       <TextField
         placeholder="Password"
         label="Password"
+        name="password"
+        autoComplete="password"
         className={classes.textField}
         type="password"
         value={props.password}
@@ -87,6 +82,8 @@ const SignUpFields = props => {
       <TextField
         placeholder="Confirm Password"
         label="Confirm Password"
+        name="password"
+        autoComplete="password"
         className={classes.textField}
         type="password"
         value={props.confirmPassword}
@@ -99,7 +96,6 @@ const SignUpFields = props => {
         variant="raised"
         size="small"
         type="submit"
-        className="add-user-button"
         onClick={props.handleSubmit}
       >
         Create My account

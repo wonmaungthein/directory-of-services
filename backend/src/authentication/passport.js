@@ -24,11 +24,11 @@ passport.use(new JwtStrategy(option, (payload, done) =>
 // LOCAL STRATEGY
 const userVerification = {
   password: 'salt_password',
-  username: 'username'
+  email: 'email'
 }
-passport.use(new LocalStrategy(userVerification, (username, password, done) =>
+passport.use(new LocalStrategy(userVerification, (email, password, done) =>
   (
-    getUserByUserName({ username }).then(user => {
+    getUserByUserName({ email }).then(user => {
       if (!user) {
         return done(null, false);
       }
