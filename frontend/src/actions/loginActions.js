@@ -21,16 +21,18 @@ export function login(data) {
   return dispatch => axios
     .post(`${api}/login`, data)
     .then(res => {
-      console.log(res)
-      if (res.data.success !== false) {
+      if (res.status === 200) {
         const {token} = res.data;
-        localStorage.setItem('jwtToken', token);
+        localStorage.setItem(jwtDecode, token);
         setAuthorizationToken(token);
-        dispatch(setCurrentUser(jwtDecode(token)));
+        if (res.data && res.data.user) {
+          dispatch(setCurrentUser(res.data.user[0]));
+        }
         return res
       }
       return res
-    });
+    })
+    .catch(err => err);
 }
 
 export function signup(data) {

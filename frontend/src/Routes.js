@@ -66,7 +66,7 @@ const Routes = props => {
 
 SideBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+  theme: PropTypes.object,
   location: PropTypes.object.isRequired,
 };
 

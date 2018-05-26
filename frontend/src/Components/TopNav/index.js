@@ -96,7 +96,7 @@ class TopNav extends Component {
               <Button
                 onClick={this.showUserDropDown}
                 className="logo-button"
-                variant="title"
+                /* variant="fab" */
                 color="primary"
               >
                 <i className="material-icons">person</i>
@@ -112,10 +112,10 @@ class TopNav extends Component {
 
 TopNav.contextTypes = {
   router: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired,
-  logout: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
-  getCategories: PropTypes.func.isRequired,
+  classes: PropTypes.object,
+  logout: PropTypes.func,
+  user: PropTypes.object,
+  getCategories: PropTypes.func,
 };
 function mapStateToProps(state) {
   return {
