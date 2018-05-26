@@ -14,7 +14,6 @@
     box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22), 0 25px 55px 0 rgba(0,0,0,0.21);
 }
 
-
 .form-card div {
    width: 100%;
    display: block;
@@ -50,6 +49,7 @@ form a {
 
 div:first-child .form-group button[type="submit"] {
     background-color: #1abcd4;
+    margin-top: 2.3rem;
 }
 
 div:first-child .form-group button[type="submit"]:hover,
