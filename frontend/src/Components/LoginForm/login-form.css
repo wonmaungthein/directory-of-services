@@ -9,8 +9,19 @@
   grid-template-columns: 1fr;
 }
 
+.login-form-content h1{
+  font-size: 173%;
+  color: #1abcd4;
+}
+
 .login-form button{
   margin-top: 1em;
+  background-color: #1abcd4;
+}
+
+.login-form button:hover,
+.login-form button:focus{
+  background-color: #1abcd4;
 }
 
 .login-form p {
