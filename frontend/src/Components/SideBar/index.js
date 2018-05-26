@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import List from 'material-ui/List';
@@ -139,10 +138,5 @@ class SideBar extends React.Component {
     );
   }
 }
-
-SideBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
-};
 
 export default withStyles(styles, { withTheme: true })(SideBar);

@@ -1,8 +1,7 @@
 .landing-page {
-  background: #42A5F5;
+  background: #1abcd4;
   width: 100%;
   position: absolute;
-  z-index: 6;
   overflow: auto;
   height: 100vh;
 }
@@ -24,6 +23,3 @@
   margin-left: 1em;
 }
 
-.login-content{
-  margin-bottom: 4rem;
-}
