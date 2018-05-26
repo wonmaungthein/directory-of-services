@@ -19,9 +19,9 @@ class Categories extends Component {
     if (this.state.categoriesList) {
       return (
         <ul>
-          {data.sort().map((category, id) =>
+          {data.sort().map((category) =>
             (
-              <li key={id}>
+              <li key={category + 1}>
                 <Link to={`/services/${helpers.linkMaker(category)}`}>{helpers.categoryNameMaker(category)}</Link>
               </li>
             )

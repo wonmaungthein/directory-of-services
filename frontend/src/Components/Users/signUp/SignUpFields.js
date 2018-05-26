@@ -51,7 +51,7 @@ const SignUpFields = props => {
       />
 
       <TextField
-        type='email'
+        type="email"
         id="email"
         name="email"
         autoComplete="email"
