@@ -125,7 +125,7 @@ router.post('/login', async (req, res) => {
           if (isMatch) {
             const token = jwt.sign({
               sub: userInfo[0].id,
-              fullName: userInfo[0].fullName,
+              fullname: userInfo[0].fullname,
               sucess: 'true'
             }, secret);
             res
