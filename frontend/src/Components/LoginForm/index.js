@@ -7,37 +7,38 @@ import Login from './LoginForm';
 import SignUpForm from '../Users/signUp';
 import ForgotPassword from '../Users/forgot-password';
 import Spinner from '../Spinner';
+import helpers from '../../helpers';
 import './login-form.css';
 
 class LoginForm extends Component {
   state = {
-    username: '',
+    email: '',
     password: '',
     isLoading: false,
     errors: {},
     userVerification: '',
     login: true,
     signup: false,
-    reset: false,
+    reset: false
   };
 
   validation = () => {
     let isError = false;
     const errors = {
-      usernameErr: '',
-      passwordErr: '',
+      emailErr: '',
+      passwordErr: ''
     };
-    if (this.state.username.length <= 0) {
+    const { email, password } = this.state
+    if (!helpers.validEmail(email)) {
       isError = true;
-      errors.usernameErr = 'You have to add your username';
+      errors.emailErr = 'Please enter a valid email';
     }
-    if (this.state.password.length <= 0) {
+    if (password.length <= 0) {
       isError = true;
-      errors.passwordErr = 'You have to add your password';
+      errors.passwordErr = 'Please enter your password';
     }
     this.setState({
-      ...this.setState,
-      errors,
+      errors
     });
     return isError;
   };
@@ -45,32 +46,29 @@ class LoginForm extends Component {
   handleFieldsChange = e => {
     e.preventDefault();
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
-  handleLogin = e => {
+  handleLogin = async (e) => {
     e.preventDefault();
     const errors = this.validation();
+    const error = {
+      emailErr: '',
+      passwordErr: '',
+      authErr: ''
+    };
     if (!errors) {
-      this.setState({ errors: {}, isLoading: true });
+      this.setState({ isLoading: true });
       this.props.login(this.state).then(user => {
-        if (user.data && user.data.success !== false) {
-          this.context.router.history.push('/home');
-          this.setState({ isLoading: false });
+        if (user && user.status && user.status === 200 && user.data.token) {
+          this.context.router.history.push('/home')
+          this.setState({ isLoading: false, errors: error });
         } else {
-          this.setState({
-            userVerification: user.data.message,
-          });
+          error.authErr = "Email or Password invalid"
+          this.setState({ userVerification: error.authErr, isLoading: false, password: '' });
         }
-      });
-      this.setState({
-        errors: {},
-        isLoading: false,
-        username: '',
-        password: '',
-        userVerification: '',
-      });
+      })
     }
   };
 
@@ -78,11 +76,11 @@ class LoginForm extends Component {
     let userLogin;
     let userSignup;
     let userReset;
-    if(page === 'login') {
+    if (page === 'login') {
       userLogin = true;
       userSignup = false
       userReset = false
-    } else if (page === 'signup'){
+    } else if (page === 'signup') {
       userLogin = false;
       userReset = false
       userSignup = true
@@ -91,11 +89,7 @@ class LoginForm extends Component {
       userReset = true
       userSignup = false
     }
-    this.setState({
-      login: userLogin,
-      signup: userSignup,
-      reset: userReset,
-    });
+    this.setState({ login: userLogin, signup: userSignup, reset: userReset });
   }
   handleBlur = e => {
     e.preventDefault();
@@ -111,40 +105,42 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { usernameErr, passwordErr } = this.state.errors;
+    const { emailErr, passwordErr, authErr } = this.state.errors;
     if (this.state.isLoading) {
-      return <Spinner />;
+      return <Spinner color='white' bgColor='spinnerLogin' />;
     }
-    const logins = (<Login 
+    const logins = (<Login
       username={this.state.username}
       password={this.state.password}
       userVerification={this.state.userVerification}
       handleFieldsChange={this.handleFieldsChange}
       handleLogin={this.handleLogin}
       handleBlur={this.handleBlur}
-      usernameErr={usernameErr}
+      email={this.state.email}
       passwordErr={passwordErr}
+      emailErr={emailErr}
+      authErr={authErr}
     />);
     return (
       <Fragment>
         <div className="sign-title">
-          <Button onClick={()=>this.switchPageHandler('login')}>Login</Button>
+          <Button onClick={() => this.switchPageHandler('login')}>Login</Button>
           <Button onClick={() => this.switchPageHandler('signup')}>Register</Button>
           <Button onClick={() => this.switchPageHandler('reset')}>Reset</Button>
         </div>
-        {this.state.login ? logins: null}
-        {this.state.signup ? <SignUpForm redirectToLogin={this.redirectToLogin} />: null}
-        {this.state.reset ? <ForgotPassword />: null}
+        {this.state.login ? logins : null}
+        {this.state.signup ? <SignUpForm redirectToLogin={this.redirectToLogin} /> : null}
+        {this.state.reset ? <ForgotPassword /> : null}
       </Fragment>
     );
   }
 }
 
 LoginForm.propTypes = {
-  login: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired
 };
 LoginForm.contextTypes = {
-  router: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired
 };
 
 export default connect(null, { login })(LoginForm);

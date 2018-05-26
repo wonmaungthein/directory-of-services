@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
 import PasswordValidator from 'password-validator';
 import SignUpFields from './SignUpFields';
 import { signup } from '../../../actions/loginActions';
@@ -12,9 +13,9 @@ import './signUp.css';
 const numbLetters = new PasswordValidator();
 numbLetters
   .is()
-  .min(7) // Minimum length 7
+  .min(6) // Minimum length 7
   .is()
-  .max(100);
+  .max(256);
 
 const letterTransform = new PasswordValidator(); // Maximum length 100
 letterTransform
@@ -37,8 +38,6 @@ digits // Must have lowercase letters
 class SignUpForm extends Component {
   state = {
     fullname: '',
-    username: '',
-    userNameError: '',
     organisation: '',
     email: '',
     emailError: '',
@@ -75,16 +74,10 @@ class SignUpForm extends Component {
   validateFormHandler = () => {
     let isError = false;
     const errors = {
-      userNameError: '',
       emailError: '',
       passwordError: '',
       confirmPasswordError: '',
     };
-
-    if (this.state.username.length < 6) {
-      isError = true;
-      errors.userNameError = 'Username needs to be at least 6 characters long';
-    }
 
     if (this.state.email.indexOf('@') === -1) {
       isError = true;
@@ -93,17 +86,17 @@ class SignUpForm extends Component {
 
     if (!numbLetters.validate(this.state.password)) {
       isError = true;
-      errors.passwordError += 'Your password need at least 7 characters.';
+      errors.passwordError += 'Your password need at least 6 characters.';
     }
 
     if (!letterTransform.validate(this.state.password)) {
       isError = true;
-      errors.passwordError += ' You must include upper & lower case letters.';
+      errors.passwordError += ' You must include upper and lower case letters.';
     }
 
     if (!digits.validate(this.state.password)) {
       isError = true;
-      errors.passwordError += ' You must include a digit & no space.';
+      errors.passwordError += ' You must include a digit and no space.';
     }
 
     if (this.state.password !== this.state.confirmPassword) {
@@ -125,11 +118,10 @@ class SignUpForm extends Component {
     const err = this.validateFormHandler();
 
     if (err) {
-      this.failedSavedChanges('You have to fill all fileds');
+      this.failedSavedChanges('Please fill all the required fields');
     }
     const data = {
       fullname: this.state.fullname,
-      username: this.state.username,
       email: this.state.email,
       organisation: this.state.organisation,
       password: this.state.password,
@@ -158,15 +150,15 @@ class SignUpForm extends Component {
       <div className="sign-up-page">
         <NotificationSystem ref="savedChanges" />
         <Paper className="form-card">
-          <h2> Create account </h2>
+          <Typography color="primary" variant="display3">
+            Create account 
+          </Typography>
           <Grid container spacing={24}>
             <SignUpFields
               fullName={this.state.fullname}
-              username={this.state.username}
               org={this.state.organisation}
               email={this.state.email}
               password={this.state.password}
-              confirmPassword={this.state.confirmPassword}
               userNameError={this.state.userNameError}
               emailError={this.state.emailError}
               passwordError={this.state.passwordError}

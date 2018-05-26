@@ -65,9 +65,7 @@ const Routes = props => {
 };
 
 SideBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
+  theme: PropTypes.object,
 };
 
 export default withStyles(styles, { withTheme: true })(

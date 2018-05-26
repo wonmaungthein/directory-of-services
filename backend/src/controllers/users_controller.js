@@ -15,8 +15,8 @@ module.exports = {
   deleteUser: userId =>
     Users.query().deleteById(userId),
 
-  getUserByUserName: userName =>
-    Users.query().skipUndefined().where('username', userName),
+  getUserByEmail: email =>
+    Users.query().skipUndefined().where('email', email),
 
   addUser: userData =>
     transaction(Users.knex(), trx =>
