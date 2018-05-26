@@ -106,7 +106,7 @@ class LoginForm extends Component {
   render() {
     const { usernameErr, passwordErr } = this.state.errors;
     if (this.state.isLoading) {
-      return <Spinner />;
+      return <Spinner color='white' bgColor='spinnerLogin' />;
     }
     const logins = (<Login 
       username={this.state.username}
