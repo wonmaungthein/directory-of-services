@@ -90,15 +90,16 @@ router.post('/signup', async (req, res) => {
               throw error;
             }
             password = hash;
-            addUser({ 
-salt_password: password, email, fullname, organisation 
-}).then(userData => {
-              if (userData) {
-                res.json({ success: true, message: 'User is registered' })
-              } else {
-                res.json({ success: false, message: 'User is not registered' })
-              }
-            });
+            addUser({
+              salt_password: password, email, fullname, organisation
+            })
+              .then(userData => {
+                if (userData) {
+                  res.json({ success: true, message: 'User is registered' })
+                } else {
+                  res.json({ success: false, message: 'User is not registered' })
+                }
+              });
           })
         })
       }

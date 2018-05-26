@@ -70,6 +70,9 @@ class LoginForm extends Component {
             .router
             .history
             .push('/home')
+            this.setState({
+              isLoading: false, errors: error,
+            });
         } else {
           error.authErr = "Email or Password invalid"
           this.setState({userVerification: error.authErr, isLoading: false, password: ''});
@@ -78,9 +81,6 @@ class LoginForm extends Component {
       } catch (err) {
         return err
       }
-      this.setState({
-        isLoading: false, errors: error,
-      });
     }
   };
 
