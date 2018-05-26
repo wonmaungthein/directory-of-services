@@ -43,9 +43,14 @@ const seedData = async () => {
         ]
       }))
     };
-    return (async () =>
-      transaction(Organisation.knex(), trx =>
-        Organisation.query(trx).insertGraph(branchData)))();
+    return (async () => {
+      try {
+        return transaction(Organisation.knex(), trx =>
+          Organisation.query(trx).insertGraph(branchData));
+      } catch (err) {
+        return err;
+      }
+    })();
   });
   return data;
 };
