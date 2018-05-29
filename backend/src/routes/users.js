@@ -1,6 +1,9 @@
 import bcrypt from 'bcrypt';
 import passport from 'passport';
 import express from 'express';
+import async from 'async';
+import nodemailer from 'nodemailer';
+import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 import secret from '../authentication/config'
 import '../authentication/passport';
@@ -147,5 +150,57 @@ router.post('/login', async (req, res) => {
 router.get('/users/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({ success: true })
 })
+
+router.post('/forgot', (req, res) => {
+  async.waterfall([
+    (done) => {
+      crypto.randomBytes(20, (err, buf) => {
+        const token = buf.toString('hex');
+        done(err, token);
+      });
+    },
+    (token, done) => {
+      getUserByEmail(req.body.email).then((err, user) => {
+        if (!user || err) {
+          res.status(502).json({ message: 'No account with that email address exists.', err });
+        }
+        user.resetPasswordToken = token;
+        user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+
+        addUser(user).then((error) => {
+          done(error, token, user);
+        });
+      })
+    },
+    (token, user, done) => {
+      const smtpTransport = nodemailer.createTransport({
+        service: 'Mailgun',
+        auth: {
+          user: process.env.Mail_USER,
+          pass: process.env.MAIL_PASS
+        }
+      });
+      const mailOptions = {
+        to: user.email,
+        from: 'test@test.com',
+        subject: 'User Password Reset',
+        text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
+          Please click on the following link, or paste this into your browser to complete the process:\n\n
+          http://${req.headers.host}/reset/${token}\n\n
+          If you did not request this, please ignore this email and your password will remain unchanged.\n`
+      };
+      smtpTransport.sendMail(mailOptions, (err) => {
+        console.log('mail sent');
+        res.status(200).json({ success: true, message: `An e-mail has been sent to ${user.email} with further instructions.` });
+        done(err, 'done');
+      });
+    }
+  ], (err) => {
+    if (err) {
+      res.status(502).json(err)
+    }
+    return null;
+  });
+});
 
 module.exports = router;
