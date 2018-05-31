@@ -18,7 +18,13 @@ const router = express.Router();
 
 router.get('/users', async (req, res) => {
   try {
-    await getAllUsers().then(users => res.status(200).json(users));
+    const usersArr = []
+    await getAllUsers().then(users => users.map(user => usersArr.push({
+      fullname: user.fullname,
+      role: user.role,
+      organisation: user.organisation
+    })))
+    res.status(200).json(usersArr)
   } catch (err) {
     res
       .status(502)
@@ -59,6 +65,7 @@ router.post('/users', async (req, res) => {
     })
   })
 });
+
 router.put('/users/:userId', async (req, res) => {
   let { password } = req.body;
   const { email } = req.body;
@@ -76,6 +83,15 @@ router.put('/users/:userId', async (req, res) => {
   })
 });
 
+router.patch('/users/role/:userId', async (req, res) => {
+  const { role, fullname, organisation } = req.body;
+  await updateUser(req.params.userId, {
+    role: role,
+    fullname,
+    organisation
+  }).then(() => res.json({ message: 'user updated successfully' }))
+})
+
 router.post('/signup', async (req, res) => {
   let { password } = req.body;
   const { fullname, email, organisation } = req.body;
@@ -92,14 +108,17 @@ router.post('/signup', async (req, res) => {
             password = hash;
             addUser({
               salt_password: password, email, fullname, organisation
-            })
-              .then(userData => {
-                if (userData) {
-                  res.json({ success: true, message: 'User is registered' })
-                } else {
-                  res.json({ success: false, message: 'User is not registered' })
-                }
-              });
+            }).then(userData => {
+              if (userData) {
+                res.json({
+                  success: true, message: 'User is registered'
+                })
+              } else {
+                res.json({
+                  success: false, message: 'User is not registered'
+                })
+              }
+            });
           })
         })
       }
