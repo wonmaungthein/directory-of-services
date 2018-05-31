@@ -67,7 +67,7 @@ exports.up = knex =>
       table.string('salt_password');
       table.date('last_updated');
       table.string('resetPasswordToken');
-      table.date('resetPasswordExpires');
+      table.string('resetPasswordExpires');
     });
 
 exports.down = knex =>

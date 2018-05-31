@@ -3,6 +3,7 @@ import passport from 'passport';
 import express from 'express';
 import async from 'async';
 import nodemailer from 'nodemailer';
+import mg from 'nodemailer-mailgun-transport';
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 import secret from '../authentication/config'
@@ -14,10 +15,24 @@ import {
   updateUser,
   deleteUser,
   getUserByEmail,
-  comparePassword
+  comparePassword,
+  validateResetInfo
 } from '../controllers/users_controller';
 
 const router = express.Router();
+const auth = { auth: { api_key: process.env.API_KEY, domain: process.env.DOMAIN } }
+const nodemailerMailgun = nodemailer.createTransport(mg(auth));
+const encryptPass = (password) => {
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(password, salt, (error, hash) => {
+      if (error) {
+        throw error;
+      }
+      password = hash;
+      return password;
+    })
+  })
+}
 
 router.get('/users', async (req, res) => {
   try {
@@ -156,50 +171,109 @@ router.post('/forgot', (req, res) => {
     (done) => {
       crypto.randomBytes(20, (err, buf) => {
         const token = buf.toString('hex');
-        done(err, token);
-      });
-    },
-    (token, done) => {
-      getUserByEmail(req.body.email).then((err, user) => {
-        if (!user || err) {
-          res.status(502).json({ message: 'No account with that email address exists.', err });
+        if (err) {
+          res.status(502).json(err);
         }
-        user.resetPasswordToken = token;
-        user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
-
-        addUser(user).then((error) => {
-          done(error, token, user);
-        });
-      })
-    },
-    (token, user, done) => {
-      const smtpTransport = nodemailer.createTransport({
-        service: 'Mailgun',
-        auth: {
-          user: process.env.Mail_USER,
-          pass: process.env.MAIL_PASS
-        }
-      });
-      const mailOptions = {
-        to: user.email,
-        from: 'test@test.com',
-        subject: 'User Password Reset',
-        text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
+        try {
+          getUserByEmail(req.body.email).then(user => {
+            let { resetPasswordExpires, resetPasswordToken } = user[0];
+            if (!user || user.length <= 0) {
+              res.status(502).json({ success: false, message: 'User dose not exist!' })
+            } else {
+              resetPasswordToken = token;
+              resetPasswordExpires = (Date.now() + 3600000).toString(); // 1 hour
+              updateUser(user[0].id, {
+                resetPasswordExpires, resetPasswordToken
+              })
+                .then(() => {
+                  nodemailerMailgun.sendMail({
+                    from: 'dirctoryofservice@hotmail.com',
+                    to: `${req.body.email}`,
+                    subject: 'Reset User Password',
+                    text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
           Please click on the following link, or paste this into your browser to complete the process:\n\n
           http://${req.headers.host}/reset/${token}\n\n
           If you did not request this, please ignore this email and your password will remain unchanged.\n`
-      };
-      smtpTransport.sendMail(mailOptions, (err) => {
-        console.log('mail sent');
-        res.status(200).json({ success: true, message: `An e-mail has been sent to ${user.email} with further instructions.` });
-        done(err, 'done');
-      });
+                  }, (error) => {
+                    if (error) {
+                      res.status(502).json({ message: 'There is an error occurred!', error: error.error });
+                    } else {
+                      done(err, 'respo')
+                    }
+                  })
+                });
+            }
+          })
+        } catch (error) {
+          res.status(502).json({ message: 'No account with that email address exists.', error });
+        }
+      })
     }
-  ], (err) => {
-    if (err) {
-      res.status(502).json(err)
+  ], (error, data) => {
+    if (error) {
+      res.status(502).json({ success: false, error })
+    } else {
+      res.status(200).json({ success: true, data })
     }
-    return null;
+  });
+});
+
+router.get('/reset/:token', (req, res) => {
+  validateResetInfo(req.params.token, Date.now().toString())
+    .then((user) => {
+      const userId = user[0].id;
+      const { email } = user[0];
+      if (!user || user.length <= 0) {
+        res.status(502).json({ success: false, message: 'Password reset token is not invalid or has expired.' })
+      } else {
+        res.status(200).json({ sucess: true, userId, email })
+      }
+    })
+});
+
+
+router.post('/reset/:token', (req, res) => {
+  async.waterfall([
+    (done) => {
+      validateResetInfo(req.params.token, Date.now().toString())
+        .then(user => {
+          if (!user || user.length <= 0) {
+            res.status(502).json({ success: false, message: 'Password reset token is invalid or has expired.' })
+          } else {
+            if (req.body.password === req.body.confirm) {
+              const encryptPassword = encryptPass(req.body.password)
+              updateUser(user[0].id, {
+                salt_password: encryptPassword,
+                resetPasswordToken: '',
+                resetPasswordExpires: ''
+              })
+                .then(() => {
+                  nodemailerMailgun.sendMail({
+                    from: 'dirctoryofservice@hotmail.com',
+                    to: `${user[0].email}`,
+                    subject: 'Your password has been changed',
+                    text: `Hello,\n\n This is a confirmation that the password for your account ${user[0].email} has just been changed.\n`
+                  }, (erro) => {
+                    if (erro) {
+                      res.status(502).json({ message: 'There is an error occurred!', error: erro.error });
+                    } else {
+                      done(erro, { success: true, message: 'Success! Your password has been changed' })
+                    }
+                  })
+                })
+            }
+            if (req.body.password !== req.body.confirm) {
+              res.status(502).json({ success: false, message: 'Password dose not match.' })
+            }
+          }
+        });
+    }
+  ], (error, data) => {
+    if (error) {
+      res.status(502).json({ success: false, error })
+    } else {
+      res.status(200).json({ success: true, data })
+    }
   });
 });
 
