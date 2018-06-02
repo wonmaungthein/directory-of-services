@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt';
 import passport from 'passport';
 import express from 'express';
-import async from 'async';
 import nodemailer from 'nodemailer';
 import mg from 'nodemailer-mailgun-transport';
 import crypto from 'crypto';
@@ -156,121 +155,78 @@ router.get('/users/profile', passport.authenticate('jwt', { session: false }), (
 })
 
 router.post('/forgot', (req, res) => {
-  async.waterfall([
-    (done) => {
-      crypto.randomBytes(20, (err, buf) => {
-        const token = buf.toString('hex');
-        if (err) {
-          res.status(502).json(err);
-        }
-        getUserByEmail(req.body.email).then(user => {
-          if (!user || user.length <= 0) {
-            res.status(502).json({ success: false, message: 'User dose not exist!' })
-          } else {
-            let { resetPasswordExpires, resetPasswordToken } = user[0];
-            resetPasswordToken = token;
-            resetPasswordExpires = (Date.now() + 3600000).toString(); // 1 hour
-            updateUser(user[0].id, {
-              resetPasswordExpires, resetPasswordToken
-            })
-              .then(userInfo => {
-                if (!userInfo || userInfo.length <= 0) {
-                  res.status(502).json({ success: false, message: 'There is an error occurred!' });
-                } else {
-                  nodemailerMailgun.sendMail({
-                    from: `${req.body.sideEmail}`,
-                    to: `${req.body.email}`,
-                    subject: 'Reset User Password',
-                    text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
+  crypto.randomBytes(20, async (err, buf) => {
+    if (err) {
+      res.status(502).json({ success: false, message: 'an error occurred!', err })
+    }
+    try {
+      const token = buf.toString('hex');
+      const user = await getUserByEmail(req.body.email);
+      let { resetPasswordExpires, resetPasswordToken } = user[0];
+      resetPasswordToken = token;
+      resetPasswordExpires = (Date.now() + 3600000).toString(); // 1 hour
+
+      await updateUser(user[0].id, {
+        resetPasswordExpires, resetPasswordToken
+      })
+
+      await nodemailerMailgun.sendMail({
+        from: `${req.body.sideEmail}`,
+        to: `${req.body.email}`,
+        subject: 'Reset User Password',
+        text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
           Please click on the following link, or paste this into your browser to complete the process:\n\n
           http://${req.body.sideHost}/reset/${token}\n\n
           If you did not request this, please ignore this email and your password will remain unchanged.\n`
-                  }, (error) => {
-                    if (error) {
-                      res.status(502).json({ success: false, message: 'There is an error occurred!', error });
-                    } else {
-                      done(err, 'respo')
-                    }
-                  })
-                }
-              });
+      })
+
+      res.status(200).json({ success: true, message: 'Your request has made successfully!' })
+    } catch (error) {
+      res.status(502).json({ success: false, message: 'User dose not exist!', error })
+    }
+  })
+});
+
+router.get('/reset/:token', async (req, res) => {
+  try {
+    const user = await validateResetInfo(req.params.token, Date.now().toString());
+    const userId = user[0].id;
+    const { email } = user[0];
+    res.status(200).json({ success: true, userId, email })
+  } catch (err) {
+    res.status(502).json({ success: false, message: 'Password reset token is invalid or has expired.', err })
+  }
+});
+
+router.post('/reset/:token', async (req, res) => {
+  try {
+    const user = await validateResetInfo(req.body.token, Date.now().toString());
+    if (req.body.password === req.body.confirm) {
+      let { password } = req.body;
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(password, salt, async (error, hash) => {
+          if (error) {
+            throw error;
           }
+          password = hash;
+          await updateUser(user[0].id, {
+            salt_password: password,
+            resetPasswordToken: '',
+            resetPasswordExpires: ''
+          })
         })
       })
+      await nodemailerMailgun.sendMail({
+        from: `${req.body.sideEmail}`,
+        to: `${user[0].email}`,
+        subject: 'Your password has been changed',
+        text: `Hello,\n\n This is a confirmation that the password for your account ${user[0].email} has just been changed.\n`
+      })
     }
-  ], (error, data) => {
-    if (error) {
-      res.status(502).json({ success: false, error })
-    } else {
-      res.status(200).json({ success: true, data })
-    }
-  });
-});
-
-router.get('/reset/:token', (req, res) => {
-  validateResetInfo(req.params.token, Date.now().toString())
-    .then((user) => {
-      if (!user || user.length <= 0) {
-        res.status(502).json({ success: false, message: 'Password reset token is not invalid or has expired.' })
-      } else {
-        const userId = user[0].id;
-        const { email } = user[0];
-        res.status(200).json({ success: true, userId, email })
-      }
-    })
-});
-
-router.post('/reset/:token', (req, res) => {
-  async.waterfall([
-    (done) => {
-      validateResetInfo(req.body.token, Date.now().toString())
-        .then(user => {
-          if (!user || user.length <= 0) {
-            res.status(502).json({ success: false, message: 'Password reset token is invalid or has expired.' })
-          } else {
-            if (req.body.password === req.body.confirm) {
-              let { password } = req.body;
-              bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(password, salt, (error, hash) => {
-                  if (error) {
-                    throw error;
-                  }
-                  password = hash;
-                  updateUser(user[0].id, {
-                    salt_password: password,
-                    resetPasswordToken: '',
-                    resetPasswordExpires: ''
-                  })
-                    .then(() => {
-                      nodemailerMailgun.sendMail({
-                        from: `${req.body.sideEmail}`,
-                        to: `${user[0].email}`,
-                        subject: 'Your password has been changed',
-                        text: `Hello,\n\n This is a confirmation that the password for your account ${user[0].email} has just been changed.\n`
-                      }, (erro) => {
-                        if (erro) {
-                          res.status(502).json({ message: 'There is an error occurred!', error: erro.error });
-                        } else {
-                          done(erro, { success: true, message: 'Success! Your password has been changed' })
-                        }
-                      })
-                    })
-                })
-              })
-            }
-            if (req.body.password !== req.body.confirm) {
-              res.status(502).json({ success: false, message: 'Password dose not match.' })
-            }
-          }
-        });
-    }
-  ], (error, data) => {
-    if (error) {
-      res.status(502).json({ success: false, error })
-    } else {
-      res.status(200).json({ success: true, data })
-    }
-  });
+    res.status(200).json({ success: true, message: 'Your password has been changed successfully!' })
+  } catch (error) {
+    res.status(502).json({ message: 'Password reset token is invalid or has expired.', error });
+  }
 });
 
 module.exports = router;
