@@ -67,7 +67,7 @@ class UsersPage extends Component {
     });
     
   render() {
-    const users = this.props.listOfUsers.users ? this.props.listOfUsers.users.data.users : [] ;
+    const users = this.props.listOfUsers.users ? this.props.listOfUsers.users.data : [] ;
     let userForm;
     const { params } = this.props.match;
     const { hideForm } = this.state;

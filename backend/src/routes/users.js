@@ -18,15 +18,15 @@ const router = express.Router();
 
 router.get('/users', async (req, res) => {
   try {
-    const users = []
     const data = await getAllUsers();
-    data.map(user => users.push({
+    const users = data.map(user => ({
       id: user.id,
       fullname: user.fullname,
       role: user.role,
-      organisation: user.organisation
+      organisation: user.organisation,
+      last_updated: user.last_updated
     }));
-    res.status(200).json({ users })
+    res.status(200).json(users)
   } catch (err) {
     res
       .status(502)
