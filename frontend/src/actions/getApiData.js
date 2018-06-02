@@ -84,6 +84,7 @@ export function setListOfUsers(users) {
 export function getListOfUsers(){
   return dispatch => {
     axios.get(`${api}/users`)
-    .then(all => dispatch(setListOfUsers(all)))
+    .then(response => dispatch(setListOfUsers(response)))
+    .catch(error => error.response)
   }
 }

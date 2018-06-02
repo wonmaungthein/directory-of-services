@@ -20,6 +20,7 @@ router.get('/users', async (req, res) => {
   try {
     const usersArr = []
     await getAllUsers().then(users => users.map(user => usersArr.push({
+      id: user.id,
       fullname: user.fullname,
       role: user.role,
       organisation: user.organisation
@@ -84,12 +85,17 @@ router.put('/users/:userId', async (req, res) => {
 });
 
 router.patch('/users/role/:userId', async (req, res) => {
-  const { role, fullname, organisation } = req.body;
-  await updateUser(req.params.userId, {
-    role: role,
-    fullname,
-    organisation
-  }).then(() => res.json({ message: 'user updated successfully' }))
+  try {
+    const { role, fullname, organisation } = req.body;
+    await updateUser(req.params.userId, {
+      role: role,
+      fullname,
+      organisation
+    })
+    res.status(200).json({ success: true, message: 'user updated successfully', updateUser })
+  } catch (err) {
+    res.state(502).json({ success: false, message: 'user did not update', err })
+  }
 })
 
 router.post('/signup', async (req, res) => {
