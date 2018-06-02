@@ -13,3 +13,27 @@ export function editOrganisation(data) {
     axios.patch(`${api}/service/organisation/edit`, data).then(res => res);
   return saveOrganisation
 }
+
+export function requestRestPassword(data) {
+  const requestFun = () =>
+    axios.post(`${api}/forgot`, data)
+      .then(response => response)
+      .catch(error => error.response);
+  return requestFun
+}
+
+export function requestChangePassword(data) {
+  const requestFun = () =>
+    axios.post(`${api}/reset/:token`, data)
+      .then(response => response)
+      .catch(error => error.response);
+  return requestFun
+}
+
+export function validateToken(token) {
+  const requestFun = () =>
+    axios.get(`${api}/reset/${token}`)
+      .then(response => response)
+      .catch(error => error.response);
+  return requestFun
+}

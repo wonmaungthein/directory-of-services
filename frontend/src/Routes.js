@@ -9,6 +9,7 @@ import SideBar from './Components/SideBar';
 import Users from './Components/Users';
 import HomePage from './Components/HomePage';
 import AuthEndpoint from './utils/AuthEndpoint';
+import Reset from './Components/Users/forgot-password/Reset'
 
 const styles = theme => ({
   root: {
@@ -46,6 +47,8 @@ const Routes = props => {
         className={classes.content}
       >
         <div className={classes.drawerHeader} />
+        <Route exact path="/reset" component={AuthEndpoint(Reset)} />
+        <Route exact path="/reset/:token" component={Reset} />
         <Route exact path="/:home" component={AuthEndpoint(HomePage)} />
         <Route
           exact
