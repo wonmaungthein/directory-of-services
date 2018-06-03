@@ -43,10 +43,10 @@ class ForgotPassword extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { email } = this.state;
-    const sideHost = process.env.SIDE_HOST
-    const sideEmail = process.env.SIDE_EMAIL
+    const siteHost = process.env.SIDE_HOST
+    const siteEmail = process.env.SIDE_EMAIL
     if (email.length > 0) {
-      this.props.requestRestPassword({ email, sideHost, sideEmail }).then(user => {
+      this.props.requestRestPassword({ email, siteHost, siteEmail }).then(user => {
         if (user.data && user.data.success !== false) {
           this.successRequest('Your request has been sent to your email successfully')
           this.setState({ email: '', success: true })
