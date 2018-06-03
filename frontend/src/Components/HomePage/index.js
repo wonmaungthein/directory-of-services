@@ -14,10 +14,11 @@ class HomePage extends Component {
   }
 
   render() {
+    const organisations = this.props.organisations ? this.props.organisations.areas : [];
     return (
       <div>
         <TopNav homePage />
-        <HomeSearch />
+        <HomeSearch organisations={organisations} />
       </div>
     )
   }
@@ -29,4 +30,10 @@ HomePage.propTypes = {
   getOrganisationsList: PropTypes.func.isRequired,
 }
 
-export default connect(null, { getBoroughs, getAreas, getOrganisationsList })(HomePage);
+function mapStateToProps(state) {
+  return {
+    organisations: state.organisationsList,
+  }
+}
+
+export default connect(mapStateToProps, { getBoroughs, getAreas, getOrganisationsList })(HomePage);

@@ -17,3 +17,19 @@ div.search {
 }
 
 i{ cursor: pointer;}
+
+.search-con{
+  position: absolute;
+  top: 125px;
+  color: gray;
+}
+
+.search-field label{
+  padding-left: 1.5em !important;
+  font-size: 1.3em;
+}
+
+.search-field{
+  padding-left: 1.5em !important;
+  width: 95%
+}
