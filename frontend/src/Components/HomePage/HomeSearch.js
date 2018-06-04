@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import TextField from 'material-ui/TextField';
 import { withRouter } from 'react-router-dom';
+import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 import EditOrganisation from '../Organisation/EditOrganisation';
 import SingleOrganisation from '../Organisation/SingleOrganisation';
@@ -13,7 +14,8 @@ class HomeSearch extends Component {
   state = {
     organisations: [],
     editIdx: -1,
-    search: ''
+    search: '',
+    searchValue: ''
   };
 
   componentWillReceiveProps(newProps) {
@@ -34,23 +36,32 @@ class HomeSearch extends Component {
   };
 
   handleSearchChange = (e) => {
+    e.preventDefault()
     this.setState({ search: e.target.value })
   }
 
+  updateSearchData = () => {
+    this.setState({searchValue: this.state.search})
+  }
+
+  clearSearchField = () => {
+    this.setState({ searchValue: '' })
+  }
+
   filterData = (orgs) => {
-    const { search } = this.state;
-    if (search.length > 1) {
+    const { searchValue } = this.state;
+    if (searchValue.length > 1) {
       return orgs.filter(org =>
-        org.org_name.toLowerCase().includes(search.toLowerCase()) ||
-        org.borough.toLowerCase().includes(search.toLowerCase()) ||
-        org.project.toLowerCase().includes(search.toLowerCase()) ||
-        org.cat_name.toLowerCase().includes(search.toLowerCase()) ||
-        org.website.toLowerCase().includes(search.toLowerCase()) ||
-        org.area.toLowerCase().includes(search.toLowerCase()) ||
-        org.email_address.toLowerCase().includes(search.toLowerCase()) ||
-        org.telephone.toLowerCase().includes(search.toLowerCase()) ||
-        org.service.toLowerCase().includes(search.toLowerCase()) ||
-        org.process.toLowerCase().includes(search.toLowerCase())
+        org.org_name.toLowerCase().includes(searchValue.toLowerCase()) ||
+        org.borough.toLowerCase().includes(searchValue.toLowerCase()) ||
+        org.project.toLowerCase().includes(searchValue.toLowerCase()) ||
+        org.cat_name.toLowerCase().includes(searchValue.toLowerCase()) ||
+        org.website.toLowerCase().includes(searchValue.toLowerCase()) ||
+        org.area.toLowerCase().includes(searchValue.toLowerCase()) ||
+        org.email_address.toLowerCase().includes(searchValue.toLowerCase()) ||
+        org.telephone.toLowerCase().includes(searchValue.toLowerCase()) ||
+        org.service.toLowerCase().includes(searchValue.toLowerCase()) ||
+        org.process.toLowerCase().includes(searchValue.toLowerCase())
       ).sort(helpers.sortArrObj)
     }
     return [];
@@ -75,6 +86,23 @@ class HomeSearch extends Component {
                 onChange={this.handleSearchChange}
                 margin="normal"
               />
+              <Button
+                onClick={this.updateSearchData}
+                variant="raised"
+                color="primary"
+                size="small"
+              >
+                Search
+              </Button>
+              <Button
+                onClick={this.clearSearchField}
+                variant="raised"
+                size="small"
+                className="clear-search"
+                color="secondary"
+              >
+                Clear Search
+              </Button>
             </Grid>
             {this.filterData(organisations).map((org, index) => {
               const currentlyEditing = editIdx === index;
