@@ -92,15 +92,7 @@ class HomeSearch extends React.Component {
     if (search) {
       return orgs.filter(org =>
         org.org_name.toLowerCase().includes(search.toLowerCase()) ||
-        org.borough.toLowerCase().includes(search.toLowerCase()) ||
-        org.project.toLowerCase().includes(search.toLowerCase()) ||
-        org.cat_name.toLowerCase().includes(search.toLowerCase()) ||
-        org.website.toLowerCase().includes(search.toLowerCase()) ||
-        org.area.toLowerCase().includes(search.toLowerCase()) ||
-        org.email_address.toLowerCase().includes(search.toLowerCase()) ||
-        org.telephone.toLowerCase().includes(search.toLowerCase()) ||
-        org.service.toLowerCase().includes(search.toLowerCase()) ||
-        org.process.toLowerCase().includes(search.toLowerCase())
+        org.borough.toLowerCase().includes(search.toLowerCase())
       ).sort(helpers.sortArrObj)
     }
     return [];
