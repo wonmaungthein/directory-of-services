@@ -38,3 +38,9 @@ i{ cursor: pointer;}
 .clear-search{
   margin-left: 1em !important;
 }
+
+.search-input{
+  display: grid;
+  grid-template-columns: 7fr 1.5fr 1.5fr;
+  grid-gap: 1em;
+}

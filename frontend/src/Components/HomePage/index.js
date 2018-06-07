@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TopNav from '../TopNav';
-import HomeSearch from './HomeSearch';
 import { getBoroughs, getAreas, getOrganisationsList } from '../../actions/getApiData';
+import HomeSearch from './HomeSearch'
 
 class HomePage extends Component {
 
@@ -18,7 +18,7 @@ class HomePage extends Component {
     return (
       <div>
         <TopNav homePage />
-        <HomeSearch organisations={organisations} />
+        <HomeSearch organisations={organisations}  />
       </div>
     )
   }
