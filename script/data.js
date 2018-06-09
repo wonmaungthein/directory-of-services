@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 const fs = require("fs");
+("use strict");
 
 const gDriveURL =
   "https://script.google.com/macros/s/AKfycbygukdW3tt8sCPcFDlkMnMuNu9bH5fpt7bKV50p2bM/exec?id=150tJxB_4MwKG1EqD1EGbFibIsN_E5LAzUh-r4Bqvq8o&sheet=";
@@ -33,7 +34,7 @@ async function getData() {
     )
       .then(data => data)
       .catch(err => {
-        console.error(`What happened`, {
+        console.error(`error`, {
           error: err
         });
       });
@@ -44,18 +45,89 @@ async function getData() {
 }
 
 async function writedata() {
-  const readData = await getData();
-  // console.log(readData[1]);
+  let readData = await getData();
+  const filteredArray = [];
+  const [
+    Debt,
+    Immigration,
+    Housing,
+    Trafficking,
+    Destitution,
+    LGBTQI,
+    Healthcare,
+    Education,
+    Benefits,
+    EmploymentTrainingVolunteering,
+    Families,
+    GenderBasedViolence,
+    MentalHealthServices,
+    SocialAndOther,
+    Women,
+    PregnantWomenAndNewMothers,
+    BabyEquipment,
+    YoungPeopleChildren
+  ] = readData;
+  function removeDuplication(data) {
+    for (let key in data) {
+      filteredArray.push(
+        data[key]
+          .map(el => {
+            var o = Object.assign({}, el);
+            o.categories = key;
+            return o;
+          })
+          .filter(
+            (elem, index, self) =>
+              index ===
+              self.findIndex(
+                toDo =>
+                  toDo.Organisation === elem.Organisation &&
+                  toDo.Area === elem.Area &&
+                  toDo.Borough === elem.Borough
+              )
+          )
+      );
+    }
+  }
+  const arr = [
+    Debt,
+    Immigration,
+    Housing,
+    Trafficking,
+    LGBTQI,
+    Healthcare,
+    Education,
+    Benefits,
+    EmploymentTrainingVolunteering,
+    Families,
+    GenderBasedViolence,
+    MentalHealthServices,
+    SocialAndOther,
+    Women,
+    PregnantWomenAndNewMothers,
+    BabyEquipment,
+    YoungPeopleChildren
+  ].map(item => removeDuplication(item));
 
-  ("use strict");
+  function arrayFlattenner() {
+    return filteredArray.reduce((acc, val) => acc.concat(val), []);
+  }
 
-  let data = JSON.stringify(readData, null, 2);
-
-  fs.writeFile("writtenData.json", data, err => {
+  function addNewKeyValue() {
+    return arrayFlattenner().map(el => {
+      var o = Object.assign({}, el);
+      o.project = "";
+      o.tag = "";
+      return o;
+    });
+  }
+  let flatData = JSON.stringify(addNewKeyValue(), null, 2);
+  fs.writeFile("organisations.json", flatData, err => {
     if (err) throw err;
     console.log("Data written to file");
   });
 
   console.log("This is after the write call");
 }
+
 writedata();
