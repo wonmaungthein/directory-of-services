@@ -46,7 +46,7 @@ class HomeSearch extends React.Component {
   componentWillReceiveProps(newProps) {
     const organisations = newProps.organisations ? newProps.organisations.data : [];
     this.setState({
-      organisations: helpers.removeOrgDuplication(organisations)
+      organisations: organisations
     });
   }
 

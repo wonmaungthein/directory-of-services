@@ -29,6 +29,7 @@ function renderInput(inputProps) {
   );
 }
 
+// Render the suggestion values when user type into home page search field
 function renderMainSearchSuggestion(suggestion, { query, isHighlighted }) {
   const matches = match(suggestion.org_name ? suggestion.org_name : suggestion.borough, query);
   const parts = parse(suggestion.org_name ? suggestion.org_name : suggestion.borough, matches);
@@ -36,17 +37,17 @@ function renderMainSearchSuggestion(suggestion, { query, isHighlighted }) {
   return (
     <MenuItem selected={isHighlighted} component="div">
       <div>
-        {parts.map((part, index) => {
-          return part.highlight ? (
-            <span key={String(index)} style={{ fontWeight: 300 }}>
-              {part.text}
-            </span>
-          ) : (
+        {parts.map((part, index) =>
+          (
+            part.highlight ?
+              <span key={String(index)} style={{ fontWeight: 300 }}>
+                {part.text}
+              </span>
+              :
               <strong key={String(index)} style={{ fontWeight: 500 }}>
                 {part.text}
               </strong>
-            );
-        })}
+          ))}
       </div>
     </MenuItem>
   );
@@ -66,9 +67,9 @@ function renderSuggestion(organisation, { query, isHighlighted }) {
                 {part.text}
               </span>
             ) : (
-                <strong key={String(index)} style={{ fontWeight: 500 }}>
-                  {part.text}
-                </strong>
+              <strong key={String(index)} style={{ fontWeight: 500 }}>
+                {part.text}
+              </strong>
               ),
         )}
       </div>
@@ -228,13 +229,6 @@ function sortArrObj(a, b) {
   return comparison;
 }
 
-// Remove duplation at array of objects
-function removeOrgDuplication(data) {
-  return data.filter((elem, index, self) =>
-    index === self.findIndex(toDo =>
-      toDo.org_name === elem.org_name && toDo.borough === elem.borough))
-}
-
 export default {
   renderInput,
   renderSuggestion,
@@ -249,7 +243,6 @@ export default {
   addSpaceToCategName,
   validEmail,
   sortArrObj,
-  removeOrgDuplication,
   getMainSearchSuggestionValue,
   getMainSearchSuggestions
 };
