@@ -68,6 +68,7 @@ exports.up = knex =>
       table.date('last_updated');
       table.string('resetPasswordToken');
       table.string('resetPasswordExpires');
+      table.string('role');
     });
 
 exports.down = knex =>

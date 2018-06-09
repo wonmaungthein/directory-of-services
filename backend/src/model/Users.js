@@ -15,7 +15,8 @@ export default class Users extends Model {
         email: { type: 'string' },
         salt_password: { type: 'string' },
         resetPasswordToken: { type: 'string' },
-        resetPasswordExpires: { type: 'string' }
+        resetPasswordExpires: { type: 'string' },
+        role: { type: 'string' }
       }
     }
   }

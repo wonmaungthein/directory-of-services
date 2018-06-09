@@ -19,12 +19,20 @@ import {
 } from '../controllers/users_controller';
 
 const router = express.Router();
-const auth = { auth: { api_key: process.env.API_KEY, domain: process.env.DOMAIN } }
+const auth = { auth: { api_key: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN } }
 const nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
 router.get('/users', async (req, res) => {
   try {
-    await getAllUsers().then(users => res.status(200).json(users));
+    const data = await getAllUsers();
+    const users = data.map(user => ({
+      id: user.id,
+      fullname: user.fullname,
+      role: user.role,
+      organisation: user.organisation,
+      last_updated: user.last_updated
+    }));
+    res.status(200).json(users)
   } catch (err) {
     res
       .status(502)
@@ -65,6 +73,7 @@ router.post('/users', async (req, res) => {
     })
   })
 });
+
 router.put('/users/:userId', async (req, res) => {
   let { password } = req.body;
   const { email } = req.body;
@@ -82,6 +91,20 @@ router.put('/users/:userId', async (req, res) => {
   })
 });
 
+router.patch('/users/role/:userId', async (req, res) => {
+  try {
+    const { role, fullname, organisation } = req.body;
+    await updateUser(req.params.userId, {
+      role: role,
+      fullname,
+      organisation
+    })
+    res.status(200).json({ success: true, message: 'user updated successfully', updateUser })
+  } catch (err) {
+    res.state(502).json({ success: false, message: 'user did not update', err })
+  }
+})
+
 router.post('/signup', async (req, res) => {
   let { password } = req.body;
   const { fullname, email, organisation } = req.body;
@@ -98,14 +121,17 @@ router.post('/signup', async (req, res) => {
             password = hash;
             addUser({
               salt_password: password, email, fullname, organisation
-            })
-              .then(userData => {
-                if (userData) {
-                  res.json({ success: true, message: 'User is registered' })
-                } else {
-                  res.json({ success: false, message: 'User is not registered' })
-                }
-              });
+            }).then(userData => {
+              if (userData) {
+                res.json({
+                  success: true, message: 'User is registered'
+                })
+              } else {
+                res.json({
+                  success: false, message: 'User is not registered'
+                })
+              }
+            });
           })
         })
       }
@@ -171,7 +197,7 @@ router.post('/forgot', (req, res) => {
       })
 
       await nodemailerMailgun.sendMail({
-        from: `${req.body.sideEmail}`,
+        from: `${req.body.siteEmail}`,
         to: `${req.body.email}`,
         subject: 'Reset User Password',
         text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
