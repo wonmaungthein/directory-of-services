@@ -8,7 +8,8 @@ import {
   getListOfAreas,
   getBranchesByCategory,
   getBranchesByDay,
-  getBranchesByBorough
+  getBranchesByBorough,
+  getBranchesByPostcode
 } from '../controllers/get_controller';
 
 const router = express.Router();
@@ -175,6 +176,16 @@ router.get('/areas', async (req, res) => {
   try {
     await getListOfAreas().then(areas =>
       res.status(200).json(areas));
+  } catch (err) {
+    res.status(502).json(err)
+  }
+});
+
+router.get('/postcode', async (req, res) => {
+  const { category, lat, long } = req.query;
+  try {
+    const data = await getBranchesByPostcode(category, lat, long);
+    res.status(200).json(data)
   } catch (err) {
     res.status(502).json(err)
   }
