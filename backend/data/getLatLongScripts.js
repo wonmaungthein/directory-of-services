@@ -51,7 +51,7 @@ function addLatLong(realData) {
   return realData.map(orgs =>
     orgs.branches.map(org => {
       const {
-        Area, Organisation, Clients, Category, Email, project, tag, Website,
+        Area, Organisation, Clients, categories, Email, project, tag, Website,
         Tel, Process, Postcode, Services, Borough, Day
       } = org;
       for (const post in latLong) {
@@ -62,7 +62,7 @@ function addLatLong(realData) {
             Area,
             Organisation,
             Clients,
-            Category,
+            categories,
             Email,
             project,
             tag,
@@ -82,7 +82,7 @@ function addLatLong(realData) {
         Area,
         Organisation,
         Clients,
-        Category,
+        categories,
         Email,
         project,
         tag,
