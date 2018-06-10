@@ -19,7 +19,16 @@ function getOrgsLatAndLog() {
   return postcodes.map(post =>
     fetch(`https://api.postcodes.io/postcodes/?q=${post}`, { mode: 'no-cros' })
       .then(res => res.json())
-      .then(res => console.log(res.result))
+      .then(res => {
+        if (res.result) {
+          const lat = res.result.latitude
+          const long = res.result.longitude
+          const Postcode = res.result.postcode
+          return { Postcode, lat, long }
+        }
+        const Postcode = res.query
+        return { Postcode, lat: '', long: '' }
+      })
       .catch(err => console.log(err)))
 }
 
