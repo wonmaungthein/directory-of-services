@@ -181,8 +181,8 @@ router.get('/areas', async (req, res) => {
   }
 });
 
-router.get('/postcode', async (req, res) => {
-  const { category, lat, long } = req.query;
+router.post('/postcode', async (req, res) => {
+  const { category, lat, long } = req.body;
   try {
     const data = await getBranchesByPostcode(category, lat, long);
     res.status(200).json(data)

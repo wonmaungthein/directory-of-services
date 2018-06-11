@@ -46,7 +46,8 @@ function geoNear(lat, long, latLong) {
     } else {
       total.push({
         distance: calculateDistance(lat, long, latLong[i].lat, latLong[i].long),
-        success: 'dose not have postcode or postcode is incorrect',
+        success: true,
+        message: 'dose not have postcode or postcode is incorrect',
         data
       })
     }
