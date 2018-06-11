@@ -32,3 +32,10 @@
   color: #1abcd4;
   outline: none !important;
 }
+
+.distanse{
+  color: #1abcd4;
+  border-bottom: .1em solid gray;
+  padding-bottom: .5em;
+  margin-bottom: .5em;
+}

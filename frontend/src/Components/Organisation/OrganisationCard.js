@@ -12,6 +12,7 @@ const OrganisationCard = ({
     <EditOrganisation getData={getData} />
     <SingleOrganisation org={org} />
     <div className="single-orgonaization-details">
+        {org.distance ? <h4 className="distanse">{org.distance} Mile</h4> : ''}
       <h4>{org.org_name}</h4>
       <h6>
         Area: {org.area} | Borough: {org.borough}

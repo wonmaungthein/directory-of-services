@@ -13,3 +13,11 @@ export function editOrganisation(data) {
     axios.patch(`${api}/service/organisation/edit`, data).then(res => res);
   return saveOrganisation
 }
+
+export function getBranchesFilteredByPost(data) {
+  const sendInfo = () =>
+    axios.post(`${api}/service/postcode`, data)
+      .then(response => response)
+      .catch(error => error.response);
+  return sendInfo
+}
