@@ -4,7 +4,6 @@ import Organisation from '../model/Organisation';
 import benefitData from '../../data.json';
 
 Model.knex(knex);
-
 const seedData = async () => {
   const data = await benefitData.map(row => {
     const branchData = {
@@ -17,11 +16,11 @@ const seedData = async () => {
         service: [
           {
             service: branch.Services || '',
-            service_days: branch.Day.join() || '',
-            process: branch.Process.join() || '',
+            service_days: branch.Day || '',
+            process: branch.Process || '',
             categories: [
               {
-                cat_name: branch.Category || ''
+                cat_name: branch.categories || ''
               }
             ]
           }
@@ -29,14 +28,14 @@ const seedData = async () => {
         address: [
           {
             area: branch.Area || '',
-            address_line: '',
+            address_line: '' || '',
             postcode: branch.Postcode || '',
             email_address: branch.Email || '',
-            telephone: branch.Tel.join() || '',
+            telephone: `${branch.Tel}` || '',
             location: [
               {
-                lat: '',
-                long: ''
+                lat: `${branch.lat}` || '',
+                long: `${branch.long}` || ''
               }
             ]
           }
@@ -45,8 +44,10 @@ const seedData = async () => {
     };
     return (async () => {
       try {
-        return transaction(Organisation.knex(), trx =>
-          Organisation.query(trx).insertGraph(branchData));
+        return transaction(Organisation.knex(), async trx => {
+          const savedData = await Organisation.query(trx).insertGraph(branchData);
+          return savedData;
+        })
       } catch (err) {
         return err;
       }
