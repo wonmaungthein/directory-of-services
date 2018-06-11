@@ -23,7 +23,7 @@ function round(value, place) {
   return (Math.round(value * multiplier) / multiplier);
 }
 
-// Calculate the distance
+// Calculate the distance in Mile
 function calculateDistance(lat1, lon1, lat2, lon2) {
   const radius = 6371; // Radius of the earth in km
   const dLat = deg2rad(lat2 - lat1); // deg2rad below
@@ -31,7 +31,7 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   const firtsValue = (Math.sin(dLat / 2) * Math.sin(dLat / 2));
   const secondValue = (Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2))) * (Math.sin(dLon / 2) * Math.sin(dLon / 2));
   const a = firtsValue + secondValue;
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const c = (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))) * 0.621371;
   const distance = radius * c; // Distance in km
   return round(distance, 3);
 }
@@ -42,12 +42,16 @@ function geoNear(lat, long, latLong) {
   for (let i = 0; i < latLong.length; i += 1) {
     const { data } = latLong[i];
     if (latLong[i].lat && latLong[i].long) {
-      total.push({ distance: calculateDistance(lat, long, latLong[i].lat, latLong[i].long), data })
+      total.push({ distance: calculateDistance(lat, long, latLong[i].lat, latLong[i].long), success: true, data })
     } else {
-      total.push({ distance: 'not avaible', data })
+      total.push({
+        distance: calculateDistance(lat, long, latLong[i].lat, latLong[i].long),
+        success: 'dose not have postcode or postcode is incorrect',
+        data
+      })
     }
   }
-  return total;
+  return total.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
 }
 
 export default {
