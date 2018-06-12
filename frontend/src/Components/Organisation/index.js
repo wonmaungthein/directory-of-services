@@ -102,7 +102,7 @@ class Organisations extends Component {
             .map(branchs => {
               const { distance } = branchs;
               const orgs = branchs.data;
-              orgsData.push({ distance, ...orgs })
+              return orgsData.push({ distance, ...orgs })
             })
           this.setState({ organisations: orgsData })
         })
@@ -188,13 +188,13 @@ class Organisations extends Component {
                 />
               </Fragment>
             ) : (
-                <Grid item xs={12} sm={6} key={org.id}>
-                  <OrganisationCard
-                    getData={() => this.editSelectedOrganisation(index)}
-                    org={org}
-                    index={index}
-                  />
-                </Grid>
+              <Grid item xs={12} sm={6} key={org.id}>
+                <OrganisationCard
+                  getData={() => this.editSelectedOrganisation(index)}
+                  org={org}
+                  index={index}
+                />
+              </Grid>
               );
           })}
         </Grid>
