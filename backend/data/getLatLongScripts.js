@@ -57,7 +57,7 @@ function addLatLong(realData, latLongData) {
         Tel, Process, Postcode, Services, Borough, Day, Address
       } = org;
       for (const post in latLongData) {
-        if (latLong[post].Postcode.includes(org.Postcode)) {
+        if (org.Postcode.includes(latLong[post].Postcode)) {
           const { lat } = latLongData[post];
           const { long } = latLongData[post];
           return {
