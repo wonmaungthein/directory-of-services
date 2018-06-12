@@ -54,7 +54,7 @@ function addLatLong(realData, latLongData) {
     orgs.branches.map(org => {
       const {
         Area, Organisation, Clients, categories, Email, project, tag, Website,
-        Tel, Process, Postcode, Services, Borough, Day
+        Tel, Process, Postcode, Services, Borough, Day, Address
       } = org;
       for (const post in latLongData) {
         if (latLong[post].Postcode.includes(org.Postcode)) {
@@ -76,7 +76,8 @@ function addLatLong(realData, latLongData) {
             Borough,
             Day,
             lat,
-            long
+            long,
+            Address
           }
         }
       }
@@ -96,7 +97,8 @@ function addLatLong(realData, latLongData) {
         Borough,
         Day,
         lat: '',
-        long: ''
+        long: '',
+        Address
       }
     }))
 }
