@@ -9,9 +9,11 @@ import postcodes from './postcodes.json';
 
 // Get postcodes from original data
 function getPostcodes(data) {
-  return data.map(orgs => orgs.branches)
-    .map(item => item[0].Postcode)
-    .filter((elem, index, self) => index === self.indexOf(elem) && elem.length > 0)
+  const posts = [];
+  data.map(orgs =>
+    orgs.branches.map(item => item.Postcode).map(post => posts.push(post.replace(/[' ']/g, ''))))
+  const filteredPost = posts.filter((elem, index, self) => index === self.indexOf(elem) && elem)
+  return filteredPost;
 }
 
 // Second option to postcode lat and long
@@ -47,17 +49,17 @@ function filterPostcodeLatLong() {
 }
 
 // Add lat and long to original data
-function addLatLong(realData) {
+function addLatLong(realData, latLongData) {
   return realData.map(orgs =>
     orgs.branches.map(org => {
       const {
         Area, Organisation, Clients, categories, Email, project, tag, Website,
         Tel, Process, Postcode, Services, Borough, Day
       } = org;
-      for (const post in latLong) {
-        if (org.Postcode === latLong[post].Postcode) {
-          const { lat } = latLong[post];
-          const { long } = latLong[post];
+      for (const post in latLongData) {
+        if (latLong[post].Postcode.includes(org.Postcode)) {
+          const { lat } = latLongData[post];
+          const { long } = latLongData[post];
           return {
             Area,
             Organisation,
