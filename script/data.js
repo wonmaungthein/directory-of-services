@@ -94,6 +94,7 @@ async function writedata() {
     Immigration,
     Housing,
     Trafficking,
+    Destitution,
     LGBTQI,
     Healthcare,
     Education,
