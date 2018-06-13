@@ -1,0 +1,10 @@
+.edit-content .normal-weight {
+  font-weight: 300;
+}
+
+/* selected={props.day.includes(day)}  
+import TextFieldOrg from './TextFieldOrg';
+
+label {
+  font-weight: 100 !important;
+} */
