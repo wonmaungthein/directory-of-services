@@ -146,10 +146,11 @@ router.get('/all', async (req, res) => {
 
 router.get('/migrate', async (req, res) => {
   try {
-    await seedData().then(() =>
-      res.status(200).json({ Migration: 'Data migration to database completed successfully !' }));
+    await seedData();
+    const data = await res.status(200).json({ Migration: 'Data migration to database completed successfully !' })
+    return data;
   } catch (err) {
-    res.status(502).json(err)
+    return res.status(502).json(err)
   }
 });
 
