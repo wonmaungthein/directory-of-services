@@ -25,8 +25,7 @@ function PaperSheet(props) {
         className={classNames(props.label)}
         elevation={2}
         {...props}
-      >
-      </Paper>
+      />
     </MuiThemeProvider>
   );
 }
