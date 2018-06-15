@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import OrganisationForm from './OrganisationForm';
+import Button from 'material-ui/Button';
 import { addOrganisation } from '../../actions/postData';
 import categoriesData from '../../Data/Categories.json';
 import './add-org.css';
@@ -160,7 +161,7 @@ class AddOrganisation extends Component {
       <div>
         <TopNav addLink="organisations/add" addOrg="Add new organisation" />
         <NotificationSystem ref="savedChanges" />
-        <div className="add-orgonaization">
+        <div className="add-new-org">
           <OrganisationForm
             name={this.state.Organisation}
             area={this.state.Area}
@@ -180,13 +181,18 @@ class AddOrganisation extends Component {
             onChange={this.handleFieldUpdate}
             check={this.state.isChecked}
             handleDefaultCheckbox={this.handleDefaultCheckbox}
+            formType="add-org-form"
           />
-          <button
+          <Button
             className="add-orgonaization-link"
             onClick={event => this.handleSubmit(event)}
+            className="save-btn"
+            color="primary"
+            size="small"
+            autoFocus
           >
             SAVE CHANGES
-          </button>
+          </Button>
         </div>
       </div>
     );

@@ -1,84 +1,76 @@
-.single-org-dialog >div{
-  overflow-y: initial !important;
+.org-info div + div[role=document] {
+  width: 100%;
+  max-width: 400px;
+  padding: .4rem 1rem 1rem;
+  overflow: hidden;
 }
-.single-oganisation-title >h2{
-  color: #1abcd4;
+
+.org-info h1 {
+  padding: 2rem 0 .78rem;
+  font-size: 140%;
 }
-.single-oganisation-title{
-  padding-top: 0 !important;
-}
-.tag {
-  padding-top: 1.5em;
-  color: #1abcd4;
-}
-.single-oganisation-content{
-  min-width: 22em;
-  min-height: 16em;
-}
-.single-oganisation-content .details-area{
-  color: #bbb;
-}
-.single-process-date,
-.single-telephone-email{
+
+.org-process,
+.org-contact{
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-gap: 1em;
   color: #000;
-  margin-bottom: 1em;
+  padding-bottom: 1rem;
+  word-break: break-word;
 }
-.orgnaization-detais-button{
-  position: absolute !important;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
+
+ p {
+  font-size: 80%;
 }
-.single-oganisation-close-button{
-  position: absolute;
-  right: -5px;
-  display: flex;
-  top: -27px;
-  background: transparent;
-  border: navajowhite;
-  color: #bbb;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1.1em;
-  outline: none !important;
-}
-.button-icon{
-  color: #ddd !important;
-}
-.health-advice-process{
-  margin: 1em 0;
-  color: #000;
-}
+
 .website-link{
-  display: inline-block;
+  display: block;
   text-decoration: none;
   color: #1abcd4;
+  margin-top: 1rem;
+  font-size: 80%;
 }
-.detail-footer{
-  padding: 1.5em 0 0 0;
-  color: #bbb;
+
+.tag {
+  padding: .2rem 0;
+  color: rgb(1, 45, 97);
+  font-size: 90%;
+  text-transform: capitalize;
 }
-.button-title{
-  display: flex;
-  align-items: center;
+
+.tag img {vertical-align: middle;}
+
+.org-website,
+.org-contact,
+.org-service, 
+.org-project,
+.org-process{
+  padding-bottom: .9rem;
 }
-.health-advice-process .service,
-.single-process-date .service{
-  text-overflow: initial;
-  white-space: initial !important;
-  overflow: visible;
-  line-height: 1.5em;
+
+.org-project {
+  padding-top: 1.7rem;
 }
-.exit{
-  width: 35px !important;
-  height:40px !important;
-  min-width:40px !important;
-  background: #1ebdd5 !important;
-  margin: 0 .5em .5em 0 !important;
+
+.org-info .edit-button:hover,
+.org-info .detail-button:active,
+.org-info .edit-button {
+  background: #1abcd4;
+  color: #fff;  
 }
-.exit span>i{
-  font-size: 25px !important;
+
+.org-info .edit-button {
+  min-width: 0;
+  min-height: 0;
+  padding: 5px;
+}
+
+
+@media (max-width: 400px){
+  .org-process,
+  .org-contact{
+    grid-template-columns: 1fr;
+    grid-gap: .6rem;
+  }   
 }

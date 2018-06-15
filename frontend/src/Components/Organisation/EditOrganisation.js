@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Button from 'material-ui/Button';
 import Dialog, { DialogActions, DialogContent, withMobileDialog, DialogTitle} from 'material-ui/Dialog';
 import { withRouter } from 'react-router-dom';
@@ -48,7 +48,7 @@ class EditOrganisation extends React.Component {
         Borough: data.borough,
         Services: data.service,
         Process: data.process,
-        Day: [data.service_days],
+        Day: data.service_days.split(' '),
         Tel: data.telephone,
         Email: data.email_address,
         Website: data.website,
@@ -173,13 +173,15 @@ class EditOrganisation extends React.Component {
       return <Spinner color='blue' bgColor='spinnerEdit' />;
     }
     return (
-      <div>
-        <Button variant="fab" raised aria-label="edit" className="edit-button" onClick={this.props.getData}>
-          <i className="material-icons">edit</i>
-        </Button>
+      <Fragment>
+        <div className="org-edit-btn">
+          <Button className="btn edit-button" onClick={this.props.getData}>
+            <i className="material-icons" size="small" variant="raised" >edit</i>EDIT
+          </Button>
+        </div>
         <NotificationSystem ref="savedChanges" />
         <Dialog
-          className="edit-org-dialog"
+          className="edit-org"
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title"
@@ -189,13 +191,15 @@ class EditOrganisation extends React.Component {
           contentStyle={{width: 100, maxWidth: "none"}}
         >
           <DialogTitle id="form-dialog-title" className="edit-org-title"> 
-            Editing  
-            <button
-              onClick={this.handleClose}
-              className="edit-org-close"
-            >
-              <i className="material-icons">close</i>
-            </button> 
+            Editing 
+            <div className="org-close-btn"> 
+              <Button
+                onClick={this.handleClose}
+                className="close-button"
+              >
+                <i className="material-icons" size="small" variant="raised">close</i>
+              </Button> 
+            </div>
           </DialogTitle>
           <DialogContent className="edit-content">
             <OrganisationForm
@@ -223,6 +227,7 @@ class EditOrganisation extends React.Component {
               onChange={this.handleFieldUpdate}
               check={this.state.isChecked}
               handleDefaultCheckbox={this.handleDefaultCheckbox}
+              close={this.handleClose}
             />
           </DialogContent>
           <DialogActions>
@@ -240,11 +245,11 @@ class EditOrganisation extends React.Component {
               size="small"
               autoFocus
             >
-              save
+              save changes
             </Button>
           </DialogActions>
         </Dialog>
-      </div>
+      </Fragment>
     );
   }
 }

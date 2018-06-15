@@ -1,79 +1,20 @@
-.edit-org .edit-field{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
+.org-edit h6{
+  display: flex;
+  justify-content: space-between;
+  padding: .4rem 0 0 .8rem;
 }
-.edit-org .edit-orgnasiation-name{
-  grid-column: 1/4;
-  margin-top: -1em;
-}
-.edit-org .text-field-container{
-  grid-column: 1/1;
-  display: Grid;
-  grid-template-columns: 1fr 4fr;
-}
-.edit-org .text-field-container >div >div,
-.edit-org .text-field-two-container >div >div{
-  margin-top: -.5em !important;
-}
-.edit-org .text-field-two-container{
-  grid-column: 2/2;
-  display: Grid;
-  grid-template-columns: 2fr 4fr;
-}
-.edit-org .health-advice-title{
-  grid-column: 1/4
-}
-.edit-org .process-lable{
-  grid-column: 1/4
-}
-.edit-org .process-lable >label{
-  color: #000 !important;
-  font-size: 1.5em;
-}
-.edit-org .edit-day-field{
-  grid-column: 1/4
-}
-.edit-org .telephone-label{
-  grid-column: 1/2
-}
-.edit-org .email-label{
-  grid-column: 2/4
-}
-.edit-org .health-advice{
-  top: -5px !important;
-}
-.edit-org .health-advice textarea{
-  font-weight: initial !important;
-}
-.edit-field .select-lable{
-  font-size: 1.5em;
-  color: #000;
-}
-.edit-field .add-website,
-.edit-field .add-project,
-.edit-field .add-tag{
-  grid-column: 1/4
-}
-.edit-org .edit-orgnasiation-name label:nth-child(1),
-.edit-org .text-field label:nth-child(1),
-.edit-org .text-field-two label:nth-child(1),
-.edit-org .website-label label:nth-child(1){
-  display: none;
-}
-.edit-org .edit-day-field label:nth-child(1),
-.edit-org .edit-process-field label:nth-child(1),
-.edit-org .email-label label:nth-child(1),
-.edit-org .telephone-label label:nth-child(1){
-  color: #000;
-  font-size: 1.5em;
-}
+
+
 .edit-org .website-label input:nth-child(1){
   color: #519889 !important;
 }
+
+.btn-text { font-size: 90%; } /*  button text size   */
+
 .edit-org .edit-orgnasiation-name textarea{
   font-size: 1.5em !important;
 }
+
 .edit-org .text-field,
 .edit-org .text-field-two{
   width: 50px !important;
@@ -82,33 +23,49 @@
   padding: 0 !important;
   padding-left: .5em !important;
 }
+
 .edit-org .text-field-two{
   width: 75px !important;
 }
+
 .edit-org .text-field input,
 .edit-org .text-field-two input{
   font-size: .9em !important;
   color: #bbb !important
 }
+
 .edit-org .health-advice-title input:nth-child(1){
   font-weight: initial;
 }
-.edit-button{
-  border: none !important;
-  background: transparent;
-  position: absolute !important;
-  right: 10px !important;
-  top: 10px !important;
-  font-weight: bold;
-  color: #1abcd4;
-  outline: none !important;
-  width: 37px !important;
-  height: 30px !important;
+
+.org-form .organisation-name div div{
+  font-size: 150%;
+  overflow: hidden;
 }
+
+.org .edit-button{
+  background: #03a9f400;
+  position: absolute;
+  right: 1rem;
+  bottom: 0.208001rem;
+  color: #1bc1ea;
+  box-shadow: 0 0;
+  border-radius: 0;
+}
+
+.org-form div.add-project { margin-top: 2rem; }
+
+button.edit-button:hover,
+button.edit-button:active {
+  background: none;
+  box-shadow: 0 0;
+}
+
 .edit-button .delete-org{
   color: #e10050 ;
   font-size: 20px;
 }
+
 .edit-logo{
   position: absolute;
   right: 20px;
@@ -116,30 +73,37 @@
   font-weight: bold;
   color: #bbb;
 }
-.edit-org-dialog >div{
-  overflow-y: initial !important;
-  z-index: 1000 !important;
-}
 
 .edit-org .details-area{
   display: inline
 }
-.edit-org .categories-checkbox-title{
+
+ .categories-checkbox-title{
   padding: 1.5em 0 .5em 0;
   color: #000;
 }
-.edit-org .categories-checkbox{
+
+.categories-checkbox{
   display: grid;
-  grid-template-columns:repeat(3, 1fr);
-border: 1px solid #bbb;
-  padding: 1em;
-  min-height: 4em;
-  grid-gap: 1em;
-  overflow: auto;
-  margin-bottom: 1em;
-  border-radius: .5em;
-  box-shadow: 1px 1px 9px 3px #bbb;
+  grid-template-columns: repeat(3, 1fr);
+  border: 2px solid #1abcd4;
+  padding: .7rem 0;
+  grid-gap: .3rem;
+  margin-top: .6rem;
+  word-break: break-all;
 }
+
+.categories-checkbox span {
+  flex: 0 0 auto;
+  height: 20px;
+  padding: 0;
+  text-align: center;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 70%;
+  word-break: break-word;
+}
+
+.categories-checkbox label { margin-left: 0;}
 
 .cancel-button{
   position: absolute !important;
@@ -151,6 +115,7 @@ border: 1px solid #bbb;
   left: 20px !important;
   padding: 0 2em !important;
 }
+
 .save-button{
   position: absolute !important;
   bottom: 0 !important;
@@ -162,20 +127,23 @@ border: 1px solid #bbb;
   padding: 0 2.5em !important;
   margin-top: 1em;
 }
+
 .success-notification{
   z-index: 22222 !important;
 }
+
 .edit-org .not-include-in-edit-org{
   display: none;
 }
 
 button.cancel-btn,
 button.save-btn {
-  padding: .4rem .8rem;
+  padding: .2rem .4rem;
   color: #fff;
-  min-height: 0px;
-  font-size: 12px;
+  min-height: 5px;
+  border-radius: 2px;
   margin-right: .9rem;
+  margin-bottom: .8rem
 }
 
 button.cancel-btn {
@@ -194,20 +162,10 @@ button.save-btn:hover{
   background: #12cdf1;
 }
 
-.edit-content::-webkit-scrollbar {
-  width: 10px;
-}
-
-.edit-content::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: #46bdd4;
-}
-
 .edit-org-title h2 {
   display: flex;
   justify-content: space-between;
-  color: #46bdd4;
-  font-weight: bold;
+  align-items: center;
 }
 
 .edit-org-close {
@@ -217,8 +175,170 @@ button.save-btn:hover{
   font-weight: 700;
 }
 
+.edit-content,
+.edit-org-title {
+  padding: 0 1rem;
+}
+
 button.edit-org-close:focus,
 button.edit-org-close:hover {
   border:0;
   outline: none;
+}
+
+.edit-org div + div { 
+  min-height:4px;
+  overflow-x: hidden;
+}
+
+ .edit-org div + div::-webkit-scrollbar {
+  width: .3rem;
+  height: .2rem;
+}
+
+.edit-org div + div::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(34, 39, 43, 0.13);
+}
+
+ .edit-org div + div::-webkit-scrollbar-thumb {
+  background: #46bdd4;
+  
+}
+
+.edit-org div + div:hover::-webkit-scrollbar,
+.edit-org div + div:focus::-webkit-scrollbar {
+    display: block;
+}
+
+.edit-org #form-dialog-title {
+  height: 0;
+  padding: 0 26px 24px;
+}
+
+.edit-org i  {
+  font-size: 20px;
+}
+
+.org-form h4{
+  font-size: 78%;
+  margin-top: .6rem;
+}
+
+.org-form textarea {
+  font-size: 86%;
+  font-weight: 400;
+}
+
+.org-form .margin-space {
+  margin-top: .6rem;
+}
+
+.org-form div:before {
+  background: rgb(13, 166, 195);
+}
+
+.location {
+  display: flex;
+  margin-top: 3px;
+}
+
+#menu-Borough li:hover,
+#menu-Area li:hover,
+#menu-borough li:hover,
+#menu- ul li:hover {
+  background-color: rgb(70, 189, 212);
+  color: #fff;
+}
+
+.location,
+.edit-org-title h2,
+.add-borough div,
+.add-area div,
+#menu-Borough ul li,
+#menu-Area ul li,
+#menu- ul li {
+  font-size: 82%;
+  color: rgba(0, 0, 0, 0.50);
+  background: none;
+}
+
+#menu- ul li {
+  color: #130f0f;
+}
+
+#menu- ul li:nth-child(1),
+#menu-Borough ul li:nth-child(1),
+#menu-Area ul li:nth-child(1) {
+  color: #1abcd4;
+  background: none;
+  pointer-events: none;
+}
+
+.location-item {
+  font-size: 90%;
+}
+
+.location span {
+  padding: 0 .6rem;
+  margin: auto 0;
+}
+
+.add-borough div,
+.add-area div {
+  font-size: .8rem;
+}
+
+.days div{ color: #131114;}
+
+#menu-Borough ul li,
+#menu-Area ul li,
+#menu- ul li {
+  padding: 0 16px;
+}
+
+#menu- div:first-child:before {
+  content: '\2716';
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  color: #d13a29;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#menu-Borough div ul,
+#menu-Area ul,
+#menu- ul {
+  padding: 0 ;
+
+}
+
+#menu- ul,
+#menu- div + div{ 
+  min-width: 0!important;
+}
+
+.edit-day-field {
+  width: 100%;
+}
+
+.edit-org .org-close-btn { margin-right: -42px;}
+
+@media (max-width: 551px){
+  .org {
+    width: 100%;
+  } 
+
+  .categories-checkbox {
+    display: grid;
+    grid-template-columns: 0;
+    padding: .1rem;
+    grid-gap: .2rem;
+  }
+
+  #menu- > div + div{
+    margin-top: 5rem;
+  }
+
+  #menu- div:first-child:before { top: 10%; }
 }

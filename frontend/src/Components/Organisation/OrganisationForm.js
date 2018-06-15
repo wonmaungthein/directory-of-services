@@ -1,12 +1,14 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Select from 'material-ui/Select';
 import Input, { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
+import { ListItemText } from 'material-ui/List';
+import Grid from 'material-ui/Grid';
 import { FormControl, FormControlLabel } from 'material-ui/Form';
 import Checkbox from 'material-ui/Checkbox';
+import TextFieldOrg from './TextFieldOrg';
 import BoroughData from '../../Data/Boroughs.json';
 import helpers from '../../helpers';
 
@@ -19,23 +21,29 @@ const sortedBorough = BoroughData.map(borough => borough.borough).filter((elem, 
 const OrganisationForm = (props) => {
   const categoriesName = props.categoriesName.categories ? props.categoriesName.categories : [];
   const checkedCategory = helpers.addSpaceToCategName(categoriesName, props.checkedCategory);
+
+// I create a collection of days which combine days from days and props.day and return unique value (no repetition of day )
+// then I made a copy of this collection using spread operator
+  const uniqueDays= new Set([...days, ...props.day]);
+  const checkDaysList = [...uniqueDays]
+
   return (
-    <form className={props.formType}>
-      <div className="form-first-row edit-field">
-        <TextField
-          className="edit-orgnasiation-name"
-          label="Organisation name"
-          name="Organisation"
-          multiline
-          rowsMax="4"
-          value={props.name}
-          onChange={props.onChange}
-          fullWidth
-        />
-        <span className="text-field-container">
-          <h4 className="not-include-in-add-org details-area">Area:</h4>
+    <div className="org-form">
+      <TextFieldOrg
+        className="email-label add-project margin-space organisation-name"
+        placeholder="Add organisation name..."
+        label="Organisation name"
+        name="Organisation"
+        multiline
+        rowsMax="4"
+        value={props.name}
+        onChange={props.onChange}
+        fullWidth
+      />
+      <div className="location">
+        <div className="location-item">
+          Area:&nbsp;&nbsp; 
           <FormControl className="form-control-filed add-area">
-            <InputLabel className="not-include-in-edit-org select-lable" htmlFor="controlled-open-select">Area</InputLabel>
             <Select
               open={props.openSelect}
               onClose={props.closeSelect}
@@ -47,24 +55,20 @@ const OrganisationForm = (props) => {
               }}
             >
               {
-                props.edit ?
-                  <MenuItem value={props.selectedArea}>
-                    {props.selectedArea}
-                  </MenuItem> :
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
+                <MenuItem className="select-title">
+                  {'Select your Area'}
+                </MenuItem> 
               }
               {areas.map(area => (
                 <MenuItem value={area}>{area}</MenuItem>
               ))}
             </Select>
           </FormControl>
-        </span>
-        <span className="text-field-two-container">
-          <h4 className="not-include-in-add-org details-area">Borough:</h4>
+        </div> 
+        <span>&#124;</span>
+        <div className="location-item">
+          Borough:&nbsp;&nbsp;
           <FormControl className="form-control-filed add-borough">
-            <InputLabel className="not-include-in-edit-org select-lable" htmlFor="controlled-open-select">Borough</InputLabel>
             <Select
               open={props.openSelect}
               onClose={props.closeSelect}
@@ -76,132 +80,138 @@ const OrganisationForm = (props) => {
               }}
             >
               {
-                props.edit ?
-                  <MenuItem value={props.selectedBorough}>
-                    {props.selectedBorough}
-                  </MenuItem> :
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
+                <MenuItem className="select-title">
+                  {'Select your Borough'}
+                </MenuItem> 
               }
               {sortedBorough.map(borough => (
-                <MenuItem value={borough}>{borough}</MenuItem>
+                <MenuItem className="location-i" value={borough}>{borough}</MenuItem>
               ))}
             </Select>
           </FormControl>
-        </span>
-        <h4 className="not-include-in-add-org health-advice-title">Services
-          <TextField
-            className="not-include-in-add-org health-advice"
-            fullWidth
+        </div>
+      </div>
+      <TextFieldOrg
+        className="email-label  margin-space add-project project"
+        label="Project"
+        placeholder="Add project..."
+        name="project"
+        multiline
+        rowsMax="4"
+        value={props.project}
+        onChange={props.onChange}
+        fullWidth
+      />
+      <TextFieldOrg
+        placeholder="Add services..."
+        label="Services"
+        className="not-include-in-add-org health-advice margin-space"
+        fullWidth
+        multiline
+        rowsMax="4"
+        name="Services"
+        value={props.service}
+        onChange={props.onChange}
+      />
+      <TextFieldOrg
+        className="process-label margin-space"
+        label="Process"
+        placeholder="Add process..."
+        fullWidth
+        multiline
+        rowsMax="4"
+        name="Process"
+        value={props.process}
+        onChange={props.onChange}
+      />
+      <Grid container spacing={24} className="margin-space">
+        <Grid item xs={12} sm={6}>
+          <FormControl className="edit-day-field">
+            <InputLabel htmlFor="select-multiple-checkbox">Select days</InputLabel>
+            <Select
+              multiple
+              value={props.day}
+              onChange={props.handleMulitySelectChange}
+              input={<Input id="select-multiple-checkbox" />}
+              renderValue={selected => selected.join(', ')}
+            >
+              {
+                <MenuItem className="select-title">
+                  {'Select days'}
+                </MenuItem> 
+              }
+         
+              {checkDaysList.map(day => (
+                <MenuItem
+                  key={day}
+                  value={day}
+                >
+                  <Checkbox checked={props.day.indexOf(day) > -1} />
+                  <ListItemText primary={day} />
+                </MenuItem>
+              ))}
+            close
+            </Select>
+          </FormControl>
+        
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextFieldOrg
+            className="telephone-label"
+            placeholder="Add telephone..."
+            label="Telephone"
+            name="Tel"
             multiline
             rowsMax="4"
-            name="Services"
-            value={props.service}
+            value={props.telephone}
             onChange={props.onChange}
+            fullWidth
           />
-        </h4>
-        <TextField
-          className="process-lable"
-          label="Process"
-          fullWidth
-          multiline
-          rowsMax="4"
-          name="Process"
-          value={props.process}
-          onChange={props.onChange}
-        />
-        <FormControl className="edit-day-field">
-          <InputLabel className="select-lable" htmlFor="select-multiple">Days</InputLabel>
-          <Select
-            multiple
-            value={props.day}
-            onChange={props.handleMulitySelectChange}
-            input={<Input id="select-multiple" />}
-          >
-            {
-              props.edit ?
-                <MenuItem
-                  value={props.day.join(" ")}
-                >
-                  {props.day.join(" ")}
-                </MenuItem>
-                :
-                null
-            }
-            {days.map(day => (
-              <MenuItem
-                key={day}
-                value={day}
-              >
-                {day}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <TextField
-          className="telephone-label"
-          label="Telephone"
-          name="Tel"
-          multiline
-          rowsMax="4"
-          value={props.telephone}
-          onChange={props.onChange}
-          fullWidth
-        />
-        <TextField
-          className="email-label"
-          label="Email"
-          name="Email"
-          multiline
-          rowsMax="4"
-          value={props.email}
-          onChange={props.onChange}
-          fullWidth
-        />
-        <TextField
-          className="email-label add-website"
-          label="Website"
-          name="Website"
-          multiline
-          rowsMax="4"
-          value={props.website}
-          onChange={props.onChange}
-          fullWidth
-        />
-        <TextField
-          className="email-label add-project"
-          label="Project"
-          name="project"
-          multiline
-          rowsMax="4"
-          value={props.project}
-          onChange={props.onChange}
-          fullWidth
-        />
-        <TextField
-          className="email-label add-tag"
-          label="Tag"
-          name="tag"
-          multiline
-          rowsMax="4"
-          value={props.tag}
-          onChange={props.onChange}
-          fullWidth
-        />
-      </div>
-      <div className="form-third-row not-include-in-edit-org">
-        <TextField
-          multiline
-          rows="4"
-          label="Service"
-          rowsMax="4"
-          fullWidth
-          name="Services"
-          value={props.service}
-          onChange={props.onChange}
-        />
-      </div>
+        </Grid>
+      </Grid>
+      <Grid container spacing={24} className="margin-space">
+        <Grid item xs={12} sm={6}>
+          <TextFieldOrg
+            className="email-label"
+            placeholder="Add email..."
+            label="Email"
+            name="Email"
+            multiline
+            rowsMax="4"
+            value={props.email}
+            onChange={props.onChange}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextFieldOrg
+            className="email-label add-tag"
+            label="Tags"
+            placeholder="Add tags..."
+            name="tag"
+            multiline
+            rowsMax="4"
+            value={props.tag}
+            onChange={props.onChange}
+            fullWidth
+          />
+        </Grid>
+      </Grid>
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={12}>
+          <TextFieldOrg
+            className="add-website margin-space"
+            placeholder="Add website..."
+            label="Website"
+            name="Website"
+            multiline
+            rowsMax="4"
+            value={props.website}
+            onChange={props.onChange}
+            fullWidth
+          />
+        </Grid>
+      </Grid>
       <h4 className="add-org-title categories-checkbox-title">Categories</h4>
       <div className="add-categories-checkbox categories-checkbox">
         {categoriesName.map(category => helpers.linkMaker(category) === props.checkedCategory ?
@@ -234,13 +244,13 @@ const OrganisationForm = (props) => {
             />
           ))}
       </div>
-    </form >
+      
+    </div >
   )
 }
 
 
 OrganisationForm.propTypes = {
-  formType: PropTypes.string.isRequired,
   categoriesName: PropTypes.array.isRequired
 };
 

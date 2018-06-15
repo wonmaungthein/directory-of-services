@@ -1,34 +1,10 @@
 .organisation-page{
   padding: 1.5em 1em;
 }
-.form-card{
-  padding: 2em !important;
-  position: relative;
-  overflow: auto
+
+.not-available {
+  color: rgba(55, 17, 17, 0.6);
 }
-.single-orgonaization-details >h4 {
-  color: #1abcd4;
-}
-.single-orgonaization-details >h6 {
-  color: #bbb;
-  padding-top: 1em;
-}
-.health-advice-process >p{
-  margin-bottom: .5em;
-}
-.health-advice-process p{
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.edit-button{
-  border: none !important;
-  background: transparent;
-  position: absolute;
-  right: 20px;
-  top: 10px;
-  font-size: 1em;
-  font-weight: bold;
-  color: #1abcd4;
-  outline: none !important;
-}
+
+.organisation-page div.card { padding: 6px; }
+

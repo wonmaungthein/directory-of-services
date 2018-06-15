@@ -6,9 +6,11 @@ a .add-orgonaization-button {
   width: 30px ;
   height: 30px ;
   min-height: 30px !important;
-  color: #000;
+  color: #fff;
   min-width: 25px !important;
   font-size: 22px !important;
+  background: #48cae396;
+  box-shadow: 0 0;
 }
 a .add-orgonaization-button:active {
   box-shadow: 0 0 0 0;
@@ -16,6 +18,7 @@ a .add-orgonaization-button:active {
 
 a .add-orgonaization-button:hover {
   background-color: #ffffff;
+  color: #1abcd4;
 }
 .login-section {
   justify-content: flex-end !important;
@@ -39,6 +42,11 @@ a .add-orgonaization-button:hover {
   display: flex !important;
   align-items: center;
   font-size: 1.2em;
+}
+
+div.avatar {
+  background-color: #48cae396;
+  cursor: pointer;
 }
 
 @media (max-width: 991px) {
