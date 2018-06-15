@@ -91,13 +91,13 @@ class TopNav extends Component {
                 onClick={this.showUserDropDown}
                 className="avatar"
               >
-                  <Typography
-                variant="title"
-                color="inherit"
-                noWrap
-              >
-                {user.charAt(0)}
-              </Typography>
+                <Typography
+                  variant="title"
+                  color="inherit"
+                  noWrap
+                >
+                  {user.charAt(0)}
+                </Typography>
               </Avatar>
             </Grid>
           </Grid>

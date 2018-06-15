@@ -3,8 +3,8 @@ import NotificationSystem from 'react-notification-system';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import OrganisationForm from './OrganisationForm';
 import Button from 'material-ui/Button';
+import OrganisationForm from './OrganisationForm';
 import { addOrganisation } from '../../actions/postData';
 import categoriesData from '../../Data/Categories.json';
 import './add-org.css';
@@ -181,12 +181,10 @@ class AddOrganisation extends Component {
             onChange={this.handleFieldUpdate}
             check={this.state.isChecked}
             handleDefaultCheckbox={this.handleDefaultCheckbox}
-            formType="add-org-form"
           />
           <Button
-            className="add-orgonaization-link"
+            className="save-btn add-orgonaization-link"
             onClick={event => this.handleSubmit(event)}
-            className="save-btn"
             color="primary"
             size="small"
             autoFocus
