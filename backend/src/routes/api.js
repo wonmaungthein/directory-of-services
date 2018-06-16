@@ -146,8 +146,12 @@ router.get('/all', async (req, res) => {
 
 router.get('/migrate', async (req, res) => {
   try {
+    const allData = await getAllOrgainisation();
+    if (allData.length > 0) {
+      return res.status(502).json({ success: false, message: 'Data is already migrated' })
+    }
     await seedData();
-    const data = await res.status(200).json({ Migration: 'Data migration to database completed successfully !' })
+    const data = await res.status(200).json({ success: true, message: 'Data is migrated successfully into database!' })
     return data;
   } catch (err) {
     return res.status(502).json(err)

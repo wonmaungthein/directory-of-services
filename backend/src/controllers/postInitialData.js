@@ -1,17 +1,17 @@
 import { transaction, Model } from 'objection';
 import { knex } from '../../config';
 import Organisation from '../model/Organisation';
-import benefitData from '../../data.json';
+import originalData from '../../data.json';
 
 Model.knex(knex);
 
 function seedData() {
-  for (let row = 0; row < benefitData.length; row += 1) {
-    const { branches } = benefitData[row];
+  for (let row = 0; row < originalData.length; row += 1) {
+    const { branches } = originalData[row];
     for (let branch = 0; branch < branches.length; branch += 1) {
       const branchData = {
-        org_name: benefitData[row].name || '',
-        website: benefitData[row].branches[0].Website || '',
+        org_name: originalData[row].name || '',
+        website: originalData[row].branches[0].Website || '',
         branch: {
           borough: branches[branch].Borough || '',
           project: branches[branch].project || '',
