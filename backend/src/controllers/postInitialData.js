@@ -1,7 +1,7 @@
 import { transaction, Model } from 'objection';
 import { knex } from '../../config';
 import Organisation from '../model/Organisation';
-import originalData from '../../data.json';
+import originalData from '../../data/data.json';
 
 Model.knex(knex);
 
