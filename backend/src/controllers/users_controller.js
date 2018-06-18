@@ -10,13 +10,18 @@ module.exports = {
     Users.query().findById(userId),
 
   updateUser: (userId, userData) =>
-    Users.query().patchAndFetchById(userId, userData),
+    Users.query().skipUndefined().patch(userData).where('id', userId),
 
   deleteUser: userId =>
     Users.query().deleteById(userId),
 
   getUserByEmail: email =>
     Users.query().skipUndefined().where('email', email),
+
+  validateResetInfo: (token, dateValue) =>
+    Users.query().skipUndefined()
+      .where('resetPasswordToken', token)
+      .andWhere('resetPasswordExpires', '>', dateValue),
 
   addUser: userData =>
     transaction(Users.knex(), trx =>
