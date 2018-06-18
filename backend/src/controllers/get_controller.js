@@ -65,11 +65,11 @@ module.exports = {
         .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
         .where('branch:service:categories.cat_name', 'like', `%${categoryName}%`)
         .map(data => helpers.fetchNestedObj(data))
-        .map(async data => {
+        .map(data => {
           const { lat, long } = data;
-          latLongs.push({ lat, long, data })
+          return latLongs.push({ lat, long, data })
         })
-        .then(() => helpers.geoNear(latInfo, longInfo, latLongs))
+        .map(() => helpers.geoNear(latInfo, longInfo, latLongs))
       return result;
     } catch (error) {
       return error;

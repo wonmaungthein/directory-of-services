@@ -36,7 +36,9 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   return round(distance, 3);
 }
 
-// Get the distance and org data
+// This function will get user postcode latitude, longitude and organization latitude longitude
+// then will use calculateDistance function to calculate the distance by mile then return list
+// of organizations data with distance between the organization and user address
 function geoNear(lat, long, latLong) {
   const total = [];
   for (let i = 0; i < latLong.length; i += 1) {
@@ -47,7 +49,7 @@ function geoNear(lat, long, latLong) {
       total.push({
         distance: calculateDistance(lat, long, latLong[i].lat, latLong[i].long),
         success: true,
-        message: 'dose not have postcode or postcode is incorrect',
+        message: 'Dose not have postcode or postcode is incorrect',
         data
       })
     }
