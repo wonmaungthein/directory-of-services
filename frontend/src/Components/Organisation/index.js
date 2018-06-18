@@ -4,7 +4,7 @@ import Grid from 'material-ui/Grid';
 import EditOrganisation from './EditOrganisation';
 import SingleOrganisation from './SingleOrganisation';
 import { getBranchsByCategory } from '../../actions/getApiData';
-import { getBranchesFilteredByPost } from '../../actions/postData';
+import { getBranchesFilteredByPostCode } from '../../actions/postData';
 import Search from './Search';
 import TopNav from '../TopNav';
 import helpers from '../../helpers';
@@ -83,20 +83,22 @@ class Organisations extends Component {
   };
 
   handlePostSearch = async () => {
-    if (this.state.postCode <= 0) {
+    if (this.state.postCode.length === 0) {
       this.setState({ postcodeError: 'Postcode is required *' })
-    } else {
+    } else if(this.state.postCode.length < 5) {
+      this.setState({ postcodeError: 'You have to inter valid postcode' })
+    }else {
       const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url)[0];
       const post = this.state.postCode.replace(/[' ']/g, '');
-      this.setState({ isLoading: true })
-      const data = await fetch(`https://api.postcodes.io/postcodes/?q=${post}`, { mode: 'no-cros' });
+      this.setState({ isLoading: true, postcodeError: '' })
+      const data = await fetch(`https://api.postcodes.io/postcodes/?q=${post}`);
       const res = await data.json()
       if (res.result && res.status === 200) {
         this.setState({ isLoading: true, sort: true })
         res.result.map(async info => {
           const lat = info.latitude
           const long = info.longitude
-          const getBranches = await this.props.getBranchesFilteredByPost({ category, lat, long })
+          const getBranches = await this.props.getBranchesFilteredByPostCode({ category, lat, long })
           const orgsData = [];
           getBranches.data.filter(resData => resData.distance)
             .map(branchs => {
@@ -108,8 +110,7 @@ class Organisations extends Component {
         })
         this.setState({ isLoading: false })
       } else {
-        this.setState({ isLoading: false })
-        this.setState({ postcodeError: 'Your postcode is incorrect' })
+        this.setState({ postcodeError: 'Your postcode is incorrect', isLoading: false })
       }
     }
   }
@@ -150,7 +151,7 @@ class Organisations extends Component {
 
   render() {
     const { editIdx, category, postCode, borough, day, organisations } = this.state;
-    if (this.state.isLoading || this.filterData.length <= 0) {
+    if (this.state.isLoading || this.filterData.length === 0) {
       return <Spinner />
     }
     return (
@@ -209,4 +210,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { getBranchsByCategory, getBranchesFilteredByPost })(Organisations);
+export default connect(mapStateToProps, { getBranchsByCategory, getBranchesFilteredByPostCode })(Organisations);

@@ -14,10 +14,14 @@ export function editOrganisation(data) {
   return saveOrganisation
 }
 
-export function getBranchesFilteredByPost(data) {
-  const sendInfo = () =>
-    axios.post(`${api}/service/postcode`, data)
-      .then(response => response)
-      .catch(error => error.response);
+export function getBranchesFilteredByPostCode(data) {
+  const sendInfo = async () => {
+    try {
+      const res = await axios.post(`${api}/service/postcode`, data)
+      return res;
+    } catch (err) {
+      return err;
+    }
+  }
   return sendInfo
 }
