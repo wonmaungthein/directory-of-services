@@ -13,7 +13,10 @@ export default class Users extends Model {
         organisation: { type: 'string' },
         fullname: { type: 'string' },
         email: { type: 'string' },
-        salt_password: { type: 'string' }
+        salt_password: { type: 'string' },
+        resetPasswordToken: { type: 'string' },
+        resetPasswordExpires: { type: 'string' },
+        role: { type: 'string' }
       }
     }
   }
