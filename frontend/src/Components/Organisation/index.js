@@ -32,6 +32,10 @@ class Organisations extends Component {
 
   componentDidMount() {
     const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url);
+     const index = category.indexOf("Young People and Children");
+      if (index !== -1) {
+          category[index] = "Young People/Children";
+      }
     this.props.getBranchsByCategory(category);
   }
 
