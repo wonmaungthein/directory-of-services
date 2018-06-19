@@ -17,3 +17,30 @@ div.search {
 }
 
 i{ cursor: pointer;}
+
+.search-con{
+  position: absolute;
+  top: 125px;
+  color: gray;
+}
+
+.search-field label{
+  padding-left: 1.5em !important;
+  font-size: 1.3em;
+}
+
+.search-field{
+  padding-left: 1.5em !important;
+  margin-right: 1em !important;
+  width: 55%
+}
+
+.clear-search{
+  margin-left: 1em !important;
+}
+
+.search-input{
+  display: grid;
+  grid-template-columns: 7fr 1.5fr 1.5fr;
+  grid-gap: 1em;
+}
