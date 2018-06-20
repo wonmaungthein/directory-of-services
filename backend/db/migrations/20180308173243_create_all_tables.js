@@ -23,9 +23,9 @@ exports.up = knex =>
         .unsigned()
         .references('id')
         .inTable('Branch');
-      table.string('service_days');
-      table.string('process');
-      table.string('service');
+      table.text('service_days');
+      table.text('process');
+      table.text('service');
     })
     .createTable('Categories', table => {
       table.increments('id').primary();
@@ -66,6 +66,8 @@ exports.up = knex =>
       table.string('fullname');
       table.string('salt_password');
       table.date('last_updated');
+      table.string('resetPasswordToken');
+      table.string('resetPasswordExpires');
       table.string('role');
     });
 
