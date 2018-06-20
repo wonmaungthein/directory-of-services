@@ -18,6 +18,7 @@
       "arrow-parens": 0,
       "linebreak-style": "off",
       "no-param-reassign": "off",
+      "no-restricted-properties": "off",
       "no-restricted-syntax": "off"
     }
   }

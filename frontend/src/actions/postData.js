@@ -13,3 +13,15 @@ export function editOrganisation(data) {
     axios.patch(`${api}/service/organisation/edit`, data).then(res => res);
   return saveOrganisation
 }
+
+export function getBranchesFilteredByPostCode(data) {
+  const sendInfo = async () => {
+    try {
+      const res = await axios.post(`${api}/service/postcode`, data)
+      return res;
+    } catch (err) {
+      return err;
+    }
+  }
+  return sendInfo
+}

@@ -8,7 +8,8 @@ import {
   getListOfAreas,
   getBranchesByCategory,
   getBranchesByDay,
-  getBranchesByBorough
+  getBranchesByBorough,
+  getBranchesByPostcode
 } from '../controllers/get_controller';
 
 const router = express.Router();
@@ -146,10 +147,15 @@ router.get('/all', async (req, res) => {
 
 router.get('/migrate', async (req, res) => {
   try {
-    await seedData().then(() =>
-      res.status(200).json({ Migration: 'Data migration to database completed successfully !' }));
+    const allData = await getAllOrgainisation();
+    if (allData.length > 0) {
+      return res.status(502).json({ success: false, message: 'Data is already migrated' })
+    }
+    await seedData();
+    const data = await res.status(200).json({ success: true, message: 'Data is migrated successfully into database!' })
+    return data;
   } catch (err) {
-    res.status(502).json(err)
+    return res.status(502).json(err)
   }
 });
 
@@ -175,6 +181,16 @@ router.get('/areas', async (req, res) => {
   try {
     await getListOfAreas().then(areas =>
       res.status(200).json(areas));
+  } catch (err) {
+    res.status(502).json(err)
+  }
+});
+
+router.post('/postcode', async (req, res) => {
+  const { category, lat, long } = req.body;
+  try {
+    const data = await getBranchesByPostcode(category, lat, long);
+    res.status(200).json(data)
   } catch (err) {
     res.status(502).json(err)
   }
