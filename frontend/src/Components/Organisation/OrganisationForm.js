@@ -12,7 +12,7 @@ import TextFieldOrg from './TextFieldOrg';
 import BoroughData from '../../Data/Boroughs.json';
 import helpers from '../../helpers';
 
-const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Mon-Fri'];
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Mon-Fri', 'Mon', 'Tues', 'Wed', 'Thu', 'Fri'];
 const areas = ['All', 'Central', 'East', 'North', 'South', 'West'];
 const sortedBorough = BoroughData.map(borough => borough.borough).filter((elem, index, self) =>
   index === self.indexOf(elem)
@@ -22,15 +22,29 @@ const OrganisationForm = (props) => {
   const categoriesName = props.categoriesName.categories ? props.categoriesName.categories : [];
   const checkedCategory = helpers.addSpaceToCategName(categoriesName, props.checkedCategory);
 
-// I create a collection of days which combine days from days and props.day and return unique value (no repetition of day )
+// I create a collection of days which combine days from days array and props.day and return unique value (no repetition of day )
 // then I made a copy of this collection using spread operator
   const uniqueDays= new Set([...days, ...props.day]);
-  const checkDaysList = [...uniqueDays]
+  const checkDaysList = [...uniqueDays]; 
+  const x = [] 
+
+  // map over checkdaylist and create a new array of days that includes
+  // days from BE that meet the format uses on FE (days array), empty string, dash sign... will be exclude 
+  // on checkbox list
+  checkDaysList.forEach(myDay => {
+    days.forEach(el => {
+      if (myDay.includes(el)) {
+        if(x.indexOf(myDay) === -1){
+        x.push(myDay);
+        }
+      }
+    })
+  })
 
   return (
     <div className="org-form">
       <TextFieldOrg
-        className="email-label add-project margin-space organisation-name"
+        className="organisation-name"
         placeholder="Add organisation name..."
         label="Organisation name"
         name="Organisation"
@@ -42,7 +56,7 @@ const OrganisationForm = (props) => {
       />
       <div className="location">
         <div className="location-item">
-          Area:&nbsp;&nbsp; 
+          <span className="location-name">Area</span>:&nbsp;&nbsp; 
           <FormControl className="form-control-filed add-area">
             <Select
               open={props.openSelect}
@@ -65,9 +79,9 @@ const OrganisationForm = (props) => {
             </Select>
           </FormControl>
         </div> 
-        <span>&#124;</span>
+        <span className="space">&#124;</span>
         <div className="location-item">
-          Borough:&nbsp;&nbsp;
+          <span className="location-name">Borough</span>:&nbsp;&nbsp;
           <FormControl className="form-control-filed add-borough">
             <Select
               open={props.openSelect}
@@ -92,7 +106,7 @@ const OrganisationForm = (props) => {
         </div>
       </div>
       <TextFieldOrg
-        className="email-label  margin-space add-project project"
+        className="mt"
         label="Project"
         placeholder="Add project..."
         name="project"
@@ -105,7 +119,7 @@ const OrganisationForm = (props) => {
       <TextFieldOrg
         placeholder="Add services..."
         label="Services"
-        className="not-include-in-add-org health-advice margin-space"
+        className="mt"
         fullWidth
         multiline
         rowsMax="4"
@@ -114,7 +128,7 @@ const OrganisationForm = (props) => {
         onChange={props.onChange}
       />
       <TextFieldOrg
-        className="process-label margin-space"
+        className="mt"
         label="Process"
         placeholder="Add process..."
         fullWidth
@@ -124,12 +138,13 @@ const OrganisationForm = (props) => {
         value={props.process}
         onChange={props.onChange}
       />
-      <Grid container spacing={24} className="margin-space">
-        <Grid item xs={12} sm={6}>
+      <Grid container spacing={24} className="mt">
+        <Grid item xs={12} sm={6} className="day">
           <FormControl className="edit-day-field">
-            <InputLabel htmlFor="select-multiple-checkbox">Select days</InputLabel>
+            <InputLabel htmlFor="select-multiple-checkbox" shrink>Select days</InputLabel>
             <Select
               multiple
+              className="mt-select"
               value={props.day}
               onChange={props.handleMulitySelectChange}
               input={<Input id="select-multiple-checkbox" />}
@@ -141,7 +156,7 @@ const OrganisationForm = (props) => {
                 </MenuItem> 
               }
          
-              {checkDaysList.map(day => (
+              {x.map(day => (
                 <MenuItem
                   key={day}
                   value={day}
@@ -155,21 +170,22 @@ const OrganisationForm = (props) => {
           </FormControl>
         
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={6} className="telephone">
           <TextFieldOrg
-            className="telephone-label"
+            type="tel"
+            className="mt"
             placeholder="Add telephone..."
             label="Telephone"
             name="Tel"
             multiline
             rowsMax="4"
-            value={props.telephone}
+            value={props.telephone && props.telephone !== 'undefined'? props.telephone : ''}
             onChange={props.onChange}
             fullWidth
           />
         </Grid>
       </Grid>
-      <Grid container spacing={24} className="margin-space">
+      <Grid container spacing={24} className="mt">
         <Grid item xs={12} sm={6}>
           <TextFieldOrg
             className="email-label"
@@ -185,6 +201,21 @@ const OrganisationForm = (props) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextFieldOrg
+            className="add-website "
+            placeholder="Add website..."
+            label="Website"
+            name="Website"
+            multiline
+            rowsMax="4"
+            value={props.website}
+            onChange={props.onChange}
+            fullWidth
+          />  
+        </Grid>
+      </Grid>
+      <Grid container spacing={24} className="mt">
+        <Grid item xs={12} sm={12}>
+          <TextFieldOrg
             className="email-label add-tag"
             label="Tags"
             placeholder="Add tags..."
@@ -197,22 +228,7 @@ const OrganisationForm = (props) => {
           />
         </Grid>
       </Grid>
-      <Grid container spacing={24}>
-        <Grid item xs={12} sm={12}>
-          <TextFieldOrg
-            className="add-website margin-space"
-            placeholder="Add website..."
-            label="Website"
-            name="Website"
-            multiline
-            rowsMax="4"
-            value={props.website}
-            onChange={props.onChange}
-            fullWidth
-          />
-        </Grid>
-      </Grid>
-      <h4 className="add-org-title categories-checkbox-title">Categories</h4>
+      <h4 className="add-org-title categories-checkbox-title mt">Categories</h4>
       <div className="add-categories-checkbox categories-checkbox">
         {categoriesName.map(category => helpers.linkMaker(category) === props.checkedCategory ?
           (

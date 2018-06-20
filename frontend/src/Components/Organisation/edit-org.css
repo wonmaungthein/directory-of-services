@@ -39,7 +39,6 @@
 }
 
 .org-form .organisation-name div div{
-  font-size: 150%;
   overflow: hidden;
 }
 
@@ -53,7 +52,7 @@
   border-radius: 0;
 }
 
-.org-form div.add-project { margin-top: 2rem; }
+.org-form div.add-project { margin-top: 1rem; }
 
 button.edit-button:hover,
 button.edit-button:active {
@@ -85,12 +84,13 @@ button.edit-button:active {
 
 .categories-checkbox{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 2fr);
   border: 2px solid #1abcd4;
-  padding: .7rem 0;
+  padding: .4rem 0;
   grid-gap: .3rem;
   margin-top: .6rem;
-  word-break: break-all;
+  grid-template-rows: repeat(8, 2fr);
+  grid-auto-flow: column;
 }
 
 .categories-checkbox span {
@@ -99,11 +99,10 @@ button.edit-button:active {
   padding: 0;
   text-align: center;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 70%;
+  font-size: 71%;
   word-break: break-word;
+  line-height: 1.6;
 }
-
-.categories-checkbox label { margin-left: 0;}
 
 .cancel-button{
   position: absolute !important;
@@ -138,12 +137,12 @@ button.edit-button:active {
 
 button.cancel-btn,
 button.save-btn {
-  padding: .2rem .4rem;
+  padding: 6px 10px;
   color: #fff;
   min-height: 5px;
   border-radius: 2px;
-  margin-right: .9rem;
-  margin-bottom: .8rem
+  margin-right: 1.2rem;
+  margin-bottom: .8rem;
 }
 
 button.cancel-btn {
@@ -160,6 +159,12 @@ button.cancel-btn:hover {
 
 button.save-btn:hover{
   background: #12cdf1;
+}
+
+.add-new-org button {
+  padding: 7px 8px;
+  float: right;
+  margin-right: 0;
 }
 
 .edit-org-title h2 {
@@ -200,7 +205,7 @@ button.edit-org-close:hover {
   box-shadow: inset 0 0 6px rgba(34, 39, 43, 0.13);
 }
 
- .edit-org div + div::-webkit-scrollbar-thumb {
+.edit-org div + div::-webkit-scrollbar-thumb {
   background: #46bdd4;
   
 }
@@ -220,18 +225,28 @@ button.edit-org-close:hover {
 }
 
 .org-form h4{
-  font-size: 78%;
+  font-size: 87%;
   margin-top: .6rem;
 }
 
 .org-form textarea {
-  font-size: 86%;
+  font-size: 84%;
   font-weight: 400;
+  color: #141414;
+  text-transform: capitalize;
 }
 
-.org-form .margin-space {
-  margin-top: .6rem;
+.add-new-org .day div label {
+  margin-top: 1.6rem;
 }
+
+/* #form-dialog-title h4 */
+.org-form .organisation-name { margin-top: 1rem; }
+.org-form .mt {
+  margin-top: 1.4rem;
+}
+
+.org-form .margin-tel {margin-top: 1.2rem;}
 
 .org-form div:before {
   background: rgb(13, 166, 195);
@@ -257,8 +272,8 @@ button.edit-org-close:hover {
 #menu-Borough ul li,
 #menu-Area ul li,
 #menu- ul li {
-  font-size: 82%;
-  color: rgba(0, 0, 0, 0.50);
+  font-size: 84%;
+  color: #141414;
   background: none;
 }
 
@@ -274,18 +289,25 @@ button.edit-org-close:hover {
   pointer-events: none;
 }
 
-.location-item {
-  font-size: 90%;
+.edit-content .location {
+  margin-top: .7rem; 
 }
 
-.location span {
+.location-item {
+  font-size: 90%;
+  display: flex;
+  align-items: center;
+  
+}
+
+.location .space {
   padding: 0 .6rem;
   margin: auto 0;
 }
 
 .add-borough div,
 .add-area div {
-  font-size: .8rem;
+  font-size: .80rem;
 }
 
 .days div{ color: #131114;}
@@ -296,14 +318,9 @@ button.edit-org-close:hover {
   padding: 0 16px;
 }
 
-#menu- div:first-child:before {
-  content: '\2716';
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  color: #d13a29;
-  cursor: pointer;
-  font-size: 15px;
+/* remove padding between day and checkbox */
+#menu- ul li span + div{
+  padding: 0;
 }
 
 #menu-Borough div ul,
@@ -324,6 +341,19 @@ button.edit-org-close:hover {
 
 .edit-org .org-close-btn { margin-right: -42px;}
 
+/*  edit organisation */
+div.mt .day,
+div.mt .telephone { margin-top: -1rem;}
+
+.org-form .mt-select {
+  margin-top: 2.1rem;
+  font-size: 84%;
+}
+
+.edit-day-field label {
+margin-top: 1rem;
+}
+
 @media (max-width: 551px){
   .org {
     width: 100%;
@@ -334,6 +364,11 @@ button.edit-org-close:hover {
     grid-template-columns: 0;
     padding: .1rem;
     grid-gap: .2rem;
+    grid-auto-flow: row;
+  }
+
+  .add-new-org button {
+    padding: 4px 4px;
   }
 
   #menu- > div + div{

@@ -49,6 +49,10 @@ div.avatar {
   cursor: pointer;
 }
 
+div.avatar:hover {
+  background: #1abcd4;
+}
+
 @media (max-width: 991px) {
   .top-nav-content {
     margin-left: 1em !important;

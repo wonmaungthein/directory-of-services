@@ -1,13 +1,17 @@
 .org-info div + div[role=document] {
   width: 100%;
-  max-width: 400px;
   padding: .4rem 1rem 1rem;
   overflow: hidden;
 }
 
 .org-info h1 {
   padding: 2rem 0 .78rem;
-  font-size: 140%;
+  font-size: 149%;
+}
+
+.org-card-info h1 {
+  padding: 0 0 .6rem; 
+  font-size: 110%;
 }
 
 .org-process,
@@ -21,21 +25,18 @@
 }
 
  p {
-  font-size: 80%;
+  font-size: 90%;
 }
 
 .website-link{
   display: block;
-  text-decoration: none;
   color: #1abcd4;
-  margin-top: 1rem;
-  font-size: 80%;
+  font-size: 97%;
 }
 
 .tag {
-  padding: .2rem 0;
   color: rgb(1, 45, 97);
-  font-size: 90%;
+  font-size: 100%;
   text-transform: capitalize;
 }
 
@@ -46,7 +47,7 @@
 .org-service, 
 .org-project,
 .org-process{
-  padding-bottom: .9rem;
+  padding-bottom: 1rem;
 }
 
 .org-project {
@@ -66,6 +67,12 @@
   padding: 5px;
 }
 
+.org-info h6.details-area,
+.org-card-info h6 { 
+  font-size: 85%; 
+  font-weight: 100;
+  color: rgba(0, 0, 0, 0.54);
+}
 
 @media (max-width: 400px){
   .org-process,

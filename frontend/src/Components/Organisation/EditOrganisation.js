@@ -191,7 +191,7 @@ class EditOrganisation extends React.Component {
           contentStyle={{width: 100, maxWidth: "none"}}
         >
           <DialogTitle id="form-dialog-title" className="edit-org-title"> 
-            Editing 
+            <div> {""}</div>
             <div className="org-close-btn"> 
               <Button
                 onClick={this.handleClose}

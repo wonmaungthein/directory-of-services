@@ -3,8 +3,29 @@
 }
 
 .not-available {
-  color: rgba(55, 17, 17, 0.6);
+  color: #ccc;
 }
 
-.organisation-page div.card { padding: 6px; }
+/* allow to control font-size in org card detail by modify font-sie of  div parent */
+/* .org-info { font-size: 15px; } */
 
+/* label title org edit - org detail info  */
+.edit-content .normal-weight,
+.edit-content label ,
+.edit-content h4.mt,
+.edit-content .location-name,
+.add-new-org label,
+.org-info h6,
+.org-info h4 {
+  color: #141414;
+  font-weight: 600;
+  font-size: 120%;
+}
+
+.org-form h4.add-org-title {
+  font-size: 92%;
+}
+
+.org-info {
+  font-size: 14px;
+}

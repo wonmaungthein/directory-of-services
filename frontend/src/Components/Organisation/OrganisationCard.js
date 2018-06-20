@@ -30,20 +30,20 @@ const OrganisationCard = ({
   <Paper label='org-card-info'>
     <EditOrganisation getData={getData} />
     <SingleOrganisation org={org} />
+    
+    { /*  Conditionally display services and process, if no info provided display  'not provided' in FE */ }
 
-    <h3>{org.org_name}</h3>
-    <h6> Area: {org.area} | Borough: {org.borough}</h6>
+    { org.org_name ? <h1>{org.org_name}</h1> : <h1 className="not-available"> Add organisation name ...</h1>}
+    <h6> Area: {org.area ? org.area : 'Add area   ...'} | Borough: {org.borough ? org.borough : 'Add borough ...'}</h6>
     <div className="org-card-services">
-
-      { /*  Conditionally display services and process, if no info provided display  'not provided' in FE */ }
 
       {org.service? <p> <span className="title"> <img src="https://png.icons8.com/material/17/1abcd4/administrative-tools.png" alt="administrative-tools" className="material-icons org-card-icon" /> </span> {org.service}</p>
       :
-      <p> <span className="title"> <img src="https://png.icons8.com/material/17/1abcd4/administrative-tools.png" alt="administrative-tools" className="material-icons org-card-icon" /> </span>Add services...</p>}
+      <p> <span className="title"> <img src="https://png.icons8.com/material/17/1abcd4/administrative-tools.png" alt="administrative-tools" className="material-icons org-card-icon" /> </span>Add services ...</p>}
 
       {org.process ? <p> <span className="title"> <i className="material-icons org-card-icon">access_time</i> </span> {org.process} </p> 
       :
-      <p> <span className="title"> <i className="material-icons org-card-icon">access_time</i> </span><span className="not-available"> Add process... </span></p>}
+      <p> <span className="title"> <i className="material-icons org-card-icon">access_time</i> </span><span className="not-available"> Add process ... </span></p>}
     </div>
   
   </Paper>

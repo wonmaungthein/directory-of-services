@@ -38,7 +38,6 @@ class SingleOrganisation extends Component {
     const { editIdx } = this.state;
     const currentlyEditing = editIdx === index;
     const uiMessage = 'Add';
-
     return currentlyEditing ? (
       <EditOrganisation
         editOrgData={org}
@@ -75,47 +74,57 @@ class SingleOrganisation extends Component {
           <EditOrganisation
             getData={() => this.editSelectedOrganisation(index)}
           />
-          <h1> {org.org_name} </h1>
+          {org.org_name.length > 0 ? <h1> {org.org_name} </h1>: <h1 className="not-available"> Add organisation name ... </h1>}
           <h6 className="details-area">
-            Area: {org.area} | Borough: {org.borough}
+            <span className="location-name">Area</span>: <span className="area">{org.area? org.area : 'Add area ...'} </span> | {"  "} 
+            <span className="location-name">Borough</span>: <span className="borough">{org.borough ? org.borough : 'Add borough ...' }</span>
           </h6>
           
           <div className="org-project">
-            {org.project ? <Fragment> <h4>Project</h4> <p className="service"> {org.project}</p>  </Fragment>
-              :<p className="not-available">{uiMessage} project...</p>}
+            <h4>Project</h4> 
+            {org.project ? <Fragment> <p className="service"> {org.project}</p>  </Fragment>
+              :<p className="not-available">{uiMessage} project ...</p>}
           </div>
           <div className="org-service">
-            {org.service? <Fragment> <h4>Services</h4> <p className="service"> {org.service}</p></Fragment>: 
-            <p className="not-available">{uiMessage} services...</p>}
+            <h4>Services</h4> 
+            {org.service? <Fragment> <p className="service"> {org.service}</p></Fragment>: 
+            <p className="not-available">{uiMessage} services ...</p>}
           </div>
 
           <div className="org-process">
             <div>
-              {org.process ? <Fragment><h4>Process</h4><p className="service">{org.process} </p> </Fragment> 
-                :<p className="not-available">{uiMessage} process...</p>}
+              <h4>Process</h4>
+              {org.process ? <Fragment><p className="service">{org.process} </p> </Fragment> 
+                :<p className="not-available">{uiMessage} process ...</p>}
             </div>
             <div>
-              {org.service_days? <Fragment><h4>Days</h4> <p>{org.service_days}</p></Fragment>
-                  :<p className="not-available">{uiMessage} days...</p>}
+              <h4>Days</h4> 
+              {org.service_days? <Fragment><p>{org.service_days}</p></Fragment>
+                  :<p className="not-available">{uiMessage} days ...</p>}
             </div>
           </div>
 
           <div className="org-contact">
             <div>
-              {org.telephone? <Fragment><h4>Telephone</h4> <p>{org.telephone}</p></Fragment>
+              <h4>Telephone</h4> 
+              {org.telephone && org.telephone !== "undefined"? <Fragment><p>{org.telephone}</p></Fragment>
                   :<p className="not-available" disable>{uiMessage} telephone...</p>}
             </div>
 
             <div>
-              {org.email_address? <Fragment><h4>Email</h4> <p>{org.email_address}</p></Fragment>
+              <h4>Email</h4> 
+              {org.email_address? <Fragment><p>{org.email_address}</p></Fragment>
                   :<p className="not-available">{uiMessage} email ...</p>}
             </div>
           </div>
-
-          {org.website ? <Fragment> <div className="org-website"><a className="website-link" target="blank" href={`${org.website}`}>{org.website}</a></div></Fragment>
-              : <p className="not-available"> {uiMessage} website... </p>}
+          <div className="org-website">
+            <h4>Website </h4> 
+            {org.website ? <Fragment> <a className="website-link" target="blank" href={`${org.website}`}>{org.website}</a></Fragment>
+                : <p className="not-available"> {uiMessage} website... </p>}
+          </div>
           <div className="org-service">
-            {org.tag ?   <Fragment><h4>Tags</h4><p className="tag service"> <img src="https://png.icons8.com/material/15/666666/tag-window.png" alt="tag" /> {org.tag}</p></Fragment>
+            <h4>Tags</h4> 
+            {org.tag ?   <Fragment><p className="tag service"> <img src="https://png.icons8.com/material/15/666666/tag-window.png" alt="tag" /> {org.tag}</p></Fragment>
               : <p className="not-available">  {uiMessage} tags... </p>}
           </div>
         </Dialog>

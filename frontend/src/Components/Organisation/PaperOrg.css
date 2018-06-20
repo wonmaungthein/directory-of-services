@@ -4,27 +4,29 @@
 */
 div.org-card-info {
   box-sizing: border-box;
-  padding: .85rem;
+  padding: 1.28rem .9rem ;
   position: relative;
   box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
   
 }
 
 /*  truncate text inside card */
-.org-card-info h3,
+.org-card-info h1,
+.org-card-info h6,
 .org-card-services p {
-  width: 80%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  /* Maximum width of 65characters */
+  max-width: 65ch;
 }
 
-.org-card-info h6,
 .org-info h6,
 .org-info h4{
   color: rgba(0, 0, 0, 0.54);
   font-size: 68%;
   font-weight: 100;
+  padding: .1rem 0;
 }
 
 .org-card-services {
@@ -85,23 +87,28 @@ div.org-card-info {
 .org-info .org-close-btn{ height: 0;}
 
 .org-card-info .org-detail-btn button {
-  top: 5.6rem;
+  top: 6.5rem;
   right: 0;
   left: 43%;
 }
 
 .org-info .org-edit-btn {
-  bottom: 0;
-  right: 0;
+  bottom: 6px;
+  right: 7px;
   position: absolute;
 }
 
+.org-info .org-edit-btn i{color: #fff;}
+
 .org-card-info .edit-button {
-  top: 5.4rem;
+  top: 6.4rem;
   right: 0;
   left: 70%;
 }
 
 .material-icons { font-size: 17px;}
 
-.org-close-btn i{ color: #bb2124; }
+.org-close-btn i{ 
+  color: #141414;
+  font-size: 25px; 
+}

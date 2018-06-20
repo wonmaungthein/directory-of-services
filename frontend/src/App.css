@@ -7,7 +7,7 @@
 }
 
 /*  color for text title and icons */
-h1, h2, h3, .material-icons, .categories-checkbox svg { 
+h1, h2, h3, .material-icons, .categories-checkbox svg, #menu- path { 
   color: #1abcd4;
   }
 
