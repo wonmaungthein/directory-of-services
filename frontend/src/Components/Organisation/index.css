@@ -29,3 +29,29 @@
 .org-info {
   font-size: 14px;
 }
+.health-advice-process >p{
+  margin-bottom: .5em;
+}
+.health-advice-process p{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.edit-button{
+  border: none !important;
+  background: transparent;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #1abcd4;
+  outline: none !important;
+}
+
+.distance{
+  color: #1abcd4;
+  border-bottom: .1em solid gray;
+  padding-bottom: .5em;
+  margin-bottom: .5em;
+}

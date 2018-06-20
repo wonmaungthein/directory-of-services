@@ -13,7 +13,7 @@ const styles = theme => ({
 function CircularIndeterminate(props) {
   const { classes } = props;
   return (
-    <div className={props.bgColor}>
+    <div className={`spinnerEdit ${props.bgColor}`}>
       <CircularProgress
         className={classes.progress}
         style={{ color: props.color }}
