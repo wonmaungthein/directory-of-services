@@ -3,11 +3,30 @@
   margin-top: 1.5em !important;
   padding: 0 1em;
 }
+.search-button{
+  position: absolute !important;
+  right: .5em !important;
+  top: .5em  !important;
+  background: #1abcd4  !important;
+  color: #fff  !important;
+  width: 35px !important;
+  height: 35px !important;
+}
+.postcode-error{
+  color: #f00;
+  position: absolute;
+  top: 47px;
+  left: 12px;
+}
 .org-search .post-code{
   display: grid;
-  grid-template-columns: 1fr 8fr;
+  grid-template-columns: 9fr 1fr;
   grid-gap: 1em;
+  position: relative;
 }
+ .post-code div{
+    width: 100% !important;
+  }
 .org-search .day{
   display: grid;
   grid-template-columns: 1fr;
@@ -17,10 +36,6 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1em;
-}
-.org-search .post-code h4{
-  color: #bbb;
-  padding-top: .5em;
 }
 
 .org-search .day,
@@ -39,7 +54,7 @@
   }
   .org-search .post-code{
     display: grid;
-    grid-template-columns: 1fr 8fr;
+    grid-template-columns: 9fr 1fr;
     grid-gap: 1em;
   }
   .org-search .day{
@@ -57,7 +72,6 @@
   .org-search .service{
     height: 1em !important;
   }
-  .org-search .post-code h4,
   .org-search .day h4,
   .org-search .service h4{
     justify-self: flex-start;

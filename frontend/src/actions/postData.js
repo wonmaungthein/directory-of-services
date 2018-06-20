@@ -37,3 +37,15 @@ export function validateToken(token) {
       .catch(error => error.response);
   return requestFun
 }
+
+export function getBranchesFilteredByPostCode(data) {
+  const sendInfo = async () => {
+    try {
+      const res = await axios.post(`${api}/service/postcode`, data)
+      return res;
+    } catch (err) {
+      return err;
+    }
+  }
+  return sendInfo
+}
