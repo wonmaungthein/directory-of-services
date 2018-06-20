@@ -61,9 +61,9 @@ class Reset extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { password, confirm, userId, email, token } = this.state;
-    const sideEmail = 'dirctoryofservice@hotmail.com';
+    const siteEmail = process.env.SIDE_EMAIL;
     if (password.length > 0 && password.length > 0 && password === confirm) {
-      this.props.requestChangePassword({ password, confirm, userId, email, token, sideEmail }).then(user => {
+      this.props.requestChangePassword({ password, confirm, userId, email, token, siteEmail }).then(user => {
         if (user.data && user.data.success !== false) {
           this.successRequest('Your password has been changed successfully');
           this.setState({ password: '', confirm: '' })
