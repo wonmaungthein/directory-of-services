@@ -87,10 +87,10 @@ button.edit-button:active {
   grid-template-columns: repeat(2, 2fr);
   border: 2px solid #1abcd4;
   padding: .4rem 0;
-  grid-gap: .3rem;
   margin-top: .6rem;
-  grid-template-rows: repeat(8, 2fr);
+  grid-template-rows: repeat(9, 2fr);
   grid-auto-flow: column;
+  margin: 0 -.2rem;
 }
 
 .categories-checkbox span {
@@ -359,12 +359,30 @@ margin-top: 1rem;
     width: 100%;
   } 
 
+  .org-info h1 {
+    padding: 1rem 0 0;
+    font-size: 100%;
+  }
+
+  .org-project {
+    padding-top: .8rem;
+  }
+
+  .org-info div + div[role=document] {
+    padding: 1rem 1rem 10rem;
+  }
+
   .categories-checkbox {
     display: grid;
     grid-template-columns: 0;
     padding: .1rem;
     grid-gap: .2rem;
     grid-auto-flow: row;
+    margin: 0 -24px;
+  }
+
+  button.cancel-btn, button.save-btn {
+    padding: 4px;
   }
 
   .add-new-org button {

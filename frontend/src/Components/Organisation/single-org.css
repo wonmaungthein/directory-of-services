@@ -64,7 +64,8 @@
 .org-info .edit-button {
   min-width: 0;
   min-height: 0;
-  padding: 5px;
+  padding: 9px;
+  top: 0;
 }
 
 .org-info h6.details-area,
@@ -74,10 +75,27 @@
   color: rgba(0, 0, 0, 0.54);
 }
 
-@media (max-width: 400px){
+@media (max-width: 430px){
+  div.org-info {
+    font-size: 12px;
+  }
+
   .org-process,
   .org-contact{
     grid-template-columns: 1fr;
     grid-gap: .6rem;
-  }   
+  } 
+  
+  .org-info .edit-button {
+    padding: 4px;
+  }
+
+  .org-website, 
+  .org-contact, 
+  .org-service, 
+  .org-project, 
+  .org-process {
+    padding-bottom: .3rem;
+  }
+
 }

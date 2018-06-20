@@ -28,9 +28,10 @@ const OrganisationForm = (props) => {
   const checkDaysList = [...uniqueDays]; 
   const x = [] 
 
-  // map over checkdaylist and create a new array of days that includes
-  // days from BE that meet the format uses on FE (days array), empty string, dash sign... will be exclude 
-  // on checkbox list
+// map over checkdaylist and create a new array of days that includes
+// days from BE that meet the format uses on FE (days array), empty string, dash sign... will be exclude 
+// on checkbox list
+
   checkDaysList.forEach(myDay => {
     days.forEach(el => {
       if (myDay.includes(el)) {
