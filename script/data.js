@@ -110,12 +110,18 @@ async function writedata() {
     YoungPeopleChildren
   ].map(item => removeDuplication(item));
 
+  // replace the underscores in each of the objects
+  function replaceKeys(obj, find, replace) {
+    return Object.keys(obj).reduce (
+      (acc, key) => Object.assign(acc, { [key.replace(find, replace)]: obj[key] }), {});
+  }
+
   function arrayFlattenner() {
     return filteredArray
       .reduce((acc, val) => acc.concat(val), [])
       .filter(function(el) {
         return el.Organisation !== "";
-      });
+      }).map(obj => replaceKeys(obj, /_/g, ''));
   }
 
   function addNewKeyValue() {
