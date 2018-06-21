@@ -5833,46 +5833,6 @@
     ]
   },
   {
-    "name": "",
-    "count": 2,
-    "branches": [
-      {
-        "Organisation": "",
-        "Area": "",
-        "Borough": "",
-        "Services": "",
-        "Website": "",
-        "Clients": "",
-        "Days": "",
-        "Telephone": "",
-        "Process": "",
-        "Email": "",
-        "Postcode": "",
-        "Address": "",
-        "categories": "Housing",
-        "project": "",
-        "tag": ""
-      },
-      {
-        "Organisation": "",
-        "Area": "",
-        "Borough": "",
-        "Services": "",
-        "Website": "",
-        "Clients": "",
-        "Day": "Tuesday",
-        "Telephone": "",
-        "Process": "",
-        "Email": "",
-        "Address": "",
-        "Postcode": "",
-        "categories": "Women",
-        "project": "",
-        "tag": ""
-      }
-    ]
-  },
-  {
     "name": "The Welcome Project",
     "count": 6,
     "branches": [
@@ -11572,7 +11532,7 @@
     "count": 25,
     "branches": [
       {
-        "_Organisation": "999 Club",
+        "Organisation": "999 Club",
         "Area": "South",
         "Borough": "Deptford",
         "Services": "Learning &\nActivities \nProgramme",
@@ -11589,7 +11549,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Acton Homeless Concern",
+        "Organisation": "Acton Homeless Concern",
         "Area": "West London",
         "Borough": "Ealing",
         "Services": "Refreshment and social activities",
@@ -11606,7 +11566,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Age UK Hounslow",
+        "Organisation": "Age UK Hounslow",
         "Area": "West",
         "Borough": "Hounslow",
         "Services": "Befriending \nservice",
@@ -11623,7 +11583,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Asylum Seekers Drop-in",
+        "Organisation": "Asylum Seekers Drop-in",
         "Area": "North",
         "Borough": "Barnet",
         "Services": "Food, social",
@@ -11640,7 +11600,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Barnet Refugee Service",
+        "Organisation": "Barnet Refugee Service",
         "Area": "North West London",
         "Borough": "",
         "Services": "Mother and toddler group",
@@ -11657,7 +11617,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Barons Court Project",
+        "Organisation": "Barons Court Project",
         "Area": "West London",
         "Borough": "Hammersmith and Fulham",
         "Services": "Socialising, cafe and laundry and shower facilities",
@@ -11674,7 +11634,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Children's society",
+        "Organisation": "Children's society",
         "Area": "East",
         "Borough": "Newham",
         "Services": "Advocacy and activities",
@@ -11691,7 +11651,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Crisis Skylight",
+        "Organisation": "Crisis Skylight",
         "Area": "East",
         "Borough": "Tower Hamlets",
         "Services": "Various Classes",
@@ -11708,7 +11668,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Haringey Migrant \nSupport Centre",
+        "Organisation": "Haringey Migrant \nSupport Centre",
         "Area": "North",
         "Borough": "Haringey",
         "Services": "Socialising, \nlunch",
@@ -11725,7 +11685,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "New Horizon Youth Centre",
+        "Organisation": "New Horizon Youth Centre",
         "Area": "North",
         "Borough": "Camden",
         "Services": "Socialising, \nlunch",
@@ -11742,7 +11702,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "The Bike Project",
+        "Organisation": "The Bike Project",
         "Area": "South",
         "Borough": "Dulwich",
         "Services": "Free Bikes",
@@ -11759,7 +11719,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Young Roots",
+        "Organisation": "Young Roots",
         "Area": "North",
         "Borough": "Brent",
         "Services": "Youth Group",
@@ -11776,7 +11736,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "St Mungo's Broadway Day Centre",
+        "Organisation": "St Mungo's Broadway Day Centre",
         "Area": "West",
         "Borough": "Hammersmith & Fulham",
         "Services": "",
@@ -11793,7 +11753,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "CARIS Haringey",
+        "Organisation": "CARIS Haringey",
         "Area": "East",
         "Borough": "Haringey",
         "Services": "Family Day Centre",
@@ -11810,7 +11770,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Croydon Refugee Day Centre ",
+        "Organisation": "Croydon Refugee Day Centre ",
         "Area": "South",
         "Borough": "Croydon",
         "Services": "Basic support: food, clothes, toiletries, showers, children's play, access to helpdesk and ESOL.",
@@ -11827,7 +11787,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Debtford Reach",
+        "Organisation": "Debtford Reach",
         "Area": "East",
         "Borough": "Lewisham",
         "Services": "Employment skills, alcohol and drug support, housing and benefits advice, health and lifestyle, mental health support, Offender rehabilitation, creative expression, meals, showers, laundry, clothing, leisure activities, safe postal address and more.",
@@ -11844,7 +11804,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Glass Door Homeless Charity",
+        "Organisation": "Glass Door Homeless Charity",
         "Area": "West and Central London",
         "Borough": "Hammersmith, Fulham, K & C, Barnes, Putney",
         "Services": "Emergency winter night shelter in churches across 5 boroughs. 100 beds per night; laundry and washing; advocacy and practical support. Two Drop-in Centres in Chelsea and Fulham: meals, advice, doctor appointments Tue pm.",
@@ -11861,7 +11821,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Hackney Migrant Centre",
+        "Organisation": "Hackney Migrant Centre",
         "Area": "East",
         "Borough": "Hackney",
         "Services": "Immigration, welfare and NHS/health advice; social activities, meals",
@@ -11878,7 +11838,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "London Jesus Centre",
+        "Organisation": "London Jesus Centre",
         "Area": "Central London",
         "Borough": "Camden",
         "Services": "Day Centre: food, clothing, laundry, showers, post, IT access. Some education; ESOL, Conversation etc.",
@@ -11895,7 +11855,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Ourmala",
+        "Organisation": "Ourmala",
         "Area": "",
         "Borough": "",
         "Services": "Free yoga",
@@ -11912,7 +11872,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Tennis2Be",
+        "Organisation": "Tennis2Be",
         "Area": "East, South",
         "Borough": "",
         "Services": "Donation based tennis lessons ",
@@ -11929,7 +11889,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Tennis for free",
+        "Organisation": "Tennis for free",
         "Area": "All",
         "Borough": "All",
         "Services": "Free tennis lessons and practice ",
@@ -11946,7 +11906,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Made in Hackney",
+        "Organisation": "Made in Hackney",
         "Area": "East ",
         "Borough": "Hackney",
         "Services": "Bi-weekly pay by donation (suggested at £5) 2 hour Sunday afternoon cooking workshops",
@@ -11963,7 +11923,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Dulwich Hamlet FC",
+        "Organisation": "Dulwich Hamlet FC",
         "Area": "South",
         "Borough": "Southwark",
         "Services": "A local friendly non-league football club that has a refugee solidarity group",
@@ -11980,7 +11940,7 @@
         "tag": ""
       },
       {
-        "_Organisation": "Branching Out",
+        "Organisation": "Branching Out",
         "Area": "South",
         "Borough": "Bromley",
         "Services": "Volunteer gardening project providing participants training in horticulture and horticulture techniques",

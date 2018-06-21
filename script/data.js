@@ -111,7 +111,11 @@ async function writedata() {
   ].map(item => removeDuplication(item));
 
   function arrayFlattenner() {
-    return filteredArray.reduce((acc, val) => acc.concat(val), []);
+    return filteredArray
+      .reduce((acc, val) => acc.concat(val), [])
+      .filter(function(el) {
+        return el.Organisation !== "";
+      });
   }
 
   function addNewKeyValue() {
