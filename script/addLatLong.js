@@ -17,8 +17,9 @@ function getPostcodes(data) {
   return filteredPost;
 }
 
+convertToJsonFile(getPostcodes(organisations), 'test')
 // Get postcode lat and long using external API with fetch function
-async function getOrgsLatAndLog() {
+async function getOrgsLatAndLog(postcodes) {
   try {
     const response = await Promise.all(
       postcodes.map(post =>
@@ -126,9 +127,9 @@ function convertToBranchesStructure(organisations) {
 
 // Compile all functions together to get final result
 async function finalResult() {
-  const data = await getOrgsLatAndLog();
+  const data = await getOrgsLatAndLog(postcodes);
   const orgs = await addLatLong(organisations, data);
-  convertToJsonFile(convertToBranchesStructure(orgs), 'newData')
+  convertToJsonFile(convertToBranchesStructure(orgs), 'originalData')
 }
 
 finalResult();
