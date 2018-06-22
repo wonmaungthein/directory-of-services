@@ -69,7 +69,7 @@ module.exports = {
           const { lat, long } = data;
           return latLongs.push({ lat, long, data })
         })
-        .then(() => helpers.geoNear(latInfo, longInfo, latLongs))
+        .map(() => helpers.geoNear(latInfo, longInfo, latLongs))
       return result;
     } catch (error) {
       return error;
