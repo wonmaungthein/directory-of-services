@@ -1,81 +1,8 @@
-.add-orgonaization{
-  padding: 15px;
-  margin-top: 1em;
-  margin-bottom: 5em;
-}
-.org-content.add-orgnaization >h1{
-  font-size: 1.5em;
-}
-.org-content .form-first-row,
-.org-content .form-second-row{
-  display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-  grid-gap: 1em;
-  margin-top: 1em;
-}
-.org-content .add-area,
-.org-content .add-borough{
-  width: 100% !important;
-}
-.org-content .add-website,
-.org-content .add-tag{
-  grid-column: 2/4;
-}
-.org-content .select-lable{
-  font-size: initial;
-  color: gray;
-}
-.add-website >div{
-  color: #1abcd4 !important;
-}
-.org-content .add-category{
-  margin-top: 1em;
-}
-.org-content .add-org-title{
-  padding-bottom: 1em;
-  display: block;
-  color: #bbb;
-  margin-top: 2em;
-}
-.org-content .add-email-website{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
-  margin-bottom: 1em;
-  margin-top: 1em;
-}
-.org-content .add-categories-checkbox{
-  display: grid;
-  grid-template-columns:repeat(5, 1fr);
-  grid-gap: 1em;
-  border: 1px solid #000;
-  border-radius: .5em;
-  padding: 1em;
-  border: 1px solid #bbb;
-  border-radius: .5em;
-  padding: 1em;
-  box-shadow: 1px 1px 9px 3px #bbb;
-}
-.add-categories-checkbox .checkbox{
-  text-overflow: ellipsis !important;
-  white-space: wrap !important;
-  overflow: hidden;
-}
-.checkbox-color{
-  color: #1abcd4 !important;
+.add-new-org {
+  padding: 1.5rem 1rem;
+  background: #fff;
 }
 
-.add-orgonaization-link{
-  background: #519889;
-  color: #fff;
-  padding: 8px 1em;
-  margin-top: 2em;
-  float: right;
-  border: navajowhite;
-  border-radius: .1em;
-  font-size: 1em;
-  box-shadow: 0px 2px 4px 2px #bbb;
-}
-.org-content .not-include-in-add-org{
-  display: none !important;
+.add-new-org button.save-btn {
+  margin-top: 1.4rem;
 }

@@ -79,13 +79,13 @@ class ForgotPassword extends Component {
                   Forgot password
                 </Typography>
                 <p className="forgot-info">
-                  Enter your email address we will sent you the password reset link.
+                  Enter your email address we will sent you a link to reset your password.
                 </p>
                 <Grid container spacing={24} onSubmit={this.handleSubmit}>
                   <form className="forgot-password-form">
                     <TextField
                       type='email'
-                      placeholder="Email"
+                      placeholder="Email..."
                       id="email"
                       name="email"
                       value={this.state.email}

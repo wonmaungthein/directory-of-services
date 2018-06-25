@@ -1,0 +1,11 @@
+
+
+.edit-content .normal-weight,
+.edit-content label {
+  font-size: 110%;
+}
+
+label.normal-weight + div {
+  padding: 6px 0 2px;
+  overflow: hidden;
+}

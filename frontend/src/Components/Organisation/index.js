@@ -38,6 +38,10 @@ class Organisations extends Component {
 
   componentDidMount() {
     const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url);
+     const index = category.indexOf("Young People and Children");
+      if (index !== -1) {
+          category[index] = "Young People/Children";
+      }
     this.props.getBranchsByCategory(category);
   }
 
@@ -172,7 +176,7 @@ class Organisations extends Component {
           handlePostSearch={this.handlePostSearch}
           postcodeError={this.state.postcodeError}
         />
-        <Grid container className="organisation-page" spacing={24}>
+        <Grid container className="organisation-page" spacing={24} wrap="wrap">
           {this.filterData(organisations.sort(this.dataOrder())).map((org, index) => {
             const currentlyEditing = editIdx === index;
             return currentlyEditing ? (
@@ -189,7 +193,7 @@ class Organisations extends Component {
                 />
               </Fragment>
             ) : (
-              <Grid item xs={12} sm={6} key={org.id}>
+              <Grid item xs={12} sm={6} key={org.id} className='card'> 
                 <OrganisationCard
                   getData={() => this.editSelectedOrganisation(index)}
                   org={org}

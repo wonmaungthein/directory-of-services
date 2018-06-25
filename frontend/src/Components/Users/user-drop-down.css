@@ -5,6 +5,7 @@
 }
 .user-drop-down .container{
   border-radius: 0;
+  margin-right: -4.8rem;
 }
 .user-drop-down a:nth-child(1){
   padding: 1em;
@@ -31,6 +32,7 @@
   align-items: center;
   padding: 1em;
   font-size: 1em;
+  cursor: pointer;
 }
 .user-drop-down .material-icons{
   font-size: 2em;
