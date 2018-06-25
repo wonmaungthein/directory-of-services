@@ -48,6 +48,7 @@
 .org-project,
 .org-process{
   padding-bottom: 1rem;
+  overflow-y: auto;
 }
 
 .org-project {

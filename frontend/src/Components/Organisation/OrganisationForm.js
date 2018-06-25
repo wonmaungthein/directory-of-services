@@ -26,7 +26,7 @@ const OrganisationForm = (props) => {
 // then I made a copy of this collection using spread operator
   const uniqueDays= new Set([...days, ...props.day]);
   const checkDaysList = [...uniqueDays]; 
-  const x = [] 
+  const checkableDays = [] 
 
 // map over checkdaylist and create a new array of days that includes
 // days from BE that meet the format uses on FE (days array), empty string, dash sign... will be exclude 
@@ -35,8 +35,8 @@ const OrganisationForm = (props) => {
   checkDaysList.forEach(myDay => {
     days.forEach(el => {
       if (myDay.includes(el)) {
-        if(x.indexOf(myDay) === -1){
-        x.push(myDay);
+        if(checkableDays.indexOf(myDay) === -1){
+        checkableDays.push(myDay);
         }
       }
     })
@@ -157,7 +157,7 @@ const OrganisationForm = (props) => {
                 </MenuItem> 
               }
          
-              {x.map(day => (
+              {checkableDays.map(day => (
                 <MenuItem
                   key={day}
                   value={day}
