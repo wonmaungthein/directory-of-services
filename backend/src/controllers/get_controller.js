@@ -56,6 +56,26 @@ module.exports = {
     }
   },
 
+  getBranchesByPostcode: async (categoryName, latInfo, longInfo) => {
+    const latLongs = [];
+    try {
+      const result = await Organisation
+        .query()
+        .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
+        .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
+        .where('branch:service:categories.cat_name', 'like', `%${categoryName}%`)
+        .map(data => helpers.fetchNestedObj(data))
+        .map(data => {
+          const { lat, long } = data;
+          return latLongs.push({ lat, long, data })
+        })
+        .map(() => helpers.geoNear(latInfo, longInfo, latLongs))
+      return result;
+    } catch (error) {
+      return error;
+    }
+  },
+
   getBranchesByCategory: async categoryName => {
     try {
       const result = await Organisation

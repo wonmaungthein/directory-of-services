@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
+import Avatar from 'material-ui/Avatar';
 import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
@@ -86,21 +87,18 @@ class TopNav extends Component {
               </Typography>
             </Grid>
             <Grid className="login-section" item xs={4}>
-              <Typography
-                variant="title"
-                color="inherit"
-                noWrap
-              >
-                {user}
-              </Typography>
-              <Button
+              <Avatar
                 onClick={this.showUserDropDown}
-                className="logo-button"
-                /* variant="fab" */
-                color="primary"
+                className="avatar"
               >
-                <i className="material-icons">person</i>
-              </Button>
+                <Typography
+                  variant="title"
+                  color="inherit"
+                  noWrap
+                >
+                  {user.charAt(0)}
+                </Typography>
+              </Avatar>
             </Grid>
           </Grid>
         </Toolbar>

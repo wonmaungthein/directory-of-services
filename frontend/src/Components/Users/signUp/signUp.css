@@ -6,24 +6,33 @@
 
 .sign-up-page {
     margin: 0 auto;
-    width: 358px;
-    margin-bottom: 4rem;
+    width: 350px;
+  margin-bottom: 4rem;
 }
 
-.sign-up-page .form-card {
+.sign-up-page .form-card,
+.forgot-password .form-card {
     box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22), 0 25px 55px 0 rgba(0,0,0,0.21);
+    padding: 1rem 1.7rem;
 }
 
 .form-card div {
-   width: 100%;
-   display: block;
-   margin: 5px auto;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 7px;
 }
 
+.sign-up-page div h1 {
+    font-size: 150%;
+    padding: .6rem 0;
+}
 .form-group {
     display: flex;
     flex-direction: column;
 }
+
+.form-group button span { font-size: 91%;}
 
 .form-group:last-child button {
     color: #fff;
@@ -78,10 +87,11 @@ input[type="password"]:after:focus {
 .form-group p{
     color: rgb(255, 0, 0);
     font-weight: 700;
+    font-size: 67%;
 }
 
-@media screen and (max-width:520px) {
-    .sign-up-page {
-        width: 70%;
+@media screen and (max-width:400px) {
+    .sign-up-page{
+        width: 90%;
     }
 }

@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 const fs = require("fs");
+const organisations = require('./organisations.json');
 ("use strict");
 
 const gDriveURL =
@@ -110,12 +111,22 @@ async function writedata() {
     YoungPeopleChildren
   ].map(item => removeDuplication(item));
 
-  function arrayFlattenner() {
-    return filteredArray.reduce((acc, val) => acc.concat(val), []);
+  // replace the underscores in each of the objects
+  function replaceKeys(obj, find, replace) {
+    return Object.keys(obj).reduce (
+      (acc, key) => Object.assign(acc, { [key.replace(find, replace)]: obj[key] }), {});
+  }
+
+  function arrayFlattenner(data) {
+    return data
+      .reduce((acc, val) => acc.concat(val), [])
+      .filter(function(el) {
+        return el.Organisation !== "";
+      }).map(obj => replaceKeys(obj, /_/g, ''));
   }
 
   function addNewKeyValue() {
-    return arrayFlattenner().map(el => {
+    return arrayFlattenner(organisations).map(el => {
       var o = Object.assign({}, el);
       o.project = "";
       o.tag = "";
@@ -123,7 +134,7 @@ async function writedata() {
     });
   }
   let flatData = JSON.stringify(addNewKeyValue(), null, 2);
-  fs.writeFile("organisations.json", flatData, err => {
+  fs.writeFile("updatedOrganisations.json", flatData, err => {
     if (err) throw err;
     console.log("Data written to file");
   });
