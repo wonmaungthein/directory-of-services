@@ -172,7 +172,7 @@ class Organisations extends Component {
           handlePostSearch={this.handlePostSearch}
           postcodeError={this.state.postcodeError}
         />
-        <Grid container className="organisation-page" spacing={24}>
+        <Grid container className="organisation-page" spacing={24} wrap="wrap">
           {this.filterData(organisations.sort(this.dataOrder())).map((org, index) => {
             const currentlyEditing = editIdx === index;
             return currentlyEditing ? (
@@ -189,7 +189,7 @@ class Organisations extends Component {
                 />
               </Fragment>
             ) : (
-              <Grid item xs={12} sm={6} key={org.id}>
+              <Grid item xs={12} sm={6} key={org.id} className='card'> 
                 <OrganisationCard
                   getData={() => this.editSelectedOrganisation(index)}
                   org={org}
