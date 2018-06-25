@@ -195,7 +195,6 @@ router.post('/forgot', (req, res) => {
       await updateUser(user[0].id, {
         resetPasswordExpires, resetPasswordToken
       })
-
       await nodemailerMailgun.sendMail({
         from: `${req.body.siteEmail}`,
         to: `${req.body.email}`,
@@ -243,7 +242,7 @@ router.post('/reset/:token', async (req, res) => {
         })
       })
       await nodemailerMailgun.sendMail({
-        from: `${req.body.sideEmail}`,
+        from: `${req.body.siteEmail}`,
         to: `${user[0].email}`,
         subject: 'Your password has been changed',
         text: `Hello,\n\n This is a confirmation that the password for your account ${user[0].email} has just been changed.\n`
