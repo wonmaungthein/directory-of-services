@@ -1,8 +1,8 @@
 # Converting the spreadsheet data to JSON format
 
 - We use the file data.js in our script folder to convert the spreadsheet data to JSON format.
-- The `getData()` function takes list of categories and a url of the spreadsheet and fetch each category and returns all categories in JSON format.
-- The `writeData()` function then takes the categories data and removes the duplicated organisations and the `arrayFlattener` function changes the data to be flat JSON, remove empty valued organisation and underscore from the array.
+- The `getData` function takes list of categories and a url of the spreadsheet and fetch each category and returns all categories in JSON format.
+- The `writeData` function then takes the categories data and removes the duplicated organisations and the `arrayFlattener` function changes the data to be flat JSON, remove empty valued organisation and underscore from the array.
 - The `addNewKeyValue` function then adds the project and tag keys to the JSON data.
 - Finally we take the returned value of `addNewKeyValue` function and write the data to organisation.json file.
 
