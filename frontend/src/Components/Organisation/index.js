@@ -4,11 +4,13 @@ import Grid from 'material-ui/Grid';
 import EditOrganisation from './EditOrganisation';
 import SingleOrganisation from './SingleOrganisation';
 import { getBranchsByCategory } from '../../actions/getApiData';
+import { getBranchesFilteredByPostCode } from '../../actions/postData';
 import Search from './Search';
 import TopNav from '../TopNav';
 import helpers from '../../helpers';
 import OrganisationCard from './OrganisationCard';
 import categoriesData from '../../Data/Categories.json';
+import Spinner from '../Spinner';
 import './index.css';
 
 function getSelectedCategory(match) {
@@ -28,6 +30,10 @@ class Organisations extends Component {
     day: '',
     borough: '',
     postCode: '',
+    postcodeError: '',
+    isLoading: false,
+    sort: false
+
   };
 
   componentDidMount() {
@@ -76,7 +82,38 @@ class Organisations extends Component {
     );
   };
 
-
+  handlePostSearch = async () => {
+    if (this.state.postCode.length === 0) {
+      this.setState({ postcodeError: 'Postcode is required *' })
+    } else if(this.state.postCode.length < 5) {
+      this.setState({ postcodeError: 'You have to inter valid postcode' })
+    }else {
+      const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url)[0];
+      const post = this.state.postCode.replace(/[' ']/g, '');
+      this.setState({ isLoading: true, postcodeError: '' })
+      const data = await fetch(`https://api.postcodes.io/postcodes/?q=${post}`);
+      const res = await data.json()
+      if (res.result && res.status === 200) {
+        this.setState({ isLoading: true, sort: true })
+        res.result.map(async info => {
+          const lat = info.latitude
+          const long = info.longitude
+          const getBranches = await this.props.getBranchesFilteredByPostCode({ category, lat, long })
+          const orgsData = [];
+          getBranches.data.filter(resData => resData.distance)
+            .map(branchs => {
+              const { distance } = branchs;
+              const orgs = branchs.data;
+              return orgsData.push({ distance, ...orgs })
+            })
+          this.setState({ organisations: orgsData })
+        })
+        this.setState({ isLoading: false })
+      } else {
+        this.setState({ postcodeError: 'Your postcode is incorrect', isLoading: false })
+      }
+    }
+  }
   editSelectedOrganisation = idex =>
     this.setState({
       editIdx: idex,
@@ -105,9 +142,18 @@ class Organisations extends Component {
     return data;
   }
 
+  dataOrder = () => {
+    if (!this.state.sort) {
+      return helpers.sortArrObj
+    }
+    return (a, b) => parseFloat(a.distance) - parseFloat(b.distance)
+  }
+
   render() {
     const { editIdx, category, postCode, borough, day, organisations } = this.state;
-
+    if (this.state.isLoading || this.filterData.length === 0) {
+      return <Spinner />
+    }
     return (
       <div>
         <TopNav
@@ -123,9 +169,11 @@ class Organisations extends Component {
           handleSelectedDay={this.handleSelectedDay}
           handleSelectedBorough={this.handleSelectedBorough}
           handlePostCodeChange={this.handlePostCodeChange}
+          handlePostSearch={this.handlePostSearch}
+          postcodeError={this.state.postcodeError}
         />
-        <Grid container className="organisation-page" spacing={24}>
-          {this.filterData(organisations.sort(helpers.sortArrObj)).map((org, index) => {
+        <Grid container className="organisation-page" spacing={24} wrap="wrap">
+          {this.filterData(organisations.sort(this.dataOrder())).map((org, index) => {
             const currentlyEditing = editIdx === index;
             return currentlyEditing ? (
               <Fragment>
@@ -141,7 +189,7 @@ class Organisations extends Component {
                 />
               </Fragment>
             ) : (
-              <Grid item xs={12} sm={6} key={org.id}>
+              <Grid item xs={12} sm={6} key={org.id} className='card'> 
                 <OrganisationCard
                   getData={() => this.editSelectedOrganisation(index)}
                   org={org}
@@ -162,4 +210,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { getBranchsByCategory })(Organisations);
+export default connect(mapStateToProps, { getBranchsByCategory, getBranchesFilteredByPostCode })(Organisations);

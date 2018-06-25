@@ -3,6 +3,7 @@ import NotificationSystem from 'react-notification-system';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Button from 'material-ui/Button';
 import OrganisationForm from './OrganisationForm';
 import { addOrganisation } from '../../actions/postData';
 import categoriesData from '../../Data/Categories.json';
@@ -160,7 +161,7 @@ class AddOrganisation extends Component {
       <div>
         <TopNav addLink="organisations/add" addOrg="Add new organisation" />
         <NotificationSystem ref="savedChanges" />
-        <div className="add-orgonaization">
+        <div className="add-new-org">
           <OrganisationForm
             name={this.state.Organisation}
             area={this.state.Area}
@@ -181,12 +182,15 @@ class AddOrganisation extends Component {
             check={this.state.isChecked}
             handleDefaultCheckbox={this.handleDefaultCheckbox}
           />
-          <button
-            className="add-orgonaization-link"
+          <Button
+            className="save-btn add-orgonaization-link"
             onClick={event => this.handleSubmit(event)}
+            color="primary"
+            size="small"
+            autoFocus
           >
             SAVE CHANGES
-          </button>
+          </Button>
         </div>
       </div>
     );

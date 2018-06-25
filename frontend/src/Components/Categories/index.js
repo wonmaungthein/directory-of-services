@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import helpers from '../../helpers';
 import categoriesData from '../../Data/Categories.json';
 import './categories.css';
@@ -22,7 +22,7 @@ class Categories extends Component {
           {data.sort().map((category) =>
             (
               <li key={category + 1}>
-                <Link to={`/services/${helpers.linkMaker(category)}`}>{helpers.categoryNameMaker(category)}</Link>
+                <NavLink to={`/services/${helpers.linkMaker(category)}`} activeClassName="is-active">{helpers.categoryNameMaker(category)}</NavLink>
               </li>
             )
           )}

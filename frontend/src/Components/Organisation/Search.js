@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'material-ui/Button';
 import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import { InputLabel } from 'material-ui/Input';
@@ -56,32 +57,35 @@ class Search extends React.Component {
     return (
       <Grid container spacing={24} className="org-search">
         <Grid item md={5} xs={12} className="post-code">
-          <h4>
+          <span>
+            <Autosuggest
+              theme={{
+                container: classes.container,
+                suggestionsContainerOpen: classes.suggestionsContainerOpen,
+                suggestionsList: classes.suggestionsList,
+                suggestion: classes.suggestion,
+              }}
+              className="post-code-suggesition"
+              renderInputComponent={helpers.renderInput}
+              suggestions={this.state.suggestions}
+              onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
+              onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
+              renderSuggestionsContainer={helpers.renderSuggestionsContainer}
+              getSuggestionValue={helpers.getSuggestionValue}
+              renderSuggestion={helpers.renderSuggestion}
+              inputProps={{
+                classes,
+                placeholder: 'Search Near',
+                name: 'postCode',
+                value: this.props.postCode,
+                onChange: this.props.handlePostCodeChange,
+              }}
+            />
+            <span className="postcode-error">{this.props.postcodeError}</span>
+          </span>
+          <Button variant="fab" mini color="secondary" onClick={this.props.handlePostSearch} aria-label="add" className="search-button">
             <i className="material-icons">search</i>
-          </h4>
-          <Autosuggest
-            theme={{
-              container: classes.container,
-              suggestionsContainerOpen: classes.suggestionsContainerOpen,
-              suggestionsList: classes.suggestionsList,
-              suggestion: classes.suggestion,
-            }}
-            className="post-code-suggesition"
-            renderInputComponent={helpers.renderInput}
-            suggestions={this.state.suggestions}
-            onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
-            onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
-            renderSuggestionsContainer={helpers.renderSuggestionsContainer}
-            getSuggestionValue={helpers.getSuggestionValue}
-            renderSuggestion={helpers.renderSuggestion}
-            inputProps={{
-              classes,
-              placeholder: 'Search Near',
-              name: 'postCode',
-              value: this.props.postCode,
-              onChange: this.props.handlePostCodeChange,
-            }}
-          />
+          </Button>
         </Grid>
         <Grid item md={4} xs={12} className="day">
           <FormControl className={classes.formControl}>

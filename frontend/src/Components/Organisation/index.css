@@ -1,17 +1,33 @@
 .organisation-page{
   padding: 1.5em 1em;
 }
-.form-card{
-  padding: 2em !important;
-  position: relative;
-  overflow: auto
+
+.not-available {
+  color: #ccc;
 }
-.single-orgonaization-details >h4 {
-  color: #1abcd4;
+
+/* allow to control font-size in org card detail by modify font-sie of  div parent */
+/* .org-info { font-size: 15px; } */
+
+/* label title org edit - org detail info  */
+.edit-content .normal-weight,
+.edit-content label ,
+.edit-content h4.mt,
+.edit-content .location-name,
+.add-new-org label,
+.org-info h6,
+.org-info h4 {
+  color: #141414;
+  font-weight: 600;
+  font-size: 120%;
 }
-.single-orgonaization-details >h6 {
-  color: #bbb;
-  padding-top: 1em;
+
+.org-form h4.add-org-title {
+  font-size: 92%;
+}
+
+.org-info {
+  font-size: 14px;
 }
 .health-advice-process >p{
   margin-bottom: .5em;
@@ -31,4 +47,11 @@
   font-weight: bold;
   color: #1abcd4;
   outline: none !important;
+}
+
+.distance{
+  color: #1abcd4;
+  border-bottom: .1em solid gray;
+  padding-bottom: .5em;
+  margin-bottom: .5em;
 }

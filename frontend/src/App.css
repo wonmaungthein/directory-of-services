@@ -3,4 +3,15 @@
   padding: 0;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
+
+/*  color for text title and icons */
+h1, h2, h3, .organisation-page .material-icons, .categories-checkbox svg, #menu- path { 
+  color: #1abcd4;
+  }
+
+  .categories-checkbox svg {
+    font-size: 1rem;
+    margin-right: -20px;
+  }
