@@ -1,6 +1,6 @@
 const fs = require("fs");
 const fetch = require('node-fetch');
-const organisations = require("./organisations.json");
+const organisations = require("./updatedOrganisations.json");
 const postcodes = require('./postcodes.json');
 
 // Write the data into file as JSON format
@@ -129,7 +129,7 @@ function convertToBranchesStructure(organisations) {
 async function finalResult() {
   const data = await getOrgsLatAndLog(postcodes);
   const orgs = await addLatLong(organisations, data);
-  convertToJsonFile(convertToBranchesStructure(orgs), 'originalData')
+  convertToJsonFile(convertToBranchesStructure(orgs), 'newData')
 }
 
 finalResult();
