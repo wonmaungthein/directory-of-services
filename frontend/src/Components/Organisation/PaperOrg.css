@@ -1,0 +1,114 @@
+/*****************************************************************************************************************************
+***************************{Organisation card css }*******************************************************************************                  *********************************
+*******************************************************************************************************************************
+*/
+div.org-card-info {
+  box-sizing: border-box;
+  padding: 1.28rem .9rem ;
+  position: relative;
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+  
+}
+
+/*  truncate text inside card */
+.org-card-info h1,
+.org-card-info h6,
+.org-card-services p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Maximum width of 65characters */
+  max-width: 65ch;
+}
+
+.org-info h6,
+.org-info h4{
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 68%;
+  font-weight: 100;
+  padding: .1rem 0;
+}
+
+.org-card-services {
+  padding: 1.2rem 0 .5rem;
+}
+
+.org-card-services p {
+  padding-bottom: .4rem;
+  font-size: 85%;
+}
+
+.org-card-services img,
+.material-icons{ 
+  vertical-align: middle;
+}
+
+.org-edit .edit-button {
+    box-shadow: 0 0;
+    background: transparent;
+}
+
+.org-card-info .detail-button,
+.org-card-info .edit-button {
+  background: transparent;
+  border: 0;
+  position: relative;
+  box-shadow: 0 0; 
+  height: 0; 
+  position: relative;
+
+}
+
+.org-card-info .detail-button:hover,
+.org-card-info .edit-button:hover,
+.org-card-info .detail-button:active,
+.org-card-info .edit-button:active,
+.org-info .close-button:hover,
+.org-info .close-button:active,
+.edit-org .close-button:hover,
+.edit-org .close-button:active  {
+  border-radius: 0;
+  background-color: transparent;
+  border: 0;
+  box-shadow: 0 0;
+}
+
+
+/*              organisation  detail     */
+
+.org-info .org-close-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: -31px;
+}
+
+.org-card-info .org-detail-btn,
+.org-card-info .org-edit-btn,
+.org-info .org-close-btn{ height: 0;}
+
+.org-card-info .org-detail-btn button {
+  top: 6.5rem;
+  right: 0;
+  left: 43%;
+}
+
+.org-info .org-edit-btn {
+  bottom: 6px;
+  right: 7px;
+  position: absolute;
+}
+
+.org-info .org-edit-btn i{color: #fff;}
+
+.org-card-info .edit-button {
+  top: 6.4rem;
+  right: 0;
+  left: 70%;
+}
+
+.material-icons { font-size: 17px;}
+
+.org-close-btn i{ 
+  color: #141414;
+  font-size: 25px; 
+}

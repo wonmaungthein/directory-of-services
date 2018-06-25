@@ -15,7 +15,12 @@
 }
 
 .categories a:hover {
-  background: #ddd;
-  color: #000;
-  font-weight: bold;
+  /* padding: 0.4rem 0.2rem 0.4rem 2rem; */
+  color: #fff;
+}
+
+.categories a.is-active {
+  background: #1abcd4;
+  padding: 0.4em 0.2em 0.4em 2em;
+  color: #fff;
 }
