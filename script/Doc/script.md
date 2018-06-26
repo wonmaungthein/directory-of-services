@@ -18,3 +18,8 @@
 # Postcode issues
 
 - The array of postcodes which are generated from getPostcodes function have some invalid postcodes(for example: “london”, “various locations”). This issue is coming from the original data from the spreadsheet.
+
+# How to run the scripts
+
+- use npm start to run `data.js` to get the flattened array of objects which is going to be written in the `organisations.json`.
+- After getting `organisations.json` run the next script `addLatLong.js` using `node addLatLong.js` to get the final usable JSON format in the `newDta.json` file which we can migrate it to our database.
