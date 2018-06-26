@@ -54,7 +54,7 @@
   justify-content: space-between;
 }
 
-.org-distance { color: #666; }
+.org-distance p{ color: #666; }
 
 /*  truncate text inside card */
 .org-distance h1 { max-width: 36ch; }
