@@ -75,7 +75,7 @@ class Search extends React.Component {
               renderSuggestion={helpers.renderSuggestion}
               inputProps={{
                 classes,
-                placeholder: 'Search Near',
+                placeholder: 'Enter postcode',
                 name: 'postCode',
                 value: this.props.postCode,
                 onChange: this.props.handlePostCodeChange,
