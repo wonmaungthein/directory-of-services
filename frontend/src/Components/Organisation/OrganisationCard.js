@@ -32,8 +32,15 @@ const OrganisationCard = ({
     <SingleOrganisation org={org} />
     
     { /*  Conditionally display services and process, if no info provided display  'not provided' in FE */ }
-    {org.distance ? <h1 className="distance">{org.distance}</h1> : null}
-    { org.org_name ? <h1>{org.org_name}</h1> : <h1 className="not-available"> Add organisation name ...</h1>}
+    
+    { org.org_name ? 
+      <span className={org.distance ? 'org-distance': ''}>
+        <h1>{org.org_name}</h1> 
+        {org.distance ? <p className="">{(org.distance).toFixed(1)} miles</p> : null}
+      </span>
+      : 
+      <h1 className="not-available"> Add organisation name ...</h1> 
+      }
     <h6> Area: {org.area ? org.area : 'Add area   ...'} | Borough: {org.borough ? org.borough : 'Add borough ...'}</h6>
     <div className="org-card-services">
 

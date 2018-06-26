@@ -135,7 +135,7 @@ class HomeSearch extends React.Component {
                   renderSuggestion={helpers.renderMainSearchSuggestion}
                   inputProps={{
                   classes,
-                  placeholder: 'Search',
+                  placeholder: 'Search by keyword',
                   value: this.state.value,
                   onChange: this.handleChange,
                   onKeyUp: this.handleKeyUp
