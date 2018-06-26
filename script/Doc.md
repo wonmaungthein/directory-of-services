@@ -1,7 +1,6 @@
 # How to run the script
 
- - npm start
-
+- npm start
 
 # Converting the spreadsheet data to JSON format
 
@@ -19,8 +18,3 @@
 - `addLatlong` function takes organisation.json data and the returnvalue of `getOrgsLatAndLong` function,then reurns array of organisations which have lat and long data.
 - `convertToBranchesStructure` function takes the return value of addLatlong function and convert the data structure to the final usable format.
 - `finalResult` function calls all the top functions and generate the new data.
-
-# Postcode issues
-
-- The array of postcodes which are generated from getPostcodes function have some invalid postcodes(for example: “london”, “various locations”). This issue is coming from the original data from the spreadsheet.
-
