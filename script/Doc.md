@@ -1,3 +1,8 @@
+# How to run the script
+
+ - npm start
+
+
 # Converting the spreadsheet data to JSON format
 
 - We use the file data.js in our script folder to convert the spreadsheet data to JSON format.
@@ -19,7 +24,3 @@
 
 - The array of postcodes which are generated from getPostcodes function have some invalid postcodes(for example: “london”, “various locations”). This issue is coming from the original data from the spreadsheet.
 
-# How to run the scripts
-
-- use npm start to run `data.js` to get the flattened array of objects which is going to be written in the `updatedOrganisations.json`.
-- After getting `updatedOrganisations.json` call convertToJsonFile(getPostcodes(organisations), 'postcodes') function at end addLatLong.js file then run node addLatLong.js to get postcodes, then run run node addLatLong.js again to get the final usable JSON format in the `newDta.json` file which we can migrate it to our database.

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const fetch = require('node-fetch');
 const organisations = require("./updatedOrganisations.json");
-const postcodes = require('./postcodes.json');
+const PCodeRegEx = RegExp('([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\s?[0-9][A-Za-z]{2})');
 
 // Write the data into file as JSON format
 function convertToJsonFile(data, fileName) {
@@ -14,12 +14,14 @@ function getPostcodes(data) {
   const posts = [];
   data.map(orgs => posts.push(orgs.Postcode.replace(/[' ']/g, '')));
   const filteredPost = posts.filter((elem, index, self) => index === self.indexOf(elem) && elem)
-  return filteredPost;
+  const postcodeData = filteredPost.filter(postcode => postcode.match(PCodeRegEx))
+  const cleanPostCode = postcodeData.map(postcode => postcode.replace(/[\r\n]/g, ''))
+  return cleanPostCode;
 }
 
-convertToJsonFile(getPostcodes(organisations), 'test')
 // Get postcode lat and long using external API with fetch function
-async function getOrgsLatAndLog(postcodes) {
+async function getOrgsLatAndLog() {
+  const postcodes = await getPostcodes(organisations);
   try {
     const response = await Promise.all(
       postcodes.map(post =>
@@ -127,7 +129,7 @@ function convertToBranchesStructure(organisations) {
 
 // Compile all functions together to get final result
 async function finalResult() {
-  const data = await getOrgsLatAndLog(postcodes);
+  const data = await getOrgsLatAndLog();
   const orgs = await addLatLong(organisations, data);
   convertToJsonFile(convertToBranchesStructure(orgs), 'newData')
 }
