@@ -21,5 +21,5 @@
 
 # How to run the scripts
 
-- use npm start to run `data.js` to get the flattened array of objects which is going to be written in the `organisations.json`.
-- After getting `organisations.json` run the next script `addLatLong.js` using `node addLatLong.js` to get the final usable JSON format in the `newDta.json` file which we can migrate it to our database.
+- use npm start to run `data.js` to get the flattened array of objects which is going to be written in the `updatedOrganisations.json`.
+- After getting `updatedOrganisations.json` call convertToJsonFile(getPostcodes(organisations), 'postcodes') function at end addLatLong.js file then run node addLatLong.js to get postcodes, then run run node addLatLong.js again to get the final usable JSON format in the `newDta.json` file which we can migrate it to our database.
