@@ -49,9 +49,12 @@
   outline: none !important;
 }
 
-.distance{
-  color: #1abcd4;
-  border-bottom: .1em solid gray;
-  padding-bottom: .5em;
-  margin-bottom: .5em;
+.org-distance{
+  display: flex;
+  justify-content: space-between;
 }
+
+.org-distance { color: #666; }
+
+/*  truncate text inside card */
+.org-distance h1 { max-width: 36ch; }
