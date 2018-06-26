@@ -1,6 +1,5 @@
 const fetch = require("node-fetch");
 const fs = require("fs");
-const organisations = require('./organisations.json');
 ("use strict");
 
 const gDriveURL =
@@ -113,20 +112,21 @@ async function writedata() {
 
   // replace the underscores in each of the objects
   function replaceKeys(obj, find, replace) {
-    return Object.keys(obj).reduce (
-      (acc, key) => Object.assign(acc, { [key.replace(find, replace)]: obj[key] }), {});
+    return Object.keys(obj).reduce(
+      (acc, key) => Object.assign(acc, { [key.replace(find, replace)]: obj[key] }),{});
   }
 
-  function arrayFlattenner(data) {
-    return data
+  function arrayFlattenner() {
+    return filteredArray
       .reduce((acc, val) => acc.concat(val), [])
       .filter(function(el) {
         return el.Organisation !== "";
-      }).map(obj => replaceKeys(obj, /_/g, ''));
+      })
+      .map(obj => replaceKeys(obj, /_/g, ""));
   }
 
   function addNewKeyValue() {
-    return arrayFlattenner(organisations).map(el => {
+    return arrayFlattenner().map(el => {
       var o = Object.assign({}, el);
       o.project = "";
       o.tag = "";
