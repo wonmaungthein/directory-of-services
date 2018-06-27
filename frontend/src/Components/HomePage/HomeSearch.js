@@ -214,6 +214,7 @@ class HomeSearch extends React.Component {
     this.setState(
       {
         postCode: newValue,
+        isPostcode: true
       }
     );
   };
