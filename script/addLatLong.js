@@ -19,7 +19,7 @@ function getPostcodes(data) {
   return cleanPostCode;
 }
 
-// Get postcode lat and long using external API with fetch function
+// Get lat and long from the postcode using external API with fetch function
 async function getOrgsLatAndLog() {
   const postcodes = await getPostcodes(organisations);
   try {

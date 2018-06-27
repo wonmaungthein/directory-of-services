@@ -2,6 +2,8 @@
 
 - npm start
 
+- npm start runs both data.js and addLatlong.js
+
 # Converting the spreadsheet data to JSON format
 
 - We use the file data.js in our script folder to convert the spreadsheet data to JSON format.
@@ -12,6 +14,7 @@
 
 # Add latitude and longtude keys to organisation.json
 
+- We use the file addLatLong.js in our script folder to convert the the return data from data.js to the final JSON format.
 - converToJsonFile function takes data and filename and create a file in json format.
 - `getPostcodes` function takes organisation.json file and returns array of postcodes
 - `getOrgsLatAndLong` function takes array of postcodes and a url of postcodes.io,then make a fetch request for each postcode and returns array of (postcode,lon,lat ) objects.
