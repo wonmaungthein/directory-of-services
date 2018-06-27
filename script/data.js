@@ -118,10 +118,7 @@ async function writedata() {
   // replace the underscores in each of the objects
   function replaceKeys(obj, find, replace) {
     return Object.keys(obj).reduce(
-      (acc, key) =>
-        Object.assign(acc, { [key.replace(find, replace)]: obj[key] }),
-      {}
-    );
+      (acc, key) => Object.assign(acc, { [key.replace(find, replace)]: obj[key] }),{});
   }
 
   function arrayFlattenner() {
