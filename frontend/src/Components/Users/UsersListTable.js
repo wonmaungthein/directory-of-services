@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Table, {
   TableBody,
   TableCell,
@@ -17,13 +19,19 @@ import Save from 'material-ui-icons/Save';
 import NotificationSystem from 'react-notification-system';
 import Notification from './Notification';
 
+import { upDateUser} from '../../actions/loginActions';
+
 import UsersTableHead from './UsersTableHead';
 import './user-table.css';
 
-export default class UsersListTable extends Component {
+class UsersListTable extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
+      fullname: '',
+      organisation: '',
+      role: '',
+      id: '',
       order: 'asc',
       orderBy: 'fullname',
       selected: [],
@@ -52,22 +60,50 @@ export default class UsersListTable extends Component {
     
   }
 
-  savedChangesSuccessfully = () => {
+  savedChangesSuccessfully = (message) => {
     this.state.notificationSystem.addNotification({
       title: 'Success',
-      message: 'Your Changes have been saved successfully',
+      message, 
       level: 'success',
     });
   };
 
-  unSucessSavedChanges = event => {
-    event.preventDefault();
+  unSucessSavedChanges = message => {
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
-      message: 'Your Changes have not been saved successfully',
+      message,
       level: 'error',
     });
   };
+
+  handleSubmit = (e, id) => {
+    e.preventDefault();
+    console.log('handlesub', this.state)
+    const data = this.state.data[id - 1]
+    // {
+    //   fullname: this.state.fullname,
+    //   role: this.state.role,
+    //   organisation: this.state.organisation,
+    //   id:id
+    // }
+    console.log('handle submit', data)
+    this.props.upDateUser(data)
+    .then(user => {
+      if(user.status === 200) {
+        console.log('props', user);
+        
+        this.context.router.history.push('/users')
+        this.savedChangesSuccessfully(user.data.message);
+      } else {
+        this.unSucessSavedChanges(user.data.message);
+        
+      }
+    })
+      .then(user => console.log(user))
+
+    // this.savedChangesSuccessfully();
+  };
+  
 
   handleRequestSort = (event, property) => {
     const orderBy = property;
@@ -120,24 +156,50 @@ export default class UsersListTable extends Component {
     }));
   };
 
-  startEditing = index => {
-    this.setState({ editIdx: index });
+  startEditing = (index, data) => {
+    console.log('from edit', data);
+    this.setState({ 
+      editIdx: index,
+        fullname: data.fullname,
+        organisation: data.organisation,
+      role: data.role, 
+    });
   };
 
   stopEditing = () => {
     this.setState({ editIdx: -1 }, this.savedChangesSuccessfully());
   };
 
-  handleUserDataChange = (e, index) => {
-    const { value } = e.target;
-    this.setState({
-      data: this.state.data.map(
-        (row, rowIndex) =>
-          rowIndex === index ? { ...row, [e.target.name]: value } : row,
-      ),
-    });
-  };
+  handleData = (data) => {
+    if(this.state.fullname.length === 0) {
+      this.setState({
+        fullname: data.fullname,
+        organisation: data.organisation,
+        role: data.role,
+      })
+    } else {
+      return null;
+    }
+  }
 
+  handleUserDataChange = (e, userId) => {
+    console.log('handledatachange', userId);
+    const { value } = e.target;
+    const users = this.state.data;
+    users[userId -1][e.target.name] = value;
+    this.setState({
+      [e.target.name]: value,
+      data: [...users]
+    })
+
+    console.log('data', userId, this.state.data)
+    // this.setState({
+    //   data: this.state.data.map(
+    //     (row, rowIndex) =>
+    //       rowIndex === index ? { ...row, [e.target.name]: value } : row,
+    //   ),
+    // });
+  };
   render() {
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows = null;
@@ -157,21 +219,23 @@ export default class UsersListTable extends Component {
           {data
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((row, index) => {
-              const currentlyEditing = editIdx === index;
+              const currentlyEditing = editIdx === row.id;
+              {/* {console.log('after current')} */}
               return currentlyEditing ? (
                 <tr key={row.id}>
+                  { this.handleData(row) }
                   <TableCell className="user-text">
                     <TextField
                       name="fullname"
-                      onChange={e => this.handleUserDataChange(e, index)}
-                      value={row.fullname}
+                      onChange={e => this.handleUserDataChange(e, row.id)}
+                      value={this.state.fullname}
                     />
                   </TableCell>
                   <TableCell className="user-text">
                     <TextField
                       name="organisation"
-                      onChange={e => this.handleUserDataChange(e, index)}
-                      value={row.organisation}
+                      onChange={e => this.handleUserDataChange(e, row.id)}
+                      value={this.state.organisation}
                     />
                   </TableCell>
                   <TableCell className="user-text">
@@ -182,8 +246,8 @@ export default class UsersListTable extends Component {
                       <Select
                         open={this.state.open}
                         onClose={this.handleClose}
-                        value={row.role}
-                        onChange={e => this.handleUserDataChange(e, index)}
+                        value={this.state.role}
+                        onChange={e => this.handleUserDataChange(e, row.id)}
                         inputProps={{
                           name: 'role',
                           id: 'controlled-open-select',
@@ -203,7 +267,7 @@ export default class UsersListTable extends Component {
                       size="small"
                       type="submit"
                       className="edit-user-button"
-                      onClick={this.stopEditing}
+                      onClick={(e) => this.handleSubmit(e, row.id)}
                     >
                       <Save className="save" /> save
                     </Button>
@@ -217,7 +281,7 @@ export default class UsersListTable extends Component {
                   </Hidden>
                   <TableCell className="user-text">{row.role? row.role : 'None'}</TableCell>
                   <TableCell className="user-text">
-                    <Button onClick={() => this.startEditing(index)} raised>
+                    <Button onClick={() => this.startEditing(row.id, row)} raised>
                       <i className="material-icons">edit</i>
                     </Button>
                     <Notification
@@ -261,3 +325,13 @@ export default class UsersListTable extends Component {
     );
   }
 }
+
+UsersListTable.PropsTypes = {
+  upDateUser: PropTypes.func.isRequired
+}
+
+UsersListTable.contextTypes = {
+  router: PropTypes.object.isRequired,
+}
+
+export default connect (null, { upDateUser })(UsersListTable);

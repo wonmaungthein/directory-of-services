@@ -10,7 +10,8 @@ module.exports = {
     Users.query().findById(userId),
 
   updateUser: (userId, userData) =>
-    Users.query().skipUndefined().patch(userData).where('id', userId),
+    Users.query().skipUndefined().patch(userData).where('id', userData[userId])
+      .returning('*'),
 
   deleteUser: userId =>
     Users.query().deleteById(userId),
