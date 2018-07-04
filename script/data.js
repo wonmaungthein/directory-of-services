@@ -1,6 +1,11 @@
 const fetch = require("node-fetch");
 const fs = require("fs");
+const fetchedData = require("./fetchedDataFromSpreadsheet.json");
 ("use strict");
+
+/*
+At the moment since the URL below has broken,we used the old
+data (fetchedDataFromSpreadsheet.json) which is fetched from the same URL.
 
 const gDriveURL =
   "https://script.google.com/macros/s/AKfycbygukdW3tt8sCPcFDlkMnMuNu9bH5fpt7bKV50p2bM/exec?id=150tJxB_4MwKG1EqD1EGbFibIsN_E5LAzUh-r4Bqvq8o&sheet=";
@@ -43,9 +48,9 @@ async function getData() {
     throw err;
   }
 }
-
+*/
 async function writedata() {
-  let readData = await getData();
+  const readData = fetchedData;
   const filteredArray = [];
   const [
     Debt,
@@ -133,13 +138,8 @@ async function writedata() {
       return o;
     });
   }
-  let flatData = JSON.stringify(addNewKeyValue(), null, 2);
-  fs.writeFile("updatedOrganisations.json", flatData, err => {
-    if (err) throw err;
-    console.log("Data written to file");
-  });
 
-  console.log("This is after the write call");
+  return addNewKeyValue();
 }
 
-writedata();
+module.exports.writedata = writedata;
