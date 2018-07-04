@@ -138,13 +138,8 @@ async function writedata() {
       return o;
     });
   }
-  let flatData = JSON.stringify(addNewKeyValue(), null, 2);
-  fs.writeFile("updatedOrganisations.json", flatData, err => {
-    if (err) throw err;
-    console.log("Data written to file");
-  });
 
-  console.log("This is after the write call");
+  return addNewKeyValue();
 }
 
-writedata();
+module.exports.writedata = writedata;

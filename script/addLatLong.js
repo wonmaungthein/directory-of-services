@@ -1,6 +1,6 @@
 const fs = require("fs");
 const fetch = require('node-fetch');
-const organisations = require("./updatedOrganisations.json");
+const writeData = require("./data.js")
 const PCodeRegEx = RegExp('([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\s?[0-9][A-Za-z]{2})');
 
 // Write the data into file as JSON format
@@ -9,19 +9,28 @@ function convertToJsonFile(data, fileName) {
   fs.writeFileSync(`${fileName}.json`, stringData);
 }
 
+//Get the data from data.js
+async function getFilteredOrgdata () {
+  const orgWithNOLatLong = await writeData.writedata()
+  return orgWithNOLatLong
+}
+
 // Get postcodes from original data
-function getPostcodes(data) {
+async function getPostcodes() {
+  const orgWithNOLatLong = await getFilteredOrgdata()
   const posts = [];
-  data.map(orgs => posts.push(orgs.Postcode.replace(/[' ']/g, '')));
+  orgWithNOLatLong.map(orgs => posts.push(orgs.Postcode.replace(/[' ']/g, "")));
   const filteredPost = posts.filter((elem, index, self) => index === self.indexOf(elem) && elem)
   const postcodeData = filteredPost.filter(postcode => postcode.match(PCodeRegEx))
   const cleanPostCode = postcodeData.map(postcode => postcode.replace(/[\r\n]/g, ''))
+  console.log('postcode', cleanPostCode)
   return cleanPostCode;
 }
 
 // Get lat and long from the postcode using external API with fetch function
 async function getOrgsLatAndLog() {
-  const postcodes = await getPostcodes(organisations);
+  const postcodes = await getPostcodes();
+  // console.log('postcode', postcodes)
   try {
     const response = await Promise.all(
       postcodes.map(post =>
@@ -44,8 +53,8 @@ async function getOrgsLatAndLog() {
 }
 
 // Add lat and long to organisation
-function addLatLong(organisations, latLong) {
-  return organisations.map(org => {
+function addLatLong(orgWithNOLatLong, latLong) {
+  return orgWithNOLatLong.map(org => {
     const {
       Area, Organisation, Clients, categories, Email, project, tag, Website,
       Tel, Process, Postcode, Services, Borough, Day, Address
@@ -100,10 +109,10 @@ function addLatLong(organisations, latLong) {
 }
 
 // Conver data that you added lat and long to, to original data stucture.
-function convertToBranchesStructure(organisations) {
+function convertToBranchesStructure(orgWithNOLatLong) {
   let newOrgs = [];
   let data = [];
-  organisations.map(item => {
+  orgWithNOLatLong.map(item => {
     if (!newOrgs.includes(item.Organisation)) {
       newOrgs.push(item.Organisation);
 
@@ -129,9 +138,11 @@ function convertToBranchesStructure(organisations) {
 
 // Compile all functions together to get final result
 async function finalResult() {
+  const orgWithNOLatLong = await getFilteredOrgdata()
   const data = await getOrgsLatAndLog();
-  const orgs = await addLatLong(organisations, data);
-  convertToJsonFile(convertToBranchesStructure(orgs), 'newData')
+  const orgs = await addLatLong(orgWithNOLatLong, data);
+  return convertToJsonFile(convertToBranchesStructure(orgs), 'newData')
 }
 
 finalResult();
+

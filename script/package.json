@@ -4,7 +4,7 @@
   "description": "",
   "main": "data.js",
   "scripts": {
-    "start": "node data.js; node addLatLong.js",
+    "start": "node addLatLong.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
