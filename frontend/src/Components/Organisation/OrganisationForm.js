@@ -20,8 +20,8 @@ const sortedBorough = BoroughData.map(borough => borough.borough).filter((elem, 
 ).sort();
 
 const OrganisationForm = (props) => {
-  // const categories = props.categories.categories ? props.categories.categories : [];
   const checkedCategory = helpers.addSpaceToCategName(categories, props.checkedCategory);
+  
 // I create a collection of days which combine days from days array and props.day and return unique value (no repetition of day )
 // then I made a copy of this collection using spread operator
   const uniqueDays= new Set([...days, ...props.day]);
