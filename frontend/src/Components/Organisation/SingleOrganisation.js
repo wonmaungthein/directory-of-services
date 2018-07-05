@@ -80,10 +80,17 @@ class SingleOrganisation extends Component {
             <span className="location-name">Borough</span>: <span className="borough">{org.borough ? org.borough : 'Add borough ...' }</span>
           </h6>
           
-          <div className="org-project">
-            <h4>Project</h4> 
-            {org.project ? <Fragment> <p className="service"> {org.project}</p>  </Fragment>
-              :<p className="not-available">{uiMessage} project ...</p>}
+          <div className="org-project org-contact">
+            <div>
+              <h4>Project</h4> 
+              {org.project ? <Fragment> <p className="service"> {org.project}</p>  </Fragment>
+                :<p className="not-available">{uiMessage} project ...</p>}
+            </div>
+            <div>
+              <h4>Clients</h4> 
+              {org.Clients ? <Fragment> <p className="service"> {org.Clients}</p>  </Fragment>
+                :<p className="not-available">{uiMessage} clients ...</p>}
+            </div>
           </div>
           <div className="org-service">
             <h4>Services</h4> 
@@ -117,15 +124,25 @@ class SingleOrganisation extends Component {
                   :<p className="not-available">{uiMessage} email ...</p>}
             </div>
           </div>
-          <div className="org-website">
-            <h4>Website </h4> 
-            {org.website ? <Fragment> <a className="website-link" target="blank" href={`${org.website}`}>{org.website}</a></Fragment>
+          <div className="org-website org-process">
+            <div>
+              <h4>Website </h4> 
+              {org.website ? <Fragment> <a className="website-link" target="blank" href={`${org.website}`}>{org.website}</a></Fragment>
                 : <p className="not-available"> {uiMessage} website... </p>}
+            </div>
+            <div>
+              <h4>Postcode </h4> 
+              {org.postcode ? <p> {org.postcode}</p>
+                : <p className="not-available"> {uiMessage} postcode... </p>}
+            </div>
           </div>
           <div className="org-service">
-            <h4>Tags</h4> 
-            {org.tag ?   <Fragment><p className="tag service"> <img src="https://png.icons8.com/material/15/666666/tag-window.png" alt="tag" /> {org.tag}</p></Fragment>
-              : <p className="not-available">  {uiMessage} tags... </p>}
+           
+            <div>
+              <h4>Tags</h4> 
+              {org.tag ?   <Fragment><p className="tag service"> <img src="https://png.icons8.com/material/15/666666/tag-window.png" alt="tag" /> {org.tag}</p></Fragment>
+                : <p className="not-available">  {uiMessage} tags... </p>}
+            </div>
           </div>
         </Dialog>
       </Fragment>
