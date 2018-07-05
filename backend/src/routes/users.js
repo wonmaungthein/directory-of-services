@@ -121,20 +121,21 @@ router.patch('/user/role', async (req, res) => {
       organisation,
       userId
     } = req.body
-    await updateUser(userId, {
+    const userUpdated = await updateUser(userId, {
       role,
       fullname,
       organisation,
-      id: userId
+      userId
     });
     res.status(200).json({
       success: true,
-      message: 'user updated successfully',
+      message: 'User updated successfully',
+      userUpdated
     })
   } catch (err) {
     res.status(502).json({
       success: false,
-      message: 'user did not update',
+      message: 'User has not been updated',
       err
     })
   }

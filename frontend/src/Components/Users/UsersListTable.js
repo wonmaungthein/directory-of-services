@@ -11,7 +11,6 @@ import Table, {
 import Button from 'material-ui/Button';
 import Hidden from 'material-ui/Hidden';
 import TextField from 'material-ui/TextField';
-import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
@@ -76,22 +75,17 @@ class UsersListTable extends Component {
     });
   };
 
-  handleSubmit = (e, id) => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    console.log('handlesub', this.state)
-    const data = this.state.data[id - 1]
-    // {
-    //   fullname: this.state.fullname,
-    //   role: this.state.role,
-    //   organisation: this.state.organisation,
-    //   id:id
-    // }
-    console.log('handle submit', data)
+    const data = {
+      fullname: this.state.fullname,
+      role: this.state.role,
+      organisation: this.state.organisation,
+      id:this.state.id
+    };
     this.props.upDateUser(data)
     .then(user => {
       if(user.status === 200) {
-        console.log('props', user);
-        
         this.context.router.history.push('/users')
         this.savedChangesSuccessfully(user.data.message);
       } else {
@@ -99,9 +93,6 @@ class UsersListTable extends Component {
         
       }
     })
-      .then(user => console.log(user))
-
-    // this.savedChangesSuccessfully();
   };
   
 
@@ -157,7 +148,6 @@ class UsersListTable extends Component {
   };
 
   startEditing = (index, data) => {
-    console.log('from edit', data);
     this.setState({ 
       editIdx: index,
         fullname: data.fullname,
@@ -170,35 +160,15 @@ class UsersListTable extends Component {
     this.setState({ editIdx: -1 }, this.savedChangesSuccessfully());
   };
 
-  handleData = (data) => {
-    if(this.state.fullname.length === 0) {
-      this.setState({
-        fullname: data.fullname,
-        organisation: data.organisation,
-        role: data.role,
-      })
-    } else {
-      return null;
-    }
-  }
-
   handleUserDataChange = (e, userId) => {
-    console.log('handledatachange', userId);
     const { value } = e.target;
-    const users = this.state.data;
-    users[userId -1][e.target.name] = value;
+    const updateData = [...this.state.data];
+     updateData[userId -1 ][e.target.name] = value;
     this.setState({
       [e.target.name]: value,
-      data: [...users]
+      data: [...updateData],
+      id: userId,
     })
-
-    console.log('data', userId, this.state.data)
-    // this.setState({
-    //   data: this.state.data.map(
-    //     (row, rowIndex) =>
-    //       rowIndex === index ? { ...row, [e.target.name]: value } : row,
-    //   ),
-    // });
   };
   render() {
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
@@ -220,10 +190,8 @@ class UsersListTable extends Component {
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((row, index) => {
               const currentlyEditing = editIdx === row.id;
-              {/* {console.log('after current')} */}
               return currentlyEditing ? (
                 <tr key={row.id}>
-                  { this.handleData(row) }
                   <TableCell className="user-text">
                     <TextField
                       name="fullname"
@@ -240,9 +208,6 @@ class UsersListTable extends Component {
                   </TableCell>
                   <TableCell className="user-text">
                     <FormControl className="form-control-filed">
-                      <InputLabel htmlFor="controlled-open-select">
-                        Role
-                      </InputLabel>
                       <Select
                         open={this.state.open}
                         onClose={this.handleClose}
@@ -267,7 +232,7 @@ class UsersListTable extends Component {
                       size="small"
                       type="submit"
                       className="edit-user-button"
-                      onClick={(e) => this.handleSubmit(e, row.id)}
+                      onClick={this.handleSubmit}
                     >
                       <Save className="save" /> save
                     </Button>

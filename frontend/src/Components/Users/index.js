@@ -7,7 +7,6 @@ import { getListOfUsers} from '../../actions/getApiData';
 import TopNav from '../TopNav';
 import AddUser from './AddUser';
 import UsersListTable from './UsersListTable';
-import usersData from './usersData.json';
 
 import './users.css';
 
