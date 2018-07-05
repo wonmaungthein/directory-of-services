@@ -162,14 +162,12 @@ class UsersListTable extends Component {
 
   handleUserDataChange = (e, userId) => {
     const { value } = e.target;
-    const updateData = [...this.state.data];
-     updateData[userId -1 ][e.target.name] = value;
     this.setState({
       [e.target.name]: value,
-      data: [...updateData],
       id: userId,
     })
   };
+  
   render() {
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows = null;

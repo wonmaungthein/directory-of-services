@@ -113,24 +113,24 @@ router.put('/users/:userId', async (req, res) => {
   })
 });
 
+// Use this route to modify user role, org name, fullname
 router.patch('/user/role', async (req, res) => {
   try {
     const {
       role,
       fullname,
       organisation,
-      userId
+      id
     } = req.body
-    const userUpdated = await updateUser(userId, {
+    await updateUser(id, {
       role,
       fullname,
       organisation,
-      userId
+      id
     });
     res.status(200).json({
       success: true,
-      message: 'User updated successfully',
-      userUpdated
+      message: 'User updated successfully'
     })
   } catch (err) {
     res.status(502).json({
