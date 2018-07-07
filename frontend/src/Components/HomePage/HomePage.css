@@ -42,7 +42,6 @@ i{ cursor: pointer;}
   background: transparent;
   border: 0;
   height: 10px;
-  
 }
 
 .clear-search i.material-icons {
@@ -75,6 +74,8 @@ button.btn-search:hover { background: #1abcd4; }
   border: navajowhite;
   position: absolute;
   cursor: pointer;
+  outline: none;
+  z-index: 100000;
   right: 0 ;
   top: 0 ;
 }
