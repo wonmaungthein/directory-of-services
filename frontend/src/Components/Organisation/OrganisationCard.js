@@ -34,9 +34,11 @@ const OrganisationCard = ({
     { /*  Conditionally display services and process, if no info provided display  'not provided' in FE */ }
     
     { org.org_name ? 
-      <span className={org.distance ? 'org-distance': ''}>
+      <span className={org.distance || org.distance === null ? 'org-distance': ''}>
         <h1>{org.org_name}</h1> 
-        {org.distance ? <p className="">{(org.distance).toFixed(1)} miles</p> : null}
+        {org.distance && org.distance !== null ? <p>{(org.distance).toFixed(1)} miles</p> 
+        : 
+        org.distance === null ? <p>Does not have postcode or not correct</p> : null}
       </span>
       : 
       <h1 className="not-available"> Add organisation name ...</h1> 
