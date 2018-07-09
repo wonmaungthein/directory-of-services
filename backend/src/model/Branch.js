@@ -16,7 +16,8 @@ export default class Branch extends Model {
         org_id: { type: ['integer', 'null'] },
         borough: { type: 'string' },
         project: { type: 'string' },
-        tag: { type: 'string' }
+        tag: { type: 'string' },
+        Clients: { type: 'string' }
       }
     };
   }

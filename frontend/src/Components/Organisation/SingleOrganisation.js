@@ -87,9 +87,9 @@ class SingleOrganisation extends Component {
                 :<p className="not-available">{uiMessage} project ...</p>}
             </div>
             <div>
-              <h4>Clients</h4> 
+              <h4>Clients Accepted</h4> 
               {org.Clients ? <Fragment> <p className="service"> {org.Clients}</p>  </Fragment>
-                :<p className="not-available">{uiMessage} clients ...</p>}
+                :<p className="not-available">{uiMessage} Clients Accepted...</p>}
             </div>
           </div>
           <div className="org-service">

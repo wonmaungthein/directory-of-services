@@ -223,6 +223,7 @@ class EditOrganisation extends React.Component {
               project={this.state.project}
               tag={this.state.tag}
               postcode={this.state.postcode}
+              Clients={this.state.Clients}
               checkedCategory={checkedCategory}
               openSelect={this.state.openSelect}
               closeSelect={this.handleClose}

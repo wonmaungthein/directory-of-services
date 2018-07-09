@@ -123,8 +123,8 @@ const OrganisationForm = (props) => {
         <Grid item xs={12} sm={6}>
           <TextFieldOrg
             className="mt"
-            placeholder="Add clients..."
-            label="Clients"
+            placeholder="Add Client Accepted..."
+            label="Client Accepted"
             name="Clients"
             multiline
             rowsMax="4"
