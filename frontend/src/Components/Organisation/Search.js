@@ -134,7 +134,7 @@ class Search extends React.Component {
               }}
             >
               <MenuItem value="">
-                <em>None</em>
+                <em>All Borough</em>
               </MenuItem>
               {boroughs.map(borough => <MenuItem value={borough}>{borough}</MenuItem>)}
             </Select>
