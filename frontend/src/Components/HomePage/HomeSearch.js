@@ -38,7 +38,7 @@ const styles = theme => ({
 
 class HomeSearch extends React.Component {
   state = {
-    organisationsBeforFilterByPOstcode: [],
+    organisationsBeforFilterByPostcode: [],
     postcodeSuggestions: [],
     postcodeValue: '',
     organisations: [],
@@ -68,7 +68,7 @@ class HomeSearch extends React.Component {
         index === self.findIndex(orgs => orgs.postCode === elem.postCode)
       )
       : [];
-      this.setState({ organisations, postcodes, organisationsBeforFilterByPOstcode: organisations });
+      this.setState({ organisations, postcodes, organisationsBeforFilterByPostcode: organisations });
   }
 
   // allow user to press enter key for search
@@ -108,7 +108,7 @@ class HomeSearch extends React.Component {
   }
 
   clearPostcodeField = () => {
-    const data = this.state.organisationsBeforFilterByPOstcode
+    const data = this.state.organisationsBeforFilterByPostcode
     this.setState({
       postCode: '',
       postcodeValue: '',
