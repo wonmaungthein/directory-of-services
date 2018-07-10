@@ -38,6 +38,7 @@ const styles = theme => ({
 
 class HomeSearch extends React.Component {
   state = {
+    organisationsBeforFilterByPostcode: [],
     postcodeSuggestions: [],
     postcodeValue: '',
     organisations: [],
@@ -67,7 +68,7 @@ class HomeSearch extends React.Component {
         index === self.findIndex(orgs => orgs.postCode === elem.postCode)
       )
       : [];
-    this.setState({ organisations, postcodes });
+      this.setState({ organisations, postcodes, organisationsBeforFilterByPostcode: organisations });
   }
 
   // allow user to press enter key for search
@@ -107,10 +108,13 @@ class HomeSearch extends React.Component {
   }
 
   clearPostcodeField = () => {
+    const data = this.state.organisationsBeforFilterByPostcode
     this.setState({
       postCode: '',
       postcodeValue: '',
       isPostcode: false,
+      organisations: data,
+      postcodes: []
     })
   }
 
@@ -118,7 +122,7 @@ class HomeSearch extends React.Component {
     if (this.state.postCode.length === 0) {
       return null;
     } else if (this.state.postCode.length < 5) {
-      this.setState({ postcodeError: 'You have to inter valid postcode' })
+      this.setState({ postcodeError: 'The postcode you have entered is invalid.' })
     } else {
       const post = this.state.postCode.replace(/[' ']/g, '');
       this.setState({ isLoading: true, postcodeError: '' })
@@ -146,13 +150,11 @@ class HomeSearch extends React.Component {
     }
   }
 
-  updateSearchData = (e) => {
-    e.preventDefault();
-    if (this.state.postCode.length > 0) {
-      this.setState({ postcodeValue: this.state.postCode, isPostcode: true })
-      this.handlePostSearch()
-    }
-    this.setState({ search: this.state.value })
+  updateSearchData = () => {
+    // Remove x sign uses to clear input when user start search 
+    this.setState({ search: this.state.value, isHidden: true})
+    this.setState({ postcodeValue: this.state.postCode, isPostcode: false })
+    this.handlePostSearch()
   }
 
   filterData = (orgs) => {
@@ -225,6 +227,24 @@ class HomeSearch extends React.Component {
     if (this.state.isLoading || this.filterData.length === 0 || organisations.length <= 0) {
       return <Spinner />
     }
+    const searchResult = (
+      this.filterData(organisations.sort(this.dataOrder()))
+          .map((org, index) => {const currentlyEditing = editIdx === index;
+            return currentlyEditing ? (
+              <Fragment>
+                <EditOrganisation stopEditing={this.stopEditing} editOrgData={org} show />
+                <SingleOrganisation stopEditing={this.stopEditing} handleShawDetails org={org} />
+              </Fragment>)
+          :(
+            <Grid item xs={12} sm={6} key={org.id}>
+              <OrganisationCard
+                getData={() => this.editSelectedOrganisation(index)}
+                org={org}
+                index={index}
+              />
+            </Grid>);
+              })
+              );
     if (!this.props.match.url.includes('/users')) {
       return (
         <div>
@@ -291,6 +311,7 @@ class HomeSearch extends React.Component {
                     name: 'postCode',
                     value: this.state.postCode,
                     onChange: this.handlePostCodeChange,
+                    onKeyUp: this.handleKeyUp
                   }}
                 />
                 <button
@@ -308,7 +329,6 @@ class HomeSearch extends React.Component {
                     close
                   </i>
                 </button>
-                <span className="postcode-error">{this.state.postcodeError}</span>
               </span>
               <Button
                 onClick={this.updateSearchData}
@@ -320,27 +340,9 @@ class HomeSearch extends React.Component {
                 Search
               </Button>
             </Grid>
-            {this
-              .filterData(organisations.sort(this.dataOrder()))
-              .map((org, index) => {
-                const currentlyEditing = editIdx === index;
-                return currentlyEditing
-                  ? (
-                    <Fragment>
-                      <EditOrganisation stopEditing={this.stopEditing} editOrgData={org} show />
-                      <SingleOrganisation stopEditing={this.stopEditing} handleShawDetails org={org} />
-                    </Fragment>
-                  )
-                  : (
-                    <Grid item xs={12} sm={6} key={org.id}>
-                      <OrganisationCard
-                        getData={() => this.editSelectedOrganisation(index)}
-                        org={org}
-                        index={index}
-                      />
-                    </Grid>
-                  );
-              })}
+            
+            { this.state.postcodeError ? <span className="postcode-error">{this.state.postcodeError}</span>
+              : searchResult}
           </Grid>
         </div >
       );
