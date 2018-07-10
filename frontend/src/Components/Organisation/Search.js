@@ -37,7 +37,7 @@ const boroughs = BoroughData.map(borough => borough.borough).filter((elem, index
 
 class Search extends React.Component {
   state = {
-    suggestions: [],
+    suggestions: []
   };
 
   handleSuggestionsFetchRequested = ({ value }) => {
@@ -57,7 +57,7 @@ class Search extends React.Component {
     return (
       <Grid container spacing={24} className="org-search">
         <Grid item md={5} xs={12} className="post-code">
-          <span>
+          <span  className="postcode-field">
             <Autosuggest
               theme={{
                 container: classes.container,
@@ -81,6 +81,21 @@ class Search extends React.Component {
                 onChange: this.props.handlePostCodeChange,
               }}
             />
+            <button
+              variant="raised"
+              size="small"
+              color="secondary"
+              className={!this.props.isPostcode ? 'hidden' : 'clear-postcode'}
+              onClick={this.props.clearPostcodeField}
+            >
+              <i
+                className="material-icons"
+                size="small"
+                variant="raised"
+              >
+                close
+              </i>
+            </button>
             <span className="postcode-error">{this.props.postcodeError}</span>
           </span>
           <Button variant="fab" mini color="secondary" onClick={this.props.handlePostSearch} aria-label="add" className="search-button">
@@ -100,7 +115,7 @@ class Search extends React.Component {
               }}
             >
               <MenuItem value="">
-                <em>None</em>
+                <em>Any Day</em>
               </MenuItem>
               {days.map(day => <MenuItem value={day.day}>{day.day}</MenuItem>)}
             </Select>
