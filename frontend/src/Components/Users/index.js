@@ -41,22 +41,6 @@ class UsersPage extends Component {
     });
   };
 
-  // handleSubmit = e => {
-  //   e.preventDefault();
-  //   console.log(this.state)
-  //   this.props.upDateUser(this.state)
-  //     .then(user => console.log(user))
-  //   // this.savedChangesSuccessfully();
-  // };
-
-  // addNewUserHandler = () => {
-  //   usersData.unshift({
-  //     fullname: this.state.fullname,
-  //     organisation: this.state.organisation,
-  //     role: this.state.role,
-  //   });
-  // };
-
   handleFieldUpdate = e =>
     this.setState({
       [e.target.name]: e.target.value,
