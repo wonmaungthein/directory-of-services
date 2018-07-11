@@ -24,6 +24,7 @@ function getSelectedCategory(match) {
 
 class Organisations extends Component {
   state = {
+    orgsBeforeFilteredByPostcode: [],
     organisations: [],
     editIdx: -1,
     category: getSelectedCategory(this.props.match),
@@ -32,7 +33,8 @@ class Organisations extends Component {
     postCode: '',
     postcodeError: '',
     isLoading: false,
-    sort: false
+    sort: false,
+    isPostcode: false
 
   };
 
@@ -51,6 +53,7 @@ class Organisations extends Component {
     this.setState({
       category: getSelectedCategory(newProps.match),
       organisations: oganisation,
+      orgsBeforeFilteredByPostcode: oganisation
     });
   }
 
@@ -81,6 +84,7 @@ class Organisations extends Component {
     this.setState(
       {
         postCode: newValue,
+        isPostcode: true
       },
       this.filterByPostcode(newValue),
     );
@@ -131,13 +135,46 @@ class Organisations extends Component {
   filterData = (data) => {
     const { day, borough } = this.state;
     if (day.length > 0 && borough.length > 0) {
-      return data.filter(orgs =>
-        orgs.service_days.includes(day) && orgs.borough.includes(borough)
-      )
+      return data.filter(orgs => {
+        const allDays = 
+        orgs.service_days.includes('Monday') &&
+        orgs.service_days.includes('Tuesday') &&
+        orgs.service_days.includes('Wednesday') &&
+        orgs.service_days.includes('Thursday') &&
+        orgs.service_days.includes('Friday') &&
+        orgs.service_days.includes('Saturday') &&
+        orgs.service_days.includes('Sunday');
+        
+        const allDaysWithMonToFriFormat = 
+        orgs.service_days.includes('Saturday') &&
+        orgs.service_days.includes('Sunday') &&
+        orgs.service_days.includes('Mon-Fri');
+
+        const monToFri =  orgs.service_days.match('Mon-Fri');
+        
+        return orgs.service_days.includes(day) || allDaysWithMonToFriFormat  || 
+        allDays || monToFri && orgs.borough.includes(borough)
+      })
     } else if (day.length > 0 && borough.length <= 0) {
-      return data.filter(orgs =>
-        orgs.service_days.includes(day)
-      )
+      return data.filter(orgs => {
+        const allDays = 
+        orgs.service_days.includes('Monday') &&
+        orgs.service_days.includes('Tuesday') &&
+        orgs.service_days.includes('Wednesday') &&
+        orgs.service_days.includes('Thursday') &&
+        orgs.service_days.includes('Friday') &&
+        orgs.service_days.includes('Saturday') &&
+        orgs.service_days.includes('Sunday');
+
+        const allDaysWithMonToFriFormat = 
+        orgs.service_days.includes('Saturday') &&
+        orgs.service_days.includes('Sunday') &&
+        orgs.service_days.includes('Mon-Fri');
+
+        const monToFri =  orgs.service_days.match('Mon-Fri');
+
+        return orgs.service_days.includes(day) || allDaysWithMonToFriFormat || allDays || monToFri;
+      })
     } else if (day.length <= 0 && borough.length > 0) {
       return data.filter(orgs =>
         orgs.borough.includes(borough)
@@ -151,6 +188,15 @@ class Organisations extends Component {
       return helpers.sortArrObj
     }
     return (a, b) => parseFloat(a.distance) - parseFloat(b.distance)
+  }
+
+  clearPostcodeField = () => {
+    const data = this.state.orgsBeforeFilteredByPostcode
+    this.setState({
+      organisations: data,
+      isPostcode: false,
+      postCode: ''
+    })
   }
 
   render() {
@@ -175,6 +221,8 @@ class Organisations extends Component {
           handlePostCodeChange={this.handlePostCodeChange}
           handlePostSearch={this.handlePostSearch}
           postcodeError={this.state.postcodeError}
+          clearPostcodeField={this.clearPostcodeField}
+          isPostcode={this.state.isPostcode}
         />
         <Grid container className="organisation-page" spacing={24} wrap="wrap">
           {this.filterData(organisations.sort(this.dataOrder())).map((org, index) => {
