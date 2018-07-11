@@ -37,15 +37,13 @@ i{ cursor: pointer;}
 .clear-search{
   cursor: pointer;
   position: relative;
-  top: 9px;
-  right: 17px;
   background: transparent;
   border: 0;
   height: 10px;
-  
 }
 
-.clear-search i.material-icons {
+.clear-search i.material-icons,
+.clear-postcode i.material-icons {
   color: #999;
   font-size: 17px;
 }
@@ -54,7 +52,7 @@ i{ cursor: pointer;}
 
 .search-input{
   display: grid;
-  grid-template-columns: 7fr 1.5fr 1.5fr;
+  grid-template-columns: 4.5fr 4.5fr 1fr;
   grid-gap: .7rem;
 }
 
@@ -64,3 +62,26 @@ i{ cursor: pointer;}
 
 button.btn-search,
 button.btn-search:hover { background: #1abcd4; }
+
+.postcode-field {
+  position: relative !important;
+  width: 100%;
+}
+
+.clear-search i.material-icons,
+.postcode-field .clear-postcode{
+  background: transparent;
+  border: navajowhite;
+  position: absolute;
+  cursor: pointer;
+  outline: none;
+  z-index: 100000;
+  right: 0 ;
+  top: 7px ;
+}
+
+@media (max-width: 591px){
+  .search-input{
+    grid-template-columns: 1fr;
+  }
+}

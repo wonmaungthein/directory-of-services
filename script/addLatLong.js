@@ -1,7 +1,7 @@
 const fs = require("fs");
 const fetch = require('node-fetch');
-const organisations = require("./updatedOrganisations.json");
-const postcodes = require('./postcodes.json');
+const finalData = require("./data.js")
+const PCodeRegEx = RegExp('([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\s?[0-9][A-Za-z]{2})');
 
 // Write the data into file as JSON format
 function convertToJsonFile(data, fileName) {
@@ -10,16 +10,19 @@ function convertToJsonFile(data, fileName) {
 }
 
 // Get postcodes from original data
-function getPostcodes(data) {
+async function getPostcodes() {
   const posts = [];
-  data.map(orgs => posts.push(orgs.Postcode.replace(/[' ']/g, '')));
+  finalData.map(orgs => posts.push(orgs.Postcode.replace(/[' ']/g, "")));
   const filteredPost = posts.filter((elem, index, self) => index === self.indexOf(elem) && elem)
-  return filteredPost;
+  const postcodeData = filteredPost.filter(postcode => postcode.match(PCodeRegEx))
+  const cleanPostCode = postcodeData.map(postcode => postcode.replace(/[\r\n]/g, ''))
+  return cleanPostCode;
 }
 
-convertToJsonFile(getPostcodes(organisations), 'test')
-// Get postcode lat and long using external API with fetch function
-async function getOrgsLatAndLog(postcodes) {
+// Get lat and long from the postcode using external API with fetch function
+async function getOrgsLatAndLog() {
+  const postcodes = await getPostcodes();
+  // console.log('postcode', postcodes)
   try {
     const response = await Promise.all(
       postcodes.map(post =>
@@ -42,11 +45,11 @@ async function getOrgsLatAndLog(postcodes) {
 }
 
 // Add lat and long to organisation
-function addLatLong(organisations, latLong) {
-  return organisations.map(org => {
+function addLatLong(orgWithNOLatLong, latLong) {
+  return orgWithNOLatLong.map(org => {
     const {
-      Area, Organisation, Clients, categories, Email, project, tag, Website,
-      Tel, Process, Postcode, Services, Borough, Day, Address
+      Area, Organisation, Clients, Categories, Email, Project, Tag, Website,
+      Tel, Process, Postcode, Services, Borough, Days, Address
     } = org;
     for (const post in latLong) {
       const orgPostcode = org.Postcode.replace(/[' ']/g, '');
@@ -58,17 +61,17 @@ function addLatLong(organisations, latLong) {
           Area,
           Organisation,
           Clients,
-          categories,
+          Categories,
           Email,
-          project,
-          tag,
+          Project,
+          Tag,
           Website,
           Tel,
           Process,
           Postcode,
           Services,
           Borough,
-          Day,
+          Days,
           lat,
           long,
           Address
@@ -79,17 +82,17 @@ function addLatLong(organisations, latLong) {
       Area,
       Organisation,
       Clients,
-      categories,
+      Categories,
       Email,
-      project,
-      tag,
+      Project,
+      Tag,
       Website,
       Tel,
       Process,
       Postcode,
       Services,
       Borough,
-      Day,
+      Days,
       lat: '',
       long: '',
       Address
@@ -98,10 +101,10 @@ function addLatLong(organisations, latLong) {
 }
 
 // Conver data that you added lat and long to, to original data stucture.
-function convertToBranchesStructure(organisations) {
+function convertToBranchesStructure(orgWithNOLatLong) {
   let newOrgs = [];
   let data = [];
-  organisations.map(item => {
+  orgWithNOLatLong.map(item => {
     if (!newOrgs.includes(item.Organisation)) {
       newOrgs.push(item.Organisation);
 
@@ -127,9 +130,10 @@ function convertToBranchesStructure(organisations) {
 
 // Compile all functions together to get final result
 async function finalResult() {
-  const data = await getOrgsLatAndLog(postcodes);
-  const orgs = await addLatLong(organisations, data);
-  convertToJsonFile(convertToBranchesStructure(orgs), 'newData')
+  const data = await getOrgsLatAndLog();
+  const orgs = await addLatLong(finalData, data);
+  return convertToJsonFile(convertToBranchesStructure(orgs), 'newData')
 }
 
 finalResult();
+

@@ -14,16 +14,17 @@ function seedData() {
         website: originalData[row].branches[0].Website || '',
         branch: {
           borough: branches[branch].Borough || '',
-          project: branches[branch].project || '',
-          tag: branches[branch].tag || '',
+          project: branches[branch].Project || '',
+          tag: branches[branch].Tag || '',
+          clients: branches[branch].Clients || '',
           service: [
             {
               service: branches[branch].Services || '',
-              service_days: branches[branch].Day || '',
+              service_days: branches[branch].Days.join(',') || '',
               process: branches[branch].Process || '',
               categories: [
                 {
-                  cat_name: branches[branch].categories || ''
+                  cat_name: branches[branch].Categories || ''
                 }
               ]
             }

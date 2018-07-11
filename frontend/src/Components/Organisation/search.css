@@ -12,12 +12,13 @@
   width: 35px !important;
   height: 35px !important;
 }
+
 .postcode-error{
   color: #f00;
-  position: absolute;
-  top: 47px;
-  left: 12px;
+  padding-top: 1rem;
+  margin-left: 20px;
 }
+
 .org-search .post-code{
   display: grid;
   grid-template-columns: 9fr 1fr;

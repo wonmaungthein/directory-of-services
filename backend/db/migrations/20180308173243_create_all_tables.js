@@ -14,6 +14,7 @@ exports.up = knex =>
         .inTable('Organisation')
       table.string('borough')
       table.string('project')
+      table.text('clients')
       table.string('tag');
     })
     .createTable('Service', table => {
