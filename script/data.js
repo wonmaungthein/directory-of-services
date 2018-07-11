@@ -56,17 +56,17 @@ async function fetchedData() {
 }
 */
 
-// Flat data fetched (fetchedData) from spreadsheet, add tag, categorie and projet fields 
-// Make day field consistent 
+// Flat data fetched (fetchedData) from spreadsheet, add tag, categorie and projet fields
+// Make day field consistent
 const flat = () => {
     return fetchedData.map((item, index) => {
           for (let cat in item) {
             return item[cat].map(el => {
                   for (let orgFields in el) {
-                    // Make sure key for day fiels is Days for every org 
+                    // Make sure key for day fiels is Days for every org
                     if (orgFields === 'Day') {
                       el.Days = el[orgFields];
-                      delete el[orgFields]                      
+                      delete el[orgFields]
                     } else if (orgFields === 'Telephone') {
                       el.Tel = el[orgFields];
                       delete el[orgFields]
@@ -75,7 +75,7 @@ const flat = () => {
                       delete el[orgFields]
                     }
                   }
-// Add new key field to every org 
+// Add new key field to every org
 // arr.push(el)
 el.Project = "";
 el.Tag = "";
@@ -93,17 +93,17 @@ const finalData = flattenedData.map(categoryData => {
     const allData = [];
 
     // Get duplicated organizations for single category
-    const dulicatedOrgs = []; 
+    const dulicatedOrgs = [];
     // Get unduplicated organizations for single category
     const unduplicatedOrgs = [];
 
     for (let i = 0; i < categoryData.length; i++) {
         allData.push(categoryData[i])
         const orgNum =  categoryData.filter(item => item.Organisation.toLowerCase() === categoryData[i].Organisation.toLowerCase() && item.Borough.toLowerCase() === categoryData[i].Borough.toLowerCase()).length;
-        if (allData[i].Organisation.toLowerCase() === categoryData[i].Organisation.toLowerCase() && allData[i].Borough.toLowerCase() === categoryData[i].Borough.toLowerCase() && orgNum > 1) {  
+        if (allData[i].Organisation.toLowerCase() === categoryData[i].Organisation.toLowerCase() && allData[i].Borough.toLowerCase() === categoryData[i].Borough.toLowerCase() && orgNum > 1) {
             dulicatedOrgs.push(categoryData[i])
         }
-        if (allData[i].Organisation.toLowerCase() === categoryData[i].Organisation.toLowerCase() && allData[i].Borough.toLowerCase() === categoryData[i].Borough.toLowerCase() && orgNum === 1) {  
+        if (allData[i].Organisation.toLowerCase() === categoryData[i].Organisation.toLowerCase() && allData[i].Borough.toLowerCase() === categoryData[i].Borough.toLowerCase() && orgNum === 1) {
             unduplicatedOrgs.push(categoryData[i])
         }
     }
@@ -121,7 +121,7 @@ const finalData = flattenedData.map(categoryData => {
         index === self.findIndex(item => item.Organisation === elem.Organisation && item.Borough === elem.Borough
     ))
 
-    // Put each duplicated organization into one array 
+    // Put each duplicated organization into one array
     // then but all of them at one array
     const singleDuplicatedOrgs = []
 
@@ -151,7 +151,7 @@ const finalData = flattenedData.map(categoryData => {
         // Remove the duplication if there is on days of the week
         const allDays = [...new Set(daysOfTheWeek)];
 
-        // Put that days that have good format at one array 
+        // Put that days that have good format at one array
         // and the one that has bad format at anther array
         const daysHaveBadFromat = [];
         const daysAtGoodFormat = [];
@@ -171,7 +171,7 @@ const finalData = flattenedData.map(categoryData => {
             daysHaveBadFromat.push(item)
         }
         })
-        
+
         // Check again if there is a duplication on days and remove it.
         const goodDaysData = [...new Set(daysAtGoodFormat)];
         const badDaysData = [...new Set(daysHaveBadFromat)];
@@ -184,17 +184,17 @@ const finalData = flattenedData.map(categoryData => {
                 toDo.Organisation.toLowerCase() === elem.Organisation.toLowerCase() &&
                 toDo.Borough.toLowerCase() === elem.Borough.toLowerCase()
             )
-        ).map(organization => {    
+        ).map(organization => {
             const { Organisation,Area, Borough, Services, Website, Clients, Email, Postcode, Address, Tel, Project, Tag, Categories } = organization;
             const processData = [ organization.Process, ...badDaysData];
             const Process = processData.join(',');
 
-            updatedDuplicatedOrgs.push({ 
-                Organisation,Area, Borough, Services, Website, Clients, 
-                Days: goodDaysData, Process, Email, Postcode, Address, 
+            updatedDuplicatedOrgs.push({
+                Organisation,Area, Borough, Services, Website, Clients,
+                Days: goodDaysData, Process, Email, Postcode, Address,
                 Tel, Project, Tag, Categories
             })
-        })  
+        })
     })
 
     // check for any duplication
@@ -228,11 +228,11 @@ const finalData = flattenedData.map(categoryData => {
         const { Organisation,Area, Borough, Services, Website, Clients, Email, Postcode, Address, Tel, Project, Tag, Categories } = org;
             const processData = [ org.Process, ...badDaysFormat];
             const Process = processData.join(',');
-            return { 
-                Organisation,Area, Borough, Services, Website, Clients, 
-                Days: goodDaysFormat, Process, Email, Postcode, Address, 
+            return {
+                Organisation,Area, Borough, Services, Website, Clients,
+                Days: goodDaysFormat, Process, Email, Postcode, Address,
                 Tel, Project, Tag, Categories
-            } 
+            }
     })
 
     const allProcessedData = filteredUnDuplicatedOrgs.concat(updatedDuplicatedOrgsorg);
@@ -240,6 +240,11 @@ const finalData = flattenedData.map(categoryData => {
     return allProcessedData;
 })
 
-const flattenedFinalData = finalData.reduce((acc, val) => acc.concat(val), []);
+const flattenedFinalData =
+  finalData
+    .reduce((acc, val) => acc.concat(val), [])
+    .filter(function(el) {
+      return el.Organisation !== "";
+    });
 
 module.exports = flattenedFinalData;
