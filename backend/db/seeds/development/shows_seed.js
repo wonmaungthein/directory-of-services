@@ -15,6 +15,7 @@ const loadSeedToDb = async () => {
         borough: branch.Borough || 'not provided',
         project: branch.project || 'not provided',
         tag: branch.tag || 'not provided',
+        Clients: branch.Clients || 'not provided',
         service: [
           {
             service: branch.Services || 'not provided ',
