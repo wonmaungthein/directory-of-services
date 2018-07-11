@@ -164,7 +164,7 @@ const OrganisationForm = (props) => {
                   key={day}
                   value={day}
                 >
-                  <Checkbox checked={props.day.indexOf(day) > -1} />
+                  {props.day.indexOf(day) > -1 ? <span className='icon-check' /> : null}
                   <ListItemText primary={day} />
                 </MenuItem>
               ))}

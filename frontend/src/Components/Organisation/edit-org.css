@@ -259,8 +259,7 @@ button.edit-org-close:hover {
 
 #menu-Borough li:hover,
 #menu-Area li:hover,
-#menu-borough li:hover,
-#menu- ul li:hover {
+#menu-borough li:hover {
   background-color: rgb(70, 189, 212);
   color: #fff;
 }
