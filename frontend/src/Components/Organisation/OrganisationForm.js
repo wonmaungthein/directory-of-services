@@ -13,7 +13,7 @@ import BoroughData from '../../Data/Boroughs.json';
 import categories from '../../Data/Categories.json';
 import helpers from '../../helpers';
 
-const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Mon-Fri', 'Mon', 'Tues', 'Wed', 'Thu', 'Fri'];
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const areas = ['All', 'Central', 'East', 'North', 'South', 'West'];
 const sortedBorough = BoroughData.map(borough => borough.borough).filter((elem, index, self) =>
   index === self.indexOf(elem)
@@ -24,7 +24,7 @@ const OrganisationForm = (props) => {
   
 // I create a collection of days which combine days from days array and props.day and return unique value (no repetition of day )
 // then I made a copy of this collection using spread operator
-  const uniqueDays= new Set([...days, ...props.day]);
+  const uniqueDays= new Set([...days]);
   const checkDaysList = [...uniqueDays]; 
   const checkableDays = [] 
 
@@ -149,7 +149,9 @@ const OrganisationForm = (props) => {
               value={props.day}
               onChange={props.handleMulitySelectChange}
               input={<Input id="select-multiple-checkbox" />}
-              renderValue={selected => selected.join(', ')}
+              // When day field is empty after editing the first element inside array will be empty string ('')
+              // selected.shift() will remove '' so that when display list of days it will not start with comma
+              renderValue={selected => selected[0] === '' ? selected.shift(): selected.join(', ')}
             >
               {
                 <MenuItem className="select-title">

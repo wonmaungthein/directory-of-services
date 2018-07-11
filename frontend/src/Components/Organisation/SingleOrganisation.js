@@ -99,7 +99,7 @@ class SingleOrganisation extends Component {
             </div>
             <div>
               <h4>Days</h4> 
-              {org.service_days? <Fragment><p>{org.service_days}</p></Fragment>
+              {org.service_days? <Fragment><p>{org.service_days.split(' ').join(', ')}</p></Fragment>
                   :<p className="not-available">{uiMessage} days ...</p>}
             </div>
           </div>
