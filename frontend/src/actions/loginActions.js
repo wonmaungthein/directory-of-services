@@ -41,3 +41,17 @@ export function signup(data) {
     .then(res => res)
   return saveUser
 }
+
+// update user role
+export function upDateUser(data) {
+  const userEdited = async() => {
+    try {
+    const editUser = await axios
+    .patch(`${api}/user/role`, data)
+     return editUser
+    } catch (error) {
+      return JSON.stringify(error);  
+    }
+  }
+  return userEdited; 
+}
