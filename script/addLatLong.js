@@ -9,6 +9,10 @@ function convertToJsonFile(data, fileName) {
   fs.writeFileSync(`${fileName}.json`, stringData);
 }
 
+//Get the Final flattend Data
+convertToJsonFile(finalData, 'flattenedFinalData')
+
+
 // Get postcodes from original data
 async function getPostcodes() {
   const posts = [];
