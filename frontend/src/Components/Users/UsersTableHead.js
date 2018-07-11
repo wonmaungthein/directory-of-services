@@ -7,13 +7,13 @@ import './user-table.css';
 
 const columnData = [
   {
-    id: 'name',
+    id: 'fullname',
     numeric: false,
     disablePadding: false,
     label: 'Name',
   },
   {
-    id: 'email',
+    id: 'organisation',
     numeric: false,
     disablePadding: false,
     label: 'Organisation',

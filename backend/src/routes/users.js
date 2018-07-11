@@ -19,7 +19,12 @@ import {
 } from '../controllers/users_controller';
 
 const router = express.Router();
-const auth = { auth: { api_key: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN } }
+const auth = {
+  auth: {
+    api_key: process.env.MAILGUN_API_KEY,
+    domain: process.env.MAILGUN_DOMAIN
+  }
+}
 const nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
 router.get('/users', async (req, res) => {
@@ -52,7 +57,9 @@ router.get('/users/:id', async (req, res) => {
 
 router.delete('/users/:userId', async (req, res) => {
   try {
-    await deleteUser(req.params.userId).then(() => res.status(200).json({ message: 'user deleted successfully' }));
+    await deleteUser(req.params.userId).then(() => res.status(200).json({
+      message: 'user deleted successfully'
+    }));
   } catch (err) {
     res
       .status(502)
@@ -61,22 +68,35 @@ router.delete('/users/:userId', async (req, res) => {
 });
 
 router.post('/users', async (req, res) => {
-  let { password } = req.body;
-  const { email, orgName } = req.body;
+  let {
+    password
+  } = req.body;
+  const {
+    email,
+    orgName
+  } = req.body;
   await bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(password, salt, async (error, hash) => {
       if (error) {
         throw error;
       }
       password = hash;
-      await addUser({ salt_password: password, email: email, org_name: orgName }).then(user => res.json(user))
+      await addUser({
+        salt_password: password,
+        email: email,
+        org_name: orgName
+      }).then(user => res.json(user))
     })
   })
 });
 
 router.put('/users/:userId', async (req, res) => {
-  let { password } = req.body;
-  const { email } = req.body;
+  let {
+    password
+  } = req.body;
+  const {
+    email
+  } = req.body;
   await bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(password, salt, async (error, hash) => {
       if (error) {
@@ -86,32 +106,57 @@ router.put('/users/:userId', async (req, res) => {
       await updateUser(req.params.userId, {
         salt_password: password,
         email
-      }).then(() => res.json({ message: 'user updated successfully' }))
+      }).then(() => res.json({
+        message: 'user updated successfully'
+      }))
     })
   })
 });
 
-router.patch('/users/role/:userId', async (req, res) => {
+// Use this route to modify user role, org name, fullname
+router.patch('/user/role', async (req, res) => {
   try {
-    const { role, fullname, organisation } = req.body;
-    await updateUser(req.params.userId, {
-      role: role,
+    const {
+      role,
       fullname,
-      organisation
+      organisation,
+      id
+    } = req.body
+    await updateUser(id, {
+      role,
+      fullname,
+      organisation,
+      id
+    });
+    res.status(200).json({
+      success: true,
+      message: 'User updated successfully'
     })
-    res.status(200).json({ success: true, message: 'user updated successfully', updateUser })
   } catch (err) {
-    res.state(502).json({ success: false, message: 'user did not update', err })
+    res.status(502).json({
+      success: false,
+      message: 'User has not been updated',
+      err
+    })
   }
 })
 
 router.post('/signup', async (req, res) => {
-  let { password } = req.body;
-  const { fullname, email, organisation } = req.body;
+  let {
+    password
+  } = req.body;
+  const {
+    fullname,
+    email,
+    organisation
+  } = req.body;
   if (email.length > 0 && password.length > 0) {
     await getUserByEmail(email).then(user => {
       if (user.length > 0) {
-        res.json({ success: false, message: 'User is already found' })
+        res.json({
+          success: false,
+          message: 'User is already found'
+        })
       } else {
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(password, salt, (error, hash) => {
@@ -120,15 +165,20 @@ router.post('/signup', async (req, res) => {
             }
             password = hash;
             addUser({
-              salt_password: password, email, fullname, organisation
+              salt_password: password,
+              email,
+              fullname,
+              organisation
             }).then(userData => {
               if (userData) {
                 res.json({
-                  success: true, message: 'User is registered'
+                  success: true,
+                  message: 'User is registered'
                 })
               } else {
                 res.json({
-                  success: false, message: 'User is not registered'
+                  success: false,
+                  message: 'User is not registered'
                 })
               }
             });
@@ -137,18 +187,27 @@ router.post('/signup', async (req, res) => {
       }
     })
   } else {
-    res.json({ success: false, message: 'You have to add email and password' })
+    res.json({
+      success: false,
+      message: 'You have to add email and password'
+    })
   }
 })
 
 router.post('/login', async (req, res) => {
-  const { password, email } = req.body;
+  const {
+    password,
+    email
+  } = req.body;
   try {
     await getUserByEmail(email).then(userInfo => {
       if (userInfo.length <= 0) {
         res
           .status(403)
-          .json({ success: false, message: 'User is not registered' })
+          .json({
+            success: false,
+            message: 'User is not registered'
+          })
       } else {
         comparePassword(password, userInfo[0].salt_password, (err, isMatch) => {
           if (err) {
@@ -162,11 +221,17 @@ router.post('/login', async (req, res) => {
             }, secret);
             res
               .status(200)
-              .json({ token, user: userInfo });
+              .json({
+                token,
+                user: userInfo
+              });
           } else {
             res
               .status(403)
-              .json({ success: false, message: 'Password is not match' })
+              .json({
+                success: false,
+                message: 'Password is not match'
+              })
           }
         })
       }
@@ -176,24 +241,36 @@ router.post('/login', async (req, res) => {
   }
 })
 
-router.get('/users/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
-  res.json({ success: true })
+router.get('/users/profile', passport.authenticate('jwt', {
+  session: false
+}), (req, res) => {
+  res.json({
+    success: true
+  })
 })
 
 router.post('/forgot', (req, res) => {
   crypto.randomBytes(20, async (err, buf) => {
     if (err) {
-      res.status(502).json({ success: false, message: 'an error occurred!', err })
+      res.status(502).json({
+        success: false,
+        message: 'an error occurred!',
+        err
+      })
     }
     try {
       const token = buf.toString('hex');
       const user = await getUserByEmail(req.body.email);
-      let { resetPasswordExpires, resetPasswordToken } = user[0];
+      let {
+        resetPasswordExpires,
+        resetPasswordToken
+      } = user[0];
       resetPasswordToken = token;
       resetPasswordExpires = (Date.now() + 3600000).toString(); // 1 hour
 
       await updateUser(user[0].id, {
-        resetPasswordExpires, resetPasswordToken
+        resetPasswordExpires,
+        resetPasswordToken
       })
       await nodemailerMailgun.sendMail({
         from: `${req.body.siteEmail}`,
@@ -205,9 +282,16 @@ router.post('/forgot', (req, res) => {
           If you did not request this, please ignore this email and your password will remain unchanged.\n`
       })
 
-      res.status(200).json({ success: true, message: 'Your request has made successfully!' })
+      res.status(200).json({
+        success: true,
+        message: 'Your request has made successfully!'
+      })
     } catch (error) {
-      res.status(502).json({ success: false, message: 'User dose not exist!', error })
+      res.status(502).json({
+        success: false,
+        message: 'User dose not exist!',
+        error
+      })
     }
   })
 });
@@ -216,10 +300,20 @@ router.get('/reset/:token', async (req, res) => {
   try {
     const user = await validateResetInfo(req.params.token, Date.now().toString());
     const userId = user[0].id;
-    const { email } = user[0];
-    res.status(200).json({ success: true, userId, email })
+    const {
+      email
+    } = user[0];
+    res.status(200).json({
+      success: true,
+      userId,
+      email
+    })
   } catch (err) {
-    res.status(502).json({ success: false, message: 'Password reset token is invalid or has expired.', err })
+    res.status(502).json({
+      success: false,
+      message: 'Password reset token is invalid or has expired.',
+      err
+    })
   }
 });
 
@@ -227,7 +321,9 @@ router.post('/reset/:token', async (req, res) => {
   try {
     const user = await validateResetInfo(req.body.token, Date.now().toString());
     if (req.body.password === req.body.confirm) {
-      let { password } = req.body;
+      let {
+        password
+      } = req.body;
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(password, salt, async (error, hash) => {
           if (error) {
@@ -248,9 +344,15 @@ router.post('/reset/:token', async (req, res) => {
         text: `Hello,\n\n This is a confirmation that the password for your account ${user[0].email} has just been changed.\n`
       })
     }
-    res.status(200).json({ success: true, message: 'Your password has been changed successfully!' })
+    res.status(200).json({
+      success: true,
+      message: 'Your password has been changed successfully!'
+    })
   } catch (error) {
-    res.status(502).json({ message: 'Password reset token is invalid or has expired.', error });
+    res.status(502).json({
+      message: 'Password reset token is invalid or has expired.',
+      error
+    });
   }
 });
 
