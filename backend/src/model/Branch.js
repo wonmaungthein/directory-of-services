@@ -17,7 +17,7 @@ export default class Branch extends Model {
         borough: { type: 'string' },
         project: { type: 'string' },
         tag: { type: 'string' },
-        Clients: { type: 'string' }
+        clients: { type: 'string' }
       }
     };
   }

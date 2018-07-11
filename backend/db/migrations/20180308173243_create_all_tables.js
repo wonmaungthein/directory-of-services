@@ -15,7 +15,7 @@ exports.up = knex =>
       table.string('borough')
       table.string('project')
       table.string('tag')
-      table.string('Clients');
+      table.string('clients');
     })
     .createTable('Service', table => {
       table.increments('id').primary();

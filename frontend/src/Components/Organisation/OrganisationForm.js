@@ -128,7 +128,7 @@ const OrganisationForm = (props) => {
             name="Clients"
             multiline
             rowsMax="4"
-            value={props.Clients}
+            value={props.clients}
             onChange={props.onChange}
             fullWidth
           />  
