@@ -77,11 +77,15 @@ const flat = () => {
                   }
 // Add new key field to every org
 // arr.push(el)
+// Remove(filter) empty organisations
 el.Project = "";
 el.Tag = "";
 el.Categories = cat;
 return el;
 })
+.filter(function(el) {
+    return el.Organisation !== "";
+  });
 }
 })
 }
@@ -240,11 +244,7 @@ const finalData = flattenedData.map(categoryData => {
     return allProcessedData;
 })
 
-const flattenedFinalData =
-  finalData
-    .reduce((acc, val) => acc.concat(val), [])
-    .filter(function(el) {
-      return el.Organisation !== "";
-    });
+const flattenedFinalData =finalData.reduce((acc, val) => acc.concat(val), [])
+
 
 module.exports = flattenedFinalData;
