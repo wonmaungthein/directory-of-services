@@ -27,6 +27,8 @@ class EditOrganisation extends React.Component {
     Categories: [],
     project: '',
     tag: '',
+    postcode: '',
+    clients: '',
     orgId: null,
     branchId: null,
     serviceId: null,
@@ -54,7 +56,9 @@ class EditOrganisation extends React.Component {
         Website: data.website,
         Categories: [data.cat_name],
         project: data.project,
-        tag: data.tag
+        tag: data.tag,
+        postcode: data.postcode,
+        clients: data.clients
       })
     }
   }
@@ -103,8 +107,9 @@ class EditOrganisation extends React.Component {
       address: "not provided",
       lat: "not provided",
       long: "not provided",
-      postcode: "",
+      postcode: this.state.postcode,
       project: this.state.project,
+      clients: this.state.clients,
       tag: this.state.tag
     }
     this.setState({ isLoading: true });
@@ -217,6 +222,8 @@ class EditOrganisation extends React.Component {
               website={this.state.Website}
               project={this.state.project}
               tag={this.state.tag}
+              postcode={this.state.postcode}
+              clients={this.state.clients}
               checkedCategory={checkedCategory}
               openSelect={this.state.openSelect}
               closeSelect={this.handleClose}
