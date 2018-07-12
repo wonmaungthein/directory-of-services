@@ -56,6 +56,15 @@ class TopNav extends Component {
   render() {
     const { classes, addLink, titleLink, title, addOrg, user, homePage } = this.props;
     const categoriesData = this.props.categories.categories ? this.props.categories.categories : [];
+    const index1 = categoriesData.indexOf("Destitution/NRPF");
+    const index2 = categoriesData.indexOf("Employment/Training/Volunteering");
+    const index3 = categoriesData.indexOf("Young People/Children");
+    if ((index1 !== -1 ) || (index2 !== -1) || (index3 !== -1)){
+      categoriesData[index1] = "Destitution";
+      categoriesData[index2] = "Employment";
+      categoriesData[index3] = "Young People and Children";
+    }
+    const category = helpers.addSpace(categoriesData, title)
     return (
       <AppBar className={classes.appBar}>
         <Toolbar>
@@ -69,7 +78,7 @@ class TopNav extends Component {
               >
                 {addOrg}
                 <Link to={`/${titleLink}`}>
-                  {helpers.addSpace(categoriesData, title)}
+                  {category}
                 </Link>
                 {addOrg || homePage ? null :
                   (
