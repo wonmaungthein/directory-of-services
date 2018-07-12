@@ -53,8 +53,7 @@ class TopNav extends Component {
   renderUserDropDown = () =>
     this.state.userDropDown ? <UserDropDown handleLogOut={this.handleLogOut} /> : null;
 
-  render() {
-    const { classes, addLink, titleLink, title, addOrg, user, homePage } = this.props;
+  renderCategories = () => {
     const categoriesData = this.props.categories.categories ? this.props.categories.categories : [];
     const index1 = categoriesData.indexOf("Destitution/NRPF");
     const index2 = categoriesData.indexOf("Employment/Training/Volunteering");
@@ -64,7 +63,12 @@ class TopNav extends Component {
       categoriesData[index2] = "Employment";
       categoriesData[index3] = "Young People and Children";
     }
-    const category = helpers.addSpace(categoriesData, title)
+    return categoriesData
+  }
+
+  render() {
+    const { classes, addLink, titleLink, title, addOrg, user, homePage } = this.props;
+    const category = helpers.addSpace(this.renderCategories(), title)
     return (
       <AppBar className={classes.appBar}>
         <Toolbar>
