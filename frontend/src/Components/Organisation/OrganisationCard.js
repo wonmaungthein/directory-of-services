@@ -38,7 +38,7 @@ const OrganisationCard = ({
         <h1>{org.org_name}</h1> 
         {org.distance && org.distance !== null ? <p>{(org.distance).toFixed(1)} miles</p> 
         : 
-        org.distance === null ? <p>Does not have postcode or not correct</p> : null}
+        org.distance === null ? <p>Distance is not available</p> : null}
       </span>
       : 
       <h1 className="not-available"> Add organisation name ...</h1> 
