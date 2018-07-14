@@ -23,12 +23,11 @@ const styles = theme => ({
   },
 });
 
-const OrganisationCard = ({
-  org,
-  getData,
-}) => (
+const OrganisationCard = ({ org }) => (
   <Paper label='org-card-info'>
-    <EditOrganisation getData={getData} />
+    <EditOrganisation 
+      editOrgData={org}
+    />
     <SingleOrganisation org={org} />
     
     { /*  Conditionally display services and process, if no info provided display  'not provided' in FE */ }
