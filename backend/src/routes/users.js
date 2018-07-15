@@ -217,13 +217,13 @@ router.post('/login', async (req, res) => {
             const token = jwt.sign({
               sub: userInfo[0].id,
               fullname: userInfo[0].fullname,
+              role: userInfo[0].role,
               sucess: 'true'
             }, secret);
             res
               .status(200)
               .json({
-                token,
-                user: userInfo
+                token
               });
           } else {
             res
