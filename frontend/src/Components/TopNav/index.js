@@ -67,7 +67,8 @@ class TopNav extends Component {
   }
 
   render() {
-    const { classes, addLink, titleLink, title, addOrg, user, homePage } = this.props;
+    const { classes, addLink, titleLink, title, addOrg, homePage } = this.props;
+    const user = this.props.user ? this.props.user : '';
     const category = helpers.addSpace(this.renderCategories(), title)
     return (
       <AppBar className={classes.appBar}>
