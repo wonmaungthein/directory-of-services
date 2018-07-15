@@ -153,7 +153,7 @@ class Organisations extends Component {
         const monToFri =  orgs.service_days.match('Mon-Fri');
         
         return orgs.service_days.includes(day) || allDaysWithMonToFriFormat  || 
-        allDays || monToFri && orgs.borough.includes(borough)
+        allDays || (monToFri && orgs.borough.includes(borough))
       })
     } else if (day.length > 0 && borough.length <= 0) {
       return data.filter(orgs => {
@@ -201,6 +201,8 @@ class Organisations extends Component {
 
   render() {
     const { editIdx, category, postCode, borough, day, organisations } = this.state;
+    const role = this.props.user.role ? this.props.user.role : '';
+
     if (this.state.isLoading || this.filterData.length === 0) {
       return <Spinner />
     }
@@ -246,6 +248,7 @@ class Organisations extends Component {
                   getData={() => this.editSelectedOrganisation(index)}
                   org={org}
                   index={index}
+                  role={role}
                 />
               </Grid>
               );
@@ -259,6 +262,7 @@ class Organisations extends Component {
 function mapStateToProps(state) {
   return {
     oganisation: state.filteredBranchsByCategory.branchs,
+    user: state.loginAuth.user
   }
 }
 

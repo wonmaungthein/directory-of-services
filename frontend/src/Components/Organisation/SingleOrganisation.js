@@ -33,7 +33,7 @@ class SingleOrganisation extends Component {
     this.setState({ open: false });
   };
   render() {
-    const { org } = this.props;
+    const { org, role } = this.props;
     const index = 1;
     const { editIdx } = this.state;
     const currentlyEditing = editIdx === index;
@@ -51,7 +51,7 @@ class SingleOrganisation extends Component {
             onClick={this.editSelectedOrganisation}
             variant="raised"
             size="small"
-            className="btn detail-button"
+            className={role !== 'Admin' ? 'move-right' : 'btn detail-button'}
           >
             <i className="material-icons">add</i>DETAILS
           </Button>
@@ -71,9 +71,11 @@ class SingleOrganisation extends Component {
             </Button>
           </div> 
 
-          <EditOrganisation
-            getData={() => this.editSelectedOrganisation(index)}
-          />
+          { role === 'Admin' ? 
+            <EditOrganisation
+              getData={() => this.editSelectedOrganisation(index)}
+            /> : null
+          }
           {org.org_name.length > 0 ? <h1> {org.org_name} </h1>: <h1 className="not-available"> Add organisation name ... </h1>}
           <h6 className="details-area">
             <span className="location-name">Area</span>: <span className="area">{org.area? org.area : 'Add area ...'} </span> | {"  "} 

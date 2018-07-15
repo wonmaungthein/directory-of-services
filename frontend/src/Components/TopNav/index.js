@@ -68,7 +68,8 @@ class TopNav extends Component {
 
   render() {
     const { classes, addLink, titleLink, title, addOrg, homePage } = this.props;
-    const user = this.props.user ? this.props.user : '';
+    const user = this.props.user.fullname ? this.props.user.fullname : '';
+    const role = this.props.user.role ? this.props.user.role : '';
     const category = helpers.addSpace(this.renderCategories(), title)
     return (
       <AppBar className={classes.appBar}>
@@ -85,7 +86,7 @@ class TopNav extends Component {
                 <Link to={`/${titleLink}`}>
                   {category}
                 </Link>
-                {addOrg || homePage ? null :
+                {addOrg || homePage || role !== 'Admin' ? null :
                   (
                     <Link to={`/${addLink}`} className="add-orgnaization">
                       <Button
@@ -129,10 +130,11 @@ TopNav.contextTypes = {
   user: PropTypes.object,
   getCategories: PropTypes.func,
 };
+
 function mapStateToProps(state) {
   return {
     messages: state.flashMessages,
-    user: state.loginAuth.user.fullname,
+    user: state.loginAuth.user,
     categories: state.categoriesList
   }
 }

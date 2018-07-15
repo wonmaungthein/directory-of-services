@@ -24,12 +24,15 @@ const styles = theme => ({
 });
 
 const OrganisationCard = ({
+  role,
   org,
   getData,
 }) => (
   <Paper label='org-card-info'>
-    <EditOrganisation getData={getData} />
-    <SingleOrganisation org={org} />
+    { role === 'Admin' ? 
+      <EditOrganisation getData={getData} /> : null
+    }
+    <SingleOrganisation org={org} role={role} />
     
     { /*  Conditionally display services and process, if no info provided display  'not provided' in FE */ }
     
