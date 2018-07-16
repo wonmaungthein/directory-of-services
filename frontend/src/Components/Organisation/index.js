@@ -158,8 +158,11 @@ class Organisations extends Component {
           orgs.service_days.includes('Thursday') &&
           orgs.service_days.includes('Friday')) ;
         
-        return orgs.service_days.includes(day) || allDaysWithMonToFriFormat  || 
-        allDays || (monToFri || workingDays) && orgs.borough.includes(borough)
+        return orgs.service_days.includes(day) || 
+            allDaysWithMonToFriFormat  || 
+            allDays || 
+            workingDays ||
+            (monToFri && orgs.borough.includes(borough))
       })
     } else if (day.length > 0 && borough.length <= 0) {
       return data.filter(orgs => {

@@ -85,11 +85,11 @@ class UsersListTable extends Component {
     };
     this.props.upDateUser(data)
     .then(user => {
-      if(user.status === 200) {
+      if(user && user.success) {
+        this.savedChangesSuccessfully(user.message);
         this.context.router.history.push('/users')
-        this.savedChangesSuccessfully(user.data.message);
       } else {
-        this.unSucessSavedChanges(user.data.message);
+        this.unSucessSavedChanges(user.message);
         
       }
     })
