@@ -108,7 +108,7 @@ class Organisations extends Component {
           const long = info.longitude
           const getBranches = await this.props.getBranchesFilteredByPostCode({ category, lat, long })
           const orgsData = [];
-          getBranches.data.filter(resData => resData.distance)
+          getBranches.filter(resData => resData.distance)
             .map(branchs => {
               const { distance } = branchs;
               const orgs = branchs.data;

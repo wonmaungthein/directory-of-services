@@ -25,11 +25,11 @@ class Reset extends Component {
   componentWillMount() {
     const { token } = this.props.match.params;
     this.props.validateToken(token).then(user => {
-      if (user.data && user.data.success !== false) {
+      if (user && user.success !== false) {
         this.setState({
-          userId: user.data.userId,
-          email: user.data.email,
-          validTokent: user.data.success,
+          userId: user.userId,
+          email: user.email,
+          validTokent: user.success,
           token
         })
       }
@@ -64,12 +64,12 @@ class Reset extends Component {
     const siteEmail = process.env.SIDE_EMAIL;
     if (password.length > 0 && password.length > 0 && password === confirm) {
       this.props.requestChangePassword({ password, confirm, userId, email, token, siteEmail }).then(user => {
-        if (user.data && user.data.success !== false) {
+        if (user && user.success !== false) {
           this.successRequest('Your password has been changed successfully');
           this.setState({ password: '', confirm: '' })
           setTimeout(() => this.context.router.history.push('/'), 2000);
         } else {
-          this.failRequest(user.data.message)
+          this.failRequest(user.message)
         }
       })
     } else {
