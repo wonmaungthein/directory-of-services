@@ -57,9 +57,9 @@ class HomeSearch extends React.Component {
 
   componentWillReceiveProps(newProps) {
     const organisations = newProps.organisations
-      ? newProps.organisations.data
+      ? newProps.organisations
       : [];
-    const postcodes = newProps.organisations ? newProps.organisations.data
+    const postcodes = newProps.organisations ? newProps.organisations
       .map(org => {
       const postcode = { postCode: org.postcode }
       return postcode;
