@@ -273,20 +273,65 @@ const finalData = flattenedData.map(categoryData => {
     const { Days } = org
     const goodDaysFormat = []
     const badDaysFormat = []
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const days3 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    const days2 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    // if (
+    //   Days.toLowerCase() === 'monday' ||
+    //   Days.toLowerCase() === 'tuesday' ||
+    //   Days.toLowerCase() === 'wednesday' ||
+    //   Days.toLowerCase() === 'thursday' ||
+    //   Days.toLowerCase() === 'friday' ||
+    //   Days.toLowerCase() === 'saturday' ||
+    //   Days.toLowerCase() === 'sunday'
+    // ) {
+    //   goodDaysFormat.push(Days)
+    // } else {
+    //   badDaysFormat.push(Days)
+    // }
+    // Monday - Thursday,  Mondays-Wednesdays', Mon-Wed, Mon - Thur, Mon - Fri, dif of month, Mondays – Thursdays , Mon - Thur, Monday - Thursday
+    // Mondays – Thursdays Mon - Sat , Mon-Wed, Mon - Thur, year, Advice by appointment, Mondays-Wednesdays, Mondays – Thursdays 
+    
+    // Case days are Monday To Friday
+    if(Days.match('Mon - Fri') || 
+    Days.match('Monday to Friday') ||
+    Days.match('Mondays to Fridays') ||
+    Days.match('Mon-Fri')){
+      goodDaysFormat.push('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
+    }
 
-    if (
-      Days.toLowerCase() === 'monday' ||
-      Days.toLowerCase() === 'tuesday' ||
-      Days.toLowerCase() === 'wednesday' ||
-      Days.toLowerCase() === 'thursday' ||
-      Days.toLowerCase() === 'friday' ||
-      Days.toLowerCase() === 'saturday' ||
-      Days.toLowerCase() === 'sunday'
-    ) {
-      goodDaysFormat.push(Days)
-    } else {
+    // Case days are Monday To Thursday
+
+    // Case days are Monday To Wednesday
+
+    // Case days are Monday To Saturday
+    if(Days.match('Mon - Sat ') || 
+    Days.match('Monday to Saturday') ||
+    Days.match('Mondays to Saturays') ||
+    Days.match('Mon-Sat')){
+      goodDaysFormat.push(days3)
+    }
+    // Case where days end with 's'
+   
+
+    for (let i = 0; i < days2.length; i++) {
+      if ( Days.toLowerCase().includes(days2[i].toLowerCase())) {
+        for (let j = 0; j < days.length; j++) {
+          if (days[j].includes(days2[i])) {
+            goodDaysFormat.push(days[i])
+          } 
+        }
+      }
+    }
+
+    // Check if Days string and good days string has same length
+    if (Days.trim().length > [...new Set(goodDaysFormat)].join().trim().length){
       badDaysFormat.push(Days)
     }
+    console.log([...new Set(badDaysFormat)], [...new Set(goodDaysFormat)], Days);
+
+    const inconsistentDays = [...new Set(badDaysFormat)];
+    const consistentDays = [...new Set(badDaysFormat)];
 
     const {
       Organisation,
@@ -303,8 +348,8 @@ const finalData = flattenedData.map(categoryData => {
       Tag,
       Categories
     } = org
-    const processData = [org.Process, ...badDaysFormat]
-    const Process = processData.join(',')
+    const processData = [org.Process, ...inconsistentDays];
+    const Process = processData.join(',');
     return {
       Organisation,
       Area,
@@ -312,7 +357,7 @@ const finalData = flattenedData.map(categoryData => {
       Services,
       Website,
       Clients,
-      Days: goodDaysFormat,
+      Days: consistentDays,
       Process,
       Email,
       Postcode,
