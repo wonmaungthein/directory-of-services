@@ -70,7 +70,7 @@ export function setOrganisationsList(organisations) {
 export function getOrganisationsList(){
   return dispatch => {
     axios.get(`${api}/service/all`)
-    .then(all => dispatch(setOrganisationsList(all)))
+    .then(all => dispatch(setOrganisationsList(all.data)))
   }
 }
 
@@ -84,7 +84,7 @@ export function setListOfUsers(users) {
 export function getListOfUsers(){
   return dispatch => {
     axios.get(`${api}/users`)
-    .then(response => dispatch(setListOfUsers(response)))
+    .then(response => dispatch(setListOfUsers(response.data)))
     .catch(error => error.response)
   }
 }
