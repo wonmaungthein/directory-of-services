@@ -21,7 +21,7 @@ const sortedBorough = BoroughData.map(borough => borough.borough).filter((elem, 
 
 const OrganisationForm = (props) => {
   const checkedCategory = helpers.addSpaceToCategName(categories, props.checkedCategory);
-  
+
 // I create a collection of days which combine days from days array and props.day and return unique value (no repetition of day )
 // then I made a copy of this collection using spread operator
   const uniqueDays= new Set([...days, ...props.day]);
@@ -106,17 +106,34 @@ const OrganisationForm = (props) => {
           </FormControl>
         </div>
       </div>
-      <TextFieldOrg
-        className="mt"
-        label="Project"
-        placeholder="Add project..."
-        name="project"
-        multiline
-        rowsMax="4"
-        value={props.project}
-        onChange={props.onChange}
-        fullWidth
-      />
+      <Grid container spacing={24} className="mt">
+        <Grid item xs={12} sm={6}>
+          <TextFieldOrg
+            className="mt"
+            label="Project"
+            placeholder="Add project..."
+            name="project"
+            multiline
+            rowsMax="4"
+            value={props.project}
+            onChange={props.onChange}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextFieldOrg
+            className="mt"
+            placeholder="Add Client Accepted..."
+            label="Client Accepted"
+            name="Clients"
+            multiline
+            rowsMax="4"
+            value={props.clients}
+            onChange={props.onChange}
+            fullWidth
+          />  
+        </Grid>
+      </Grid>
       <TextFieldOrg
         placeholder="Add services..."
         label="Services"
@@ -215,9 +232,22 @@ const OrganisationForm = (props) => {
         </Grid>
       </Grid>
       <Grid container spacing={24} className="mt">
-        <Grid item xs={12} sm={12}>
+        <Grid item xs={12} sm={6}>
           <TextFieldOrg
-            className="email-label add-tag"
+            className="mt"
+            label="Postcode"
+            placeholder="Add postcode..."
+            name="postcode"
+            multiline
+            rowsMax="4"
+            value={props.postcode}
+            onChange={props.onChange}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextFieldOrg
+            className="mt add-tag"
             label="Tags"
             placeholder="Add tags..."
             name="tag"

@@ -7,7 +7,6 @@ import { getListOfUsers} from '../../actions/getApiData';
 import TopNav from '../TopNav';
 import AddUser from './AddUser';
 import UsersListTable from './UsersListTable';
-import usersData from './usersData.json';
 
 import './users.css';
 
@@ -39,25 +38,6 @@ class UsersPage extends Component {
       title: 'Unsuccess',
       message: 'We could not save your changes',
       level: 'error',
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    this.addNewUserHandler();
-    this.setState({
-      fullname: '',
-      organisation: '',
-      role: '',
-    });
-    this.savedChangesSuccessfully();
-  };
-
-  addNewUserHandler = () => {
-    usersData.unshift({
-      fullname: this.state.fullname,
-      organisation: this.state.organisation,
-      role: this.state.role,
     });
   };
 
@@ -95,7 +75,9 @@ class UsersPage extends Component {
         <TopNav title="USERS" addLink="users/add" titleLink="users" />
         {userForm}
         <NotificationSystem ref="savedChanges" />
-        <UsersListTable usersList={users} />
+        <UsersListTable 
+          usersList={users} 
+        />
         {hideForm ? <Redirect to="/users" /> : null}
       </div>
     );
