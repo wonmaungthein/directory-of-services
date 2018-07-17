@@ -29,7 +29,7 @@ const OrganisationCard = ({
   getData,
 }) => (
   <Paper label='org-card-info'>
-    { role === 'Admin' ? 
+    { role === 'Admin' || role === 'Editor' ? 
       <EditOrganisation getData={getData} /> : null
     }
     <SingleOrganisation org={org} role={role} />

@@ -86,7 +86,7 @@ class TopNav extends Component {
                 <Link to={`/${titleLink}`}>
                   {category}
                 </Link>
-                {addOrg || homePage || role !== 'Admin' ? null :
+                {addOrg || homePage || role !== 'Admin' && role !== 'Editor' ? null :
                   (
                     <Link to={`/${addLink}`} className="add-orgnaization">
                       <Button

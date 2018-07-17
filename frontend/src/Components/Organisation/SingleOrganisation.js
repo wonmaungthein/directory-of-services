@@ -51,7 +51,7 @@ class SingleOrganisation extends Component {
             onClick={this.editSelectedOrganisation}
             variant="raised"
             size="small"
-            className={role !== 'Admin' ? 'move-right' : 'btn detail-button'}
+            className={role !== 'Admin' && role !== 'Editor' ? 'move-right' : 'btn detail-button'}
           >
             <i className="material-icons">add</i>DETAILS
           </Button>
@@ -71,7 +71,7 @@ class SingleOrganisation extends Component {
             </Button>
           </div> 
 
-          { role === 'Admin' ? 
+          { role === 'Admin' || role === 'Editor' ? 
             <EditOrganisation
               getData={() => this.editSelectedOrganisation(index)}
             /> : null
