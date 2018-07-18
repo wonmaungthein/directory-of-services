@@ -45,13 +45,15 @@ class UsersPage extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    
+
   render() {
     const users = this.props.listOfUsers.users ? this.props.listOfUsers.users : [] ;
     let userForm;
-    const { params } = this.props.match;
+    const params  = this.props.location.pathname;
     const { hideForm } = this.state;
-    const isAddUsersPage = params && params.form === 'add';
+    console.log(this.props);
+
+    const isAddUsersPage = params && params.includes('form');
     if (!isAddUsersPage) {
       userForm = null;
     } else {
@@ -72,11 +74,11 @@ class UsersPage extends Component {
 
     return (
       <div className="users">
-        <TopNav title="USERS" addLink="users/add" titleLink="users" />
+        <TopNav title="USERS" addLink="users/form" titleLink="users" />
         {userForm}
         <NotificationSystem ref="savedChanges" />
-        <UsersListTable 
-          usersList={users} 
+        <UsersListTable
+          usersList={users}
         />
         {hideForm ? <Redirect to="/users" /> : null}
       </div>

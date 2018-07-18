@@ -98,7 +98,7 @@ class HomeSearch extends React.Component {
     this.setState({ editIdx: -1 });
   };
 
-  // clear input value 
+  // clear input value
   clearSearchField = () => {
     this.setState({
       search: '',
@@ -151,7 +151,7 @@ class HomeSearch extends React.Component {
   }
 
   updateSearchData = () => {
-    // Remove x sign uses to clear input when user start search 
+    // Remove x sign uses to clear input when user start search
     this.setState({ search: this.state.value, isHidden: true})
     this.setState({ postcodeValue: this.state.postCode, isPostcode: false })
     this.handlePostSearch()
@@ -161,26 +161,26 @@ class HomeSearch extends React.Component {
     const { search, postcodeValue } = this.state;
     if (search && postcodeValue) {
       return orgs.filter(org => org.org_name.toLowerCase().includes(search.toLowerCase()) || org.borough.toLowerCase().includes(search.toLowerCase())
-        // return branches which service match or part of search 
+        // return branches which service match or part of search
         || search.toLowerCase().includes(org.service.toLowerCase())
         // return all branches which provide service on that day
         || org.service_days.toLowerCase().includes(search.toLowerCase())
         // return all branches if search match cat_name
         || org.cat_name.toLowerCase().includes(search.toLowerCase())
-        // return all branches if search tag match 
+        // return all branches if search tag match
         || org.tag.toLowerCase().includes(search.toLowerCase())
         // return all branches if search tag match
         || org.area.toLowerCase().includes(search.toLowerCase())
       )
     } else if (search) {
       return orgs.filter(org => org.org_name.toLowerCase().includes(search.toLowerCase()) || org.borough.toLowerCase().includes(search.toLowerCase())
-        // return branches which service match or part of search 
+        // return branches which service match or part of search
         || search.toLowerCase().includes(org.service.toLowerCase())
         // return all branches which provide service on that day
         || org.service_days.toLowerCase().includes(search.toLowerCase())
         // return all branches if search match cat_name
         || org.cat_name.toLowerCase().includes(search.toLowerCase())
-        // return all branches if search tag match 
+        // return all branches if search tag match
         || org.tag.toLowerCase().includes(search.toLowerCase())
         // return all branches if search tag match
         || org.area.toLowerCase().includes(search.toLowerCase())
@@ -245,7 +245,7 @@ class HomeSearch extends React.Component {
             </Grid>);
               })
               );
-    if (!this.props.match.url.includes('/users')) {
+    if (!this.props.match.url.includes('/users') ) {
       return (
         <div>
           <Grid container className="organisation-page" spacing={24}>
@@ -340,7 +340,7 @@ class HomeSearch extends React.Component {
                 Search
               </Button>
             </Grid>
-            
+
             { this.state.postcodeError ? <span className="postcode-error">{this.state.postcodeError}</span>
               : searchResult}
           </Grid>
