@@ -54,7 +54,7 @@ class EditOrganisation extends React.Component {
         Tel: data.telephone,
         Email: data.email_address,
         Website: data.website,
-        Categories: [data.cat_name],
+        Categories: [data.cat_name].join('').split(/[ ,]+/),
         project: data.project,
         tag: data.tag,
         postcode: data.postcode,
@@ -134,23 +134,26 @@ class EditOrganisation extends React.Component {
 
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
-    let index
-    if (event.target.checked) {
+    let index;
+    console.log(event.target.value);
+    
+    if (event.target.checked && listOfCategories.indexOf(event.target.checked) === -1) {
+      if(event.target.value === 'BabyEquipment')
       listOfCategories.push(event.target.value)
-    } else {
+    } else if(!event.target.checked){
       index = listOfCategories.indexOf(event.target.value)
       listOfCategories.splice(index, 1)
     }
     this.setState({
       [event.target.name]: event.target.checked,
-      Categories: listOfCategories,
+      Categories: [...new Set(listOfCategories)],
     });
   };
 
   handleDefaultCheckbox = event => {
     const listOfCategories = this.state.Categories;
     let index
-    if (event.target.checked) {
+    if (event.target.checked && listOfCategories.indexOf(event.target.checked) === -1) {
       listOfCategories.push(event.target.value)
     } else {
       index = listOfCategories.indexOf(event.target.value)
@@ -158,7 +161,7 @@ class EditOrganisation extends React.Component {
     }
     this.setState({
       [event.target.name]: event.target.checked,
-      Categories: listOfCategories,
+      Categories: [...new Set(listOfCategories)],
       isChecked:!this.state.isChecked,
     });
   };
@@ -173,6 +176,8 @@ class EditOrganisation extends React.Component {
   };
 
   render() {
+    console.log('ende', this.state.Categories);
+    
     const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
     if (this.state.isLoading) {
       return <Spinner color='blue' bgColor='spinnerEdit' />;
