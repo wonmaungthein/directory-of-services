@@ -11,6 +11,35 @@ import helpers from '../../helpers';
 import Spinner from '../Spinner';
 import './edit-org.css';
 
+const composedCategories = [
+  "Gender Based Violence",
+  "Mental Health Services",
+  "Social and Other",
+  "Baby Equipment",
+  "Young People and Children"
+]; 
+
+// Words that do not match any category's name
+const words = [
+  "Debt",
+  "Trafficking",
+  "Destitution",
+  "LGBTQI",
+  "Healthcare",
+  "Education",
+  "Benefits",
+  "Employment",
+  "Families",
+  "Gender Based Violence",
+  "Housing",
+  "Immigration",
+  "Mental Health Services",
+  "Social and Other",
+  "Women",
+  "Baby Equipment",
+  "Young People and Children"
+];
+
 class EditOrganisation extends React.Component {
   state = {
     notificationSystem: null,
@@ -40,6 +69,17 @@ class EditOrganisation extends React.Component {
   componentWillMount() {
     const data = this.props.editOrgData;
     if (data) {
+      const categories = [];
+      
+      // Data.cat_name.length is 1 => all category represents a single item 
+      // So I made a new array where each category is an individual item of the array
+      for(let i = 0; i < words.length; i += 1){
+        const index = data.cat_name.includes(words[i]);
+        if(index){
+          categories.push(words[i])
+        }
+      }
+
       this.setState({
         branchId: data.branch_id,
         orgId: data.org_id,
@@ -54,7 +94,7 @@ class EditOrganisation extends React.Component {
         Tel: data.telephone,
         Email: data.email_address,
         Website: data.website,
-        Categories: [data.cat_name].join('').split(/[ ,]+/),
+        Categories: [...new Set(categories)],
         project: data.project,
         tag: data.tag,
         postcode: data.postcode,
@@ -89,6 +129,8 @@ class EditOrganisation extends React.Component {
     e.preventDefault();
     const days = this.state.Day.join(' ');
     const categories = this.state.Categories.join(' ');
+    console.log(categories, 'sub');
+    
     const orgData = {
       branchId: this.state.branchId,
       serviceId: this.state.serviceId,
@@ -112,6 +154,7 @@ class EditOrganisation extends React.Component {
       clients: this.state.clients,
       tag: this.state.tag
     }
+    
     this.setState({ isLoading: true });
     this.props.editOrganisation(orgData)
       .then(user => {
@@ -133,37 +176,108 @@ class EditOrganisation extends React.Component {
   };
 
   handleCheckBox = event => {
-    const listOfCategories = this.state.Categories;
+    const listOfCategories = [...this.state.Categories];
     let index;
-    console.log(event.target.value);
-    
-    if (event.target.checked && listOfCategories.indexOf(event.target.checked) === -1) {
-      if(event.target.value === 'BabyEquipment')
-      listOfCategories.push(event.target.value)
-    } else if(!event.target.checked){
-      index = listOfCategories.indexOf(event.target.value)
-      listOfCategories.splice(index, 1)
+      for(let i = 0; i < composedCategories.length; i += 1) {
+        
+        // Case where category is checked and category's name is composed
+          if(event.target.checked && event.target.value.includes(composedCategories[i].split(' ').join(''))) {
+            if(listOfCategories.indexOf(composedCategories[i]) === -1) {
+              listOfCategories.push(composedCategories[i]);              
+            } else if (listOfCategories.indexOf(composedCategories[i]) > -1){
+              index = listOfCategories.indexOf(event.target.value)
+              listOfCategories.splice(index, 1) 
+            }
+        } 
+
+        // Case where category is not checked and category's name is composed
+        if(!event.target.checked && event.target.value.includes(composedCategories[i].split(' ').join(''))) { 
+          if(listOfCategories.indexOf(composedCategories[i]) > -1) {
+            index = listOfCategories.indexOf(composedCategories[i])
+            listOfCategories.splice(index, 1)             
+          }
+        } 
+
+        // Case where category is checked and category's name is not composed
+        if(event.target.checked && !event.target.value.includes(composedCategories[i].split(' ').join(''))){
+
+          if(listOfCategories.indexOf(event.target.value) === -1) {
+            listOfCategories.push(event.target.value);              
+            
+          } 
+            else if(listOfCategories.indexOf(event.target.value) > -1) {
+              // Do nothing
+            }
+      }
+
+        // Case where category is not checked and category's name is not composed
+      if(!event.target.checked && !event.target.value.includes(composedCategories[i].split(' ').join(''))){
+
+           if(listOfCategories.indexOf(event.target.value) > -1) {
+            index = listOfCategories.indexOf(event.target.value)
+            listOfCategories.splice(index, 1)
+          }
     }
+
+    } 
     this.setState({
       [event.target.name]: event.target.checked,
       Categories: [...new Set(listOfCategories)],
     });
+    
   };
 
   handleDefaultCheckbox = event => {
-    const listOfCategories = this.state.Categories;
-    let index
-    if (event.target.checked && listOfCategories.indexOf(event.target.checked) === -1) {
-      listOfCategories.push(event.target.value)
-    } else {
-      index = listOfCategories.indexOf(event.target.value)
-      listOfCategories.splice(index, 1)
+    
+    const listOfCategories = [...this.state.Categories];
+    let index;
+      for(let i = 0; i < composedCategories.length; i += 1) {
+        
+        // Case where category is checked and category's name is composed
+          if(event.target.checked && event.target.value.includes(composedCategories[i].split(' ').join(''))) {
+            if(listOfCategories.indexOf(composedCategories[i]) === -1) {
+              listOfCategories.push(composedCategories[i]);              
+            } else if (listOfCategories.indexOf(composedCategories[i]) > -1){
+              index = listOfCategories.indexOf(event.target.value)
+              listOfCategories.splice(index, 1) 
+            }
+        } 
+
+        // Case where category is not checked and category's name is composed
+        if(!event.target.checked && event.target.value.includes(composedCategories[i].split(' ').join(''))) { 
+          if(listOfCategories.indexOf(composedCategories[i]) > -1) {
+            index = listOfCategories.indexOf(composedCategories[i])
+            listOfCategories.splice(index, 1)             
+          }
+        } 
+
+        // Case where category is checked and category's name is not composed
+        if(event.target.checked && !event.target.value.includes(composedCategories[i].split(' ').join(''))){
+
+          if(listOfCategories.indexOf(event.target.value) === -1) {
+            listOfCategories.push(event.target.value);              
+            
+          } 
+            else if(listOfCategories.indexOf(event.target.value) > -1) {
+              // Do nothing
+            }
+      }
+
+        // Case where category is not checked and category's name is not composed
+      if(!event.target.checked && !event.target.value.includes(composedCategories[i].split(' ').join(''))){
+
+           if(listOfCategories.indexOf(event.target.value) > -1) {
+            index = listOfCategories.indexOf(event.target.value)
+            listOfCategories.splice(index, 1)
+          }
     }
     this.setState({
-      [event.target.name]: event.target.checked,
+      [event.target.name]: event.target.value,
       Categories: [...new Set(listOfCategories)],
       isChecked:!this.state.isChecked,
     });
+  } 
+
   };
 
   handleMulitySelectChange = event => {
@@ -176,9 +290,11 @@ class EditOrganisation extends React.Component {
   };
 
   render() {
-    console.log('ende', this.state.Categories);
+    console.log('from render', this.state.Categories);
     
     const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
+    console.log(checkedCategory);
+    
     if (this.state.isLoading) {
       return <Spinner color='blue' bgColor='spinnerEdit' />;
     }
