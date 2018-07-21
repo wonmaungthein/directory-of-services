@@ -20,20 +20,34 @@ const organisations = [
   { postCode: 'H2 3TH' },
 ];
 const days = [
-  { day: 'Monday' },
-  { day: 'Tuesday' },
-  { day: 'Wednesday' },
-  { day: 'Thursday' },
-  { day: 'Friday' },
-  { day: 'Saturday' },
-  { day: 'Sunday' },
-  { day: 'Mon-Fri' },
-  { day: 'All' },
+  { id: 1,
+    day: 'Monday' },
+  { id: 2,
+    day: 'Tuesday' },
+  { id: 3,
+    day: 'Wednesday' },
+  { id: 4,
+    day: 'Thursday' },
+  { id: 5,
+    day: 'Friday' },
+  { id: 6,
+    day: 'Saturday' },
+  { id: 7,
+    day: 'Sunday' },
+  { id: 8,
+    day: 'Mon-Fri' },
+  { id: 9,
+    day: 'All' },
 ]
 
-const boroughs = BoroughData.map(borough => borough.borough).filter((elem, index, self) =>
-  index === self.indexOf(elem)
-).sort();
+const boroughs = BoroughData.sort(((a,b) =>  {
+  if (a.borough < b.borough) {
+    return -1
+  }if (a.borough > b.borough) {
+    return 1
+  }
+  return 0;
+}));
 
 class Search extends React.Component {
   state = {
@@ -117,7 +131,7 @@ class Search extends React.Component {
               <MenuItem value="">
                 <em>Any Day</em>
               </MenuItem>
-              {days.map(day => <MenuItem value={day.day}>{day.day}</MenuItem>)}
+              {days.map(day=> <MenuItem key={day.id} value={day.day}>{day.day}</MenuItem>)}
             </Select>
           </FormControl>
         </Grid>
@@ -136,7 +150,7 @@ class Search extends React.Component {
               <MenuItem value="">
                 <em>All Borough</em>
               </MenuItem>
-              {boroughs.map(borough => <MenuItem value={borough}>{borough}</MenuItem>)}
+              {boroughs.map(borough => <MenuItem key={borough.id} value={borough.borough}>{borough.borough}</MenuItem>)}
             </Select>
           </FormControl>
         </Grid>
