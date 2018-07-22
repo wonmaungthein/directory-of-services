@@ -92,6 +92,7 @@ class UsersPage extends Component {
           />
         </Fragment>
       );
+      userList = null;
     }
 
 
