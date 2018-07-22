@@ -251,6 +251,7 @@ class UsersListTable extends Component {
                       value={row.fullname}
                       removeHandler={() => this.removeUser(index)}
                       title='USER'
+                      userId={row.id}
                     />
                   </TableCell>
                 </TableRow>

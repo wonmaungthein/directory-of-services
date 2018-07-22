@@ -57,13 +57,10 @@ router.get('/users/:id', async (req, res) => {
 
 router.delete('/users/:userId', async (req, res) => {
   try {
-    await deleteUser(req.params.userId).then(() => res.status(200).json({
-      message: 'user deleted successfully'
-    }));
+    const response = await deleteUser(req.params.userId);
+    res.status(200).json({ success: true, message: 'user deleted successfully', response });
   } catch (err) {
-    res
-      .status(502)
-      .json(err)
+    res.status(502).json({ success: false, message: 'There is an error occurred', err })
   }
 });
 
