@@ -141,12 +141,6 @@ class UsersListTable extends Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
-  removeUser = index => {
-    this.setState(state => ({
-      data: state.data.filter((row, rowIndex) => rowIndex !== index),
-    }));
-  };
-
   startEditing = (index, data) => {
     this.setState({ 
       editIdx: index,
@@ -186,7 +180,7 @@ class UsersListTable extends Component {
         <TableBody className="users-tbody">
           {data
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map((row, index) => {
+            .map((row) => {
               const currentlyEditing = editIdx === row.id;
               return currentlyEditing ? (
                 <tr key={row.id}>
@@ -249,7 +243,6 @@ class UsersListTable extends Component {
                     </Button>
                     <Notification
                       value={row.fullname}
-                      removeHandler={() => this.removeUser(index)}
                       title='USER'
                       userId={row.id}
                     />
