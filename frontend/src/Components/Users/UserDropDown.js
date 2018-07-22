@@ -8,13 +8,13 @@ import './users.css';
 const UserDropDown = ({ handleLogOut }) => (
   <div className="user-drop-down">
     <Paper className="container">
-      <Link to="/users">
+      <Link to="/users/profile">
         <i className="material-icons">perm_contact_calendar</i>
         <h4>Profile</h4>
       </Link>
       <Divider />
       <Link to="/">
-        <button 
+        <button
           onClick={handleLogOut}
         >
           <i className="material-icons">lock_outline</i>

@@ -245,109 +245,109 @@ class HomeSearch extends React.Component {
             </Grid>);
               })
               );
-    if (!this.props.match.url.includes('/users') ) {
-      return (
-        <div>
-          <Grid container className="organisation-page" spacing={24}>
-            <Grid item xs={12} className="search-input">
-              <div className="search-text">
-                <Autosuggest
-                  theme={{
-                    container: classes.container,
-                    suggestionsContainerOpen: classes.suggestionsContainerOpen,
-                    suggestionsList: classes.suggestionsList,
-                    suggestion: classes.suggestion
-                  }}
-                  renderInputComponent={helpers.renderInput}
-                  suggestions={this.state.suggestions}
-                  onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
-                  onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
-                  renderSuggestionsContainer={helpers.renderSuggestionsContainer}
-                  getSuggestionValue={helpers.getMainSearchSuggestionValue}
-                  renderSuggestion={helpers.renderMainSearchSuggestion}
-                  inputProps={{
-                    classes,
-                    placeholder: 'Search by keyword',
-                    value: this.state.value,
-                    onChange: this.handleChange,
-                    onKeyUp: this.handleKeyUp
-                  }}
-                />
-                <button
-                  variant="raised"
-                  size="small"
-                  color="secondary"
-                  className={this.state.isHidden ? 'hidden' : 'clear-search'}
-                  onClick={this.clearSearchField}
-                >
-                  <i
-                    className="material-icons"
-                    size="small"
-                    variant="raised"
-                  >
-                    close
-                  </i>
-                </button>
-              </div>
-              <span className="postcode-field">
-                <Autosuggest
-                  theme={{
-                    container: classes.container,
-                    suggestionsContainerOpen: classes.suggestionsContainerOpen,
-                    suggestionsList: classes.suggestionsList,
-                    suggestion: classes.suggestion,
-                  }}
-                  className="post-code-suggesition"
-                  renderInputComponent={helpers.renderInput}
-                  suggestions={this.state.postcodeSuggestions}
-                  onSuggestionsFetchRequested={this.handleSuggestionsFetchRequestedPostcode}
-                  onSuggestionsClearRequested={this.handleSuggestionsClearRequestedPostcode}
-                  renderSuggestionsContainer={helpers.renderSuggestionsContainer}
-                  getSuggestionValue={helpers.getSuggestionValue}
-                  renderSuggestion={helpers.renderSuggestion}
-                  inputProps={{
-                    classes,
-                    placeholder: 'Enter postcode',
-                    name: 'postCode',
-                    value: this.state.postCode,
-                    onChange: this.handlePostCodeChange,
-                    onKeyUp: this.handleKeyUp
-                  }}
-                />
-                <button
-                  variant="raised"
-                  size="small"
-                  color="secondary"
-                  className={!this.state.isPostcode ? 'hidden' : 'clear-postcode'}
-                  onClick={this.clearPostcodeField}
-                >
-                  <i
-                    className="material-icons"
-                    size="small"
-                    variant="raised"
-                  >
-                    close
-                  </i>
-                </button>
-              </span>
-              <Button
-                onClick={this.updateSearchData}
-                variant="raised"
-                color="primary"
-                size="small"
-                className="btn-search"
-              >
-                Search
-              </Button>
-            </Grid>
-
-            { this.state.postcodeError ? <span className="postcode-error">{this.state.postcodeError}</span>
-              : searchResult}
-          </Grid>
-        </div >
-      );
+    if (this.props.match.url.includes('/users') || this.props.match.url.includes('/admindos') ) {
+      return null
     }
-    return null;
+    return (
+      <div>
+        <Grid container className="organisation-page" spacing={24}>
+          <Grid item xs={12} className="search-input">
+            <div className="search-text">
+              <Autosuggest
+                theme={{
+                  container: classes.container,
+                  suggestionsContainerOpen: classes.suggestionsContainerOpen,
+                  suggestionsList: classes.suggestionsList,
+                  suggestion: classes.suggestion
+                }}
+                renderInputComponent={helpers.renderInput}
+                suggestions={this.state.suggestions}
+                onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
+                onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
+                renderSuggestionsContainer={helpers.renderSuggestionsContainer}
+                getSuggestionValue={helpers.getMainSearchSuggestionValue}
+                renderSuggestion={helpers.renderMainSearchSuggestion}
+                inputProps={{
+                  classes,
+                  placeholder: 'Search by keyword',
+                  value: this.state.value,
+                  onChange: this.handleChange,
+                  onKeyUp: this.handleKeyUp
+                }}
+              />
+              <button
+                variant="raised"
+                size="small"
+                color="secondary"
+                className={this.state.isHidden ? 'hidden' : 'clear-search'}
+                onClick={this.clearSearchField}
+              >
+                <i
+                  className="material-icons"
+                  size="small"
+                  variant="raised"
+                >
+                  close
+                </i>
+              </button>
+            </div>
+            <span className="postcode-field">
+              <Autosuggest
+                theme={{
+                  container: classes.container,
+                  suggestionsContainerOpen: classes.suggestionsContainerOpen,
+                  suggestionsList: classes.suggestionsList,
+                  suggestion: classes.suggestion,
+                }}
+                className="post-code-suggesition"
+                renderInputComponent={helpers.renderInput}
+                suggestions={this.state.postcodeSuggestions}
+                onSuggestionsFetchRequested={this.handleSuggestionsFetchRequestedPostcode}
+                onSuggestionsClearRequested={this.handleSuggestionsClearRequestedPostcode}
+                renderSuggestionsContainer={helpers.renderSuggestionsContainer}
+                getSuggestionValue={helpers.getSuggestionValue}
+                renderSuggestion={helpers.renderSuggestion}
+                inputProps={{
+                  classes,
+                  placeholder: 'Enter postcode',
+                  name: 'postCode',
+                  value: this.state.postCode,
+                  onChange: this.handlePostCodeChange,
+                  onKeyUp: this.handleKeyUp
+                }}
+              />
+              <button
+                variant="raised"
+                size="small"
+                color="secondary"
+                className={!this.state.isPostcode ? 'hidden' : 'clear-postcode'}
+                onClick={this.clearPostcodeField}
+              >
+                <i
+                  className="material-icons"
+                  size="small"
+                  variant="raised"
+                >
+                  close
+                </i>
+              </button>
+            </span>
+            <Button
+              onClick={this.updateSearchData}
+              variant="raised"
+              color="primary"
+              size="small"
+              className="btn-search"
+            >
+              Search
+            </Button>
+          </Grid>
+
+          { this.state.postcodeError ? <span className="postcode-error">{this.state.postcodeError}</span>
+            : searchResult}
+        </Grid>
+      </div >
+    );
   }
 }
 
