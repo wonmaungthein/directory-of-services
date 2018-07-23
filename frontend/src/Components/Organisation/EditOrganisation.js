@@ -319,7 +319,140 @@ class EditOrganisation extends React.Component {
     });
   };
 
-  
+  handleDefaultCheckbox = event => { 
+    const listOfCategories = [...this.state.Categories];
+    let index;
+      for(let i = 0; i < composedCategories.length; i += 1) {
+        // Case where category is checked and category's name is composed
+          if(event.target.checked && composedCategories[i].includes(event.target.value)) {
+            if(listOfCategories.indexOf(composedCategories[i]) === -1) { 
+              listOfCategories.push(composedCategories[i]);              
+            } 
+        } 
+        
+        // Case where category is not checked and category's name is composed
+        if(!event.target.checked && event.target.value.includes(composedCategories[i])) { 
+          if(listOfCategories.indexOf(composedCategories[i]) > -1) {
+            index = listOfCategories.indexOf(composedCategories[i])
+            listOfCategories.splice(index, 1);
+          }
+        } 
+      }
+
+      // Special case 
+      // Young people
+      if ( event.target.checked && event.target.value.includes('Young People and Children')){
+        if(listOfCategories.indexOf('Young People and Children') === -1 ) {
+          
+          listOfCategories.push('Young People/Children')
+        } 
+        if(listOfCategories.indexOf('Young People and Children') > -1 ) {
+          index =  listOfCategories.indexOf('Young People and Children');
+          listOfCategories.splice(index, 1);
+          listOfCategories.push('Young People/Children')
+          
+        } 
+      }
+      if ( !event.target.checked && event.target.value.includes('Young People and Children')){
+        if(listOfCategories.includes('Young People and Children') || listOfCategories.includes('Young People/Children')) {        
+        index = listOfCategories.indexOf('Young People and Children') || listOfCategories.indexOf('Young People/Children');
+        listOfCategories.splice(index, 1);
+        } 
+      }  
+      
+      // Women
+      if ( event.target.checked && event.target.value.includes('Women')){
+        if(listOfCategories.indexOf('Women') === -1 ) {
+          
+          listOfCategories.push('Pregnant Women and New Mothers')
+        } 
+        if(listOfCategories.indexOf('Women') > -1 ) {
+          index =  listOfCategories.indexOf('Women');
+          listOfCategories.splice(index, 1);
+          listOfCategories.push('Pregnant Women and New Mothers')
+        } 
+      }
+
+      if ( !event.target.checked && event.target.value.includes('Women')){
+        if(listOfCategories.includes('Women') || listOfCategories.includes('Pregnant Women and New Mothers')) {        
+          index = listOfCategories.indexOf('Women') || listOfCategories.indexOf('Pregnant Women and New Mothers');
+          listOfCategories.splice(index, 1);
+          } else {
+            //
+          }
+      }  
+
+      // Employment
+      if ( event.target.checked && event.target.value === ('Employment')){
+        if(listOfCategories.indexOf('Employment') === -1 ) {
+          listOfCategories.push('Employment/Training/Volunteering')
+        } 
+        if(listOfCategories.indexOf('Employment') > -1 ) {
+          index =  listOfCategories.indexOf('Employment');
+          listOfCategories.splice(index, 1);
+          listOfCategories.push('Employment/Training/Volunteering')
+        } 
+      }
+      if ( !event.target.checked && event.target.value === ('Employment')){
+        if(listOfCategories.includes('Employment') || listOfCategories.includes('Employment/Training/Volunteering')) {        
+          index = listOfCategories.indexOf('Employment') || listOfCategories.indexOf('Employment/Training/Volunteering');
+          listOfCategories.splice(index, 1);
+          } else {
+            //
+          }
+      }
+
+
+      if ( event.target.checked && event.target.value === ('Destitution')){
+        if(listOfCategories.indexOf("Destitution/NRPF") === -1) {
+        listOfCategories.push("Destitution/NRPF");
+        }
+      }
+
+      if ( !event.target.checked && event.target.value === ('Destitution')){
+        if(listOfCategories.includes("Destitution/NRPF")) {        
+        index = listOfCategories.indexOf("Destitution/NRPF")
+        listOfCategories.splice(index, 1);
+        }
+      }
+
+      if ( !event.target.checked && event.target.value === ('Destitution')){
+        if(listOfCategories.includes('Destitution') || listOfCategories.includes('Destitution/NRPF')) {        
+          index = listOfCategories.indexOf('Destitution') || listOfCategories.indexOf('Destitution/NRPF');
+          listOfCategories.splice(index, 1);
+          } else {
+            //
+          }
+      } 
+
+      for(let i = 0; i < nonComposedCategories.length; i += 1) {
+      
+        // Case where category is checked and category's name is not composed
+        if(event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
+          if(listOfCategories.indexOf(event.target.value) === -1 ) {
+            listOfCategories.push(event.target.value);              
+          } 
+      }
+
+        // Case where category is not checked and category's name is not composed
+      if(!event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
+
+           if(listOfCategories.indexOf(event.target.value) > -1) {
+            index = listOfCategories.indexOf(event.target.value)
+            listOfCategories.splice(index, 1)
+          }
+    }
+
+    this.setState({
+      [event.target.name]: event.target.value,
+      Categories: [...new Set(listOfCategories)],
+      isChecked:!this.state.isChecked,
+    });
+    
+  } 
+
+  };
+
   handleMulitySelectChange = event => {
     this.setState({ Day: event.target.value });
   };
