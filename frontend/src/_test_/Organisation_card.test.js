@@ -1,13 +1,13 @@
 import React from 'react'
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import EditOrganisation from '../../Components/Organisation/EditOrganisation';
+import OrganizationCard from '../Components/Organisation/OrganisationCard';
 
 configure({ adapter: new Adapter() });
 
-describe('Edit Organization Component', () => {
+describe('OrganizationCard Component', () => {
     it('Should render without crashing', () => {
-        const wrapper = shallow(<EditOrganisation />).length
+        const wrapper = shallow(<OrganizationCard />).length
         expect(wrapper).toEqual(1)
     })
 })

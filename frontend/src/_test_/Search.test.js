@@ -1,13 +1,13 @@
 import React from 'react'
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import OrganizationCard from '../../Components/Organisation/OrganisationCard';
+import Search from '../Components/Organisation/Search';
 
 configure({ adapter: new Adapter() });
 
-describe('OrganizationCard Component', () => {
+describe('Search Component', () => {
     it('Should render without crashing', () => {
-        const wrapper = shallow(<OrganizationCard />).length
+        const wrapper = shallow(<Search />).length
         expect(wrapper).toEqual(1)
     })
 })
