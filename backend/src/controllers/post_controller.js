@@ -2,6 +2,8 @@ import { transaction, Model } from 'objection';
 import { knex } from '../../config';
 import Organisation from '../model/Organisation';
 
+const { raw } = require('objection');
+
 Model.knex(knex);
 
 const postOrganisation = async (graph) => {
@@ -11,6 +13,20 @@ const postOrganisation = async (graph) => {
         .insertGraph(graph)
     ));
   return insertedGraph;
+};
+
+const deleteOrganisation = async (orgId, branchId) => {
+  console.log(branchId)
+  try {
+    const deletedBranch = await Organisation.query()
+      .delete()
+      .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
+      .where(raw('branch.id'), 'like', branchId)
+    return deletedBranch;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
 };
 
 const editOrganisation = async (graph, orgId, branchId) => {
@@ -34,5 +50,6 @@ const editOrganisation = async (graph, orgId, branchId) => {
 
 module.exports = {
   postOrganisation,
-  editOrganisation
+  editOrganisation,
+  deleteOrganisation
 }
