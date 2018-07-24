@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Login from '../../Components/LoginForm/LoginForm';
+import Login from '../Components/LoginForm/LoginForm';
 
 configure({ adapter: new Adapter() });
 

@@ -3,8 +3,8 @@ import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import reducerRoot from '../../reducers';
-import LoginForm from '../../Components/LoginForm';
+import reducerRoot from '../reducers';
+import LoginForm from '../Components/LoginForm';
 
 configure({ adapter: new Adapter() });
 
