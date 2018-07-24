@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import UsersMenu from '../../Components/Users/UsersMenu';
+import UsersMenu from '../Components/Users/UsersMenu';
 
 configure({ adapter: new Adapter() });
 
