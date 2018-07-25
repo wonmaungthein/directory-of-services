@@ -11,6 +11,26 @@ import './add-org.css';
 import TopNav from '../TopNav';
 import helpers from '../../helpers'
 
+const checkCategories = [
+  'Debt',
+  'Trafficking',
+  'LGBTQI',
+  'Healthcare',
+  'Education',
+  'Benefits',
+  'Families',
+  'Gender Based Violence',
+  'Housing',
+  'Immigration',
+  'Mental Health Services',
+  'Social and Other',
+  'Baby Equipment',
+  'Destitution',
+  'Young People and Children',
+  'Women',
+  'Employment'
+];
+
 class AddOrganisation extends Component {
   state = {
     notificationSystem: null,
@@ -54,7 +74,6 @@ class AddOrganisation extends Component {
     const error = this.validate();
     const days = this.state.Day.join(",");
     const categories = this.state.Categories.join(",");
-
     const data = {
       organisation: this.state.Organisation,
       service: this.state.Services,
@@ -120,13 +139,25 @@ class AddOrganisation extends Component {
 
   handleDefaultCheckbox = event => {
     const listOfCategories = this.state.Categories;
-    let index
-    if (event.target.checked) {
-      listOfCategories.push(event.target.value)
-    } else {
-      index = listOfCategories.indexOf(event.target.value)
-      listOfCategories.splice(index, 1)
-    }
+    let index;  
+    for(let i = 0; i < checkCategories.length; i += 1) {
+        if(event.target.checked && checkCategories[i].includes(event.target.value)) {          
+          if(listOfCategories.indexOf(checkCategories[i]) === -1) {             
+            listOfCategories.push(checkCategories[i]); 
+          }
+          if(listOfCategories.indexOf(checkCategories[i]) > -1) { 
+            index = listOfCategories.indexOf(checkCategories[i])
+            listOfCategories.splice(index, 1)             
+            listOfCategories.push(checkCategories[i]);              
+          }; 
+        }; 
+        if(!event.target.checked && event.target.value.trim().includes(checkCategories[i].trim())) { 
+          if(listOfCategories.indexOf(checkCategories[i]) > -1) {            
+            index = listOfCategories.indexOf(checkCategories[i])
+            listOfCategories.splice(index, 1)  
+            }
+          }; 
+        }; 
     this.setState({
       [event.target.name]: event.target.checked,      
       Categories: listOfCategories,
@@ -136,19 +167,31 @@ class AddOrganisation extends Component {
 
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
-    let index
-    if (event.target.checked) {
-      listOfCategories.push(event.target.value)
-    } else {
-      index = listOfCategories.indexOf(event.target.value)
-      listOfCategories.splice(index, 1)
-    }
+    let index; 
+    for(let i = 0; i < checkCategories.length; i += 1) {
+        if(event.target.checked && checkCategories[i].split(' ').join('').includes(event.target.value)) {          
+          if(listOfCategories.indexOf(checkCategories[i]) === -1) {             
+            listOfCategories.push(checkCategories[i]); 
+          }
+          // if(listOfCategories.indexOf(checkCategories[i]) > -1) { 
+          //   index = listOfCategories.indexOf(checkCategories[i])
+          //   listOfCategories.splice(index, 1)             
+          //   listOfCategories.push(checkCategories[i]);              
+          // }; 
+        }; 
+        if(!event.target.checked && event.target.value.trim().includes(checkCategories[i].split(' ').join('').trim())) { 
+          if(listOfCategories.indexOf(checkCategories[i]) > -1) {            
+            index = listOfCategories.indexOf(checkCategories[i])
+            listOfCategories.splice(index, 1)  
+            }
+          }; 
+        }; 
+               
     this.setState({
       [event.target.name]: event.target.checked,      
       Categories: listOfCategories,
     });
   };
-
 
   handleMulitySelectChange = event => {
     this.setState({ Day: event.target.value });
@@ -156,7 +199,7 @@ class AddOrganisation extends Component {
 
   render() {
     const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
-
+    
     return (
       <div>
         <TopNav addLink="organisations/add" addOrg="Add new organisation" />
