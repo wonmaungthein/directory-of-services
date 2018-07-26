@@ -11,25 +11,25 @@ import './add-org.css';
 import TopNav from '../TopNav';
 import helpers from '../../helpers'
 
-const checkCategories = [
+const checkCategories = [ 
   'Debt',
   'Trafficking',
+  'Destitution',
   'LGBTQI',
   'Healthcare',
   'Education',
   'Benefits',
+  'Employment',
   'Families',
   'Gender Based Violence',
   'Housing',
   'Immigration',
   'Mental Health Services',
   'Social and Other',
-  'Baby Equipment',
-  'Destitution',
-  'Young People and Children',
   'Women',
-  'Employment'
-];
+  'Baby Equipment',
+  'Young People and Children' 
+  ];
 
 class AddOrganisation extends Component {
   state = {
@@ -51,9 +51,11 @@ class AddOrganisation extends Component {
 
   componentDidMount() {
     const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url);
+    const catIndex = category.indexOf('Young People and Children');    
+    const updateCategory = catIndex > -1 ? ['Young People/Children']: category;
     this.setState({
       notificationSystem: this.refs.savedChanges,
-      Categories: category
+      Categories: updateCategory
     });
   }
 
@@ -74,6 +76,7 @@ class AddOrganisation extends Component {
     const error = this.validate();
     const days = this.state.Day.join(",");
     const categories = this.state.Categories.join(",");
+
     const data = {
       organisation: this.state.Organisation,
       service: this.state.Services,
@@ -139,25 +142,21 @@ class AddOrganisation extends Component {
 
   handleDefaultCheckbox = event => {
     const listOfCategories = this.state.Categories;
-    let index;  
-    for(let i = 0; i < checkCategories.length; i += 1) {
-        if(event.target.checked && checkCategories[i].includes(event.target.value)) {          
-          if(listOfCategories.indexOf(checkCategories[i]) === -1) {             
-            listOfCategories.push(checkCategories[i]); 
-          }
-          if(listOfCategories.indexOf(checkCategories[i]) > -1) { 
-            index = listOfCategories.indexOf(checkCategories[i])
-            listOfCategories.splice(index, 1)             
-            listOfCategories.push(checkCategories[i]);              
-          }; 
-        }; 
-        if(!event.target.checked && event.target.value.trim().includes(checkCategories[i].trim())) { 
-          if(listOfCategories.indexOf(checkCategories[i]) > -1) {            
-            index = listOfCategories.indexOf(checkCategories[i])
-            listOfCategories.splice(index, 1)  
-            }
-          }; 
-        }; 
+    let index;
+    if (event.target.checked  && event.target.value !== 'Young People and Children') {
+        listOfCategories.push(event.target.value);
+    } else if (!event.target.checked  && event.target.value !== 'Young People and Children'){
+        index = listOfCategories.indexOf(event.target.value);
+        listOfCategories.splice(index, 1)
+      }
+
+    if (event.target.checked && event.target.value === 'Young People and Children') {
+        listOfCategories.push('Young People/Children')
+    } else if (!event.target.checked && event.target.value === 'Young People and Children'){
+        index =  listOfCategories.indexOf('Young People/Children');
+        listOfCategories.splice(index, 1)
+      }
+    
     this.setState({
       [event.target.name]: event.target.checked,      
       Categories: listOfCategories,
@@ -167,31 +166,29 @@ class AddOrganisation extends Component {
 
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
-    let index; 
-    for(let i = 0; i < checkCategories.length; i += 1) {
-        if(event.target.checked && checkCategories[i].split(' ').join('').includes(event.target.value)) {          
-          if(listOfCategories.indexOf(checkCategories[i]) === -1) {             
-            listOfCategories.push(checkCategories[i]); 
-          }
-          // if(listOfCategories.indexOf(checkCategories[i]) > -1) { 
-          //   index = listOfCategories.indexOf(checkCategories[i])
-          //   listOfCategories.splice(index, 1)             
-          //   listOfCategories.push(checkCategories[i]);              
-          // }; 
-        }; 
-        if(!event.target.checked && event.target.value.trim().includes(checkCategories[i].split(' ').join('').trim())) { 
-          if(listOfCategories.indexOf(checkCategories[i]) > -1) {            
-            index = listOfCategories.indexOf(checkCategories[i])
-            listOfCategories.splice(index, 1)  
-            }
-          }; 
-        }; 
-               
+    let index
+    for(let i = 0; i < checkCategories.length; i += 1){
+      if (event.target.checked && event.target.value === checkCategories[i].split(' ').join('') && event.target.value !== 'Young People and Children'.split(' ').join('')) {
+        listOfCategories.push(checkCategories[i])
+      } else if (!event.target.checked && event.target.value === checkCategories[i].split(' ').join('') && event.target.value !== 'Young People and Children'.split(' ').join('')){
+        index = listOfCategories.indexOf(checkCategories[i]);
+        listOfCategories.splice(index, 1)
+      }
+    }
+
+    if (event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))) {
+      listOfCategories.push('Young People/Children')
+    }else if (!event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))){
+      index = listOfCategories.indexOf('Young People/Children');
+      listOfCategories.splice(index, 1)
+    }
+
     this.setState({
       [event.target.name]: event.target.checked,      
       Categories: listOfCategories,
     });
   };
+
 
   handleMulitySelectChange = event => {
     this.setState({ Day: event.target.value });
@@ -199,7 +196,6 @@ class AddOrganisation extends Component {
 
   render() {
     const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
-    
     return (
       <div>
         <TopNav addLink="organisations/add" addOrg="Add new organisation" />
