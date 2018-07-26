@@ -27,24 +27,31 @@ const nonComposedCategories = [
   'Benefits',
   'Families',
   'Housing',
-  'Immigration'
+  'Immigration',
+  'Women',
+  'Employment',
+  'Destitution'
 ];
 
 // Categries format in FE
-const checkCategories = [
-  'Debt',
-  'Trafficking',
-  "LGBTQI",
-  "Healthcare",
-  "Education",
-  "Benefits",
-  "Families",
-  'Gender Based Violence',
-  "Housing",
-  "Immigration",
-  'Mental Health Services',
-  'Social and Other',
-  'Baby Equipment',
+const checkCategories = [ 
+'Debt',
+'Trafficking',
+'Destitution',
+'LGBTQI',
+'Healthcare',
+'Education',
+'Benefits',
+'Employment',
+'Families',
+'Gender Based Violence',
+'Housing',
+'Immigration',
+'Mental Health Services',
+'Social and Other',
+'Women',
+'Baby Equipment',
+'Young People and Children' 
 ];
 
 class EditOrganisation extends React.Component {
@@ -87,16 +94,10 @@ class EditOrganisation extends React.Component {
         } 
       }
 
-      if (data.cat_name.includes('Pregnant Women and New Mothers')) {
-        categories.push('Women');
-      } else if (data.cat_name.includes('Employment/Training/Volunteering')){
-        categories.push('Employment');  
-      } else if (data.cat_name.includes('Young People/Children') || data.cat_name.includes('Young People and Children')){
-        categories.push('Young People and Children');    
-      } else if (data.cat_name.includes('Destitution/NRPF')){
-        categories.push('Destitution');
+      if (data.cat_name.includes('Young People/Children') || data.cat_name.includes('Young People and Children')){
+        categories.push('Young People/Children');    
       }
-      
+
       this.setState({
         branchId: data.branch_id,
         orgId: data.org_id,
@@ -190,6 +191,7 @@ class EditOrganisation extends React.Component {
     });
   };
 
+
   handleCheckBox = event => {
     const listOfCategories = [...this.state.Categories];
     let index;
@@ -198,7 +200,7 @@ class EditOrganisation extends React.Component {
     if(event.target.checked && composedCategories[i].split(' ').join('').includes(event.target.value)) {
       if(listOfCategories.indexOf(composedCategories[i]) === -1) { 
         listOfCategories.push(composedCategories[i]);              
-      } 
+      }
     } 
         
   // Case where category is not checked and category's name is composed
@@ -213,15 +215,9 @@ class EditOrganisation extends React.Component {
  // Special case 
  // Young people
     if ( event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))){
-      if(listOfCategories.indexOf('Young People and Children') === -1 ) {
+      if(listOfCategories.indexOf('Young People and Children') === -1 || listOfCategories.indexOf('Young People/Children') === -1  ) {
           listOfCategories.push('Young People/Children')
         }
-
-    if(listOfCategories.indexOf('Young People and Children') > -1 ) {
-        index =  listOfCategories.indexOf('Young People and Children');
-        listOfCategories.splice(index, 1);
-        listOfCategories.push('Young People/Children')
-        } 
     }
 
     if ( !event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))){
@@ -230,66 +226,10 @@ class EditOrganisation extends React.Component {
         listOfCategories.splice(index, 1);
       } 
     }  
-      
-  // Women
-    if ( event.target.checked && event.target.value.includes('Women')){
-      if(listOfCategories.indexOf('Women') === -1 ) {
-        listOfCategories.push('Pregnant Women and New Mothers')
-      } 
-      if(listOfCategories.indexOf('Women') > -1 ) {
-        index =  listOfCategories.indexOf('Women');
-        listOfCategories.splice(index, 1);
-        listOfCategories.push('Pregnant Women and New Mothers')
-      } 
-    }
 
-    if ( !event.target.checked && event.target.value.includes('Women')){
-      if(listOfCategories.includes('Women') || listOfCategories.includes('Pregnant Women and New Mothers')) {        
-        index = listOfCategories.indexOf('Women') || listOfCategories.indexOf('Pregnant Women and New Mothers');
-        listOfCategories.splice(index, 1);
-      } 
-    }  
-
-      // Employment
-    if ( event.target.checked && event.target.value === ('Employment')){
-      if(listOfCategories.indexOf('Employment') === -1 ) {
-        listOfCategories.push('Employment/Training/Volunteering')
-      } 
-      if(listOfCategories.indexOf('Employment') > -1 ) {
-        index =  listOfCategories.indexOf('Employment');
-        listOfCategories.splice(index, 1);
-        listOfCategories.push('Employment/Training/Volunteering')
-        } 
-    }
-    if ( !event.target.checked && event.target.value === ('Employment')){
-      if(listOfCategories.includes('Employment') || listOfCategories.includes('Employment/Training/Volunteering')) {        
-        index = listOfCategories.indexOf('Employment') || listOfCategories.indexOf('Employment/Training/Volunteering');
-        listOfCategories.splice(index, 1);
-        } 
-    }
-
-    if ( event.target.checked && event.target.value === ('Destitution')){
-      if(listOfCategories.indexOf("Destitution/NRPF") === -1) {
-      listOfCategories.push("Destitution/NRPF");
-      }
-    }
-
-    if ( !event.target.checked && event.target.value === ('Destitution')){
-      if(listOfCategories.includes("Destitution/NRPF")) {        
-        index = listOfCategories.indexOf("Destitution/NRPF")
-        listOfCategories.splice(index, 1);
-      }
-    }
-
-    if ( !event.target.checked && event.target.value === ('Destitution')){
-      if(listOfCategories.includes('Destitution') || listOfCategories.includes('Destitution/NRPF')) {        
-        index = listOfCategories.indexOf('Destitution') || listOfCategories.indexOf('Destitution/NRPF');
-        listOfCategories.splice(index, 1);
-      } 
-    } 
-
+    //  nonComposedCategories name
     for(let i = 0; i < nonComposedCategories.length; i += 1) {
-    // Case where category is checked and category's name is not composed
+    // Case where category is checked and category's name is not composed    
       if(event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
         if(listOfCategories.indexOf(event.target.value) === -1 ) {
           listOfCategories.push(event.target.value);              
@@ -304,111 +244,49 @@ class EditOrganisation extends React.Component {
         }
       }
     } 
-
     this.setState({
       [event.target.name]: event.target.checked,
       Categories: [...new Set(listOfCategories)],
     });
   };
 
+  // Default checkbox selected
   handleDefaultCheckbox = event => { 
     const listOfCategories = [...this.state.Categories];
-    let index;
+    let index;    
     for(let i = 0; i < composedCategories.length; i += 1) {
   // Case where category is checked and category's name is composed
-    if(event.target.checked && composedCategories[i].split(' ').join('').includes(event.target.value)) {
+    if(event.target.checked && composedCategories[i].includes(event.target.value)) {
       if(listOfCategories.indexOf(composedCategories[i]) === -1) { 
-        listOfCategories.push(composedCategories[i]);              
+        listOfCategories.push(composedCategories[i]); 
       } 
     } 
         
   // Case where category is not checked and category's name is composed
-    if(!event.target.checked && event.target.value.includes(composedCategories[i].split(' ').join(''))) { 
+    if(!event.target.checked && event.target.value.includes(composedCategories[i])) { 
       if(listOfCategories.indexOf(composedCategories[i]) > -1) {
         index = listOfCategories.indexOf(composedCategories[i])
-        listOfCategories.splice(index, 1)             
+        listOfCategories.splice(index, 1);
         }
       } 
     }
 
 // Special case 
 // Young people
-    if ( event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))){
-      if(listOfCategories.indexOf('Young People and Children') === -1 ) {
-          listOfCategories.push('Young People/Children')
+    if ( event.target.checked && event.target.value.includes('Young People and Children')){  
+      if(listOfCategories.indexOf('Young People and Children') === -1 || listOfCategories.indexOf('Young People/Children') === -1 ) {
+          listOfCategories.push('Young People/Children');
         }
-
-    if(listOfCategories.indexOf('Young People and Children') > -1 ) {
-        index =  listOfCategories.indexOf('Young People and Children');
-        listOfCategories.splice(index, 1);
-        listOfCategories.push('Young People/Children')
-        } 
     }
 
-    if ( !event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))){
+    if ( !event.target.checked && event.target.value.includes('Young People and Children')){
       if(listOfCategories.includes('Young People and Children') || listOfCategories.includes('Young People/Children')) {        
         index = listOfCategories.indexOf('Young People and Children') || listOfCategories.indexOf('Young People/Children');
         listOfCategories.splice(index, 1);
       } 
     }  
       
-  // Women
-    if ( event.target.checked && event.target.value.includes('Women')){
-      if(listOfCategories.indexOf('Women') === -1 ) {
-        listOfCategories.push('Pregnant Women and New Mothers')
-      } 
-      if(listOfCategories.indexOf('Women') > -1 ) {
-        index =  listOfCategories.indexOf('Women');
-        listOfCategories.splice(index, 1);
-        listOfCategories.push('Pregnant Women and New Mothers')
-      } 
-    }
-
-    if ( !event.target.checked && event.target.value.includes('Women')){
-      if(listOfCategories.includes('Women') || listOfCategories.includes('Pregnant Women and New Mothers')) {        
-        index = listOfCategories.indexOf('Women') || listOfCategories.indexOf('Pregnant Women and New Mothers');
-        listOfCategories.splice(index, 1);
-      } 
-    }  
-
-      // Employment
-    if ( event.target.checked && event.target.value === ('Employment')){
-      if(listOfCategories.indexOf('Employment') === -1 ) {
-        listOfCategories.push('Employment/Training/Volunteering')
-      } 
-      if(listOfCategories.indexOf('Employment') > -1 ) {
-        index =  listOfCategories.indexOf('Employment');
-        listOfCategories.splice(index, 1);
-        listOfCategories.push('Employment/Training/Volunteering')
-        } 
-    }
-    if ( !event.target.checked && event.target.value === ('Employment')){
-      if(listOfCategories.includes('Employment') || listOfCategories.includes('Employment/Training/Volunteering')) {        
-        index = listOfCategories.indexOf('Employment') || listOfCategories.indexOf('Employment/Training/Volunteering');
-        listOfCategories.splice(index, 1);
-        } 
-    }
-
-    if ( event.target.checked && event.target.value === ('Destitution')){
-      if(listOfCategories.indexOf("Destitution/NRPF") === -1) {
-      listOfCategories.push("Destitution/NRPF");
-      }
-    }
-
-    if ( !event.target.checked && event.target.value === ('Destitution')){
-      if(listOfCategories.includes("Destitution/NRPF")) {        
-        index = listOfCategories.indexOf("Destitution/NRPF")
-        listOfCategories.splice(index, 1);
-      }
-    }
-
-    if ( !event.target.checked && event.target.value === ('Destitution')){
-      if(listOfCategories.includes('Destitution') || listOfCategories.includes('Destitution/NRPF')) {        
-        index = listOfCategories.indexOf('Destitution') || listOfCategories.indexOf('Destitution/NRPF');
-        listOfCategories.splice(index, 1);
-      } 
-    } 
-
+  // nonComposedCategories name
     for(let i = 0; i < nonComposedCategories.length; i += 1) {
     // Case where category is checked and category's name is not composed
       if(event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
@@ -433,7 +311,6 @@ class EditOrganisation extends React.Component {
     });
     
    };
-
 
 
   handleMulitySelectChange = event => {
