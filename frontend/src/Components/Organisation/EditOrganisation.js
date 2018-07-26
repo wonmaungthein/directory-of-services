@@ -51,7 +51,6 @@ const checkCategories = [
 'Social and Other',
 'Women',
 'Baby Equipment',
-'Young People and Children' 
 ];
 
 class EditOrganisation extends React.Component {
