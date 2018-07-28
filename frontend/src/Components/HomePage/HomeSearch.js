@@ -74,7 +74,14 @@ class HomeSearch extends React.Component {
   // allow user to press enter key for search
   handleKeyUp = (e) => {
     if (e.charCode === 13 || e.key === 'Enter') {
-      this.updateSearchData();
+      if (this.state.value.trim().length !== 0 && this.state.postcodeError.trim().length !== 0){
+          this.setState({postcodeError: ''});
+          this.updateSearchData();
+        } else if ((this.state.postCode.trim().length !== 0 && this.state.value.trim().length !== 0) ||
+            (this.state.postCode.trim().length === 0 && this.state.value.trim().length !== 0) ||
+            (this.state.postCode.trim().length !== 0 && this.state.value.trim().length === 0))  {
+            this.updateSearchData();
+        }
     }
   }
 
@@ -101,7 +108,6 @@ class HomeSearch extends React.Component {
   // clear input value
   clearSearchField = () => {
     this.setState({
-      search: '',
       value: '',
       isHidden: true,
     })
@@ -122,7 +128,12 @@ class HomeSearch extends React.Component {
     if (this.state.postCode.length === 0) {
       return null;
     } else if (this.state.postCode.length < 5) {
-      this.setState({ postcodeError: 'The postcode you have entered is invalid.' })
+      this.setState({
+        postcodeError: 'The postcode you have entered is incorrect.',
+        isLoading: false,
+        postCode: '',
+        postcodeValue: '',
+       })
     } else {
       const post = this.state.postCode.replace(/[' ']/g, '');
       this.setState({ isLoading: true, postcodeError: '' })
@@ -145,13 +156,18 @@ class HomeSearch extends React.Component {
         })
         this.setState({ isLoading: false })
       } else {
-        this.setState({ postcodeError: 'Your postcode is incorrect', isLoading: false })
+        this.setState({
+          postcodeError: 'The postcode you have entered is incorrect.',
+          isLoading: false,
+          postCode: '',
+          postcodeValue: '',
+        })
       }
     }
   }
 
   updateSearchData = () => {
-    // Remove x sign uses to clear input when user start search
+    // Remove x sign uses to clear input when user start search(value)
     this.setState({ search: this.state.value, isHidden: true})
     this.setState({ postcodeValue: this.state.postCode, isPostcode: false })
     this.handlePostSearch()
@@ -342,6 +358,15 @@ class HomeSearch extends React.Component {
               Search
             </Button>
           </Grid>
+
+          { this.state.postcodeError ?
+            <Fragment>
+              <span className="postcode-error">
+                {this.state.postcodeError}
+              </span>
+              {searchResult}
+            </Fragment>
+            : searchResult}
 
           { this.state.postcodeError ? <span className="postcode-error">{this.state.postcodeError}</span>
             : searchResult}
