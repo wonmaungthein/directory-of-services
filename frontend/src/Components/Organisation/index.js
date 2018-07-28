@@ -150,10 +150,19 @@ class Organisations extends Component {
         orgs.service_days.includes('Sunday') &&
         orgs.service_days.includes('Mon-Fri');
 
+        // Check for five days of the week Monday to Friday
         const monToFri =  orgs.service_days.match('Mon-Fri');
+        const workingDays = (orgs.service_days.includes('Monday') && 
+          orgs.service_days.includes('Tuesday') && 
+          orgs.service_days.includes('Wednesday') &&
+          orgs.service_days.includes('Thursday') &&
+          orgs.service_days.includes('Friday')) ;
         
-        return orgs.service_days.includes(day) || allDaysWithMonToFriFormat  || 
-        allDays || (monToFri && orgs.borough.includes(borough))
+        return orgs.service_days.includes(day) || 
+            allDaysWithMonToFriFormat  || 
+            allDays || 
+            workingDays ||
+            (monToFri && orgs.borough.includes(borough))
       })
     } else if (day.length > 0 && borough.length <= 0) {
       return data.filter(orgs => {
@@ -171,9 +180,15 @@ class Organisations extends Component {
         orgs.service_days.includes('Sunday') &&
         orgs.service_days.includes('Mon-Fri');
 
+        // Check for five days of the week Monday to Friday / handle when day = Mon-Fri
         const monToFri =  orgs.service_days.match('Mon-Fri');
+        const workingDays = (orgs.service_days.includes('Monday') && 
+          orgs.service_days.includes('Tuesday') && 
+          orgs.service_days.includes('Wednesday') &&
+          orgs.service_days.includes('Thursday') &&
+          orgs.service_days.includes('Friday')) ;
 
-        return orgs.service_days.includes(day) || allDaysWithMonToFriFormat || allDays || monToFri;
+        return orgs.service_days.includes(day) || allDaysWithMonToFriFormat || allDays || monToFri || workingDays;
       })
     } else if (day.length <= 0 && borough.length > 0) {
       return data.filter(orgs =>
