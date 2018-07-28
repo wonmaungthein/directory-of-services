@@ -74,7 +74,7 @@ class Notification extends React.Component {
         <Button onClick={this.handleClickOpen} raised="true" >
           <i className="material-icons">delete</i>
         </Button> :
-        <Button variant="fab" aria-label="edit" className="edit-button" onClick={this.handleClickOpen} raised="true">
+        <Button variant="fab" aria-label="edit" className="edit-button" onClick={this.handleClickOpen} raised="true" >
           <i className="material-icons delete-org">delete</i>
         </Button>
     )
