@@ -25,10 +25,10 @@ class Notification extends React.Component {
   checkComponentLink = () =>
     (
       this.props.match.url.includes('/users') ?
-        <Button onClick={this.handleClickOpen} raised>
+        <Button onClick={this.handleClickOpen} raised="true" >
           <i className="material-icons">delete</i>
         </Button> :
-        <Button variant="fab" aria-label="edit" className="edit-button" onClick={this.handleClickOpen} raised>
+        <Button variant="fab" aria-label="edit" className="edit-button" onClick={this.handleClickOpen} raised="true" >
           <i className="material-icons delete-org">delete</i>
         </Button>
     )
