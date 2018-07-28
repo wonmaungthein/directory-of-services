@@ -1,8 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Grid from 'material-ui/Grid';
-import EditOrganisation from './EditOrganisation';
-import SingleOrganisation from './SingleOrganisation';
 import { getBranchsByCategory } from '../../actions/getApiData';
 import { getBranchesFilteredByPostCode } from '../../actions/postData';
 import Search from './Search';
@@ -26,7 +24,6 @@ class Organisations extends Component {
   state = {
     orgsBeforeFilteredByPostcode: [],
     organisations: [],
-    editIdx: -1,
     category: getSelectedCategory(this.props.match),
     day: '',
     borough: '',
@@ -35,7 +32,6 @@ class Organisations extends Component {
     isLoading: false,
     sort: false,
     isPostcode: false
-
   };
 
   componentDidMount() {
@@ -46,7 +42,6 @@ class Organisations extends Component {
       }
     this.props.getBranchsByCategory(category);
   }
-
 
   componentWillReceiveProps(newProps) {
     const { oganisation } = newProps;
@@ -122,15 +117,6 @@ class Organisations extends Component {
       }
     }
   }
-  editSelectedOrganisation = idex =>
-    this.setState({
-      editIdx: idex,
-    });
-  stopEditing = () => {
-    this.setState({
-      editIdx: -1,
-    });
-  };
 
   filterData = (data) => {
     const { day, borough } = this.state;
@@ -150,10 +136,19 @@ class Organisations extends Component {
         orgs.service_days.includes('Sunday') &&
         orgs.service_days.includes('Mon-Fri');
 
+        // Check for five days of the week Monday to Friday
         const monToFri =  orgs.service_days.match('Mon-Fri');
+        const workingDays = (orgs.service_days.includes('Monday') && 
+          orgs.service_days.includes('Tuesday') && 
+          orgs.service_days.includes('Wednesday') &&
+          orgs.service_days.includes('Thursday') &&
+          orgs.service_days.includes('Friday')) ;
         
-        return orgs.service_days.includes(day) || allDaysWithMonToFriFormat  || 
-        allDays || (monToFri && orgs.borough.includes(borough))
+        return orgs.service_days.includes(day) || 
+            allDaysWithMonToFriFormat  || 
+            allDays || 
+            workingDays ||
+            (monToFri && orgs.borough.includes(borough))
       })
     } else if (day.length > 0 && borough.length <= 0) {
       return data.filter(orgs => {
@@ -171,9 +166,15 @@ class Organisations extends Component {
         orgs.service_days.includes('Sunday') &&
         orgs.service_days.includes('Mon-Fri');
 
+        // Check for five days of the week Monday to Friday / handle when day = Mon-Fri
         const monToFri =  orgs.service_days.match('Mon-Fri');
+        const workingDays = (orgs.service_days.includes('Monday') && 
+          orgs.service_days.includes('Tuesday') && 
+          orgs.service_days.includes('Wednesday') &&
+          orgs.service_days.includes('Thursday') &&
+          orgs.service_days.includes('Friday')) ;
 
-        return orgs.service_days.includes(day) || allDaysWithMonToFriFormat || allDays || monToFri;
+        return orgs.service_days.includes(day) || allDaysWithMonToFriFormat || allDays || monToFri || workingDays;
       })
     } else if (day.length <= 0 && borough.length > 0) {
       return data.filter(orgs =>
@@ -200,7 +201,7 @@ class Organisations extends Component {
   }
 
   render() {
-    const { editIdx, category, postCode, borough, day, organisations } = this.state;
+    const { category, postCode, borough, day, organisations } = this.state;
     const role = this.props.user.role ? this.props.user.role : '';
 
     if (this.state.isLoading || this.filterData.length === 0) {
@@ -227,32 +228,12 @@ class Organisations extends Component {
           isPostcode={this.state.isPostcode}
         />
         <Grid container className="organisation-page" spacing={24} wrap="wrap">
-          {this.filterData(organisations.sort(this.dataOrder())).map((org, index) => {
-            const currentlyEditing = editIdx === index;
-            return currentlyEditing ? (
-              <Fragment>
-                <EditOrganisation
-                  stopEditing={this.stopEditing}
-                  editOrgData={org}
-                  show
-                />
-                <SingleOrganisation
-                  stopEditing={this.stopEditing}
-                  handleShawDetails
-                  org={org}
-                />
-              </Fragment>
-            ) : (
-              <Grid item xs={12} sm={6} key={org.id} className='card'> 
-                <OrganisationCard
-                  getData={() => this.editSelectedOrganisation(index)}
-                  org={org}
-                  index={index}
-                  role={role}
-                />
-              </Grid>
-              );
-          })}
+          {this.filterData(organisations.sort(this.dataOrder())).map(org => (
+            <Grid item xs={12} sm={6} key={org.id} className='card'> 
+              <OrganisationCard org={org} role={role} />
+            </Grid>
+          ))
+          }
         </Grid>
       </div>
     );

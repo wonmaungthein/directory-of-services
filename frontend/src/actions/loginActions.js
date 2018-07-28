@@ -38,7 +38,7 @@ export function login(data) {
 export function signup(data) {
   const saveUser = async() => axios
     .post(`${api}/signup`, data)
-    .then(res => res)
+    .then(res => res.data)
   return saveUser
 }
 
@@ -47,8 +47,8 @@ export function upDateUser(data) {
   const userEdited = async() => {
     try {
     const editUser = await axios
-    .patch(`${api}/user/role`, data)
-     return editUser
+    .patch(`${api}/user/role`, data);
+     return editUser.data
     } catch (error) {
       return JSON.stringify(error);  
     }

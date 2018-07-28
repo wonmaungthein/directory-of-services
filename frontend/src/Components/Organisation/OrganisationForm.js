@@ -13,18 +13,23 @@ import BoroughData from '../../Data/Boroughs.json';
 import categories from '../../Data/Categories.json';
 import helpers from '../../helpers';
 
-const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Mon-Fri', 'Mon', 'Tues', 'Wed', 'Thu', 'Fri'];
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const areas = ['All', 'Central', 'East', 'North', 'South', 'West'];
-const sortedBorough = BoroughData.map(borough => borough.borough).filter((elem, index, self) =>
-  index === self.indexOf(elem)
-).sort();
+const sortedBorough = BoroughData.sort(((a,b) =>  {
+  if (a.borough < b.borough) {
+    return -1
+  }if (a.borough > b.borough) {
+    return 1
+  }
+  return 0;
+}));
 
 const OrganisationForm = (props) => {
   const checkedCategory = helpers.addSpaceToCategName(categories, props.checkedCategory);
 
 // I create a collection of days which combine days from days array and props.day and return unique value (no repetition of day )
 // then I made a copy of this collection using spread operator
-  const uniqueDays= new Set([...days, ...props.day]);
+  const uniqueDays= new Set([...days]);
   const checkDaysList = [...uniqueDays]; 
   const checkableDays = [] 
 
@@ -100,7 +105,7 @@ const OrganisationForm = (props) => {
                 </MenuItem> 
               }
               {sortedBorough.map(borough => (
-                <MenuItem className="location-i" value={borough}>{borough}</MenuItem>
+                <MenuItem key={borough.id} className="location-i" value={borough.borough}>{borough.borough}</MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -166,7 +171,9 @@ const OrganisationForm = (props) => {
               value={props.day}
               onChange={props.handleMulitySelectChange}
               input={<Input id="select-multiple-checkbox" />}
-              renderValue={selected => selected.join(', ')}
+              // When day field is empty after editing the first element inside array will be empty string ('')
+              // selected.shift() will remove '' so that when display list of days it will not start with comma
+              renderValue={selected => selected[0] === '' ? selected.shift(): selected.join(', ')}
             >
               {
                 <MenuItem className="select-title">
@@ -179,7 +186,7 @@ const OrganisationForm = (props) => {
                   key={day}
                   value={day}
                 >
-                  <Checkbox checked={props.day.indexOf(day) > -1} />
+                  {props.day.indexOf(day) > -1 ? <span className='icon-check' /> : null}
                   <ListItemText primary={day} />
                 </MenuItem>
               ))}

@@ -8,21 +8,7 @@ import './single-org.css';
 
 class SingleOrganisation extends Component {
   state = {
-    open: false,
-    editIdx: -1,
-  };
-
-  editSelectedOrganisation = index =>
-    this.setState({
-      editIdx: index,
-      open: true,
-    });
-
-  stopEditing = () => {
-    this.setState({
-      editIdx: -1,
-      open: false,
-    });
+    open: false
   };
 
   handleOpen = () => {
@@ -34,21 +20,12 @@ class SingleOrganisation extends Component {
   };
   render() {
     const { org, role } = this.props;
-    const index = 1;
-    const { editIdx } = this.state;
-    const currentlyEditing = editIdx === index;
     const uiMessage = 'Add';
-    return currentlyEditing ? (
-      <EditOrganisation
-        editOrgData={org}
-        stopEditing={this.stopEditing}
-        show
-      />
-    ) : (
+    return (
       <Fragment>
         <div className="org-detail-btn">
           <Button
-            onClick={this.editSelectedOrganisation}
+            onClick={this.handleOpen}
             variant="raised"
             size="small"
             className={role !== 'Admin' && role !== 'Editor' ? 'move-right' : 'btn detail-button'}
@@ -61,7 +38,6 @@ class SingleOrganisation extends Component {
           open={this.state.open}
           onClose={this.handleClose}
         >
-
           <div className="org-close-btn">
             <Button
               onClick={this.handleClose}
@@ -72,9 +48,7 @@ class SingleOrganisation extends Component {
           </div> 
 
           { role === 'Admin' || role === 'Editor' ? 
-            <EditOrganisation
-              getData={() => this.editSelectedOrganisation(index)}
-            /> : null
+            <EditOrganisation org={org} /> : null
           }
           {org.org_name.length > 0 ? <h1> {org.org_name} </h1>: <h1 className="not-available"> Add organisation name ... </h1>}
           <h6 className="details-area">
@@ -108,7 +82,7 @@ class SingleOrganisation extends Component {
             </div>
             <div>
               <h4>Days</h4> 
-              {org.service_days? <Fragment><p>{org.service_days}</p></Fragment>
+              {org.service_days? <Fragment><p>{org.service_days.split(' ').join(', ')}</p></Fragment>
                   :<p className="not-available">{uiMessage} days ...</p>}
             </div>
           </div>

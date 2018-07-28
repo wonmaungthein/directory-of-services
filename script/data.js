@@ -108,13 +108,16 @@ const finalData = flattenedData.map(categoryData => {
       item =>
         item.Organisation.toLowerCase() ===
           categoryData[i].Organisation.toLowerCase() &&
-        item.Borough.toLowerCase() === categoryData[i].Borough.toLowerCase()
+        item.Borough.toLowerCase() === categoryData[i].Borough.toLowerCase() &&
+        item.Area.toLowerCase() === categoryData[i].Area.toLowerCase()
     ).length
     if (
       allData[i].Organisation.toLowerCase() ===
         categoryData[i].Organisation.toLowerCase() &&
       allData[i].Borough.toLowerCase() ===
         categoryData[i].Borough.toLowerCase() &&
+        allData[i].Area.toLowerCase() ===
+        categoryData[i].Area.toLowerCase() &&
       orgNum > 1
     ) {
       dulicatedOrgs.push(categoryData[i])
@@ -124,6 +127,8 @@ const finalData = flattenedData.map(categoryData => {
         categoryData[i].Organisation.toLowerCase() &&
       allData[i].Borough.toLowerCase() ===
         categoryData[i].Borough.toLowerCase() &&
+        allData[i].Area.toLowerCase() ===
+        categoryData[i].Area.toLowerCase() &&
       orgNum === 1
     ) {
       unduplicatedOrgs.push(categoryData[i])
@@ -133,8 +138,8 @@ const finalData = flattenedData.map(categoryData => {
   // Get organizations name and borough
   const orgsNameAndBorough = []
   dulicatedOrgs.map(org => {
-    const { Organisation, Borough } = org
-    orgsNameAndBorough.push({ Organisation, Borough })
+    const { Organisation, Borough, Area } = org
+    orgsNameAndBorough.push({ Organisation, Borough, Area })
   })
 
   // Remove duplication from organizations name and borough
@@ -145,7 +150,8 @@ const finalData = flattenedData.map(categoryData => {
       self.findIndex(
         item =>
           item.Organisation === elem.Organisation &&
-          item.Borough === elem.Borough
+          item.Borough === elem.Borough &&
+          item.Area === elem.Area
       )
   )
 
@@ -159,7 +165,8 @@ const finalData = flattenedData.map(categoryData => {
       if (
         dulicatedOrgs[i].Organisation.toLowerCase() ===
           item.Organisation.toLowerCase() &&
-        dulicatedOrgs[i].Borough.toLowerCase() === item.Borough.toLowerCase()
+        dulicatedOrgs[i].Borough.toLowerCase() === item.Borough.toLowerCase() &&
+        dulicatedOrgs[i].Area.toLowerCase() === item.Area.toLowerCase()
       ) {
         singleOrg.push(dulicatedOrgs[i])
       }
@@ -215,7 +222,8 @@ const finalData = flattenedData.map(categoryData => {
             toDo =>
               toDo.Organisation.toLowerCase() ===
                 elem.Organisation.toLowerCase() &&
-              toDo.Borough.toLowerCase() === elem.Borough.toLowerCase()
+              toDo.Borough.toLowerCase() === elem.Borough.toLowerCase() &&
+              toDo.Area.toLowerCase() === elem.Area.toLowerCase()
           )
       )
       .map(organization => {
@@ -264,7 +272,8 @@ const finalData = flattenedData.map(categoryData => {
       self.findIndex(
         toDo =>
           toDo.Organisation.toLowerCase() === elem.Organisation.toLowerCase() &&
-          toDo.Borough.toLowerCase() === elem.Borough.toLowerCase()
+          toDo.Borough.toLowerCase() === elem.Borough.toLowerCase() &&
+          toDo.Area.toLowerCase() === elem.Area.toLowerCase()
       )
   )
 
