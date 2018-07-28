@@ -8,21 +8,7 @@ import './single-org.css';
 
 class SingleOrganisation extends Component {
   state = {
-    open: false,
-    editIdx: -1,
-  };
-
-  editSelectedOrganisation = index =>
-    this.setState({
-      editIdx: index,
-      open: true,
-    });
-
-  stopEditing = () => {
-    this.setState({
-      editIdx: -1,
-      open: false,
-    });
+    open: false
   };
 
   handleOpen = () => {
@@ -34,21 +20,12 @@ class SingleOrganisation extends Component {
   };
   render() {
     const { org } = this.props;
-    const index = 1;
-    const { editIdx } = this.state;
-    const currentlyEditing = editIdx === index;
     const uiMessage = 'Add';
-    return currentlyEditing ? (
-      <EditOrganisation
-        editOrgData={org}
-        stopEditing={this.stopEditing}
-        show
-      />
-    ) : (
+    return (
       <Fragment>
         <div className="org-detail-btn">
           <Button
-            onClick={this.editSelectedOrganisation}
+            onClick={this.handleOpen}
             variant="raised"
             size="small"
             className="btn detail-button"
@@ -72,7 +49,7 @@ class SingleOrganisation extends Component {
           </div> 
 
           <EditOrganisation
-            getData={() => this.editSelectedOrganisation(index)}
+            editOrgData={org}
           />
           {org.org_name.length > 0 ? <h1> {org.org_name} </h1>: <h1 className="not-available"> Add organisation name ... </h1>}
           <h6 className="details-area">
