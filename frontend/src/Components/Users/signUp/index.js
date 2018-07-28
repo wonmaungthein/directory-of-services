@@ -128,12 +128,12 @@ class SignUpForm extends Component {
     }
     if (!err) {
       this.props.signup(data).then(user => {
-        if (user.data && user.data.success !== false) {
-          this.savedChangesSuccessfully(user.data.message);
+        if (user && user.success !== false) {
+          this.savedChangesSuccessfully(user.message);
           setTimeout(() => this.props.redirectToLogin(), 1000)
         } else {
-          this.setState({ userVerification: user.data.message })
-          this.failedSavedChanges(user.data.message);
+          this.setState({ userVerification: user.message })
+          this.failedSavedChanges(user.message);
         }
       });
     }

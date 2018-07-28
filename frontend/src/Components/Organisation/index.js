@@ -153,7 +153,7 @@ class Organisations extends Component {
         const monToFri =  orgs.service_days.match('Mon-Fri');
         
         return orgs.service_days.includes(day) || allDaysWithMonToFriFormat  || 
-        allDays || monToFri && orgs.borough.includes(borough)
+        allDays || (monToFri && orgs.borough.includes(borough))
       })
     } else if (day.length > 0 && borough.length <= 0) {
       return data.filter(orgs => {

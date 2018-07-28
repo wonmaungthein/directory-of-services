@@ -7710,52 +7710,6 @@
     ]
   },
   {
-    "name": "",
-    "count": 2,
-    "branches": [
-      {
-        "Area": "",
-        "Organisation": "",
-        "Clients": "",
-        "Categories": "Housing",
-        "Email": "",
-        "Project": "",
-        "Tag": "",
-        "Website": "",
-        "Tel": "",
-        "Process": ",",
-        "Postcode": "",
-        "Services": "",
-        "Borough": "",
-        "Days": [],
-        "lat": "",
-        "long": "",
-        "Address": ""
-      },
-      {
-        "Area": "",
-        "Organisation": "",
-        "Clients": "",
-        "Categories": "Women",
-        "Email": "",
-        "Project": "",
-        "Tag": "",
-        "Website": "",
-        "Tel": "",
-        "Process": "",
-        "Postcode": "",
-        "Services": "",
-        "Borough": "",
-        "Days": [
-          "Tuesday"
-        ],
-        "lat": "",
-        "long": "",
-        "Address": ""
-      }
-    ]
-  },
-  {
     "name": "The Welcome Project",
     "count": 6,
     "branches": [
