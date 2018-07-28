@@ -32,13 +32,6 @@ const styles = theme => ({
     },
     background: '#000',
   },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-  },
   navIconHide: {
     [theme.breakpoints.up('md')]: {
       display: 'none',
@@ -68,8 +61,9 @@ class SideBar extends React.Component {
     const { classes, theme } = this.props;
     const drawer = (
       <div className="side-bar-scroll">
-        <Hidden mdUp>
-          <div className={classes.drawerHeader}>
+        <div className="logo">
+          <Link to="/home">LOGO</Link>
+          <Hidden mdUp>
             <IconButton
               className="draw-close-button"
               onClick={this.handleDrawerClose}
@@ -80,13 +74,7 @@ class SideBar extends React.Component {
                 <ChevronLeftIcon />
                 )}
             </IconButton>
-          </div>
-        </Hidden>
-        <Hidden smDown>
-          <div className={classes.drawerHeader} />
-        </Hidden>
-        <div className="logo">
-          <Link to="/home">LOGO</Link>
+          </Hidden>
         </div>
         <Divider />
         <Categories />
