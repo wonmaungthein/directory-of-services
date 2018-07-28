@@ -1,7 +1,8 @@
-  import React, { Component } from 'react';
+  import React, { Component, Fragment } from 'react';
   import { connect } from 'react-redux';
   import PropTypes from 'prop-types';
   import TopNav from '../../TopNav';
+  import './Userprofile.css'
 
   class UserProfile extends Component {
     constructor(props){
@@ -11,10 +12,16 @@
     render(){
       const users = this.props.userInfo ? this.props.userInfo : [] ;
       return (
-        <div>
+        <Fragment>
           <TopNav />
-          <h4>{Object.entries(users).map(([key, value]) => <li>({key}: {value})</li>)}</h4>
-        </div>
+          <div className="user-page">
+            <h2>My Account Details</h2>
+            <h4><strong>Full Name: </strong>{users.fullname}</h4>
+            <h4><strong>Email: </strong>{users.email}</h4>
+            <h4><strong>Role: </strong>{users.role}</h4>
+            <h4><strong>Organisation: </strong>{users.organisation}</h4>
+          </div>
+        </Fragment>
       )
     }
   }
