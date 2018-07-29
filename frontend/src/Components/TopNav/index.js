@@ -14,7 +14,6 @@ import { logout } from '../../actions/loginActions'
 import './top-nav.css';
 import helpers from '../../helpers';
 import UserDropDown from '../Users/UserDropDown';
-import { getCategories } from '../../actions/getApiData';
 import categories from '../../Data/Categories.json';
 
 const drawerWidth = 240;
@@ -34,10 +33,6 @@ class TopNav extends Component {
   state = {
     userDropDown: false,
   };
-
-  componentDidMount() {
-    this.props.getCategories();
-  }
 
   handleLogOut = (e) => {
     e.preventDefault();
@@ -127,14 +122,12 @@ TopNav.contextTypes = {
   classes: PropTypes.object,
   logout: PropTypes.func,
   user: PropTypes.object,
-  getCategories: PropTypes.func,
 };
 function mapStateToProps(state) {
   return {
     messages: state.flashMessages,
-    user: state.loginAuth.user.fullname,
-    categories: state.categoriesList
+    user: state.loginAuth.user.fullname
   }
 }
 
-export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, { logout, getCategories })(TopNav));
+export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, { logout })(TopNav));
