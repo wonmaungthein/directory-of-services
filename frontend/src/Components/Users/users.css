@@ -77,4 +77,19 @@
 .delete-notification div h2{
   color: yellow;
 }
+
+.delete{
+  top: 40px;
+  left: 0px;
+  width: 50px;
+  height: 50px;
+  background: #f00 !important;
+  color: #fff !important;
+  padding: 0 !important
+}
+
+.delete .material-icons{
+  font-size: 1em
+}
+
 /* .MuiInput-underline-238:before */

@@ -4,6 +4,7 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import Button from 'material-ui/Button';
 import EditOrganisation from './EditOrganisation';
+import Notification from '../Users/Notification'
 import './single-org.css';
 
 class SingleOrganisation extends Component {
@@ -20,9 +21,13 @@ class SingleOrganisation extends Component {
   };
   render() {
     const { org } = this.props;
+    const branchIds = {
+      orgId: org.org_id,
+      branchId: org.branch_id
+    }
     const uiMessage = 'Add';
     return (
-      <Fragment>
+      <div className="single-org">
         <div className="org-detail-btn">
           <Button
             onClick={this.handleOpen}
@@ -121,8 +126,9 @@ class SingleOrganisation extends Component {
                 : <p className="not-available">  {uiMessage} tags... </p>}
             </div>
           </div>
+          <Notification branchIds={branchIds} deleteOrg organisation={org.org_name} />
         </Dialog>
-      </Fragment>
+      </div>
     );
   }
 }
