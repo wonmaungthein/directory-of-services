@@ -9,6 +9,11 @@ function convertToJsonFile (data, fileName) {
   fs.writeFileSync(`${fileName}.json`, stringData)
 }
 
+// Arrays of days
+const days2 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const days3 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const days4 = ['Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays', 'Sundays'];
+
 /*
 At the moment since the URL below has broken,we used the old
 data (fetchedDataFromSpreadsheet.json) which is fetched from the same URL.
@@ -181,9 +186,6 @@ const finalData = flattenedData.map(categoryData => {
   const filteredDuplicatedOrgs = singleDuplicatedOrgs.map(org => {
 
     // Check if there an organisation has more than day
-    const days4 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    const days2 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    
     const  daysHaveGoodFormat = [];
     const daysHaveBadFormat = [];
 
@@ -296,13 +298,7 @@ const finalData = flattenedData.map(categoryData => {
     const { Days } = org
     const goodDaysFormat = []
     const badDaysFormat = []
-    // const days = [
-      
-    // ];
-    const days3 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    const days4 = ['Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays', 'Sundays'];
-    const days2 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    
+
     // Case days are Monday To Friday
     if(Days.match('Mon - Fri') || 
     Days.match('Monday to Friday') ||
