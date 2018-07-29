@@ -28,7 +28,7 @@ const AddUser = props => (
         <InputLabel htmlFor="controlled-open-select">Role</InputLabel>
         <Select
           open={props.open}
-          onClose={this.handleClose}
+          onClose={props.handleClose}
           value={props.role}
           onChange={props.handleFieldUpdate}
           inputProps={{

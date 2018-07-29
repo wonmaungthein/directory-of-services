@@ -23,12 +23,11 @@ const styles = theme => ({
   },
 });
 
-const OrganisationCard = ({
-  org,
-  getData,
-}) => (
+const OrganisationCard = ({ org }) => (
   <Paper label='org-card-info'>
-    <EditOrganisation getData={getData} />
+    <EditOrganisation 
+      editOrgData={org}
+    />
     <SingleOrganisation org={org} />
     
     { /*  Conditionally display services and process, if no info provided display  'not provided' in FE */ }
@@ -44,11 +43,11 @@ const OrganisationCard = ({
     <h6> Area: {org.area ? org.area : 'Add area   ...'} | Borough: {org.borough ? org.borough : 'Add borough ...'}</h6>
     <div className="org-card-services">
 
-      {org.service? <p> <span className="title"> <img src="https://png.icons8.com/material/17/1abcd4/administrative-tools.png" alt="administrative-tools" className="material-icons org-card-icon" /> </span> {org.service}</p>
+      {org.service.length > 1? <p> <span className="title"> <img src="https://png.icons8.com/material/17/1abcd4/administrative-tools.png" alt="administrative-tools" className="material-icons org-card-icon" /> </span> {org.service}</p>
       :
       <p> <span className="title"> <img src="https://png.icons8.com/material/17/1abcd4/administrative-tools.png" alt="administrative-tools" className="material-icons org-card-icon" /> </span>Add services ...</p>}
 
-      {org.process ? <p> <span className="title"> <i className="material-icons org-card-icon">access_time</i> </span> {org.process} </p> 
+      {org.process.length > 1? <p> <span className="title"> <i className="material-icons org-card-icon">access_time</i> </span> {org.process} </p> 
       :
       <p> <span className="title"> <i className="material-icons org-card-icon">access_time</i> </span><span className="not-available"> Add process ... </span></p>}
     </div>
