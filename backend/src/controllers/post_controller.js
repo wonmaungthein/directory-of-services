@@ -1,6 +1,7 @@
 import { transaction, Model } from 'objection';
 import { knex } from '../../config';
 import Organisation from '../model/Organisation';
+import Branch from '../model/Branch';
 
 Model.knex(knex);
 
@@ -13,40 +14,17 @@ const postOrganisation = async (graph) => {
   return insertedGraph;
 };
 
-
-
-
-
-const deleteOrganisation = async (orgId, branchId, graph) => {
-  console.log(branchId);
-  
-  const options = {
-    unrelated: ['branch', 'branch.address', 'branch.address.location', 'branch.service', 'branch.sercice.categories'],
-    noDelete: ['branch', 'branch.address', 'branch.address.location', 'branch.service', 'branch.sercice.categories']
-  };
-
+const deleteOrganisation = async (orgId, branchId) => {
   try {
-    if (Array.isArray(graph)) {
-      throw Error;
-    }
-    graph.id = parseInt(orgId, 10);
-    const upsertedGraph = await transaction(Organisation.knex(), trx =>
-      Organisation.query(trx)
-        .skipUndefined()
-        .allowUpsert('[branch, branch.[address, address.[location] service, service.[categories]] ]')
-        .upsertGraph(graph)
-        .where('branch.id', 'like', branchId));
-    return upsertedGraph;
+    const test = await Branch.query()
+      .delete()
+      .where('org_id', '=', orgId)
+      .andWhere('id', '=', branchId)
+    return test;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
-
-
-
-
-
-
 
 const editOrganisation = async (graph, orgId, branchId) => {
   const options = {
