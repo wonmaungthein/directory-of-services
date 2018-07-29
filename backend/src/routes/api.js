@@ -20,9 +20,54 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/organisation/delete', async (req, res) => {
-  const { orgId, branchId } = req.body;
+  const branchId = req.body.branch_id
+  const orgId = req.body.org_id;
+  const data = req.body;
+  const graph = {
+    id: orgId,
+    org_name: data.organisation,
+    website: data.website,
+    branch: [
+      {
+        id: branchId,
+        borough: data.borough,
+        project: data.project,
+        tag: data.tag,
+        clients: data.clients,
+        address: [
+          {
+            id: data.addressId,
+            address_line: data.address,
+            area: data.area,
+            postcode: data.postcode,
+            email_address: data.email,
+            telephone: data.tel,
+            location: [
+              {
+                lat: data.lat,
+                long: data.long
+              }
+            ]
+          }
+        ],
+        service: [
+          {
+            id: data.serviceId,
+            service_days: data.days,
+            service: data.service,
+            process: data.process,
+            categories: [
+              {
+                cat_name: data.categories
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
   try {
-    const response = await deleteOrganisation(orgId, branchId);
+    const response = await deleteOrganisation(orgId, branchId, graph);
     res.status(200).json(response);
   } catch (error) {
     res.status(502).json(error);
