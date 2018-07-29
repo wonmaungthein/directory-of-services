@@ -11,26 +11,6 @@ import './add-org.css';
 import TopNav from '../TopNav';
 import helpers from '../../helpers'
 
-const checkCategories = [ 
-  'Debt',
-  'Trafficking',
-  'Destitution',
-  'LGBTQI',
-  'Healthcare',
-  'Education',
-  'Benefits',
-  'Employment',
-  'Families',
-  'Gender Based Violence',
-  'Housing',
-  'Immigration',
-  'Mental Health Services',
-  'Social and Other',
-  'Women',
-  'Baby Equipment',
-  'Young People and Children' 
-  ];
-
 class AddOrganisation extends Component {
   state = {
     notificationSystem: null,
@@ -167,11 +147,11 @@ class AddOrganisation extends Component {
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
     let index
-    for(let i = 0; i < checkCategories.length; i += 1){
-      if (event.target.checked && event.target.value === checkCategories[i].split(' ').join('') && event.target.value !== 'Young People and Children'.split(' ').join('')) {
-        listOfCategories.push(checkCategories[i])
-      } else if (!event.target.checked && event.target.value === checkCategories[i].split(' ').join('') && event.target.value !== 'Young People and Children'.split(' ').join('')){
-        index = listOfCategories.indexOf(checkCategories[i]);
+    for(let i = 0; i < categoriesData.length; i += 1){
+      if (event.target.checked && event.target.value === categoriesData[i].split(' ').join('') && event.target.value !== 'Young People and Children'.split(' ').join('')) {
+        listOfCategories.push(categoriesData[i])
+      } else if (!event.target.checked && event.target.value === categoriesData[i].split(' ').join('') && event.target.value !== 'Young People and Children'.split(' ').join('')){
+        index = listOfCategories.indexOf(categoriesData[i]);
         listOfCategories.splice(index, 1)
       }
     }
