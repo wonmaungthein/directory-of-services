@@ -97,7 +97,7 @@ router.patch('/organisation/edit', async (req, res) => {
         borough: data.borough,
         project: data.project,
         tag: data.tag,
-        Clients: data.clients,
+        clients: data.clients,
         address: [
           {
             id: data.addressId,
