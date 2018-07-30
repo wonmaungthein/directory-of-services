@@ -11,6 +11,48 @@ import helpers from '../../helpers';
 import Spinner from '../Spinner';
 import './edit-org.css';
 
+const composedCategories = [
+  'Gender Based Violence',
+  'Mental Health Services',
+  'Social and Other',
+  'Baby Equipment'
+]; 
+
+const nonComposedCategories = [
+  'Debt',
+  'Trafficking',
+  "LGBTQI",
+  'Healthcare',
+  'Education',
+  'Benefits',
+  'Families',
+  'Housing',
+  'Immigration',
+  'Women',
+  'Employment',
+  'Destitution'
+];
+
+// Categries format in FE
+const checkCategories = [ 
+'Debt',
+'Trafficking',
+'Destitution',
+'LGBTQI',
+'Healthcare',
+'Education',
+'Benefits',
+'Employment',
+'Families',
+'Gender Based Violence',
+'Housing',
+'Immigration',
+'Mental Health Services',
+'Social and Other',
+'Women',
+'Baby Equipment',
+];
+
 class EditOrganisation extends React.Component {
     state = {
       notificationSystem: null,
@@ -40,6 +82,21 @@ class EditOrganisation extends React.Component {
   componentWillMount() {
     const data = this.props.editOrgData;
     if (data) {
+      const categories = [];
+      
+      // Data.cat_name.length is 1 => all category represents a single item 
+      // So made a new array where each category is an individual item of the array
+      for (let i = 0; i < checkCategories.length; i += 1) {
+        const index = data.cat_name.includes(checkCategories[i]);
+        if(index){
+          categories.push(checkCategories[i]);
+        } 
+      }
+
+      if (data.cat_name.includes('Young People/Children') || data.cat_name.includes('Young People and Children')){
+        categories.push('Young People/Children');    
+      }
+
       this.setState({
         branchId: data.branch_id,
         orgId: data.org_id,
@@ -54,7 +111,7 @@ class EditOrganisation extends React.Component {
         Tel: data.telephone,
         Email: data.email_address,
         Website: data.website,
-        Categories: [data.cat_name],
+        Categories: [...new Set(categories)],
         project: data.project,
         tag: data.tag,
         postcode: data.postcode,
@@ -112,6 +169,7 @@ class EditOrganisation extends React.Component {
       clients: this.state.clients,
       tag: this.state.tag
     }
+    
     this.setState({ isLoading: true });
     this.props.editOrganisation(orgData)
       .then(user => {
@@ -132,36 +190,127 @@ class EditOrganisation extends React.Component {
     });
   };
 
+
   handleCheckBox = event => {
-    const listOfCategories = this.state.Categories;
-    let index
-    if (event.target.checked) {
-      listOfCategories.push(event.target.value)
-    } else {
-      index = listOfCategories.indexOf(event.target.value)
-      listOfCategories.splice(index, 1)
+    const listOfCategories = [...this.state.Categories];
+    let index;
+    for(let i = 0; i < composedCategories.length; i += 1) {
+  // Case where category is checked and category's name is composed
+    if(event.target.checked && composedCategories[i].split(' ').join('').includes(event.target.value)) {
+      if(listOfCategories.indexOf(composedCategories[i]) === -1) { 
+        listOfCategories.push(composedCategories[i]);              
+      }
+    } 
+        
+  // Case where category is not checked and category's name is composed
+    if(!event.target.checked && event.target.value.includes(composedCategories[i].split(' ').join(''))) { 
+      if(listOfCategories.indexOf(composedCategories[i]) > -1) {
+        index = listOfCategories.indexOf(composedCategories[i])
+        listOfCategories.splice(index, 1)             
+        }
+      } 
     }
+
+ // Special case 
+ // Young people
+    if ( event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))){
+      if(listOfCategories.indexOf('Young People and Children') === -1 || listOfCategories.indexOf('Young People/Children') === -1  ) {
+          listOfCategories.push('Young People/Children')
+        }
+    }
+
+    if ( !event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))){
+      if(listOfCategories.includes('Young People and Children') || listOfCategories.includes('Young People/Children')) {        
+        index = listOfCategories.indexOf('Young People and Children') || listOfCategories.indexOf('Young People/Children');
+        listOfCategories.splice(index, 1);
+      } 
+    }  
+
+    //  nonComposedCategories name
+    for(let i = 0; i < nonComposedCategories.length; i += 1) {
+    // Case where category is checked and category's name is not composed    
+      if(event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
+        if(listOfCategories.indexOf(event.target.value) === -1 ) {
+          listOfCategories.push(event.target.value);              
+        } 
+      }
+
+    // Case where category is not checked and category's name is not composed
+      if(!event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
+        if(listOfCategories.indexOf(event.target.value) > -1) {
+          index = listOfCategories.indexOf(event.target.value)
+          listOfCategories.splice(index, 1)
+        }
+      }
+    } 
     this.setState({
       [event.target.name]: event.target.checked,
-      Categories: listOfCategories,
+      Categories: [...new Set(listOfCategories)],
     });
   };
 
-  handleDefaultCheckbox = event => {
-    const listOfCategories = this.state.Categories;
-    let index
-    if (event.target.checked) {
-      listOfCategories.push(event.target.value)
-    } else {
-      index = listOfCategories.indexOf(event.target.value)
-      listOfCategories.splice(index, 1)
+  // Default checkbox selected
+  handleDefaultCheckbox = event => { 
+    const listOfCategories = [...this.state.Categories];
+    let index;    
+    for(let i = 0; i < composedCategories.length; i += 1) {
+  // Case where category is checked and category's name is composed
+    if(event.target.checked && composedCategories[i].includes(event.target.value)) {
+      if(listOfCategories.indexOf(composedCategories[i]) === -1) { 
+        listOfCategories.push(composedCategories[i]); 
+      } 
+    } 
+        
+  // Case where category is not checked and category's name is composed
+    if(!event.target.checked && event.target.value.includes(composedCategories[i])) { 
+      if(listOfCategories.indexOf(composedCategories[i]) > -1) {
+        index = listOfCategories.indexOf(composedCategories[i])
+        listOfCategories.splice(index, 1);
+        }
+      } 
     }
+
+// Special case 
+// Young people
+    if ( event.target.checked && event.target.value.includes('Young People and Children')){  
+      if(listOfCategories.indexOf('Young People and Children') === -1 || listOfCategories.indexOf('Young People/Children') === -1 ) {
+          listOfCategories.push('Young People/Children');
+        }
+    }
+
+    if ( !event.target.checked && event.target.value.includes('Young People and Children')){
+      if(listOfCategories.includes('Young People and Children') || listOfCategories.includes('Young People/Children')) {        
+        index = listOfCategories.indexOf('Young People and Children') || listOfCategories.indexOf('Young People/Children');
+        listOfCategories.splice(index, 1);
+      } 
+    }  
+      
+  // nonComposedCategories name
+    for(let i = 0; i < nonComposedCategories.length; i += 1) {
+    // Case where category is checked and category's name is not composed
+      if(event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
+        if(listOfCategories.indexOf(event.target.value) === -1 ) {
+          listOfCategories.push(event.target.value);              
+        } 
+      }
+
+    // Case where category is not checked and category's name is not composed
+      if(!event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
+        if(listOfCategories.indexOf(event.target.value) > -1) {
+          index = listOfCategories.indexOf(event.target.value)
+          listOfCategories.splice(index, 1)
+        }
+      }
+    }
+
     this.setState({
-      [event.target.name]: event.target.checked,
-      Categories: listOfCategories,
+      [event.target.name]: event.target.value,
+      Categories: [...new Set(listOfCategories)],
       isChecked:!this.state.isChecked,
     });
-  };
+    
+   };
+
 
   handleMulitySelectChange = event => {
     this.setState({ Day: event.target.value });
