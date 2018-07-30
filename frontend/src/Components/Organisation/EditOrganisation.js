@@ -54,31 +54,31 @@ const checkCategories = [
 ];
 
 class EditOrganisation extends React.Component {
-  state = {
-    notificationSystem: null,
-    open: this.props.show,
-    Organisation: "",
-    Area: "",
-    Borough: "",
-    Services: [],
-    Process: "",
-    Day: [],
-    Tel: "",
-    Email: "",
-    Website: "",
-    Categories: [],
-    project: '',
-    tag: '',
-    postcode: '',
-    clients: '',
-    orgId: null,
-    branchId: null,
-    serviceId: null,
-    addressId: null,
-    isChecked: true,
-    isLoading: false
-  };
-
+    state = {
+      notificationSystem: null,
+      open: false,
+      Organisation: "",
+      Area: "",
+      Borough: "",
+      Services: [],
+      Process: "",
+      Day: [],
+      Tel: "",
+      Email: "",
+      Website: "",
+      Categories: [],
+      project: '',
+      tag: '',
+      postcode: '',
+      clients: '',
+      orgId: null,
+      branchId: null,
+      serviceId: null,
+      addressId: null,
+      isChecked: true,
+      isLoading: false
+    }
+  
   componentWillMount() {
     const data = this.props.editOrgData;
     if (data) {
@@ -317,9 +317,12 @@ class EditOrganisation extends React.Component {
   };
 
   handleClose = () => {
-    this.props.stopEditing()
     this.setState({ open: false });
   };
+
+  handleOpenComponent = () => {
+    this.setState({ open : true })
+  }
 
   render() {
     const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
@@ -329,7 +332,7 @@ class EditOrganisation extends React.Component {
     return (
       <Fragment>
         <div className="org-edit-btn">
-          <Button className="btn edit-button" onClick={this.props.getData}>
+          <Button className="btn edit-button" onClick={this.handleOpenComponent}>
             <i className="material-icons" size="small" variant="raised" >edit</i>EDIT
           </Button>
         </div>

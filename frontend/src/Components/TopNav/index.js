@@ -14,7 +14,7 @@ import { logout } from '../../actions/loginActions'
 import './top-nav.css';
 import helpers from '../../helpers';
 import UserDropDown from '../Users/UserDropDown';
-import { getCategories } from '../../actions/getApiData';
+import categories from '../../Data/Categories.json';
 
 const drawerWidth = 240;
 
@@ -34,10 +34,6 @@ class TopNav extends Component {
     userDropDown: false,
   };
 
-  componentDidMount() {
-    this.props.getCategories();
-  }
-
   handleLogOut = (e) => {
     e.preventDefault();
     this.context.router.history.push('/')
@@ -54,7 +50,7 @@ class TopNav extends Component {
     this.state.userDropDown ? <UserDropDown handleLogOut={this.handleLogOut} /> : null;
 
   renderCategories = () => {
-    const categoriesData = this.props.categories.categories ? this.props.categories.categories : [];
+    const categoriesData = categories;
     const index1 = categoriesData.indexOf("Destitution/NRPF");
     const index2 = categoriesData.indexOf("Employment/Training/Volunteering");
     const index3 = categoriesData.indexOf("Young People/Children");
@@ -126,14 +122,12 @@ TopNav.contextTypes = {
   classes: PropTypes.object,
   logout: PropTypes.func,
   user: PropTypes.object,
-  getCategories: PropTypes.func,
 };
 function mapStateToProps(state) {
   return {
     messages: state.flashMessages,
-    user: state.loginAuth.user.fullname,
-    categories: state.categoriesList
+    user: state.loginAuth.user.fullname
   }
 }
 
-export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, { logout, getCategories })(TopNav));
+export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, { logout })(TopNav));

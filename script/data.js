@@ -9,6 +9,11 @@ function convertToJsonFile (data, fileName) {
   fs.writeFileSync(`${fileName}.json`, stringData)
 }
 
+// Arrays of days
+const days2 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const days3 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const days4 = ['Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays', 'Sundays'];
+
 /*
 At the moment since the URL below has broken,we used the old
 data (fetchedDataFromSpreadsheet.json) which is fetched from the same URL.
@@ -57,7 +62,7 @@ async function fetchedData() {
 */
 
 // Flat data fetched (fetchedData) from spreadsheet, add tag, categorie and projet fields
-// Make day field consistent
+// Make name of day field consistent
 const flat = () => {
   return fetchedData.map((item, index) => {
     for (let cat in item) {
@@ -77,30 +82,31 @@ const flat = () => {
             }
           }
           // Add new key field to every org
-          // arr.push(el)
-          // Remove(filter) empty organisations
           el.Project = ''
           el.Tag = ''
           el.Categories = cat
           return el
         })
+        
+        // Remove(filter) empty organisations
         .filter(function (el) {
-          return el.Organisation !== ''
+          return el.Organisation !== '';
         })
     }
   })
 }
 
-const flattenedData = flat()
+const flattenedData = flat();
 
 const finalData = flattenedData.map(categoryData => {
   // create new array contain single category data
-  const allData = []
+  const allData = [];
 
   // Get duplicated organizations for single category
-  const dulicatedOrgs = []
+  const duplicatedOrgs = [];
+
   // Get unduplicated organizations for single category
-  const unduplicatedOrgs = []
+  const unduplicatedOrgs = [];
 
   for (let i = 0; i < categoryData.length; i++) {
     allData.push(categoryData[i])
@@ -108,33 +114,38 @@ const finalData = flattenedData.map(categoryData => {
       item =>
         item.Organisation.toLowerCase() ===
           categoryData[i].Organisation.toLowerCase() &&
-        item.Borough.toLowerCase() === categoryData[i].Borough.toLowerCase()
+        item.Borough.toLowerCase() === categoryData[i].Borough.toLowerCase() &&
+        item.Area.toLowerCase() === categoryData[i].Area.toLowerCase()
     ).length
     if (
       allData[i].Organisation.toLowerCase() ===
         categoryData[i].Organisation.toLowerCase() &&
       allData[i].Borough.toLowerCase() ===
         categoryData[i].Borough.toLowerCase() &&
+        allData[i].Area.toLowerCase() ===
+        categoryData[i].Area.toLowerCase() &&
       orgNum > 1
     ) {
-      dulicatedOrgs.push(categoryData[i])
+      duplicatedOrgs.push(categoryData[i])
     }
     if (
       allData[i].Organisation.toLowerCase() ===
         categoryData[i].Organisation.toLowerCase() &&
       allData[i].Borough.toLowerCase() ===
         categoryData[i].Borough.toLowerCase() &&
+        allData[i].Area.toLowerCase() ===
+        categoryData[i].Area.toLowerCase() &&
       orgNum === 1
     ) {
       unduplicatedOrgs.push(categoryData[i])
     }
   }
-
+  
   // Get organizations name and borough
   const orgsNameAndBorough = []
   dulicatedOrgs.map(org => {
-    const { Organisation, Borough } = org
-    orgsNameAndBorough.push({ Organisation, Borough })
+    const { Organisation, Borough, Area } = org
+    orgsNameAndBorough.push({ Organisation, Borough, Area })
   })
 
   // Remove duplication from organizations name and borough
@@ -145,7 +156,8 @@ const finalData = flattenedData.map(categoryData => {
       self.findIndex(
         item =>
           item.Organisation === elem.Organisation &&
-          item.Borough === elem.Borough
+          item.Borough === elem.Borough &&
+          item.Area === elem.Area
       )
   )
 
@@ -155,13 +167,14 @@ const finalData = flattenedData.map(categoryData => {
 
   orgs.map(item => {
     const singleOrg = []
-    for (let i = 0; i < dulicatedOrgs.length; i++) {
+    for (let i = 0; i < duplicatedOrgs.length; i++) {
       if (
-        dulicatedOrgs[i].Organisation.toLowerCase() ===
+        duplicatedOrgs[i].Organisation.toLowerCase() ===
           item.Organisation.toLowerCase() &&
-        dulicatedOrgs[i].Borough.toLowerCase() === item.Borough.toLowerCase()
+        dulicatedOrgs[i].Borough.toLowerCase() === item.Borough.toLowerCase() &&
+        dulicatedOrgs[i].Area.toLowerCase() === item.Area.toLowerCase()
       ) {
-        singleOrg.push(dulicatedOrgs[i])
+        singleOrg.push(duplicatedOrgs[i])
       }
     }
     singleDuplicatedOrgs.push(singleOrg)
@@ -169,43 +182,53 @@ const finalData = flattenedData.map(categoryData => {
 
   // Move all days from each duplicated organization to one of them and return only one that have these days
   const updatedDuplicatedOrgs = []
+
   const filteredDuplicatedOrgs = singleDuplicatedOrgs.map(org => {
+
     // Check if there an organisation has more than day
-    const daysOfTheWeek = []
+    const  daysHaveGoodFormat = [];
+    const daysHaveBadFormat = [];
+
     const Days = org.map(singleOrg => {
       const days = singleOrg.Days
-      if (days.includes(',')) {
-        return days.split(',').map(day => daysOfTheWeek.push(day.trim()))
+
+    for (let i = 0; i < days2.length; i++) {
+      if ( days.toLowerCase().includes(days2[i].toLowerCase())) {
+        for (let j = 0; j < days4.length; j++) {
+          if (days4[j].includes(days2[i] )) {
+            daysHaveGoodFormat.push(days4[j])
+          } 
+        }
       }
-      return daysOfTheWeek.push(days.trim())
-    })
-    // Remove the duplication if there is on days of the week
-    const allDays = [...new Set(daysOfTheWeek)]
+    }
 
-    // Put that days that have good format at one array
-    // and the one that has bad format at anther array
-    const daysHaveBadFromat = []
-    const daysAtGoodFormat = []
+    // Check if days string and good days string has same length and if Days include extra info 
+    if ((days.trim().length !== [...new Set(daysHaveGoodFormat)].join().trim().length) && 
+        (days.includes('-') || 
+        (days.includes('00')) || 
+        (days.includes('pm')) ||
+        (days.includes('pm')) ||
+        (days.includes('year')) ||
+        (days.includes('advice')) ||
+        (days.includes('times')) ||
+        (days.includes('hour')) ||
+        (days.includes('/')) ||
+        (days.includes('month')) 
+      )){
+      daysHaveBadFormat.push(days)
+    }
 
-    allDays.map(item => {
-      if (
-        item.toLowerCase().includes('monday') ||
-        item.toLowerCase().includes('tuesday') ||
-        item.toLowerCase().includes('wednesday') ||
-        item.toLowerCase().includes('thursday') ||
-        item.toLowerCase().includes('friday') ||
-        item.toLowerCase().includes('saturday') ||
-        item.toLowerCase().includes('sunday')
-      ) {
-        daysAtGoodFormat.push(item)
-      } else {
-        daysHaveBadFromat.push(item)
+    // If days match exactely useless days arr empty useless days arr
+    for(let a = 0; a < days4.length; a++) {
+      if (days === (days4[a])) {
+        daysHaveBadFormat.pop(days4[a])
       }
+    }
+    
     })
-
-    // Check again if there is a duplication on days and remove it.
-    const goodDaysData = [...new Set(daysAtGoodFormat)]
-    const badDaysData = [...new Set(daysHaveBadFromat)]
+    
+    const inconsistentDay = [...new Set(daysHaveBadFormat)];
+    const consistentDay = [...new Set(daysHaveGoodFormat)];
 
     org
       .filter(
@@ -215,7 +238,8 @@ const finalData = flattenedData.map(categoryData => {
             toDo =>
               toDo.Organisation.toLowerCase() ===
                 elem.Organisation.toLowerCase() &&
-              toDo.Borough.toLowerCase() === elem.Borough.toLowerCase()
+              toDo.Borough.toLowerCase() === elem.Borough.toLowerCase() &&
+              toDo.Area.toLowerCase() === elem.Area.toLowerCase()
           )
       )
       .map(organization => {
@@ -234,7 +258,7 @@ const finalData = flattenedData.map(categoryData => {
           Tag,
           Categories
         } = organization
-        const processData = [organization.Process, ...badDaysData]
+        const processData = [organization.Process, ...inconsistentDay]
         const Process = processData.join(',')
 
         updatedDuplicatedOrgs.push({
@@ -244,7 +268,7 @@ const finalData = flattenedData.map(categoryData => {
           Services,
           Website,
           Clients,
-          Days: goodDaysData,
+          Days: consistentDay,
           Process,
           Email,
           Postcode,
@@ -264,7 +288,8 @@ const finalData = flattenedData.map(categoryData => {
       self.findIndex(
         toDo =>
           toDo.Organisation.toLowerCase() === elem.Organisation.toLowerCase() &&
-          toDo.Borough.toLowerCase() === elem.Borough.toLowerCase()
+          toDo.Borough.toLowerCase() === elem.Borough.toLowerCase() &&
+          toDo.Area.toLowerCase() === elem.Area.toLowerCase()
       )
   )
 
@@ -274,20 +299,86 @@ const finalData = flattenedData.map(categoryData => {
     const goodDaysFormat = []
     const badDaysFormat = []
 
-    if (
-      Days.toLowerCase() === 'monday' ||
-      Days.toLowerCase() === 'tuesday' ||
-      Days.toLowerCase() === 'wednesday' ||
-      Days.toLowerCase() === 'thursday' ||
-      Days.toLowerCase() === 'friday' ||
-      Days.toLowerCase() === 'saturday' ||
-      Days.toLowerCase() === 'sunday'
-    ) {
-      goodDaysFormat.push(Days)
-    } else {
+    // Case days are Monday To Friday
+    if(Days.match('Mon - Fri') || 
+    Days.match('Monday to Friday') ||
+    Days.match('Mondays to Fridays') ||
+    Days.match('Mon-Fri')){
+      goodDaysFormat.push('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday')
+    }
+
+    // Case days are Monday To Thursday
+    if(Days.match('Mondays-Thursdays') ||
+    Days.match('Mondays – Thursdays') || 
+    Days.match('Monday-Thursday') ||
+    Days.match('Monday - Thursday') ||
+    Days.match('Mon to Thu') ||
+    Days.match('Mon - Thu') ||
+    Days.match('Mon-Thu')){
+      goodDaysFormat.push('Monday', 'Tuesday', 'Wednesday', 'Thursday');
+    }
+
+    // Case days are Monday To Wednesday
+    if(Days.match('Mondays-Wednesdays') ||
+    Days.match('Mondays - Wednesdays') || 
+    Days.match('Monday-Wednesday') ||
+    Days.match('Monday - Wednesday') ||
+    Days.match('Mon to Wed') ||
+    Days.match('Mon - Wed') ||
+    Days.match('Mon-Wed')){
+      goodDaysFormat.push('Monday', 'Tuesday', 'Wednesday');
+    }
+
+    // Case days are Monday To Saturday
+    if(Days.match('Mon - Sat ') || 
+    Days.match('Monday to Saturday') ||
+    Days.match('Mondays to Saturdays') ||
+    Days.match('Mon-Sat')){
+      goodDaysFormat.push('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
+    }
+   
+    // Push element of day3 array when condition is true
+    for (let i = 0; i < days2.length; i++) {
+      if ( Days.toLowerCase().includes(days2[i].toLowerCase())) {
+        for (let j = 0; j < days3.length; j++) {
+          if (days3[j].includes(days2[i] )) {
+            goodDaysFormat.push(days3[j])
+          } 
+        }
+      }
+    }
+
+    // Remove Monday from good day array if Days arr contain 'month' 
+    if (Days.toLowerCase().includes('month')) {
+      goodDaysFormat.shift('days3[0]');
+    } 
+    
+    // Check if Days string and good days string has same length and if Days include extra info 
+    if ((Days.trim().length !== [...new Set(goodDaysFormat)].join().trim().length) && 
+        (Days.includes('-') || 
+        (Days.includes('00')) || 
+        (Days.includes('pm')) ||
+        (Days.includes('pm')) ||
+        (Days.includes('year')) ||
+        (Days.includes('advice')) ||
+        (Days.includes('times')) ||
+        (!Days.includes('hour')) ||
+        (!Days.includes('/')) ||
+        (Days.includes('month')) 
+      )){
       badDaysFormat.push(Days)
     }
 
+    // If Days match exactely bad days arr empty bad days arr
+    for(let a = 0; a < days4.length; a++) {
+      if (Days.match(days4[a])) {
+        badDaysFormat.pop(days4[a])
+      }
+    }
+    
+    const inconsistentDays = [...new Set(badDaysFormat)];
+    const consistentDays = [...new Set(goodDaysFormat)];
+    
     const {
       Organisation,
       Area,
@@ -303,8 +394,8 @@ const finalData = flattenedData.map(categoryData => {
       Tag,
       Categories
     } = org
-    const processData = [org.Process, ...badDaysFormat]
-    const Process = processData.join(',')
+    const processData = [org.Process, ...inconsistentDays];
+    const Process = processData.join(',');
     return {
       Organisation,
       Area,
@@ -312,7 +403,7 @@ const finalData = flattenedData.map(categoryData => {
       Services,
       Website,
       Clients,
-      Days: goodDaysFormat,
+      Days: consistentDays,
       Process,
       Email,
       Postcode,
@@ -323,7 +414,7 @@ const finalData = flattenedData.map(categoryData => {
       Categories
     }
   })
-
+  
   const allProcessedData = filteredUnDuplicatedOrgs.concat(
     updatedDuplicatedOrgsorg
   )
@@ -331,6 +422,10 @@ const finalData = flattenedData.map(categoryData => {
   return allProcessedData
 })
 
-const flattenedFinalData = finalData.reduce((acc, val) => acc.concat(val), [])
+const flattenedFinalData = finalData.reduce((acc, val) => acc.concat(val), []);
 
-module.exports = flattenedFinalData
+
+
+
+
+module.exports = flattenedFinalData;
