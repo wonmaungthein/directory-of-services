@@ -1,5 +1,8 @@
 import React, { Fragment } from 'react';
 import Button from 'material-ui/Button';
+import NotificationSystem from 'react-notification-system';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Dialog, {
   DialogActions,
@@ -7,11 +10,39 @@ import Dialog, {
   DialogTitle,
   withMobileDialog,
 } from 'material-ui/Dialog';
+import { deleteUser } from '../../actions/postData';
 import './users.css'
 
 class Notification extends React.Component {
-  state = {
-    open: false,
+  constructor(props){
+    super(props);
+    this.state = {
+      open: false,
+      userId: props.userId,
+      notificationSystem: null,
+    }
+  }
+
+  componentDidMount() {
+    this.setState({
+      notificationSystem: this.refs.deleteUser
+    })
+  }
+
+  deletedSuccessfully = (message) => {
+    this.state.notificationSystem.addNotification({
+      title: 'Success',
+      message,
+      level: 'success',
+    });
+  }
+
+  notDeletedSuccessfully = (message) => {
+    this.state.notificationSystem.addNotification({
+      title: 'Unsuccess',
+      message,
+      level: 'error',
+    });
   };
 
   handleClickOpen = () => {
@@ -20,6 +51,21 @@ class Notification extends React.Component {
 
   handleClose = () => {
     this.setState({ open: false });
+  };
+
+  handleDelete = (e) => {
+    e.preventDefault()
+    const { userId } = this.state;
+    this.props.deleteUser(userId)
+    .then(deletedUser => {
+      if (deletedUser && deletedUser.success) {
+        this.deletedSuccessfully(deletedUser.message)
+        this.context.router.history.push('/users')
+      }else{
+        this.notDeletedSuccessfully(deletedUser.message)
+        this.context.router.history.push('/users')
+      }
+    })
   };
 
   checkComponentLink = () =>
@@ -33,6 +79,7 @@ class Notification extends React.Component {
     return (
       <Fragment>
         {this.checkComponentLink()}
+        <NotificationSystem ref="deleteUser" />
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
@@ -49,7 +96,7 @@ class Notification extends React.Component {
               <Button onClick={this.handleClose} variant="raised">
                 Cancel
               </Button>
-              <Button onClick={() => { this.props.removeHandler(); this.handleClose() }} variant="raised" color="secondary">
+              <Button onClick={this.handleDelete} variant="raised" color="secondary">
                 Delete
               </Button>
             </DialogActions>
@@ -60,4 +107,12 @@ class Notification extends React.Component {
   }
 }
 
-export default withMobileDialog()((withRouter(props => <Notification {...props} />)));
+Notification.propTypes = {
+  deleteUser: PropTypes.func.isRequired
+}
+
+Notification.contextTypes = {
+  router: PropTypes.object.isRequired,
+}
+
+export default withMobileDialog()(connect(null, { deleteUser })(withRouter(props => <Notification {...props} />)));
