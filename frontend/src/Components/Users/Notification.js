@@ -10,7 +10,7 @@ import Dialog, {
   DialogTitle,
   withMobileDialog,
 } from 'material-ui/Dialog';
-import { deleteBranch } from '../../actions/postData';
+import { deleteBranch, deleteUser } from '../../actions/postData';
 import './users.css'
 
 class Notification extends React.Component {
@@ -18,6 +18,7 @@ class Notification extends React.Component {
     super(props);	    
       this.state = {
         open: false,
+        userId: props.userId,
         branchIds: props.branchIds,
         notificationSystem: null,
       }
@@ -55,7 +56,8 @@ class Notification extends React.Component {
 
   handleDelete = (e) => {
     e.preventDefault()
-    const { branchIds } = this.state;
+    const { branchIds, userId } = this.state;
+
     if (this.props.deleteOrg) {
       this.props.deleteBranch(branchIds)
       .then(deletedBranch => {
@@ -67,6 +69,17 @@ class Notification extends React.Component {
           this.context.router.history.push(`${this.props.match.url}`)
         }
       })
+    }else{
+    this.props.deleteUser(userId)
+    .then(deletedUser => {
+      if (deletedUser && deletedUser.success) {
+        this.deletedSuccessfully(deletedUser.message)
+        this.context.router.history.push('/admindos')
+      }else{
+        this.notDeletedSuccessfully(deletedUser.message)
+        this.context.router.history.push('/admindos')
+      }
+    })
     }
   };
 
@@ -120,10 +133,11 @@ class Notification extends React.Component {
 
 Notification.propTypes = {
   deleteBranch: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired
 }
 
- Notification.contextTypes = {
+Notification.contextTypes = {
   router: PropTypes.object.isRequired,
 }
 
-export default withMobileDialog()(connect(null, { deleteBranch })(withRouter(props => <Notification {...props} />)));
+export default withMobileDialog()(connect(null, { deleteUser, deleteBranch })(withRouter(props => <Notification {...props} />)));

@@ -20,7 +20,7 @@ class SingleOrganisation extends Component {
     this.setState({ open: false });
   };
   render() {
-    const { org } = this.props;
+    const { org, role } = this.props;
     const branchIds = {
       orgId: org.org_id,
       branchId: org.branch_id
@@ -33,7 +33,7 @@ class SingleOrganisation extends Component {
             onClick={this.handleOpen}
             variant="raised"
             size="small"
-            className="btn detail-button"
+            className={role !== 'Admin' && role !== 'Editor' ? 'move-right' : 'btn detail-button'}
           >
             <i className="material-icons">add</i>DETAILS
           </Button>
@@ -43,7 +43,6 @@ class SingleOrganisation extends Component {
           open={this.state.open}
           onClose={this.handleClose}
         >
-
           <div className="org-close-btn">
             <Button
               onClick={this.handleClose}
@@ -53,9 +52,9 @@ class SingleOrganisation extends Component {
             </Button>
           </div> 
 
-          <EditOrganisation
-            editOrgData={org}
-          />
+          { role === 'Admin' || role === 'Editor' ? 
+            <EditOrganisation org={org} /> : null
+          }
           {org.org_name.length > 0 ? <h1> {org.org_name} </h1>: <h1 className="not-available"> Add organisation name ... </h1>}
           <h6 className="details-area">
             <span className="location-name">Area</span>: <span className="area">{org.area? org.area : 'Add area ...'} </span> | {"  "} 
