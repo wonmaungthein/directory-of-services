@@ -32,7 +32,6 @@ class Organisations extends Component {
     isLoading: false,
     sort: false,
     isPostcode: false
-
   };
 
   componentDidMount() {
@@ -43,7 +42,6 @@ class Organisations extends Component {
       }
     this.props.getBranchsByCategory(category);
   }
-
 
   componentWillReceiveProps(newProps) {
     const { oganisation } = newProps;
@@ -204,6 +202,8 @@ class Organisations extends Component {
 
   render() {
     const { category, postCode, borough, day, organisations } = this.state;
+    const role = this.props.user.role ? this.props.user.role : '';
+
     if (this.state.isLoading || this.filterData.length === 0) {
       return <Spinner />
     }
@@ -230,7 +230,7 @@ class Organisations extends Component {
         <Grid container className="organisation-page" spacing={24} wrap="wrap">
           {this.filterData(organisations.sort(this.dataOrder())).map(org => (
             <Grid item xs={12} sm={6} key={org.id} className='card'> 
-              <OrganisationCard org={org} />
+              <OrganisationCard org={org} role={role} />
             </Grid>
           ))
           }
@@ -243,6 +243,7 @@ class Organisations extends Component {
 function mapStateToProps(state) {
   return {
     oganisation: state.filteredBranchsByCategory.branchs,
+    user: state.loginAuth.user
   }
 }
 

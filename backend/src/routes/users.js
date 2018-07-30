@@ -217,7 +217,7 @@ router.post('/login', async (req, res) => {
               organisation: userInfo[0].organisation,
               role: userInfo[0].role,
               email: userInfo[0].email,
-              sucess: 'true'
+              success: 'true'
             }, secret);
             res
               .status(200)

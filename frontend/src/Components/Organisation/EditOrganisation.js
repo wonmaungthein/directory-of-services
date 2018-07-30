@@ -80,7 +80,7 @@ class EditOrganisation extends React.Component {
     }
   
   componentWillMount() {
-    const data = this.props.editOrgData;
+    const data = this.props.org;
     if (data) {
       const categories = [];
       
