@@ -70,12 +70,21 @@ class Notification extends React.Component {
     }
   };
 
-  checkComponentLink = () =>
-  (
-    <Button variant="fab" color="secondary" aria-label="Edit" className={this.props.deleteOrg ? 'delete' : 'edit-button'} onClick={this.handleClickOpen} raised="true" >
-      <i className="material-icons">delete</i>
-    </Button>
-  )
+  checkComponentLink = () =>{
+    const { url } = this.props.match;
+    // // Add different style to delete button 
+    return  (
+      <Button 
+        variant={url.includes('admindos') ? null : 'fab'} 
+        color={url.includes('admindos') ? null :  'secondary'}
+        className={url.includes('admindos') ? null : 'delete'} 
+        onClick={this.handleClickOpen}
+        raised="true"
+      >
+        <i className="material-icons">delete</i>
+      </Button>
+    )
+  }
 
   render() {
     return (
