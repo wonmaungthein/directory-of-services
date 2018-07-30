@@ -2,6 +2,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import {SET_CURRENT_USER} from './types';
+import helpers from '../helpers';
 
 const api = process.env.REACT_APP_API_URL || process.env.REACT_APP_LOCALHOST_API_URL;
 
@@ -18,9 +19,9 @@ export function logout() {
 }
 
 export function login(data) {
-  return dispatch => axios
-    .post(`${api}/login`, data)
-    .then(res => {
+  const sendInfo = async (dispatch) => {
+    try {
+      const res = await axios.post(`${api}/login`, data);
       if (res.status === 200) {
         const {token} = res.data;
         localStorage.setItem('jwtToken', token);
@@ -30,28 +31,34 @@ export function login(data) {
         }
         return res
       }
-      return res
-    })
-    .catch(err => err);
+    } catch (error) {
+      return helpers.errorParser(error)
+    }
+  }
+  return sendInfo
 }
 
 export function signup(data) {
-  const saveUser = async() => axios
-    .post(`${api}/signup`, data)
-    .then(res => res.data)
-  return saveUser
+  const sendInfo = async () => {
+    try {
+      const res = await axios.post(`${api}/signup`, data)
+      return res.data;
+    } catch (error) {
+      return helpers.errorParser(error)
+    }
+  }
+  return sendInfo
 }
 
 // update user role
 export function upDateUser(data) {
-  const userEdited = async() => {
+  const sendInfo = async () => {
     try {
-    const editUser = await axios
-    .patch(`${api}/user/role`, data);
-     return editUser.data
+      const res = await axios.patch(`${api}/user/role`, data);
+      return res.data;
     } catch (error) {
-      return JSON.stringify(error);  
+      return helpers.errorParser(error)
     }
   }
-  return userEdited; 
+  return sendInfo
 }
