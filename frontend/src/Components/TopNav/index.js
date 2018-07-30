@@ -14,7 +14,7 @@ import { logout } from '../../actions/loginActions'
 import './top-nav.css';
 import helpers from '../../helpers';
 import UserDropDown from '../Users/UserDropDown';
-import categoriesData from '../../Data/Categories.json'
+import categories from '../../Data/Categories.json';
 
 const drawerWidth = 240;
 
@@ -50,6 +50,7 @@ class TopNav extends Component {
     this.state.userDropDown ? <UserDropDown handleLogOut={this.handleLogOut} /> : null;
 
   renderCategories = () => {
+    const categoriesData = categories;
     const index1 = categoriesData.indexOf("Destitution/NRPF");
     const index2 = categoriesData.indexOf("Employment/Training/Volunteering");
     const index3 = categoriesData.indexOf("Young People/Children");
