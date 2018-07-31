@@ -146,9 +146,75 @@ const checkCategories = [
     'Baby Equipment',
 ];
 
+const filterOrganisationData = (data, day, borough) => {
+  if (day.length > 0 && borough.length > 0) {
+    return data.filter(orgs => {
+      const allDays = 
+      orgs.service_days.includes('Monday') &&
+      orgs.service_days.includes('Tuesday') &&
+      orgs.service_days.includes('Wednesday') &&
+      orgs.service_days.includes('Thursday') &&
+      orgs.service_days.includes('Friday') &&
+      orgs.service_days.includes('Saturday') &&
+      orgs.service_days.includes('Sunday');
+      
+      const allDaysWithMonToFriFormat = 
+      orgs.service_days.includes('Saturday') &&
+      orgs.service_days.includes('Sunday') &&
+      orgs.service_days.includes('Mon-Fri');
+
+      // Check for five days of the week Monday to Friday
+      const monToFri =  orgs.service_days.match('Mon-Fri');
+      const workingDays = (orgs.service_days.includes('Monday') && 
+        orgs.service_days.includes('Tuesday') && 
+        orgs.service_days.includes('Wednesday') &&
+        orgs.service_days.includes('Thursday') &&
+        orgs.service_days.includes('Friday')) ;
+      
+      return orgs.service_days.includes(day) || 
+          allDaysWithMonToFriFormat  || 
+          allDays || 
+          workingDays ||
+          (monToFri && orgs.borough.includes(borough))
+    })
+  } else if (day.length > 0 && borough.length <= 0) {
+    return data.filter(orgs => {
+      const allDays = 
+      orgs.service_days.includes('Monday') &&
+      orgs.service_days.includes('Tuesday') &&
+      orgs.service_days.includes('Wednesday') &&
+      orgs.service_days.includes('Thursday') &&
+      orgs.service_days.includes('Friday') &&
+      orgs.service_days.includes('Saturday') &&
+      orgs.service_days.includes('Sunday');
+
+      const allDaysWithMonToFriFormat = 
+      orgs.service_days.includes('Saturday') &&
+      orgs.service_days.includes('Sunday') &&
+      orgs.service_days.includes('Mon-Fri');
+
+      // Check for five days of the week Monday to Friday / handle when day = Mon-Fri
+      const monToFri =  orgs.service_days.match('Mon-Fri');
+      const workingDays = (orgs.service_days.includes('Monday') && 
+        orgs.service_days.includes('Tuesday') && 
+        orgs.service_days.includes('Wednesday') &&
+        orgs.service_days.includes('Thursday') &&
+        orgs.service_days.includes('Friday')) ;
+
+      return orgs.service_days.includes(day) || allDaysWithMonToFriFormat || allDays || monToFri || workingDays;
+    })
+  } else if (day.length <= 0 && borough.length > 0) {
+    return data.filter(orgs =>
+      orgs.borough.includes(borough)
+    )
+  }
+  return data;
+}
+
   export default {
     checkCategories,
     handleCheckBoxProcess,
+    filterOrganisationData,
     handleDefaultCheckboxProcess
   }
   
