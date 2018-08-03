@@ -147,47 +147,51 @@ router.post('/signup', async (req, res) => {
     email,
     organisation
   } = req.body;
-  if (email.length > 0 && password.length > 0) {
-    await getUserByEmail(email).then(user => {
-      if (user.length > 0) {
-        res.json({
-          success: false,
-          message: 'User is already found'
-        })
-      } else {
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(password, salt, (error, hash) => {
-            if (error) {
-              throw error;
-            }
-            password = hash;
-            addUser({
-              salt_password: password,
-              email,
-              fullname,
-              organisation
-            }).then(userData => {
-              if (userData) {
-                res.json({
-                  success: true,
-                  message: 'User is registered'
-                })
-              } else {
-                res.json({
-                  success: false,
-                  message: 'User is not registered'
-                })
-              }
-            });
+  try {
+    if (email.length > 0 && password.length > 0) {
+      await getUserByEmail(email).then(user => {
+        if (user.length > 0) {
+          res.json({
+            success: false,
+            message: 'User is already found'
           })
-        })
-      }
-    })
-  } else {
-    res.json({
-      success: false,
-      message: 'You have to add email and password'
-    })
+        } else {
+          bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(password, salt, (error, hash) => {
+              if (error) {
+                throw error;
+              }
+              password = hash;
+              addUser({
+                salt_password: password,
+                email,
+                fullname,
+                organisation
+              }).then(userData => {
+                if (userData) {
+                  res.json({
+                    success: true,
+                    message: 'User is registered'
+                  })
+                } else {
+                  res.json({
+                    success: false,
+                    message: 'User is not registered'
+                  })
+                }
+              });
+            })
+          })
+        }
+      })
+    } else {
+      res.json({
+        success: false,
+        message: 'You have to add email and password'
+      })
+    }
+  } catch (err) {
+    throw err
   }
 })
 
