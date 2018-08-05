@@ -8,6 +8,7 @@ import SignUpForm from '../Users/signUp';
 import ForgotPassword from '../Users/forgot-password';
 import Spinner from '../Spinner';
 import helpers from '../../helpers';
+import { addFlashMessage } from '../../actions/flashMessages';
 import './login-form.css';
 
 class LoginForm extends Component {
@@ -62,6 +63,10 @@ class LoginForm extends Component {
       this.setState({ isLoading: true });
       this.props.login(this.state).then(user => {
         if (user && user.status && user.status === 200 && user.data.token) {
+          this.props.addFlashMessage({
+            type: 'LOGIN_SUCCESS',
+            text: 'You hve logged in successfully'
+          });
           this.context.router.history.push('/home')
           this.setState({ isLoading: false, errors: error });
         } else {
@@ -143,4 +148,4 @@ LoginForm.contextTypes = {
   router: PropTypes.object.isRequired
 };
 
-export default connect(null, { login })(LoginForm);
+export default connect(null, { login, addFlashMessage })(LoginForm);

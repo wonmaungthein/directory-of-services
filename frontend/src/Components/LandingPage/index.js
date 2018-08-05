@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LoginForm from '../LoginForm';
 import { deleteFlashMessage } from '../../actions/flashMessages';
 import './landing-page.css';
+import FlashMessagesNotification from '../FlashMessages'
 
 class LandingPage extends Component {
 
@@ -12,21 +13,29 @@ class LandingPage extends Component {
   }
 
   deleteMessage = () => (
-    this.props.messages.map(message => message.type === 'loginError' ? this.props.deleteFlashMessage(message.id) : null)
-  );
-
-  showRrrorMessage = () => {
-    const errorMessage = this.renderMessages() ? <h3 className="login-error">{this.renderMessages()} <i tabIndex={0} role="button" onClick={this.deleteMessage} onKeyPress={this.deleteMessage} className="material-icons">close</i></h3> : null;
-    return errorMessage;
-  };
+    this.props.messages.map(message => 
+      message.type === 'loginError' ? 
+      this.props.deleteFlashMessage(message.id) : null
+  ));
 
   showSignUpForm = () => (
     <LoginForm />
   )
 
   renderMessages = () => (
-    this.props.messages.map(message => message.type === 'loginError' ? message.text : null).join('')
-  );
+    this.props.messages.map(message => 
+      message.type === 'loginError' ? 
+        <Fragment key={message.id}>
+          {setTimeout(() => this.deleteMessage(),5000)}
+          <FlashMessagesNotification 
+            messageType='error' 
+            message={message.text} 
+            test={this.props.messages}
+            deleteMessage={this.deleteMessage} 
+          />
+        </Fragment>
+      : null
+  ))
 
   renderSignUpPage = (e) => {
     e.preventDefault()
@@ -39,7 +48,7 @@ class LandingPage extends Component {
     return (
       <div className="landing-page">
         <div className="login-content">
-          {this.showRrrorMessage()}
+          {this.renderMessages()}
           {this.showSignUpForm()}
         </div>
       </div>
