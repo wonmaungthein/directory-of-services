@@ -17,7 +17,7 @@ export function addOrganisation(data) {
 export function editOrganisation(data) {
   const saveOrganisation = async () => {
     try {
-      const res = await axios.patch(`${api}/service/organisation/edit`, data);
+      const res = await axios.put(`${api}/service/organisation/edit`, data);
       return res;
     } catch (error) {
       return JSON.stringify(error);
