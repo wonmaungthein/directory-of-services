@@ -10,11 +10,9 @@ const styles = theme => ({
   root: {
     overflow: 'hidden',
     padding: `0 ${theme.spacing.unit * 3}px`,
-    
   },
   wrapper: {
     maxWidth: 400,
-    
   },
   paper: {
     margin: theme.spacing.unit,
@@ -23,12 +21,15 @@ const styles = theme => ({
   },
 });
 
-const OrganisationCard = ({ org }) => (
+const OrganisationCard = ({
+  role,
+  org
+}) => (
   <Paper label='org-card-info'>
-    <EditOrganisation 
-      editOrgData={org}
-    />
-    <SingleOrganisation org={org} />
+    { role === 'Admin' || role === 'Editor' ? 
+      <EditOrganisation org={org} /> : null
+    }
+    <SingleOrganisation org={org} role={role} />
     
     { /*  Conditionally display services and process, if no info provided display  'not provided' in FE */ }
     

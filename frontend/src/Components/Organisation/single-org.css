@@ -62,6 +62,14 @@
   color: #fff;  
 }
 
+.org-detail-btn .move-right{
+  left: 81% !important;
+  border-radius: 0;
+  background-color: transparent;
+  border: 0;
+  box-shadow: 0 0;
+}
+
 .org-info .edit-button {
   min-width: 0;
   min-height: 0;
@@ -98,5 +106,10 @@
   .org-process {
     padding-bottom: .3rem;
   }
+}
 
+@media (max-width: 767px){
+  .org-detail-btn .move-right{
+    left: 75% !important;
+  }
 }

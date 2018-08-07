@@ -74,3 +74,17 @@ export function getBranchesFilteredByPostCode(data) {
   }
   return sendInfo
 }
+
+export function deleteUser(userId) {
+  const sendInfo = async () => {
+    try {
+      const res = await axios.delete(`${api}/users/${userId}`);
+      return res.data;
+    } catch (error) {
+      let errMessage = JSON.stringify(error);
+      errMessage = JSON.parse(errMessage).response.data;
+      return errMessage;
+    }
+  }
+  return sendInfo
+}
