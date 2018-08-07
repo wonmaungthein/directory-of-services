@@ -1,7 +1,7 @@
 [
   {
     "Organisation": "AgeUk Hounslow",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Debt Advice",
     "Website": "http://www.ageuk.org.uk/hounslow/",
@@ -20,7 +20,7 @@
   },
   {
     "Organisation": "Bayswater Families Centre - Action for Children",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Families & vulnerable/excluded young people",
     "Website": "www.actionforchildren.org.uk",
@@ -42,7 +42,7 @@
   },
   {
     "Organisation": "Carers Trust",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Emotional/practical/financial support to carers",
     "Website": "https://carers.org/",
@@ -59,7 +59,7 @@
   },
   {
     "Organisation": "Christians Against Poverty",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "Nationwide",
     "Services": "Budget planning course, Debt Advice, Job support",
     "Website": "https://capuk.org/",
@@ -76,7 +76,7 @@
   },
   {
     "Organisation": "Haringey Law Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Debt Advice",
     "Website": "http://haringeylawcentre.org.uk/",
@@ -93,7 +93,7 @@
   },
   {
     "Organisation": "Lewisham Refugee & \nMigrant Network",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Debt advice",
     "Website": "http://www.advicelewisham.org.uk/lewisham-refugee-migrant-network/",
@@ -110,8 +110,8 @@
   },
   {
     "Organisation": "London Black Women's Project",
-    "Area": "East",
-    "Borough": "Barking",
+    "Area": "East London",
+    "Borough": "Barking and Dagenham",
     "Services": "Debt and Legal advice",
     "Website": "",
     "Clients": "Women",
@@ -129,8 +129,8 @@
   },
   {
     "Organisation": "Mary Ward Legal Centre",
-    "Area": "North",
-    "Borough": "Camden (Holborn)",
+    "Area": "North London",
+    "Borough": "Camden",
     "Services": "Debt Advice",
     "Website": "http://www.marywardlegal.org.uk/",
     "Clients": "All",
@@ -146,7 +146,7 @@
   },
   {
     "Organisation": "New Horizon Youth Centre",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Camden",
     "Services": "Debt advice",
     "Website": "http://nhyouthcentre.org.uk/",
@@ -163,7 +163,7 @@
   },
   {
     "Organisation": "RAMP - Renewal \nRefugee and Migrant Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Debt Advice",
     "Website": "http://www.renewalprogramme.org.uk/refugee-and-migrant-project.html",
@@ -180,7 +180,7 @@
   },
   {
     "Organisation": "StepChange",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "Nationwide",
     "Services": "Debt and Budgeting",
     "Website": "https://www.stepchange.org/",
@@ -197,8 +197,8 @@
   },
   {
     "Organisation": "Toynbee Hall",
-    "Area": "Central",
-    "Borough": "London",
+    "Area": "Canterbury",
+    "Borough": "City of London",
     "Services": "Debt advice",
     "Website": "",
     "Clients": "All",
@@ -214,7 +214,7 @@
   },
   {
     "Organisation": "Z2K",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Debt Advice",
     "Website": "http://z2k.org/free-help-advice/z2k-advice-drop-in-sessions/",
@@ -233,7 +233,7 @@
   },
   {
     "Organisation": "Z2K",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Debt Advice",
     "Website": "http://z2k.org/free-help-advice/z2k-advice-drop-in-sessions/",
@@ -252,7 +252,7 @@
   },
   {
     "Organisation": "Z2K",
-    "Area": "South West",
+    "Area": "Swale",
     "Borough": "Westminster",
     "Services": "Debt Advice",
     "Website": "http://z2k.org/free-help-advice/z2k-advice-drop-in-sessions/",
@@ -271,7 +271,7 @@
   },
   {
     "Organisation": "AFRIL",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Debt Advice",
     "Website": "http://www.afril.org.uk/en/services/advice-service/",
@@ -291,7 +291,7 @@
   },
   {
     "Organisation": "Community Link",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Debt Advice",
     "Website": "http://www.community-links.org/local-services/advice/",
@@ -313,7 +313,7 @@
   },
   {
     "Organisation": "Hounslow CAB",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Debt Advice",
     "Website": "http://www.hounslowcabs.org.uk/",
@@ -336,7 +336,7 @@
   },
   {
     "Organisation": "Waterloo Action Centre",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Debt Advice",
     "Website": "www.waterlooactioncentre.co.uk",
@@ -357,7 +357,7 @@
   },
   {
     "Organisation": "AFRIL",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Immigration",
     "Website": "http://www.afril.org.uk/en/services/advice-service/",
@@ -376,7 +376,7 @@
   },
   {
     "Organisation": "Afro-Asian Advisory \nService",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Immigration Advice",
     "Website": "http://lambethandsouthwarkmind.org.uk/directory/afro-asian-advisory-service/",
@@ -393,7 +393,7 @@
   },
   {
     "Organisation": "Asylum Aid",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "www.asylumaid.org.uk",
@@ -412,7 +412,7 @@
   },
   {
     "Organisation": "Bayswater Families Centre - Action for Children",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Families & vulnerable/excluded young people",
     "Website": "www.actionforchildren.org.uk",
@@ -434,7 +434,7 @@
   },
   {
     "Organisation": "Breaking Barriers",
-    "Area": "South West",
+    "Area": "Swale",
     "Borough": "Wandsworth",
     "Services": "Employability workshops/placements",
     "Website": "http://www.breaking-barriers.co.uk/",
@@ -453,7 +453,7 @@
   },
   {
     "Organisation": "Cardinal Hume",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Immigration Advice",
     "Website": "https://www.cardinalhumecentre.org.uk/need-help/immigration-advice/",
@@ -470,7 +470,7 @@
   },
   {
     "Organisation": "City Advice (Toynbee Hall)",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Legal advice",
     "Website": "http://www.toynbeehall.org.uk/about-city-advice",
@@ -487,7 +487,7 @@
   },
   {
     "Organisation": "Coram Children's Legal Centre (Migrant Children's Project)",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "www.childrenslegalcentre.com",
@@ -504,7 +504,7 @@
   },
   {
     "Organisation": "Hackney Community Law\n Centre",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "www.hclc.org.uk",
@@ -523,7 +523,7 @@
   },
   {
     "Organisation": "Haringey Law Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Immigration",
     "Website": "http://haringeylawcentre.org.uk/",
@@ -540,7 +540,7 @@
   },
   {
     "Organisation": "Haringey Migrant Support \nCentre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Immigration",
     "Website": "http://www.haringeymsc.org/index.php/about-us",
@@ -559,7 +559,7 @@
   },
   {
     "Organisation": "Haringey Migrant Support \nCentre  **",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Immigration Advice",
     "Website": "http://haringeymsc.org.gridhosted.co.uk/visiting-us/",
@@ -578,7 +578,7 @@
   },
   {
     "Organisation": "ILPA",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Immigration Advice Directory",
     "Website": "http://www.ilpa.org.uk/search-directory.php",
@@ -595,7 +595,7 @@
   },
   {
     "Organisation": "Lewisham Refugee & \nMigrant Network",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "OISC Level 3 \nimmigration advice",
     "Website": "http://www.advicelewisham.org.uk/lewisham-refugee-migrant-network/",
@@ -612,8 +612,8 @@
   },
   {
     "Organisation": "RAMFEL",
-    "Area": "East",
-    "Borough": "Essex/\nEast London",
+    "Area": "East London",
+    "Borough": "Essex East London",
     "Services": "Immigration and Asylum",
     "Website": "http://www.ramfel.org.uk/wordpress/asylum-immigration/",
     "Clients": "All",
@@ -629,7 +629,7 @@
   },
   {
     "Organisation": "Refugee and Migrant \nNetwork Sutton",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Sutton",
     "Services": "Immigration Advice",
     "Website": "http://www.rmns.org.uk/what-we-offer.html",
@@ -648,7 +648,7 @@
   },
   {
     "Organisation": "Shpresa",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Immigration, benefits, housing advice and advocacy, signposting for Albanian asylum-seekers and refugees, activities, schools and mentoring  for Albanian speaking children, support groups, therapy sessions and training for women, advice and advocacy for women victims of domestic violence.",
     "Website": "http://www.shpresaprogramme.com/index.html",
@@ -665,7 +665,7 @@
   },
   {
     "Organisation": "The Renewal Programme (Refugee and \nMigrant Project)",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Immigration and Nationality",
     "Website": "http://www.renewalprogramme.org.uk/refugee-and-migrant-project.html",
@@ -682,7 +682,7 @@
   },
   {
     "Organisation": "Waterloo Action Centre (Legal Advice Service)",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Legal advice",
     "Website": "www.waterlooactioncentre.co.uk",
@@ -701,7 +701,7 @@
   },
   {
     "Organisation": "Croydon Refugee Day Centre ",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Basic support: food, clothes, toiletries, showers, children's play, access to helpdesk and ESOL.",
     "Website": "www.croydonrefugeedaycentre.co.uk/",
@@ -720,7 +720,7 @@
   },
   {
     "Organisation": "Cardinal Hume Centre",
-    "Area": "South West",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Immigration advice",
     "Website": "https://www.cardinalhumecentre.org.uk/need-help/immigration-advice/",
@@ -743,7 +743,7 @@
   },
   {
     "Organisation": "Jesuit Refugee Service",
-    "Area": "East/Central",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Advice and signposting for asylum seekers and refugees. Please call 020 7488 7310 to make an appointment",
     "Website": "http://www.jrsuk.net/",
@@ -762,7 +762,7 @@
   },
   {
     "Organisation": "Refugee Connection",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Immigration (OISC \nL1), benefits, \nhousing advice\n",
     "Website": "www.refugeeconnection.org.uk/advocacy",
@@ -781,7 +781,7 @@
   },
   {
     "Organisation": "Afro-Asian Advisory \nService",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "http://lambethandsouthwarkmind.org.uk/directory/afro-asian-advisory-service/",
@@ -804,7 +804,7 @@
   },
   {
     "Organisation": "AIRE centre",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "www.airecentre.org",
@@ -827,7 +827,7 @@
   },
   {
     "Organisation": "Barnet Refugee Service",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Immigration/Asylum/\nTravel Docs/Citizenship",
     "Website": "http://www.b-r-s.org.uk/index.php?option=com_content&view=article&id=4&Itemid=3",
@@ -847,7 +847,7 @@
   },
   {
     "Organisation": "Hackney Migrant Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Immigration Advice",
     "Website": "http://www.hackneymigrantcentre.org.uk",
@@ -866,7 +866,7 @@
   },
   {
     "Organisation": "JCWI",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "www.jcwi.org.uk",
@@ -887,7 +887,7 @@
   },
   {
     "Organisation": "Kalayaan",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Kensington and Chelsea",
     "Services": "OISC Level 3 Immigration advice, employment advice, advice and support services for trafficked domestic migrant workers, English classes, ",
     "Website": "http://www.kalayaan.org.uk/",
@@ -910,7 +910,7 @@
   },
   {
     "Organisation": "Latin American House",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Immigration Advice",
     "Website": "http://www.casalatina.org.uk/en/legal-and-social-advice/immigration-advice.html",
@@ -930,7 +930,7 @@
   },
   {
     "Organisation": "Notre Dame Refugee \nCentre Drop-In Café",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Asylum and Immigration",
     "Website": "www.notredamerc.org.uk",
@@ -952,7 +952,7 @@
   },
   {
     "Organisation": "Praxis",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Immigration Advice",
     "Website": "http://www.praxis.org.uk/advice-&-information-page-37.html",
@@ -971,7 +971,7 @@
   },
   {
     "Organisation": "Rights of Women",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline \n(immigration, family)",
     "Website": "http://rightsofwomen.org.uk/",
@@ -993,7 +993,7 @@
   },
   {
     "Organisation": "Toynbee Hall",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Legal advice",
     "Website": "",
@@ -1014,8 +1014,8 @@
   },
   {
     "Organisation": "Advice4Renters",
-    "Area": "North",
-    "Borough": "Kilburn",
+    "Area": "North London",
+    "Borough": "Brent",
     "Services": "Private Housing Advice",
     "Website": "http://www.advice4renters.org.uk/",
     "Clients": "Status (must be eligible \nfor Legal Aid)",
@@ -1031,8 +1031,8 @@
   },
   {
     "Organisation": "Advice4Renters",
-    "Area": "West",
-    "Borough": "Willesden",
+    "Area": "West London",
+    "Borough": "Brent",
     "Services": "Private Housing Advice",
     "Website": "http://www.advice4renters.org.uk/",
     "Clients": "Status (must be eligible \nfor Legal Aid)",
@@ -1048,7 +1048,7 @@
   },
   {
     "Organisation": "AFRIL",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Housing",
     "Website": "http://www.afril.org.uk/en/services/advice-service/",
@@ -1067,7 +1067,7 @@
   },
   {
     "Organisation": "AgeUk Hounslow",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Housing Advice",
     "Website": "http://www.ageuk.org.uk/hounslow/",
@@ -1086,7 +1086,7 @@
   },
   {
     "Organisation": "Amari Project",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "This project is a partnership between Commonweal (Housing association) and Solace Women’s Aid",
     "Website": " http://solacewomensaid.org/the-amari-project-for-sexually-exploited-women/",
@@ -1103,8 +1103,8 @@
   },
   {
     "Organisation": "Amicus Horizon",
-    "Area": "South",
-    "Borough": "Vauxhall",
+    "Area": "Swale",
+    "Borough": "All",
     "Services": "Housing association",
     "Website": "http://www.amicushorizon.org.uk/",
     "Clients": "All",
@@ -1122,7 +1122,7 @@
   },
   {
     "Organisation": "Bakhita House",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Safe house and help \naccessing accommodation",
     "Website": "http://rcdow.org.uk/caritas/human-trafficking/",
@@ -1139,7 +1139,7 @@
   },
   {
     "Organisation": "Bakhita House",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Safe house and emergency support, psychosexual therapy, legal and financial assistance, mentoring, and help with accessing accommodation  ",
     "Website": "http://rcdow.org.uk/caritas/human-trafficking/",
@@ -1156,7 +1156,7 @@
   },
   {
     "Organisation": "Baltic",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/baltic",
@@ -1173,7 +1173,7 @@
   },
   {
     "Organisation": "Barking and Dagenham Affordable Lettings Register",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Barking and Dagenham",
     "Services": "Provide affordable rented homes in Barking and Dagenham",
     "Website": "https://www.affordablelettings.london/content/AboutUs",
@@ -1190,7 +1190,7 @@
   },
   {
     "Organisation": "Barnardo's",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "A vast range of services in the areas of: advocacy, alcohol and substance misuse, children in trouble with the law, children leaving care, children seeking asylum, domestic violence, homelessness, mental health, sexual abuse, sexual exploitation, trafficked children, young carers, LGBTQ young people",
     "Website": "http://www.barnardos.org.uk/",
@@ -1207,7 +1207,7 @@
   },
   {
     "Organisation": "Bonham and Strathleven Tenants Co-operative",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/bonham-strathleven-housing-co-operative-limited",
@@ -1224,7 +1224,7 @@
   },
   {
     "Organisation": "Brighton Buildings Housing Co-operative Limited",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/brighton-buildings-housing-co-operative-limited",
@@ -1241,7 +1241,7 @@
   },
   {
     "Organisation": "Carers Trust",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Emotional/practical/\nfinancial support to carers",
     "Website": "https://carers.org/",
@@ -1258,7 +1258,7 @@
   },
   {
     "Organisation": "Caritas Anchor House",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Supported housing",
     "Website": "http://www.caritasanchorhouse.org.uk/",
@@ -1275,7 +1275,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Housing and Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -1292,7 +1292,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Housing and Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -1309,7 +1309,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Housing and Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -1326,7 +1326,7 @@
   },
   {
     "Organisation": "Covent Garden Housing Co-operative",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/covent-garden-housing-co-operative",
@@ -1343,7 +1343,7 @@
   },
   {
     "Organisation": "Coylers Housing Co-operative Limited",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Bexley",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/colyers-housing-co-operative-limited",
@@ -1377,7 +1377,7 @@
   },
   {
     "Organisation": "Croydon Reach",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Housing",
     "Website": "http://www.thamesreach.org.uk/what-we-do/rough-sleeper-services/croydon-reach/",
@@ -1394,7 +1394,7 @@
   },
   {
     "Organisation": "Deptford Housing Co-operative Limited",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/deptford-housing-co-operative-limited",
@@ -1411,7 +1411,7 @@
   },
   {
     "Organisation": "Diversity Living Services",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Enfield",
     "Services": "Welfare, Benefits and Housing Advice, Employment guidance and advice, ESOL classes ",
     "Website": "http://www.diversityliving.org.uk/",
@@ -1428,7 +1428,7 @@
   },
   {
     "Organisation": "Embrace UK Community\n Support Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Housing",
     "Website": "http://www.embraceuk.org/advice.php",
@@ -1445,7 +1445,7 @@
   },
   {
     "Organisation": "Family Mosaic",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Housing association",
     "Website": "http://www.familymosaic.co.uk/",
@@ -1462,7 +1462,7 @@
   },
   {
     "Organisation": "Grazing Hill Law Partners",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Housing advice",
     "Website": "http://grazinghill.co.uk/home/3137949",
@@ -1481,7 +1481,7 @@
   },
   {
     "Organisation": "Green Dragon Lane Housing Co-operative  Limited",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/green-dragon-lane-housing-co-operative-limited",
@@ -1498,7 +1498,7 @@
   },
   {
     "Organisation": "Hackney Migrant Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Housing advice",
     "Website": "http://www.hackneymigrantcentre.org.uk",
@@ -1517,7 +1517,7 @@
   },
   {
     "Organisation": "HACTRAC",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Greenwich",
     "Services": "Rent Deposit Guarantee Scheme",
     "Website": "http://www.royalgreenwich.gov.uk/info/200077/private_housing/547/hactrac_scheme",
@@ -1534,7 +1534,7 @@
   },
   {
     "Organisation": "Haringey Law Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Housing",
     "Website": "http://haringeylawcentre.org.uk/",
@@ -1551,7 +1551,7 @@
   },
   {
     "Organisation": "Haringey Migrant Support \nCentre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Housing advice",
     "Website": "http://haringeymsc.org.gridhosted.co.uk/visiting-us/",
@@ -1570,7 +1570,7 @@
   },
   {
     "Organisation": "Hestia",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "provider of domestic abuse refuges in London",
     "Website": "http://www.hestia.org/",
@@ -1587,7 +1587,7 @@
   },
   {
     "Organisation": "Hexagon",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "All",
     "Services": "Housing assocaition",
     "Website": "http://www.hexagon.org.uk/",
@@ -1604,7 +1604,7 @@
   },
   {
     "Organisation": "Hillbury Road Resident's Managment Co-operative  Limited",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Wandsworth",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/hillbury-road-residents-management-co-operative-limited",
@@ -1621,7 +1621,7 @@
   },
   {
     "Organisation": "Hollymeadow Housing Co-operative",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Bexley",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/hollymeadow-housing-co-operative-limited",
@@ -1638,8 +1638,8 @@
   },
   {
     "Organisation": "Hope Worldwide (Two \nStep London)",
-    "Area": "East",
-    "Borough": "Old Street",
+    "Area": "East London",
+    "Borough": "Islington",
     "Services": "Homelessness Advice",
     "Website": "http://hopeworldwide.org.uk/AboutUs.asp",
     "Clients": "",
@@ -1655,7 +1655,7 @@
   },
   {
     "Organisation": "Hourgalss Housing Co-operative",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/hourglass-housing-co-operative",
@@ -1672,7 +1672,7 @@
   },
   {
     "Organisation": "Housing for Women",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Housing association",
     "Website": "http://hfw.org.uk/",
@@ -1689,7 +1689,7 @@
   },
   {
     "Organisation": "Housing Justice",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Hosting",
     "Website": "www.housingjustice.org.uk",
@@ -1706,7 +1706,7 @@
   },
   {
     "Organisation": "Hyde",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Housing association",
     "Website": "https://www.hyde-housing.co.uk/corporate/",
@@ -1723,7 +1723,7 @@
   },
   {
     "Organisation": "Islington Law Centre \n(outreach - Essex Rd)",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Housing advice",
     "Website": "http://www.islingtonlaw.org.uk/wp-content/uploads/2016/04/TAP-Housing.pdf",
@@ -1742,8 +1742,8 @@
   },
   {
     "Organisation": "Islington Law Centre \n(outreach)",
-    "Area": "North",
-    "Borough": "Islington \n(Finsbury Park)",
+    "Area": "North London",
+    "Borough": "Islington",
     "Services": "Housing advice",
     "Website": "http://www.islingtonlaw.org.uk/wp-content/uploads/2016/04/TAP-Housing.pdf",
     "Clients": "Live, work, study in Islington",
@@ -1761,7 +1761,7 @@
   },
   {
     "Organisation": "Islington Law Centre\n (outreach - Caledonian \nConnect)",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Housing advice",
     "Website": "http://www.islingtonlaw.org.uk/wp-content/uploads/2016/04/TAP-Housing.pdf",
@@ -1780,7 +1780,7 @@
   },
   {
     "Organisation": "Just Homes",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Short-term accommodation, one to one advice and support",
     "Website": "http://justhomes.org.uk/",
@@ -1797,8 +1797,8 @@
   },
   {
     "Organisation": "Latin American House",
-    "Area": "North",
-    "Borough": "Brent/Camden",
+    "Area": "North London",
+    "Borough": "Camden",
     "Services": "Housing advice",
     "Website": "http://www.casalatina.org.uk/en/",
     "Clients": "Spanish/Portugese \nspeaking clients",
@@ -1814,7 +1814,7 @@
   },
   {
     "Organisation": "Lewisham Homes",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Housing association",
     "Website": "https://www.lewishamhomes.org.uk/",
@@ -1831,7 +1831,7 @@
   },
   {
     "Organisation": "Lewisham Multi-Lingual \nAdvice Service",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Housing advice",
     "Website": "http://www.advicelewisham.org.uk/lewisham-multi-lingual-advice-service/",
@@ -1848,7 +1848,7 @@
   },
   {
     "Organisation": "Lewisham Refugee & \nMigrant Network",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Housing advice",
     "Website": "http://www.advicelewisham.org.uk/lewisham-refugee-migrant-network/",
@@ -1865,7 +1865,7 @@
   },
   {
     "Organisation": "LHA London",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Low cost hostel rooms for short stay",
     "Website": "http://lhalondon.com/accommodation/",
@@ -1882,7 +1882,7 @@
   },
   {
     "Organisation": "Lindsey Housing Co-operative Limited",
-    "Area": "Dagenham",
+    "Area": "East London",
     "Borough": "Barking and Dagenham",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/lindsey-housing-co-operative-limited",
@@ -1899,7 +1899,7 @@
   },
   {
     "Organisation": "London and Quadrant ",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "`Housing association",
     "Website": "http://www.lqgroup.org.uk/",
@@ -1916,7 +1916,7 @@
   },
   {
     "Organisation": "Look Ahead ",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Supported housing",
     "Website": "https://www.lookahead.org.uk/our-services/",
@@ -1951,7 +1951,7 @@
   {
     "Organisation": "Lynsted Housing Co-operative Limited",
     "Area": "Swale",
-    "Borough": "Lynsted",
+    "Borough": "Kent",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/lynsted-housing-co-operative-limited",
     "Clients": "All",
@@ -1968,7 +1968,7 @@
   {
     "Organisation": "Manor Place Housing Co-operative  Society Limited",
     "Area": "Kent",
-    "Borough": "Dartford",
+    "Borough": "Kent",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/manor-place-co-operative-housing-society-limited",
     "Clients": "All",
@@ -1984,8 +1984,8 @@
   },
   {
     "Organisation": "Mary Ward Legal Centre",
-    "Area": "North",
-    "Borough": "Camden ",
+    "Area": "North London",
+    "Borough": "Camden",
     "Services": "Housing advice",
     "Website": "http://www.marywardlegal.org.uk/",
     "Clients": "Status",
@@ -2001,7 +2001,7 @@
   },
   {
     "Organisation": "May Day Permanent Housing Co-Operative Limited ",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/may-day-permanent-housing-co-operative-limited",
@@ -2018,7 +2018,7 @@
   },
   {
     "Organisation": "Medaille Trust",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Provider of support and safe house provision for the victims of human trafficking",
     "Website": "http://www.medaille-trust.org.uk/",
@@ -2035,7 +2035,7 @@
   },
   {
     "Organisation": "Metropolitan Housing",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Housing association",
     "Website": "https://www.metropolitan.org.uk/",
@@ -2052,7 +2052,7 @@
   },
   {
     "Organisation": "Milller Walk Housing Co-Operative Limited",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/miller-walk-housing-co-operative-limited",
@@ -2069,7 +2069,7 @@
   },
   {
     "Organisation": "New Cut Housing Co-operative Limited",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/new-cut-housing-co-operative-limited",
@@ -2086,7 +2086,7 @@
   },
   {
     "Organisation": "New Horizon Youth Centre",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Camden",
     "Services": "Housing",
     "Website": "http://nhyouthcentre.org.uk/",
@@ -2103,7 +2103,7 @@
   },
   {
     "Organisation": "Normandy Housing Co-operative Limited",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Bexley",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/normandy-housing-co-operative-limited",
@@ -2120,7 +2120,7 @@
   },
   {
     "Organisation": "Notting Hill Housing",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Housing association",
     "Website": "https://www.nhhg.org.uk/",
@@ -2137,7 +2137,7 @@
   },
   {
     "Organisation": "Parish of Old St Pancras \n(St Michael's Church)",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Legal Housing Advice",
     "Website": "http://www.posp.co.uk/legal-drop-in/",
@@ -2156,7 +2156,7 @@
   },
   {
     "Organisation": "Phoenix Community Housing ",
-    "Area": "South East ",
+    "Area": "Swale",
     "Borough": "All",
     "Services": "Housing association",
     "Website": "https://www.phoenixch.org.uk/",
@@ -2173,7 +2173,7 @@
   },
   {
     "Organisation": "Praxis",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Housing advice",
     "Website": "http://www.praxis.org.uk/advice-&-information-page-37.html",
@@ -2192,7 +2192,7 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Homelessness/Poverty",
     "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
@@ -2211,7 +2211,7 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Homelessness/Poverty",
     "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
@@ -2230,7 +2230,7 @@
   },
   {
     "Organisation": "RAMFEL",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "Housing advice",
     "Website": "http://www.ramfel.org.uk/wordpress/housing-homelessness/",
@@ -2247,7 +2247,7 @@
   },
   {
     "Organisation": "Refugee Action",
-    "Area": "London",
+    "Area": "Any",
     "Borough": "All",
     "Services": "NASS/Homelessness",
     "Website": "http://www.refugee-action.org.uk/get_help_advice/asylum_support_and_homelessness",
@@ -2264,7 +2264,7 @@
   },
   {
     "Organisation": "Refugee and Migrant Network Sutton",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Sutton",
     "Services": "Housing advice",
     "Website": "http://www.rmns.org.uk/what-we-offer.html",
@@ -2283,7 +2283,7 @@
   },
   {
     "Organisation": "Refugee Housing Association",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Housing Co-operative",
     "Website": "http://www.refugeecouncil.org.uk/services/3046_refugee_housing_association_-_tower_hamlets",
@@ -2300,7 +2300,7 @@
   },
   {
     "Organisation": "Regenter Brockley",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Housing",
     "Website": "http://www.regenterbrockleypfi.com/",
@@ -2317,7 +2317,7 @@
   },
   {
     "Organisation": "Renewal Refugee \nand Migrant Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Housing/NASS",
     "Website": "http://www.renewalprogramme.org.uk/refugee-and-migrant-project.html",
@@ -2334,7 +2334,7 @@
   },
   {
     "Organisation": "Riverdale Housing Co-operative",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Bexley",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/riverdale-housing-co-operative-limited",
@@ -2351,7 +2351,7 @@
   },
   {
     "Organisation": "Salvation Army",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Homelessness/Housing \nSupport",
     "Website": "http://www.salvationarmy.org.uk/map-page",
@@ -2368,7 +2368,7 @@
   },
   {
     "Organisation": "Sanford Housing Co-operative Limited",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/sanford-housing-co-operative-limited",
@@ -2385,7 +2385,7 @@
   },
   {
     "Organisation": "Shearwood Housing Co-operative Limited",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Bexley",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/shearwood-housing-co-operative-limited",
@@ -2402,7 +2402,7 @@
   },
   {
     "Organisation": "Shpresa",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Immigration, benefits, housing advice and advocacy, signposting for Albanian asylum-seekers and refugees, activities, schools and mentoring  for Albanian speaking children, support groups, therapy sessions and training for women, advice and advocacy for women victims of domestic violence.",
     "Website": "http://www.shpresaprogramme.com/index.html",
@@ -2419,7 +2419,7 @@
   },
   {
     "Organisation": "Southward Housing Co-operative LImited",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Wandsworth",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/southward-housing-co-operative-limited",
@@ -2436,7 +2436,7 @@
   },
   {
     "Organisation": "St George's Church Housing Co-operative Limited",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/st-georges-church-housing-co-operative-limited",
@@ -2452,42 +2452,8 @@
     "Categories": "Housing"
   },
   {
-    "Organisation": "St Mungos",
-    "Area": "London",
-    "Borough": "All",
-    "Services": "Homelessness",
-    "Website": "http://www.mungos.org/services/preventing_homelessness",
-    "Clients": "Homeless",
-    "Days": [],
-    "Process": "All referrals made through Streetlink\n (0300 500 0914)",
-    "Email": "Info@MUNGOS.ORG",
-    "Postcode": "E1W 1YW",
-    "Address": "",
-    "Tel": "020 3856 6000",
-    "Project": "",
-    "Tag": "",
-    "Categories": "Housing"
-  },
-  {
-    "Organisation": "St Mungos",
-    "Area": "All",
-    "Borough": "All",
-    "Services": "Complex needs housing",
-    "Website": "http://www.mungos.org/",
-    "Clients": "People with complex and multiple needs who are at risk of sleeping rough",
-    "Days": [],
-    "Process": "",
-    "Email": "info@mungos.org",
-    "Postcode": "E1W 1YW",
-    "Address": "",
-    "Tel": "0203 856 6000",
-    "Project": "",
-    "Tag": "",
-    "Categories": "Housing"
-  },
-  {
     "Organisation": "Streetlink",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Homelessness",
     "Website": "http://www.streetlink.org.uk/",
@@ -2504,7 +2470,7 @@
   },
   {
     "Organisation": "Swan Lane Housing Co-operative Limited",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/swan-lane-housing-co-operative-limited",
@@ -2521,7 +2487,7 @@
   },
   {
     "Organisation": "Sylhet Housing Co-operative",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/sylhet",
@@ -2538,7 +2504,7 @@
   },
   {
     "Organisation": "Temeraire Housing Co-opeative",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/temeraire",
@@ -2555,7 +2521,7 @@
   },
   {
     "Organisation": "The Amari Project (Solace\n Women's Aid)",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "2nd stage accomodation",
     "Website": "solacewomensaid.org",
@@ -2572,7 +2538,7 @@
   },
   {
     "Organisation": "Townsend Close Housing Co-operative",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Bexley",
     "Services": "Housing Co-operative",
     "Website": "http://www.cds.coop/co-op-directory/az-listing/townshend-close-housing-co-operative-limited",
@@ -2589,7 +2555,7 @@
   },
   {
     "Organisation": "Viridian Housing Asscociation",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Housing Association",
     "Website": "https://www.viridianhousing.org.uk/accommodation/rent-from-us/",
@@ -2606,7 +2572,7 @@
   },
   {
     "Organisation": "Wandle",
-    "Area": "South East ",
+    "Area": "Swale",
     "Borough": "All",
     "Services": "Housing association",
     "Website": "https://www.wandle.com/",
@@ -2623,7 +2589,7 @@
   },
   {
     "Organisation": "Z2K",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Housing",
     "Website": "http://z2k.org/free-help-advice/z2k-advice-drop-in-sessions/",
@@ -2642,7 +2608,7 @@
   },
   {
     "Organisation": "Z2K",
-    "Area": "South West",
+    "Area": "Swale",
     "Borough": "Westminster",
     "Services": "Housing",
     "Website": "http://z2k.org/free-help-advice/z2k-advice-drop-in-sessions/",
@@ -2661,7 +2627,7 @@
   },
   {
     "Organisation": "Z2K",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Housing",
     "Website": "http://z2k.org/free-help-advice/z2k-advice-drop-in-sessions/",
@@ -2680,7 +2646,7 @@
   },
   {
     "Organisation": "Groundswell",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Peer advocacy",
     "Website": "http://groundswell.org.uk",
@@ -2733,31 +2699,8 @@
     "Categories": "Housing"
   },
   {
-    "Organisation": "Ashford Place",
-    "Area": "North West London",
-    "Borough": "Brent",
-    "Services": "Our housing service is targeted at providing high quality services for people affected by all types of homelessness, whether they are rough sleeping, in emergency accommodation, sofa surfing or insecure accommodation.",
-    "Website": "https://www.ashfordplace.org.uk/",
-    "Clients": "Disadvantaged and marginalised, Homeless, mental and physical health, substance misuse and unemployment",
-    "Days": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday"
-    ],
-    "Process": "By appointment only",
-    "Email": "info@ashfordplace.org.uk",
-    "Postcode": "NW2 6TU",
-    "Address": "60 Ashford Rd, London",
-    "Tel": "020 8208 8590",
-    "Project": "",
-    "Tag": "",
-    "Categories": "Housing"
-  },
-  {
     "Organisation": "Bayswater Families Centre - Action for Children",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Families & vulnerable/excluded young people",
     "Website": "www.actionforchildren.org.uk",
@@ -2779,7 +2722,7 @@
   },
   {
     "Organisation": "Cardinal Hume Centre",
-    "Area": "South West London",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Hostel,  housing advice",
     "Website": "https://www.cardinalhumecentre.org.uk/need-help/young-persons-hostel/",
@@ -2802,7 +2745,7 @@
   },
   {
     "Organisation": "Connection at St Martins",
-    "Area": "Central London",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Street Homeless recovery",
     "Website": "www.connection-at-stmartins.org.uk",
@@ -2825,7 +2768,7 @@
   },
   {
     "Organisation": "Dellow Day Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Sreet Homeless recovery",
     "Website": "www.providencerow.org.uk/",
@@ -2848,7 +2791,7 @@
   },
   {
     "Organisation": "Debtford Reach",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Lewisham",
     "Services": "Employment skills, alcohol and drug support, housing and benefits advice, health and lifestyle, mental health support, Offender rehabilitation, creative expression, meals, showers, laundry, clothing, leisure activities, safe postal address and more.",
     "Website": "www.deptfordreach.org.uk/",
@@ -2871,8 +2814,8 @@
   },
   {
     "Organisation": "Dunloe Centre",
-    "Area": "East",
-    "Borough": "Hackney & Tower Hamlets",
+    "Area": "East London",
+    "Borough": "Tower Hamlets",
     "Services": "Weekly drop-in centre for homeless people offering free food – hot meal and tea. Toiletries, bedding and small domestic items sometimes available. Rough sleepers will be seen for the first 45 minutes.",
     "Website": "http://www.homeless.org.uk/homeless-england/service/dunloe-centre",
     "Clients": "Rough sleepers and homeless",
@@ -2890,8 +2833,8 @@
   },
   {
     "Organisation": "Glass Door Homeless Charity",
-    "Area": "West and Central London",
-    "Borough": "Hammersmith, Fulham, K & C, Barnes, Putney",
+    "Area": "West London",
+    "Borough": "Hammersmith and Fulham",
     "Services": "Emergency winter night shelter in churches across 5 boroughs. 100 beds per night; laundry and washing; advocacy and practical support. Two Drop-in Centres in Chelsea and Fulham: meals, advice, doctor appointments Tue pm. ",
     "Website": "www.glassdoor.org.uk/",
     "Clients": "Rough sleepers and homeless",
@@ -2913,7 +2856,7 @@
   },
   {
     "Organisation": "Homeless Action in Barnet",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Day Centre Services: rest, meal, showers;  Tenancy Support Services: i) a Floating Support Service provided by Outreach Barnet and ii) a partnership with the Foundation Project to provide temp accom while trying to secure a tenancy in private sector;  Health Services: for those not able to access community based services",
     "Website": "http://www.habcentre.org/",
@@ -2936,7 +2879,7 @@
   },
   {
     "Organisation": "Hope Church, Holloway",
-    "Area": "North/Central",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Night Shelter for young people (18-24 year olds)  January through March, offering supper, a bed for the night and a cooked breakfast. In association with other Islington churches.",
     "Website": "http://www.hopechurchislington.org/ministry/social-action",
@@ -2953,7 +2896,7 @@
   },
   {
     "Organisation": "London City Mission",
-    "Area": "Central London",
+    "Area": "Canterbury",
     "Borough": "Lambeth",
     "Services": "Day Centre: breakfast, showers, donated clothing, Advice Centre Fridays, nurse Tue and Thur",
     "Website": "https://www.lcm.org.uk/",
@@ -2977,7 +2920,7 @@
   },
   {
     "Organisation": "London Jesus Centre",
-    "Area": "Central London",
+    "Area": "Canterbury",
     "Borough": "Camden",
     "Services": "Day Centre: food, clothing, laundry, showers, post, IT access. Some education; ESOL, Conversation etc.",
     "Website": "http://jesuscentre.org.uk/london-jesus-centre-location",
@@ -2999,7 +2942,7 @@
   },
   {
     "Organisation": "Manna Centre",
-    "Area": "Central London",
+    "Area": "Canterbury",
     "Borough": "Southwark",
     "Services": "Free breakfast and lunch; clothing; showers; Housing and Welfare Advice Mon to sun 9.30-1.30; drop in advice Thursdays 9.30-12.00. Health facilities on selected days: nurse Mon and Fri; chiropodist alternate Mons; osteopath on Wed, mental health alternate Tuesdays. ",
     "Website": "https://www.mannasociety.org.uk/",
@@ -3016,7 +2959,7 @@
   },
   {
     "Organisation": "Margins Project - Union Chapel",
-    "Area": "North Central",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Night Shelter Wed might Jan-Mar;Housing, Benefits and Mental Health drop-in 9.30-12.00 Wednesdays. Supported Employment Programme in cafe and office. Employability Programme for drop-ins. ",
     "Website": "http://www.unionchapel.org.uk/about-us/the-margins-project/",
@@ -3033,7 +2976,7 @@
   },
   {
     "Organisation": "Refugee Connection",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Immigration (OISC \nL1), benefits, \nhousing advice\n",
     "Website": "www.refugeeconnection.org.uk/advocacy",
@@ -3052,8 +2995,8 @@
   },
   {
     "Organisation": "999 Club",
-    "Area": "South",
-    "Borough": "Deptford",
+    "Area": "Swale",
+    "Borough": "Lewisham",
     "Services": "Housing advice",
     "Website": "http://999club.org/our-services/advice-and-support/",
     "Clients": "Homeless/Hostel/Risk of \neviction",
@@ -3075,7 +3018,7 @@
   },
   {
     "Organisation": "Amicus Horizon",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Housing association",
     "Website": "http://www.amicushorizon.org.uk/",
@@ -3098,7 +3041,7 @@
   },
   {
     "Organisation": "Ashford Place",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Brent",
     "Services": "Housing",
     "Website": "http://www.ashfordplace.org.uk/",
@@ -3110,7 +3053,7 @@
       "Thursday",
       "Friday"
     ],
-    "Process": "Appointment only. Call or email for \nan appointment. Mon - Thu 9.30am -5pm Fri: 10.30am - 5pm",
+    "Process": "Appointment only. Call or email for \nan appointment. Mon - Thu 9.30am -5pm Fri: 10.30am - 5pm,Mondays – Thursdays 9.30am – 5pm Fridays 10.30am – 5pm",
     "Email": "info@ashfordplace.org.uk",
     "Postcode": "NW2 6TU",
     "Address": "",
@@ -3121,7 +3064,7 @@
   },
   {
     "Organisation": "Barking & Dagenham Citizens Advice",
-    "Area": "North East",
+    "Area": "North London",
     "Borough": "Barking and Dagenham",
     "Services": "Housing advice ",
     "Website": "http://www.bdcab.org.uk/contact-us/",
@@ -3144,7 +3087,7 @@
   },
   {
     "Organisation": "Barnet Refugee Service",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Housing/NASS",
     "Website": "http://www.b-r-s.org.uk/index.php?option=com_content&view=article&id=4&Itemid=3",
@@ -3164,7 +3107,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Housing and Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/stand-by-me",
@@ -3181,7 +3124,7 @@
   },
   {
     "Organisation": "Community Link",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Housing",
     "Website": "http://www.community-links.org/local-services/advice/",
@@ -3203,7 +3146,7 @@
   },
   {
     "Organisation": "Crisis Skylight London",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Private Housing Scheme",
     "Website": "http://www.crisis.org.uk/pages/what-we-offer-at-crisis-skylight-london.html",
@@ -3226,7 +3169,7 @@
   },
   {
     "Organisation": "Hounslow Citizens \nAdvice Bureau",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Housing advice",
     "Website": "http://www.hounslowcabs.org.uk/",
@@ -3249,7 +3192,7 @@
   },
   {
     "Organisation": "Islington Law Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Housing Advice",
     "Website": "http://www.islingtonlaw.org.uk/legal-services/housing/",
@@ -3270,7 +3213,7 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Homelessness/Poverty",
     "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
@@ -3289,8 +3232,25 @@
     "Categories": "Housing"
   },
   {
+    "Organisation": "St Mungos",
+    "Area": "Any",
+    "Borough": "All",
+    "Services": "Homelessness",
+    "Website": "http://www.mungos.org/services/preventing_homelessness",
+    "Clients": "Homeless",
+    "Days": [],
+    "Process": "All referrals made through Streetlink\n (0300 500 0914)",
+    "Email": "Info@MUNGOS.ORG",
+    "Postcode": "E1W 1YW",
+    "Address": "",
+    "Tel": "020 3856 6000",
+    "Project": "",
+    "Tag": "",
+    "Categories": "Housing"
+  },
+  {
     "Organisation": "The Welcome Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "Housing advice",
     "Website": "www.refugeecouncil.org.uk/services/3131_the_welcome_project",
@@ -3312,7 +3272,7 @@
   },
   {
     "Organisation": "Notre Dame Refugee \nCentre Drop-In Café",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Housing advice",
     "Website": "www.notredamerc.org.uk",
@@ -3334,7 +3294,7 @@
   },
   {
     "Organisation": "Women at the Well",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Support and advocacy",
     "Website": "http://www.watw.org.uk/",
@@ -3357,8 +3317,8 @@
   },
   {
     "Organisation": "Housing for Women ",
-    "Area": "South",
-    "Borough": "Lambeth ",
+    "Area": "Swale",
+    "Borough": "Lambeth",
     "Services": "Empowering women through providing good quality homes, and support to women who have experienced domestic violence, trafficking and mothers leaving prison.",
     "Website": "http://hfw.org.uk/",
     "Clients": "Victims of domestic violence, trafficking ",
@@ -3374,8 +3334,8 @@
   },
   {
     "Organisation": "Hestia Housing and Support",
-    "Area": "South  ",
-    "Borough": "Southwark ",
+    "Area": "Swale",
+    "Borough": "Southwark",
     "Services": "Female, male and transgender survivors of trafficking ranging from the exploitation of the prostitution of others or other forms of sexual exploitation, forced labour or services, domestic servitude, slavery or practices similar to slavery servitude to the removal of organs. 5 safe houses and expanded community outreach service. ",
     "Website": "http://www.hestia.org/about/vision-mission-values/",
     "Clients": "Victims of trafficking, domestic violence ",
@@ -3391,7 +3351,7 @@
   },
   {
     "Organisation": "The Salvation Army",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Helpline",
     "Website": "",
@@ -3408,7 +3368,7 @@
   },
   {
     "Organisation": "Athena",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Support services for those who are experiencing gender based violence (domestic violence, rape and sexual assault, stalking, prostitution, sexual exploitation, trafficking for sexual exploitation, FGM, forced marriage, \"honour\"-based violence)",
     "Website": "www.refuge.org.uk/athena-lewisham",
@@ -3425,7 +3385,7 @@
   },
   {
     "Organisation": "Medaille Trust",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Provider of support and safe house provision for the victims of human trafficking",
     "Website": "http://www.medaille-trust.org.uk/",
@@ -3442,7 +3402,7 @@
   },
   {
     "Organisation": "Hestia",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "provider of domestic abuse refuges in London",
     "Website": "http://www.hestia.org/",
@@ -3459,7 +3419,7 @@
   },
   {
     "Organisation": "Bakhita House",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Safe house and emergency support, psychosexual therapy, legal and financial assistance, mentoring, and help with accessing accommodation  ",
     "Website": "http://rcdow.org.uk/caritas/human-trafficking/",
@@ -3476,7 +3436,7 @@
   },
   {
     "Organisation": "AFRUCA Africans Unite Against Child Abuse",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Support for Children, Young People and Families, Information, education, and advisory services",
     "Website": "http://www.afruca.org",
@@ -3493,7 +3453,7 @@
   },
   {
     "Organisation": "Children's society",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Advice and support for children and young people who are at risk or currently experiencing sexual exploitation",
     "Website": "http://www.childrenssociety.org.uk/",
@@ -3510,7 +3470,7 @@
   },
   {
     "Organisation": "Children's society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Advocacy and activities",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/rise-project",
@@ -3527,7 +3487,7 @@
   },
   {
     "Organisation": "NSPCC",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Therapy sessions and support services for children who have experienced sexual abuse, support services for children and young people who have been or are at risk of being sexually exploited, neglect services, children in care services, early intervention services, support services for families that live with domestic abuse",
     "Website": "https://www.nspcc.org.uk/",
@@ -3544,7 +3504,7 @@
   },
   {
     "Organisation": "Barnardo's",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "A vast range of services in the areas of: advocacy, alcohol and substance misuse, children in trouble with the law, children leaving care, children seeking asylum, domestic violence, homelessness, mental health, sexual abuse, sexual exploitation, trafficked children, young carers, LGBTQ young people",
     "Website": "http://www.barnardos.org.uk/",
@@ -3561,7 +3521,7 @@
   },
   {
     "Organisation": "Metropolitan Police SCO7 Serious and Organised Crime Trafficking and Kidnap Unit",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Leads the response to offences of People Trafficking and Modern Slavery by Organised Crime Gangs across London ",
     "Website": "http://content.met.police.uk/Article/SCO7--Serious-and-Organised-Crime/1400030904956/1400030904956",
@@ -3578,7 +3538,7 @@
   },
   {
     "Organisation": "Wilsons LLP",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Trafficking solicitors",
     "Website": "http://www.wilsonllp.co.uk/",
@@ -3595,7 +3555,7 @@
   },
   {
     "Organisation": "ATLEU ",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Solicitors specialising in trafficking",
     "Website": "http://atleu.org.uk/",
@@ -3612,7 +3572,7 @@
   },
   {
     "Organisation": "Kalayaan",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Kensington and Chelsea",
     "Services": "OISC Level 3 Immigration advice, employment advice, advice and support services for trafficked domestic migrant workers, English classes, ",
     "Website": "http://www.kalayaan.org.uk/",
@@ -3635,7 +3595,7 @@
   },
   {
     "Organisation": "Women at the Well",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Support and advocacy",
     "Website": "http://www.watw.org.uk/",
@@ -3658,8 +3618,8 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "East",
-    "Borough": "Hackney (Stoke \nNewington)",
+    "Area": "East London",
+    "Borough": "Hackney",
     "Services": "Homelessness/Poverty",
     "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
     "Clients": "NRPF",
@@ -3677,7 +3637,7 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Homelessness/Poverty",
     "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
@@ -3696,7 +3656,7 @@
   },
   {
     "Organisation": "Croydon Refugee Day Centre",
-    "Area": "Croydon",
+    "Area": "South London",
     "Borough": "Croydon",
     "Services": "Clothing, food, toiletries",
     "Website": "www.croydonrefugeedaycentre.co.uk",
@@ -3715,8 +3675,8 @@
   },
   {
     "Organisation": "West London Synagogue",
-    "Area": "West",
-    "Borough": "",
+    "Area": "West London",
+    "Borough": "All",
     "Services": "Hot meal, Food vouchers,\nclothing (for children & \nparents)",
     "Website": "www.wls.org.uk",
     "Clients": "Destitute Asylum Seekers",
@@ -3734,7 +3694,7 @@
   },
   {
     "Organisation": "RAMP (Renewal Project)",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Food and clothing",
     "Website": "http://www.renewalprogramme.org.uk/refugee-and-migrant-project.html",
@@ -3751,8 +3711,8 @@
   },
   {
     "Organisation": "Hope Worldwide (Two Step \nLondon)",
-    "Area": "East",
-    "Borough": "Old Street",
+    "Area": "East London",
+    "Borough": "Islington",
     "Services": "Homelessness Advice",
     "Website": "http://hopeworldwide.org.uk/AboutUs.asp",
     "Clients": "",
@@ -3768,8 +3728,8 @@
   },
   {
     "Organisation": "Hillingdon Foodbank",
-    "Area": "",
-    "Borough": "",
+    "Area": "N/A",
+    "Borough": "All",
     "Services": "Food",
     "Website": "https://hillingdon.foodbank.org.uk/",
     "Clients": "No/Low Income",
@@ -3785,7 +3745,7 @@
   },
   {
     "Organisation": "Hackney Foodbank",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Food",
     "Website": "https://hackney.foodbank.org.uk/",
@@ -3802,7 +3762,7 @@
   },
   {
     "Organisation": "Refugee Council",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Destitution services",
     "Website": "http://www.refugeecouncil.org.uk/how_can_we_help_you/i_need_destitution_support",
@@ -3821,7 +3781,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Advocacy",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/destitution-project",
@@ -3838,7 +3798,7 @@
   },
   {
     "Organisation": "Praxis",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Housing for homeless",
     "Website": "http://www.praxis.org.uk/advice-&-information-page-37.html",
@@ -3855,7 +3815,7 @@
   },
   {
     "Organisation": "Haringey Migrant Support \nCentre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Food, advice, social",
     "Website": "https://haringeymsc.org/visiting-us/",
@@ -3874,8 +3834,8 @@
   },
   {
     "Organisation": "Missionaries of Charities Soup\n Kitchen",
-    "Area": "West",
-    "Borough": "Ladbroke Grove",
+    "Area": "West London",
+    "Borough": "Kensington and Chelsea",
     "Services": "Food",
     "Website": "",
     "Clients": "",
@@ -3891,8 +3851,8 @@
   },
   {
     "Organisation": "Missionaries of Charities Soup\n Kitchen",
-    "Area": "South East",
-    "Borough": "Elephant and Castle",
+    "Area": "Swale",
+    "Borough": "Southwark",
     "Services": "Food",
     "Website": "",
     "Clients": "",
@@ -3908,7 +3868,7 @@
   },
   {
     "Organisation": "Refugee Action - Street Legal",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Homelessness Support",
     "Website": "http://www.refugee-action.org.uk/project/street-legal/",
@@ -3925,7 +3885,7 @@
   },
   {
     "Organisation": "Re-Place",
-    "Area": "South West",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Accommodation, floating\n support, emotional/\nhealth support, financial \nassistance",
     "Website": "http://hfw.org.uk/contact-us",
@@ -3942,8 +3902,8 @@
   },
   {
     "Organisation": "Family Action: Islington & \nCamden Young Carers' Service",
-    "Area": "North",
-    "Borough": "Islington and Camden",
+    "Area": "North London",
+    "Borough": "Islington",
     "Services": "Home visits, advice, help with \nsch problems, advocacy, \ncounselling",
     "Website": "http://www.izzy-info.com/kb5/islington/enterprise/service.page?id=IVpHDQFq_H0&youthchannel=10",
     "Clients": "Young carers",
@@ -3959,7 +3919,7 @@
   },
   {
     "Organisation": "Asylum Help Services",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Advice and support with \napplications",
     "Website": "http://asylumhelpuk.org/",
@@ -3976,7 +3936,7 @@
   },
   {
     "Organisation": "Barnet Refugee Service",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Advice, health, support",
     "Website": "http://www.b-r-s.org.uk/",
@@ -3993,7 +3953,7 @@
   },
   {
     "Organisation": "BRS - Asian Women's \nResource Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "One-to-one advice sessions",
     "Website": "http://www.asianwomencentre.org.uk/",
@@ -4012,7 +3972,7 @@
   },
   {
     "Organisation": "Missionaries of Charity Gift of Love",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Accommodation, \nresettlement support",
     "Website": "http://www.homelessuk.org/details.asp?id=HO1000457",
@@ -4029,7 +3989,7 @@
   },
   {
     "Organisation": "Catholic Workers Giuseppe \nConlon House",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Accommodation",
     "Website": "http://www.londoncatholicworker.org/gchouse.html",
@@ -4046,7 +4006,7 @@
   },
   {
     "Organisation": "Missionaries of Charity Home \nand Peace",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Accommodation",
     "Website": "http://www.homelessuk.org/details.asp?id=HO1000441",
@@ -4063,7 +4023,7 @@
   },
   {
     "Organisation": "Catholic Workers Farm",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "Hertfordshire",
     "Services": "Accommodation/support",
     "Website": "http://thecatholicworkerfarm.org/web/",
@@ -4080,7 +4040,7 @@
   },
   {
     "Organisation": "Shelter from the storm",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "Islington",
     "Services": "Accommodation",
     "Website": "http://sfts.org.uk/",
@@ -4097,7 +4057,7 @@
   },
   {
     "Organisation": "Spare Room",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Hosting service",
     "Website": "http://www.spare-room.org/",
@@ -4114,7 +4074,7 @@
   },
   {
     "Organisation": "Nightstop",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Hosting service",
     "Website": "https://uk.depaulcharity.org/NightstopUK",
@@ -4131,7 +4091,7 @@
   },
   {
     "Organisation": "NACCOM",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Drop in Advice",
     "Website": "http://naccom.org.uk/",
@@ -4148,7 +4108,7 @@
   },
   {
     "Organisation": "Rainbow Health Centre",
-    "Area": "South West",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Advice",
     "Website": "http://www.gettingiton.org.uk/agency.asp?borough=1&service=0&postcode=&id=863",
@@ -4165,7 +4125,7 @@
   },
   {
     "Organisation": "Bromley Refugee Day Centre",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Bromley",
     "Services": "Advice, integration training",
     "Website": "http://www.refugeecouncil.org.uk/services/2888_bromley_refugee_day_centre",
@@ -4182,8 +4142,8 @@
   },
   {
     "Organisation": "Refugee Health Team",
-    "Area": "South",
-    "Borough": "Lambeth, Southwark\n& Lewisham",
+    "Area": "Swale",
+    "Borough": "Southwark",
     "Services": "Primary healthcare services",
     "Website": "http://www.refugeecouncil.org.uk/services/2951_gracefield_gardens_health_and_social_care_centre",
     "Clients": "Refugees, AS, new migrants",
@@ -4199,7 +4159,7 @@
   },
   {
     "Organisation": "Wandsworth Health team for \nAS, refugees and migrants",
-    "Area": "South West",
+    "Area": "Swale",
     "Borough": "Wandsworth",
     "Services": "Primary healthcare services",
     "Website": "http://wandsworth.childrensservicedirectory.org.uk/kb5/wandsworth/fsd/service.page?id=se3Ifi5xQNQ",
@@ -4216,8 +4176,8 @@
   },
   {
     "Organisation": "Manor Gardens Health \nAdvocacy Project",
-    "Area": "North West",
-    "Borough": "Islington and Camden",
+    "Area": "North London",
+    "Borough": "Islington",
     "Services": "Support, FGM advice",
     "Website": "http://www.manorgardenscentre.org/",
     "Clients": "Refugees/migrants",
@@ -4233,7 +4193,7 @@
   },
   {
     "Organisation": "The Sanctuary Practice",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Hackney",
     "Services": "Healthcare",
     "Website": "http://www.nhs.uk/Services/gp/Overview/DefaultView.aspx?id=37222",
@@ -4250,7 +4210,7 @@
   },
   {
     "Organisation": "Newham New Entrant Service \n& Transitional Practices",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Primary healthcare services",
     "Website": "https://www.elft.nhs.uk/service/200/Newham-Transitional-Practice---Main-Site",
@@ -4267,7 +4227,7 @@
   },
   {
     "Organisation": "UKLGIG",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "Southwark",
     "Services": "Advice, referrals, social\n support projects",
     "Website": "http://uklgig.org.uk/",
@@ -4284,7 +4244,7 @@
   },
   {
     "Organisation": "Asylum Seekers Drop-in",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "Barnet",
     "Services": "Advice, essentials",
     "Website": "http://www.nnls-masorti.org.uk/page.php?ID=83",
@@ -4303,7 +4263,7 @@
   },
   {
     "Organisation": "Spires",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Wandsworth",
     "Services": "Advice and support, Rough Sleepers space, Women's space and key worker, nurse and chiroprodist",
     "Website": "http://www.spires.org.uk/",
@@ -4320,7 +4280,7 @@
   },
   {
     "Organisation": "New Horizon Youth Centre",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Camden",
     "Services": "Homelessness advice",
     "Website": "http://nhyouthcentre.org.uk/",
@@ -4337,7 +4297,7 @@
   },
   {
     "Organisation": "RAMP (Renewal \nProject)",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Food and clothing",
     "Website": "http://www.renewalprogramme.org.uk/refugee-and-migrant-project.html",
@@ -4356,7 +4316,7 @@
   },
   {
     "Organisation": "Hackney Community \nLaw Centre",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "www.hclc.org.uk",
@@ -4375,7 +4335,7 @@
   },
   {
     "Organisation": "Migrant Children's \nProject",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "www.childrenslegalcentre.com",
@@ -4392,7 +4352,7 @@
   },
   {
     "Organisation": "Refugee & Migrant \nNetwork Sutton",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Sutton",
     "Services": "Emergency assistance",
     "Website": "http://www.rmns.org.uk/what-we-offer.html",
@@ -4411,7 +4371,7 @@
   },
   {
     "Organisation": "Groundswell",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Peer advocacy",
     "Website": "http://groundswell.org.uk",
@@ -4428,7 +4388,7 @@
   },
   {
     "Organisation": "Connection at St Martins",
-    "Area": "Central London",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Street Homeless recovery",
     "Website": "www.connection-at-stmartins.org.uk",
@@ -4451,7 +4411,7 @@
   },
   {
     "Organisation": "Debtford Reach",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Lewisham",
     "Services": "Employment skills, alcohol and drug support, housing and benefits advice, health and lifestyle, mental health support, Offender rehabilitation, creative expression, meals, showers, laundry, clothing, leisure activities, safe postal address and more.",
     "Website": "www.deptfordreach.org.uk/",
@@ -4474,7 +4434,7 @@
   },
   {
     "Organisation": "Dunloe Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Weekly drop-in centre for homeless people offering free food – hot meal and tea. Toiletries, bedding and small domestic items sometimes available. Rough sleepers will be seen for the first 45 minutes.",
     "Website": "http://www.homeless.org.uk/homeless-england/service/dunloe-centre",
@@ -4493,7 +4453,7 @@
   },
   {
     "Organisation": "Dunloe Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Weekly drop-in centre for homeless people offering free food – hot meal and tea. Toiletries, bedding and small domestic items sometimes available. Rough sleepers will be seen for the first 45 minutes.",
     "Website": "http://www.homeless.org.uk/homeless-england/service/dunloe-centre",
@@ -4512,8 +4472,8 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "North",
-    "Borough": "Islington (Holloway)",
+    "Area": "North London",
+    "Borough": "Islington",
     "Services": "Homelessness/Poverty",
     "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
     "Clients": "NRPF",
@@ -4532,7 +4492,7 @@
   },
   {
     "Organisation": "Red Cross",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "General destitution",
     "Website": "www.redcross.org.uk",
@@ -4553,8 +4513,8 @@
   },
   {
     "Organisation": "Jesuit Refugee Service",
-    "Area": "East",
-    "Borough": "",
+    "Area": "East London",
+    "Borough": "All",
     "Services": "Homelessness/Poverty \n(for those not eligible for \nAsylum Support)",
     "Website": "www.jrsuk.net/get-help/",
     "Clients": "",
@@ -4576,7 +4536,7 @@
   },
   {
     "Organisation": "The Welcome Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "Food, Showers, Clothing",
     "Website": "www.refugeecouncil.org.uk/services/3131_the_welcome_project",
@@ -4598,8 +4558,8 @@
   },
   {
     "Organisation": "999 Club",
-    "Area": "South East",
-    "Borough": "Deptford",
+    "Area": "Swale",
+    "Borough": "Lewisham",
     "Services": "Winter Night Shelter",
     "Website": "http://999club.org/our-services/winter-night-shelter/",
     "Clients": "Homeless/Hostel/Risk of eviction",
@@ -4621,7 +4581,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Families",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -4638,7 +4598,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Housing and Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -4655,7 +4615,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Housing and Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -4672,7 +4632,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Housing and Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -4689,7 +4649,7 @@
   },
   {
     "Organisation": "BRS - Sowing Seed Project",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Ecotherapy",
     "Website": "https://www.facebook.com/brs.coordinator/posts/1472572623047056:0",
@@ -4709,7 +4669,7 @@
   },
   {
     "Organisation": "Rights of Women",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "City of London",
     "Services": "Advice line",
     "Website": "http://rightsofwomen.org.uk/",
@@ -4729,7 +4689,7 @@
   },
   {
     "Organisation": "Just Homes",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Accommodation/support",
     "Website": "http://justhomes.org.uk/",
@@ -4746,7 +4706,7 @@
   },
   {
     "Organisation": "Alone in London",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Camden",
     "Services": "Advice on mediation &\nhomelessness prevention",
     "Website": "http://www.aloneinlondon.org/",
@@ -4769,7 +4729,7 @@
   },
   {
     "Organisation": "JCWI",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "www.jcwi.org.uk",
@@ -4790,7 +4750,7 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "www.project17.org.uk",
@@ -4811,7 +4771,7 @@
   },
   {
     "Organisation": "Notre Dame Refugee \nCentre Drop-In Café",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Destitution/NRPF",
     "Website": "www.notredamerc.org.uk",
@@ -4833,7 +4793,7 @@
   },
   {
     "Organisation": "Women at the Well",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Support and advocacy",
     "Website": "http://www.watw.org.uk/",
@@ -4881,7 +4841,7 @@
   },
   {
     "Organisation": "Naz and Matt Foundation",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Sign posting, information, mentoring, health",
     "Website": "https://www.nazandmattfoundation.org/about/",
@@ -4898,7 +4858,7 @@
   },
   {
     "Organisation": "Club Kali",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Monthly nightclub for the ‘gay asian community’",
     "Website": "http://clubkali.com/",
@@ -4917,7 +4877,7 @@
   },
   {
     "Organisation": "Disco Rani",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Ealing",
     "Services": "A fabulous new take on the ‘dinner & dance’. \nHosted by Britain’s first out Muslim Drag Queen\n - Asifa Lahore. A great person to meet. \nYou buy your ticket, you get fed home cooked \nindian food, followed by a dance. ",
     "Website": "http://www.discorani.co.uk/",
@@ -4934,7 +4894,7 @@
   },
   {
     "Organisation": "Imaan",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Imaan supports LGBT Muslim people, their \nfamilies & friends, to address issues of \nsexual orientation within Islam",
     "Website": "http://www.imaan.org.uk/",
@@ -4951,7 +4911,7 @@
   },
   {
     "Organisation": "Redbridge Rainbow Community",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "We are a voluntary group who support \nLGBT people who live, work, socialize or \nstudy in the London Borough of Redbridge",
     "Website": "http://www.redbridgerainbowcommunity.org.uk/",
@@ -4970,7 +4930,7 @@
   },
   {
     "Organisation": "UKLGIG",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Assisting those seeking asylum on grounds of \nsexuality",
     "Website": "List of support groups: http://uklgig.org.uk/?page_id=498",
@@ -4987,7 +4947,7 @@
   },
   {
     "Organisation": "Barnardo's",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "A vast range of services in the areas of: advocacy, alcohol and substance misuse, children in trouble with the law, children leaving care, children seeking asylum, domestic violence, homelessness, mental health, sexual abuse, sexual exploitation, trafficked children, young carers, LGBTQ young people",
     "Website": "http://www.barnardos.org.uk/",
@@ -5023,7 +4983,7 @@
   },
   {
     "Organisation": "AFRIL",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Healthcare advice",
     "Website": "http://www.afril.org.uk/en/services/advice-service/",
@@ -5042,7 +5002,7 @@
   },
   {
     "Organisation": "AgeUk Hounslow",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Footcare service. Exercise classes. \n",
     "Website": "http://www.ageuk.org.uk/hounslow/",
@@ -5059,7 +5019,7 @@
   },
   {
     "Organisation": "Ashford Place",
-    "Area": "North West London",
+    "Area": "North London",
     "Borough": "Brent",
     "Services": "Drug and alcohol support, therapeutic interventions, on-site GP",
     "Website": "https://www.ashfordplace.org.uk/",
@@ -5082,7 +5042,7 @@
   },
   {
     "Organisation": "Bayswater Families Centre - Action for Children",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Families & vulnerable/excluded young people",
     "Website": "www.actionforchildren.org.uk",
@@ -5104,7 +5064,7 @@
   },
   {
     "Organisation": "Carers Trust",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Emotional/practical/financial support to \ncarers",
     "Website": "https://carers.org/",
@@ -5121,7 +5081,7 @@
   },
   {
     "Organisation": "Community Dental Outreach",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Dental care for homeless people/ adults \nwith special needs/ drug problems/ \ncomplex medical histories",
     "Website": "http://bartshealth.nhs.uk/our-services/services-a-z/c/community-dental-services/",
@@ -5138,7 +5098,7 @@
   },
   {
     "Organisation": "Community Health Inclusion Team",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Nurse-led specialist clinics run at day \ncentres, hostels and drug and alcohol \nservices",
     "Website": "http://www.guysandstthomas.nhs.uk/our-services/community-health-inclusion-team/overview.aspx",
@@ -5155,7 +5115,7 @@
   },
   {
     "Organisation": "Community Health Inclusion Team",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Nurse-led specialist clinics run at day \ncentres, hostels and drug and alcohol \nservices",
     "Website": "http://www.guysandstthomas.nhs.uk/our-services/community-health-inclusion-team/overview.aspx",
@@ -5172,7 +5132,7 @@
   },
   {
     "Organisation": "Community Health Inclusion Team",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Nurse-led specialist clinics run at day \ncentres, hostels and drug and alcohol \nservices",
     "Website": "http://www.guysandstthomas.nhs.uk/our-services/community-health-inclusion-team/overview.aspx",
@@ -5189,7 +5149,7 @@
   },
   {
     "Organisation": "Disability network Hounslow",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Advice and information Help with benefit\n form filling. Social activities",
     "Website": "http://www.dnh.org.uk/",
@@ -5206,7 +5166,7 @@
   },
   {
     "Organisation": "ECIL - Ealing Centre for Independent Living",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Ealing",
     "Services": "Supporting disabled people and carers",
     "Website": "http://www.ecil.org/contactus.asp",
@@ -5223,7 +5183,7 @@
   },
   {
     "Organisation": "ESAS – Ealing Specialist Advice Service",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Ealing",
     "Services": "Information and advice services of Ealing\n Centre for Independent Living",
     "Website": "http://www.ecil.org/contactus.asp",
@@ -5240,7 +5200,7 @@
   },
   {
     "Organisation": "Groundswell",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Peer advocacy",
     "Website": "http://groundswell.org.uk",
@@ -5257,7 +5217,7 @@
   },
   {
     "Organisation": "Haringey Migrant Service",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Health advice/help accessing NHS",
     "Website": "https://haringeymsc.org/visiting-us/",
@@ -5276,7 +5236,7 @@
   },
   {
     "Organisation": "Haringey Migrant Support Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Health advice/help accessing NHS",
     "Website": "https://haringeymsc.org/visiting-us/",
@@ -5295,7 +5255,7 @@
   },
   {
     "Organisation": "HC2 Certificates",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Applications via HC1 forms for HC2 \ncertificate that allows clients \nfree prescriptions, opticians and dental.",
     "Website": "https://apps.nhsbsa.nhs.uk/LISWebAppStaticData/begin.do",
@@ -5312,7 +5272,7 @@
   },
   {
     "Organisation": "Health E1",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Offers a general health clinic, substance \nmisuse clinic and mental health clinic",
     "Website": "http://www.healthe1practice.nhs.uk/",
@@ -5335,7 +5295,7 @@
   },
   {
     "Organisation": "Kings Cross Primary Health Care Centre",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Islington",
     "Services": "Drop in medical service for homeless \npeople",
     "Website": "http://www.homeless.org.uk/homeless-england/service/kings-cross-primary-health-care-centre",
@@ -5354,7 +5314,7 @@
   },
   {
     "Organisation": "Lewisham Refugee & Migrant Network",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Health advice/help accessing NHS",
     "Website": "http://www.advicelewisham.org.uk/lewisham-refugee-migrant-network/",
@@ -5377,7 +5337,7 @@
   },
   {
     "Organisation": "NHS 111",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Phone-line for urgent medical help and\n advice",
     "Website": "www.nhsdirect.nhs.uk",
@@ -5394,8 +5354,8 @@
   },
   {
     "Organisation": "RAMFEL",
-    "Area": "East",
-    "Borough": "Essex/East London",
+    "Area": "East London",
+    "Borough": "Essex East London",
     "Services": "Health care advice",
     "Website": "http://www.ramfel.org.uk/wordpress/health-community-care/",
     "Clients": "All",
@@ -5411,8 +5371,8 @@
   },
   {
     "Organisation": "St Mungo's Broadway Day Centre",
-    "Area": "West",
-    "Borough": "Hammersmith & Fulham",
+    "Area": "West London",
+    "Borough": "Hammersmith and Fulham",
     "Services": "Homeless Daycentre",
     "Website": "www.mungosbroadway.org.uk",
     "Clients": "Single homeless",
@@ -5434,7 +5394,7 @@
   },
   {
     "Organisation": "Debtford Reach",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Lewisham",
     "Services": "Employment skills, alcohol and drug support, housing and benefits advice, health and lifestyle, mental health support, Offender rehabilitation, creative expression, meals, showers, laundry, clothing, leisure activities, safe postal address and more.",
     "Website": "www.deptfordreach.org.uk/",
@@ -5457,7 +5417,7 @@
   },
   {
     "Organisation": "Great Chapel Medical Centre",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "GP practice in central London providing an enhanced general practice service to homeless people in Westminster: doctors, nurses, drug & alcohol, mental health, dentist, housing & benefits advocacy, psychiatrist, counselling, podiatry. ",
     "Website": "www.greatchapelst.org.uk",
@@ -5474,7 +5434,7 @@
   },
   {
     "Organisation": "Hackney Migrant Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Immigration, welfare and NHS/health advice; social activities, meals",
     "Website": "www.hackneymigrantcentre.org.uk/",
@@ -5493,7 +5453,7 @@
   },
   {
     "Organisation": "Health E1 Homeless Medical Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Primary, mental healthcare and substance misuse needs of street homeless and hostel dwellers in the London Borough of Tower Hamlets",
     "Website": "http://www.healthe1practice.nhs.uk ",
@@ -5510,7 +5470,7 @@
   },
   {
     "Organisation": "Manna Centre",
-    "Area": "Central London",
+    "Area": "Canterbury",
     "Borough": "Southwark",
     "Services": "Free breakfast and lunch; clothing; showers; Housing and Welfare Advice Mon to sun 9.30-1.30; drop in advice Thursdays 9.30-12.00. Health facilities on selected days: nurse Mon and Fri; chiropodist alternate Mons; osteopath on Wed, mental health alternate Tuesdays.",
     "Website": "https://www.mannasociety.org.uk/",
@@ -5527,7 +5487,7 @@
   },
   {
     "Organisation": "Margins Project - Union Chapel",
-    "Area": "North Central",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Night Shelter Wed might Jan-Mar;Housing, Benefits and Mental Health drop-in 9.30-12.00 Wednesdays. Supported Employment Programme in cafe and office. Employability Programme for drop-ins.",
     "Website": "http://www.unionchapel.org.uk/about-us/the-margins-project/",
@@ -5544,7 +5504,7 @@
   },
   {
     "Organisation": "Notre Dame Refugee Centre",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Massage is available on a drop-in basis. The sessions are fully clothed and last about 20 minutes.",
     "Website": "website@notredamerc.org.uk",
@@ -5563,7 +5523,7 @@
   },
   {
     "Organisation": "Munro Health",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Kensington and Chelsea",
     "Services": "Various therapies, complementary health care to people experiencing poverty etc",
     "Website": "http://munrohealth.org.uk",
@@ -5586,8 +5546,8 @@
   },
   {
     "Organisation": "999 Club",
-    "Area": "South East",
-    "Borough": "Deptford",
+    "Area": "Swale",
+    "Borough": "Lewisham",
     "Services": "Help Registering with a GP, accessing \nmental health services",
     "Website": "http://999club.org/our-services/advice-and-support/",
     "Clients": "Homeless/Hostel/\nRisk of eviction",
@@ -5609,7 +5569,7 @@
   },
   {
     "Organisation": "Age UK Hounslow/MIND",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Mental Health Advice, Info, Support Groups",
     "Website": "http://www.ageuk.org.uk/hounslow/activities-and-services/",
@@ -5629,7 +5589,7 @@
   },
   {
     "Organisation": "Barnet Refugee Service",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Health",
     "Website": "http://www.b-r-s.org.uk/index.php?option=com_content&view=article&id=4&Itemid=3",
@@ -5649,7 +5609,7 @@
   },
   {
     "Organisation": "Cardinal Hume Centre",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Westminster",
     "Services": "Primary health care for homeless people",
     "Website": "www.cardinalhumecentre.org.uk/need-help/surgery",
@@ -5672,7 +5632,7 @@
   },
   {
     "Organisation": "Doctors of the World",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Drop-in GP clinic, with also offers information, support and advocacy to help\n people access health services",
     "Website": "https://www.doctorsoftheworld.org.uk/pages/UK-Programme",
@@ -5693,7 +5653,7 @@
   },
   {
     "Organisation": "Great Chapel Street Medical Centre",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Walk-in medical centre with GPs, nurses, \nmental health nurses, counsellors. \nPsychiatrists and dentists available on \nappointment.",
     "Website": "http://www.greatchapelst.org.uk/opening-times/",
@@ -5716,7 +5676,7 @@
   },
   {
     "Organisation": "Refugee and Migrant Network Sutton",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Sutton",
     "Services": "GP registration",
     "Website": "http://www.rmns.org.uk/what-we-offer.html",
@@ -5735,7 +5695,7 @@
   },
   {
     "Organisation": "The Welcome Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "Nurse led clinic, Drug and alcohol advice",
     "Website": "www.refugeecouncil.org.uk/services/3131_the_welcome_project",
@@ -5757,8 +5717,8 @@
   },
   {
     "Organisation": "Afghanistan and Central Asian Association",
-    "Area": "South",
-    "Borough": "Deptford",
+    "Area": "Swale",
+    "Borough": "Lewisham",
     "Services": "ESOL",
     "Website": "http://www.acaa.org.uk/education-and-training/esol-classes",
     "Clients": "All",
@@ -5776,7 +5736,7 @@
   },
   {
     "Organisation": "All Saints Educational Trust",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "City of London",
     "Services": "Grants for teachers or those intending to become teachers and students in Religious Studies, Home Economics and related subjects.",
     "Website": "http://www.aset.org.uk/about.html#about",
@@ -5793,7 +5753,7 @@
   },
   {
     "Organisation": "Amicus Horizon",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "London and Surrey",
     "Services": "Community projects, classes and volunteering opportunities",
     "Website": "http://www.amicushorizon.org.uk/Support/Get-Involved/London-and-Surrey-Skills-and-Support.aspx",
@@ -5810,8 +5770,8 @@
   },
   {
     "Organisation": "Breaking Barriers",
-    "Area": "Central and South",
-    "Borough": "Farringdon/ Battersea",
+    "Area": "Canterbury",
+    "Borough": "Wandsworth",
     "Services": "Employability workshops/placements",
     "Website": "http://www.breaking-barriers.co.uk/",
     "Clients": "Refugees",
@@ -5846,7 +5806,7 @@
   },
   {
     "Organisation": "Cara (Council for Assisting \nRefugee Academics)",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Grants provided for refugee academics who have been employed as a lecturer/researcher at a University in their home country.",
     "Website": "http://www.cara.ngo/",
@@ -5863,7 +5823,7 @@
   },
   {
     "Organisation": "Cardinal Hume Centre",
-    "Area": "South West London",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "ESOL, reading,  writing and computer training",
     "Website": "https://www.cardinalhumecentre.org.uk/need-help/learning/",
@@ -5886,7 +5846,7 @@
   },
   {
     "Organisation": "CARIS",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "ESOL Classes",
     "Website": "http://www.carisharingey.org.uk/services/drop-in",
@@ -5903,7 +5863,7 @@
   },
   {
     "Organisation": "CARIS Haringey",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Haringey",
     "Services": "Family Day Centre ESOL Tue and Thur 12.30-14.30 at St Phillips Church, Phillip Lane, N15 4HJ",
     "Website": "www.carisharingey.org.uk/",
@@ -5922,7 +5882,7 @@
   },
   {
     "Organisation": "CodeYourFuture",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "programming, coding school, training for jobs in the tech industry\n",
     "Website": "http://codeyourfuture.co/",
@@ -5941,7 +5901,7 @@
   },
   {
     "Organisation": "Council of Asian People",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "ESOL Classes",
     "Website": "http://asiancentre.co.uk/esol/",
@@ -5960,7 +5920,7 @@
   },
   {
     "Organisation": "Croydon Refugee \nDay Centre",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "English Class",
     "Website": "www.croydonrefugeedaycentre.co.uk",
@@ -5979,7 +5939,7 @@
   },
   {
     "Organisation": "Croydon Refugee Day Centre ",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Basic support: food, clothes, toiletries, showers, children's play, access to helpdesk and ESOL.",
     "Website": "www.croydonrefugeedaycentre.co.uk/",
@@ -5998,7 +5958,7 @@
   },
   {
     "Organisation": "English for Action",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "Across London",
     "Services": "English classes",
     "Website": "http://www.efalondon.org/",
@@ -6031,26 +5991,9 @@
     "Categories": "Education"
   },
   {
-    "Organisation": "Kalayaan",
-    "Area": "West",
-    "Borough": "Notting Hill",
-    "Services": "English classes and preparation for Life in the UK and SELTs tests",
-    "Website": "http://www.kalayaan.org.uk/about-us/what-we-do/",
-    "Clients": "Migrant domestic workers",
-    "Days": [],
-    "Process": "",
-    "Email": "info@kalayaan.org.uk",
-    "Postcode": "W11 4SF",
-    "Address": "",
-    "Tel": "0207 243 2942",
-    "Project": "",
-    "Tag": "",
-    "Categories": "Education"
-  },
-  {
     "Organisation": "Latin American House",
-    "Area": "North",
-    "Borough": "Brent/Camden",
+    "Area": "North London",
+    "Borough": "Camden",
     "Services": "Spanish Saturday School",
     "Website": "http://www.casalatina.org.uk/en/",
     "Clients": "Spanish/Portugese speaking \nclients",
@@ -6066,7 +6009,7 @@
   },
   {
     "Organisation": "Margins Project - Union Chapel",
-    "Area": "North Central",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Night Shelter Wed might Jan-Mar;Housing, Benefits and Mental Health drop-in 9.30-12.00 Wednesdays. Supported Employment Programme in cafe and office. Employability Programme for drop-ins.",
     "Website": "http://www.unionchapel.org.uk/about-us/the-margins-project/",
@@ -6083,8 +6026,8 @@
   },
   {
     "Organisation": "Merton Adult \nEducation",
-    "Area": "South West",
-    "Borough": "Wimbledon",
+    "Area": "Swale",
+    "Borough": "Merton",
     "Services": "ESOL Classes",
     "Website": "http://www.maec.ac.uk/contact-us/",
     "Clients": "All",
@@ -6100,7 +6043,7 @@
   },
   {
     "Organisation": "New Horizon Youth Centre",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Camden",
     "Services": "Jobs, education",
     "Website": "http://nhyouthcentre.org.uk/",
@@ -6117,7 +6060,7 @@
   },
   {
     "Organisation": "Refugee and Migrant \nNetwork Sutton",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Sutton",
     "Services": "English classes",
     "Website": "http://www.rmns.org.uk/what-we-offer.html",
@@ -6136,8 +6079,8 @@
   },
   {
     "Organisation": "Refugee and Migrant Forum of Essex & London (RAMFEL)",
-    "Area": "East",
-    "Borough": "Ilford",
+    "Area": "East London",
+    "Borough": "Redbridge",
     "Services": "Free conversational classes/ESOL",
     "Website": "http://www.ramfel.org.uk/wordpress/esol-for-citizenship-conversational-english/",
     "Clients": "All",
@@ -6153,7 +6096,7 @@
   },
   {
     "Organisation": "Refugee Women's Association",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Education, training, employment. Free \nESOL classes for women (need to be living\n in Camden, Islington, Westminster or \nKensington and Chelsea & unemployed \nto access)",
     "Website": "http://www.refugeewomen.org.uk/info/infom.htm",
@@ -6172,8 +6115,8 @@
   },
   {
     "Organisation": "The Adult College \nBarking & Dagenham",
-    "Area": "East",
-    "Borough": "Barking & Dagenham",
+    "Area": "East London",
+    "Borough": "Barking and Dagenham",
     "Services": "ESOL Classes",
     "Website": "http://adultcollege.lbbd.gov.uk/Courses/Pages/ESOL.aspx",
     "Clients": "All (If Asylum Seekers, \nneed to have lived in UK\n >6m & have ARC card)",
@@ -6206,8 +6149,8 @@
   },
   {
     "Organisation": "West London \nSynagogue",
-    "Area": "West",
-    "Borough": "",
+    "Area": "West London",
+    "Borough": "All",
     "Services": "ESOL classe \nfor recognised \nrefugees",
     "Website": "www.wls.org.uk",
     "Clients": "Status",
@@ -6222,46 +6165,8 @@
     "Categories": "Education"
   },
   {
-    "Organisation": "Young Roots",
-    "Area": "North West",
-    "Borough": "Wembley",
-    "Services": "Peer Support \nProject",
-    "Website": "http://youngroots.org.uk/london/peer-support-project/",
-    "Clients": "Students of the college",
-    "Days": [
-      "Tuesday"
-    ],
-    "Process": "Call Young Roots for info: 020 8684 9140. Thursdays, 2-3pm at Willesden Campus, Tuesdays 1.15-2.45 at Wembley Park Campus",
-    "Email": "info@youngroots.org.uk",
-    "Postcode": "HA9 8HP",
-    "Address": "",
-    "Tel": "020 8684 9140",
-    "Project": "",
-    "Tag": "",
-    "Categories": "Education"
-  },
-  {
-    "Organisation": "Young Roots",
-    "Area": "North West",
-    "Borough": "Willesdon",
-    "Services": "Peer Support \nProject",
-    "Website": "http://youngroots.org.uk/london/peer-support-project/",
-    "Clients": "Students of the college",
-    "Days": [
-      "Thursday"
-    ],
-    "Process": "Call Young Roots for info: 020 8684 9140. Thursdays, 2-3pm at Willesden Campus, Tuesdays 1.15-2.45 at Wembley Park Campus",
-    "Email": "info@youngroots.org.uk",
-    "Postcode": "NW10 2XD",
-    "Address": "",
-    "Tel": "020 8684 9140",
-    "Project": "",
-    "Tag": "",
-    "Categories": "Education"
-  },
-  {
     "Organisation": "AFRIL",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Education \nadvice",
     "Website": "http://www.afril.org.uk/en/services/advice-service/",
@@ -6281,7 +6186,7 @@
   },
   {
     "Organisation": "Hounslow Citizens \nAdvice Bureau",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Education advice",
     "Website": "http://www.hounslowcabs.org.uk/",
@@ -6304,10 +6209,10 @@
   },
   {
     "Organisation": "Kalayaan",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Kensington and Chelsea",
-    "Services": "OISC Level 3 Immigration advice, employment advice, advice and support services for trafficked domestic migrant workers, English classes, ",
-    "Website": "http://www.kalayaan.org.uk/",
+    "Services": "English classes and preparation for Life in the UK and SELTs tests",
+    "Website": "http://www.kalayaan.org.uk/about-us/what-we-do/",
     "Clients": "Migrant domestic workers",
     "Days": [
       "Monday",
@@ -6316,7 +6221,7 @@
       "Thursday",
       "Sunday"
     ],
-    "Process": "call for appointment ",
+    "Process": "",
     "Email": "info@kalayaan.org.uk",
     "Postcode": "W11 4SF",
     "Address": "",
@@ -6327,7 +6232,7 @@
   },
   {
     "Organisation": "Refugee Council",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Newham",
     "Services": "English Class",
     "Website": "http://www.refugeecouncil.org.uk/london_destitution_services",
@@ -6347,7 +6252,7 @@
   },
   {
     "Organisation": "Refugee Council",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "English Class",
     "Website": "http://www.refugeecouncil.org.uk/london_destitution_services",
@@ -6369,7 +6274,7 @@
   },
   {
     "Organisation": "Spires",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Wandsworth",
     "Services": "Adult learning classes",
     "Website": "http://www.spires.org.uk/",
@@ -6392,7 +6297,7 @@
   },
   {
     "Organisation": "The Women's Day Centre",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Advice, assistance, education and activities",
     "Website": "http://www.churcharmy.org.uk/Groups/245015/Church_Army/ms/Marylebone_Archive/The_Womens_Day/The_Womens_Day.aspx",
@@ -6414,7 +6319,7 @@
   },
   {
     "Organisation": "Toynbee Hall money \nsupport programme",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Advice on financial services, personal budgeting support service",
     "Website": "http://www.toynbeehall.org.uk/help-managing-your-money",
@@ -6434,7 +6339,7 @@
   },
   {
     "Organisation": "Young Roots",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Peer Support \nProject",
     "Website": "http://youngroots.org.uk/london/peer-support-project/",
@@ -6453,8 +6358,28 @@
     "Categories": "Education"
   },
   {
+    "Organisation": "Young Roots",
+    "Area": "North London",
+    "Borough": "Brent",
+    "Services": "Peer Support \nProject",
+    "Website": "http://youngroots.org.uk/london/peer-support-project/",
+    "Clients": "Students of the college",
+    "Days": [
+      "Tuesday",
+      "Thursday"
+    ],
+    "Process": "Call Young Roots for info: 020 8684 9140. Thursdays, 2-3pm at Willesden Campus, Tuesdays 1.15-2.45 at Wembley Park Campus",
+    "Email": "info@youngroots.org.uk",
+    "Postcode": "HA9 8HP",
+    "Address": "",
+    "Tel": "020 8684 9140",
+    "Project": "",
+    "Tag": "",
+    "Categories": "Education"
+  },
+  {
     "Organisation": "Age UK Haringey",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Benefits advice",
     "Website": "http://www.ageuk.org.uk/haringey/",
@@ -6471,7 +6396,7 @@
   },
   {
     "Organisation": "AgeUk Hounslow",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Benefits advice",
     "Website": "http://www.ageuk.org.uk/hounslow/",
@@ -6490,7 +6415,7 @@
   },
   {
     "Organisation": "Bayswater Families Centre - Action for Children",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Families & vulnerable/excluded young people",
     "Website": "www.actionforchildren.org.uk",
@@ -6512,7 +6437,7 @@
   },
   {
     "Organisation": "Carers Trust",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Emotional/practical/\nfinancial support to \ncarers",
     "Website": "https://carers.org/",
@@ -6529,7 +6454,7 @@
   },
   {
     "Organisation": "CARIS",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Benefits",
     "Website": "http://www.carisharingey.org.uk/",
@@ -6548,7 +6473,7 @@
   },
   {
     "Organisation": "Council of Asian People",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Benefits",
     "Website": "http://asiancentre.co.uk/",
@@ -6565,7 +6490,7 @@
   },
   {
     "Organisation": "Disability network \nHounslow",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Benefits advice/\nform filling",
     "Website": "http://www.dnh.org.uk/",
@@ -6582,7 +6507,7 @@
   },
   {
     "Organisation": "Diversity Living Services",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Enfield",
     "Services": "Welfare, Benefits and Housing Advice, Employment guidance and advice, ESOL classes ",
     "Website": "http://www.diversityliving.org.uk/",
@@ -6599,7 +6524,7 @@
   },
   {
     "Organisation": "Good Advice Haringey",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Benefits",
     "Website": "http://haringeyadvice.org.uk/",
@@ -6616,7 +6541,7 @@
   },
   {
     "Organisation": "Haringey Law Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Benefits advice",
     "Website": "http://haringeylawcentre.org.uk/",
@@ -6633,7 +6558,7 @@
   },
   {
     "Organisation": "Haringey Migrant \nSupport Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Benefits advice",
     "Website": "http://haringeymsc.org.gridhosted.co.uk/visiting-us/",
@@ -6652,7 +6577,7 @@
   },
   {
     "Organisation": "Haringey Migrant Service",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Benefits advice",
     "Website": "http://www.haringeymsc.org/index.php/about-us",
@@ -6671,8 +6596,8 @@
   },
   {
     "Organisation": "Latin American House",
-    "Area": "North",
-    "Borough": "Kilburn",
+    "Area": "North London",
+    "Borough": "Brent",
     "Services": "Benefits advice",
     "Website": "http://www.casalatina.org.uk/en/legal-and-social-advice/benefits-and-housing-law-advice.html",
     "Clients": "Latin American Cls",
@@ -6690,8 +6615,8 @@
   },
   {
     "Organisation": "Latin American House",
-    "Area": "North",
-    "Borough": "Brent/Camden",
+    "Area": "North London",
+    "Borough": "Camden",
     "Services": "Benefits advice",
     "Website": "http://www.casalatina.org.uk/en/",
     "Clients": "Spanish/Portugese speaking clients",
@@ -6707,7 +6632,7 @@
   },
   {
     "Organisation": "Lewisham Refugee & \nMigrant Network",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Benefits advice",
     "Website": "http://www.advicelewisham.org.uk/lewisham-refugee-migrant-network/",
@@ -6724,8 +6649,8 @@
   },
   {
     "Organisation": "Mary Ward Legal \nCentre",
-    "Area": "North",
-    "Borough": "Camden (Holborn)",
+    "Area": "North London",
+    "Borough": "Camden",
     "Services": "Benefits advice",
     "Website": "http://www.marywardlegal.org.uk/",
     "Clients": "Camden residents only",
@@ -6741,7 +6666,7 @@
   },
   {
     "Organisation": "New Horizon Youth Centre",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Camden",
     "Services": "Benefits advice",
     "Website": "http://nhyouthcentre.org.uk/",
@@ -6758,7 +6683,7 @@
   },
   {
     "Organisation": "Parish of Old St Pancras\n (St Michael's Church)",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Benefits advice",
     "Website": "http://www.posp.co.uk/legal-drop-in/",
@@ -6777,8 +6702,8 @@
   },
   {
     "Organisation": "RAMFEL",
-    "Area": "East",
-    "Borough": "Essex/East London",
+    "Area": "East London",
+    "Borough": "Essex East London",
     "Services": "Benefits advice",
     "Website": "http://www.ramfel.org.uk/wordpress/welfare-benefits/",
     "Clients": "All",
@@ -6794,7 +6719,7 @@
   },
   {
     "Organisation": "Refugee and Migrant \nNetwork Sutton",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Sutton",
     "Services": "Benefits advice",
     "Website": "http://www.rmns.org.uk/what-we-offer.html",
@@ -6813,7 +6738,7 @@
   },
   {
     "Organisation": "Shpresa",
-    "Area": "London",
+    "Area": "Any",
     "Borough": "Newham",
     "Services": "Immigration, benefits, housing advice and advocacy, signposting for Albanian asylum-seekers and refugees, activities, schools and mentoring  for Albanian speaking children, support groups, therapy sessions and training for women, advice and advocacy for women victims of domestic violence.",
     "Website": "http://www.shpresaprogramme.com/index.html",
@@ -6830,7 +6755,7 @@
   },
   {
     "Organisation": "The Renewal Programme (RAMP - Renewal Refugee\n and Migrant Project)",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Benefits advice",
     "Website": "http://www.renewalprogramme.org.uk/refugee-and-migrant-project.html",
@@ -6847,7 +6772,7 @@
   },
   {
     "Organisation": "Z2K",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Benefits advice",
     "Website": "http://z2k.org/free-help-advice/z2k-advice-drop-in-sessions/",
@@ -6866,7 +6791,7 @@
   },
   {
     "Organisation": "Z2K",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Benefits advice",
     "Website": "http://z2k.org/free-help-advice/z2k-advice-drop-in-sessions/",
@@ -6885,7 +6810,7 @@
   },
   {
     "Organisation": "Z2K",
-    "Area": "South West",
+    "Area": "Swale",
     "Borough": "Westminster",
     "Services": "Benefits advice",
     "Website": "http://z2k.org/free-help-advice/z2k-advice-drop-in-sessions/",
@@ -6904,7 +6829,7 @@
   },
   {
     "Organisation": "Debtford Reach",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Lewisham",
     "Services": "Employment skills, alcohol and drug support, housing and benefits advice, health and lifestyle, mental health support, Offender rehabilitation, creative expression, meals, showers, laundry, clothing, leisure activities, safe postal address and more.",
     "Website": "www.deptfordreach.org.uk/",
@@ -6927,7 +6852,7 @@
   },
   {
     "Organisation": "Manna Centre",
-    "Area": "Central London",
+    "Area": "Canterbury",
     "Borough": "Southwark",
     "Services": "Free breakfast and lunch; clothing; showers; Housing and Welfare Advice Mon to sun 9.30-1.30; drop in advice Thursdays 9.30-12.00. Health facilities on selected days: nurse Mon and Fri; chiropodist alternate Mons; osteopath on Wed, mental health alternate Tuesdays.",
     "Website": "https://www.mannasociety.org.uk/",
@@ -6944,7 +6869,7 @@
   },
   {
     "Organisation": "Margins Project - Union Chapel",
-    "Area": "North Central",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Night Shelter Wed might Jan-Mar;Housing, Benefits and Mental Health drop-in 9.30-12.00 Wednesdays. Supported Employment Programme in cafe and office. Employability Programme for drop-ins.",
     "Website": "http://www.unionchapel.org.uk/about-us/the-margins-project/",
@@ -6961,7 +6886,7 @@
   },
   {
     "Organisation": "Refugee Connection",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Immigration (OISC \nL1), benefits, \nhousing advice\n",
     "Website": "www.refugeeconnection.org.uk/advocacy",
@@ -6980,8 +6905,8 @@
   },
   {
     "Organisation": "999 Club",
-    "Area": "South",
-    "Borough": "Deptford",
+    "Area": "Swale",
+    "Borough": "Lewisham",
     "Services": "Benefits advice",
     "Website": "http://999club.org/our-services/advice-and-support/",
     "Clients": "Homeless/Hostel/Risk of eviction",
@@ -7003,7 +6928,7 @@
   },
   {
     "Organisation": "Barnet Refugee Service",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Benefits advice",
     "Website": "http://www.b-r-s.org.uk/index.php?option=com_content&view=article&id=4&Itemid=3",
@@ -7023,7 +6948,7 @@
   },
   {
     "Organisation": "Community Link",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Benefits advice/\nform filling",
     "Website": "http://www.community-links.org/local-services/advice/",
@@ -7045,7 +6970,7 @@
   },
   {
     "Organisation": "Hackney Migrant Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Welfare advice",
     "Website": "http://www.hackneymigrantcentre.org.uk",
@@ -7064,7 +6989,7 @@
   },
   {
     "Organisation": "Hounslow Citizens \nAdvice Bureau",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Benefits advice",
     "Website": "http://www.hounslowcabs.org.uk/",
@@ -7087,7 +7012,7 @@
   },
   {
     "Organisation": "Notre Dame Refugee \nCentre Drop-In Café",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Welfare advice",
     "Website": "www.notredamerc.org.uk",
@@ -7109,7 +7034,7 @@
   },
   {
     "Organisation": "Praxis",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Benefits advice",
     "Website": "http://www.praxis.org.uk/advice-&-information-page-37.html",
@@ -7129,7 +7054,7 @@
   },
   {
     "Organisation": "The Welcome Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "Benefits advice",
     "Website": "www.refugeecouncil.org.uk/services/3131_the_welcome_project",
@@ -7151,7 +7076,7 @@
   },
   {
     "Organisation": "Age UK",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Volunteering opportunities",
     "Website": "",
@@ -7210,7 +7135,7 @@
   },
   {
     "Organisation": "Breaking Barriers",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "CV, interview prep, job search, skills \nworkshops, English tutoring etc.",
     "Website": "http://www.breaking-barriers.co.uk/",
@@ -7227,8 +7152,8 @@
   },
   {
     "Organisation": "Breaking Barriers",
-    "Area": "South West",
-    "Borough": "Battersea",
+    "Area": "Swale",
+    "Borough": "Wandsworth",
     "Services": "CV, interview prep, job search, skills \nworkshops, English tutoring etc.",
     "Website": "http://www.breaking-barriers.co.uk/",
     "Clients": "Refugees",
@@ -7246,7 +7171,7 @@
   },
   {
     "Organisation": "Cardinal Hume Centre",
-    "Area": "South West London",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Employment, job search, interview preparation",
     "Website": "https://www.cardinalhumecentre.org.uk/need-help/employment/",
@@ -7265,7 +7190,7 @@
   },
   {
     "Organisation": "Chatterbox Employment",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Paid work for Refugees",
     "Website": "Search Chatterbox on Facebook, Twitter, LinkedIn",
@@ -7282,7 +7207,7 @@
   },
   {
     "Organisation": "CodeYourFuture",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "programming, coding school, training for jobs in the tech industry\n",
     "Website": "http://codeyourfuture.io/",
@@ -7301,7 +7226,7 @@
   },
   {
     "Organisation": "Community Link",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Employment law/Private Housing",
     "Website": "http://www.community-links.org/local-services/advice/",
@@ -7320,7 +7245,7 @@
   },
   {
     "Organisation": "Diversity Living Services",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Enfield",
     "Services": "Welfare, Benefits and Housing Advice, Employment guidance and advice, ESOL classes ",
     "Website": "http://www.diversityliving.org.uk/",
@@ -7337,7 +7262,7 @@
   },
   {
     "Organisation": "Evelyn Oldfield Unit",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Volunteering opportunities",
     "Website": "http://evelynoldfield.co.uk/about-us/volunteering/",
@@ -7354,8 +7279,8 @@
   },
   {
     "Organisation": "Latin American House",
-    "Area": "North",
-    "Borough": "Brent/Camden",
+    "Area": "North London",
+    "Borough": "Camden",
     "Services": "Employment/CV help",
     "Website": "http://www.casalatina.org.uk/en/",
     "Clients": "Spanish/Portugese speaking clients",
@@ -7371,7 +7296,7 @@
   },
   {
     "Organisation": "Migrant Rights Network",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Islington",
     "Services": "Volunteering opportunities",
     "Website": "http://www.migrantsrights.org.uk/news/2016/jobs-and-volunteering-opportunities",
@@ -7388,7 +7313,7 @@
   },
   {
     "Organisation": "New Horizon Youth Centre",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Camden",
     "Services": "Jobs, education",
     "Website": "http://nhyouthcentre.org.uk/",
@@ -7405,7 +7330,7 @@
   },
   {
     "Organisation": "Refugee Council's Refugees into Jobs",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Employment, Training and Volunteering",
     "Website": "http://www.refugeecouncil.org.uk/contact",
@@ -7422,7 +7347,7 @@
   },
   {
     "Organisation": "Refugee Women's Association",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Training and Employment",
     "Website": "http://www.refugeewomen.org.uk/info/infom.htm",
@@ -7439,7 +7364,7 @@
   },
   {
     "Organisation": "St Mungos (Employment and\n Training Team)",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Employment and Training",
     "Website": "http://www.mungos.org/services/employment_and_training_team",
@@ -7456,8 +7381,8 @@
   },
   {
     "Organisation": "St Mungo's Broadway Day Centre",
-    "Area": "West",
-    "Borough": "Hammersmith & Fulham",
+    "Area": "West London",
+    "Borough": "Hammersmith and Fulham",
     "Services": "Homeless Daycentre",
     "Website": "www.mungos.org",
     "Clients": "Single homeless",
@@ -7475,7 +7400,7 @@
   },
   {
     "Organisation": "Thames Reach Employment Academy",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Training and Employment Advice",
     "Website": "http://www.employmentacademy.org.uk/services/training/",
@@ -7492,7 +7417,7 @@
   },
   {
     "Organisation": "Transitions ",
-    "Area": "London",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Employment support for refugee professionals ",
     "Website": "http://www.transitions-london.co.uk/",
@@ -7509,7 +7434,7 @@
   },
   {
     "Organisation": "Volunteer Centre Haringey",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Supported Volunteering Service",
     "Website": "http://havcoharingey.org.uk/volunteer-centre/interested-in-volunteering/supported-volunteering",
@@ -7526,7 +7451,7 @@
   },
   {
     "Organisation": "Dellow Day Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Sreet Homeless recovery. Trainee schemes for those wioth complex needs to move into regular learning, volunteering or work.",
     "Website": "www.providencerow.org.uk/",
@@ -7549,7 +7474,7 @@
   },
   {
     "Organisation": "Debtford Reach",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Lewisham",
     "Services": "Employment skills, alcohol and drug support, housing and benefits advice, health and lifestyle, mental health support, Offender rehabilitation, creative expression, meals, showers, laundry, clothing, leisure activities, safe postal address and more.",
     "Website": "www.deptfordreach.org.uk/",
@@ -7572,7 +7497,7 @@
   },
   {
     "Organisation": "London Jesus Centre",
-    "Area": "Central London",
+    "Area": "Canterbury",
     "Borough": "Camden",
     "Services": "Day Centre: food, clothing, laundry, showers, post, IT access. Some education; ESOL, Conversation etc.",
     "Website": "http://jesuscentre.org.uk/london-jesus-centre-location",
@@ -7594,7 +7519,7 @@
   },
   {
     "Organisation": "Margins Project - Union Chapel",
-    "Area": "North Central",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Night Shelter Wed might Jan-Mar;Housing, Benefits and Mental Health drop-in 9.30-12.00 Wednesdays. Supported Employment Programme in cafe and office. Employability Programme for drop-ins.",
     "Website": "http://www.unionchapel.org.uk/about-us/the-margins-project/",
@@ -7611,7 +7536,7 @@
   },
   {
     "Organisation": "Refugee Council/Starbucks",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Refugee Council will provide pre-employment training and one-to-one support to selected candidates followed by a guaranteed job interviews for Barista roles within Starbucks stores across London.",
     "Website": "https://www.refugeecouncil.org.uk/starbucks",
@@ -7628,8 +7553,8 @@
   },
   {
     "Organisation": "999 Club",
-    "Area": "South",
-    "Borough": "Deptford",
+    "Area": "Swale",
+    "Borough": "Lewisham",
     "Services": "Help with employment",
     "Website": "http://999club.org/our-services/advice-and-support/",
     "Clients": "Homeless/Hostel/Risk \nof eviction",
@@ -7651,7 +7576,7 @@
   },
   {
     "Organisation": "Kalayaan",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Kensington and Chelsea",
     "Services": "OISC Level 3 Immigration advice, employment advice, advice and support services for trafficked domestic migrant workers, English classes, ",
     "Website": "http://www.kalayaan.org.uk/",
@@ -7674,8 +7599,8 @@
   },
   {
     "Organisation": "Migrants' Resource Centre",
-    "Area": "South West",
-    "Borough": "",
+    "Area": "Swale",
+    "Borough": "All",
     "Services": "Job search support, CV, interview",
     "Website": "http://www.migrantsresourcecentre.org.uk/courses-workshops/",
     "Clients": "Status",
@@ -7694,7 +7619,7 @@
   },
   {
     "Organisation": "The Welcome Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "Employment, Training and Volunteering",
     "Website": "www.refugeecouncil.org.uk/services/3131_the_welcome_project",
@@ -7716,7 +7641,7 @@
   },
   {
     "Organisation": "Waterloo Action Centre",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Employment",
     "Website": "www.waterlooactioncentre.co.uk",
@@ -7737,7 +7662,7 @@
   },
   {
     "Organisation": "AFRUCA Africans Unite Against Child Abuse",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Support for Children, Young People and Families, Information, education, and advisory services",
     "Website": "http://www.afruca.org",
@@ -7754,7 +7679,7 @@
   },
   {
     "Organisation": "Bayswater Families Centre - Action for Children",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Families & vulnerable/excluded young people",
     "Website": "www.actionforchildren.org.uk",
@@ -7776,7 +7701,7 @@
   },
   {
     "Organisation": "Carers Trust",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Emotional/practical/financial support to carers",
     "Website": "https://carers.org/",
@@ -7793,7 +7718,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Advocacy",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/independent-advocacy-services",
@@ -7810,7 +7735,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Holistic Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -7827,7 +7752,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Holistic Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -7844,7 +7769,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Holistic Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -7861,7 +7786,7 @@
   },
   {
     "Organisation": "Croydon Refugee Day Centre",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Children's Play Area (and other services)",
     "Website": "www.croydonrefugeedaycentre.co.uk",
@@ -7880,7 +7805,7 @@
   },
   {
     "Organisation": "Early Help Hounslow",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Advice on all aspects of family life",
     "Website": "http://fsd.hounslow.gov.uk/kb5/hounslow/fsd/service.page?id=OXP3DOlRCMY#contact_details",
@@ -7897,7 +7822,7 @@
   },
   {
     "Organisation": "Family Information Service",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Information on local family services",
     "Website": "Search by region",
@@ -7914,7 +7839,7 @@
   },
   {
     "Organisation": "Hounslow Domestic violence ONE STOP SHOP",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Child care matters, FGM",
     "Website": "http://www.younghounslow.info/kb5/hounslow/fsd/service.page?id=vPT74OhlEUQ",
@@ -7933,7 +7858,7 @@
   },
   {
     "Organisation": "Just for Kids Law",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Advocacy/Legal (see flyer in folder)",
     "Website": "http://www.justforkidslaw.org/",
@@ -7950,8 +7875,8 @@
   },
   {
     "Organisation": "Latin American House",
-    "Area": "North",
-    "Borough": "Kilburn",
+    "Area": "North London",
+    "Borough": "Brent",
     "Services": "Family Law Advice",
     "Website": "http://www.casalatina.org.uk/en/legal-and-social-advice/family-law.html",
     "Clients": "Latin American Cls",
@@ -7969,7 +7894,7 @@
   },
   {
     "Organisation": "New Horizon Youth Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Legal, housing, benefits, jobs, education",
     "Website": "http://nhyouthcentre.org.uk/",
@@ -7986,7 +7911,7 @@
   },
   {
     "Organisation": "NSPCC",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Therapy sessions and support services for children who have experienced sexual abuse, support services for children and young people who have been or are at risk of being sexually exploited, neglect services, children in care services, early intervention services, support services for families that live with domestic abuse",
     "Website": "https://www.nspcc.org.uk/",
@@ -8003,45 +7928,7 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "North",
-    "Borough": "Islington",
-    "Services": "Homelessness/Poverty",
-    "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
-    "Clients": "NRPF",
-    "Days": [
-      "Tuesday"
-    ],
-    "Process": "07963 509 044 to book appointment",
-    "Email": "info@project17.org.uk",
-    "Postcode": "SE4 2BS ",
-    "Address": "",
-    "Tel": "07963 509 044",
-    "Project": "",
-    "Tag": "",
-    "Categories": "Families"
-  },
-  {
-    "Organisation": "Project 17",
-    "Area": "North",
-    "Borough": "Islington ",
-    "Services": "Homelessness/Poverty",
-    "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
-    "Clients": "NRPF",
-    "Days": [
-      "Wednesday"
-    ],
-    "Process": "07963 509 044 to book appointment,Third Wednesday of the month",
-    "Email": "info@project17.org.uk",
-    "Postcode": " N16 9ES",
-    "Address": "",
-    "Tel": "07963 509 044",
-    "Project": "",
-    "Tag": "",
-    "Categories": "Families"
-  },
-  {
-    "Organisation": "Project 17",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Homelessness/Poverty",
     "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
@@ -8060,7 +7947,7 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Homelessness/Poverty",
     "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
@@ -8079,7 +7966,7 @@
   },
   {
     "Organisation": "Refugee Council",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Adviceline",
     "Website": "http://www.refugeecouncil.org.uk/contact",
@@ -8096,7 +7983,7 @@
   },
   {
     "Organisation": "Shpresa",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Immigration, benefits, housing advice and advocacy, signposting for Albanian asylum-seekers and refugees, activities, schools and mentoring  for Albanian speaking children, support groups, therapy sessions and training for women, advice and advocacy for women victims of domestic violence.",
     "Website": "http://www.shpresaprogramme.com/index.html",
@@ -8113,7 +8000,7 @@
   },
   {
     "Organisation": "Strategic Legal Fund for Young Migrants",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Legal work on discrimination",
     "Website": "http://strategiclegalfund.org.uk/about/",
@@ -8130,7 +8017,7 @@
   },
   {
     "Organisation": "XLP",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Arts, Education, Mentoring and Advocacy",
     "Website": "http://www.xlp.org.uk/",
@@ -8146,46 +8033,8 @@
     "Categories": "Families"
   },
   {
-    "Organisation": "Young Roots",
-    "Area": "North West",
-    "Borough": "Wembley",
-    "Services": "Peer Support Project",
-    "Website": "http://youngroots.org.uk/london/peer-support-project/",
-    "Clients": "Students of the college",
-    "Days": [
-      "Tuesday"
-    ],
-    "Process": "Call Young Roots for info",
-    "Email": "info@youngroots.org.uk",
-    "Postcode": "HA9 8HP",
-    "Address": "",
-    "Tel": "020 8684 9140",
-    "Project": "",
-    "Tag": "",
-    "Categories": "Families"
-  },
-  {
-    "Organisation": "Young Roots",
-    "Area": "North West",
-    "Borough": "Willesden",
-    "Services": "Peer Support Project",
-    "Website": "http://youngroots.org.uk/london/peer-support-project/",
-    "Clients": "Students of the college",
-    "Days": [
-      "Thursday"
-    ],
-    "Process": "Call Young Roots for info",
-    "Email": "info@youngroots.org.uk",
-    "Postcode": "NW10 2XD",
-    "Address": "",
-    "Tel": "020 8684 9140",
-    "Project": "",
-    "Tag": "",
-    "Categories": "Families"
-  },
-  {
     "Organisation": "CARIS Haringey",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Haringey",
     "Services": "Family Day Centre",
     "Website": "www.carisharingey.org.uk/",
@@ -8204,8 +8053,8 @@
   },
   {
     "Organisation": "Newham Council - various libraries ",
-    "Area": "East ",
-    "Borough": "Newham ",
+    "Area": "East London",
+    "Borough": "Newham",
     "Services": "Various free activites and events for adults and all ages  (Arts, IT and English lessons, yoga, Thai chi, chess, board games) offered at individual libraries in Newham",
     "Website": "https://www.newham.gov.uk/Pages/Services/Libraries-in-Newham-information.aspx ",
     "Clients": "All, residents of Newham ",
@@ -8221,7 +8070,7 @@
   },
   {
     "Organisation": "Alone in London",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Camden",
     "Services": "Advice on mediation and homelessness prevention",
     "Website": "http://www.aloneinlondon.org/",
@@ -8244,7 +8093,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Holistic Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/rise-project",
@@ -8261,7 +8110,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Holistic Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/stand-by-me",
@@ -8278,7 +8127,7 @@
   },
   {
     "Organisation": "Latin American House",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Welfare advice/creche/Saturday school",
     "Website": "http://www.casalatina.org.uk/en/",
@@ -8300,7 +8149,7 @@
   },
   {
     "Organisation": "Migrant Children's Project",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "www.childrenslegalcentre.com",
@@ -8322,8 +8171,29 @@
     "Categories": "Families"
   },
   {
+    "Organisation": "Project 17",
+    "Area": "North London",
+    "Borough": "Islington",
+    "Services": "Homelessness/Poverty",
+    "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
+    "Clients": "NRPF",
+    "Days": [
+      "Tuesday",
+      "Monday",
+      "Wednesday"
+    ],
+    "Process": "07963 509 044 to book appointment,Third Wednesday of the month",
+    "Email": "info@project17.org.uk",
+    "Postcode": "SE4 2BS ",
+    "Address": "",
+    "Tel": "07963 509 044",
+    "Project": "",
+    "Tag": "",
+    "Categories": "Families"
+  },
+  {
     "Organisation": "Refugee Council",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "English Class",
     "Website": "http://www.refugeecouncil.org.uk/london_destitution_services",
@@ -8345,7 +8215,7 @@
   },
   {
     "Organisation": "Rights of Women",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline (immigration, family)",
     "Website": "http://rightsofwomen.org.uk/",
@@ -8367,7 +8237,7 @@
   },
   {
     "Organisation": "The Welcome Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "Families",
     "Website": "www.refugeecouncil.org.uk/services/3131_the_welcome_project",
@@ -8389,7 +8259,7 @@
   },
   {
     "Organisation": "Young Roots",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Brent",
     "Services": "Youth Group",
     "Website": "http://youngroots.org.uk/london/",
@@ -8409,8 +8279,8 @@
   },
   {
     "Organisation": "Young Roots",
-    "Area": "South",
-    "Borough": "Croydon ",
+    "Area": "Swale",
+    "Borough": "Croydon",
     "Services": "Peer Support Project",
     "Website": "http://youngroots.org.uk/london/peer-support-project/",
     "Clients": "Students of the college",
@@ -8429,7 +8299,7 @@
   },
   {
     "Organisation": "AFRUCA Africans Unite Against Child Abuse",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Support for Children, Young People and Families, Information, education, and advisory services",
     "Website": "http://www.afruca.org",
@@ -8446,7 +8316,7 @@
   },
   {
     "Organisation": "Amina (an Eaves project)",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Practical and emotional suppport, advice and guidance with accessing support services",
     "Website": "http://www.eavesforwomen.org.uk/support_Amina/",
@@ -8463,7 +8333,7 @@
   },
   {
     "Organisation": "Athena",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Support services for those who are experiencing gender based violence (domestic violence, rape and sexual assault, stalking, prostitution, sexual exploitation, trafficking for sexual exploitation, FGM, forced marriage, \"honour\"-based violence)",
     "Website": "www.refuge.org.uk/athena-lewisham",
@@ -8480,7 +8350,7 @@
   },
   {
     "Organisation": "Bakhita House",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Therapy, housing, support",
     "Website": "http://rcdow.org.uk/caritas/human-trafficking/",
@@ -8497,7 +8367,7 @@
   },
   {
     "Organisation": "Bakhita House",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Safe house and emergency support, psychosexual therapy, legal and financial assistance, mentoring, and help with accessing accommodation  ",
     "Website": "http://rcdow.org.uk/caritas/human-trafficking/",
@@ -8514,7 +8384,7 @@
   },
   {
     "Organisation": "Bayswater Families Centre - Action for Children",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Families & vulnerable/excluded young people",
     "Website": "www.actionforchildren.org.uk",
@@ -8536,7 +8406,7 @@
   },
   {
     "Organisation": "Hestia",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "provider of domestic abuse refuges in London",
     "Website": "http://www.hestia.org/",
@@ -8553,7 +8423,7 @@
   },
   {
     "Organisation": "Hestia Housing and Support",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Largest provider of accommodation and outreach support in London and assist female, male and transgender survivors of trafficking ranging from the exploitation of the prostitution of others or other forms of sexual exploitation, forced labour or services, domestic servitude, slavery or practices similar to slavery servitude to the removal of organs. 5 safe houses and expanded community outreach service.",
     "Website": "http://www.hestia.org/about/vision-mission-values/",
@@ -8570,7 +8440,7 @@
   },
   {
     "Organisation": "Hounslow Domestic violence \nONE STOP SHOP",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Advice and information",
     "Website": "http://www.younghounslow.info/kb5/hounslow/fsd/service.page?id=vPT74OhlEUQ",
@@ -8589,7 +8459,7 @@
   },
   {
     "Organisation": "Hounslow Domestic Violence \nOutreach Service",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Advice and information",
     "Website": "http://www.younghounslow.info/kb5/hounslow/fsd/service.page?id=vPT74OhlEUQ",
@@ -8606,7 +8476,7 @@
   },
   {
     "Organisation": "Housing for Women",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Empowering women through providing good quality homes, and support to women who have experienced domestic violence, trafficking and mothers leaving prison.",
     "Website": "http://hfw.org.uk/",
@@ -8623,7 +8493,7 @@
   },
   {
     "Organisation": "Jagonari - Women Ahead Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Support, advice and guidance. Weekly \nwellbeing classes also available.",
     "Website": "http://www.jagonari.org.uk/services.html",
@@ -8642,7 +8512,7 @@
   },
   {
     "Organisation": "Medaille Trust",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Provider of support and safe house provision for the victims of human trafficking",
     "Website": "http://www.medaille-trust.org.uk/",
@@ -8659,7 +8529,7 @@
   },
   {
     "Organisation": "Praxis Gender Based Violence Project",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Immigration advice and casework, Housing and homelessness, family law, income and finacial assistance, health and psychosocial support, prison and hospital outreach,",
     "Website": "http://www.praxis.org.uk/",
@@ -8676,7 +8546,7 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "http://solacewomensaid.org/get-help/north-london-rape-crisis/",
@@ -8693,7 +8563,7 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "http://solacewomensaid.org/get-help/north-london-rape-crisis/",
@@ -8710,7 +8580,7 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "http://solacewomensaid.org/get-help/north-london-rape-crisis/",
@@ -8727,7 +8597,7 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "http://solacewomensaid.org/get-help/north-london-rape-crisis/",
@@ -8744,8 +8614,8 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "West",
-    "Borough": "Kensington &\nChelsea",
+    "Area": "West London",
+    "Borough": "Kensington and Chelsea",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "http://solacewomensaid.org/get-help/north-london-rape-crisis/",
     "Clients": "",
@@ -8761,7 +8631,7 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "http://solacewomensaid.org/get-help/north-london-rape-crisis/",
@@ -8778,7 +8648,7 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Enfield",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "http://solacewomensaid.org/get-help/north-london-rape-crisis/",
@@ -8795,7 +8665,7 @@
   },
   {
     "Organisation": "Refugee Women's Association",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Education, training, employment",
     "Website": "http://www.refugeewomen.org.uk/info/infom.htm",
@@ -8812,8 +8682,8 @@
   },
   {
     "Organisation": "The Bike Project-Cycle \nTraining with Refugee Women",
-    "Area": "East",
-    "Borough": "Wapping",
+    "Area": "East London",
+    "Borough": "Tower Hamlets",
     "Services": "Activities",
     "Website": "",
     "Clients": "Refugee/AS women",
@@ -8831,7 +8701,7 @@
   },
   {
     "Organisation": "Women and Girls network",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Counselling, sexual violence helpline, \nadvice service, young women's \nadvocacy service (YWAP), workshops, \nISVA (Independent Sexual Violence Advocate) \nservice, therapeutic groupwork, \nbody therapies",
     "Website": "http://www.wgn.org.uk/",
@@ -8848,7 +8718,7 @@
   },
   {
     "Organisation": "Solace Women's Aid",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Counselling, support groups, advocacy, refuges",
     "Website": "http://solacewomensaid.org/",
@@ -8865,7 +8735,7 @@
   },
   {
     "Organisation": "Solace Women's Aid",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Counselling, support groups, advocacy, refuges",
     "Website": "http://solacewomensaid.org/",
@@ -8882,7 +8752,7 @@
   },
   {
     "Organisation": "Solace Women's Aid",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Counselling, support groups, advocacy, refuges",
     "Website": "http://solacewomensaid.org/",
@@ -8899,7 +8769,7 @@
   },
   {
     "Organisation": "Solace Women's Aid",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Enfield",
     "Services": "Counselling, support groups, advocacy, refuges",
     "Website": "http://solacewomensaid.org/",
@@ -8916,7 +8786,7 @@
   },
   {
     "Organisation": "Solace Women's Aid",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Counselling, support groups, advocacy, refuges",
     "Website": "http://solacewomensaid.org/",
@@ -8933,7 +8803,7 @@
   },
   {
     "Organisation": "Solace Women's Aid",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Counselling, support groups, advocacy, refuges",
     "Website": "http://solacewomensaid.org/",
@@ -8950,7 +8820,7 @@
   },
   {
     "Organisation": "Solace Women's Aid",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "Counselling, support groups, advocacy, refuges",
     "Website": "http://solacewomensaid.org/",
@@ -8967,7 +8837,7 @@
   },
   {
     "Organisation": "Solace Women's Aid",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Waltham Forest",
     "Services": "Counselling, support groups, advocacy, refuges",
     "Website": "http://solacewomensaid.org/",
@@ -8984,7 +8854,7 @@
   },
   {
     "Organisation": "Hibiscus Hub",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Advice and information (housing, immigration), one to one appointments, skills workshops and accompanying service to appointments",
     "Website": "www.hibiscusinitiatives.org.uk",
@@ -9005,7 +8875,7 @@
   },
   {
     "Organisation": "Hopscotch Asian Women's Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Support services for Asian women. Staff \nspeak Bengali, English, Hindi and Urdu.",
     "Website": "www.hopscotchawc.org.uk",
@@ -9026,7 +8896,7 @@
   },
   {
     "Organisation": "Rights of Women",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline (immigration, family)",
     "Website": "http://rightsofwomen.org.uk/",
@@ -9048,7 +8918,7 @@
   },
   {
     "Organisation": "The Women's Day Centre",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Advice, assistance, education and activities",
     "Website": "http://www.churcharmy.org.uk/Groups/245015/Church_Army/ms/Marylebone_Archive/The_Womens_Day/The_Womens_Day.aspx",
@@ -9069,7 +8939,7 @@
   },
   {
     "Organisation": "Women at the Well",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Support and advocacy",
     "Website": "http://www.watw.org.uk/",
@@ -9092,7 +8962,7 @@
   },
   {
     "Organisation": "Ashford Place",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Brent",
     "Services": "Crisis service for people struggling to cope",
     "Website": "http://www.ashfordplace.org.uk/crisis-advice-clinics",
@@ -9111,7 +8981,7 @@
   },
   {
     "Organisation": "Bakhita House",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Psychosexual therapy",
     "Website": "http://rcdow.org.uk/caritas/human-trafficking/",
@@ -9128,7 +8998,7 @@
   },
   {
     "Organisation": "Barnardo's",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "A vast range of services in the areas of: advocacy, alcohol and substance misuse, children in trouble with the law, children leaving care, children seeking asylum, domestic violence, homelessness, mental health, sexual abuse, sexual exploitation, trafficked children, young carers, LGBTQ young people",
     "Website": "http://www.barnardos.org.uk/",
@@ -9145,7 +9015,7 @@
   },
   {
     "Organisation": "Carers Trust",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Emotional/practical/financial \nsupport to carers",
     "Website": "https://carers.org/",
@@ -9162,7 +9032,7 @@
   },
   {
     "Organisation": "Mind Infoline",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Information line for anyone \nwith experience of mental distress",
     "Website": "http://www.mind.org.uk/information-support/helplines/",
@@ -9179,7 +9049,7 @@
   },
   {
     "Organisation": "Refugee and \nMigrant \nNetwork Sutton",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Sutton",
     "Services": "Counselling",
     "Website": "http://www.rmns.org.uk/what-we-offer.html",
@@ -9198,7 +9068,7 @@
   },
   {
     "Organisation": "Refugee Council",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Therapeutic Casework",
     "Website": "http://www.refugeecouncil.org.uk/what_we_do/therapeutic_casework/therapeutic_casework_services/therapeutic_casework_unit_referral_for",
@@ -9215,8 +9085,8 @@
   },
   {
     "Organisation": "Room to Heal",
-    "Area": "North",
-    "Borough": "London",
+    "Area": "North London",
+    "Borough": "City of London",
     "Services": "Therapeutic Casework",
     "Website": "http://roomtoheal.org/",
     "Clients": "Asylum Seekers and Refugees",
@@ -9232,7 +9102,7 @@
   },
   {
     "Organisation": "Shpresa",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Immigration, benefits, housing advice and advocacy, signposting for Albanian asylum-seekers and refugees, activities, schools and mentoring  for Albanian speaking children, support groups, therapy sessions and training for women, advice and advocacy for women victims of domestic violence.",
     "Website": "http://www.shpresaprogramme.com/index.html",
@@ -9249,8 +9119,8 @@
   },
   {
     "Organisation": "START Team",
-    "Area": "South",
-    "Borough": "Lambeth, \nSouthwark, \nLewisham",
+    "Area": "Swale",
+    "Borough": "Southwark",
     "Services": "Counselling",
     "Website": "http://www.slam.nhs.uk/our-services/service-finder-details?CODE=SU0552",
     "Clients": "Rough sleepers in Lambeth, Southwark and Lewisham",
@@ -9266,7 +9136,7 @@
   },
   {
     "Organisation": "Tower Hamlets \nLink Worker \nScheme",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Counselling",
     "Website": "https://www.ideastoreonlinedirectory.org/kb5/towerhamlets/cd/service.page?id=li0Mzfe4OLo",
@@ -9283,7 +9153,7 @@
   },
   {
     "Organisation": "Jagonari - Women Ahead Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Support, advice and guidance. Weekly \nwellbeing classes also available.",
     "Website": "https://en-gb.facebook.com/pg/JagonariCentre/about/?ref=page_internal",
@@ -9302,7 +9172,7 @@
   },
   {
     "Organisation": "Bayswater Families Centre - Action for Children",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Families & vulnerable/excluded young people",
     "Website": "www.actionforchildren.org.uk",
@@ -9324,8 +9194,8 @@
   },
   {
     "Organisation": "St Mungo's Broadway Day Centre",
-    "Area": "West",
-    "Borough": "Hammersmith & Fulham",
+    "Area": "West London",
+    "Borough": "Hammersmith and Fulham",
     "Services": "Homeless Day Centre",
     "Website": "www.mungosbroadway.org.uk",
     "Clients": "Single homeless",
@@ -9347,7 +9217,7 @@
   },
   {
     "Organisation": "CARIS Haringey",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Haringey",
     "Services": "Family Day Centre",
     "Website": "www.carisharingey.org.uk/",
@@ -9366,7 +9236,7 @@
   },
   {
     "Organisation": "Connection at St Martins",
-    "Area": "Central London",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Street Homeless recovery",
     "Website": "www.connection-at-stmartins.org.uk",
@@ -9389,7 +9259,7 @@
   },
   {
     "Organisation": "Dellow Day Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Sreet Homeless recovery; support for misuse issues.",
     "Website": "www.providencerow.org.uk/",
@@ -9412,7 +9282,7 @@
   },
   {
     "Organisation": "Debtford Reach",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Lewisham",
     "Services": "Employment skills, alcohol and drug support, housing and benefits advice, health and lifestyle, mental health support, Offender rehabilitation, creative expression, meals, showers, laundry, clothing, leisure activities, safe postal address and more.",
     "Website": "www.deptfordreach.org.uk/",
@@ -9435,7 +9305,7 @@
   },
   {
     "Organisation": "Great Chapel Medical Centre",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "GP practice in central London providing an enhanced general practice service to homeless people in Westminster: doctors, nurses, drug & alcohol, mental health, dentist, housing & benefits advocacy, psychiatrist, counselling, podiatry.",
     "Website": "www.greatchapelst.org.uk",
@@ -9452,7 +9322,7 @@
   },
   {
     "Organisation": "Margins Project - Union Chapel",
-    "Area": "North Central",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Night Shelter Wed might Jan-Mar;Housing, Benefits and Mental Health drop-in 9.30-12.00 Wednesdays. Supported Employment Programme in cafe and office. Employability Programme for drop-ins.",
     "Website": "http://www.unionchapel.org.uk/about-us/the-margins-project/",
@@ -9469,8 +9339,8 @@
   },
   {
     "Organisation": "The volunteer Link Scheme",
-    "Area": "West",
-    "Borough": "Ealing ",
+    "Area": "West London",
+    "Borough": "Ealing",
     "Services": "one-to-one volunteer befriending to people within the London Borough of Ealing",
     "Website": "https://volunteerlink.org.uk/",
     "Clients": "housebound and socially isolated as a result of disability or long term illness.",
@@ -9486,7 +9356,7 @@
   },
   {
     "Organisation": "Santé Refugee Mental Health Access Project",
-    "Area": "All (& Camden)",
+    "Area": "Any",
     "Borough": "Camden",
     "Services": "Befriending",
     "Website": "http://www.santeproject.org.uk/",
@@ -9503,7 +9373,7 @@
   },
   {
     "Organisation": "Barnet Complex Care Team ",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Trauma-focused therapy",
     "Website": "",
@@ -9520,7 +9390,7 @@
   },
   {
     "Organisation": "Host Nation",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Befriending service for refugees and asylum seekers",
     "Website": "https://www.hostnation.org.uk/about-us/",
@@ -9537,7 +9407,7 @@
   },
   {
     "Organisation": "The Samaritans",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "Westminster",
     "Services": "Confidential emotional support",
     "Website": "www.samaritans.org",
@@ -9560,7 +9430,7 @@
   },
   {
     "Organisation": "Women at the Well",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Support and advocacy",
     "Website": "http://www.watw.org.uk/",
@@ -9606,7 +9476,7 @@
   },
   {
     "Organisation": "Age UK Hounslow",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Befriending \nservice",
     "Website": "http://www.ageuk.org.uk/hounslow/activities-and-services/",
@@ -9623,7 +9493,7 @@
   },
   {
     "Organisation": "AgeUk Hounslow",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Various classes\n\n",
     "Website": "http://www.ageuk.org.uk/hounslow/activities-and-services/",
@@ -9640,7 +9510,7 @@
   },
   {
     "Organisation": "Asylum Seekers Drop-in",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Food, social",
     "Website": "http://www.nnls-masorti.org.uk/page.php?ID=83",
@@ -9659,8 +9529,8 @@
   },
   {
     "Organisation": "Barnet Refugee Service",
-    "Area": "North West London",
-    "Borough": "",
+    "Area": "North London",
+    "Borough": "All",
     "Services": "Mother and toddler group",
     "Website": "http://www.b-r-s.org.uk",
     "Clients": "Asylum seekers and refugees",
@@ -9701,7 +9571,7 @@
   },
   {
     "Organisation": "Children's society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Advocacy and activities",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/rise-project",
@@ -9718,7 +9588,7 @@
   },
   {
     "Organisation": "Crisis Skylight",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Various Classes",
     "Website": "http://www.crisis.org.uk/pages/crisis-skylight-london.html",
@@ -9735,7 +9605,7 @@
   },
   {
     "Organisation": "Disability network \nHounslow",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Social activities",
     "Website": "http://www.dnh.org.uk/",
@@ -9752,7 +9622,7 @@
   },
   {
     "Organisation": "Haringey Migrant \nSupport Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Socialising, \nlunch",
     "Website": "https://haringeymsc.org/",
@@ -9771,7 +9641,7 @@
   },
   {
     "Organisation": "New Horizon Youth Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Socialising, \nlunch",
     "Website": "http://nhyouthcentre.org.uk/",
@@ -9788,8 +9658,8 @@
   },
   {
     "Organisation": "The Bike Project",
-    "Area": "South",
-    "Borough": "Dulwich",
+    "Area": "Swale",
+    "Borough": "Southwark",
     "Services": "Free Bikes",
     "Website": "http://thebikeproject.co.uk/contact-3/",
     "Clients": "All",
@@ -9807,8 +9677,8 @@
   },
   {
     "Organisation": "St Mungo's Broadway Day Centre",
-    "Area": "West",
-    "Borough": "Hammersmith & Fulham",
+    "Area": "West London",
+    "Borough": "Hammersmith and Fulham",
     "Services": "",
     "Website": "www.mungosbroadway.org.uk",
     "Clients": "Single homeless",
@@ -9830,7 +9700,7 @@
   },
   {
     "Organisation": "CARIS Haringey",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Haringey",
     "Services": "Family Day Centre",
     "Website": "www.carisharingey.org.uk/",
@@ -9849,7 +9719,7 @@
   },
   {
     "Organisation": "Croydon Refugee Day Centre ",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Basic support: food, clothes, toiletries, showers, children's play, access to helpdesk and ESOL.",
     "Website": "www.croydonrefugeedaycentre.co.uk/",
@@ -9868,7 +9738,7 @@
   },
   {
     "Organisation": "Debtford Reach",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Lewisham",
     "Services": "Employment skills, alcohol and drug support, housing and benefits advice, health and lifestyle, mental health support, Offender rehabilitation, creative expression, meals, showers, laundry, clothing, leisure activities, safe postal address and more.",
     "Website": "www.deptfordreach.org.uk/",
@@ -9891,8 +9761,8 @@
   },
   {
     "Organisation": "Glass Door Homeless Charity",
-    "Area": "West and Central London",
-    "Borough": "Hammersmith, Fulham, K & C, Barnes, Putney",
+    "Area": "West London",
+    "Borough": "Hammersmith and Fulham",
     "Services": "Emergency winter night shelter in churches across 5 boroughs. 100 beds per night; laundry and washing; advocacy and practical support. Two Drop-in Centres in Chelsea and Fulham: meals, advice, doctor appointments Tue pm.",
     "Website": "www.glassdoor.org.uk/",
     "Clients": "Rough sleepers and homeless",
@@ -9914,7 +9784,7 @@
   },
   {
     "Organisation": "Hackney Migrant Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Immigration, welfare and NHS/health advice; social activities, meals",
     "Website": "www.hackneymigrantcentre.org.uk/",
@@ -9933,7 +9803,7 @@
   },
   {
     "Organisation": "London Jesus Centre",
-    "Area": "Central London",
+    "Area": "Canterbury",
     "Borough": "Camden",
     "Services": "Day Centre: food, clothing, laundry, showers, post, IT access. Some education; ESOL, Conversation etc.",
     "Website": "http://jesuscentre.org.uk/london-jesus-centre-location",
@@ -9955,7 +9825,7 @@
   },
   {
     "Organisation": "Walking for Health",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Free supervised walking groups",
     "Website": "http://www.haringey.gov.uk/parking-roads-and-travel/travel/walking/walking-groups",
@@ -9975,8 +9845,8 @@
   },
   {
     "Organisation": "Ourmala",
-    "Area": "",
-    "Borough": "",
+    "Area": "N/A",
+    "Borough": "All",
     "Services": "Free yoga",
     "Website": "http://www.ourmala.com/wherewework/",
     "Clients": "Asylum seeker and refugee women only.",
@@ -9992,8 +9862,8 @@
   },
   {
     "Organisation": "Tennis2Be",
-    "Area": "East, South",
-    "Borough": "",
+    "Area": "East London",
+    "Borough": "All",
     "Services": "Donation based tennis lessons ",
     "Website": "https://www.tennis2be.com/tennis-lessons-for-beginners",
     "Clients": "All",
@@ -10009,7 +9879,7 @@
   },
   {
     "Organisation": "Tennis for free",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Free tennis lessons and practice ",
     "Website": "https://www.tennisforfree.com/",
@@ -10028,7 +9898,7 @@
   },
   {
     "Organisation": "FoodCycle",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Volunteer program that collects surplus fruit and vegetables, and turn these ingredients into nutritious three-course meals for the community.",
     "Website": "http://www.foodcycle.org.uk/",
@@ -10045,7 +9915,7 @@
   },
   {
     "Organisation": "Made in Hackney",
-    "Area": "East ",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Bi-weekly pay by donation (suggested at £5) 2 hour Sunday afternoon cooking workshops",
     "Website": "https://madeinhackney.org/our-program/community-classes",
@@ -10064,7 +9934,7 @@
   },
   {
     "Organisation": "The Gate Community Neighbourhood Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Various free activities and events (e.g. book club, Tai Chi, Table Tennis, Salsa) ",
     "Website": "https://www.newham.gov.uk/Pages/ServiceChild/The-gate-library.aspx",
@@ -10081,7 +9951,7 @@
   },
   {
     "Organisation": "Parklives",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Various free events in the park",
     "Website": "https://www.parklives.com/councils/newham",
@@ -10098,7 +9968,7 @@
   },
   {
     "Organisation": "Dulwich Hamlet FC",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Southwark",
     "Services": "A local friendly non-league football club that has a refugee solidarity group",
     "Website": "http://www.pitchero.com/clubs/dulwichhamlet",
@@ -10117,7 +9987,7 @@
   },
   {
     "Organisation": "Branching Out",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Bromley",
     "Services": "Volunteer gardening project providing participants training in horticulture and horticulture techniques",
     "Website": "http://www.community-options.org.uk/wp-content/uploads/2015/10/Branching_Out_COCEIS02_1016F.pdf",
@@ -10134,7 +10004,7 @@
   },
   {
     "Organisation": "Barnet Refugee Service Sowing Seed Project",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "A small allotment group to learn and grow fruit and vegetables, with opportunities to cook if you’d like",
     "Website": "",
@@ -10154,7 +10024,7 @@
   },
   {
     "Organisation": "Haringey Walking for Health group",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Daily walks for about 45 mins to 1 hour (the schedule is attached) with a small group of local people. All abilities welcome",
     "Website": "http://www.haringey.gov.uk/parking-roads-and-travel/travel/walking/walking-groups",
@@ -10171,7 +10041,7 @@
   },
   {
     "Organisation": "Refugee Connection",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Meet ups for refugees, asylum seekers and migrants",
     "Website": "http://www.refugeeconnection.org.uk/whatson/?view=calendar&month=January-2018",
@@ -10188,7 +10058,7 @@
   },
   {
     "Organisation": "Host Nation",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Befriending service for refugees and asylum seekers",
     "Website": "https://www.hostnation.org.uk/about-us/",
@@ -10205,8 +10075,8 @@
   },
   {
     "Organisation": "999 Club",
-    "Area": "South",
-    "Borough": "Deptford",
+    "Area": "Swale",
+    "Borough": "Lewisham",
     "Services": "Learning &\nActivities \nProgramme",
     "Website": "http://999club.org/our-services/learning-activities/",
     "Clients": "Homeless/Hostel/Risk of eviction",
@@ -10228,7 +10098,7 @@
   },
   {
     "Organisation": "Young Roots",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Brent",
     "Services": "Youth Group",
     "Website": "http://youngroots.org.uk/london/",
@@ -10247,7 +10117,7 @@
   },
   {
     "Organisation": "Athena",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Support services for those who are experiencing gender based violence (domestic violence, rape and sexual assault, stalking, prostitution, sexual exploitation, trafficking for sexual exploitation, FGM, forced marriage, \"honour\"-based violence)",
     "Website": "www.refuge.org.uk/athena-lewisham",
@@ -10264,7 +10134,7 @@
   },
   {
     "Organisation": "Bakhita House",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Therapy, housing, support",
     "Website": "http://rcdow.org.uk/caritas/human-trafficking/",
@@ -10281,8 +10151,8 @@
   },
   {
     "Organisation": "Hestia Housing and Support",
-    "Area": "",
-    "Borough": "Southwark ",
+    "Area": "N/A",
+    "Borough": "Southwark",
     "Services": "Largest provider of accommodation and outreach support in London and assist female, male and transgender survivors of trafficking ranging from the exploitation of the prostitution of others or other forms of sexual exploitation, forced labour or services, domestic servitude, slavery or practices similar to slavery servitude to the removal of organs. 5 safe houses and expanded community outreach service. ",
     "Website": "http://www.hestia.org/about/vision-mission-values/",
     "Clients": "Victims of trafficking, domestic violence ",
@@ -10298,7 +10168,7 @@
   },
   {
     "Organisation": "Hibiscus Hub",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Advice and information (housing, immigration), one to one appointments, skills workshops and accompanying service to appointments ",
     "Website": "www.hibiscusinitiatives.org.uk",
@@ -10320,7 +10190,7 @@
   },
   {
     "Organisation": "Hounslow Domestic violence \nONE STOP SHOP",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Advice and information",
     "Website": "http://www.younghounslow.info/kb5/hounslow/fsd/service.page?id=vPT74OhlEUQ",
@@ -10339,7 +10209,7 @@
   },
   {
     "Organisation": "Hounslow Domestic Violence \nOutreach Service",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Advice and information",
     "Website": "http://www.younghounslow.info/kb5/hounslow/fsd/service.page?id=vPT74OhlEUQ",
@@ -10356,8 +10226,8 @@
   },
   {
     "Organisation": "Housing for Women ",
-    "Area": "234-244 Stockwell Road",
-    "Borough": "Lambeth ",
+    "Area": "South London",
+    "Borough": "Lambeth",
     "Services": "Empowering women through providing good quality homes, and support to women who have experienced domestic violence, trafficking and mothers leaving prison.",
     "Website": "http://hfw.org.uk/",
     "Clients": "Victims of domestic violence, trafficking ",
@@ -10373,7 +10243,7 @@
   },
   {
     "Organisation": "Jagonari - Women Ahead Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Support, advice and guidance. Weekly \nwellbeing classes also available.",
     "Website": "https://en-gb.facebook.com/pg/JagonariCentre/about/?ref=page_internal",
@@ -10392,7 +10262,7 @@
   },
   {
     "Organisation": "Praxis Gender Based Violence Project",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Immigration advice and casework, Housing and homelessness, family law, income and finacial assistance, health and psychosocial support, prison and hospital outreach,",
     "Website": "http://www.praxis.org.uk/",
@@ -10409,7 +10279,7 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "http://solacewomensaid.org/get-help/north-london-rape-crisis/",
@@ -10426,7 +10296,7 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "",
@@ -10443,7 +10313,7 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "",
@@ -10460,7 +10330,7 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "",
@@ -10477,8 +10347,8 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "West",
-    "Borough": "Kensington &\nChelsea",
+    "Area": "West London",
+    "Borough": "Kensington and Chelsea",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "",
     "Clients": "",
@@ -10494,8 +10364,8 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "North",
-    "Borough": "Barnet ",
+    "Area": "North London",
+    "Borough": "Barnet",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "",
     "Clients": "",
@@ -10511,7 +10381,7 @@
   },
   {
     "Organisation": "Rape Crisis",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Enfield",
     "Services": "Helpline, advocacy, one to one counselling, \nbody therapies, friends & family counselling, \ngroup support and therapy",
     "Website": "",
@@ -10528,7 +10398,7 @@
   },
   {
     "Organisation": "Refugee Women's Association",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Education, training, employment. Free \nESOL classes for women (need to be living\n in Camden, Islington, Westminster or \nKensington and Chelsea & unemployed \nto access)",
     "Website": "http://www.refugeewomen.org.uk/info/infom.htm",
@@ -10547,8 +10417,8 @@
   },
   {
     "Organisation": "The Bike Project-Cycle \nTraining with Refugee Women",
-    "Area": "East",
-    "Borough": "Wapping",
+    "Area": "East London",
+    "Borough": "Tower Hamlets",
     "Services": "Activities",
     "Website": "",
     "Clients": "Refugee/AS women",
@@ -10566,7 +10436,7 @@
   },
   {
     "Organisation": "Women and Girls network",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Pan London",
     "Services": "Counselling, sexual violence helpline, \nadvice service, young women's \nadvocacy service (YWAP), workshops, \nISVA (Independent Sexual Violence Advocate) \nservice, therapeutic groupwork, \nbody therapies",
     "Website": "http://www.wgn.org.uk/",
@@ -10583,7 +10453,7 @@
   },
   {
     "Organisation": "Amina (an Eaves project)",
-    "Area": "London",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Practical and emotional suppport, advice and guidance with accessing support services",
     "Website": "http://www.eavesforwomen.org.uk/support_Amina/",
@@ -10600,7 +10470,7 @@
   },
   {
     "Organisation": "Medaille Trust",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "National",
     "Services": "Provider of support and safe house provision for the victims of human trafficking",
     "Website": "http://www.medaille-trust.org.uk/",
@@ -10617,7 +10487,7 @@
   },
   {
     "Organisation": "Hestia",
-    "Area": "All ",
+    "Area": "Any",
     "Borough": "Pan London",
     "Services": "provider of domestic abuse refuges in London",
     "Website": "http://www.hestia.org/",
@@ -10634,7 +10504,7 @@
   },
   {
     "Organisation": "Bakhita House",
-    "Area": "Central",
+    "Area": "Canterbury",
     "Borough": "Westminster",
     "Services": "Safe house and emergency support, psychosexual therapy, legal and financial assistance, mentoring, and help with accessing accommodation  ",
     "Website": "http://rcdow.org.uk/caritas/human-trafficking/",
@@ -10651,7 +10521,7 @@
   },
   {
     "Organisation": "Shpresa",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Immigration, benefits, housing advice and advocacy, signposting for Albanian asylum-seekers and refugees, activities, schools and mentoring  for Albanian speaking children, support groups, therapy sessions and training for women, advice and advocacy for women victims of domestic violence.",
     "Website": "http://www.shpresaprogramme.com/index.html",
@@ -10668,7 +10538,7 @@
   },
   {
     "Organisation": "Al-Hasaniya Morrocan Women's Project Ltd",
-    "Area": "West ",
+    "Area": "West London",
     "Borough": "Kensington and Chelsea",
     "Services": "",
     "Website": "",
@@ -10685,7 +10555,7 @@
   },
   {
     "Organisation": "CARIS Haringey",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Haringey",
     "Services": "Family Day Centre",
     "Website": "www.carisharingey.org.uk/",
@@ -10704,7 +10574,7 @@
   },
   {
     "Organisation": "Barnet Refugee Service Jasmine Creative Women's Group",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Barnet",
     "Services": "Small group for arts & crafts and socialising, includes refreshments and oyster bus journeys will be paid",
     "Website": "",
@@ -10723,7 +10593,7 @@
   },
   {
     "Organisation": "Stiches in Time",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Creative classes in sewing",
     "Website": "http://stitchesintime.org.uk/",
@@ -10740,7 +10610,7 @@
   },
   {
     "Organisation": "Hopscotch Asian Women's Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Support services for Asian women. Staff \nspeak Bengali, English, Hindi and Urdu.",
     "Website": "www.hopscotchawc.org.uk",
@@ -10760,7 +10630,7 @@
   },
   {
     "Organisation": "Rights of Women",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline (immigration, family)",
     "Website": "http://rightsofwomen.org.uk/",
@@ -10782,7 +10652,7 @@
   },
   {
     "Organisation": "The Women's Day Centre",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Advice, assistance, education and activities",
     "Website": "http://www.churcharmy.org.uk/Groups/245015/Church_Army/ms/Marylebone_Archive/The_Womens_Day/The_Womens_Day.aspx",
@@ -10805,7 +10675,7 @@
   },
   {
     "Organisation": "Women at the Well",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Support and advocacy",
     "Website": "http://www.watw.org.uk/",
@@ -10828,7 +10698,7 @@
   },
   {
     "Organisation": "Maternity Action Access Advice service",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "advice on rights to maternity care, charges for treatment etc., telephone interpreting available. Call Thursdays 10am-12pm,",
     "Website": "https://www.maternityaction.org.uk/advice-2/maternity-care-access-advice-service/",
@@ -10847,7 +10717,7 @@
   },
   {
     "Organisation": "Maternity Action Migrant Women’s Rights Service",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "advice and training for those supporting or advising vulnerable migrant women who are pregnant or new mothers. Call 020 7251 6189 Mondays and Thursdays 2pm – 4pm, or email",
     "Website": "https://www.maternityaction.org.uk/advice-2/migrant-womens-rights-service/",
@@ -10867,7 +10737,7 @@
   },
   {
     "Organisation": "Doctors of the World Women and Children’s Service",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "clinic and health advice for women and children on the first and third Tuesday of every month at Praxis.",
     "Website": "https://www.doctorsoftheworld.org.uk/our-clinics",
@@ -10886,7 +10756,7 @@
   },
   {
     "Organisation": "Manor Gardens – Bright Beginnings",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Workshops and support for refugee and asylum seeking women, provide accessible and culturally appropriate workshops and information in collaboration with specialist agencies",
     "Website": "http://www.manorgardenscentre.org/health-advocacy/bright-beginnings/",
@@ -10907,8 +10777,8 @@
   },
   {
     "Organisation": "Birth Companions",
-    "Area": "South West",
-    "Borough": "Merton (postal address)",
+    "Area": "Swale",
+    "Borough": "Merton",
     "Services": "community: birth plans/support during birth.Targeted antenatal classes in Hackney – by referral only, Thursdays. Weekly visits to Peterborough and Bronzefield prisons to offer support to pregnant women and new mothers",
     "Website": "http://www.birthcompanions.org.uk/",
     "Clients": "Women experiencing severe disadvantage during pregnancy, birth and early parenting (mental health, substance misuse, domestic and sexual violence, trafficking, detention and human rights violations overseas)",
@@ -10924,7 +10794,7 @@
   },
   {
     "Organisation": "Shoreditch Trust – Bump Buddies",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Hackney",
     "Services": "1:1 peer mentoring scheme, specialist information",
     "Website": "http://www.shoreditchtrust.org.uk/health-and-wellbeing/bump-buddies/",
@@ -10941,8 +10811,8 @@
   },
   {
     "Organisation": "Maternity Mates",
-    "Area": "East",
-    "Borough": "Tower Hamlets, Newham, Waltham Forest",
+    "Area": "East London",
+    "Borough": "Waltham Forest",
     "Services": "practical and emotional support to women during pregnancy, childbirth and the early weeks of motherhood",
     "Website": "http://www.whfs.org.uk/index.php/what-we-do/maternity-mates",
     "Clients": "Pregnant women living in Newham or Tower Hamlets who do not have a suitable support network, or have specific needs or healthcare issues",
@@ -10958,7 +10828,7 @@
   },
   {
     "Organisation": "Choices Islington",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Baby clothes and equipment, community mums group and one-to one befriending sessions, counselling, unplanned, prisons, abortion",
     "Website": "https://www.choicesislington.org/reservations/",
@@ -10975,7 +10845,7 @@
   },
   {
     "Organisation": "PramDepot",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Recycled baby clothes and equipment to new mums. Tuesdays between 10 and 4pm for collections",
     "Website": "https://pramdepot.com/",
@@ -10994,7 +10864,7 @@
   },
   {
     "Organisation": "The Lloyd Park Centre Children’s Centre",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Waltham Forest",
     "Services": "Baby bank of needed items",
     "Website": "http://www.thelloydparkcentre.co.uk/index.php/current_projects/current_projects/current_projects",
@@ -11011,7 +10881,7 @@
   },
   {
     "Organisation": "The small project",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lambeth",
     "Services": "Baby clothes and equipment. Thursdays from 10am-2pm during term-time, no referral needed",
     "Website": "http://www.thesmallproject.org.uk/refer/",
@@ -11030,7 +10900,7 @@
   },
   {
     "Organisation": "Grow Baby",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Hackney",
     "Services": "Baby clothes and equipment.",
     "Website": "https://ivystreetfamilycentre.org.uk/growbaby/",
@@ -11049,8 +10919,8 @@
   },
   {
     "Organisation": "Grow Baby",
-    "Area": "South West",
-    "Borough": "Kingston",
+    "Area": "Swale",
+    "Borough": "Kingston upon Thames",
     "Services": "Baby clothes and equipment. Wednesdays from 9.30am-2.30pm, no referral needed",
     "Website": "http://www.kingstonvineyard.co.uk/growbaby-the-hub",
     "Clients": "Anyone who needs them",
@@ -11068,7 +10938,7 @@
   },
   {
     "Organisation": "Choices Islington",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Baby clothes and equipment, community mums group and one-to one befriending sessions, counselling, unplanned, prisons, abortion",
     "Website": "https://www.choicesislington.org/reservations/",
@@ -11085,7 +10955,7 @@
   },
   {
     "Organisation": "The Toy Project",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Islington",
     "Services": "Toys",
     "Website": "http://www.thetoyproject.co.uk/about.html",
@@ -11102,7 +10972,7 @@
   },
   {
     "Organisation": "AFRUCA Africans Unite Against Child Abuse",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Support for Children, Young People and Families, Information, education, and advisory services",
     "Website": "http://www.afruca.org",
@@ -11119,7 +10989,7 @@
   },
   {
     "Organisation": "Barnardo's",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Redbridge",
     "Services": "A vast range of services in the areas of: advocacy, alcohol and substance misuse, children in trouble with the lawm children leaving care, children seeking asylum, domestic violence, homelessness, mental health, sexual abuse, sexual exploitation, trafficked children, young carers, LGBTQ young people",
     "Website": "http://www.barnardos.org.uk/",
@@ -11136,7 +11006,7 @@
   },
   {
     "Organisation": "Bayswater Families Centre - Action for Children",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Westminster",
     "Services": "Families & vulnerable/excluded young people",
     "Website": "www.actionforchildren.org.uk",
@@ -11158,7 +11028,7 @@
   },
   {
     "Organisation": "Carers Trust",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Emotional/practical/financial support to carers",
     "Website": "https://carers.org/",
@@ -11175,7 +11045,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Tower Hamlets",
     "Services": "Advocacy",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/independent-advocacy-services",
@@ -11192,7 +11062,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Holistic Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -11209,7 +11079,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "South East",
+    "Area": "Swale",
     "Borough": "Lewisham",
     "Services": "Holistic Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -11226,7 +11096,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Holistic Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/family-voice",
@@ -11243,7 +11113,7 @@
   },
   {
     "Organisation": "Croydon Refugee Day Centre",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Children's Play Area (and other services)",
     "Website": "www.croydonrefugeedaycentre.co.uk",
@@ -11262,7 +11132,7 @@
   },
   {
     "Organisation": "Early Help Hounslow",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Advice on all aspects of family life",
     "Website": "http://fsd.hounslow.gov.uk/kb5/hounslow/fsd/service.page?id=OXP3DOlRCMY#contact_details",
@@ -11279,7 +11149,7 @@
   },
   {
     "Organisation": "Family Information Service",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Information on local services",
     "Website": "Search by region",
@@ -11296,7 +11166,7 @@
   },
   {
     "Organisation": "Hounslow Domestic violence ONE STOP SHOP",
-    "Area": "West",
+    "Area": "West London",
     "Borough": "Hounslow",
     "Services": "Child care matters, FGM",
     "Website": "http://www.younghounslow.info/kb5/hounslow/fsd/service.page?id=vPT74OhlEUQ",
@@ -11315,7 +11185,7 @@
   },
   {
     "Organisation": "Just for Kids Law",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Advocacy/Legal (see flyer in folder)",
     "Website": "http://www.justforkidslaw.org/",
@@ -11332,8 +11202,8 @@
   },
   {
     "Organisation": "Latin American House",
-    "Area": "North",
-    "Borough": "Kilburn",
+    "Area": "North London",
+    "Borough": "Brent",
     "Services": "Family Law Advice",
     "Website": "http://www.casalatina.org.uk/en/legal-and-social-advice/family-law.html",
     "Clients": "Latin American Cls",
@@ -11351,7 +11221,7 @@
   },
   {
     "Organisation": "Latin American House",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Welfare advice/creche/Saturday school",
     "Website": "http://www.casalatina.org.uk/en/",
@@ -11368,7 +11238,7 @@
   },
   {
     "Organisation": "London Welcome Project",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Lambeth",
     "Services": "Families",
     "Website": "http://londonwelcomeproject.org/",
@@ -11387,7 +11257,7 @@
   },
   {
     "Organisation": "New Horizon Youth Centre",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Camden",
     "Services": "Legal, housing, benefits, jobs, education",
     "Website": "http://nhyouthcentre.org.uk/",
@@ -11404,7 +11274,7 @@
   },
   {
     "Organisation": "NSPCC",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Hackney",
     "Services": "Therapy sessions and support services for children who have experienced sexual abuse, support services for children and young people who have been or are at risk of being sexually exploited, neglect services, children in care services, early intervention services, support services for families that live with domestic abuse",
     "Website": "https://www.nspcc.org.uk/",
@@ -11421,8 +11291,8 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "East",
-    "Borough": "Hackney ",
+    "Area": "East London",
+    "Borough": "Hackney",
     "Services": "Homelessness/Poverty",
     "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
     "Clients": "NRPF",
@@ -11440,7 +11310,7 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Haringey",
     "Services": "Homelessness/Poverty",
     "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
@@ -11459,7 +11329,7 @@
   },
   {
     "Organisation": "Refugee Council",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Adviceline",
     "Website": "http://www.refugeecouncil.org.uk/contact",
@@ -11476,7 +11346,7 @@
   },
   {
     "Organisation": "Shpresa",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Immigration, benefits, housing advice and advocacy, signposting for Albanian asylum-seekers and refugees, activities, schools and mentoring  for Albanian speaking children, support groups, therapy sessions and training for women, advice and advocacy for women victims of domestic violence.",
     "Website": "http://www.shpresaprogramme.com/index.html",
@@ -11493,7 +11363,7 @@
   },
   {
     "Organisation": "Strategic Legal Fund for Young Migrants",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Legal work on discrimination",
     "Website": "http://strategiclegalfund.org.uk/about/",
@@ -11510,7 +11380,7 @@
   },
   {
     "Organisation": "XLP",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Arts, Education, Mentoring and Advocacy",
     "Website": "http://www.xlp.org.uk/",
@@ -11526,27 +11396,8 @@
     "Categories": "Young People/Children"
   },
   {
-    "Organisation": "Young Roots",
-    "Area": "North West",
-    "Borough": "Willesden",
-    "Services": "Peer Support Project",
-    "Website": "http://youngroots.org.uk/london/peer-support-project/",
-    "Clients": "Students of the college",
-    "Days": [
-      "Thursday"
-    ],
-    "Process": "Call Young Roots for info",
-    "Email": "info@youngroots.org.uk",
-    "Postcode": "CR0 2XX",
-    "Address": "",
-    "Tel": "020 8684 9140",
-    "Project": "",
-    "Tag": "",
-    "Categories": "Young People/Children"
-  },
-  {
     "Organisation": "CARIS Haringey",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Haringey",
     "Services": "Family Day Centre",
     "Website": "www.carisharingey.org.uk/",
@@ -11565,7 +11416,7 @@
   },
   {
     "Organisation": "Alone in London",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Camden",
     "Services": "Advice on mediation and homelessness prevention",
     "Website": "http://www.aloneinlondon.org/",
@@ -11588,7 +11439,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Holistic Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/rise-project",
@@ -11605,7 +11456,7 @@
   },
   {
     "Organisation": "Children's Society",
-    "Area": "East",
+    "Area": "East London",
     "Borough": "Newham",
     "Services": "Holistic Support",
     "Website": "http://www.childrenssociety.org.uk/what-we-do/helping-children/stand-by-me",
@@ -11622,7 +11473,7 @@
   },
   {
     "Organisation": "Migrant Children's Project",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline",
     "Website": "www.childrenslegalcentre.com",
@@ -11645,8 +11496,8 @@
   },
   {
     "Organisation": "Project 17",
-    "Area": "North",
-    "Borough": "Islington ",
+    "Area": "North London",
+    "Borough": "Islington",
     "Services": "Homelessness/Poverty",
     "Website": "http://www.project17.org.uk/our-services/advice-and-advocacy/",
     "Clients": "NRPF",
@@ -11665,7 +11516,7 @@
   },
   {
     "Organisation": "Refugee Council",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "English Class",
     "Website": "http://www.refugeecouncil.org.uk/london_destitution_services",
@@ -11687,7 +11538,7 @@
   },
   {
     "Organisation": "Rights of Women",
-    "Area": "All",
+    "Area": "Any",
     "Borough": "All",
     "Services": "Telephone Adviceline (immigration, family)",
     "Website": "http://rightsofwomen.org.uk/",
@@ -11709,7 +11560,7 @@
   },
   {
     "Organisation": "Young Roots",
-    "Area": "North",
+    "Area": "North London",
     "Borough": "Brent",
     "Services": "Youth Group",
     "Website": "http://youngroots.org.uk/",
@@ -11728,7 +11579,7 @@
   },
   {
     "Organisation": "Young Roots",
-    "Area": "South",
+    "Area": "Swale",
     "Borough": "Croydon",
     "Services": "Peer Support Project",
     "Website": "http://youngroots.org.uk/london/peer-support-project/",

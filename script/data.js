@@ -9,10 +9,26 @@ function convertToJsonFile (data, fileName) {
   fs.writeFileSync(`${fileName}.json`, stringData)
 }
 
-// Arrays of days
+// Arrays of days 
 const days2 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const days3 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const days4 = ['Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays', 'Sundays'];
+
+// Areas
+const consistentArea = [
+  'North London', 'South London', 'West London', 'Central London' , 'East London', 'Any', 'Bristol',
+  'Canterbury', 'Online', 'Swale', 'Kent'
+];
+
+// Borough 
+const consistentBoro = [
+  "Barking and Dagenham", "Barnet", "Bexley" ,"Brent" ,"Bromley" ,"Camden" , 
+  "City of London","Croydon" , "Ealing" , "Enfield" , "Greenwich" , "Hackney" , 
+  "Hammersmith and Fulham" , "Haringey" , "Harrow" ,"Havering" ,"Hillingdon" , "Hounslow" ,  
+  "Islington" , "Kensington and Chelsea",  "Kingston upon Thames" , "Lambeth" ,  "Lewisham" , 
+  "Merton" , "Newham" , "Redbridge" ,"Richmond upon Thames" , "Southwark" , "Sutton" ,
+  "Tower Hamlets" ,"Waltham Forest" ,"Wandsworth" ,"Westminster", "All"
+]; 
 
 /*
 At the moment since the URL below has broken,we used the old
@@ -61,6 +77,7 @@ async function fetchedData() {
 }
 */
 
+const area = [];
 // Flat data fetched (fetchedData) from spreadsheet, add tag, categorie and projet fields
 // Make name of day field consistent
 const flat = () => {
@@ -82,6 +99,8 @@ const flat = () => {
             }
           }
           // Add new key field to every org
+          // el.map(org => )area.push(org.Area
+          area.push(el.Borough)
           el.Project = ''
           el.Tag = ''
           el.Categories = cat
@@ -96,9 +115,97 @@ const flat = () => {
   })
 }
 
-const flattenedData = flat();
+let flattenedData = flat();
 
-const finalData = flattenedData.map(categoryData => {
+// Update Area field input
+const updateOrgArea = flattenedData.map(orgs => orgs.map(org => {
+  let testArea;
+  for(let i = 0; i < consistentArea.length; i += 1){
+    if (org.Area.toLowerCase() === (consistentArea[i].toLocaleLowerCase())){
+    testArea = ( consistentArea[i] );
+  } else if(org.Area.toLowerCase().includes('all') || org.Area === 'London'){
+    testArea = ( 'Any');
+  }
+  else if(org.Area.toLowerCase() !== consistentArea[i].toLowerCase() && org.Area.toLowerCase().charAt(0) === consistentArea[i].toLowerCase().charAt(0) && !org.Area.includes('N/A')){
+    testArea = ( consistentArea[i] );
+  }  else if(org.Area.includes('N/A') || !org.Area){
+    testArea = ( 'N/A');
+  } else if(org.Area.includes('UK')){
+    testArea = ( 'UK');
+  } else if (org.Area.includes('Dagenham')){
+    testArea = ('East London')
+  }else if (org.Area.includes('Stockwell') || org.Area.includes('Croydon')){
+    testArea = ('South London')
+  }
+}
+return {...org, Area: testArea};
+})
+)
+
+// Update borough field input
+const updateOrgBorough = updateOrgArea.map(orgs => orgs.map(el=> {
+  let updateBorough;
+  for(let i = 0; i < consistentBoro.length; i += 1){
+    if (el && consistentBoro[i].toLowerCase().includes(el.Borough.toLowerCase())){
+      updateBorough = consistentBoro[i] ;
+    } else if (el.Borough.toLowerCase().includes(consistentBoro[i].toLowerCase())){
+      updateBorough = consistentBoro[i] ;
+    } 
+    else if (el.Borough.includes('Nationwide')){
+      updateBorough = 'Nationwide' ;
+    } else if (el.Borough.includes('Essex/\nEast London') || el.Borough.includes('Essex/East London')){
+      updateBorough = 'Essex East London' ;
+    } else if (el.Borough.includes('Deptford')){
+      updateBorough = 'Lewisham' ;
+    } else if (el.Borough.includes('Kilburn') || el.Borough.includes('Willesden') || el.Borough.includes('Willesdon') || el.Borough.includes('Wembley')){
+      updateBorough = 'Brent' ;
+    }  else if (el.Borough.includes('Old Street') ){
+      updateBorough = 'Islington' ;
+    } else if (el.Borough.includes('Canterbury') ){
+      updateBorough = 'Canterbury' ;
+    } else if (el.Borough.includes('Lynsted') || el.Borough.includes('Dartford')){
+      updateBorough = 'Kent' ;
+    } 
+    else if (el.Borough.includes('N/A') || !el){
+      updateBorough = 'N/A' ;
+    }  else if (el.Borough.includes('Hammersmith, Fulham, K & C, Barnes, Putney') || el.Borough.includes('Hammersmith & Fulham')){
+      updateBorough = 'Hammersmith and Fulham' ;
+    } else if (el.Borough.includes('Ladbroke Grove') || el.Borough.includes('Notting Hill') || el.Borough.includes('Kensington &\nChelsea')){
+      updateBorough = 'Kensington and Chelsea' ;
+    } else if (el.Borough.includes('Elephant and Castle') || el.Borough.includes('Dulwich') ){
+      updateBorough = 'Southwark' ; 
+    } else if (el.Borough.includes('Hertfordshire') ){
+      updateBorough = 'Hertfordshire' ;
+    } else if (el.Borough.includes('London and Surrey') ){ // to check later
+      updateBorough = 'London and Surrey' ; 'Farringdon/ Battersea'
+    } else if (el.Borough.includes('Farringdon/ Battersea') || el.Borough.includes('Battersea') ){ // to check later include  borough
+      updateBorough = 'Wandsworth' ; 
+    }else if (el.Borough.includes('Bristol') ){
+      updateBorough = 'Bristol' ;
+    } else if (el.Borough.includes('Across London') ){
+      updateBorough = 'Across London' ;  // To check later
+    } else if (el.Borough.includes('Wimbledon') ){
+      updateBorough = 'Merton' ;  // To check later
+    } else if (el.Borough.includes('Ilford') ){
+      updateBorough = 'Redbridge' ;  // To check later
+    } else if (el.Borough.includes('Barking & Dagenham') ){
+      updateBorough = 'Barking and Dagenham' ;  // To check later
+    } else if (el.Borough.includes('UK') ){
+      updateBorough = 'UK' ;  // To check later
+    }else if (el.Borough.includes('Wapping') ){
+      updateBorough = 'Tower Hamlets' ;  // To check later
+    } else if (el.Borough.includes('National') ){
+      updateBorough = 'National' ;  // To check later
+    }else if (el.Borough.includes('Pan London') ){
+      updateBorough = 'Pan London' ;  // To check later
+    }
+}
+return {...el, Borough: updateBorough};
+})
+)
+
+
+const finalData = updateOrgBorough.map(categoryData => {
   // create new array contain single category data
   const allData = [];
 
