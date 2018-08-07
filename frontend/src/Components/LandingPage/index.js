@@ -26,7 +26,6 @@ class LandingPage extends Component {
     this.props.messages.map(message => 
       message.type === 'loginError' ? 
         <Fragment key={message.id}>
-          {setTimeout(() => this.deleteMessage(),5000)}
           <FlashMessagesNotification 
             messageType='error' 
             message={message.text} 

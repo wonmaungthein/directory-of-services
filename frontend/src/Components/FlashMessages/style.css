@@ -31,6 +31,10 @@
     right: 0px;
     min-height: 50px;
   }
+
+  .container .auto-notification-delete{
+    display: none
+  }
   
   .container .success .close{
     font-family: Arial;

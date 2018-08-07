@@ -11,6 +11,9 @@ export default function FlashMessagesNotification(props) {
             {message}
             <i tabIndex={0} role="button" onClick={deleteMessage} onKeyPress={props.deleteMessage} className="close">×</i>
           </p>
+          <div className="auto-notification-delete">
+            {setTimeout(() => deleteMessage(),5000)}
+          </div>
         </div>
       </div>
     )

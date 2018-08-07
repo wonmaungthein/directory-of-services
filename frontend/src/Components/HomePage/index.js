@@ -24,7 +24,6 @@ class HomePage extends Component {
     this.props.messages.map(message => 
       message.type === 'LOGIN_SUCCESS' ? 
         <Fragment key={message.id}>
-          {setTimeout(() => this.deleteMessage(),5000)}
           <FlashMessagesNotification 
             messageType='success' 
             message={message.text} 
