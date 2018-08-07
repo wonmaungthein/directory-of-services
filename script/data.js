@@ -12,7 +12,7 @@ function convertToJsonFile (data, fileName) {
 // Arrays of days
 const days2 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const days3 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-const days4 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const days4 = ['Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays', 'Sundays'];
 
 /*
 At the moment since the URL below has broken,we used the old
@@ -196,7 +196,7 @@ const finalData = flattenedData.map(categoryData => {
       if ( days.toLowerCase().includes(days2[i].toLowerCase())) {
         for (let j = 0; j < days4.length; j++) {
           if (days4[j].includes(days2[i] )) {
-            daysHaveGoodFormat.push(days4[j])
+            daysHaveGoodFormat.push(days3[j])
           } 
         }
       }
