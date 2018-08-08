@@ -143,7 +143,7 @@ const finalData = flattenedData.map(categoryData => {
   
   // Get organizations name and borough
   const orgsNameAndBorough = []
-  dulicatedOrgs.map(org => {
+  duplicatedOrgs.map(org => {
     const { Organisation, Borough, Area } = org
     orgsNameAndBorough.push({ Organisation, Borough, Area })
   })
@@ -171,8 +171,8 @@ const finalData = flattenedData.map(categoryData => {
       if (
         duplicatedOrgs[i].Organisation.toLowerCase() ===
           item.Organisation.toLowerCase() &&
-        dulicatedOrgs[i].Borough.toLowerCase() === item.Borough.toLowerCase() &&
-        dulicatedOrgs[i].Area.toLowerCase() === item.Area.toLowerCase()
+        duplicatedOrgs[i].Borough.toLowerCase() === item.Borough.toLowerCase() &&
+        duplicatedOrgs[i].Area.toLowerCase() === item.Area.toLowerCase()
       ) {
         singleOrg.push(duplicatedOrgs[i])
       }
@@ -183,20 +183,20 @@ const finalData = flattenedData.map(categoryData => {
   // Move all days from each duplicated organization to one of them and return only one that have these days
   const updatedDuplicatedOrgs = []
 
-  const filteredDuplicatedOrgs = singleDuplicatedOrgs.map(org => {
+  singleDuplicatedOrgs.map(org => {
 
     // Check if there an organisation has more than day
     const  daysHaveGoodFormat = [];
     const daysHaveBadFormat = [];
 
-    const Days = org.map(singleOrg => {
+    org.map(singleOrg => {
       const days = singleOrg.Days
 
     for (let i = 0; i < days2.length; i++) {
       if ( days.toLowerCase().includes(days2[i].toLowerCase())) {
         for (let j = 0; j < days4.length; j++) {
           if (days4[j].includes(days2[i] )) {
-            daysHaveGoodFormat.push(days4[j])
+            daysHaveGoodFormat.push(days3[j])
           } 
         }
       }
