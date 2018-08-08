@@ -181,9 +181,15 @@ button.save-btn:hover{
   font-weight: 700;
 }
 
-.edit-content,
+div.edit-content,
 .edit-org-title {
-  padding: 0 1rem;
+  padding: 0 1.4rem;
+  margin-top: .5rem;
+}
+
+.edit-content .org-form {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 button.edit-org-close:focus,
@@ -192,11 +198,16 @@ button.edit-org-close:hover {
   outline: none;
 }
 
-.edit-org div + div { 
+.edit-org div:nth-child(2){ 
   min-height:4px;
   overflow-x: hidden;
+  width: 100%
 }
 
+.edit-org .org-close-btn button { 
+  width: 195%;
+  padding: 0;
+}
  .edit-org div + div::-webkit-scrollbar {
   width: .3rem;
   height: .2rem;
@@ -290,7 +301,8 @@ button.edit-org-close:hover {
 }
 
 .edit-content .location {
-  margin-top: .7rem; 
+  margin-top: .5rem;
+  margin-bottom: -1.5rem; 
 }
 
 .location-item {
@@ -339,7 +351,7 @@ button.edit-org-close:hover {
   width: 100%;
 }
 
-.edit-org .org-close-btn { margin-right: -42px;}
+.edit-org .org-close-btn { margin-right: 0px;}
 
 /*  edit organisation */
 div.mt .day,
@@ -353,6 +365,8 @@ div.mt .telephone { margin-top: -1rem;}
 .edit-day-field label {
 margin-top: 1rem;
 }
+
+div.edit-mode-btn { margin: 5px 8px;}
 
 @media (max-width: 551px){
   .org {

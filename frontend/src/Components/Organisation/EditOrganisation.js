@@ -389,7 +389,7 @@ class EditOrganisation extends React.Component {
               close={this.handleClose}
             />
           </DialogContent>
-          <DialogActions>
+          <DialogActions className="edit-mode-btn">
             <Button
               className="cancel-btn"
               onClick={this.handleClose}
