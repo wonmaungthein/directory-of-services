@@ -201,7 +201,8 @@ button.edit-org-close:hover {
 .edit-org div:nth-child(2){ 
   min-height:4px;
   overflow-x: hidden;
-  width: 100%
+  width: 100%;
+  max-width: 60vw;
 }
 
 .edit-org .org-close-btn button { 
@@ -245,7 +246,7 @@ button.edit-org-close:hover {
   font-size: 84%;
   font-weight: 400;
   color: #141414;
-  text-transform: capitalize;
+  overflow: hidden;
 }
 
 .add-new-org .day div label {
@@ -257,6 +258,8 @@ button.edit-org-close:hover {
 .org-form .mt {
   margin-top: 1.4rem;
 }
+
+.org-form .mt-last {margin-top: 0; }
 
 .org-form .margin-tel {margin-top: 1.2rem;}
 
