@@ -147,7 +147,7 @@ const OrganisationForm = (props) => {
         multiline
         rowsMax="4"
         name="Services"
-        value={props.service}
+        value={props.service.replace(/\s+/g, ' ')}
         onChange={props.onChange}
       />
       <TextFieldOrg
@@ -158,7 +158,7 @@ const OrganisationForm = (props) => {
         multiline
         rowsMax="4"
         name="Process"
-        value={props.process}
+        value={props.process.replace(/\s+/g, ' ')}
         onChange={props.onChange}
       />
       <Grid container spacing={24} className="mt">

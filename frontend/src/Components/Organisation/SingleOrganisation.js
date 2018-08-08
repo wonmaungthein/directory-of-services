@@ -70,14 +70,14 @@ class SingleOrganisation extends Component {
           </div>
           <div className="org-service">
             <h4>Services</h4> 
-            {org.service? <Fragment> <p className="service"> {org.service}</p></Fragment>: 
+            {org.service? <Fragment> <p className="service"> {org.service.replace(/\s+/g, ' ')}</p></Fragment>: 
             <p className="not-available">{uiMessage} services ...</p>}
           </div>
 
           <div className="org-process">
             <div>
               <h4>Process</h4>
-              {org.process ? <Fragment><p className="service">{org.process} </p> </Fragment> 
+              {org.process ? <Fragment><p className="service">{org.process.replace(/\s+/g, ' ')} </p> </Fragment> 
                 :<p className="not-available">{uiMessage} process ...</p>}
             </div>
             <div>
@@ -96,7 +96,7 @@ class SingleOrganisation extends Component {
 
             <div>
               <h4>Email</h4> 
-              {org.email_address? <Fragment><p>{org.email_address}</p></Fragment>
+              {org.email_address? <Fragment><p>{org.email_address.replace(/\s+/g, ' ')}</p></Fragment>
                   :<p className="not-available">{uiMessage} email ...</p>}
             </div>
           </div>
