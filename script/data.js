@@ -16,7 +16,7 @@ const days4 = ['Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Sat
 
 // Areas
 const consistentArea = [
-  'North London', 'South London', 'West London', 'Central London' , 'East London', 'Any', 'Bristol',
+  'North London', 'South London', 'West London', 'Central London' , 'East London', 'Anywhere', 'Bristol',
   'Canterbury', 'Online', 'Swale', 'Kent'
 ];
 
@@ -27,7 +27,7 @@ const consistentBoro = [
   "Hammersmith and Fulham" , "Haringey" , "Harrow" ,"Havering" ,"Hillingdon" , "Hounslow" ,  
   "Islington" , "Kensington and Chelsea",  "Kingston upon Thames" , "Lambeth" ,  "Lewisham" , 
   "Merton" , "Newham" , "Redbridge" ,"Richmond upon Thames" , "Southwark" , "Sutton" ,
-  "Tower Hamlets" ,"Waltham Forest" ,"Wandsworth" ,"Westminster", "All"
+  "Tower Hamlets" ,"Waltham Forest" ,"Wandsworth" ,"Westminster"
 ]; 
 
 /*
@@ -124,14 +124,16 @@ const updateOrgArea = flattenedData.map(orgs => orgs.map(org => {
     if (org.Area.toLowerCase() === (consistentArea[i].toLocaleLowerCase())){
     testArea = ( consistentArea[i] );
   } else if(org.Area.toLowerCase().includes('all') || org.Area === 'London'){
-    testArea = ( 'Any');
+    testArea = ( 'Anywhere');
   }
-  else if(org.Area.toLowerCase() !== consistentArea[i].toLowerCase() && org.Area.toLowerCase().charAt(0) === consistentArea[i].toLowerCase().charAt(0) && !org.Area.includes('N/A')){
+  else if(org.Area.toLowerCase() !== consistentArea[i].toLowerCase() && 
+  org.Area.toLowerCase().charAt(0) === consistentArea[i].toLowerCase().charAt(0) && 
+  !org.Area.includes('N/A')){
     testArea = ( consistentArea[i] );
   }  else if(org.Area.includes('N/A') || !org.Area){
     testArea = ( 'N/A');
   } else if(org.Area.includes('UK')){
-    testArea = ( 'UK');
+    testArea = ('UK(ALL)');
   } else if (org.Area.includes('Dagenham')){
     testArea = ('East London')
   }else if (org.Area.includes('Stockwell') || org.Area.includes('Croydon')){
@@ -146,14 +148,13 @@ return {...org, Area: testArea};
 const updateOrgBorough = updateOrgArea.map(orgs => orgs.map(el=> {
   let updateBorough;
   for(let i = 0; i < consistentBoro.length; i += 1){
+
+  // Handle case where borough is not explicetely define  
     if (el && consistentBoro[i].toLowerCase().includes(el.Borough.toLowerCase())){
       updateBorough = consistentBoro[i] ;
     } else if (el.Borough.toLowerCase().includes(consistentBoro[i].toLowerCase())){
       updateBorough = consistentBoro[i] ;
-    } 
-    else if (el.Borough.includes('Nationwide')){
-      updateBorough = 'Nationwide' ;
-    } else if (el.Borough.includes('Essex/\nEast London') || el.Borough.includes('Essex/East London')){
+    }  else if (el.Borough.includes('Essex/\nEast London') || el.Borough.includes('Essex/East London')){
       updateBorough = 'Essex East London' ;
     } else if (el.Borough.includes('Deptford')){
       updateBorough = 'Lewisham' ;
@@ -165,45 +166,57 @@ const updateOrgBorough = updateOrgArea.map(orgs => orgs.map(el=> {
       updateBorough = 'Canterbury' ;
     } else if (el.Borough.includes('Lynsted') || el.Borough.includes('Dartford')){
       updateBorough = 'Kent' ;
-    } 
-    else if (el.Borough.includes('N/A') || !el){
-      updateBorough = 'N/A' ;
-    }  else if (el.Borough.includes('Hammersmith, Fulham, K & C, Barnes, Putney') || el.Borough.includes('Hammersmith & Fulham')){
+    } else if (el.Borough.includes('Hammersmith, Fulham, K & C, Barnes, Putney') || 
+      el.Borough.includes('Hammersmith & Fulham')){
       updateBorough = 'Hammersmith and Fulham' ;
-    } else if (el.Borough.includes('Ladbroke Grove') || el.Borough.includes('Notting Hill') || el.Borough.includes('Kensington &\nChelsea')){
+    } else if (el.Borough.includes('Ladbroke Grove') || 
+      el.Borough.includes('Notting Hill') || 
+      el.Borough.includes('Kensington &\nChelsea')){
       updateBorough = 'Kensington and Chelsea' ;
-    } else if (el.Borough.includes('Elephant and Castle') || el.Borough.includes('Dulwich') ){
-      updateBorough = 'Southwark' ; 
+    } else if (el.Borough.includes('Elephant and Castle') || 
+      el.Borough.includes('Dulwich') ){
+      updateBorough = 'Southwark'; 
+    } else if (el.Borough.includes('Vauxhall')){
+      updateBorough = 'Lambeth'; 
     } else if (el.Borough.includes('Hertfordshire') ){
       updateBorough = 'Hertfordshire' ;
-    } else if (el.Borough.includes('London and Surrey') ){ // to check later
-      updateBorough = 'London and Surrey' ; 'Farringdon/ Battersea'
-    } else if (el.Borough.includes('Farringdon/ Battersea') || el.Borough.includes('Battersea') ){ // to check later include  borough
+    } else if (el.Borough.includes('Farringdon/ Battersea') || 
+      el.Borough.includes('Battersea') ){ // to check later include  borough
       updateBorough = 'Wandsworth' ; 
     }else if (el.Borough.includes('Bristol') ){
       updateBorough = 'Bristol' ;
-    } else if (el.Borough.includes('Across London') ){
-      updateBorough = 'Across London' ;  // To check later
-    } else if (el.Borough.includes('Wimbledon') ){
+    }  else if (el.Borough.includes('Wimbledon') ){
       updateBorough = 'Merton' ;  // To check later
     } else if (el.Borough.includes('Ilford') ){
       updateBorough = 'Redbridge' ;  // To check later
     } else if (el.Borough.includes('Barking & Dagenham') ){
       updateBorough = 'Barking and Dagenham' ;  // To check later
-    } else if (el.Borough.includes('UK') ){
-      updateBorough = 'UK' ;  // To check later
-    }else if (el.Borough.includes('Wapping') ){
+    } else if (el.Borough.includes('Wapping') ){
       updateBorough = 'Tower Hamlets' ;  // To check later
-    } else if (el.Borough.includes('National') ){
-      updateBorough = 'National' ;  // To check later
-    }else if (el.Borough.includes('Pan London') ){
-      updateBorough = 'Pan London' ;  // To check later
-    }
+    } 
+
+    // Case where borough is not defined
+    else if (el.Borough.includes('N/A') || !el.Borough){
+      updateBorough = 'N/A' 
+    } else if (el.Borough.includes('All')){
+      updateBorough = 'Anywhere' ;
+    } else if (el.Borough.includes('Across London') || 
+      el.Borough.includes('London and Surrey') || 
+      el.Borough.includes('Pan London')){
+      updateBorough = 'London(ALL)' ;
+    } else if (el.Borough.includes('National') ||
+      el.Borough.includes('UK') || 
+      el.Borough.includes('Nationwide')){
+    updateBorough = 'UK(ALL)' ;
+  }
 }
 return {...el, Borough: updateBorough};
 })
 )
-
+const x = []
+updateOrgArea.map(elt => elt.map(el => x.push(el.Area)
+))
+console.log([...new Set(x)]);
 
 const finalData = updateOrgBorough.map(categoryData => {
   // create new array contain single category data
@@ -218,7 +231,7 @@ const finalData = updateOrgBorough.map(categoryData => {
   for (let i = 0; i < categoryData.length; i++) {
     allData.push(categoryData[i])
     const orgNum = categoryData.filter(
-      item =>
+      item =>      
         item.Organisation.toLowerCase() ===
           categoryData[i].Organisation.toLowerCase() &&
         item.Borough.toLowerCase() === categoryData[i].Borough.toLowerCase() &&
@@ -227,7 +240,7 @@ const finalData = updateOrgBorough.map(categoryData => {
     if (
       allData[i].Organisation.toLowerCase() ===
         categoryData[i].Organisation.toLowerCase() &&
-      allData[i].Borough.toLowerCase() ===
+        allData[i].Borough.toLowerCase() ===
         categoryData[i].Borough.toLowerCase() &&
         allData[i].Area.toLowerCase() ===
         categoryData[i].Area.toLowerCase() &&
@@ -238,7 +251,7 @@ const finalData = updateOrgBorough.map(categoryData => {
     if (
       allData[i].Organisation.toLowerCase() ===
         categoryData[i].Organisation.toLowerCase() &&
-      allData[i].Borough.toLowerCase() ===
+        allData[i].Borough.toLowerCase() ===
         categoryData[i].Borough.toLowerCase() &&
         allData[i].Area.toLowerCase() ===
         categoryData[i].Area.toLowerCase() &&
