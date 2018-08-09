@@ -36,10 +36,9 @@ const OrganisationForm = (props) => {
 // map over checkdaylist and create a new array of days that includes
 // days from BE that meet the format uses on FE (days array), empty string, dash sign... will be exclude 
 // on checkbox list
-
   checkDaysList.forEach(myDay => {
-    days.forEach(el => {
-      if (myDay.includes(el)) {
+    props.day.forEach(el => {
+      if (el.includes(myDay)) {
         if(checkableDays.indexOf(myDay) === -1){
         checkableDays.push(myDay);
         }
@@ -168,7 +167,7 @@ const OrganisationForm = (props) => {
             <Select
               multiple
               className="mt-select"
-              value={props.day}
+              value={checkableDays}
               onChange={props.handleMulitySelectChange}
               input={<Input id="select-multiple-checkbox" />}
               // When day field is empty after editing the first element inside array will be empty string ('')
@@ -181,12 +180,12 @@ const OrganisationForm = (props) => {
                 </MenuItem> 
               }
          
-              {checkableDays.map(day => (
+              {days.map(day => (
                 <MenuItem
                   key={day}
                   value={day}
                 >
-                  {props.day.indexOf(day) > -1 ? <span className='icon-check' /> : null}
+                  {checkableDays.indexOf(day) > -1 ? <span className='icon-check' /> : null}
                   <ListItemText primary={day} />
                 </MenuItem>
               ))}
