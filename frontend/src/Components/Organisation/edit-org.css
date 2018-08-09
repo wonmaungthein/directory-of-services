@@ -138,7 +138,7 @@ button.edit-button:active {
 
 button.cancel-btn,
 button.save-btn {
-  padding: 6px 10px;
+  padding: 6px 12px;
   color: #fff;
   min-height: 5px;
   border-radius: 2px;
@@ -198,19 +198,19 @@ button.edit-org-close:hover {
   outline: none;
 }
 
-.edit-org div:nth-child(2){ 
+.edit-org div[role="document"]{ 
   min-height:4px;
   overflow-x: hidden;
   width: 100%;
-  max-width: 60vw;
+  max-width: 65vw;
 }
 
 .edit-org .org-close-btn button { 
-  width: 195%;
+  margin-right: -43px;
   padding: 0;
 }
  .edit-org div + div::-webkit-scrollbar {
-  width: .3rem;
+  width: .68rem;
   height: .2rem;
 }
 
@@ -354,7 +354,7 @@ button.edit-org-close:hover {
   width: 100%;
 }
 
-.edit-org .org-close-btn { margin-right: 0px;}
+.edit-org .org-close-btn { margin-right: 5px;}
 
 /*  edit organisation */
 div.mt .day,
@@ -369,7 +369,7 @@ div.mt .telephone { margin-top: -1rem;}
 margin-top: 1rem;
 }
 
-div.edit-mode-btn { margin: 5px 8px;}
+div.edit-mode-btn { margin: 0px 5px;}
 
 @media (max-width: 551px){
   .org {
