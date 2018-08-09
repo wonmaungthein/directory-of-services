@@ -213,10 +213,6 @@ const updateOrgBorough = updateOrgArea.map(orgs => orgs.map(el=> {
 return {...el, Borough: updateBorough};
 })
 )
-const x = []
-updateOrgArea.map(elt => elt.map(el => x.push(el.Area)
-))
-console.log([...new Set(x)]);
 
 const finalData = updateOrgBorough.map(categoryData => {
   // create new array contain single category data
