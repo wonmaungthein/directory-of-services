@@ -139,68 +139,66 @@ router.patch('/user/role', async (req, res) => {
 })
 
 router.post('/signup', async (req, res) => {
-  let {
-    password
-  } = req.body;
-  const {
-    fullname,
-    email,
-    organisation
-  } = req.body;
   try {
+    let {
+      password
+    } = req.body;
+    const {
+      fullname,
+      email,
+      organisation
+    } = req.body;
     if (email.length > 0 && password.length > 0) {
-      await getUserByEmail(email).then(user => {
-        if (user.length > 0) {
-          res.json({
-            success: false,
-            message: 'User is already found'
-          })
-        } else {
-          bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(password, salt, (error, hash) => {
-              if (error) {
-                throw error;
+      const user = await getUserByEmail(email)
+      if (user.length > 0) {
+        res.json({
+          success: false,
+          message: 'User is already found'
+        })
+      } else {
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(password, salt, (error, hash) => {
+            if (error) {
+              throw error;
+            }
+            password = hash;
+            addUser({
+              salt_password: password,
+              email,
+              fullname,
+              organisation
+            }).then(userData => {
+              if (userData) {
+                res.json({
+                  success: true,
+                  message: 'User is registered'
+                })
+              } else {
+                res.json({
+                  success: false,
+                  message: 'User is not registered'
+                })
               }
-              password = hash;
-              addUser({
-                salt_password: password,
-                email,
-                fullname,
-                organisation
-              }).then(userData => {
-                if (userData) {
-                  res.json({
-                    success: true,
-                    message: 'User is registered'
-                  })
-                } else {
-                  res.json({
-                    success: false,
-                    message: 'User is not registered'
-                  })
-                }
-              });
-            })
+            });
           })
-        }
-      })
-    } else {
-      res.json({
-        success: false,
-        message: 'You have to add email and password'
-      })
+        })
+      }
     }
   } catch (err) {
-    throw err
+    res.status(502).json({
+      success: false,
+      message: 'You have to add email and password!',
+      err
+    })
   }
 })
 
 router.post('/login', async (req, res) => {
-  const {
-    password,
-    email
-  } = req.body;
   try {
+    const {
+      password,
+      email
+    } = req.body;
     await getUserByEmail(email).then(userInfo => {
       if (userInfo.length <= 0) {
         res
@@ -241,7 +239,11 @@ router.post('/login', async (req, res) => {
       }
     })
   } catch (err) {
-    throw err
+    res.status(502).json({
+      success: false,
+      message: 'Your Password or email doesn\'t match!',
+      err
+    })
   }
 })
 
