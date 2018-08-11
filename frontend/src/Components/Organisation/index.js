@@ -44,11 +44,11 @@ class Organisations extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    const { oganisation } = newProps;
+    const { organisation } = newProps;
     this.setState({
       category: getSelectedCategory(newProps.match),
-      organisations: oganisation,
-      orgsBeforeFilteredByPostcode: oganisation
+      organisations: organisation,
+      orgsBeforeFilteredByPostcode: organisation
     });
   }
 
@@ -122,7 +122,7 @@ class Organisations extends Component {
     const { day, borough } = this.state;
     if (day.length > 0 && borough.length > 0) {
       return data.filter(orgs => {
-        const allDays = 
+        const allDays =
         orgs.service_days.includes('Monday') &&
         orgs.service_days.includes('Tuesday') &&
         orgs.service_days.includes('Wednesday') &&
@@ -130,29 +130,29 @@ class Organisations extends Component {
         orgs.service_days.includes('Friday') &&
         orgs.service_days.includes('Saturday') &&
         orgs.service_days.includes('Sunday');
-        
-        const allDaysWithMonToFriFormat = 
+
+        const allDaysWithMonToFriFormat =
         orgs.service_days.includes('Saturday') &&
         orgs.service_days.includes('Sunday') &&
         orgs.service_days.includes('Mon-Fri');
 
         // Check for five days of the week Monday to Friday
         const monToFri =  orgs.service_days.match('Mon-Fri');
-        const workingDays = (orgs.service_days.includes('Monday') && 
-          orgs.service_days.includes('Tuesday') && 
+        const workingDays = (orgs.service_days.includes('Monday') &&
+          orgs.service_days.includes('Tuesday') &&
           orgs.service_days.includes('Wednesday') &&
           orgs.service_days.includes('Thursday') &&
           orgs.service_days.includes('Friday')) ;
-        
-        return orgs.service_days.includes(day) || 
-            allDaysWithMonToFriFormat  || 
-            allDays || 
+
+        return orgs.service_days.includes(day) ||
+            allDaysWithMonToFriFormat  ||
+            allDays ||
             workingDays ||
             (monToFri && orgs.borough.includes(borough))
       })
     } else if (day.length > 0 && borough.length <= 0) {
       return data.filter(orgs => {
-        const allDays = 
+        const allDays =
         orgs.service_days.includes('Monday') &&
         orgs.service_days.includes('Tuesday') &&
         orgs.service_days.includes('Wednesday') &&
@@ -161,15 +161,15 @@ class Organisations extends Component {
         orgs.service_days.includes('Saturday') &&
         orgs.service_days.includes('Sunday');
 
-        const allDaysWithMonToFriFormat = 
+        const allDaysWithMonToFriFormat =
         orgs.service_days.includes('Saturday') &&
         orgs.service_days.includes('Sunday') &&
         orgs.service_days.includes('Mon-Fri');
 
         // Check for five days of the week Monday to Friday / handle when day = Mon-Fri
         const monToFri =  orgs.service_days.match('Mon-Fri');
-        const workingDays = (orgs.service_days.includes('Monday') && 
-          orgs.service_days.includes('Tuesday') && 
+        const workingDays = (orgs.service_days.includes('Monday') &&
+          orgs.service_days.includes('Tuesday') &&
           orgs.service_days.includes('Wednesday') &&
           orgs.service_days.includes('Thursday') &&
           orgs.service_days.includes('Friday')) ;
@@ -203,7 +203,6 @@ class Organisations extends Component {
   render() {
     const { category, postCode, borough, day, organisations } = this.state;
     const role = this.props.user.role ? this.props.user.role : '';
-
     if (this.state.isLoading || this.filterData.length === 0) {
       return <Spinner />
     }
@@ -229,7 +228,7 @@ class Organisations extends Component {
         />
         <Grid container className="organisation-page" spacing={24} wrap="wrap">
           {this.filterData(organisations.sort(this.dataOrder())).map(org => (
-            <Grid item xs={12} sm={6} key={org.id} className='card'> 
+            <Grid item xs={12} sm={6} key={org.id} className='card'>
               <OrganisationCard org={org} role={role} />
             </Grid>
           ))
@@ -242,7 +241,7 @@ class Organisations extends Component {
 
 function mapStateToProps(state) {
   return {
-    oganisation: state.filteredBranchsByCategory.branchs,
+    organisation: state.filteredBranchsByCategory.branchs,
     user: state.loginAuth.user
   }
 }
