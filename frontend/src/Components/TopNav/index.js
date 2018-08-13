@@ -14,7 +14,7 @@ import { logout } from '../../actions/loginActions'
 import './top-nav.css';
 import helpers from '../../helpers';
 import UserDropDown from '../Users/UserDropDown';
-import { getCategories } from '../../actions/getApiData';
+import categories from '../../Data/Categories.json';
 
 const drawerWidth = 240;
 
@@ -34,10 +34,6 @@ class TopNav extends Component {
     userDropDown: false,
   };
 
-  componentDidMount() {
-    this.props.getCategories();
-  }
-
   handleLogOut = (e) => {
     e.preventDefault();
     this.context.router.history.push('/')
@@ -53,9 +49,24 @@ class TopNav extends Component {
   renderUserDropDown = () =>
     this.state.userDropDown ? <UserDropDown handleLogOut={this.handleLogOut} /> : null;
 
+  renderCategories = () => {
+    const categoriesData = categories;
+    const index1 = categoriesData.indexOf("Destitution/NRPF");
+    const index2 = categoriesData.indexOf("Employment/Training/Volunteering");
+    const index3 = categoriesData.indexOf("Young People/Children");
+    if ((index1 !== -1 ) || (index2 !== -1) || (index3 !== -1)){
+      categoriesData[index1] = "Destitution";
+      categoriesData[index2] = "Employment";
+      categoriesData[index3] = "Young People and Children";
+    }
+    return categoriesData
+  }
+
   render() {
-    const { classes, addLink, titleLink, title, addOrg, user, homePage } = this.props;
-    const categoriesData = this.props.categories.categories ? this.props.categories.categories : [];
+    const { classes, addLink, titleLink, title, addOrg, homePage } = this.props;
+    const user = this.props.user.fullname ? this.props.user.fullname : '';
+    const role = this.props.user.role ? this.props.user.role : '';
+    const category = helpers.addSpace(this.renderCategories(), title)
     return (
       <AppBar className={classes.appBar}>
         <Toolbar>
@@ -69,9 +80,9 @@ class TopNav extends Component {
               >
                 {addOrg}
                 <Link to={`/${titleLink}`}>
-                  {helpers.addSpace(categoriesData, title)}
+                  {category}
                 </Link>
-                {addOrg || homePage ? null :
+                {addOrg || homePage || (role !== 'Admin' && role !== 'Editor') ? null :
                   (
                     <Link to={`/${addLink}`} className="add-orgnaization">
                       <Button
@@ -113,14 +124,14 @@ TopNav.contextTypes = {
   classes: PropTypes.object,
   logout: PropTypes.func,
   user: PropTypes.object,
-  getCategories: PropTypes.func,
 };
+
 function mapStateToProps(state) {
   return {
     messages: state.flashMessages,
-    user: state.loginAuth.user.fullname,
+    user: state.loginAuth.user,
     categories: state.categoriesList
   }
 }
 
-export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, { logout, getCategories })(TopNav));
+export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, { logout })(TopNav));

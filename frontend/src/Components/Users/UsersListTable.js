@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Table, {
@@ -85,11 +85,11 @@ class UsersListTable extends Component {
     };
     this.props.upDateUser(data)
     .then(user => {
-      if(user.status === 200) {
+      if(user && user.success) {
+        this.savedChangesSuccessfully(user.message);
         this.context.router.history.push('/users')
-        this.savedChangesSuccessfully(user.data.message);
       } else {
-        this.unSucessSavedChanges(user.data.message);
+        this.unSucessSavedChanges(user.message);
         
       }
     })
@@ -141,12 +141,6 @@ class UsersListTable extends Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
-  removeUser = index => {
-    this.setState(state => ({
-      data: state.data.filter((row, rowIndex) => rowIndex !== index),
-    }));
-  };
-
   startEditing = (index, data) => {
     this.setState({ 
       editIdx: index,
@@ -173,69 +167,70 @@ class UsersListTable extends Component {
     const emptyRows = null;
     const { editIdx } = this.state;
     return (
-      <Table className="users-table">
+      <Fragment>
         <NotificationSystem ref="savedChanges" />
-        <UsersTableHead
-          numSelected={selected.length}
-          order={order}
-          orderBy={orderBy}
-          onSelectAllClick={this.handleSelectAllClick}
-          onRequestSort={this.handleRequestSort}
-          rowCount={data.length}
-        />
-        <TableBody className="users-tbody">
-          {data
-            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map((row, index) => {
-              const currentlyEditing = editIdx === row.id;
-              return currentlyEditing ? (
-                <tr key={row.id}>
-                  <TableCell className="user-text">
-                    <TextField
-                      name="fullname"
-                      onChange={e => this.handleUserDataChange(e, row.id)}
-                      value={this.state.fullname}
-                    />
-                  </TableCell>
-                  <TableCell className="user-text">
-                    <TextField
-                      name="organisation"
-                      onChange={e => this.handleUserDataChange(e, row.id)}
-                      value={this.state.organisation}
-                    />
-                  </TableCell>
-                  <TableCell className="user-text">
-                    <FormControl className="form-control-filed">
-                      <Select
-                        open={this.state.open}
-                        onClose={this.handleClose}
-                        value={this.state.role}
+        <Table className="users-table">
+          <UsersTableHead
+            numSelected={selected.length}
+            order={order}
+            orderBy={orderBy}
+            onSelectAllClick={this.handleSelectAllClick}
+            onRequestSort={this.handleRequestSort}
+            rowCount={data.length}
+          />
+          <TableBody className="users-tbody">
+            {data
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map(row => {
+                const currentlyEditing = editIdx === row.id;
+                return currentlyEditing ? (
+                  <tr key={row.id}>
+                    <TableCell className="user-text">
+                      <TextField
+                        name="fullname"
                         onChange={e => this.handleUserDataChange(e, row.id)}
-                        inputProps={{
-                          name: 'role',
-                          id: 'controlled-open-select',
-                        }}
+                        value={this.state.fullname}
+                      />
+                    </TableCell>
+                    <TableCell className="user-text">
+                      <TextField
+                        name="organisation"
+                        onChange={e => this.handleUserDataChange(e, row.id)}
+                        value={this.state.organisation}
+                      />
+                    </TableCell>
+                    <TableCell className="user-text">
+                      <FormControl className="form-control-filed">
+                        <Select
+                          open={this.state.open}
+                          onClose={this.handleClose}
+                          value={this.state.role}
+                          onChange={e => this.handleUserDataChange(e, row.id)}
+                          inputProps={{
+                            name: 'role',
+                            id: 'controlled-open-select',
+                          }}
+                        >
+                          <MenuItem value="None">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value="Admin">Admin</MenuItem>
+                          <MenuItem value="Editor">Editor</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </TableCell>
+                    <TableCell className="user-text">
+                      <Button
+                        variant="raised"
+                        size="small"
+                        type="submit"
+                        className="edit-user-button"
+                        onClick={this.handleSubmit}
                       >
-                        <MenuItem value="None">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value="Admin">Admin</MenuItem>
-                        <MenuItem value="Editor">Editor</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </TableCell>
-                  <TableCell className="user-text">
-                    <Button
-                      variant="raised"
-                      size="small"
-                      type="submit"
-                      className="edit-user-button"
-                      onClick={this.handleSubmit}
-                    >
-                      <Save className="save" /> save
-                    </Button>
-                  </TableCell>
-                </tr>
+                        <Save className="save" /> save
+                      </Button>
+                    </TableCell>
+                  </tr>
               ) : (
                 <TableRow key={row.id}>
                   <TableCell className="user-text">{row.fullname}</TableCell>
@@ -249,42 +244,43 @@ class UsersListTable extends Component {
                     </Button>
                     <Notification
                       value={row.fullname}
-                      removeHandler={() => this.removeUser(index)}
                       title='USER'
+                      userId={row.id}
                     />
                   </TableCell>
                 </TableRow>
               );
             })}
-          {emptyRows > 0 && (
-            <TableRow
-              style={{
-                height: 49 * emptyRows,
-              }}
-            >
-              <TableCell colSpan={6} />
+            {emptyRows > 0 && (
+              <TableRow
+                style={{
+                  height: 49 * emptyRows,
+                }}
+              >
+                <TableCell colSpan={6} />
+              </TableRow>
+              )}
+          </TableBody>
+          <TableFooter className="users-tfoot">
+            <TableRow>
+              <TablePagination
+                colSpan={6}
+                count={data.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                backIconButtonProps={{
+                  'aria-label': 'Previous Page',
+                }}
+                nextIconButtonProps={{
+                  'aria-label': 'Next Page',
+                }}
+                onChangePage={this.handleChangePage}
+                onChangeRowsPerPage={this.handleChangeRowsPerPage}
+              />
             </TableRow>
-          )}
-        </TableBody>
-        <TableFooter className="users-tfoot">
-          <TableRow>
-            <TablePagination
-              colSpan={6}
-              count={data.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              backIconButtonProps={{
-                'aria-label': 'Previous Page',
-              }}
-              nextIconButtonProps={{
-                'aria-label': 'Next Page',
-              }}
-              onChangePage={this.handleChangePage}
-              onChangeRowsPerPage={this.handleChangeRowsPerPage}
-            />
-          </TableRow>
-        </TableFooter>
-      </Table>
+          </TableFooter>
+        </Table>
+      </Fragment>
     );
   }
 }

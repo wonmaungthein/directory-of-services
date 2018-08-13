@@ -6,6 +6,7 @@ import NotificationSystem from 'react-notification-system';
 import { getListOfUsers} from '../../actions/getApiData';
 import TopNav from '../TopNav';
 import AddUser from './AddUser';
+import UserProfile from './UserProfilePage'
 import UsersListTable from './UsersListTable';
 
 import './users.css';
@@ -45,13 +46,36 @@ class UsersPage extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    
+
   render() {
-    const users = this.props.listOfUsers.users ? this.props.listOfUsers.users.data : [] ;
+    const users = this.props.listOfUsers.users ? this.props.listOfUsers.users : [] ;
     let userForm;
-    const { params } = this.props.match;
+    let userList;
+    const params  = this.props.location.pathname;
+    const isAddUsersPage = params && params.includes('form');
+    const isProfile = params && params.includes('admindos');
     const { hideForm } = this.state;
-    const isAddUsersPage = params && params.form === 'add';
+    const result = users.map(user => (user.role));
+    if (result[0]=== 'Admin' ) {
+      userList = (
+        <UsersListTable
+          usersList={users}
+        />)
+    } else if(isProfile){
+      userList = (
+        <UsersListTable
+          usersList={users}
+        />)
+    }
+
+    else {
+      userList = (
+        <UserProfile
+          usersList={users}
+        />
+      );
+    }
+
     if (!isAddUsersPage) {
       userForm = null;
     } else {
@@ -68,16 +92,16 @@ class UsersPage extends Component {
           />
         </Fragment>
       );
+      userList = null;
     }
+
 
     return (
       <div className="users">
-        <TopNav title="USERS" addLink="users/add" titleLink="users" />
+        <TopNav title="USERS" addLink="users/form" titleLink="users" />
         {userForm}
         <NotificationSystem ref="savedChanges" />
-        <UsersListTable 
-          usersList={users} 
-        />
+        {userList}
         {hideForm ? <Redirect to="/users" /> : null}
       </div>
     );
