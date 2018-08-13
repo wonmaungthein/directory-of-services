@@ -6,58 +6,56 @@ import originalData from '../../data/data.json';
 Model.knex(knex);
 
 function seedData() {
-  for (let row = 0; row < originalData.length; row += 1) {
-    const { branches } = originalData[row];
-    for (let branch = 0; branch < branches.length; branch += 1) {
-      const branchData = {
-        org_name: originalData[row].name || '',
-        website: originalData[row].branches[0].Website || '',
-        branch: {
-          borough: branches[branch].Borough || '',
-          project: branches[branch].Project || '',
-          tag: branches[branch].Tag || '',
-          clients: branches[branch].Clients || '',
+  return originalData.map(row => {
+    const branchData = {
+      org_name: row.name || '',
+      website: row.branches[0].Website || '',
+      branch: row.branches.map(branch =>
+        ({
+          borough: branch.Borough || '',
+          project: branch.Project || '',
+          tag: branch.Tag || '',
+          clients: branch.Clients || '',
           service: [
             {
-              service: branches[branch].Services || '',
-              service_days: branches[branch].Days.join(',') || '',
-              process: branches[branch].Process || '',
+              service: branch.Services || '',
+              service_days: branch.Days.join(',') || '',
+              process: branch.Process || '',
               categories: [
                 {
-                  cat_name: branches[branch].Categories || ''
+                  cat_name: branch.Categories || ''
                 }
               ]
             }
           ],
           address: [
             {
-              area: branches[branch].Area || '',
-              address_line: branches[branch].Address || '',
-              postcode: branches[branch].Postcode || '',
-              email_address: branches[branch].Email || '',
-              telephone: `${branches[branch].Tel}` || '',
+              area: branch.Area || '',
+              address_line: branch.Address || '',
+              postcode: branch.Postcode || '',
+              email_address: branch.Email || '',
+              telephone: `${branch.Tel}` || '',
               location: [
                 {
-                  lat: `${branches[branch].lat}` || '',
-                  long: `${branches[branch].long}` || ''
+                  lat: `${branch.lat}` || '',
+                  long: `${branch.long}` || ''
                 }
               ]
             }
           ]
-        }
-      };
-      (async () => {
-        try {
-          return transaction(Organisation.knex(), async trx => {
-            const savedData = await Organisation.query(trx).insertGraph(branchData);
-            return savedData;
-          })
-        } catch (err) {
-          return err;
-        }
-      })();
+        }))
     }
-  }
+    return (async () => {
+      try {
+        return transaction(Organisation.knex(), async trx => {
+          const savedData = await Organisation.query(trx).insertGraph(branchData);
+          return savedData;
+        })
+      } catch (err) {
+        return err;
+      }
+    })();
+  })
 }
 
 module.exports = { seedData };

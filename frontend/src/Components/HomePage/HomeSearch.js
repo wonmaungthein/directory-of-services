@@ -57,9 +57,9 @@ class HomeSearch extends React.Component {
 
   componentWillReceiveProps(newProps) {
     const organisations = newProps.organisations
-      ? newProps.organisations.data
+      ? newProps.organisations
       : [];
-    const postcodes = newProps.organisations ? newProps.organisations.data
+    const postcodes = newProps.organisations ? newProps.organisations
       .map(org => {
       const postcode = { postCode: org.postcode }
       return postcode;
@@ -74,7 +74,14 @@ class HomeSearch extends React.Component {
   // allow user to press enter key for search
   handleKeyUp = (e) => {
     if (e.charCode === 13 || e.key === 'Enter') {
-      this.updateSearchData();
+      if (this.state.value.trim().length !== 0 && this.state.postcodeError.trim().length !== 0){
+          this.setState({postcodeError: ''});
+          this.updateSearchData();
+        } else if ((this.state.postCode.trim().length !== 0 && this.state.value.trim().length !== 0) ||
+            (this.state.postCode.trim().length === 0 && this.state.value.trim().length !== 0) ||
+            (this.state.postCode.trim().length !== 0 && this.state.value.trim().length === 0))  {
+            this.updateSearchData();
+        }
     }
   }
 
@@ -98,10 +105,9 @@ class HomeSearch extends React.Component {
     this.setState({ editIdx: -1 });
   };
 
-  // clear input value 
+  // clear input value
   clearSearchField = () => {
     this.setState({
-      search: '',
       value: '',
       isHidden: true,
     })
@@ -122,7 +128,12 @@ class HomeSearch extends React.Component {
     if (this.state.postCode.length === 0) {
       return null;
     } else if (this.state.postCode.length < 5) {
-      this.setState({ postcodeError: 'The postcode you have entered is invalid.' })
+      this.setState({
+        postcodeError: 'The postcode you have entered is incorrect.',
+        isLoading: false,
+        postCode: '',
+        postcodeValue: '',
+       })
     } else {
       const post = this.state.postCode.replace(/[' ']/g, '');
       this.setState({ isLoading: true, postcodeError: '' })
@@ -135,7 +146,7 @@ class HomeSearch extends React.Component {
           const long = info.longitude
           const getBranches = await this.props.getBranchesFilteredByPostCode({ lat, long })
           const orgsData = [];
-          getBranches.filter(resData => resData.distance)
+          getBranches.data
             .map(branchs => {
               const { distance } = branchs;
               const orgs = branchs.data;
@@ -145,13 +156,18 @@ class HomeSearch extends React.Component {
         })
         this.setState({ isLoading: false })
       } else {
-        this.setState({ postcodeError: 'Your postcode is incorrect', isLoading: false })
+        this.setState({
+          postcodeError: 'The postcode you have entered is incorrect.',
+          isLoading: false,
+          postCode: '',
+          postcodeValue: '',
+        })
       }
     }
   }
 
   updateSearchData = () => {
-    // Remove x sign uses to clear input when user start search 
+    // Remove x sign uses to clear input when user start search(value)
     this.setState({ search: this.state.value, isHidden: true})
     this.setState({ postcodeValue: this.state.postCode, isPostcode: false })
     this.handlePostSearch()
@@ -161,26 +177,26 @@ class HomeSearch extends React.Component {
     const { search, postcodeValue } = this.state;
     if (search && postcodeValue) {
       return orgs.filter(org => org.org_name.toLowerCase().includes(search.toLowerCase()) || org.borough.toLowerCase().includes(search.toLowerCase())
-        // return branches which service match or part of search 
+        // return branches which service match or part of search
         || search.toLowerCase().includes(org.service.toLowerCase())
         // return all branches which provide service on that day
         || org.service_days.toLowerCase().includes(search.toLowerCase())
         // return all branches if search match cat_name
         || org.cat_name.toLowerCase().includes(search.toLowerCase())
-        // return all branches if search tag match 
+        // return all branches if search tag match
         || org.tag.toLowerCase().includes(search.toLowerCase())
         // return all branches if search tag match
         || org.area.toLowerCase().includes(search.toLowerCase())
       )
     } else if (search) {
       return orgs.filter(org => org.org_name.toLowerCase().includes(search.toLowerCase()) || org.borough.toLowerCase().includes(search.toLowerCase())
-        // return branches which service match or part of search 
+        // return branches which service match or part of search
         || search.toLowerCase().includes(org.service.toLowerCase())
         // return all branches which provide service on that day
         || org.service_days.toLowerCase().includes(search.toLowerCase())
         // return all branches if search match cat_name
         || org.cat_name.toLowerCase().includes(search.toLowerCase())
-        // return all branches if search tag match 
+        // return all branches if search tag match
         || org.tag.toLowerCase().includes(search.toLowerCase())
         // return all branches if search tag match
         || org.area.toLowerCase().includes(search.toLowerCase())
@@ -245,109 +261,118 @@ class HomeSearch extends React.Component {
             </Grid>);
               })
               );
-    if (!this.props.match.url.includes('/users')) {
-      return (
-        <div>
-          <Grid container className="organisation-page" spacing={24}>
-            <Grid item xs={12} className="search-input">
-              <div className="search-text">
-                <Autosuggest
-                  theme={{
-                    container: classes.container,
-                    suggestionsContainerOpen: classes.suggestionsContainerOpen,
-                    suggestionsList: classes.suggestionsList,
-                    suggestion: classes.suggestion
-                  }}
-                  renderInputComponent={helpers.renderInput}
-                  suggestions={this.state.suggestions}
-                  onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
-                  onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
-                  renderSuggestionsContainer={helpers.renderSuggestionsContainer}
-                  getSuggestionValue={helpers.getMainSearchSuggestionValue}
-                  renderSuggestion={helpers.renderMainSearchSuggestion}
-                  inputProps={{
-                    classes,
-                    placeholder: 'Search by keyword',
-                    value: this.state.value,
-                    onChange: this.handleChange,
-                    onKeyUp: this.handleKeyUp
-                  }}
-                />
-                <button
-                  variant="raised"
-                  size="small"
-                  color="secondary"
-                  className={this.state.isHidden ? 'hidden' : 'clear-search'}
-                  onClick={this.clearSearchField}
-                >
-                  <i
-                    className="material-icons"
-                    size="small"
-                    variant="raised"
-                  >
-                    close
-                  </i>
-                </button>
-              </div>
-              <span className="postcode-field">
-                <Autosuggest
-                  theme={{
-                    container: classes.container,
-                    suggestionsContainerOpen: classes.suggestionsContainerOpen,
-                    suggestionsList: classes.suggestionsList,
-                    suggestion: classes.suggestion,
-                  }}
-                  className="post-code-suggesition"
-                  renderInputComponent={helpers.renderInput}
-                  suggestions={this.state.postcodeSuggestions}
-                  onSuggestionsFetchRequested={this.handleSuggestionsFetchRequestedPostcode}
-                  onSuggestionsClearRequested={this.handleSuggestionsClearRequestedPostcode}
-                  renderSuggestionsContainer={helpers.renderSuggestionsContainer}
-                  getSuggestionValue={helpers.getSuggestionValue}
-                  renderSuggestion={helpers.renderSuggestion}
-                  inputProps={{
-                    classes,
-                    placeholder: 'Enter postcode',
-                    name: 'postCode',
-                    value: this.state.postCode,
-                    onChange: this.handlePostCodeChange,
-                    onKeyUp: this.handleKeyUp
-                  }}
-                />
-                <button
-                  variant="raised"
-                  size="small"
-                  color="secondary"
-                  className={!this.state.isPostcode ? 'hidden' : 'clear-postcode'}
-                  onClick={this.clearPostcodeField}
-                >
-                  <i
-                    className="material-icons"
-                    size="small"
-                    variant="raised"
-                  >
-                    close
-                  </i>
-                </button>
-              </span>
-              <Button
-                onClick={this.updateSearchData}
-                variant="raised"
-                color="primary"
-                size="small"
-                className="btn-search"
-              >
-                Search
-              </Button>
-            </Grid>
-            
-            { this.state.postcodeError ? <span className="postcode-error">{this.state.postcodeError}</span>
-              : searchResult}
-          </Grid>
-        </div >
-      );
+    if (this.props.match.url.includes('/users') || this.props.match.url.includes('/admindos') ) {
+      return null
     }
-    return null;
+    return (
+      <div>
+        <Grid container className="organisation-page" spacing={24}>
+          <Grid item xs={12} className="search-input">
+            <div className="search-text">
+              <Autosuggest
+                theme={{
+                  container: classes.container,
+                  suggestionsContainerOpen: classes.suggestionsContainerOpen,
+                  suggestionsList: classes.suggestionsList,
+                  suggestion: classes.suggestion
+                }}
+                renderInputComponent={helpers.renderInput}
+                suggestions={this.state.suggestions}
+                onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
+                onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
+                renderSuggestionsContainer={helpers.renderSuggestionsContainer}
+                getSuggestionValue={helpers.getMainSearchSuggestionValue}
+                renderSuggestion={helpers.renderMainSearchSuggestion}
+                inputProps={{
+                  classes,
+                  placeholder: 'Search by keyword',
+                  value: this.state.value,
+                  onChange: this.handleChange,
+                  onKeyUp: this.handleKeyUp
+                }}
+              />
+              <button
+                variant="raised"
+                size="small"
+                color="secondary"
+                className={this.state.isHidden ? 'hidden' : 'clear-search'}
+                onClick={this.clearSearchField}
+              >
+                <i
+                  className="material-icons"
+                  size="small"
+                  variant="raised"
+                >
+                  close
+                </i>
+              </button>
+            </div>
+            <span className="postcode-field">
+              <Autosuggest
+                theme={{
+                  container: classes.container,
+                  suggestionsContainerOpen: classes.suggestionsContainerOpen,
+                  suggestionsList: classes.suggestionsList,
+                  suggestion: classes.suggestion,
+                }}
+                className="post-code-suggesition"
+                renderInputComponent={helpers.renderInput}
+                suggestions={this.state.postcodeSuggestions}
+                onSuggestionsFetchRequested={this.handleSuggestionsFetchRequestedPostcode}
+                onSuggestionsClearRequested={this.handleSuggestionsClearRequestedPostcode}
+                renderSuggestionsContainer={helpers.renderSuggestionsContainer}
+                getSuggestionValue={helpers.getSuggestionValue}
+                renderSuggestion={helpers.renderSuggestion}
+                inputProps={{
+                  classes,
+                  placeholder: 'Enter postcode',
+                  name: 'postCode',
+                  value: this.state.postCode,
+                  onChange: this.handlePostCodeChange,
+                  onKeyUp: this.handleKeyUp
+                }}
+              />
+              <button
+                variant="raised"
+                size="small"
+                color="secondary"
+                className={!this.state.isPostcode ? 'hidden' : 'clear-postcode'}
+                onClick={this.clearPostcodeField}
+              >
+                <i
+                  className="material-icons"
+                  size="small"
+                  variant="raised"
+                >
+                  close
+                </i>
+              </button>
+            </span>
+            <Button
+              onClick={this.updateSearchData}
+              variant="raised"
+              color="primary"
+              size="small"
+              className="btn-search"
+            >
+              Search
+            </Button>
+          </Grid>
+
+          { this.state.postcodeError ?
+            <Fragment>
+              <span className="postcode-error">
+                {this.state.postcodeError}
+              </span>
+              {searchResult}
+            </Fragment>
+            : searchResult}
+
+          { this.state.postcodeError ? <span className="postcode-error">{this.state.postcodeError}</span>
+            : searchResult}
+        </Grid>
+      </div >
+    );
   }
 }
 

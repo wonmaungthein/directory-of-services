@@ -4,13 +4,18 @@
 }
 
 .logo {
-    padding: .8em 0 .8em .8em;
     font-size: 2.5em;
+    display: grid;
+    grid-template-columns: 8fr 4fr;
 }
 
 .logo a {
     text-decoration: navajowhite;
     color: #95999c;
+    margin-left: .8em;
+    align-items: center;
+    display: flex;
+    height: 1.6em;
 }
 
 .draw-close-button {
