@@ -48,7 +48,7 @@ export function upDateUser(data) {
   const userEdited = async() => {
     try {
     const editUser = await axios
-    .patch(`${api}/user/role`, data);
+    .put(`${api}/user/role`, data);
      return editUser.data
     } catch (error) {
       return JSON.stringify(error);  
