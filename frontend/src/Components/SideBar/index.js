@@ -2,7 +2,6 @@ import React from 'react';
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import List from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
@@ -68,29 +67,25 @@ class SideBar extends React.Component {
 
   render() {
     const { classes, theme } = this.props;
-    const role = this.props.user.role ? this.props.user.role : '';
-
+    const role = localStorage.getItem('role')
     const drawer = (
       <div className="side-bar-scroll">
-        <Hidden mdUp>
-          <div className={classes.drawerHeader}>
-            <IconButton
-              className="draw-close-button"
-              onClick={this.handleDrawerClose}
-            >
-              {theme.direction === 'rtl' ? (
-                <ChevronRightIcon />
-              ) : (
-                <ChevronLeftIcon />
-                )}
-            </IconButton>
-          </div>
-        </Hidden>
-        <Hidden smDown>
-          <div className={classes.drawerHeader} />
-        </Hidden>
         <div className="logo">
           <Link to="/home">LOGO</Link>
+          <Hidden mdUp>
+            <div className={classes.drawerHeader}>
+              <IconButton
+                className="draw-close-button"
+                onClick={this.handleDrawerClose}
+              >
+                {theme.direction === 'rtl' ? (
+                  <ChevronRightIcon />
+                ) : (
+                  <ChevronLeftIcon />
+                  )}
+              </IconButton>
+            </div>
+          </Hidden>
         </div>
         <Divider />
         <Categories />
@@ -148,15 +143,8 @@ class SideBar extends React.Component {
 }
 
 SideBar.propTypes = {
-  user: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired
 }
 
-function mapStateToProps({ loginAuth }) {
-  return {
-    user: loginAuth.user
-  }
-}
-
-export default withStyles(styles, { withTheme: true })(connect(mapStateToProps)(SideBar));
+export default withStyles(styles, { withTheme: true })(SideBar);

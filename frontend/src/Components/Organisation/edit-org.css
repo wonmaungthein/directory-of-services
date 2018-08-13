@@ -4,8 +4,6 @@
   padding: .4rem 0 0 .8rem;
 }
 
-p.service { text-transform: capitalize; }
-
 .edit-org .website-label input:nth-child(1){
   color: #519889 !important;
 }
@@ -138,7 +136,7 @@ button.edit-button:active {
 
 button.cancel-btn,
 button.save-btn {
-  padding: 6px 10px;
+  padding: 6px 12px;
   color: #fff;
   min-height: 5px;
   border-radius: 2px;
@@ -181,9 +179,15 @@ button.save-btn:hover{
   font-weight: 700;
 }
 
-.edit-content,
+div.edit-content,
 .edit-org-title {
-  padding: 0 1rem;
+  padding: 0 1.4rem;
+  margin-top: .5rem;
+}
+
+.edit-content .org-form {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 button.edit-org-close:focus,
@@ -192,13 +196,19 @@ button.edit-org-close:hover {
   outline: none;
 }
 
-.edit-org div + div { 
+.edit-org div[role="document"]{ 
   min-height:4px;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 65vw;
 }
 
+.edit-org .org-close-btn button { 
+  margin-right: -43px;
+  padding: 0;
+}
  .edit-org div + div::-webkit-scrollbar {
-  width: .3rem;
+  width: .68rem;
   height: .2rem;
 }
 
@@ -234,7 +244,7 @@ button.edit-org-close:hover {
   font-size: 84%;
   font-weight: 400;
   color: #141414;
-  text-transform: capitalize;
+  overflow: hidden;
 }
 
 .add-new-org .day div label {
@@ -246,6 +256,8 @@ button.edit-org-close:hover {
 .org-form .mt {
   margin-top: 1.4rem;
 }
+
+.org-form .mt-last {margin-top: 0; }
 
 .org-form .margin-tel {margin-top: 1.2rem;}
 
@@ -290,7 +302,8 @@ button.edit-org-close:hover {
 }
 
 .edit-content .location {
-  margin-top: .7rem; 
+  margin-top: .5rem;
+  margin-bottom: -1.5rem; 
 }
 
 .location-item {
@@ -339,7 +352,7 @@ button.edit-org-close:hover {
   width: 100%;
 }
 
-.edit-org .org-close-btn { margin-right: -42px;}
+.edit-org .org-close-btn { margin-right: 5px;}
 
 /*  edit organisation */
 div.mt .day,
@@ -353,6 +366,8 @@ div.mt .telephone { margin-top: -1rem;}
 .edit-day-field label {
 margin-top: 1rem;
 }
+
+div.edit-mode-btn { margin: 0px 5px;}
 
 @media (max-width: 551px){
   .org {
