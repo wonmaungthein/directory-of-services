@@ -37,10 +37,9 @@ const OrganisationForm = (props) => {
 // map over checkdaylist and create a new array of days that includes
 // days from BE that meet the format uses on FE (days array), empty string, dash sign... will be exclude
 // on checkbox list
-
   checkDaysList.forEach(myDay => {
-    days.forEach(el => {
-      if (myDay.includes(el)) {
+    props.day.forEach(el => {
+      if (el.includes(myDay)) {
         if(checkableDays.indexOf(myDay) === -1){
         checkableDays.push(myDay);
         }
@@ -56,7 +55,7 @@ const OrganisationForm = (props) => {
         label="Organisation name"
         name="Organisation"
         multiline
-        rowsMax="4"
+        rowsMax="12"
         value={props.name}
         onChange={props.onChange}
         fullWidth
@@ -120,7 +119,7 @@ const OrganisationForm = (props) => {
             placeholder="Add project..."
             name="project"
             multiline
-            rowsMax="4"
+            rowsMax="12"
             value={props.project}
             onChange={props.onChange}
             fullWidth
@@ -133,7 +132,7 @@ const OrganisationForm = (props) => {
             label="Client Accepted"
             name="clients"
             multiline
-            rowsMax="4"
+            rowsMax="12"
             value={props.clients}
             onChange={props.onChange}
             fullWidth
@@ -146,7 +145,7 @@ const OrganisationForm = (props) => {
         className="mt"
         fullWidth
         multiline
-        rowsMax="4"
+        rowsMax="12"
         name="Services"
         value={props.service}
         onChange={props.onChange}
@@ -157,7 +156,7 @@ const OrganisationForm = (props) => {
         placeholder="Add process..."
         fullWidth
         multiline
-        rowsMax="4"
+        rowsMax="12"
         name="Process"
         value={props.process}
         onChange={props.onChange}
@@ -169,7 +168,7 @@ const OrganisationForm = (props) => {
             <Select
               multiple
               className="mt-select"
-              value={props.day}
+              value={checkableDays}
               onChange={props.handleMulitySelectChange}
               input={<Input id="select-multiple-checkbox" />}
               // When day field is empty after editing the first element inside array will be empty string ('')
@@ -187,7 +186,7 @@ const OrganisationForm = (props) => {
                   key={day}
                   value={day}
                 >
-                  {props.day.indexOf(day) > -1 ? <span className='icon-check' /> : null}
+                  {checkableDays.indexOf(day) > -1 ? <span className='icon-check' /> : null}
                   <ListItemText primary={day} />
                 </MenuItem>
               ))}
@@ -204,7 +203,7 @@ const OrganisationForm = (props) => {
             label="Telephone"
             name="Tel"
             multiline
-            rowsMax="4"
+            rowsMax="12"
             value={props.telephone && props.telephone !== 'undefined'? props.telephone : ''}
             onChange={props.onChange}
             fullWidth
@@ -219,7 +218,7 @@ const OrganisationForm = (props) => {
             label="Email"
             name="Email"
             multiline
-            rowsMax="4"
+            rowsMax="12"
             value={props.email}
             onChange={props.onChange}
             fullWidth
@@ -232,14 +231,14 @@ const OrganisationForm = (props) => {
             label="Website"
             name="Website"
             multiline
-            rowsMax="4"
+            rowsMax="12"
             value={props.website}
             onChange={props.onChange}
             fullWidth
           />
         </Grid>
       </Grid>
-      <Grid container spacing={24} className="mt">
+      <Grid container spacing={24} className="mt mt-last">
         <Grid item xs={12} sm={6}>
           <TextFieldOrg
             className="mt"
@@ -247,7 +246,7 @@ const OrganisationForm = (props) => {
             placeholder="Add postcode..."
             name="postcode"
             multiline
-            rowsMax="4"
+            rowsMax="12"
             value={props.postcode}
             onChange={props.onChange}
             fullWidth
@@ -260,7 +259,7 @@ const OrganisationForm = (props) => {
             placeholder="Add tags..."
             name="tag"
             multiline
-            rowsMax="4"
+            rowsMax="12"
             value={props.tag}
             onChange={props.onChange}
             fullWidth

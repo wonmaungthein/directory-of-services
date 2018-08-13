@@ -5,53 +5,12 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NotificationSystem from 'react-notification-system';
-import OrganisationForm from './OrganisationForm';
 import { editOrganisation } from '../../actions/postData';
+import OrganisationForm from './OrganisationForm';
+import orgHelpers from './orgHelpers';
 import helpers from '../../helpers';
 import Spinner from '../Spinner';
 import './edit-org.css';
-
-const composedCategories = [
-  'Gender Based Violence',
-  'Mental Health Services',
-  'Social and Other',
-  'Baby Equipment'
-]; 
-
-const nonComposedCategories = [
-  'Debt',
-  'Trafficking',
-  "LGBTQI",
-  'Healthcare',
-  'Education',
-  'Benefits',
-  'Families',
-  'Housing',
-  'Immigration',
-  'Women',
-  'Employment',
-  'Destitution'
-];
-
-// Categries format in FE
-const checkCategories = [ 
-'Debt',
-'Trafficking',
-'Destitution',
-'LGBTQI',
-'Healthcare',
-'Education',
-'Benefits',
-'Employment',
-'Families',
-'Gender Based Violence',
-'Housing',
-'Immigration',
-'Mental Health Services',
-'Social and Other',
-'Women',
-'Baby Equipment',
-];
 
 class EditOrganisation extends React.Component {
     state = {
@@ -83,7 +42,7 @@ class EditOrganisation extends React.Component {
     const data = this.props.org;
     if (data) {
       const categories = [];
-      
+      const { checkCategories } = orgHelpers;
       // Data.cat_name.length is 1 => all category represents a single item 
       // So made a new array where each category is an individual item of the array
       for (let i = 0; i < checkCategories.length; i += 1) {
@@ -107,7 +66,7 @@ class EditOrganisation extends React.Component {
         Borough: data.borough,
         Services: data.service,
         Process: data.process,
-        Day: data.service_days.split(' '),
+        Day: data.service_days.split(','),
         Tel: data.telephone,
         Email: data.email_address,
         Website: data.website,
@@ -193,56 +152,7 @@ class EditOrganisation extends React.Component {
 
   handleCheckBox = event => {
     const listOfCategories = [...this.state.Categories];
-    let index;
-    for(let i = 0; i < composedCategories.length; i += 1) {
-  // Case where category is checked and category's name is composed
-    if(event.target.checked && composedCategories[i].split(' ').join('').includes(event.target.value)) {
-      if(listOfCategories.indexOf(composedCategories[i]) === -1) { 
-        listOfCategories.push(composedCategories[i]);              
-      }
-    } 
-        
-  // Case where category is not checked and category's name is composed
-    if(!event.target.checked && event.target.value.includes(composedCategories[i].split(' ').join(''))) { 
-      if(listOfCategories.indexOf(composedCategories[i]) > -1) {
-        index = listOfCategories.indexOf(composedCategories[i])
-        listOfCategories.splice(index, 1)             
-        }
-      } 
-    }
-
- // Special case 
- // Young people
-    if ( event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))){
-      if(listOfCategories.indexOf('Young People and Children') === -1 || listOfCategories.indexOf('Young People/Children') === -1  ) {
-          listOfCategories.push('Young People/Children')
-        }
-    }
-
-    if ( !event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))){
-      if(listOfCategories.includes('Young People and Children') || listOfCategories.includes('Young People/Children')) {        
-        index = listOfCategories.indexOf('Young People and Children') || listOfCategories.indexOf('Young People/Children');
-        listOfCategories.splice(index, 1);
-      } 
-    }  
-
-    //  nonComposedCategories name
-    for(let i = 0; i < nonComposedCategories.length; i += 1) {
-    // Case where category is checked and category's name is not composed    
-      if(event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
-        if(listOfCategories.indexOf(event.target.value) === -1 ) {
-          listOfCategories.push(event.target.value);              
-        } 
-      }
-
-    // Case where category is not checked and category's name is not composed
-      if(!event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
-        if(listOfCategories.indexOf(event.target.value) > -1) {
-          index = listOfCategories.indexOf(event.target.value)
-          listOfCategories.splice(index, 1)
-        }
-      }
-    } 
+    orgHelpers.handleCheckBoxProcess(event, listOfCategories)
     this.setState({
       [event.target.name]: event.target.checked,
       Categories: [...new Set(listOfCategories)],
@@ -252,57 +162,7 @@ class EditOrganisation extends React.Component {
   // Default checkbox selected
   handleDefaultCheckbox = event => { 
     const listOfCategories = [...this.state.Categories];
-    let index;    
-    for(let i = 0; i < composedCategories.length; i += 1) {
-  // Case where category is checked and category's name is composed
-    if(event.target.checked && composedCategories[i].includes(event.target.value)) {
-      if(listOfCategories.indexOf(composedCategories[i]) === -1) { 
-        listOfCategories.push(composedCategories[i]); 
-      } 
-    } 
-        
-  // Case where category is not checked and category's name is composed
-    if(!event.target.checked && event.target.value.includes(composedCategories[i])) { 
-      if(listOfCategories.indexOf(composedCategories[i]) > -1) {
-        index = listOfCategories.indexOf(composedCategories[i])
-        listOfCategories.splice(index, 1);
-        }
-      } 
-    }
-
-// Special case 
-// Young people
-    if ( event.target.checked && event.target.value.includes('Young People and Children')){  
-      if(listOfCategories.indexOf('Young People and Children') === -1 || listOfCategories.indexOf('Young People/Children') === -1 ) {
-          listOfCategories.push('Young People/Children');
-        }
-    }
-
-    if ( !event.target.checked && event.target.value.includes('Young People and Children')){
-      if(listOfCategories.includes('Young People and Children') || listOfCategories.includes('Young People/Children')) {        
-        index = listOfCategories.indexOf('Young People and Children') || listOfCategories.indexOf('Young People/Children');
-        listOfCategories.splice(index, 1);
-      } 
-    }  
-      
-  // nonComposedCategories name
-    for(let i = 0; i < nonComposedCategories.length; i += 1) {
-    // Case where category is checked and category's name is not composed
-      if(event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
-        if(listOfCategories.indexOf(event.target.value) === -1 ) {
-          listOfCategories.push(event.target.value);              
-        } 
-      }
-
-    // Case where category is not checked and category's name is not composed
-      if(!event.target.checked && event.target.value.includes(nonComposedCategories[i].split(' ').join(''))){
-        if(listOfCategories.indexOf(event.target.value) > -1) {
-          index = listOfCategories.indexOf(event.target.value)
-          listOfCategories.splice(index, 1)
-        }
-      }
-    }
-
+    orgHelpers.handleDefaultCheckboxProcess(event, listOfCategories)
     this.setState({
       [event.target.name]: event.target.value,
       Categories: [...new Set(listOfCategories)],
@@ -389,7 +249,7 @@ class EditOrganisation extends React.Component {
               close={this.handleClose}
             />
           </DialogContent>
-          <DialogActions>
+          <DialogActions className="edit-mode-btn">
             <Button
               className="cancel-btn"
               onClick={this.handleClose}

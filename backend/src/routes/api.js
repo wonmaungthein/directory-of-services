@@ -83,7 +83,7 @@ router.post('/organisation/add', async (req, res) => {
   }
 })
 
-router.patch('/organisation/edit', async (req, res) => {
+router.put('/organisation/edit', async (req, res) => {
   const { branchId } = req.body;
   const { orgId } = req.body;
   const data = req.body;

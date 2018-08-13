@@ -139,16 +139,17 @@ router.put('/user/role', async (req, res) => {
 })
 
 router.post('/signup', async (req, res) => {
-  let {
-    password
-  } = req.body;
-  const {
-    fullname,
-    email,
-    organisation
-  } = req.body;
-  if (email.length > 0 && password.length > 0) {
-    await getUserByEmail(email).then(user => {
+  try {
+    let {
+      password
+    } = req.body;
+    const {
+      fullname,
+      email,
+      organisation
+    } = req.body;
+    if (email.length > 0 && password.length > 0) {
+      const user = await getUserByEmail(email)
       if (user.length > 0) {
         res.json({
           success: false,
@@ -182,21 +183,22 @@ router.post('/signup', async (req, res) => {
           })
         })
       }
-    })
-  } else {
-    res.json({
+    }
+  } catch (err) {
+    res.status(502).json({
       success: false,
-      message: 'You have to add email and password'
+      message: 'You have to add email and password!',
+      err
     })
   }
 })
 
 router.post('/login', async (req, res) => {
-  const {
-    password,
-    email
-  } = req.body;
   try {
+    const {
+      password,
+      email
+    } = req.body;
     await getUserByEmail(email).then(userInfo => {
       if (userInfo.length <= 0) {
         res
@@ -237,7 +239,11 @@ router.post('/login', async (req, res) => {
       }
     })
   } catch (err) {
-    throw err
+    res.status(502).json({
+      success: false,
+      message: 'Your Password or email doesn\'t match!',
+      err
+    })
   }
 })
 
