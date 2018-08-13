@@ -10,18 +10,19 @@ import Dialog, {
   DialogTitle,
   withMobileDialog,
 } from 'material-ui/Dialog';
-import { deleteUser } from '../../actions/postData';
+import { deleteBranch, deleteUser } from '../../actions/postData';
 import './users.css'
 
 class Notification extends React.Component {
   constructor(props){
-    super(props);
-    this.state = {
-      open: false,
-      userId: props.userId,
-      notificationSystem: null,
+    super(props);	    
+      this.state = {
+        open: false,
+        userId: props.userId,
+        branchIds: props.branchIds,
+        notificationSystem: null,
+      }
     }
-  }
 
   componentDidMount() {
     this.setState({
@@ -36,7 +37,7 @@ class Notification extends React.Component {
       level: 'success',
     });
   }
-
+  
   notDeletedSuccessfully = (message) => {
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
@@ -55,25 +56,48 @@ class Notification extends React.Component {
 
   handleDelete = (e) => {
     e.preventDefault()
-    const { userId } = this.state;
+    const { branchIds, userId } = this.state;
+
+    if (this.props.deleteOrg) {
+      this.props.deleteBranch(branchIds)
+      .then(deletedBranch => {
+        if (deletedBranch && deletedBranch.success) {
+          this.deletedSuccessfully(deletedBranch.message)
+          this.context.router.history.push(`${this.props.match.url}`)
+        }else{
+          this.notDeletedSuccessfully(deletedBranch.message)
+          this.context.router.history.push(`${this.props.match.url}`)
+        }
+      })
+    }else{
     this.props.deleteUser(userId)
     .then(deletedUser => {
       if (deletedUser && deletedUser.success) {
         this.deletedSuccessfully(deletedUser.message)
-        this.context.router.history.push('/users')
+        this.context.router.history.push('/admindos')
       }else{
         this.notDeletedSuccessfully(deletedUser.message)
-        this.context.router.history.push('/users')
+        this.context.router.history.push('/admindos')
       }
     })
+    }
   };
 
-  checkComponentLink = () =>
-    (
-      <Button onClick={this.handleClickOpen} raised="true" >
+  checkComponentLink = () =>{
+    const { url } = this.props.match;
+    // // Add different style to delete button 
+    return  (
+      <Button 
+        variant={url.includes('admindos') ? null : 'fab'} 
+        color={url.includes('admindos') ? null :  'secondary'}
+        className={url.includes('admindos') ? null : 'delete'} 
+        onClick={this.handleClickOpen}
+        raised="true"
+      >
         <i className="material-icons">delete</i>
       </Button>
     )
+  }
 
   render() {
     return (
@@ -97,7 +121,7 @@ class Notification extends React.Component {
                 Cancel
               </Button>
               <Button onClick={this.handleDelete} variant="raised" color="secondary">
-                Delete
+                Yes
               </Button>
             </DialogActions>
           </DialogContent>
@@ -108,6 +132,7 @@ class Notification extends React.Component {
 }
 
 Notification.propTypes = {
+  deleteBranch: PropTypes.func.isRequired,
   deleteUser: PropTypes.func.isRequired
 }
 
@@ -115,4 +140,4 @@ Notification.contextTypes = {
   router: PropTypes.object.isRequired,
 }
 
-export default withMobileDialog()(connect(null, { deleteUser })(withRouter(props => <Notification {...props} />)));
+export default withMobileDialog()(connect(null, { deleteUser, deleteBranch })(withRouter(props => <Notification {...props} />)));

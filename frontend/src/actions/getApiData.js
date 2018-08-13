@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { FILTERED_BRANCHS_BY_CATEGORY,  LIST_OF_ORGANISATIONS, LIST_OF_USERS } from './types';
+import helpers from '../helpers';
 
 const api = process.env.REACT_APP_API_URL || process.env.REACT_APP_LOCALHOST_API_URL;
 
@@ -11,10 +12,15 @@ export function setGetBranchsByCategory(branchs) {
 }
 
 export function getBranchsByCategory(category) {
-  return dispatch => {
-    axios.get(`${api}/service/category/?category=${category}`)
-      .then(branchs => dispatch(setGetBranchsByCategory(branchs.data)))
+  const sendInfo = async (dispatch) => {
+    try {
+      const res = await axios.get(`${api}/service/category/?category=${category}`)
+      return dispatch(setGetBranchsByCategory(res.data))
+    } catch (error) {
+      return helpers.errorParser(error)
+    }
   }
+  return sendInfo
 }
 
 export function setOrganisationsList(organisations) {
@@ -25,10 +31,15 @@ export function setOrganisationsList(organisations) {
 }
 
 export function getOrganisationsList(){
-  return dispatch => {
-    axios.get(`${api}/service/all`)
-    .then(all => dispatch(setOrganisationsList(all.data)))
+  const sendInfo = async (dispatch) => {
+    try {
+      const res = await axios.get(`${api}/service/all`)
+      return dispatch(setOrganisationsList(res.data))
+    } catch (error) {
+      return helpers.errorParser(error)
+    }
   }
+  return sendInfo
 }
 
 export function setListOfUsers(users) {
@@ -39,9 +50,13 @@ export function setListOfUsers(users) {
 }
 
 export function getListOfUsers(){
-  return dispatch => {
-    axios.get(`${api}/users`)
-    .then(response => dispatch(setListOfUsers(response.data)))
-    .catch(error => error.response)
+  const sendInfo = async (dispatch) => {
+    try {
+      const res = await axios.get(`${api}/users`)
+      return dispatch(setListOfUsers(res.data))
+    } catch (error) {
+      return helpers.errorParser(error)
+    }
   }
+  return sendInfo
 }
