@@ -65,7 +65,7 @@ class LoginForm extends Component {
         if (user && user.status && user.status === 200 && user.data.token) {
           this.props.addFlashMessage({
             type: 'LOGIN_SUCCESS',
-            text: 'You hve logged in successfully'
+            text: 'You have been logged in successfully'
           });
           this.context.router.history.push('/home')
           this.setState({ isLoading: false, errors: error });
