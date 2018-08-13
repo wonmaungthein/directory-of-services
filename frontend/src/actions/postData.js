@@ -6,7 +6,7 @@ export function addOrganisation(data) {
   const saveOrganisation = async () => {
     try {
       const res = await axios.post(`${api}/service/organisation/add`, data);
-      return res;
+      return res.data;
     } catch (error) {
       return JSON.stringify(error);
     }
@@ -18,7 +18,7 @@ export function editOrganisation(data) {
   const saveOrganisation = async () => {
     try {
       const res = await axios.patch(`${api}/service/organisation/edit`, data);
-      return res;
+      return res.data;
     } catch (error) {
       return JSON.stringify(error);
     }
@@ -31,7 +31,7 @@ export function requestRestPassword(data) {
     try {
       const res = await axios.post(`${api}/forgot`, data)
         .catch(err => err.response)
-      return res;
+      return res.data;
     } catch (error) {
       return JSON.stringify(error)
     }
@@ -43,7 +43,7 @@ export function requestChangePassword(data) {
   const requestFun = async () => {
     try {
       const res = await axios.post(`${api}/reset/:token`, data);
-      return res;
+      return res.data;
     } catch (error) {
       return JSON.stringify(error);
     }
@@ -55,7 +55,7 @@ export function validateToken(token) {
   const requestFun = async () => {
     try {
       const res = await axios.get(`${api}/reset/${token}`);
-      return res;
+      return res.data;
     } catch (error) {
       return JSON.stringify(error);
     }
@@ -67,7 +67,7 @@ export function getBranchesFilteredByPostCode(data) {
   const sendInfo = async () => {
     try {
       const res = await axios.post(`${api}/service/postcode`, data);
-      return res;
+      return res.data;
     } catch (error) {
       return JSON.stringify(error);
     }
