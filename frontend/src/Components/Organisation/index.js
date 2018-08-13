@@ -8,6 +8,7 @@ import TopNav from '../TopNav';
 import helpers from '../../helpers';
 import OrganisationCard from './OrganisationCard';
 import categoriesData from '../../Data/Categories.json';
+import orgHelpers from './orgHelpers'
 import Spinner from '../Spinner';
 import './index.css';
 
@@ -44,11 +45,11 @@ class Organisations extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    const { oganisation } = newProps;
+    const { organisation } = newProps;
     this.setState({
       category: getSelectedCategory(newProps.match),
-      organisations: oganisation,
-      orgsBeforeFilteredByPostcode: oganisation
+      organisations: organisation,
+      orgsBeforeFilteredByPostcode: organisation
     });
   }
 
@@ -103,7 +104,7 @@ class Organisations extends Component {
           const long = info.longitude
           const getBranches = await this.props.getBranchesFilteredByPostCode({ category, lat, long })
           const orgsData = [];
-          getBranches.data.filter(resData => resData.distance)
+          getBranches.data
             .map(branchs => {
               const { distance } = branchs;
               const orgs = branchs.data;
@@ -116,72 +117,6 @@ class Organisations extends Component {
         this.setState({ postcodeError: 'Your postcode is incorrect', isLoading: false })
       }
     }
-  }
-
-  filterData = (data) => {
-    const { day, borough } = this.state;
-    if (day.length > 0 && borough.length > 0) {
-      return data.filter(orgs => {
-        const allDays = 
-        orgs.service_days.includes('Monday') &&
-        orgs.service_days.includes('Tuesday') &&
-        orgs.service_days.includes('Wednesday') &&
-        orgs.service_days.includes('Thursday') &&
-        orgs.service_days.includes('Friday') &&
-        orgs.service_days.includes('Saturday') &&
-        orgs.service_days.includes('Sunday');
-        
-        const allDaysWithMonToFriFormat = 
-        orgs.service_days.includes('Saturday') &&
-        orgs.service_days.includes('Sunday') &&
-        orgs.service_days.includes('Mon-Fri');
-
-        // Check for five days of the week Monday to Friday
-        const monToFri =  orgs.service_days.match('Mon-Fri');
-        const workingDays = (orgs.service_days.includes('Monday') && 
-          orgs.service_days.includes('Tuesday') && 
-          orgs.service_days.includes('Wednesday') &&
-          orgs.service_days.includes('Thursday') &&
-          orgs.service_days.includes('Friday')) ;
-        
-        return orgs.service_days.includes(day) || 
-            allDaysWithMonToFriFormat  || 
-            allDays || 
-            workingDays ||
-            (monToFri && orgs.borough.includes(borough))
-      })
-    } else if (day.length > 0 && borough.length <= 0) {
-      return data.filter(orgs => {
-        const allDays = 
-        orgs.service_days.includes('Monday') &&
-        orgs.service_days.includes('Tuesday') &&
-        orgs.service_days.includes('Wednesday') &&
-        orgs.service_days.includes('Thursday') &&
-        orgs.service_days.includes('Friday') &&
-        orgs.service_days.includes('Saturday') &&
-        orgs.service_days.includes('Sunday');
-
-        const allDaysWithMonToFriFormat = 
-        orgs.service_days.includes('Saturday') &&
-        orgs.service_days.includes('Sunday') &&
-        orgs.service_days.includes('Mon-Fri');
-
-        // Check for five days of the week Monday to Friday / handle when day = Mon-Fri
-        const monToFri =  orgs.service_days.match('Mon-Fri');
-        const workingDays = (orgs.service_days.includes('Monday') && 
-          orgs.service_days.includes('Tuesday') && 
-          orgs.service_days.includes('Wednesday') &&
-          orgs.service_days.includes('Thursday') &&
-          orgs.service_days.includes('Friday')) ;
-
-        return orgs.service_days.includes(day) || allDaysWithMonToFriFormat || allDays || monToFri || workingDays;
-      })
-    } else if (day.length <= 0 && borough.length > 0) {
-      return data.filter(orgs =>
-        orgs.borough.includes(borough)
-      )
-    }
-    return data;
   }
 
   dataOrder = () => {
@@ -204,7 +139,7 @@ class Organisations extends Component {
     const { category, postCode, borough, day, organisations } = this.state;
     const role = this.props.user.role ? this.props.user.role : '';
 
-    if (this.state.isLoading || this.filterData.length === 0) {
+    if (this.state.isLoading || orgHelpers.filterOrganisationData.length === 0) {
       return <Spinner />
     }
     return (
@@ -228,7 +163,7 @@ class Organisations extends Component {
           isPostcode={this.state.isPostcode}
         />
         <Grid container className="organisation-page" spacing={24} wrap="wrap">
-          {this.filterData(organisations.sort(this.dataOrder())).map(org => (
+          {orgHelpers.filterOrganisationData(organisations.sort(this.dataOrder()), day, borough).map(org => (
             <Grid item xs={12} sm={6} key={org.id} className='card'> 
               <OrganisationCard org={org} role={role} />
             </Grid>
@@ -242,7 +177,7 @@ class Organisations extends Component {
 
 function mapStateToProps(state) {
   return {
-    oganisation: state.filteredBranchsByCategory.branchs,
+    organisation: state.filteredBranchsByCategory.branchs,
     user: state.loginAuth.user
   }
 }

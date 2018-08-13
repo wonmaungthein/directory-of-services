@@ -4,6 +4,7 @@
   display: block;
   cursor: pointer;
   outline: none !important;
+  margin-top: 1.5em;
 }
 
 .categories a {

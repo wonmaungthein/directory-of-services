@@ -5,21 +5,3 @@
   overflow: auto;
   height: 100vh;
 }
-
-.login-error{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #f00;
-  margin-bottom: 1em;
-  background: yellow;
-  padding: 1em;
-  margin-left: -1.8em;
-  border-radius: .5em;
-}
-
-.login-error .material-icons{
-  color: #000;
-  margin-left: 1em;
-}
-
