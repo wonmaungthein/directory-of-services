@@ -173,12 +173,12 @@ class EditOrganisation extends React.Component {
     this.setState({ isLoading: true });
     this.props.editOrganisation(orgData)
       .then(user => {
-        if (user.data && user.data.success !== false) {
-          this.savedChangesSuccessfully(user.data.message)
+        if (user && user.success !== false) {
+          this.savedChangesSuccessfully(user.message)
           this.setState({ open: false, isLoading: false })
           this.context.router.history.push(`${this.props.location.pathname}`)
         } else {
-          this.unSucessSavedChanges(user.data.message)
+          this.unSucessSavedChanges(user.message)
           this.setState({isLoading: false })
         }
       });
