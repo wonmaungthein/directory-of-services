@@ -20,12 +20,12 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/organisation/delete', async (req, res) => {
-  const { orgId, branchId } = req.body;
+  const { orgId, branchId } = req.query;
   try {
     const response = await deleteOrganisation(orgId, branchId);
-    res.status(200).json(response);
+    res.status(200).json({ success: true, message: 'Branch has been deleted successfully', response });
   } catch (error) {
-    res.status(502).json(error);
+    res.status(502).json({ success: false, message: 'There is an error occurred', error });
   }
 })
 

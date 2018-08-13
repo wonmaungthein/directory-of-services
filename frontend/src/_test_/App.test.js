@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducerRoot from '../reducers';
 import App from '../App';
+
+configure({ adapter: new Adapter() });
 
 const store = createStore(
   reducerRoot,
@@ -15,12 +18,11 @@ const store = createStore(
 );
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  const wrapper = shallow(
     <Provider store={store}>
       <App />
-    </Provider>, div);
-  ReactDOM.unmountComponentAtNode(div);
+    </Provider>).length
+    expect(wrapper).toEqual(1)
 });
 
 
