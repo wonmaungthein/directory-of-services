@@ -15,20 +15,20 @@ class HomePage extends Component {
   }
 
   deleteMessage = () => (
-    this.props.messages.map(message => 
-      message.type === 'LOGIN_SUCCESS' ? 
+    this.props.messages.map(message =>
+      message.type === 'LOGIN_SUCCESS' ?
       this.props.deleteFlashMessage(message.id) : null
   ));
 
   renderMessages = () => (
-    this.props.messages.map(message => 
-      message.type === 'LOGIN_SUCCESS' ? 
+    this.props.messages.map(message =>
+      message.type === 'LOGIN_SUCCESS' ?
         <Fragment key={message.id}>
-          <FlashMessagesNotification 
-            messageType='success' 
-            message={message.text} 
+          <FlashMessagesNotification
+            messageType='success'
+            message={message.text}
             test={this.props.messages}
-            deleteMessage={this.deleteMessage} 
+            deleteMessage={this.deleteMessage}
           />
         </Fragment>
       : null
@@ -36,10 +36,11 @@ class HomePage extends Component {
 
   render() {
     const organisations = this.props.organisations ? this.props.organisations.areas : [];
+    const role = this.props.user.role ? this.props.user.role : '';
     return (
       <div>
         <TopNav homePage />
-        <HomeSearch organisations={organisations}  />
+        <HomeSearch organisations={organisations} role={role} />
         {this.renderMessages()}
       </div>
     )
@@ -56,6 +57,7 @@ HomePage.propTypes = {
 function mapStateToProps(state) {
   return {
     organisations: state.organisationsList,
+    user: state.loginAuth.user,
     messages: state.flashMessages,
   }
 }

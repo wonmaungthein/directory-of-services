@@ -180,6 +180,7 @@ class HomeSearch extends React.Component {
   };
 
   render() {
+    const { role} = this.props;
     const { editIdx, organisations, search, postcodeValue } = this.state;
     const params  = this.props.location.pathname;
     const isHomeRoute = params && params.includes('home');
@@ -201,6 +202,7 @@ class HomeSearch extends React.Component {
                 org={org}
                 index={index}
                 isHomeRoute={isHomeRoute}
+                role={role}
               />
             </Grid>);
             })
