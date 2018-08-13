@@ -10,6 +10,7 @@ import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import AddIcon from 'material-ui-icons/Add';
 import { connect } from 'react-redux';
+import { addFlashMessage } from '../../actions/flashMessages';
 import { logout } from '../../actions/loginActions'
 import './top-nav.css';
 import helpers from '../../helpers';
@@ -36,8 +37,14 @@ class TopNav extends Component {
 
   handleLogOut = (e) => {
     e.preventDefault();
-    this.context.router.history.push('/')
-    this.props.logout();
+    const res = this.props.logout();
+    if (res) {
+      this.props.addFlashMessage({
+        type: 'LOGOUT_SUCCESS',
+        text: 'You hve logged out successfully'
+      });
+      this.context.router.history.push('/')
+    }
   }
 
   showUserDropDown = () => {
@@ -82,7 +89,7 @@ class TopNav extends Component {
                 <Link to={`/${titleLink}`}>
                   {category}
                 </Link>
-                {addOrg || homePage || (role !== 'Admin' && role !== 'Editor') ? null :
+                {addOrg || homePage || (role !== 'Admin' && role !== 'Editor') || this.props.userProfile ? null :
                   (
                     <Link to={`/${addLink}`} className="add-orgnaization">
                       <Button
@@ -134,4 +141,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, { logout })(TopNav));
+export default withStyles(styles, { withTheme: true })(connect(mapStateToProps, { logout, addFlashMessage })(TopNav));
