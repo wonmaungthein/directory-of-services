@@ -14,7 +14,8 @@ import categories from '../../Data/Categories.json';
 import helpers from '../../helpers';
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-const areas = [ 'Swale', 'West London', 'Anywhere', 'East London', 'North London', 'Canterbury', 'Kent', 'South London', 'Bristol', 'UK(ALL)' ];
+const areas = ['North London', 'South London', 'West London', 'Central London' , 'East London', 'Anywhere', 'Bristol',
+'Canterbury', 'Online', 'Swale', 'Kent',' UK(ALL)'];
 const sortedBorough = BoroughData.sort(((a,b) =>  {
   if (a.borough < b.borough) {
     return -1
