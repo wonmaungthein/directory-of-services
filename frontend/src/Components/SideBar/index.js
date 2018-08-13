@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
+import PropTypes from 'prop-types';
 import List from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
@@ -59,6 +60,7 @@ class SideBar extends React.Component {
 
   render() {
     const { classes, theme } = this.props;
+    const role = localStorage.getItem('role')
     const drawer = (
       <div className="side-bar-scroll">
         <div className="logo">
@@ -79,9 +81,13 @@ class SideBar extends React.Component {
         <Divider />
         <Categories />
         <Divider />
-        <List>
-          <UsersMenu />
-        </List>
+        {
+          role === 'Admin' ? 
+            <List>
+              <UsersMenu />
+            </List>
+        : null
+        }
       </div>
     );
 
@@ -125,6 +131,11 @@ class SideBar extends React.Component {
       </div>
     );
   }
+}
+
+SideBar.propTypes = {
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired
 }
 
 export default withStyles(styles, { withTheme: true })(SideBar);

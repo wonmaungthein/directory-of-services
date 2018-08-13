@@ -1,12 +1,13 @@
-.org-info div + div[role=document] {
+.org-info div[role=document] {
   width: 100%;
   padding: .4rem 1rem 3rem;
   overflow: hidden;
+  max-width: 65vw;
 }
 
 .org-info h1 {
-  padding: 2rem 0 .78rem;
-  font-size: 149%;
+  padding: .6rem 0rem 0;
+  font-size: 139%;
 }
 
 .org-card-info h1 {
@@ -17,15 +18,23 @@
 .org-process,
 .org-contact{
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 4fr 1fr;
   grid-gap: 1em;
   color: #000;
-  padding-bottom: 1rem;
   word-break: break-word;
 }
 
+/* .org-process{ 
+  padding-bottom: .5rem; 
+} */
+
+.org-contact div {
+  padding-top: 0rem;
+  height: 47px;
+}
+
  p {
-  font-size: 90%;
+  font-size: 88%;
 }
 
 .website-link{
@@ -45,21 +54,32 @@
 .org-website,
 .org-contact,
 .org-service, 
-.org-project,
 .org-process{
-  padding-bottom: 1rem;
-  overflow-y: auto;
+  overflow: hidden;
+}
+
+.org-process{
+  padding-bottom: 35px;
 }
 
 .org-project {
-  padding-top: 1.7rem;
+  padding-top: .95rem;
 }
 
+.org-service { padding-bottom: 1rem;}
 .org-info .edit-button:hover,
 .org-info .detail-button:active,
 .org-info .edit-button {
   background: #1abcd4;
   color: #fff;  
+}
+
+.org-detail-btn .move-right{
+  left: 81% !important;
+  border-radius: 0;
+  background-color: transparent;
+  border: 0;
+  box-shadow: 0 0;
 }
 
 .org-info .edit-button {
@@ -74,6 +94,11 @@
   font-size: 85%; 
   font-weight: 100;
   color: rgba(0, 0, 0, 0.54);
+}
+
+.org-process-service {
+  padding-bottom: 35px;
+  overflow: hidden;
 }
 
 @media (max-width: 430px){
@@ -98,5 +123,10 @@
   .org-process {
     padding-bottom: .3rem;
   }
+}
 
+@media (max-width: 767px){
+  .org-detail-btn .move-right{
+    left: 75% !important;
+  }
 }

@@ -1,6 +1,7 @@
 import { transaction, Model } from 'objection';
 import { knex } from '../../config';
 import Organisation from '../model/Organisation';
+import Branch from '../model/Branch';
 
 Model.knex(knex);
 
@@ -11,6 +12,18 @@ const postOrganisation = async (graph) => {
         .insertGraph(graph)
     ));
   return insertedGraph;
+};
+
+const deleteOrganisation = async (orgId, branchId) => {
+  try {
+    const test = await Branch.query()
+      .delete()
+      .where('org_id', '=', orgId)
+      .andWhere('id', '=', branchId)
+    return test;
+  } catch (error) {
+    return error;
+  }
 };
 
 const editOrganisation = async (graph, orgId, branchId) => {
@@ -34,5 +47,6 @@ const editOrganisation = async (graph, orgId, branchId) => {
 
 module.exports = {
   postOrganisation,
-  editOrganisation
+  editOrganisation,
+  deleteOrganisation
 }

@@ -31,9 +31,11 @@ class AddOrganisation extends Component {
 
   componentDidMount() {
     const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url);
+    const catIndex = category.indexOf('Young People and Children');    
+    const updateCategory = catIndex > -1 ? ['Young People/Children']: category;
     this.setState({
       notificationSystem: this.refs.savedChanges,
-      Categories: category
+      Categories: updateCategory
     });
   }
 
@@ -71,11 +73,11 @@ class AddOrganisation extends Component {
     }
     if (!error) {
       this.props.addOrganisation(data).then(user => {
-        if (user.data && user.data.success !== false) {
+        if (user && user.success !== false) {
           this.savedChangesSuccessfully();
           this.props.history.push(`/services/${checkedCategory}`);
         } else {
-          this.unSucessSavedChanges(user.data.message);
+          this.unSucessSavedChanges(user.message);
         }
       });
       this.setState({
@@ -120,13 +122,21 @@ class AddOrganisation extends Component {
 
   handleDefaultCheckbox = event => {
     const listOfCategories = this.state.Categories;
-    let index
-    if (event.target.checked) {
-      listOfCategories.push(event.target.value)
-    } else {
-      index = listOfCategories.indexOf(event.target.value)
-      listOfCategories.splice(index, 1)
-    }
+    let index;
+    if (event.target.checked  && event.target.value !== 'Young People and Children') {
+        listOfCategories.push(event.target.value);
+    } else if (!event.target.checked  && event.target.value !== 'Young People and Children'){
+        index = listOfCategories.indexOf(event.target.value);
+        listOfCategories.splice(index, 1)
+      }
+
+    if (event.target.checked && event.target.value === 'Young People and Children') {
+        listOfCategories.push('Young People/Children')
+    } else if (!event.target.checked && event.target.value === 'Young People and Children'){
+        index =  listOfCategories.indexOf('Young People/Children');
+        listOfCategories.splice(index, 1)
+      }
+    
     this.setState({
       [event.target.name]: event.target.checked,      
       Categories: listOfCategories,
@@ -137,12 +147,22 @@ class AddOrganisation extends Component {
   handleCheckBox = event => {
     const listOfCategories = this.state.Categories;
     let index
-    if (event.target.checked) {
-      listOfCategories.push(event.target.value)
-    } else {
-      index = listOfCategories.indexOf(event.target.value)
+    for(let i = 0; i < categoriesData.length; i += 1){
+      if (event.target.checked && event.target.value === categoriesData[i].split(' ').join('') && event.target.value !== 'Young People and Children'.split(' ').join('')) {
+        listOfCategories.push(categoriesData[i])
+      } else if (!event.target.checked && event.target.value === categoriesData[i].split(' ').join('') && event.target.value !== 'Young People and Children'.split(' ').join('')){
+        index = listOfCategories.indexOf(categoriesData[i]);
+        listOfCategories.splice(index, 1)
+      }
+    }
+
+    if (event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))) {
+      listOfCategories.push('Young People/Children')
+    }else if (!event.target.checked && event.target.value.includes('Young People and Children'.split(' ').join(''))){
+      index = listOfCategories.indexOf('Young People/Children');
       listOfCategories.splice(index, 1)
     }
+
     this.setState({
       [event.target.name]: event.target.checked,      
       Categories: listOfCategories,
@@ -156,7 +176,6 @@ class AddOrganisation extends Component {
 
   render() {
     const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
-
     return (
       <div>
         <TopNav addLink="organisations/add" addOrg="Add new organisation" />

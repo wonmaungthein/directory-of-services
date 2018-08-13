@@ -124,7 +124,7 @@ module.exports = {
     }
   },
 
-  getBranchByesBorough: async boroughName => {
+  getBranchesByBorough: async boroughName => {
     try {
       const result = await Organisation
         .query()

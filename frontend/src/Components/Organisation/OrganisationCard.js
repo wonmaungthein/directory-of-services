@@ -10,11 +10,9 @@ const styles = theme => ({
   root: {
     overflow: 'hidden',
     padding: `0 ${theme.spacing.unit * 3}px`,
-    
   },
   wrapper: {
     maxWidth: 400,
-    
   },
   paper: {
     margin: theme.spacing.unit,
@@ -23,19 +21,24 @@ const styles = theme => ({
   },
 });
 
-const OrganisationCard = ({ org }) => (
+const OrganisationCard = ({
+  role,
+  org
+}) => (
   <Paper label='org-card-info'>
-    <EditOrganisation 
-      editOrgData={org}
-    />
-    <SingleOrganisation org={org} />
+    { role === 'Admin' || role === 'Editor' ? 
+      <EditOrganisation org={org} /> : null
+    }
+    <SingleOrganisation org={org} role={role} />
     
     { /*  Conditionally display services and process, if no info provided display  'not provided' in FE */ }
     
     { org.org_name ? 
-      <span className={org.distance ? 'org-distance': ''}>
+      <span className={org.distance || org.distance === null ? 'org-distance': ''}>
         <h1>{org.org_name}</h1> 
-        {org.distance ? <p className="">{(org.distance).toFixed(1)} miles</p> : null}
+        {org.distance && org.distance !== null ? <p>{(org.distance).toFixed(1)} miles</p> 
+        : 
+        org.distance === null ? <p>Distance is not available</p> : null}
       </span>
       : 
       <h1 className="not-available"> Add organisation name ...</h1> 
