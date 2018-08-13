@@ -13,7 +13,7 @@
       const users = this.props.userInfo ? this.props.userInfo : [] ;
       return (
         <Fragment>
-          <TopNav />
+          <TopNav userProfile />
           <div className="user-page">
             <h2>My Account Details</h2>
             <h4><strong>Full Name: </strong>{users.fullname}</h4>
