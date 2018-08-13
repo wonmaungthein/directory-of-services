@@ -45,11 +45,11 @@ class Organisations extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    const { oganisation } = newProps;
+    const { organisation } = newProps;
     this.setState({
       category: getSelectedCategory(newProps.match),
-      organisations: oganisation,
-      orgsBeforeFilteredByPostcode: oganisation
+      organisations: organisation,
+      orgsBeforeFilteredByPostcode: organisation
     });
   }
 
@@ -104,7 +104,7 @@ class Organisations extends Component {
           const long = info.longitude
           const getBranches = await this.props.getBranchesFilteredByPostCode({ category, lat, long })
           const orgsData = [];
-          getBranches.data.filter(resData => resData.distance)
+          getBranches.data
             .map(branchs => {
               const { distance } = branchs;
               const orgs = branchs.data;
@@ -177,7 +177,7 @@ class Organisations extends Component {
 
 function mapStateToProps(state) {
   return {
-    oganisation: state.filteredBranchsByCategory.branchs,
+    organisation: state.filteredBranchsByCategory.branchs,
     user: state.loginAuth.user
   }
 }
