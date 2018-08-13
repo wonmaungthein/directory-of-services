@@ -240,6 +240,8 @@ class HomeSearch extends React.Component {
   render() {
     const { editIdx, organisations } = this.state;
     const { classes } = this.props;
+    const params  = this.props.location.pathname;
+    const isHomeRoute = params && params.includes('home');
     if (this.state.isLoading || this.filterData.length === 0 || organisations.length <= 0) {
       return <Spinner />
     }
@@ -257,6 +259,7 @@ class HomeSearch extends React.Component {
                 getData={() => this.editSelectedOrganisation(index)}
                 org={org}
                 index={index}
+                isHomeRoute={isHomeRoute}
               />
             </Grid>);
               })
