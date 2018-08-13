@@ -47,11 +47,11 @@ class ForgotPassword extends Component {
     const siteEmail = process.env.SIDE_EMAIL
     if (email.length > 0) {
       this.props.requestRestPassword({ email, siteHost, siteEmail }).then(user => {
-        if (user.data && user.data.success !== false) {
+        if (user && user.success !== false) {
           this.successRequest('Your request has been sent to your email successfully')
           this.setState({ email: '', success: true })
         } else {
-          this.failRequest(user.data.message)
+          this.failRequest(user.message)
         }
       })
     } else {
