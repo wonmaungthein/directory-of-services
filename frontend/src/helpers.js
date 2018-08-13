@@ -218,6 +218,13 @@ function sortArrObj(a, b) {
   return comparison;
 }
 
+// This function with handle the coming from backend and format it to JavaScript object
+function errorParser(error) {
+  let errMessage = JSON.stringify(error);
+      errMessage = JSON.parse(errMessage).response.data;
+      return errMessage;
+}
+
 export default {
   renderInput,
   renderSuggestion,
@@ -233,6 +240,7 @@ export default {
   validEmail,
   sortArrObj,
   getMainSearchSuggestionValue,
-  getMainSearchSuggestions
+  getMainSearchSuggestions,
+  errorParser
 };
 

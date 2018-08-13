@@ -1,4 +1,5 @@
 import axios from 'axios';
+import helpers from '../helpers';
 
 const api = process.env.REACT_APP_API_URL || process.env.REACT_APP_LOCALHOST_API_URL;
 
@@ -8,7 +9,7 @@ export function addOrganisation(data) {
       const res = await axios.post(`${api}/service/organisation/add`, data);
       return res.data;
     } catch (error) {
-      return JSON.stringify(error);
+      return helpers.errorParser(error)
     }
   }
   return saveOrganisation
@@ -20,7 +21,7 @@ export function editOrganisation(data) {
       const res = await axios.patch(`${api}/service/organisation/edit`, data);
       return res.data;
     } catch (error) {
-      return JSON.stringify(error);
+      return helpers.errorParser(error)
     }
   }
   return saveOrganisation
@@ -33,7 +34,7 @@ export function requestRestPassword(data) {
         .catch(err => err.response)
       return res.data;
     } catch (error) {
-      return JSON.stringify(error)
+      return helpers.errorParser(error)
     }
   }
   return requestFun
@@ -45,7 +46,7 @@ export function requestChangePassword(data) {
       const res = await axios.post(`${api}/reset/:token`, data);
       return res.data;
     } catch (error) {
-      return JSON.stringify(error);
+      return helpers.errorParser(error)
     }
   }
   return requestFun
@@ -57,7 +58,7 @@ export function validateToken(token) {
       const res = await axios.get(`${api}/reset/${token}`);
       return res.data;
     } catch (error) {
-      return JSON.stringify(error);
+      return helpers.errorParser(error)
     }
   }
   return requestFun
@@ -69,7 +70,7 @@ export function getBranchesFilteredByPostCode(data) {
       const res = await axios.post(`${api}/service/postcode`, data);
       return res.data;
     } catch (error) {
-      return JSON.stringify(error);
+      return helpers.errorParser(error)
     }
   }
   return sendInfo
@@ -97,9 +98,7 @@ export function deleteUser(userId) {
       const res = await axios.delete(`${api}/users/${userId}`);
       return res.data;
     } catch (error) {
-      let errMessage = JSON.stringify(error);
-      errMessage = JSON.parse(errMessage).response.data;
-      return errMessage;
+      return helpers.errorParser(error)
     }
   }
   return sendInfo

@@ -131,7 +131,7 @@ const OrganisationForm = (props) => {
             className="mt"
             placeholder="Add Client Accepted..."
             label="Client Accepted"
-            name="Clients"
+            name="clients"
             multiline
             rowsMax="4"
             value={props.clients}
