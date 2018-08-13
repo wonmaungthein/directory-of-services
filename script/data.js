@@ -119,28 +119,28 @@ let flattenedData = flat();
 
 // Update Area field input
 const updateOrgArea = flattenedData.map(orgs => orgs.map(org => {
-  let testArea;
+  let locationArea;
   for(let i = 0; i < consistentArea.length; i += 1){
     if (org.Area.toLowerCase() === (consistentArea[i].toLocaleLowerCase())){
-    testArea = ( consistentArea[i] );
+    locationArea = ( consistentArea[i] );
   } else if(org.Area.toLowerCase().includes('all') || org.Area === 'London'){
-    testArea = ( 'Anywhere');
+    locationArea = 'Anywhere';
   }
   else if(org.Area.toLowerCase() !== consistentArea[i].toLowerCase() && 
   org.Area.toLowerCase().charAt(0) === consistentArea[i].toLowerCase().charAt(0) && 
   !org.Area.includes('N/A')){
-    testArea = ( consistentArea[i] );
+    locationArea = consistentArea[i] ;
   }  else if(org.Area.includes('N/A') || !org.Area){
-    testArea = ( 'N/A');
+    locationArea = 'N/A';
   } else if(org.Area.includes('UK')){
-    testArea = ('UK(ALL)');
+    locationArea = 'UK(ALL)';
   } else if (org.Area.includes('Dagenham')){
-    testArea = ('East London')
+    locationArea = 'East London';
   }else if (org.Area.includes('Stockwell') || org.Area.includes('Croydon')){
-    testArea = ('South London')
+    locationArea = 'South London';
   }
 }
-return {...org, Area: testArea};
+return {...org, Area: locationArea};
 })
 )
 
@@ -155,7 +155,7 @@ const updateOrgBorough = updateOrgArea.map(orgs => orgs.map(el=> {
     } else if (el.Borough.toLowerCase().includes(consistentBoro[i].toLowerCase())){
       updateBorough = consistentBoro[i] ;
     }  else if (el.Borough.includes('Essex/\nEast London') || el.Borough.includes('Essex/East London')){
-      updateBorough = 'Essex East London' ;
+      updateBorough = 'Newham' ;
     } else if (el.Borough.includes('Deptford')){
       updateBorough = 'Lewisham' ;
     } else if (el.Borough.includes('Kilburn') || el.Borough.includes('Willesden') || el.Borough.includes('Willesdon') || el.Borough.includes('Wembley')){
