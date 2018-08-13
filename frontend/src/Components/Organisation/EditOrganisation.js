@@ -66,7 +66,7 @@ class EditOrganisation extends React.Component {
         Borough: data.borough,
         Services: data.service,
         Process: data.process,
-        Day: data.service_days.split(' '),
+        Day: data.service_days.split(','),
         Tel: data.telephone,
         Email: data.email_address,
         Website: data.website,
