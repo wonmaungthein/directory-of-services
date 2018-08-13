@@ -122,7 +122,7 @@ const updateOrgArea = flattenedData.map(orgs => orgs.map(org => {
   let locationArea;
   for(let i = 0; i < consistentArea.length; i += 1){
     if (org.Area.toLowerCase() === (consistentArea[i].toLocaleLowerCase())){
-    locationArea = ( consistentArea[i] );
+    locationArea = consistentArea[i] ;
   } else if(org.Area.toLowerCase().includes('all') || org.Area === 'London'){
     locationArea = 'Anywhere';
   }
