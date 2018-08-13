@@ -70,25 +70,22 @@ class SideBar extends React.Component {
     const role = localStorage.getItem('role')
     const drawer = (
       <div className="side-bar-scroll">
-        <Hidden mdUp>
-          <div className={classes.drawerHeader}>
-            <IconButton
-              className="draw-close-button"
-              onClick={this.handleDrawerClose}
-            >
-              {theme.direction === 'rtl' ? (
-                <ChevronRightIcon />
-              ) : (
-                <ChevronLeftIcon />
-                )}
-            </IconButton>
-          </div>
-        </Hidden>
-        <Hidden smDown>
-          <div className={classes.drawerHeader} />
-        </Hidden>
         <div className="logo">
           <Link to="/home">LOGO</Link>
+          <Hidden mdUp>
+            <div className={classes.drawerHeader}>
+              <IconButton
+                className="draw-close-button"
+                onClick={this.handleDrawerClose}
+              >
+                {theme.direction === 'rtl' ? (
+                  <ChevronRightIcon />
+                ) : (
+                  <ChevronLeftIcon />
+                  )}
+              </IconButton>
+            </div>
+          </Hidden>
         </div>
         <Divider />
         <Categories />
