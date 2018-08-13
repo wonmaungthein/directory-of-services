@@ -44,9 +44,9 @@ const OrganisationCard = ({
       :
       <h1 className="not-available"> Add organisation name ...</h1>
       }
-    {isHomeRoute ?
-      <h6> Area: {org.area ? org.area : 'Add area   ...'} | Borough: {org.borough ? org.borough : 'Add borough ...'} | Category: {org.cat_name ? org.cat_name : 'Add Category ...'}</h6>
-      :<h6> Area: {org.area ? org.area : 'Add area   ...'} | Borough: {org.borough ? org.borough : 'Add borough ...'}</h6>
+    <h6> Area: {org.area ? org.area : 'Add area   ...'} | Borough: {org.borough ? org.borough : 'Add borough ...'}</h6>
+    {isHomeRoute ? <h6> Category: {org.cat_name ? org.cat_name : 'Add Category ...'}</h6>
+      :null
     }
     <div className="org-card-services">
 
