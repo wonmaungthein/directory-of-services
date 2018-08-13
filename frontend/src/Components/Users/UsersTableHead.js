@@ -79,9 +79,18 @@ class UsersTableHead extends Component {
 }
 
 UsersTableHead.propTypes = {
-  onRequestSort: PropTypes.func.isRequired,
-  order: PropTypes.string.isRequired,
-  orderBy: PropTypes.string.isRequired,
+  onRequestSort: PropTypes.func,
+  order: PropTypes.string,
+  orderBy: PropTypes.string,
+};
+
+function handleRequestSort() {
+}
+
+UsersTableHead.defaultProps = {
+  order: "asc",
+  orderBy: "fullname",
+  onRequestSort: handleRequestSort()
 };
 
 export default UsersTableHead;

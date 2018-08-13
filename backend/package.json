@@ -10,7 +10,8 @@
     "dev": "npm run migrate && nodemon --exec babel-node ./bin/www",
     "start-prod": "git pull; pm2 kill; pm2 start --interpreter babel-node bin/www; pm2 logs",
     "lint": "./node_modules/.bin/eslint **/*.js",
-    "fix": "find ./node_modules/* -mtime +10950 -exec touch {} \\;"
+    "fix": "find ./node_modules/* -mtime +10950 -exec touch {} \\;",
+    "test": "mocha 'tests/*.js' --timeout 10000 --compilers js:babel-core/register"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -40,17 +41,20 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "pg": "^7.4.1"
+    "pg": "^7.4.1",
+    "supertest": "^3.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-stage-2": "^6.24.1",
+    "chai": "^4.1.2",
     "eslint": "^4.18.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.12.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.15.1",
     "pm2": "^2.10.4"
   }
