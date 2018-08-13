@@ -87,7 +87,7 @@ class UsersListTable extends Component {
     .then(user => {
       if(user && user.success) {
         this.savedChangesSuccessfully(user.message);
-        this.context.router.history.push('/users')
+        this.context.router.history.push('/admindos')
       } else {
         this.unSucessSavedChanges(user.message);
         

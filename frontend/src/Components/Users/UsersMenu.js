@@ -4,7 +4,7 @@ import './users.css';
 
 const UsersMenu = () => (
   <div className="users-menu">
-    <Link to="/users" role="button" className="menu-header">
+    <Link to="/admindos" role="button" className="menu-header">
       Users
     </Link>
     <Link to="/users/form" role="button">

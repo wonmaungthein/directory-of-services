@@ -9,7 +9,7 @@ export default (state = [], action = {}) => {
       return [
         ...state,
         {
-          id: shortid,
+          id: shortid.generate(),
           type: action.message.type,
           text: action.message.text
         }

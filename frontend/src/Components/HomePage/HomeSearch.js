@@ -1,40 +1,17 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Autosuggest from 'react-autosuggest';
-import { withStyles } from 'material-ui/styles';
+import { Grid } from 'material-ui';
 import { withRouter } from 'react-router-dom';
-import Button from 'material-ui/Button';
-import Grid from 'material-ui/Grid';
 import EditOrganisation from '../Organisation/EditOrganisation';
 import SingleOrganisation from '../Organisation/SingleOrganisation';
-import helpers from '../../helpers';
 import OrganisationCard from '../Organisation/OrganisationCard';
 import { getBranchesFilteredByPostCode } from '../../actions/postData';
+import helpers from '../../helpers';
+import SearchForm from './SearchForm'
 import Spinner from '../Spinner';
 import './HomePage.css'
-
-const styles = theme => ({
-  container: {
-    flexGrow: 1,
-    position: 'relative'
-  },
-  suggestionsContainerOpen: {
-    position: 'absolute',
-    zIndex: 1,
-    marginTop: theme.spacing.unit,
-    left: 0,
-    right: 0
-  },
-  suggestion: {
-    display: 'block'
-  },
-  suggestionsList: {
-    margin: 0,
-    padding: 0,
-    listStyleType: 'none'
-  }
-});
+import homePageHelper from './homePageHelper';
 
 class HomeSearch extends React.Component {
   state = {
@@ -173,41 +150,6 @@ class HomeSearch extends React.Component {
     this.handlePostSearch()
   }
 
-  filterData = (orgs) => {
-    const { search, postcodeValue } = this.state;
-    if (search && postcodeValue) {
-      return orgs.filter(org => org.org_name.toLowerCase().includes(search.toLowerCase()) || org.borough.toLowerCase().includes(search.toLowerCase())
-        // return branches which service match or part of search
-        || search.toLowerCase().includes(org.service.toLowerCase())
-        // return all branches which provide service on that day
-        || org.service_days.toLowerCase().includes(search.toLowerCase())
-        // return all branches if search match cat_name
-        || org.cat_name.toLowerCase().includes(search.toLowerCase())
-        // return all branches if search tag match
-        || org.tag.toLowerCase().includes(search.toLowerCase())
-        // return all branches if search tag match
-        || org.area.toLowerCase().includes(search.toLowerCase())
-      )
-    } else if (search) {
-      return orgs.filter(org => org.org_name.toLowerCase().includes(search.toLowerCase()) || org.borough.toLowerCase().includes(search.toLowerCase())
-        // return branches which service match or part of search
-        || search.toLowerCase().includes(org.service.toLowerCase())
-        // return all branches which provide service on that day
-        || org.service_days.toLowerCase().includes(search.toLowerCase())
-        // return all branches if search match cat_name
-        || org.cat_name.toLowerCase().includes(search.toLowerCase())
-        // return all branches if search tag match
-        || org.tag.toLowerCase().includes(search.toLowerCase())
-        // return all branches if search tag match
-        || org.area.toLowerCase().includes(search.toLowerCase())
-      )
-        .sort(helpers.sortArrObj)
-    } else if (postcodeValue) {
-      return orgs
-    }
-    return [];
-  }
-
   dataOrder = () => {
     if (!this.state.sort) {
       return helpers.sortArrObj
@@ -238,13 +180,14 @@ class HomeSearch extends React.Component {
   };
 
   render() {
-    const { editIdx, organisations } = this.state;
-    const { classes } = this.props;
-    if (this.state.isLoading || this.filterData.length === 0 || organisations.length <= 0) {
+    const { editIdx, organisations, search, postcodeValue } = this.state;
+    const params  = this.props.location.pathname;
+    const isHomeRoute = params && params.includes('home');
+    if (this.state.isLoading || homePageHelper.filterData.length === 0 || organisations.length <= 0) {
       return <Spinner />
     }
     const searchResult = (
-      this.filterData(organisations.sort(this.dataOrder()))
+      homePageHelper.filterData(organisations.sort(this.dataOrder()), search, postcodeValue)
           .map((org, index) => {const currentlyEditing = editIdx === index;
             return currentlyEditing ? (
               <Fragment>
@@ -257,128 +200,45 @@ class HomeSearch extends React.Component {
                 getData={() => this.editSelectedOrganisation(index)}
                 org={org}
                 index={index}
+                isHomeRoute={isHomeRoute}
               />
             </Grid>);
-              })
-              );
+            })
+          );
     if (this.props.match.url.includes('/users') || this.props.match.url.includes('/admindos') ) {
       return null
     }
     return (
       <div>
         <Grid container className="organisation-page" spacing={24}>
-          <Grid item xs={12} className="search-input">
-            <div className="search-text">
-              <Autosuggest
-                theme={{
-                  container: classes.container,
-                  suggestionsContainerOpen: classes.suggestionsContainerOpen,
-                  suggestionsList: classes.suggestionsList,
-                  suggestion: classes.suggestion
-                }}
-                renderInputComponent={helpers.renderInput}
-                suggestions={this.state.suggestions}
-                onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
-                onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
-                renderSuggestionsContainer={helpers.renderSuggestionsContainer}
-                getSuggestionValue={helpers.getMainSearchSuggestionValue}
-                renderSuggestion={helpers.renderMainSearchSuggestion}
-                inputProps={{
-                  classes,
-                  placeholder: 'Search by keyword',
-                  value: this.state.value,
-                  onChange: this.handleChange,
-                  onKeyUp: this.handleKeyUp
-                }}
-              />
-              <button
-                variant="raised"
-                size="small"
-                color="secondary"
-                className={this.state.isHidden ? 'hidden' : 'clear-search'}
-                onClick={this.clearSearchField}
-              >
-                <i
-                  className="material-icons"
-                  size="small"
-                  variant="raised"
-                >
-                  close
-                </i>
-              </button>
-            </div>
-            <span className="postcode-field">
-              <Autosuggest
-                theme={{
-                  container: classes.container,
-                  suggestionsContainerOpen: classes.suggestionsContainerOpen,
-                  suggestionsList: classes.suggestionsList,
-                  suggestion: classes.suggestion,
-                }}
-                className="post-code-suggesition"
-                renderInputComponent={helpers.renderInput}
-                suggestions={this.state.postcodeSuggestions}
-                onSuggestionsFetchRequested={this.handleSuggestionsFetchRequestedPostcode}
-                onSuggestionsClearRequested={this.handleSuggestionsClearRequestedPostcode}
-                renderSuggestionsContainer={helpers.renderSuggestionsContainer}
-                getSuggestionValue={helpers.getSuggestionValue}
-                renderSuggestion={helpers.renderSuggestion}
-                inputProps={{
-                  classes,
-                  placeholder: 'Enter postcode',
-                  name: 'postCode',
-                  value: this.state.postCode,
-                  onChange: this.handlePostCodeChange,
-                  onKeyUp: this.handleKeyUp
-                }}
-              />
-              <button
-                variant="raised"
-                size="small"
-                color="secondary"
-                className={!this.state.isPostcode ? 'hidden' : 'clear-postcode'}
-                onClick={this.clearPostcodeField}
-              >
-                <i
-                  className="material-icons"
-                  size="small"
-                  variant="raised"
-                >
-                  close
-                </i>
-              </button>
-            </span>
-            <Button
-              onClick={this.updateSearchData}
-              variant="raised"
-              color="primary"
-              size="small"
-              className="btn-search"
-            >
-              Search
-            </Button>
-          </Grid>
-
-          { this.state.postcodeError ?
-            <Fragment>
-              <span className="postcode-error">
-                {this.state.postcodeError}
-              </span>
-              {searchResult}
-            </Fragment>
-            : searchResult}
-
+          <SearchForm
+            value={this.state.value}
+            postCode={this.state.postCode}
+            isHidden={this.state.isHidden}
+            handleKeyUp={this.handleKeyUp}
+            handleChange={this.handleChange}
+            isPostcode={this.state.isPostcode}
+            suggestions={this.state.suggestions}
+            updateSearchData={this.updateSearchData}
+            clearSearchField={this.clearSearchField}
+            clearPostcodeField={this.clearPostcodeField}
+            handlePostCodeChange={this.handlePostCodeChange}
+            postcodeSuggestions={this.state.postcodeSuggestions}
+            handleSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
+            handleSuggestionsClearRequested={this.handleSuggestionsClearRequested}
+            handleSuggestionsFetchRequestedPostcode={this.handleSuggestionsFetchRequestedPostcode}
+            handleSuggestionsClearRequestedPostcode={this.handleSuggestionsClearRequestedPostcode}
+          />
           { this.state.postcodeError ? <span className="postcode-error">{this.state.postcodeError}</span>
             : searchResult}
         </Grid>
-      </div >
+      </div>
     );
   }
 }
 
 HomeSearch.propTypes = {
-  classes: PropTypes.object.isRequired,
   getBranchesFilteredByPostCode: PropTypes.func.isRequired
 };
 
-export default connect(null, { getBranchesFilteredByPostCode })(withStyles(styles)(withRouter(props => <HomeSearch {...props} />)));
+export default connect(null, { getBranchesFilteredByPostCode })(withRouter(props => <HomeSearch {...props} />));
