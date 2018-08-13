@@ -14,7 +14,8 @@ import categories from '../../Data/Categories.json';
 import helpers from '../../helpers';
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-const areas = ['All', 'Central', 'East', 'North', 'South', 'West'];
+const areas = ['North London', 'South London', 'West London', 'Central London' , 'East London', 'Anywhere', 'Bristol',
+'Canterbury', 'Online', 'Swale', 'Kent',' UK(ALL)'];
 const sortedBorough = BoroughData.sort(((a,b) =>  {
   if (a.borough < b.borough) {
     return -1
@@ -30,11 +31,11 @@ const OrganisationForm = (props) => {
 // I create a collection of days which combine days from days array and props.day and return unique value (no repetition of day )
 // then I made a copy of this collection using spread operator
   const uniqueDays= new Set([...days]);
-  const checkDaysList = [...uniqueDays]; 
-  const checkableDays = [] 
+  const checkDaysList = [...uniqueDays];
+  const checkableDays = []
 
 // map over checkdaylist and create a new array of days that includes
-// days from BE that meet the format uses on FE (days array), empty string, dash sign... will be exclude 
+// days from BE that meet the format uses on FE (days array), empty string, dash sign... will be exclude
 // on checkbox list
   checkDaysList.forEach(myDay => {
     props.day.forEach(el => {
@@ -61,7 +62,7 @@ const OrganisationForm = (props) => {
       />
       <div className="location">
         <div className="location-item">
-          <span className="location-name">Area</span>:&nbsp;&nbsp; 
+          <span className="location-name">Area</span>:&nbsp;&nbsp;
           <FormControl className="form-control-filed add-area">
             <Select
               open={props.openSelect}
@@ -76,14 +77,14 @@ const OrganisationForm = (props) => {
               {
                 <MenuItem className="select-title">
                   {'Select your Area'}
-                </MenuItem> 
+                </MenuItem>
               }
               {areas.map(area => (
                 <MenuItem value={area}>{area}</MenuItem>
               ))}
             </Select>
           </FormControl>
-        </div> 
+        </div>
         <span className="space">&#124;</span>
         <div className="location-item">
           <span className="location-name">Borough</span>:&nbsp;&nbsp;
@@ -101,7 +102,7 @@ const OrganisationForm = (props) => {
               {
                 <MenuItem className="select-title">
                   {'Select your Borough'}
-                </MenuItem> 
+                </MenuItem>
               }
               {sortedBorough.map(borough => (
                 <MenuItem key={borough.id} className="location-i" value={borough.borough}>{borough.borough}</MenuItem>
@@ -129,13 +130,13 @@ const OrganisationForm = (props) => {
             className="mt"
             placeholder="Add Client Accepted..."
             label="Client Accepted"
-            name="Clients"
+            name="clients"
             multiline
             rowsMax="4"
             value={props.clients}
             onChange={props.onChange}
             fullWidth
-          />  
+          />
         </Grid>
       </Grid>
       <TextFieldOrg
@@ -177,10 +178,10 @@ const OrganisationForm = (props) => {
               {
                 <MenuItem className="select-title">
                   {'Select days'}
-                </MenuItem> 
+                </MenuItem>
               }
-         
-              {days.map(day => (
+
+              {checkableDays.map(day => (
                 <MenuItem
                   key={day}
                   value={day}
@@ -192,7 +193,7 @@ const OrganisationForm = (props) => {
             close
             </Select>
           </FormControl>
-        
+
         </Grid>
         <Grid item xs={12} sm={6} className="telephone">
           <TextFieldOrg
@@ -234,7 +235,7 @@ const OrganisationForm = (props) => {
             value={props.website}
             onChange={props.onChange}
             fullWidth
-          />  
+          />
         </Grid>
       </Grid>
       <Grid container spacing={24} className="mt">
@@ -297,7 +298,7 @@ const OrganisationForm = (props) => {
             />
           ))}
       </div>
-      
+
     </div >
   )
 }
