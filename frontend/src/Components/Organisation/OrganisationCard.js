@@ -27,7 +27,7 @@ const OrganisationCard = ({
   isHomeRoute
 }) => (
   <Paper label='org-card-info'>
-    { role === 'Admin' || role === 'Editor' || isHomeRoute ?
+    { role === 'Admin' || role === 'Editor' ?
       <EditOrganisation org={org} /> : null
     }
     <SingleOrganisation org={org} role={role} />
