@@ -1,5 +1,5 @@
 import express from 'express';
-import { postOrganisation, editOrganisation } from '../controllers/post_controller';
+import { postOrganisation, editOrganisation, deleteOrganisation } from '../controllers/post_controller';
 import { seedData } from '../controllers/postInitialData';
 import {
   getAllOrgainisation,
@@ -18,6 +18,16 @@ router.post('/', (req, res) => {
   const query = req.body;
   postOrganisation(query).then(responce => res.json(responce));
 });
+
+router.delete('/organisation/delete', async (req, res) => {
+  const { orgId, branchId } = req.body;
+  try {
+    const response = await deleteOrganisation(orgId, branchId);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(502).json(error);
+  }
+})
 
 router.post('/organisation/add', async (req, res) => {
   const data = req.body;
@@ -87,7 +97,7 @@ router.patch('/organisation/edit', async (req, res) => {
         borough: data.borough,
         project: data.project,
         tag: data.tag,
-        Clients: data.clients,
+        clients: data.clients,
         address: [
           {
             id: data.addressId,
