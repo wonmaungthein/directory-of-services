@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
+import PropTypes from 'prop-types';
 import List from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
@@ -32,13 +33,6 @@ const styles = theme => ({
     },
     background: '#000',
   },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-  },
   navIconHide: {
     [theme.breakpoints.up('md')]: {
       display: 'none',
@@ -66,10 +60,12 @@ class SideBar extends React.Component {
 
   render() {
     const { classes, theme } = this.props;
+    const role = localStorage.getItem('role')
     const drawer = (
       <div className="side-bar-scroll">
-        <Hidden mdUp>
-          <div className={classes.drawerHeader}>
+        <div className="logo">
+          <Link to="/home">LOGO</Link>
+          <Hidden mdUp>
             <IconButton
               className="draw-close-button"
               onClick={this.handleDrawerClose}
@@ -80,20 +76,18 @@ class SideBar extends React.Component {
                 <ChevronLeftIcon />
                 )}
             </IconButton>
-          </div>
-        </Hidden>
-        <Hidden smDown>
-          <div className={classes.drawerHeader} />
-        </Hidden>
-        <div className="logo">
-          <Link to="/home">LOGO</Link>
+          </Hidden>
         </div>
         <Divider />
         <Categories />
         <Divider />
-        <List>
-          <UsersMenu />
-        </List>
+        {
+          role === 'Admin' ? 
+            <List>
+              <UsersMenu />
+            </List>
+        : null
+        }
       </div>
     );
 
@@ -137,6 +131,11 @@ class SideBar extends React.Component {
       </div>
     );
   }
+}
+
+SideBar.propTypes = {
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired
 }
 
 export default withStyles(styles, { withTheme: true })(SideBar);

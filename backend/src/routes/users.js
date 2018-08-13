@@ -57,13 +57,10 @@ router.get('/users/:id', async (req, res) => {
 
 router.delete('/users/:userId', async (req, res) => {
   try {
-    await deleteUser(req.params.userId).then(() => res.status(200).json({
-      message: 'user deleted successfully'
-    }));
+    const response = await deleteUser(req.params.userId);
+    res.status(200).json({ success: true, message: 'user deleted successfully', response });
   } catch (err) {
-    res
-      .status(502)
-      .json(err)
+    res.status(502).json({ success: false, message: 'There is an error occurred', err })
   }
 });
 
@@ -114,7 +111,7 @@ router.put('/users/:userId', async (req, res) => {
 });
 
 // Use this route to modify user role, org name, fullname
-router.patch('/user/role', async (req, res) => {
+router.put('/user/role', async (req, res) => {
   try {
     const {
       role,
@@ -220,7 +217,7 @@ router.post('/login', async (req, res) => {
               organisation: userInfo[0].organisation,
               role: userInfo[0].role,
               email: userInfo[0].email,
-              sucess: 'true'
+              success: 'true'
             }, secret);
             res
               .status(200)

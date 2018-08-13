@@ -87,7 +87,7 @@ class UsersListTable extends Component {
     .then(user => {
       if(user && user.success) {
         this.savedChangesSuccessfully(user.message);
-        this.context.router.history.push('/users')
+        this.context.router.history.push('/admindos')
       } else {
         this.unSucessSavedChanges(user.message);
         
@@ -141,12 +141,6 @@ class UsersListTable extends Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
-  removeUser = index => {
-    this.setState(state => ({
-      data: state.data.filter((row, rowIndex) => rowIndex !== index),
-    }));
-  };
-
   startEditing = (index, data) => {
     this.setState({ 
       editIdx: index,
@@ -187,7 +181,7 @@ class UsersListTable extends Component {
           <TableBody className="users-tbody">
             {data
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row, index) => {
+              .map(row => {
                 const currentlyEditing = editIdx === row.id;
                 return currentlyEditing ? (
                   <tr key={row.id}>
@@ -237,26 +231,26 @@ class UsersListTable extends Component {
                       </Button>
                     </TableCell>
                   </tr>
-                ) : (
-                  <TableRow key={row.id}>
-                    <TableCell className="user-text">{row.fullname}</TableCell>
-                    <Hidden xsDown>
-                      <TableCell className="user-text">{row.organisation}</TableCell>
-                    </Hidden>
-                    <TableCell className="user-text">{row.role? row.role : 'None'}</TableCell>
-                    <TableCell className="user-text">
-                      <Button onClick={() => this.startEditing(row.id, row)} raised="true" >
-                        <i className="material-icons">edit</i>
-                      </Button>
-                      <Notification
-                        value={row.fullname}
-                        removeHandler={() => this.removeUser(index)}
-                        title='USER'
-                      />
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
+              ) : (
+                <TableRow key={row.id}>
+                  <TableCell className="user-text">{row.fullname}</TableCell>
+                  <Hidden xsDown>
+                    <TableCell className="user-text">{row.organisation}</TableCell>
+                  </Hidden>
+                  <TableCell className="user-text">{row.role? row.role : 'None'}</TableCell>
+                  <TableCell className="user-text">
+                    <Button onClick={() => this.startEditing(row.id, row)} raised>
+                      <i className="material-icons">edit</i>
+                    </Button>
+                    <Notification
+                      value={row.fullname}
+                      title='USER'
+                      userId={row.id}
+                    />
+                  </TableCell>
+                </TableRow>
+              );
+            })}
             {emptyRows > 0 && (
               <TableRow
                 style={{
@@ -265,7 +259,7 @@ class UsersListTable extends Component {
               >
                 <TableCell colSpan={6} />
               </TableRow>
-            )}
+              )}
           </TableBody>
           <TableFooter className="users-tfoot">
             <TableRow>
