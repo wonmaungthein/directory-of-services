@@ -7,7 +7,7 @@ const UsersMenu = () => (
     <Link to="/users" role="button" className="menu-header">
       Users
     </Link>
-    <Link to="/users/add" role="button">
+    <Link to="/users/form" role="button">
       Add
     </Link>
   </div>
