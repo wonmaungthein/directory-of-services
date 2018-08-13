@@ -24,6 +24,7 @@ export function login(data) {
       if (res.status === 200) {
         const {token} = res.data;
         localStorage.setItem('jwtToken', token);
+        localStorage.setItem('role', res.data.user[0].role)
         setAuthorizationToken(token);
         if (res.data && res.data.user) {
           dispatch(setCurrentUser(jwtDecode(token)));
@@ -47,7 +48,7 @@ export function upDateUser(data) {
   const userEdited = async() => {
     try {
     const editUser = await axios
-    .patch(`${api}/user/role`, data);
+    .put(`${api}/user/role`, data);
      return editUser.data
     } catch (error) {
       return JSON.stringify(error);  

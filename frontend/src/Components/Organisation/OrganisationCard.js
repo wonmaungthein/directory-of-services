@@ -23,36 +23,41 @@ const styles = theme => ({
 
 const OrganisationCard = ({
   role,
-  org
+  org,
+  isHomeRoute
 }) => (
   <Paper label='org-card-info'>
-    { role === 'Admin' || role === 'Editor' ? 
+    { role === 'Admin' || role === 'Editor' ?
       <EditOrganisation org={org} /> : null
     }
     <SingleOrganisation org={org} role={role} />
-    
+
     { /*  Conditionally display services and process, if no info provided display  'not provided' in FE */ }
-    
-    { org.org_name ? 
-      <span className={org.distance ? 'org-distance': ''}>
-        <h1>{org.org_name}</h1> 
-        {org.distance ? <p className="">{(org.distance).toFixed(1)} miles</p> : null}
+
+    { org.org_name ?
+      <span className={org.distance || org.distance === null ? 'org-distance': ''}>
+        <h1>{org.org_name}</h1>
+        {org.distance && org.distance !== null ? <p>{(org.distance).toFixed(1)} miles</p>
+        :
+        org.distance === null ? <p>Distance is not available</p> : null}
       </span>
-      : 
-      <h1 className="not-available"> Add organisation name ...</h1> 
+      :
+      <h1 className="not-available"> Add organisation name ...</h1>
       }
     <h6> Area: {org.area ? org.area : 'Add area   ...'} | Borough: {org.borough ? org.borough : 'Add borough ...'}</h6>
+    {isHomeRoute && <h6> Category: {org.cat_name ? org.cat_name : 'Add Category ...'}</h6>
+    }
     <div className="org-card-services">
 
       {org.service.length > 1? <p> <span className="title"> <img src="https://png.icons8.com/material/17/1abcd4/administrative-tools.png" alt="administrative-tools" className="material-icons org-card-icon" /> </span> {org.service}</p>
       :
       <p> <span className="title"> <img src="https://png.icons8.com/material/17/1abcd4/administrative-tools.png" alt="administrative-tools" className="material-icons org-card-icon" /> </span>Add services ...</p>}
 
-      {org.process.length > 1? <p> <span className="title"> <i className="material-icons org-card-icon">access_time</i> </span> {org.process} </p> 
+      {org.process.length > 1? <p> <span className="title"> <i className="material-icons org-card-icon">access_time</i> </span> {org.process} </p>
       :
       <p> <span className="title"> <i className="material-icons org-card-icon">access_time</i> </span><span className="not-available"> Add process ... </span></p>}
     </div>
-  
+
   </Paper>
   );
 

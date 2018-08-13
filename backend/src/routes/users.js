@@ -111,7 +111,7 @@ router.put('/users/:userId', async (req, res) => {
 });
 
 // Use this route to modify user role, org name, fullname
-router.patch('/user/role', async (req, res) => {
+router.put('/user/role', async (req, res) => {
   try {
     const {
       role,
