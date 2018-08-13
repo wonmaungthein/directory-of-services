@@ -146,7 +146,7 @@ class HomeSearch extends React.Component {
           const long = info.longitude
           const getBranches = await this.props.getBranchesFilteredByPostCode({ lat, long })
           const orgsData = [];
-          getBranches.data
+          getBranches.data.filter(resData => resData.distance)
             .map(branchs => {
               const { distance } = branchs;
               const orgs = branchs.data;
@@ -239,7 +239,7 @@ class HomeSearch extends React.Component {
 
   render() {
     const { editIdx, organisations } = this.state;
-    const { classes } = this.props;
+    const { classes, role} = this.props;
     const params  = this.props.location.pathname;
     const isHomeRoute = params && params.includes('home');
     if (this.state.isLoading || this.filterData.length === 0 || organisations.length <= 0) {
@@ -260,6 +260,7 @@ class HomeSearch extends React.Component {
                 org={org}
                 index={index}
                 isHomeRoute={isHomeRoute}
+                role={role}
               />
             </Grid>);
               })

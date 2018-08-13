@@ -14,10 +14,11 @@ class HomePage extends Component {
 
   render() {
     const organisations = this.props.organisations ? this.props.organisations.areas : [];
+    const role = this.props.user.role ? this.props.user.role : '';
     return (
       <div>
         <TopNav homePage />
-        <HomeSearch organisations={organisations}  />
+        <HomeSearch organisations={organisations} role={role} />
       </div>
     )
   }
@@ -31,6 +32,7 @@ HomePage.propTypes = {
 function mapStateToProps(state) {
   return {
     organisations: state.organisationsList,
+    user: state.loginAuth.user
   }
 }
 
