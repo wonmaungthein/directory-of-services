@@ -33,13 +33,6 @@ const styles = theme => ({
     },
     background: '#000',
   },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-  },
   navIconHide: {
     [theme.breakpoints.up('md')]: {
       display: 'none',
@@ -73,18 +66,16 @@ class SideBar extends React.Component {
         <div className="logo">
           <Link to="/home">LOGO</Link>
           <Hidden mdUp>
-            <div className={classes.drawerHeader}>
-              <IconButton
-                className="draw-close-button"
-                onClick={this.handleDrawerClose}
-              >
-                {theme.direction === 'rtl' ? (
-                  <ChevronRightIcon />
-                ) : (
-                  <ChevronLeftIcon />
-                  )}
-              </IconButton>
-            </div>
+            <IconButton
+              className="draw-close-button"
+              onClick={this.handleDrawerClose}
+            >
+              {theme.direction === 'rtl' ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+                )}
+            </IconButton>
           </Hidden>
         </div>
         <Divider />
