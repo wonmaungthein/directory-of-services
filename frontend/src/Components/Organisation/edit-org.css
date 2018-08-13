@@ -4,8 +4,6 @@
   padding: .4rem 0 0 .8rem;
 }
 
-p.service { text-transform: capitalize; }
-
 .edit-org .website-label input:nth-child(1){
   color: #519889 !important;
 }
