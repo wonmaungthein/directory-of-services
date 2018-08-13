@@ -60,10 +60,10 @@ class Notification extends React.Component {
     .then(deletedUser => {
       if (deletedUser && deletedUser.success) {
         this.deletedSuccessfully(deletedUser.message)
-        this.context.router.history.push('/users')
+        this.context.router.history.push('/admindos')
       }else{
         this.notDeletedSuccessfully(deletedUser.message)
-        this.context.router.history.push('/users')
+        this.context.router.history.push('/admindos')
       }
     })
   };
