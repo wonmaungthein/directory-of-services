@@ -12,6 +12,7 @@ exports.up = knex =>
         .unsigned()
         .references('id')
         .inTable('Organisation')
+        .onDelete('CASCADE');
       table.string('borough')
       table.string('project')
       table.text('clients')
@@ -23,7 +24,8 @@ exports.up = knex =>
         .integer('branch_id')
         .unsigned()
         .references('id')
-        .inTable('Branch');
+        .inTable('Branch')
+        .onDelete('CASCADE');
       table.text('service_days');
       table.text('process');
       table.text('service');
@@ -34,7 +36,8 @@ exports.up = knex =>
         .integer('service_id')
         .unsigned()
         .references('id')
-        .inTable('Service');
+        .inTable('Service')
+        .onDelete('CASCADE');
       table.string('cat_name');
     })
     .createTable('Address', table => {
@@ -43,7 +46,8 @@ exports.up = knex =>
         .integer('branch_id')
         .unsigned()
         .references('id')
-        .inTable('Branch');
+        .inTable('Branch')
+        .onDelete('CASCADE');
       table.string('address_line');
       table.string('area');
       table.string('postcode');
@@ -56,7 +60,8 @@ exports.up = knex =>
         .integer('address_id')
         .unsigned()
         .references('id')
-        .inTable('Address');
+        .inTable('Address')
+        .onDelete('CASCADE');
       table.string('lat');
       table.string('long');
     })
