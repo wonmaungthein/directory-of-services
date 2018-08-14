@@ -227,7 +227,7 @@ class EditOrganisation extends React.Component {
               selectedArea={this.state.Area}
               borough={this.state.Borough}
               selectedBorough={this.state.Borough}
-              process={this.state.Process}
+              process={this.state.Process.replace(/(\r\n\s|\n|\r|\s)/gm, ' ')}
               day={this.state.Day}
               telephone={this.state.Tel}
               email={this.state.Email}
