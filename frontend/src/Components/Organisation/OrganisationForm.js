@@ -181,7 +181,7 @@ const OrganisationForm = (props) => {
                 </MenuItem>
               }
 
-              {checkableDays.map(day => (
+              {days.map(day => (
                 <MenuItem
                   key={day}
                   value={day}
