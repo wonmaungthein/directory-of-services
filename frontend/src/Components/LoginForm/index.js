@@ -67,11 +67,11 @@ class LoginForm extends Component {
             type: 'LOGIN_SUCCESS',
             text: 'You have been logged in successfully'
           });
-          this.context.router.history.push('/home')
           this.setState({ isLoading: false, errors: error });
+          this.context.router.history.push('/home')
         } else {
-          error.authErr = "Email or Password invalid"
           this.setState({ userVerification: error.authErr, isLoading: false, password: '' });
+          error.authErr = "Email or Password invalid"
         }
       })
     }

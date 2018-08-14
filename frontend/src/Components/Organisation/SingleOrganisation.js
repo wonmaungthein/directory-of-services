@@ -65,30 +65,30 @@ class SingleOrganisation extends Component {
             <div>
               <h4>Project</h4> 
               {org.project ? <Fragment> <p className="service"> {org.project}</p>  </Fragment>
-                :<p className="not-available">{uiMessage} project ...</p>}
+                :<p className="not-available">{`${uiMessage}`} project ...</p>}
             </div>
             <div>
               <h4>Clients Accepted</h4> 
               {org.clients ? <Fragment> <p className="service"> {org.clients}</p>  </Fragment>
-                :<p className="not-available">{uiMessage} Clients Accepted...</p>}
+                :<p className="not-available">{`${uiMessage}`} Clients Accepted...</p>}
             </div>
           </div>
           <div className="org-service">
             <h4>Services</h4> 
             {org.service? <Fragment> <p className="service"> {org.service}</p></Fragment>: 
-            <p className="not-available">{uiMessage} services ...</p>}
+            <p className="not-available">{`${uiMessage}`} services ...</p>}
           </div>
 
           <div className="org-process">
             <div>
               <h4>Process</h4>
               {org.process ? <Fragment><p className="service">{org.process.replace(/\s+/g, " ")} </p> </Fragment> 
-                :<p className="not-available">{uiMessage} process ...</p>}
+                :<p className="not-available">{`${uiMessage}`} process ...</p>}
             </div>
             <div>
               <h4>Days</h4> 
               {org.service_days? <Fragment><p>{org.service_days.split(' ').join(', ')}</p></Fragment>
-                  :<p className="not-available">{uiMessage} days ...</p>}
+                  :<p className="not-available">{`${uiMessage}`} days ...</p>}
             </div>
           </div>
 
@@ -96,25 +96,25 @@ class SingleOrganisation extends Component {
             <div>
               <h4>Telephone</h4> 
               {org.telephone && org.telephone !== "undefined"? <Fragment><p>{org.telephone}</p></Fragment>
-                  :<p className="not-available" disable>{uiMessage} telephone...</p>}
+                  :<p className="not-available" disable>{`${uiMessage}`} telephone...</p>}
             </div>
 
             <div>
               <h4>Email</h4> 
               {org.email_address? <Fragment><p>{org.email_address}</p></Fragment>
-                  :<p className="not-available">{uiMessage} email ...</p>}
+                  :<p className="not-available">{`${uiMessage}`} email ...</p>}
             </div>
           </div>
           <div className="org-website org-process">
             <div>
               <h4>Website </h4> 
               {org.website ? <Fragment> <a className="website-link" target="blank" href={`${org.website}`}>{org.website}</a></Fragment>
-                : <p className="not-available"> {uiMessage} website... </p>}
+                : <p className="not-available"> {`${uiMessage}`} website... </p>}
             </div>
             <div>
               <h4>Postcode </h4> 
               {org.postcode ? <p> {org.postcode}</p>
-                : <p className="not-available"> {uiMessage} postcode... </p>}
+                : <p className="not-available"> {`${uiMessage}`} postcode... </p>}
             </div>
           </div>
           <div className="org-service">
@@ -122,7 +122,7 @@ class SingleOrganisation extends Component {
             <div>
               <h4>Tags</h4> 
               {org.tag ?   <Fragment><p className="tag service"> <img src="https://png.icons8.com/material/15/666666/tag-window.png" alt="tag" /> {org.tag}</p></Fragment>
-                : <p className="not-available">  {uiMessage} tags... </p>}
+                : <p className="not-available">  {`${uiMessage}`} tags... </p>}
             </div>
           </div>
           <Notification branchIds={branchIds} deleteOrg organisation={org.org_name} />
