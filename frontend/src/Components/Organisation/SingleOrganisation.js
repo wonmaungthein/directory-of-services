@@ -82,7 +82,7 @@ class SingleOrganisation extends Component {
           <div className="org-process">
             <div>
               <h4>Process</h4>
-              {org.process ? <Fragment><p className="service">{org.process} </p> </Fragment> 
+              {org.process ? <Fragment><p className="service">{org.process.replace(/\s+/g, " ")} </p> </Fragment> 
                 :<p className="not-available">{uiMessage} process ...</p>}
             </div>
             <div>
