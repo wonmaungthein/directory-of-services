@@ -4,8 +4,15 @@
   right: 80px;
 }
 .user-drop-down .container{
-  border-radius: 0;
-  margin-right: -4.8rem;
+  font-family: inherit;
+  position: absolute;
+  width: 12em;
+  z-index: 100000;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: auto;
+  top: -1px;
+  right: -80px;
 }
 .user-drop-down a:nth-child(1){
   padding: 1em;
