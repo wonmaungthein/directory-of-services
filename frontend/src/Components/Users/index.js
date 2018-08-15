@@ -57,12 +57,7 @@ class UsersPage extends Component {
     const isAddUsersPage = params && params.includes('form');
     const isProfile = params && params.match('admindos');
     const { hideForm } = this.state;
-    if (params && params.match('/users/list') && role === 'Admin') {
-      userList = (
-        <UsersListTable
-          usersList={users}
-        />)
-    } else if(isProfile){
+    if (params && params.match('/users/list') && role === 'Admin' || isProfile) {
       userList = (
         <UsersListTable
           usersList={users}
