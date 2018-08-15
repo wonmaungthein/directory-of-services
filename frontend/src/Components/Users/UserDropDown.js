@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import './user-drop-down.css';
 import './users.css';
 
-const UserDropDown = ({ handleLogOut }) => (
+const UserDropDown = ({ handleLogOut, role }) => (
   <div className="user-drop-down">
     <Paper className="container">
-      <Link to="/users/profile">
+      <Link to={role !=='Editor' && role !=='None' && role === 'Admin'? "/users/list" : "/user/profile"}>
         <i className="material-icons">perm_contact_calendar</i>
         <h4>Profile</h4>
       </Link>

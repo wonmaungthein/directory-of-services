@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import OrganisationCard from './Components/Organisation';
@@ -40,6 +40,7 @@ const styles = theme => ({
 const Routes = props => {
   const { classes } = props;
   const showSideBar = props.location.pathname !== '/';
+  const adminRoute = props.location.pathname === '/users/list';
   return (
     <div className={classes.root}>
       {showSideBar ? <SideBar /> : null}
@@ -62,9 +63,9 @@ const Routes = props => {
           component={AuthEndpoint(AddOrganisation)}
         />
         <Route exact path="/admindos" component={AuthEndpoint(Users)} />
-        <Route exact path="/users" component={AuthEndpoint(Users)} />
+        {adminRoute && <Redirect to="/admindos" />}
         <Route exact path="/users/form" component={AuthEndpoint(Users)} />
-        <Route exact path="/users/profile" component={AuthEndpoint(UserProfile)} />
+        <Route exact path="/user/profile" component={AuthEndpoint(UserProfile)} />
       </main>
     </div>
   );
