@@ -1,5 +1,9 @@
 import express from 'express';
-import { postOrganisation, editOrganisation, deleteOrganisation } from '../controllers/post_controller';
+import {
+  postOrganisation,
+  editOrganisation,
+  deleteOrganisation
+} from '../controllers/post_controller';
 import { seedData } from '../controllers/postInitialData';
 import {
   getAllOrgainisation,
@@ -23,65 +27,75 @@ router.delete('/organisation/delete', async (req, res) => {
   const { orgId, branchId } = req.query;
   try {
     const response = await deleteOrganisation(orgId, branchId);
-    res.status(200).json({ success: true, message: 'Branch has been deleted successfully', response });
+    res.status(200).json({
+      success: true,
+      message: 'Branch has been deleted successfully',
+      response
+    });
   } catch (error) {
-    res.status(502).json({ success: false, message: 'There is an error occurred', error });
+    res
+      .status(502)
+      .json({ success: false, message: 'There is an error occurred', error });
   }
-})
+});
 
 router.post('/organisation/add', async (req, res) => {
   const data = req.body;
-  const graph = {
-    org_name: data.organisation,
-    website: data.website || '',
-    branch: {
-      borough: data.borough || '',
-      project: data.project || '',
-      tag: data.tag || '',
-      service: [
-        {
-          service: data.service || '',
-          service_days: data.days || '',
-          process: data.process || '',
-          categories: [
-            {
-              cat_name: data.categories
-            }
-          ]
-        }
-      ],
-      address: [
-        {
-          area: data.area || '',
-          address_line: data.address || '',
-          postcode: data.postcode || '',
-          email_address: data.email || '',
-          telephone: data.tel || '',
-          location: [
-            {
-              lat: data.lat || '',
-              long: data.long || ''
-            }
-          ]
-        }
-      ]
-    }
-  }
-
   try {
-    await postOrganisation(graph)
+    if (!data.organisation || !data.categories) {
+      throw new Error('REQUIRED_DATA_NOT_SUPPLIED');
+    }
+    const graph = {
+      org_name: data.organisation,
+      website: data.website || '',
+      branch: {
+        borough: data.borough || '',
+        project: data.project || '',
+        tag: data.tag || '',
+        service: [
+          {
+            service: data.service || '',
+            service_days: data.days || '',
+            process: data.process || '',
+            categories: [
+              {
+                cat_name: data.categories
+              }
+            ]
+          }
+        ],
+        address: [
+          {
+            area: data.area || '',
+            address_line: data.address || '',
+            postcode: data.postcode || '',
+            email_address: data.email || '',
+            telephone: data.tel || '',
+            location: [
+              {
+                lat: data.lat || '',
+                long: data.long || ''
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    await postOrganisation(graph);
     res.status(200).json({
       success: true,
-      message: 'The organisation has been saved successfuly'
-    })
+      message: 'The organisation has been saved successfuly',
+      data: graph
+    });
   } catch (err) {
     res.status(502).json({
       success: false,
       message: 'The organisation did not save!',
       err
-    })
+    });
   }
-})
+});
 
 router.put('/organisation/edit', async (req, res) => {
   const { branchId } = req.body;
@@ -129,30 +143,30 @@ router.put('/organisation/edit', async (req, res) => {
         ]
       }
     ]
-  }
+  };
 
   try {
-    await editOrganisation(graph, orgId, branchId)
+    await editOrganisation(graph, orgId, branchId);
     return res.status(200).json({
       success: true,
       message: 'The organisation has been updated successfully',
       data
-    })
+    });
   } catch (err) {
     return res.status(502).json({
       success: false,
       message: 'The organisation did not save!',
-      err
+      err: err.message
     });
   }
-})
+});
 
 router.get('/all', async (req, res) => {
   try {
     await getAllOrgainisation().then(services =>
       res.status(200).json(services));
   } catch (err) {
-    res.status(502).json(err)
+    res.status(502).json(err);
   }
 });
 
@@ -160,13 +174,18 @@ router.get('/migrate', async (req, res) => {
   try {
     const allData = await getAllOrgainisation();
     if (allData.length > 0) {
-      return res.status(502).json({ success: false, message: 'Data is already migrated' })
+      return res
+        .status(502)
+        .json({ success: false, message: 'Data is already migrated' });
     }
     await seedData();
-    const data = await res.status(200).json({ success: true, message: 'Data is migrated successfully into database!' })
+    const data = await res.status(200).json({
+      success: true,
+      message: 'Data is migrated successfully into database!'
+    });
     return data;
   } catch (err) {
-    return res.status(502).json(err)
+    return res.status(502).json(err);
   }
 });
 
@@ -175,25 +194,23 @@ router.get('/categories', async (req, res) => {
     await getListOfCategories().then(categories =>
       res.status(200).json(categories));
   } catch (err) {
-    res.status(502).json(err)
+    res.status(502).json(err);
   }
 });
 
 router.get('/boroughs', async (req, res) => {
   try {
-    getListOfBoroughs().then(boroughs =>
-      res.status(200).json(boroughs));
+    getListOfBoroughs().then(boroughs => res.status(200).json(boroughs));
   } catch (err) {
-    res.status(502).json(err)
+    res.status(502).json(err);
   }
 });
 
 router.get('/areas', async (req, res) => {
   try {
-    await getListOfAreas().then(areas =>
-      res.status(200).json(areas));
+    await getListOfAreas().then(areas => res.status(200).json(areas));
   } catch (err) {
-    res.status(502).json(err)
+    res.status(502).json(err);
   }
 });
 
@@ -201,30 +218,28 @@ router.post('/postcode', async (req, res) => {
   const { category, lat, long } = req.body;
   try {
     const data = await getBranchesByPostcode(category, lat, long);
-    res.status(200).json(data)
+    res.status(200).json(data);
   } catch (err) {
-    res.status(502).json(err)
+    res.status(502).json(err);
   }
 });
 
 router.get('/category', async (req, res) => {
   try {
     const { category } = req.query;
-    await getBranchesByCategory(category)
-      .then(categories =>
-        res.status(200).json(categories))
+    await getBranchesByCategory(category).then(categories =>
+      res.status(200).json(categories));
   } catch (err) {
-    res.status(502).json(err)
+    res.status(502).json(err);
   }
 });
 
 router.get('/day', async (req, res) => {
   try {
     const { day } = req.query;
-    await getBranchesByDay(day).then(days =>
-      res.status(200).json(days));
+    await getBranchesByDay(day).then(days => res.status(200).json(days));
   } catch (err) {
-    res.status(502).json(err)
+    res.status(502).json(err);
   }
 });
 
@@ -234,7 +249,7 @@ router.get('/borough', async (req, res) => {
     await getBranchesByBorough(borough).then(boroughs =>
       res.status(200).json(boroughs));
   } catch (err) {
-    res.status(502).json(err)
+    res.status(502).json(err);
   }
 });
 
