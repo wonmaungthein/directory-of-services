@@ -211,7 +211,7 @@ class HomeSearch extends React.Component {
       return null
     }
     return (
-      <div>
+      <div className="org-home">
         <Grid container className="organisation-page" spacing={24}>
           <SearchForm
             value={this.state.value}
