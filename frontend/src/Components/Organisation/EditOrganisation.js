@@ -202,10 +202,10 @@ class EditOrganisation extends React.Component {
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title"
-          modal
-          autoDetectWindowHeight
-          autoScrollBodyContent
-          contentStyle={{width: 100, maxWidth: "none"}}
+          modal="true"
+          autodetectwindowheight="true"
+          autoscrollbodycontent="true"
+          contentstyle={{width: 100, maxWidth: "none"}}
         >
           <DialogTitle id="form-dialog-title" className="edit-org-title"> 
             <div> {""}</div>
