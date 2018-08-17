@@ -239,7 +239,7 @@ class UsersListTable extends Component {
                   </Hidden>
                   <TableCell className="user-text">{row.role? row.role : 'None'}</TableCell>
                   <TableCell className="user-text">
-                    <Button onClick={() => this.startEditing(row.id, row)}>
+                    <Button onClick={() => this.startEditing(row.id, row)} raised="true">
                       <i className="material-icons">edit</i>
                     </Button>
                     <Notification
