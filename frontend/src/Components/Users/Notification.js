@@ -90,11 +90,12 @@ class Notification extends React.Component {
       <Button 
         variant={url.includes('admindos') ? null : 'fab'} 
         color={url.includes('admindos') ? null :  'secondary'}
-        className={url.includes('admindos') ? null : 'delete'} 
+        className={url.includes('admindos') ? null : 'delete'}  
         onClick={this.handleClickOpen}
         raised="true"
       >
         <i className="material-icons">delete</i>
+        Delete
       </Button>
     )
   }
