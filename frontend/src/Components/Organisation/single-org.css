@@ -2,7 +2,7 @@
   width: 100%;
   padding: .4rem 1rem 3rem;
   overflow: hidden;
-  max-width: 65vw;
+  max-width: 650px;
 }
 
 .org-info h1 {
@@ -18,7 +18,7 @@
 .org-process,
 .org-contact{
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 4fr 3fr;
   grid-gap: 1em;
   color: #000;
   word-break: break-word;
