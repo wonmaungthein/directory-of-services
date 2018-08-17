@@ -76,24 +76,4 @@ describe('API testing', () => {
         done();
       })
   })
-
-  it('should return list of boroughs filtered by borough in JSON format', (done) => {
-    request(app).get('/api/service/borough/?borough=Bexley')
-      .expect('Content-Type', /json/)
-      .expect(200)
-      .then((response) => {
-        expect(response.body).to.be.a('array')
-        done();
-      })
-  })
-
-  it('should return list of boroughs filtered by borough in JSON format', (done) => {
-    request(app).get('/api/service/borough/?borough=Bexley')
-      .expect('Content-Type', /json/)
-      .expect(200)
-      .then((response) => {
-        expect(response.body).to.be.a('array')
-        done();
-      })
-  })
 })
