@@ -104,12 +104,13 @@ describe('API testing', async () => {
   });
 
   it.only('should not save unless correct data has been supplied', async () => {
+    const postcode = { postcod: 'W7 3DR' };
     const result = await request(app)
-      .post('/api/service/organisation/add')
-      .send({ organisation: 'AFRIL', categories: 'Benefit' });
+      .post('/api/service/postcode')
+      .send({ postcode });
     expect(result.statusCode).to.be.equal(200);
     expect(result.body.success).to.be.true;
-    expect(result.body.message).to.be.equal('The organisation has been saved successfuly');
+    expect(result.body.message).to.be.equal('The Postcode has been saved successfully');
   });
   it.only('should save with right data', async () => {
     const anOrg = {

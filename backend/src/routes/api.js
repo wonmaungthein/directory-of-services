@@ -91,7 +91,7 @@ router.post('/organisation/add', async (req, res) => {
   } catch (err) {
     res.status(502).json({
       success: false,
-      message: 'The organisation did not save!',
+      message: 'The organisation is not saved!',
       err
     });
   }
@@ -218,9 +218,18 @@ router.post('/postcode', async (req, res) => {
   const { category, lat, long } = req.body;
   try {
     const data = await getBranchesByPostcode(category, lat, long);
-    res.status(200).json(data);
+    res.status(200).json({
+      success: true,
+      message: 'The Postcode has been saved successfully',
+      data
+    });
+
   } catch (err) {
-    res.status(502).json(err);
+    res.status(502).json({
+      success: false,
+      message: 'The Postcode is not saved!',
+      err
+    });
   }
 });
 
