@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from 'material-ui/Button';
@@ -73,24 +72,12 @@ class AddOrganisation extends Component {
     }
     if (!error) {
       this.props.addOrganisation(data).then(user => {
-        if (user && user.success !== false) {
+        if (user && user.success === true) {
           this.savedChangesSuccessfully();
           this.props.history.push(`/services/${checkedCategory}`);
         } else {
           this.unSucessSavedChanges(user.message);
         }
-      });
-      this.setState({
-        Organisation: '',
-        Area: '',
-        Borough: '',
-        Process: '',
-        Day: [],
-        Tel: '',
-        Email: '',
-        Website: '',
-        Services: [],
-        Categories: [],
       });
     } else {
       this.unSucessSavedChanges('You have to fill Organisation name and categories fields');
@@ -220,4 +207,4 @@ AddOrganisation.propTypes = {
   addOrganisation: PropTypes.func.isRequired
 }
 
-export default connect(null, { addOrganisation })(withRouter(props => <AddOrganisation {...props} />));
+export default connect(null, { addOrganisation })(AddOrganisation);
