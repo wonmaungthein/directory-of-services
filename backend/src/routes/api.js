@@ -1,5 +1,5 @@
 import express from 'express';
-import { postOrganisation, editOrganisation, deleteOrganisation } from '../controllers/post_controller';
+import { postOrganisation, editOrganisation, deleteBranch } from '../controllers/post_controller';
 import { seedData } from '../controllers/postInitialData';
 import {
   getAllOrgainisation,
@@ -19,10 +19,10 @@ router.post('/', (req, res) => {
   postOrganisation(query).then(responce => res.json(responce));
 });
 
-router.delete('/organisation/delete', async (req, res) => {
+router.delete('/branch/delete', async (req, res) => {
   const { orgId, branchId } = req.query;
   try {
-    const response = await deleteOrganisation(orgId, branchId);
+    const response = await deleteBranch(orgId, branchId);
     res.status(200).json({ success: true, message: 'Branch has been deleted successfully', response });
   } catch (error) {
     res.status(502).json({ success: false, message: 'There is an error occurred', error });
