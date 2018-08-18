@@ -18,14 +18,12 @@ import {
 
 const router = express.Router();
 
-router.post('/', (req, res) => {
-  const query = req.body;
-  postOrganisation(query).then(responce => res.json(responce));
-});
-
 router.delete('/organisation/delete', async (req, res) => {
   const { orgId, branchId } = req.query;
   try {
+    if (!orgId || !branchId) {
+      throw new Error('REQUIRED_DATA_NOT_SUPPLIED');
+    }
     const response = await deleteOrganisation(orgId, branchId);
     res.status(200).json({
       success: true,
@@ -217,6 +215,9 @@ router.get('/areas', async (req, res) => {
 router.post('/postcode', async (req, res) => {
   const { category, lat, long } = req.body;
   try {
+    if (!lat || !long) {
+      throw new Error('REQUIRED_DATA_NOT_SUPPLIED');
+    }
     const data = await getBranchesByPostcode(category, lat, long);
     res.status(200).json({
       success: true,
