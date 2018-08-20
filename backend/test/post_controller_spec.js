@@ -1,4 +1,6 @@
 import { expect } from 'chai'
+import request from 'supertest';
+import app from '../src/app'
 import {
   postOrganisation,
   editOrganisation,
@@ -48,7 +50,7 @@ describe('Test post controller functions', () => {
     expect(result.org_name).to.equal('Test')
   })
 
-  it.only('Should edit an organization', async () => {
+  it('Should edit an organization', async () => {
     const orgId = 2; const branchId = 1;
     const serviceId = 1; const addressId = 1;
     const organisation = {
@@ -106,4 +108,10 @@ describe('Test post controller functions', () => {
     expect(result).to.equal(1)
   })
 
+  it('Should return empty array for branch its id equal 2 and using organisation id equal 1', async () => {
+    const result = await request(app).get('/api/service/organisation/branch/?orgId=1&&branchId=2')
+      .expect('Content-Type', /json/);
+    expect(result.body).to.be.a('array')
+    expect(result.body).to.have.lengthOf(0)
+  })
 })
