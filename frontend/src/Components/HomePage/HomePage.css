@@ -41,7 +41,18 @@ i{ cursor: pointer;}
   border: 0;
   height: 10px;
 }
+div.org-home .org-card-info .org-detail-btn button {
+  top: 7.6rem;
+  right: 0;
+  left: 43%;
+}
 
+
+div.org-home .org-card-info .edit-button {
+  top: 7.5rem;
+  right: 0;
+  left: 70%;
+}
 .clear-search i.material-icons,
 .clear-postcode i.material-icons {
   color: #999;

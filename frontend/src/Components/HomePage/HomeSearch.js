@@ -123,7 +123,7 @@ class HomeSearch extends React.Component {
           const long = info.longitude
           const getBranches = await this.props.getBranchesFilteredByPostCode({ lat, long })
           const orgsData = [];
-          getBranches.data
+          getBranches
             .map(branchs => {
               const { distance } = branchs;
               const orgs = branchs.data;
@@ -211,7 +211,7 @@ class HomeSearch extends React.Component {
       return null
     }
     return (
-      <div>
+      <div className="org-home">
         <Grid container className="organisation-page" spacing={24}>
           <SearchForm
             value={this.state.value}
