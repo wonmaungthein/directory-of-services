@@ -66,7 +66,7 @@ describe('API testing', async () => {
       .post('/api/service/postcode')
       .send(postcode);
     expect(result.statusCode).to.be.equal(200);
-    expect(result.body.success).to.be.equal(true)
+    expect(result.body.success).to.equal(true)
     expect(result.body.message).to.be.equal('The Postcode has been saved successfully');
   });
 
@@ -79,7 +79,7 @@ describe('API testing', async () => {
       .post('/api/service/organisation/add')
       .send(anOrg);
     expect(result.statusCode).to.be.equal(200);
-    expect(result.body.success).to.be.equal(true);
+    expect(result.body.success).to.equal(true);
     expect(result.body.message).to.be.equal('The organisation has been saved successfuly');
   });
 });
