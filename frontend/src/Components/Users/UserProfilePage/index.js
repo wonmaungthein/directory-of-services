@@ -2,6 +2,7 @@
   import { connect } from 'react-redux';
   import PropTypes from 'prop-types';
   import TopNav from '../../TopNav';
+
   import './Userprofile.css'
 
   class UserProfile extends Component {
@@ -10,7 +11,8 @@
       this.state ={}
     }
     render(){
-      const users = this.props.userInfo ? this.props.userInfo : [] ;
+      const users = this.props.userInfo ? [this.props.userInfo] : [] ;
+      
       return (
         <Fragment>
           <TopNav userProfile />
