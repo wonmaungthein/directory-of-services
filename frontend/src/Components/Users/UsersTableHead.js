@@ -50,7 +50,7 @@ class UsersTableHead extends Component {
                 numeric={column.numeric}
                 padding={column.disablePadding ? 'none' : 'default'}
                 sortDirection={orderBy === column.id ? order : false}
-                className={usersList.length === 1 && 'user-role'}
+                className={usersList && usersList.length === 1 && 'user-role'}
               >
                 <Tooltip
                   title={`Sort ${column.label}`}
