@@ -1,9 +1,5 @@
 import express from 'express';
-import {
-  postOrganisation,
-  editOrganisation,
-  deleteOrganisation
-} from '../controllers/post_controller';
+import { postOrganisation, editOrganisation, deleteBranch } from '../controllers/post_controller';
 import { seedData } from '../controllers/postInitialData';
 import {
   getAllOrgainisation,
@@ -13,7 +9,8 @@ import {
   getBranchesByCategory,
   getBranchesByDay,
   getBranchesByBorough,
-  getBranchesByPostcode
+  getBranchesByPostcode,
+  getSingleBranch
 } from '../controllers/get_controller';
 
 const router = express.Router();
@@ -24,7 +21,7 @@ router.delete('/organisation/delete', async (req, res) => {
     if (!orgId || !branchId) {
       throw new Error('REQUIRED_DATA_NOT_SUPPLIED');
     }
-    const response = await deleteOrganisation(orgId, branchId);
+    const response = await deleteBranch(orgId, branchId);
     res.status(200).json({
       success: true,
       message: 'Branch has been deleted successfully',
@@ -165,6 +162,16 @@ router.get('/all', async (req, res) => {
       res.status(200).json(services));
   } catch (err) {
     res.status(502).json(err);
+  }
+});
+
+router.get('/organisation/branch', async (req, res) => {
+  const { orgId, branchId } = req.query
+  try {
+    await getSingleBranch(orgId, branchId).then(branch =>
+      res.status(200).json(branch));
+  } catch (err) {
+    res.status(502).json(err)
   }
 });
 
