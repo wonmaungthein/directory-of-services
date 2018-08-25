@@ -66,12 +66,12 @@ module.exports = {
           .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
           .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
           .where('branch:service:categories.cat_name', 'like', `%${categoryName}%`)
-          .map(data => helpers.fetchNestedObj(data))
-          .map(data => {
+          .map(data => helpers.flattenBranchData(data))
+          .map(branches => branches.map(data => {
             const { lat, long } = data;
             return latLongs.push({ lat, long, data })
-          })
-          .then(() => helpers.geoNear(latInfo, longInfo, latLongs))
+          }))
+          .then(() => helpers.geoNear(latInfo, longInfo, latLongs));
         return result;
       } catch (error) {
         return error;
@@ -84,12 +84,12 @@ module.exports = {
         .query()
         .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
         .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
-        .map(data => helpers.fetchNestedObj(data))
-        .map(data => {
+        .map(data => helpers.flattenBranchData(data))
+        .map(branches => branches.map(data => {
           const { lat, long } = data;
           return latLongs.push({ lat, long, data })
-        })
-        .then(() => helpers.geoNear(latInfo, longInfo, latLongs))
+        }))
+        .then(() => helpers.geoNear(latInfo, longInfo, latLongs));
       return result;
     } catch (error) {
       return error;
@@ -103,8 +103,8 @@ module.exports = {
         .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
         .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
         .where('branch:service:categories.cat_name', 'like', `%${categoryName}%`)
-        .map(data => helpers.fetchNestedObj(data))
-      return result;
+        .map(data => helpers.flattenBranchData(data))
+      return helpers.flattenBranchArrays(result);
     } catch (error) {
       return error;
     }
@@ -117,8 +117,8 @@ module.exports = {
         .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
         .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
         .where('branch:service.service_days', 'like', `%${day}%`)
-        .map(data => helpers.fetchNestedObj(data))
-      return result;
+        .map(data => helpers.flattenBranchData(data))
+      return helpers.flattenBranchArrays(result);
     } catch (error) {
       return error;
     }
@@ -131,8 +131,8 @@ module.exports = {
         .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
         .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
         .where('branch.borough', 'like', `%${boroughName}%`)
-        .map(data => helpers.fetchNestedObj(data))
-      return result;
+        .map(data => helpers.flattenBranchData(data))
+      return helpers.flattenBranchArrays(result);
     } catch (error) {
       return error;
     }
