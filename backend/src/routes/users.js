@@ -47,7 +47,8 @@ router.get('/users', async (req, res) => {
 
 router.get('/users/:id', async (req, res) => {
   try {
-    await getUsersById(req.params.id).then(user => res.status(200).json(user));
+    const response = await getUsersById(req.params.id);
+    res.status(200).json(response);
   } catch (err) {
     res
       .status(502)
@@ -70,7 +71,8 @@ router.post('/users', async (req, res) => {
   } = req.body;
   const {
     email,
-    orgName
+    orgName,
+    fullname
   } = req.body;
   await bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(password, salt, async (error, hash) => {
@@ -81,7 +83,8 @@ router.post('/users', async (req, res) => {
       await addUser({
         salt_password: password,
         email: email,
-        org_name: orgName
+        fullname: fullname,
+        organisation: orgName
       }).then(user => res.json(user))
     })
   })
@@ -92,7 +95,9 @@ router.put('/users/:userId', async (req, res) => {
     password
   } = req.body;
   const {
-    email
+    email,
+    fullname,
+    organisation
   } = req.body;
   await bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(password, salt, async (error, hash) => {
@@ -102,7 +107,9 @@ router.put('/users/:userId', async (req, res) => {
       password = hash;
       await updateUser(req.params.userId, {
         salt_password: password,
-        email
+        email,
+        fullname,
+        organisation
       }).then(() => res.json({
         message: 'user updated successfully'
       }))

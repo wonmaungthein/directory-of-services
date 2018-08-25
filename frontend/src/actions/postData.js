@@ -81,7 +81,7 @@ export function deleteBranch(data) {
   const sendInfo = async () => {
     try {
       const res = await axios
-      .delete(`${api}/service/organisation/delete/?orgId=${orgId}&&branchId=${branchId}`);
+      .delete(`${api}/service/branch/delete/?orgId=${orgId}&&branchId=${branchId}`);
       return res.data;
     } catch (error) {
       let errMessage = JSON.stringify(error);

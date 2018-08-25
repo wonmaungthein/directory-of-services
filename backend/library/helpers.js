@@ -15,6 +15,26 @@ function fetchNestedObj(object) {
   return null;
 }
 
+// Flatten list of branch into one array with their org name and website
+function flattenBranches(data) {
+  const branches = []
+  const { org_name, website } = data
+  data.branch.map(branch => branches.push({ org_name, website, ...branch }))
+  return branches
+}
+
+// Flatten each branch nested data
+function flattenBranchData(data) {
+  return flattenBranches(data).map(org => fetchNestedObj(org))
+}
+
+function flattenBranchArrays(branches) {
+  return branches.reduce((acc, value) => {
+    value.map(branch => acc.push(branch))
+    return acc
+  })
+}
+
 // Part of calculation distance function
 function deg2rad(deg) {
   return deg * (Math.PI / 180)
@@ -61,6 +81,8 @@ function geoNear(lat, long, latLong) {
 }
 
 export default {
+  flattenBranchArrays,
+  flattenBranchData,
   fetchNestedObj,
   geoNear
 };
