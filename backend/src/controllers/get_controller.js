@@ -10,7 +10,7 @@ module.exports = {
       const result = await Organisation
         .query()
         .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
-        .map(data => helpers.fetchNestedObj(data));
+        .map(data => helpers.flattenBranchData(data));
       return result;
     } catch (error) {
       return error;
