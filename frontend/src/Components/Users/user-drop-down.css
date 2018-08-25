@@ -6,7 +6,7 @@
 .user-drop-down .container{
   font-family: inherit;
   position: absolute;
-  width: 12em;
+  width: 10em;
   z-index: 100000;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -27,11 +27,13 @@
   color: #1abcd4;
 }
 .user-drop-down a h4,
-.user-drop-down a button h4{
+.user-drop-down a button h4,
+.admin{
   margin-left: 1em;
   color: #000;
 }
-.user-drop-down button{
+.user-drop-down button,
+.admin {
   background: transparent;
   border: none;
   display: flex;
@@ -41,10 +43,13 @@
   font-size: 1em;
   cursor: pointer;
 }
-.user-drop-down .material-icons{
-  font-size: 2em;
+
+.container img {
+  margin-left: -10px;
+  position: relative;
+  left: 13px;
 }
+
 .user-drop-down button .material-icons{
-  font-size: 2.2em;
   color: #1abcd4;
 }

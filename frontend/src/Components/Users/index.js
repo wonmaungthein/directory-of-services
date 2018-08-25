@@ -49,29 +49,23 @@ class UsersPage extends Component {
 
   render() {
     const users = this.props.listOfUsers.users ? this.props.listOfUsers.users : [] ;
+    const user= this.props.user? this.props.user: '';
+    const role = this.props.user.role ? this.props.user.role : '';
     let userForm;
     let userList;
     const params  = this.props.location.pathname;
     const isAddUsersPage = params && params.includes('form');
-    const isProfile = params && params.includes('admindos');
+    const isProfile = params && params.match('admindos');
     const { hideForm } = this.state;
-    const result = users.map(user => (user.role));
-    if (result[0]=== 'Admin' ) {
+    if ((params && params.match('/admindos') &&  role === 'Admin') || isProfile) {
       userList = (
         <UsersListTable
           usersList={users}
         />)
-    } else if(isProfile){
-      userList = (
-        <UsersListTable
-          usersList={users}
-        />)
-    }
-
-    else {
+    } else {
       userList = (
         <UserProfile
-          usersList={users}
+          usersList={user}
         />
       );
     }
@@ -99,7 +93,7 @@ class UsersPage extends Component {
     return (
       <div className="users">
         <TopNav title="USERS" addLink="users/form" titleLink="users" />
-        {userForm}
+        {userForm} 
         <NotificationSystem ref="savedChanges" />
         {userList}
         {hideForm ? <Redirect to="/users" /> : null}
@@ -111,7 +105,8 @@ class UsersPage extends Component {
 
 function mapStateToProps (state) {
   return {
-    listOfUsers:state.listOfUsers
+    listOfUsers:state.listOfUsers,
+    user: state.loginAuth.user
   }
 }
 
