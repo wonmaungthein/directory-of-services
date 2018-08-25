@@ -11,7 +11,7 @@ module.exports = {
         .query()
         .eager('[branch, branch.[address, address.[location] service, service.[categories]] ]')
         .map(data => helpers.flattenBranchData(data));
-      return result;
+      return helpers.flattenBranchArrays(result);
     } catch (error) {
       return error;
     }
