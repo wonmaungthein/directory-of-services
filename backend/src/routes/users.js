@@ -47,7 +47,8 @@ router.get('/users', async (req, res) => {
 
 router.get('/users/:id', async (req, res) => {
   try {
-    await getUsersById(req.params.id).then(user => res.status(200).json(user));
+    const response = await getUsersById(req.params.id);
+    res.status(200).json(response);
   } catch (err) {
     res
       .status(502)

@@ -54,7 +54,7 @@ class TopNav extends Component {
   };
 
   renderUserDropDown = () =>
-    this.state.userDropDown ? <UserDropDown handleLogOut={this.handleLogOut} /> : null;
+    this.state.userDropDown ? <UserDropDown handleLogOut={this.handleLogOut} role={this.props.user.role} /> : null;
 
   renderCategories = () => {
     const categoriesData = categories;
@@ -73,7 +73,8 @@ class TopNav extends Component {
     const { classes, addLink, titleLink, title, addOrg, homePage } = this.props;
     const user = this.props.user.fullname ? this.props.user.fullname : '';
     const role = this.props.user.role ? this.props.user.role : '';
-    const category = helpers.addSpace(this.renderCategories(), title)
+    const category = helpers.addSpace(this.renderCategories(), title);
+
     return (
       <AppBar className={classes.appBar}>
         <Toolbar>
