@@ -18,7 +18,7 @@
             <h2>My Account Details</h2>
             <h4><strong>Full Name: </strong>{users.fullname}</h4>
             <h4><strong>Email: </strong>{users.email}</h4>
-            <h4><strong>Role: </strong>{users.role}</h4>
+            <h4><strong>Role: </strong>{users.role ? users.role : 'None'}</h4>
             <h4><strong>Organisation: </strong>{users.organisation}</h4>
           </div>
         </Fragment>
