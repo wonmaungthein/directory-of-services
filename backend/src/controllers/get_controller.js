@@ -17,6 +17,19 @@ module.exports = {
     }
   },
 
+  getSingleBranch: async (orgId, branchId) => {
+    try {
+      const result = await Organisation.query()
+        .eagerAlgorithm(Organisation.JoinEagerAlgorithm)
+        .eager('[branch]')
+        .where('branch.org_id', '=', orgId)
+        .andWhere('branch.id', '=', branchId)
+      return result;
+    } catch (error) {
+      return error
+    }
+  },
+
   getListOfCategories: async () => {
     try {
       const result = await Categories.query().skipUndefined()

@@ -14,13 +14,13 @@ const postOrganisation = async (graph) => {
   return insertedGraph;
 };
 
-const deleteOrganisation = async (orgId, branchId) => {
+const deleteBranch = async (orgId, branchId) => {
   try {
-    const test = await Branch.query()
+    const response = await Branch.query()
       .delete()
       .where('org_id', '=', orgId)
       .andWhere('id', '=', branchId)
-    return test;
+    return response;
   } catch (error) {
     return error;
   }
@@ -48,5 +48,5 @@ const editOrganisation = async (graph, orgId, branchId) => {
 module.exports = {
   postOrganisation,
   editOrganisation,
-  deleteOrganisation
+  deleteBranch
 }
