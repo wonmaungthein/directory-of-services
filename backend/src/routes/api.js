@@ -43,7 +43,7 @@ router.post('/organisation/add', async (req, res) => {
     }
     if (data.categories.length > 1) {
       data.categories.map(async category => {
-        const graph = helpers.orgSchema(data, category);
+        const graph = helpers.addOrgSchema(data, category);
         await postOrganisation(graph);
         res.status(200).json({
           success: true,
@@ -53,7 +53,7 @@ router.post('/organisation/add', async (req, res) => {
       })
     } else {
       const category = data.categories[0]
-      const graph = helpers.orgSchema(data, category);
+      const graph = helpers.addOrgSchema(data, category);
       await postOrganisation(graph);
       res.status(200).json({
         success: true,

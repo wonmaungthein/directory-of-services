@@ -36,7 +36,7 @@ function flattenBranchArrays(branches) {
 }
 
 // Initial organization schema
-function orgSchema(data, category) {
+function addOrgSchema(data, category) {
   return {
     org_name: data.organisation,
     website: data.website || '',
@@ -124,6 +124,6 @@ export default {
   flattenBranchArrays,
   flattenBranchData,
   fetchNestedObj,
-  orgSchema,
+  addOrgSchema,
   geoNear
 };
