@@ -123,7 +123,7 @@ class HomeSearch extends React.Component {
           const long = info.longitude
           const getBranches = await this.props.getBranchesFilteredByPostCode({ lat, long })
           const orgsData = [];
-          getBranches
+          getBranches.data
             .map(branchs => {
               const { distance } = branchs;
               const orgs = branchs.data;
