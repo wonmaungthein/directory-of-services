@@ -212,6 +212,9 @@ class HomeSearch extends React.Component {
     }
     return (
       <div className="org-home">
+        <div className="org-home_title"> 
+          <h2> Search for projects in all categories </h2>
+        </div>
         <Grid container className="organisation-page" spacing={24}>
           <SearchForm
             value={this.state.value}

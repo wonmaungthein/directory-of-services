@@ -10,6 +10,7 @@ function SearchForm(props){
     return  (
       <Grid item xs={12} className="search-input">
         <div className="search-text">
+          <i className="material-icons search-icon">search</i>
           <Autosuggest
             theme={{
                         container: classes.container,
@@ -40,11 +41,11 @@ function SearchForm(props){
             onClick={props.clearSearchField}
           >
             <i
-              className="material-icons"
+              className="material-icons clear-icon"
               size="small"
               variant="raised"
             >
-                        close
+              close
             </i>
           </button>
         </div>
@@ -85,7 +86,7 @@ function SearchForm(props){
               size="small"
               variant="raised"
             >
-                        close
+              close
             </i>
           </button>
         </span>
@@ -96,7 +97,7 @@ function SearchForm(props){
           size="small"
           className="btn-search"
         >
-                    Search
+          Search
         </Button>
       </Grid>
     )
