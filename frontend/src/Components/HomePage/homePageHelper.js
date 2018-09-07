@@ -30,8 +30,7 @@ const filterData = (orgs, search, postcodeValue) => {
         || org.area.toLowerCase().includes(search.trim().toLowerCase())
       )
         .sort(helpers.sortArrObj)
-    } 
-    else if (postcodeValue) {
+    } else if (postcodeValue) {
       return orgs
     }
     return [];
