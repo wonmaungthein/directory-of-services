@@ -37,7 +37,7 @@ function SearchForm(props){
             variant="raised"
             size="small"
             color="secondary"
-            className={props.value.length < 1 ? 'hidden' : 'clear-search'}
+            className={props.value.length < 1 || props.isHidden? 'hidden' : 'clear-search'}
             onClick={props.clearSearchField}
           >
             <i
@@ -78,7 +78,7 @@ function SearchForm(props){
             variant="raised"
             size="small"
             color="secondary"
-            className={props.postCode.length < 1 ? 'hidden' : 'clear-postcode'}
+            className={props.postCode.length < 1 || !props.isPostcode ? 'hidden' : 'clear-postcode'}
             onClick={props.clearPostcodeField}
           >
             <i
