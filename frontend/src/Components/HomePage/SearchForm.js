@@ -6,6 +6,8 @@ import helpers from '../../helpers';
 import styles from './style'
 
 function SearchForm(props){
+    const clearSearchByKeywordBtn = props.value.length < 1 || props.isHidden;
+    const clearSearchByPostcodeBtn = props.postCode.length < 1 || !props.isPostcode;
     const { classes } = props;
     return  (
       <Grid item xs={12} className="search-input">
@@ -37,7 +39,7 @@ function SearchForm(props){
             variant="raised"
             size="small"
             color="secondary"
-            className={props.value.length < 1 || props.isHidden? 'hidden' : 'clear-search'}
+            className={clearSearchByKeywordBtn ? 'hidden' : 'clear-search'}
             onClick={props.clearSearchField}
           >
             <i
@@ -78,7 +80,7 @@ function SearchForm(props){
             variant="raised"
             size="small"
             color="secondary"
-            className={props.postCode.length < 1 || !props.isPostcode ? 'hidden' : 'clear-postcode'}
+            className={clearSearchByPostcodeBtn ? 'hidden' : 'clear-postcode'}
             onClick={props.clearPostcodeField}
           >
             <i
