@@ -1,6 +1,6 @@
 .search-input {
   display: grid;
-  grid-template-columns: 6fr 3fr 1fr;
+  grid-template-columns: 5fr 4fr 1fr;
   grid-gap: .7rem;
 }
 
@@ -81,10 +81,12 @@ i{ cursor: pointer;}
 
 .clear-search{
   cursor: pointer;
-  position: relative;
   background: transparent;
   border: 0;
   height: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 div.org-home .org-card-info .org-detail-btn button {
@@ -112,11 +114,15 @@ div.org-home .org-card-info .edit-button {
 .hidden { display: none; }
 
 .search-text {
-  display: flex;
+  position: relative;
 }
 
 button.btn-search,
-button.btn-search:hover { background: #1abcd4; }
+button.btn-search:hover {
+  background: #1abcd4; 
+  border: .5px solid rgb(26, 188, 212);
+  padding: 15px;
+}
 
 .postcode-field {
   position: relative !important;
@@ -138,5 +144,10 @@ button.btn-search:hover { background: #1abcd4; }
 @media (max-width: 591px){
   .search-input{
     grid-template-columns: 1fr;
+  }
+
+  /*  Make search btn take full width onn small screen */
+  .home-btn-search {
+    display: inline-grid;
   }
 }

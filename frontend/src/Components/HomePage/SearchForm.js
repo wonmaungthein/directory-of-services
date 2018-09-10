@@ -51,7 +51,7 @@ function SearchForm(props){
             </i>
           </button>
         </div>
-        <span className="postcode-field">
+        <div className="postcode-field">
           <Autosuggest
             theme={{
                         container: classes.container,
@@ -91,16 +91,18 @@ function SearchForm(props){
               close
             </i>
           </button>
-        </span>
-        <Button
-          onClick={props.updateSearchData}
-          variant="raised"
-          color="primary"
-          size="small"
-          className="btn-search"
-        >
+        </div>
+        <div className="home-btn-search">
+          <Button
+            onClick={props.updateSearchData}
+            variant="raised"
+            color="primary"
+            size="small"
+            className="btn-search"
+          >
           Search
-        </Button>
+          </Button>
+        </div>
       </Grid>
     )
 }
