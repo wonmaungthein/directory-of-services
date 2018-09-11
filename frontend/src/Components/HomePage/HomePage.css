@@ -4,6 +4,30 @@
   grid-gap: .7rem;
 }
 
+.org-home_title {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 1rem;
+}
+
+.org-home_title a > span {
+  font-size: 84%;
+}
+
+.org-home_title a { 
+  text-decoration: none; 
+  color: rgb(0, 188, 212)
+}
+
+.org-home_title a .add-orgonaization-button,
+.org-home_title a .add-orgonaization-button:active  {
+  background: transparent;
+  color: rgb(0, 188, 212);
+  box-shadow: none;
+}
+
+.org-home_title svg { font-size: 134%; }
+
 form div div::before {
   height: 0;
 }
@@ -19,9 +43,9 @@ form div div::before {
 }
 
 /*  Home search title  */
-.org-home_title h2 {
+.org-home_title h2,
+.org-home_title {
   color: rgba(0, 0, 0, .84);
-  margin: 2rem 1rem;
 }
 
 /*  Search inner icon display*/

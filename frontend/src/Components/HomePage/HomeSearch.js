@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Button from 'material-ui/Button';
+import AddIcon from 'material-ui-icons/Add';
 import { Grid } from 'material-ui';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import EditOrganisation from '../Organisation/EditOrganisation';
 import SingleOrganisation from '../Organisation/SingleOrganisation';
 import OrganisationCard from '../Organisation/OrganisationCard';
@@ -184,6 +186,7 @@ class HomeSearch extends React.Component {
     const { editIdx, organisations, search, postcodeValue } = this.state;
     const params  = this.props.location.pathname;
     const isHomeRoute = params && params.includes('home');
+    
     if (this.state.isLoading || homePageHelper.filterData.length === 0 || organisations.length <= 0) {
       return <Spinner />
     }
@@ -210,10 +213,27 @@ class HomeSearch extends React.Component {
     if (this.props.match.url.includes('/users') || this.props.match.url.includes('/admindos') ) {
       return null
     }
+
+    let addNewOrganisation = null;
+    // Conditionaly display add new organisation element on home page 
+    if (role && (role === 'Admin' || role === 'Editor')) {
+      addNewOrganisation = (
+        <div> 
+          <Link to='/services/service/add' className="add-orgnaization">  
+            <span> Add a project </span>
+            <Button className="add-orgonaization-button" variant="fab"  aria-label="add`">
+              <AddIcon />
+            </Button>
+          </Link>
+        </div>
+      );
+    }
+
     return (
       <div className="org-home">
         <div className="org-home_title"> 
           <h2> Search for projects in all categories </h2>
+          { addNewOrganisation }
         </div>
         <Grid container className="organisation-page" spacing={24}>
           <SearchForm

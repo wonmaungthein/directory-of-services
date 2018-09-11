@@ -28,3 +28,9 @@ h1, h2, h3, .organisation-page .material-icons, .categories-checkbox svg, #menu-
     font-size: 1rem;
     margin-right: -20px;
   }
+
+@media (max-width: 710px) {
+  body {
+    font-size: 14px;
+  }
+}
