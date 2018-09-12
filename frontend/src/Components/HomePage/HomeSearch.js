@@ -192,7 +192,7 @@ class HomeSearch extends React.Component {
           .map((org, index) => {const currentlyEditing = editIdx === index;
             return currentlyEditing ? (
               <Fragment>
-                <EditOrganisation stopEditing={this.stopEditing} editOrgData={org} show />
+                <EditOrganisation stopEditing={this.stopEditing} org={org} show />
                 <SingleOrganisation stopEditing={this.stopEditing} handleShawDetails org={org} />
               </Fragment>)
           :(

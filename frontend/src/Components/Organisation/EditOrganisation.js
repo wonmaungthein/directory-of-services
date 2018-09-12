@@ -8,7 +8,6 @@ import NotificationSystem from 'react-notification-system';
 import { editOrganisation } from '../../actions/postData';
 import OrganisationForm from './OrganisationForm';
 import orgHelpers from './orgHelpers';
-import helpers from '../../helpers';
 import Spinner from '../Spinner';
 import './edit-org.css';
 
@@ -152,7 +151,7 @@ class EditOrganisation extends React.Component {
 
   handleCheckBox = event => {
     const listOfCategories = [...this.state.Categories];
-    orgHelpers.handleCheckBoxProcess(event, listOfCategories)
+    orgHelpers.handleCheckBoxProcess(event, listOfCategories);
     this.setState({
       [event.target.name]: event.target.checked,
       Categories: [...new Set(listOfCategories)],
@@ -162,7 +161,7 @@ class EditOrganisation extends React.Component {
   // Default checkbox selected
   handleDefaultCheckbox = event => { 
     const listOfCategories = [...this.state.Categories];
-    orgHelpers.handleDefaultCheckboxProcess(event, listOfCategories)
+    orgHelpers.handleDefaultCheckboxProcess(event, listOfCategories);
     this.setState({
       [event.target.name]: event.target.value,
       Categories: [...new Set(listOfCategories)],
@@ -185,7 +184,7 @@ class EditOrganisation extends React.Component {
   }
 
   render() {
-    const checkedCategory = helpers.categoryNameMaker(this.props.location.pathname);
+    const checkedCategory = this.state.Categories;
     if (this.state.isLoading) {
       return <Spinner color='blue' bgColor='spinnerEdit' />;
     }
