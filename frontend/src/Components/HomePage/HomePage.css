@@ -1,6 +1,6 @@
 .search-input {
   display: grid;
-  grid-template-columns: 5fr 4fr 1fr;
+  grid-template-columns: 7fr 4fr 1fr;
   grid-gap: .7rem;
 }
 
@@ -141,11 +141,12 @@ div.org-home .org-card-info .edit-button {
   position: relative;
 }
 
-button.btn-search,
-button.btn-search:hover {
+.home-btn-search button.btn-search,
+.home-btn-search button.btn-search:hover {
   background: #1abcd4; 
   border: .5px solid rgb(26, 188, 212);
   padding: 15px;
+  width: 100%;
 }
 
 .postcode-field {
