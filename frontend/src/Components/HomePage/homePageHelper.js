@@ -7,9 +7,9 @@ function queryResult(orgs, userQuery) {
   const arr = []
   orgs.filter(org => (
     Object.keys(org)
-    .map(k => (
-      userQuery.map(str => {
-        if (typeof org[k] === 'string' && org[k].toLowerCase().includes(str.toLowerCase())) arr.push(org);
+    .map(key => (
+      userQuery.map(item => {
+        if (typeof org[key] === 'string' && org[key].toLowerCase().includes(item.toLowerCase())) arr.push(org);
         return arr
       })
     ))
