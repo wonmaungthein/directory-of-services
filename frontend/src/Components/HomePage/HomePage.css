@@ -68,7 +68,6 @@ form div div::before {
 .search-input .search-text input:focus,
 .search-input .postcode-field input:focus {
   border-color: rgb(26, 188, 212);
-  /* background: rgba(161, 180, 182, 0.08); */
 }
 
 div.search {
