@@ -225,6 +225,15 @@ function errorParser(error) {
       return errMessage;
 }
 
+function displayCategoryNameWithSpace (categoriesData, category) {
+  let projectCategory = category;
+  categoriesData.map(orgCat => {
+    if (orgCat.replace(/\s/g, '') === category) projectCategory = orgCat;
+    return projectCategory;
+  });
+  return projectCategory;
+}
+
 export default {
   renderInput,
   renderSuggestion,
@@ -241,6 +250,7 @@ export default {
   sortArrObj,
   getMainSearchSuggestionValue,
   getMainSearchSuggestions,
-  errorParser
+  errorParser,
+  displayCategoryNameWithSpace
 };
 
