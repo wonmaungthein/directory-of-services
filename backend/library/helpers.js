@@ -35,6 +35,7 @@ function flattenBranchArrays(branches) {
   })
 }
 
+// Initial organization schema
 function addOrgSchema(data, category) {
   return {
     org_name: data.organisation,
@@ -120,6 +121,7 @@ function editOrgSchema(data, orgId, branchId, category) {
     ]
   };
 }
+
 
 // Part of calculation distance function
 function deg2rad(deg) {

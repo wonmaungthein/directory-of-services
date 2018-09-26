@@ -16,6 +16,10 @@
   margin-left: 2.8rem;
 }
 
+.users-thead th.user-role div {
+  margin-left: 0;
+}
+
 .users-thead,
 .users-tbody tr td div div:after {
   background-color: #1abcd4;
