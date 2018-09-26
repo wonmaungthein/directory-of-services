@@ -13,8 +13,6 @@ import {
   getBranchesByPostcode,
   getSingleBranch
 } from '../controllers/get_controller';
-import helpers from '../../library/helpers';
-
 const router = express.Router();
 
 router.delete('/organisation/delete', async (req, res) => {

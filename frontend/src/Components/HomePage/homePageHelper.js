@@ -1,42 +1,35 @@
 import helpers from '../../helpers';
 
-const filterData = (orgs, search, postcodeValue) => {
-    if (search  && postcodeValue ) {
-      return orgs.filter(org => org.org_name.toLowerCase().includes(search.trim().toLowerCase()) 
-        || org.borough.toLowerCase().includes(search.trim().toLowerCase())
-        // return branches which service match or part of search
-        || org.service.trim().toLowerCase().includes(search.toLowerCase())
-        // return all branches which provide service on that day
-        || org.service_days.toLowerCase().includes(search.trim().toLowerCase())
-        // return all branches if search match cat_name
-        || org.cat_name.toLowerCase().includes(search.trim().toLowerCase())
-        // return all branches if search tag match
-        || org.tag.toLowerCase().includes(search.trim().toLowerCase())
-        // return all branches if search tag match
-        || org.area.toLowerCase().includes(search.trim().toLowerCase())
-      )
-    } else if (search) {
-      return orgs.filter(org => org.org_name.toLowerCase().includes(search.trim().toLowerCase()) 
-        || org.borough.toLowerCase().includes(search.trim().toLowerCase())
-        // return branches which service match or part of search
-        || org.service.trim().toLowerCase().includes(search.toLowerCase())
-        // return all branches which provide service on that day
-        || org.service_days.toLowerCase().includes(search.trim().toLowerCase())
-        // return all branches if search match cat_name
-        || org.cat_name.toLowerCase().includes(search.trim().toLowerCase())
-        // return all branches if search tag match
-        || org.tag.toLowerCase().includes(search.trim().toLowerCase())
-        // return all branches if search tag match
-        || org.area.toLowerCase().includes(search.trim().toLowerCase())
-      )
-        .sort(helpers.sortArrObj)
-    } else if (postcodeValue) {
-      return orgs
-    }
-    return [];
-  }
+// This function check for each organisation if the query enters by the user is include on one of the input field (org_name, borough ...) 
+// and return that organisation if at least one input field pass the test
 
-  export default {
-      filterData
+function findOrganisationByCheckingField(orgs, userQuery) {
+  const arr = []
+  orgs.filter(org => (
+    Object.keys(org)
+    .map(key => (
+      userQuery.map(item => {
+        if (typeof org[key] === 'string' && org[key].toLowerCase().includes(item.toLowerCase())) arr.push(org);
+        return arr
+      })
+    ))
+  ))
+  return [...new Set(arr)]
+}
+
+const filterData = (orgs, search, postcodeValue) => {
+  const userQuery = search.trim().split(' ');
+  if (search && postcodeValue) {
+    return findOrganisationByCheckingField(orgs, userQuery);
+  } else if (search) {
+    const output = findOrganisationByCheckingField(orgs, userQuery);
+    return output.sort(helpers.sortArrObj)
+  } else if (postcodeValue) {
+    return orgs
   }
-  
+  return [];
+}
+
+export default {
+  filterData
+}
