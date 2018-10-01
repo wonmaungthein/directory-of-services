@@ -269,7 +269,7 @@ class UsersListTable extends Component {
             <TableFooter className="users-tfoot">
               <TableRow>
                 <TablePagination
-                className="pagination-arrows"
+                  className="pagination-arrows"
                   colSpan={6}
                   count={data.length}
                   rowsPerPage={rowsPerPage}
