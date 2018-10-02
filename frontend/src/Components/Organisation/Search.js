@@ -89,7 +89,7 @@ class Search extends React.Component {
               renderSuggestion={helpers.renderSuggestion}
               inputProps={{
                 classes,
-                placeholder: 'Enter postcode',
+                placeholder: 'Enter postcode, borough, keyword...',
                 name: 'postCode',
                 value: this.props.searchInput,
                 onChange: this.props.handlePostCodeChange,
@@ -132,25 +132,6 @@ class Search extends React.Component {
                 <em>Any Day</em>
               </MenuItem>
               {days.map(day=> <MenuItem key={day.id} value={day.day}>{day.day}</MenuItem>)}
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item md={3} xs={12} className="service">
-          <FormControl className={classes.formControl}>
-            <InputLabel htmlFor="borough">Select Borough</InputLabel>
-            <Select
-              className="select-field-container"
-              value={this.props.borough}
-              onChange={this.props.handleSelectedBorough}
-              inputProps={{
-                name: 'borough',
-                id: 'borough',
-              }}
-            >
-              <MenuItem value="">
-                <em>All Borough</em>
-              </MenuItem>
-              {boroughs.map(borough => <MenuItem key={borough.id} value={borough.borough}>{borough.borough}</MenuItem>)}
             </Select>
           </FormControl>
         </Grid>
