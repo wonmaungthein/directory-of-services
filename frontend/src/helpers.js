@@ -225,6 +225,10 @@ function errorParser(error) {
       return errMessage;
 }
 
+function isAlphaNumeric (str) {
+  return /^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$/.test(str.replace(/\s/g, ''));
+}
+
 export default {
   renderInput,
   renderSuggestion,
@@ -241,6 +245,7 @@ export default {
   sortArrObj,
   getMainSearchSuggestionValue,
   getMainSearchSuggestions,
-  errorParser
+  errorParser,
+  isAlphaNumeric
 };
 

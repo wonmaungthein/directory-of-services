@@ -91,7 +91,7 @@ class Search extends React.Component {
                 classes,
                 placeholder: 'Enter postcode',
                 name: 'postCode',
-                value: this.props.postCode,
+                value: this.props.searchInput,
                 onChange: this.props.handlePostCodeChange,
               }}
             />

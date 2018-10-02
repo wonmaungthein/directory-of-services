@@ -11,6 +11,7 @@ import categoriesData from '../../Data/Categories.json';
 import orgHelpers from './orgHelpers'
 import Spinner from '../Spinner';
 import './index.css';
+import homeSearchHelpers from '../HomePage/homePageHelper';
 
 function getSelectedCategory(match) {
   const { params } = match;
@@ -28,7 +29,7 @@ class Organisations extends Component {
     category: getSelectedCategory(this.props.match),
     day: '',
     borough: '',
-    postCode: '',
+    searchInput: '',
     postcodeError: '',
     isLoading: false,
     sort: false,
@@ -61,8 +62,8 @@ class Organisations extends Component {
     this.setState({ borough: event.target.value });
   };
 
-  filterByPostcode = postCode => {
-    if (!postCode) {
+  filterByPostcode = searchInput => {
+    if (!searchInput) {
       this.setState({
         organisations: this.state.organisations,
       });
@@ -79,7 +80,7 @@ class Organisations extends Component {
   handlePostCodeChange = (event, { newValue }) => {
     this.setState(
       {
-        postCode: newValue,
+        searchInput: newValue,
         isPostcode: true
       },
       this.filterByPostcode(newValue),
@@ -87,13 +88,16 @@ class Organisations extends Component {
   };
 
   handlePostSearch = async () => {
-    if (this.state.postCode.length === 0) {
+    const { searchInput } = this.state;
+    const isAlphaNumeric = helpers.isAlphaNumeric(searchInput);
+    if(isAlphaNumeric){
+          if (searchInput.length === 0) {
       this.setState({ postcodeError: 'Postcode is required *' })
-    } else if(this.state.postCode.length < 5) {
+    } else if(searchInput.length < 5) {
       this.setState({ postcodeError: 'You have to inter valid postcode' })
     }else {
       const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url)[0];
-      const post = this.state.postCode.replace(/[' ']/g, '');
+      const post = searchInput.replace(/[' ']/g, '');
       this.setState({ isLoading: true, postcodeError: '' })
       const data = await fetch(`https://api.postcodes.io/postcodes/?q=${post}`);
       const res = await data.json()
@@ -117,6 +121,13 @@ class Organisations extends Component {
         this.setState({ postcodeError: 'Your postcode is incorrect', isLoading: false })
       }
     }
+    } else {
+      const search = searchInput;
+      this.setState({
+        organisations: homeSearchHelpers.filterData(this.state.organisations, search),
+      })
+      
+    }
   }
 
   dataOrder = () => {
@@ -131,12 +142,12 @@ class Organisations extends Component {
     this.setState({
       organisations: data,
       isPostcode: false,
-      postCode: ''
+      searchInput: ''
     })
   }
 
   render() {
-    const { category, postCode, borough, day, organisations } = this.state;
+    const { category, searchInput, borough, day, organisations } = this.state;
     const role = this.props.user.role ? this.props.user.role : '';
     if (this.state.isLoading || orgHelpers.filterOrganisationData.length === 0) {
       return <Spinner />
@@ -154,7 +165,7 @@ class Organisations extends Component {
           service={category}
           borough={borough}
           day={day}
-          postCode={postCode}
+          searchInput={searchInput}
           handleSelectedDay={this.handleSelectedDay}
           handleSelectedBorough={this.handleSelectedBorough}
           handlePostCodeChange={this.handlePostCodeChange}
