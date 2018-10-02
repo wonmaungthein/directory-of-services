@@ -125,6 +125,7 @@ class Organisations extends Component {
       const search = searchInput;
       this.setState({
         organisations: homeSearchHelpers.filterData(this.state.organisations, search),
+        isPostcode: false
       })
       
     }

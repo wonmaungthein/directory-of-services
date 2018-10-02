@@ -40,15 +40,6 @@ const days = [
     day: 'All' },
 ]
 
-const boroughs = BoroughData.sort(((a,b) =>  {
-  if (a.borough < b.borough) {
-    return -1
-  }if (a.borough > b.borough) {
-    return 1
-  }
-  return 0;
-}));
-
 class Search extends React.Component {
   state = {
     suggestions: []
@@ -99,7 +90,7 @@ class Search extends React.Component {
               variant="raised"
               size="small"
               color="secondary"
-              className={!this.props.isPostcode ? 'hidden' : 'clear-postcode'}
+              className={!this.props.isPostcode ||this.props.searchInput.length < 1 ? 'hidden' : 'clear-postcode'}
               onClick={this.props.clearPostcodeField}
             >
               <i
