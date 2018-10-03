@@ -10,7 +10,6 @@ import Autosuggest from 'react-autosuggest';
 import { withStyles } from 'material-ui/styles';
 import 'react-select/dist/react-select.css';
 import helpers from '../../helpers';
-import BoroughData from '../../Data/Boroughs.json';
 import searchStyle from './searchStyle';
 import './search.css';
 
