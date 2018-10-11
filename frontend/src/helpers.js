@@ -169,14 +169,14 @@ function linkMaker(name) {
   // These [" "] and [/] will replace all of sapce between words or / to none space
   return name
     ? name.replace(/[" "]/g, '').replace(/[/]/g, '').replace(" & ", '').replace(/\b\w/g, l => l.toUpperCase())
-    :                null;
+    :                 null;
 }
 
 function categoryNameMaker(name) {
   // This [/] will replace all of / to none space
   return name
     ? name.replace(/[/]/g, '').replace("services", '').replace("add", '').replace(/\b\w/g, l => l.toUpperCase())
-    :                null;
+    :                 null;
 }
 
 function addSpace(cat, catTitle) {
