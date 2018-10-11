@@ -225,8 +225,16 @@ function errorParser(error) {
       return errMessage;
 }
 
+
 function isAlphaNumeric (str) {
   return /^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$/.test(str.replace(/\s/g, ''));
+function displayCategoryNameWithSpace (categoriesData, category) {
+  let projectCategory = category;
+  categoriesData.map(orgCat => {
+    if (orgCat.replace(/\s/g, '') === category) projectCategory = orgCat;
+    return projectCategory;
+  });
+  return projectCategory;
 }
 
 export default {
@@ -246,6 +254,7 @@ export default {
   getMainSearchSuggestionValue,
   getMainSearchSuggestions,
   errorParser,
-  isAlphaNumeric
+  isAlphaNumeric,
+  displayCategoryNameWithSpace
 };
 

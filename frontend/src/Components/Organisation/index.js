@@ -160,7 +160,7 @@ class Organisations extends Component {
           titleLink={`services/${category}`}
         />
         <div className="org-home_title"> 
-          <h2> {category} </h2>
+          <h2> {helpers.displayCategoryNameWithSpace(categoriesData, category)} </h2>
         </div>
         <Search
           service={category}
