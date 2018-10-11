@@ -64,38 +64,38 @@ class Search extends React.Component {
           <span  className="postcode-field">
             <Autosuggest
               theme={{
-                container: classes.container,
+                container               : classes.container,
                 suggestionsContainerOpen: classes.suggestionsContainerOpen,
-                suggestionsList: classes.suggestionsList,
-                suggestion: classes.suggestion,
+                suggestionsList         : classes.suggestionsList,
+                suggestion              : classes.suggestion,
               }}
-              className="post-code-suggesition"
-              renderInputComponent={helpers.renderInput}
-              suggestions={this.state.suggestions}
-              onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
-              onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
-              renderSuggestionsContainer={helpers.renderSuggestionsContainer}
-              getSuggestionValue={helpers.getSuggestionValue}
-              renderSuggestion={helpers.renderSuggestion}
-              inputProps={{
+              className                   = "post-code-suggesition"
+              renderInputComponent        = {helpers.renderInput}
+              suggestions                 = {this.state.suggestions}
+              onSuggestionsFetchRequested = {this.handleSuggestionsFetchRequested}
+              onSuggestionsClearRequested = {this.handleSuggestionsClearRequested}
+              renderSuggestionsContainer  = {helpers.renderSuggestionsContainer}
+              getSuggestionValue          = {helpers.getSuggestionValue}
+              renderSuggestion            = {helpers.renderSuggestion}
+              inputProps                  = {{
                 classes,
-                placeholder: 'Enter postcode, borough, keyword...',
-                name: 'postCode',
-                value: this.props.searchInput,
-                onChange: this.props.handlePostCodeChange,
+                placeholder: 'Enter postcode or borough...',
+                name       : 'postCode',
+                value      : this.props.searchInput,
+                onChange   : this.props.handlePostCodeChange,
               }}
             />
             <button
-              variant="raised"
-              size="small"
-              color="secondary"
-              className={!this.props.isPostcode ||this.props.searchInput.length < 1 ? 'hidden' : 'clear-postcode'}
-              onClick={this.props.clearPostcodeField}
+              variant   = "raised"
+              size      = "small"
+              color     = "secondary"
+              className = {!this.props.isPostcode ||this.props.searchInput.length < 1 ? 'hidden' : 'clear-postcode'}
+              onClick   = {this.props.clearPostcodeField}
             >
               <i
-                className="material-icons"
-                size="small"
-                variant="raised"
+                className = "material-icons"
+                size      = "small"
+                variant   = "raised"
               >
                 close
               </i>
@@ -110,12 +110,12 @@ class Search extends React.Component {
           <FormControl className={classes.formControl}>
             <InputLabel htmlFor="age-simple">Day</InputLabel>
             <Select
-              className="select-field-container day-small-screen"
-              value={this.props.day}
-              onChange={this.props.handleSelectedDay}
-              inputProps={{
+              className  = "select-field-container day-small-screen"
+              value      = {this.props.day}
+              onChange   = {this.props.handleSelectedDay}
+              inputProps = {{
                 name: 'day',
-                id: 'day',
+                id  : 'day',
               }}
             >
               <MenuItem value="">
