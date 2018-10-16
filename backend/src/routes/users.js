@@ -12,6 +12,7 @@ import {
   getUsersById,
   addUser,
   updateUser,
+  updateUserbyEmail,
   deleteUser,
   getUserByEmail,
   comparePassword,
@@ -35,7 +36,9 @@ router.get('/users', async (req, res) => {
       fullname: user.fullname,
       role: user.role,
       organisation: user.organisation,
-      last_updated: user.last_updated
+      last_updated: user.last_updated,
+      hasRequestedEditor: user.hasRequestedEditor,
+      email: user.email
     }));
     res.status(200).json(users)
   } catch (err) {
@@ -115,6 +118,64 @@ router.put('/users/:userId', async (req, res) => {
       }))
     })
   })
+});
+
+router.put('/requestEditor', async (req, res) => {
+  const {
+    hasRequestedEditor,
+    email
+  } = req.body;
+  console.log('request editor called with:', req.body)
+  await updateUserbyEmail(email, {
+    hasRequestedEditor
+  }).then(() => {
+    console.log('success on call')
+    res.json({
+      message: 'Requested To Become An Editor'
+    })
+  })
+    .catch(err => {
+      console.log('err happened', err)
+    })
+});
+
+router.put('/acceptEditor', async (req, res) => {
+  console.log('acceptEditor')
+  const {
+    role,
+    hasRequestedEditor,
+    id
+  } = req.body;
+  await updateUser(id, {
+    hasRequestedEditor,
+    role
+  }).then(() => {
+    console.log('success on call')
+    res.json({
+      message: 'Accepted To Become An Editor'
+    })
+  })
+    .catch(err => {
+      console.log('err happened', err)
+    })
+});
+
+router.put('/rejectEditor', async (req, res) => {
+  const {
+    hasRequestedEditor,
+    id
+  } = req.body;
+  await updateUser(id, {
+    hasRequestedEditor
+  }).then(() => {
+    console.log('success on call')
+    res.json({
+      message: 'Rejecged To Become An Editor'
+    })
+  })
+    .catch(err => {
+      console.log('err happened', err)
+    })
 });
 
 // Use this route to modify user role, org name, fullname

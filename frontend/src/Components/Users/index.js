@@ -7,8 +7,9 @@ import { getListOfUsers} from '../../actions/getApiData';
 import TopNav from '../TopNav';
 import AddUser from './AddUser';
 import UsersListTable from './UsersListTable';
-
+import Accept from './Accept'
 import './users.css';
+import Request from './Request'
 
 class UsersPage extends Component {
   state = {
@@ -55,12 +56,23 @@ class UsersPage extends Component {
     const params  = this.props.location.pathname;
     const isAddUsersPage = params && params.includes('form');
     const isProfile = params && params.match('admindos');
+    const isAccept = params && params.match('/accept');
     const { hideForm } = this.state;
     if ((params && params.match("/admindos") &&  role === "Admin") || isProfile) {
       userList = (
         <UsersListTable
           usersList={users}
         />)
+    } else if (params && params.match("/user/profile") && role === "None"){
+      userList = (
+        <Fragment>
+          <UsersListTable
+            usersList={user}
+            params={params}
+          />
+          <Request />
+        </Fragment >
+      );
     } else if (params && params.match("/user/profile")){
       userList = (
         <UsersListTable
@@ -68,6 +80,23 @@ class UsersPage extends Component {
           params={params}
         />
       );
+    }
+    // else if (params && params.match("/user/profile") && role === "None"){
+    //   userList = (
+    //     <Fragment>
+    //       <UsersListTable
+    //         usersList={user}
+    //         params={params}
+    //       />
+    //       <Request />
+    //     </Fragment >
+    //   );
+    // }
+    if ((params && params.match("/accept") &&  role === "Admin") || isAccept) {
+      userList = (
+        <Accept
+          usersList={users}
+        />)
     }
 
     if (!isAddUsersPage) {
@@ -93,7 +122,7 @@ class UsersPage extends Component {
     return (
       <div className="users">
         <TopNav title="USERS" addLink="users/form" titleLink="users" />
-        {userForm} 
+        {userForm}
         <NotificationSystem ref="savedChanges" />
         {userList}
         {hideForm ? <Redirect to="/users" /> : null}

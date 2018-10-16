@@ -13,11 +13,21 @@ const UserDropDown = ({ handleLogOut, role }) => (
         <h4>Profile</h4>
       </Link>
       <Divider />
+      <Divider />
       {role === 'Admin' &&
-        <Fragment> 
+        <Fragment>
           <Link to="/admindos">
             <img src="https://png.icons8.com/material/24/1abcd4/businessman.png" alt="admin-icon" />
             <h4 className="admin">Users</h4>
+          </Link>
+        </Fragment>
+      }
+      {role === 'Admin'  &&
+        <Fragment>
+          <Divider />
+          <Link to="/accept">
+            <img src="https://png.icons8.com/material/24/1abcd4/businessman.png" alt="admin-icon" />
+            <h4 className="admin">Review Request</h4>
           </Link>
           <Divider />
         </Fragment>
@@ -32,6 +42,6 @@ const UserDropDown = ({ handleLogOut, role }) => (
       </Link>
     </Paper>
   </div>
-);
+  )
 
 export default UserDropDown;

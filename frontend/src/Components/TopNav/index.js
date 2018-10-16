@@ -139,7 +139,8 @@ function mapStateToProps(state) {
   return {
     messages: state.flashMessages,
     user: state.loginAuth.user,
-    categories: state.categoriesList
+    categories: state.categoriesList,
+    users:state.listOfUsers
   }
 }
 

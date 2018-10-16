@@ -75,6 +75,7 @@ exports.up = knex =>
       table.string('resetPasswordToken');
       table.string('resetPasswordExpires');
       table.string('role');
+      table.boolean('hasRequestedEditor').notNullable().defaultTo(false);
     });
 
 exports.down = knex =>

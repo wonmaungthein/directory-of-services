@@ -186,7 +186,7 @@ class HomeSearch extends React.Component {
     const { editIdx, organisations, search, postcodeValue } = this.state;
     const params  = this.props.location.pathname;
     const isHomeRoute = params && params.includes('home');
-    
+
     if (this.state.isLoading || homePageHelper.filterData.length === 0 || organisations.length <= 0) {
       return <Spinner />
     }
@@ -210,16 +210,16 @@ class HomeSearch extends React.Component {
             </Grid>);
             })
           );
-    if (this.props.match.url.includes('/users') || this.props.match.url.includes('/admindos') ) {
+    if (this.props.match.url.includes('/users') || this.props.match.url.includes('/admindos') || this.props.match.url.includes('/accept') ) {
       return null
     }
 
     let addNewOrganisation = null;
-    // Conditionaly display add new organisation element on home page 
+    // Conditionaly display add new organisation element on home page
     if (role && (role === 'Admin' || role === 'Editor')) {
       addNewOrganisation = (
-        <div> 
-          <Link to='/services/service/add' className="add-orgnaization">  
+        <div>
+          <Link to='/services/service/add' className="add-orgnaization">
             <span> Add a project </span>
             <Button className="add-orgonaization-button" variant="fab"  aria-label="add`">
               <AddIcon />
@@ -231,7 +231,7 @@ class HomeSearch extends React.Component {
 
     return (
       <div className="org-home">
-        <div className="org-home_title"> 
+        <div className="org-home_title">
           <h2> Search for projects in all categories </h2>
           { addNewOrganisation }
         </div>

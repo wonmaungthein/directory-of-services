@@ -42,7 +42,7 @@ class UsersListTable extends Component {
     };
   }
 
-  
+
   componentDidMount() {
     this.setState({
       notificationSystem: this.refs.savedChanges,
@@ -56,13 +56,12 @@ class UsersListTable extends Component {
         data: users,
       })
     }
-    
   }
 
   savedChangesSuccessfully = (message) => {
     this.state.notificationSystem.addNotification({
       title: 'Success',
-      message, 
+      message,
       level: 'success',
     });
   };
@@ -90,11 +89,11 @@ class UsersListTable extends Component {
         this.context.router.history.push('/admindos')
       } else {
         this.unSucessSavedChanges(user.message);
-        
+
       }
     })
   };
-  
+
 
   handleRequestSort = (event, property) => {
     const orderBy = property;
@@ -141,11 +140,11 @@ class UsersListTable extends Component {
   };
 
   startEditing = (index, data) => {
-    this.setState({ 
+    this.setState({
       editIdx: index,
         fullname: data.fullname,
         organisation: data.organisation,
-      role: data.role, 
+      role: data.role,
     });
   };
 
@@ -160,13 +159,13 @@ class UsersListTable extends Component {
       id: userId,
     })
   };
-  
+
   render() {
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
     const usersList = data.length > 1 ? data : this.props.usersList;
     const emptyRows = null;
-    const { editIdx } = this.state; 
-    
+    const { editIdx } = this.state;
+
     return (
       <Fragment>
         <NotificationSystem ref="savedChanges" />
@@ -265,7 +264,7 @@ class UsersListTable extends Component {
               </TableRow>
               )}
           </TableBody>
-          {this.props.params !== "/user/profile" && 
+          {this.props.params !== "/user/profile" &&
             <TableFooter className="users-tfoot">
               <TableRow>
                 <TablePagination
