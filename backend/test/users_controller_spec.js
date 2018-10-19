@@ -7,7 +7,8 @@ import {
   updateUser,
   getAllUsers,
   getUsersById,
-  getUserByEmail
+  getUserByEmail,
+  updateUserbyEmail
 } from '../src/controllers/users_controller'
 
 describe('Test users controller functions', () => {
@@ -69,6 +70,19 @@ describe('Test users controller functions', () => {
       .expect('Content-Type', /json/);
     expect(result.body).to.be.a('string')
     expect(result.body.length).to.equal(0)
+  })
+
+  it('update users by email', async () => {
+    const userData = {
+      email: 'test@hotmail.com',
+      organisation: 'CYF',
+      fullname: 'test',
+      salt_password: '1234'
+    }
+    const email = 'test@hotmail.com';
+    const result = await updateUserbyEmail(email, userData);
+    expect(result).to.be.a('string')
+    expect(result).to.equal('test@hotmail.com')
   })
 
 })

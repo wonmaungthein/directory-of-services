@@ -7,7 +7,8 @@ import './Request.css'
 
 class Request extends Component{
     state = {
-        notificationSystem: null
+        notificationSystem: null,
+        requested: false
     }
     componentDidMount() {
         this.setState({
@@ -18,19 +19,26 @@ class Request extends Component{
         const {email} = this.props
         this.props.requestAccess(email)
         e.preventDefault();
+        this.setState({
+            requested: true
+          })
         this.state.notificationSystem.addNotification({
             message: 'You have successfuly reuested to become an editor',
             level: 'info',
             position: 'tr',
-            autoDismiss: 10,
+            autoDismiss: 2,
           });
     }
     render() {
         return(
           <Fragment>
             <TopNav title="USERS" addLink="users/form" titleLink="users" />
-            <h2 className="request" >If you want to become an editor please click here. </h2>
-            <button className="button" onClick={this.handleSubmit} > Request Editor Access</button>
+            { this.state.requested === false &&
+            <Fragment>
+              <h2 className="request" >If you want to become an editor please click here. </h2>
+              <button className="button" onClick={this.handleSubmit} > Request Editor Access</button>
+            </Fragment>
+           }
             <NotificationSystem ref="notificationSystem" />
           </Fragment>
         )
