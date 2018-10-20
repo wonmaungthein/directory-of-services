@@ -23,7 +23,7 @@ class Request extends Component{
             requested: true
           })
         this.state.notificationSystem.addNotification({
-            message: 'You have successfuly reuested to become an editor',
+            message: 'You have successfully reuested to become an editor',
             level: 'info',
             position: 'tr',
             autoDismiss: 2,
@@ -35,7 +35,7 @@ class Request extends Component{
             <TopNav title="USERS" addLink="users/form" titleLink="users" />
             { this.state.requested === false &&
             <Fragment>
-              <h2 className="request" >If you want to become an editor please click here. </h2>
+              <h2 className="request" >If you want to become an editor please click on the button. </h2>
               <button className="button" onClick={this.handleSubmit} > Request Editor Access</button>
             </Fragment>
            }

@@ -56,7 +56,7 @@ describe('Test get controller functions', () => {
     expect(result).to.have.lengthOf(61)
   })
 
-  it.only('Should get list of branches filtered by borough and its length equal 12', async () => {
+  it('Should get list of branches filtered by borough and its length equal 12', async () => {
     const borough = 'Hounslow'
     const result = await getBranchesByBorough(borough);
     expect(result).to.be.a('array')

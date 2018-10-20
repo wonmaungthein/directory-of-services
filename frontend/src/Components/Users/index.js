@@ -82,17 +82,6 @@ class UsersPage extends Component {
         />
       );
     }
-    // else if (params && params.match("/user/profile") && role === "None"){
-    //   userList = (
-    //     <Fragment>
-    //       <UsersListTable
-    //         usersList={user}
-    //         params={params}
-    //       />
-    //       <Request />
-    //     </Fragment >
-    //   );
-    // }
     if ((params && params.match("/accept") &&  role === "Admin") || isAccept) {
       userList = (
         <Accept

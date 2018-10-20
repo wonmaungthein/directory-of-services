@@ -80,7 +80,7 @@ describe('API testing', async () => {
       .send(anOrg);
     expect(result.statusCode).to.be.equal(200);
     expect(result.body.success).to.equal(true);
-    expect(result.body.message).to.be.equal('The organisation has been saved successfuly');
+    expect(result.body.message).to.be.equal('The organisation has been saved successfully');
   });
 });
 
