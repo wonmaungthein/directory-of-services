@@ -81,7 +81,8 @@ describe('Test users controller functions', () => {
     }
     const email = 'test@hotmail.com';
     const result = await updateUserbyEmail(email, userData);
-    expect(result).to.be.a('object')
+    expect(result).to.be.a('number');
+    expect(result).to.equal(1)
   })
 
 })
