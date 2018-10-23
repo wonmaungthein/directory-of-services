@@ -264,7 +264,7 @@ class HomeSearch extends React.Component {
           {/* Bugs form link  */}
           {this.state.showLink && 
             <div className="bug-form">
-              <h4>We loved your feedback {"  "}😍 </h4>
+              <h4>We would love your feedback {"  "}😍 </h4>
               <p>Please provide your feedback by clicking <a href="https://goo.gl/D3vBp1" target="blank">here</a></p>
             </div>
           }
