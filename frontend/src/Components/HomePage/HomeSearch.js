@@ -265,7 +265,7 @@ class HomeSearch extends React.Component {
           {this.state.showLink && 
             <div className="bug-form">
               <h4>We would love your feedback {"  "}😍 </h4>
-              <p>Please provide your feedback by clicking <a href="https://goo.gl/D3vBp1" target="blank">here</a></p>
+              <p>Please provide your feedback by clicking <a href="https://goo.gl/Jhy5Us" target="blank">here</a></p>
             </div>
           }
           { this.state.postcodeError ? <span className="postcode-error">{this.state.postcodeError}</span>
