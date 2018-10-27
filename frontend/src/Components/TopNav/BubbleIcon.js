@@ -33,7 +33,7 @@ class BubbleIcon extends Component{
     const { data } = this.state;
     const usersList = data.length > 1 ? data : this.props.usersList;
     return(
-      this.countUsers(usersList) !== 0 && <div><div className="BubbleIcon">{this.countUsers(usersList) === 0 ? null : this.countUsers(usersList) } {this.props.children}</div></div>
+      this.countUsers(usersList) !== 0 && <div className="BubbleIcon">{this.countUsers(usersList) === 0 ? null : `<div>${this.countUsers(usersList)}<div>` } </div>
     )
   }
 }
