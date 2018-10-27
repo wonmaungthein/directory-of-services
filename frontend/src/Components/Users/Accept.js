@@ -41,10 +41,12 @@ class Accept extends Component {
     event.preventDefault();
     this.props.acceptAccess(data);
     this.setState()
+    window.location.reload();
   };
   handleReject = (data, event) => {
     event.preventDefault();
     this.props.rejectAccess(data);
+    window.location.reload();
   };
 
 
@@ -183,7 +185,7 @@ Accept.contextTypes = {
 
 function mapStateToProps(state) {
   return {
-    email: state.loginAuth.user.email
+    email: state.loginAuth.user.email,
   };
 }
 

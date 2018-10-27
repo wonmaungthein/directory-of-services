@@ -2,13 +2,14 @@ import React, { Component, Fragment } from 'react';
 import NotificationSystem from 'react-notification-system';
 import { connect } from 'react-redux';
 import TopNav from '../TopNav';
-import { requestAccess } from '../../actions/loginActions';
+import { requestAccess , rejectAccessByEmail } from '../../actions/loginActions';
 import './Request.css'
 
 class Request extends Component{
     state = {
         notificationSystem: null,
-        requested: false
+        requested: false,
+        canceled: false
     }
     componentDidMount() {
         this.setState({
@@ -29,15 +30,32 @@ class Request extends Component{
             autoDismiss: 2,
           });
     }
+    handleReject = (data, event) => {
+      event.preventDefault();
+      this.props.rejectAccessByEmail(data);
+      this.setState({
+        canceled: true
+      })
+      this.state.notificationSystem.addNotification({
+        message: 'You have successfully cancelled your request',
+        level: 'info',
+        position: 'tr',
+        autoDismiss: 2,
+      });
+    };
     render() {
         return(
           <Fragment>
             <TopNav title="USERS" addLink="users/form" titleLink="users" />
-            { this.state.requested === false &&
+            { this.state.requested === false && this.props.hasRequestedEditor === false &&
             <Fragment>
-              <h2 className="request" >If you want to become an editor please click on the button. </h2>
-              <button className="button" onClick={this.handleSubmit} > Request Editor Access</button>
+              <h2 className="request" >If you want to become an editor please click <button className="button" onClick={this.handleSubmit} > here</button> </h2>
             </Fragment>
+           }
+            {this.state.canceled === false && this.props.hasRequestedEditor  &&
+            <div>
+              <h2 className="request">Awaiting for Approval --  If you want to cancel please click   <button  className="button" onClick={(event) => this.handleReject(this.props.email,event)} >here.</button></h2>
+            </div>
            }
             <NotificationSystem ref="notificationSystem" />
           </Fragment>
@@ -47,8 +65,10 @@ class Request extends Component{
 
 function mapStateToProps(state) {
     return {
-    email: state.loginAuth.user.email
+    email: state.loginAuth.user.email,
+    hasRequestedEditor: state.loginAuth.user.hasRequestedEditor,
+
     };
   }
-export default connect (mapStateToProps, { requestAccess })(Request);
+export default connect (mapStateToProps, { requestAccess, rejectAccessByEmail })(Request);
 

@@ -1,13 +1,17 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
-import { SET_CURRENT_USER } from './types';
+import { SET_CURRENT_USER, UPDATE_CURRENT_USER } from './types';
 import helpers from '../helpers';
 
 const api = process.env.REACT_APP_API_URL || process.env.REACT_APP_LOCALHOST_API_URL;
 
 export function setCurrentUser(user) {
   return { type: SET_CURRENT_USER, user };
+}
+
+export function updateCurrentUser(user) {
+  return { type: UPDATE_CURRENT_USER, user };
 }
 
 export function logout() {
@@ -53,10 +57,15 @@ export function signup(data) {
 
 // update user role
 export function upDateUser(data) {
-  const sendInfo = async () => {
+
+  const sendInfo = async (dispatch) => {
     try {
       const editUser = await axios
         .put(`${api}/user/role`, data);
+        const x =localStorage.getItem('jwtToken');
+        setAuthorizationToken(x);
+        const decodeUser = jwtDecode(x)
+         dispatch(updateCurrentUser(decodeUser)) ;
       return editUser.data
     } catch (error) {
       return helpers.errorParser(error)
@@ -97,6 +106,19 @@ export function rejectAccess(id) {
     try {
       const editUser = await axios
         .put(`${api}/rejectEditor`, { id, hasRequestedEditor: false  });
+      return editUser.data
+    } catch (error) {
+      return helpers.errorParser(error)
+    }
+  }
+  return sendInfo
+}
+
+export function rejectAccessByEmail(email) {
+  const sendInfo = async () => {
+    try {
+      const editUser = await axios
+        .put(`${api}/cancelEditorRequest`, { email, hasRequestedEditor: false  });
       return editUser.data
     } catch (error) {
       return helpers.errorParser(error)

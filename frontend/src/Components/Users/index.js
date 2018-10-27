@@ -19,6 +19,9 @@ class UsersPage extends Component {
     notificationSystem: null,
     hideForm: null,
   };
+  componentDidMount() {
+    this.props.getListOfUsers();
+  }
 
   savedChangesSuccessfully = () => {
     this.state.notificationSystem.addNotification({
