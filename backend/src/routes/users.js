@@ -234,7 +234,8 @@ router.post('/signup', async (req, res) => {
               salt_password: password,
               email,
               fullname,
-              organisation
+              organisation,
+              hasRequestedEditor: false
             }).then(userData => {
               if (userData) {
                 res.json({
@@ -287,7 +288,8 @@ router.post('/login', async (req, res) => {
               organisation: userInfo[0].organisation,
               role: userInfo[0].role,
               email: userInfo[0].email,
-              success: 'true'
+              success: 'true',
+              hasRequestedEditor: userInfo[0].hasRequestedEditor
             }, secret);
             res
               .status(200)
