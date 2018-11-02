@@ -139,7 +139,6 @@ router.put('/requestEditor', async (req, res) => {
 });
 
 router.put('/acceptEditor', async (req, res) => {
-  console.log('acceptEditor')
   const {
     role,
     hasRequestedEditor,
@@ -149,7 +148,6 @@ router.put('/acceptEditor', async (req, res) => {
     hasRequestedEditor,
     role
   }).then(() => {
-    console.log('success on call')
     res.json({
       message: 'Accepted To Become An Editor'
     })
