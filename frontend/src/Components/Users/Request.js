@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import NotificationSystem from 'react-notification-system';
 import { connect } from 'react-redux';
+import {  getListOfUsers } from '../../actions/getApiData';
 import TopNav from '../TopNav';
 import { requestAccess , rejectAccessByEmail } from '../../actions/loginActions';
 import './Request.css'
@@ -9,12 +10,22 @@ class Request extends Component{
     state = {
         notificationSystem: null,
         requested: false,
-        canceled: false
+        canceled: false,
+        data: []
     }
     componentDidMount() {
+      this.props.getListOfUsers();
         this.setState({
-          notificationSystem: this.refs.notificationSystem
+          notificationSystem: this.refs.notificationSystem,
         })
+    }
+    componentWillReceiveProps(newProps) {
+      const users = newProps.usersList;
+      if (users) {
+        this.setState({
+          data: users,
+        })
+      }
     }
     handleSubmit= (e)=> {
         const {email} = this.props
@@ -44,6 +55,8 @@ class Request extends Component{
       });
     };
     render() {
+      const currentUser = this.state.data.filter(x => x.this.props.name)
+      console.log(currentUser)
         return(
           <Fragment>
             <TopNav title="USERS" addLink="users/form" titleLink="users" />
@@ -52,9 +65,14 @@ class Request extends Component{
               <h2 className="request" >If you want to become an editor please click <button className="button" onClick={this.handleSubmit} > here</button> </h2>
             </Fragment>
            }
-            {this.state.canceled === false && this.props.hasRequestedEditor  &&
+            {this.state.canceled === false && this.props.hasRequestedEditor  && this.props.rejected === false &&
             <div>
               <h2 className="request">Awaiting for Approval --  If you want to cancel please click   <button  className="button" onClick={(event) => this.handleReject(this.props.email,event)} >here.</button></h2>
+            </div>
+           }
+            {this.props.rejected &&  this.props.hasRequestedEditor === false &&
+            <div>
+              <h2 className="request">Dear {this.props.name} --  You request has been rejected by the admin </h2>
             </div>
            }
             <NotificationSystem ref="notificationSystem" />
@@ -68,8 +86,10 @@ function mapStateToProps(state) {
     return {
     email: state.loginAuth.user.email,
     hasRequestedEditor: state.loginAuth.user.hasRequestedEditor,
-
+    rejected: state.loginAuth.user.rejectedByAdmin,
+    name: state.loginAuth.user.fullname,
+    users: state.listOfUsers.users
     };
   }
-export default connect (mapStateToProps, { requestAccess, rejectAccessByEmail })(Request);
+export default connect (mapStateToProps, { requestAccess, rejectAccessByEmail, getListOfUsers })(Request);
 

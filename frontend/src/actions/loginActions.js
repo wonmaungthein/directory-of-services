@@ -105,7 +105,7 @@ export function rejectAccess(id) {
   const sendInfo = async () => {
     try {
       const editUser = await axios
-        .put(`${api}/rejectEditor`, { id, hasRequestedEditor: false  });
+        .put(`${api}/rejectEditor`, { id, hasRequestedEditor: false, rejectedByAdmin: true  });
       return editUser.data
     } catch (error) {
       return helpers.errorParser(error)
