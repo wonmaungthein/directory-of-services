@@ -30,7 +30,7 @@ class AddOrganisation extends Component {
 
   componentDidMount() {
     const category = helpers.addSpaceToCategName(categoriesData, this.props.match.url);
-    const catIndex = category.indexOf('Young People and Children');    
+    const catIndex = category.indexOf('Young People and Children');
     const updateCategory = catIndex > -1 ? ['Young People/Children']: category;
     this.setState({
       notificationSystem: this.refs.savedChanges,
@@ -123,9 +123,9 @@ class AddOrganisation extends Component {
         index =  listOfCategories.indexOf('Young People/Children');
         listOfCategories.splice(index, 1)
       }
-    
+
     this.setState({
-      [event.target.name]: event.target.checked,      
+      [event.target.name]: event.target.checked,
       Categories: listOfCategories,
       isChecked:!this.state.isChecked,
     });
@@ -151,7 +151,7 @@ class AddOrganisation extends Component {
     }
 
     this.setState({
-      [event.target.name]: event.target.checked,      
+      [event.target.name]: event.target.checked,
       Categories: listOfCategories,
     });
   };

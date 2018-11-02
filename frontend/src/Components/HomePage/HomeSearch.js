@@ -32,6 +32,7 @@ class HomeSearch extends React.Component {
     isLoading: false,
     isHidden: true,
     sort: false,
+    showLink: true,
   };
 
   componentWillReceiveProps(newProps) {
@@ -147,8 +148,14 @@ class HomeSearch extends React.Component {
 
   updateSearchData = () => {
     // Remove x sign uses to clear input when user start search(value)
-    this.setState({ search: this.state.value, isHidden: true})
-    this.setState({ postcodeValue: this.state.postCode, isPostcode: false })
+    this.setState({ 
+      search: this.state.value, 
+      isHidden: true,
+      postcodeValue: this.state.postCode, 
+      isPostcode: false,
+      showLink: false, 
+      })
+
     this.handlePostSearch()
   }
 
@@ -186,7 +193,7 @@ class HomeSearch extends React.Component {
     const { editIdx, organisations, search, postcodeValue } = this.state;
     const params  = this.props.location.pathname;
     const isHomeRoute = params && params.includes('home');
-    
+
     if (this.state.isLoading || homePageHelper.filterData.length === 0 || organisations.length <= 0) {
       return <Spinner />
     }
@@ -210,16 +217,16 @@ class HomeSearch extends React.Component {
             </Grid>);
             })
           );
-    if (this.props.match.url.includes('/users') || this.props.match.url.includes('/admindos') ) {
+    if (this.props.match.url.includes('/users') || this.props.match.url.includes('/admindos') || this.props.match.url.includes('/accept') ) {
       return null
     }
 
     let addNewOrganisation = null;
-    // Conditionaly display add new organisation element on home page 
+    // Conditionaly display add new organisation element on home page
     if (role && (role === 'Admin' || role === 'Editor')) {
       addNewOrganisation = (
-        <div> 
-          <Link to='/services/service/add' className="add-orgnaization">  
+        <div>
+          <Link to='/services/service/add' className="add-orgnaization">
             <span> Add a project </span>
             <Button className="add-orgonaization-button" variant="fab"  aria-label="add`">
               <AddIcon />
@@ -231,7 +238,7 @@ class HomeSearch extends React.Component {
 
     return (
       <div className="org-home">
-        <div className="org-home_title"> 
+        <div className="org-home_title">
           <h2> Search for projects in all categories </h2>
           { addNewOrganisation }
         </div>
@@ -254,6 +261,13 @@ class HomeSearch extends React.Component {
             handleSuggestionsFetchRequestedPostcode={this.handleSuggestionsFetchRequestedPostcode}
             handleSuggestionsClearRequestedPostcode={this.handleSuggestionsClearRequestedPostcode}
           />
+          {/* Bugs form link  */}
+          {this.state.showLink && 
+            <div className="bug-form">
+              <h4>We would love your feedback {"  "}😍 </h4>
+              <p>Please provide your feedback by clicking <a href="https://goo.gl/Jhy5Us" target="blank">here</a></p>
+            </div>
+          }
           { this.state.postcodeError ? <span className="postcode-error">{this.state.postcodeError}</span>
             : searchResult}
         </Grid>

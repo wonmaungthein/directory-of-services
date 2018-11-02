@@ -44,10 +44,23 @@
   cursor: pointer;
 }
 
+.admin.accept {
+  margin-left: 10px;
+}
+
+.admin.accept.bubbleIcon {
+  margin-left: 0px;
+}
+
 .container img {
   margin-left: -10px;
   position: relative;
   left: 13px;
+}
+.container img.accept-icon  {
+  margin-left: 9px;
+  height: 22px;
+  width: 23px;
 }
 
 .user-drop-down button .material-icons{

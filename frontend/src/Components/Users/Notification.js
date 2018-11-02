@@ -15,7 +15,7 @@ import './users.css'
 
 class Notification extends React.Component {
   constructor(props){
-    super(props);	    
+    super(props);
       this.state = {
         open: false,
         userId: props.userId,
@@ -37,7 +37,7 @@ class Notification extends React.Component {
       level: 'success',
     });
   }
-  
+
   notDeletedSuccessfully = (message) => {
     this.state.notificationSystem.addNotification({
       title: 'Unsuccess',
@@ -85,12 +85,12 @@ class Notification extends React.Component {
 
   checkComponentLink = () =>{
     const { url } = this.props.match;
-    // // Add different style to delete button 
+    // // Add different style to delete button
     return  (
-      <Button 
-        variant={url.includes('admindos') ? null : 'fab'} 
-        color={url.includes('admindos') ? null :  'secondary'}
-        className={url.includes('admindos') ? null : 'delete'}  
+      <Button
+        variant={url.includes('admindos') || url.includes('accept')  ? null : 'fab'}
+        color={url.includes('admindos') || url.includes('accept') ?  null :  'secondary'}
+        className={url.includes('admindos') || url.includes('accept') ? null : 'delete'}
         onClick={this.handleClickOpen}
       >
         <i className="material-icons">delete</i>

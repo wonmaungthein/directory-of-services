@@ -72,15 +72,35 @@ describe('API testing', async () => {
 
   it('should save with right data', async () => {
     const anOrg = {
-      organisation: 'testOrg',
-      categories: 'Benefit'
+      address: 'not provided',
+      addressId: 330,
+      area: 'Swale',
+      borough: 'Lewisham',
+      branchId: 330,
+      categories: ['Benefits'],
+      clients: 'Homeless/Hostel/Risk of eviction',
+      days: 'Monday Tuesday Wednesday Thursday Friday',
+      email: 'office@999club.org',
+      lat: 'not provided',
+      long: 'not provided',
+      orgId: 133,
+      organisation: '999 Club',
+      originalCategory: 'Benefits',
+      postcode: 'SE8 4PA',
+      process: 'Drop-in 10.30am Mon- Fri',
+      project: '1',
+      service: 'Benefits advice',
+      serviceId: 330,
+      tag: '',
+      tel: '020 8694 5797',
+      website: 'http://999club.org/our-services/advice-and-support/'
     };
     const result = await request(app)
       .post('/api/service/organisation/add')
       .send(anOrg);
     expect(result.statusCode).to.be.equal(200);
     expect(result.body.success).to.equal(true);
-    expect(result.body.message).to.be.equal('The organisation has been saved successfuly');
+    expect(result.body.message).to.be.equal('The organisation has been saved successfully');
   });
 });
 

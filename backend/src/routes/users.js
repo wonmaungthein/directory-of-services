@@ -12,6 +12,7 @@ import {
   getUsersById,
   addUser,
   updateUser,
+  updateUserbyEmail,
   deleteUser,
   getUserByEmail,
   comparePassword,
@@ -35,7 +36,10 @@ router.get('/users', async (req, res) => {
       fullname: user.fullname,
       role: user.role,
       organisation: user.organisation,
-      last_updated: user.last_updated
+      last_updated: user.last_updated,
+      hasRequestedEditor: user.hasRequestedEditor,
+      rejectedByAdmin: user.rejectedByAdmin,
+      email: user.email
     }));
     res.status(200).json(users)
   } catch (err) {
@@ -117,6 +121,66 @@ router.put('/users/:userId', async (req, res) => {
   })
 });
 
+router.put('/requestEditor', async (req, res) => {
+  const {
+    hasRequestedEditor,
+    email
+  } = req.body;
+  await updateUserbyEmail(email, {
+    hasRequestedEditor
+  }).then(() => {
+    res.json({
+      message: 'Requested To Become An Editor'
+    })
+  })
+    .catch(err => {
+      console.log('err happened', err)
+    })
+});
+
+router.put('/acceptEditor', async (req, res) => {
+  console.log('acceptEditor')
+  const {
+    role,
+    hasRequestedEditor,
+    id
+  } = req.body;
+  await updateUser(id, {
+    hasRequestedEditor,
+    role
+  }).then(() => {
+    console.log('success on call')
+    res.json({
+      message: 'Accepted To Become An Editor'
+    })
+  })
+    .catch(err => {
+      console.log('err happened', err)
+    })
+});
+
+router.put('/rejectEditor', async (req, res) => {
+  const {
+    hasRequestedEditor,
+    id,
+    role,
+    rejectedByAdmin
+  } = req.body;
+  await updateUser(id, {
+    hasRequestedEditor,
+    role,
+    rejectedByAdmin
+  }).then(() => {
+    console.log('success on call')
+    res.json({
+      message: 'Rejecged To Become An Editor'
+    })
+  })
+    .catch(err => {
+      console.log('err happened', err)
+    })
+});
+
 // Use this route to modify user role, org name, fullname
 router.put('/user/role', async (req, res) => {
   try {
@@ -173,7 +237,9 @@ router.post('/signup', async (req, res) => {
               salt_password: password,
               email,
               fullname,
-              organisation
+              organisation,
+              hasRequestedEditor: false,
+              rejectedByAdmin: false
             }).then(userData => {
               if (userData) {
                 res.json({
@@ -226,7 +292,9 @@ router.post('/login', async (req, res) => {
               organisation: userInfo[0].organisation,
               role: userInfo[0].role,
               email: userInfo[0].email,
-              success: 'true'
+              success: 'true',
+              hasRequestedEditor: userInfo[0].hasRequestedEditor,
+              rejectedByAdmin: userInfo[0].rejectedByAdmin
             }, secret);
             res
               .status(200)
