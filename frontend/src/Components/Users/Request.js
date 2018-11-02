@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import NotificationSystem from 'react-notification-system';
 import { connect } from 'react-redux';
-import {  getListOfUsers } from '../../actions/getApiData';
 import TopNav from '../TopNav';
 import { requestAccess , rejectAccessByEmail } from '../../actions/loginActions';
 import './Request.css'
@@ -11,22 +10,13 @@ class Request extends Component{
         notificationSystem: null,
         requested: false,
         canceled: false,
-        data: []
     }
     componentDidMount() {
-      this.props.getListOfUsers();
         this.setState({
           notificationSystem: this.refs.notificationSystem,
         })
     }
-    componentWillReceiveProps(newProps) {
-      const users = newProps.usersList;
-      if (users) {
-        this.setState({
-          data: users,
-        })
-      }
-    }
+
     handleSubmit= (e)=> {
         const {email} = this.props
         this.props.requestAccess(email)
@@ -55,8 +45,6 @@ class Request extends Component{
       });
     };
     render() {
-      const currentUser = this.state.data.filter(x => x.this.props.name)
-      console.log(currentUser)
         return(
           <Fragment>
             <TopNav title="USERS" addLink="users/form" titleLink="users" />
@@ -91,5 +79,5 @@ function mapStateToProps(state) {
     users: state.listOfUsers.users
     };
   }
-export default connect (mapStateToProps, { requestAccess, rejectAccessByEmail, getListOfUsers })(Request);
+export default connect (mapStateToProps, { requestAccess, rejectAccessByEmail })(Request);
 
