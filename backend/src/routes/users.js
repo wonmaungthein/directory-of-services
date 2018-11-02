@@ -126,11 +126,9 @@ router.put('/requestEditor', async (req, res) => {
     hasRequestedEditor,
     email
   } = req.body;
-  console.log('request editor called with:', req.body)
   await updateUserbyEmail(email, {
     hasRequestedEditor
   }).then(() => {
-    console.log('success on call')
     res.json({
       message: 'Requested To Become An Editor'
     })
