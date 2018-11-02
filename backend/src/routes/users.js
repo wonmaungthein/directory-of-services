@@ -38,6 +38,7 @@ router.get('/users', async (req, res) => {
       organisation: user.organisation,
       last_updated: user.last_updated,
       hasRequestedEditor: user.hasRequestedEditor,
+      rejectedByAdmin: user.rejectedByAdmin,
       email: user.email
     }));
     res.status(200).json(users)
@@ -163,10 +164,14 @@ router.put('/acceptEditor', async (req, res) => {
 router.put('/rejectEditor', async (req, res) => {
   const {
     hasRequestedEditor,
-    id
+    id,
+    role,
+    rejectedByAdmin
   } = req.body;
   await updateUser(id, {
-    hasRequestedEditor
+    hasRequestedEditor,
+    role,
+    rejectedByAdmin
   }).then(() => {
     console.log('success on call')
     res.json({
@@ -235,7 +240,8 @@ router.post('/signup', async (req, res) => {
               email,
               fullname,
               organisation,
-              hasRequestedEditor: false
+              hasRequestedEditor: false,
+              rejectedByAdmin: false
             }).then(userData => {
               if (userData) {
                 res.json({
@@ -289,7 +295,8 @@ router.post('/login', async (req, res) => {
               role: userInfo[0].role,
               email: userInfo[0].email,
               success: 'true',
-              hasRequestedEditor: userInfo[0].hasRequestedEditor
+              hasRequestedEditor: userInfo[0].hasRequestedEditor,
+              rejectedByAdmin: userInfo[0].rejectedByAdmin
             }, secret);
             res
               .status(200)
