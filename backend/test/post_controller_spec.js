@@ -101,7 +101,7 @@ describe('Test post controller functions', () => {
     expect(result.org_name).to.equal('Test')
   })
 
-  it('Should delete branch return the number of deleted branch', async () => {
+  it.skip('Should delete branch return the number of deleted branch', async () => {
     const orgId = 1; const branchId = 2;
     const result = await deleteBranch(orgId, branchId);
     expect(result).to.be.a('number')

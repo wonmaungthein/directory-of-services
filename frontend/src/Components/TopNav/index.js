@@ -16,6 +16,8 @@ import './top-nav.css';
 import helpers from '../../helpers';
 import UserDropDown from '../Users/UserDropDown';
 import categories from '../../Data/Categories.json';
+import Bubble from '../Users/Bubble'
+
 
 const drawerWidth = 240;
 
@@ -116,9 +118,12 @@ class TopNav extends Component {
                   color="inherit"
                   noWrap
                 >
+
                   {user.charAt(0)}
                 </Typography>
               </Avatar>
+              { role === 'Admin' && <Bubble /> }
+
             </Grid>
           </Grid>
         </Toolbar>
@@ -139,7 +144,7 @@ function mapStateToProps(state) {
   return {
     messages: state.flashMessages,
     user: state.loginAuth.user,
-    categories: state.categoriesList
+    categories: state.categoriesList,
   }
 }
 

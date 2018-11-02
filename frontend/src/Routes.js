@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, withRouter} from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import OrganisationCard from './Components/Organisation';
@@ -10,6 +10,8 @@ import Users from './Components/Users';
 import HomePage from './Components/HomePage';
 import AuthEndpoint from './utils/AuthEndpoint';
 import Reset from './Components/Users/forgot-password/Reset'
+import Request from './Components/Users/Request';
+
 
 const styles = theme => ({
   root: {
@@ -63,6 +65,8 @@ const Routes = props => {
         <Route exact path="/admindos" component={AuthEndpoint(Users)} />
         <Route exact path="/users/form" component={AuthEndpoint(Users)} />
         <Route exact path="/user/profile" component={AuthEndpoint(Users)} />
+        <Route exact path="/user/request" component={AuthEndpoint(Request)} />
+        <Route exact path="/accept" component={AuthEndpoint(Users)} />
       </main>
     </div>
   );

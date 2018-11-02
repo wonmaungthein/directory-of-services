@@ -29,7 +29,7 @@ const columnData = [
     numeric: false,
     active: false,
     label: 'Actions',
-  },
+  }
 ];
 
 class UsersTableHead extends Component {
@@ -38,13 +38,14 @@ class UsersTableHead extends Component {
   };
 
   render() {
-    const { params, usersList, order, orderBy } = this.props;
+    const { params, usersList, order, orderBy} = this.props;
     return (
       <TableHead>
+
         <TableRow className="users-thead">
           {columnData.map(
             column => (
-              ( column.label ===  params && usersList.length === 1) ? null :
+              (column.label === params && usersList.length === 1) ? null :
               <TableCell
                 key={column.id}
                 numeric={column.numeric}
@@ -66,11 +67,11 @@ class UsersTableHead extends Component {
                       {!column.label.includes('Email') ? column.label : false}
                     </Hidden>
                     <Hidden xsDown>
-                      {column.label }
+                      {column.label}
                     </Hidden>
                   </TableSortLabel>
                 </Tooltip>
-              </TableCell> 
+              </TableCell>
             ),
             this,
           )}
