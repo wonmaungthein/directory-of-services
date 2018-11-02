@@ -70,7 +70,6 @@ class Request extends Component{
 }
 
 function mapStateToProps(state) {
-  console.log(state)
     return {
     email: state.loginAuth.user.email,
     hasRequestedEditor: state.loginAuth.user.hasRequestedEditor,

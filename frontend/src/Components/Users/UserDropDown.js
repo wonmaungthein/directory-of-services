@@ -53,7 +53,7 @@ class UserDropDown extends Component{
         <Fragment>
           <Divider />
           <Link to="/accept">
-            <img className="accept-icon" src="https://png.icons8.com/metro/26/1abcd4/reviewer-male.png" alt="admin-icon" />
+            <img className="accept-icon" src="./img/accept.png" alt="admin-icon" />
             <h4 className={["admin", "accept"].join(' ')}>Review Request
               <span >
                 <BubbleIcon  />
