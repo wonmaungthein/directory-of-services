@@ -38,7 +38,7 @@ exports.up = knex =>
         .references('id')
         .inTable('Service')
         .onDelete('CASCADE');
-      table.varchar('cat_name');
+      table.string('cat_name');
     })
     .createTable('Address', table => {
       table.increments('id').primary();
