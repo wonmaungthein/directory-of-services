@@ -33,6 +33,7 @@ Run project locally:
 ```sh
 cd frontend && yarn start
 cd backend && yarn start
+cd backend && docker-compose up
 ```
 
 ## License
